@@ -4236,8 +4236,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('responseTextarea1').value = `{
 			"headers": {
 				"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
 					"sec-fetch-site": "same-origin",
 					"sec-fetch-user": "?1",
 					"upgrade-insecure-requests": "1"
@@ -4252,7 +4250,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('sendResponse').click()
 
             function getPassInfo1() {
-
                 var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
                 document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
                 var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
@@ -4535,7 +4532,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-site"
 		  },
@@ -4558,7 +4554,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-site"
 		  },
@@ -4795,17 +4790,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-
             logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
             logginerinfo = await logginerinfo;
-
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
             //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
             copyToClipboard1(logginerinfo[1])
             document.getElementById('responseTextarea1').removeAttribute('postdata')
-
-
         }, 2000)
     }
 
@@ -4823,8 +4814,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-
-
             getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
             getcrmstatusinfo = await getcrmstatusinfo;
             getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
@@ -4939,14 +4928,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         }, 1000)
 
-        //   await getusernamecrm();
-        //   await getuseragecrm();
-        // await getunhideemail();
-        // await getunhidephone();
-        // await checkemailandphoneidentity();
-        // await getlogginer();
-        // await crmstatus();
-
         setTimeout(function () {
             document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
@@ -4954,11 +4935,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('sendResponse').click()
 
             async function getServInfo() {
-
-
                 servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
                 servicearr = JSON.parse(servicearr);
-                //console.log(servicearr);
+
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 
 
@@ -5191,18 +5170,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }, 720)
     }
 
-    document.getElementById('ChatStatus').onclick = function () { //обновить статус чата ДОРАБОТАТЬ НА НОВОГО КОТА, чтобы по клику чат открывался
+    document.getElementById('ChatStatus').onclick = function () { // просмотреть последний активный чат пользователя
         if (document.getElementById('ChatStatus').textContent == "📧") {
-
-            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                hide_or_display.click()
-                document.getElementById('chat_id').value = convid;
-
-                search.click()
-            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                document.getElementById('chat_id').value = convid;
-                search.click()
-            }
+			if (document.getElementById('AF_ChatHis').style.display == 'none') {
+				document.getElementById('butChatHistory').click();
+				document.getElementById('hashchathis').value = convid
+				btn_search_history.click()
+			} else {
+				document.getElementById('hashchathis').value = convid
+				btn_search_history.click()
+			}
         } else { console.log("No chat with user!!!") }
     }
 
