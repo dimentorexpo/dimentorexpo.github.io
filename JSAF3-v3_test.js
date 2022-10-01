@@ -971,6 +971,10 @@ var win_Themes =  // описание элементов окна Тематик
 								<button id="themesinstr" style="float:right;" title="Инструкция по этой форме">❓</button>
                         </div>
 
+						<div>
+							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira">
+							<button id="linktojirasend">🚀</button>
+						</div>
 
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color:bisque; width:300px;text-align: center;border: 1px solid #3e4f55;background: chocolate;border-radius: 10px;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); letter-spacing: .5rem;">Темы</label>
