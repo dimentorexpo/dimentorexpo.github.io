@@ -4145,13 +4145,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     function setRemindAf() { //функция  при наступлении времени перевода в статус занят Будильник №1
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
-                "accept": "*/*",
-                "cache-control": "max-age=0",
                 "content-type": "application/json",
-                "sec-ch-ua-mobile": "?0",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
             },
             "referrer": "https://skyeng.autofaq.ai/tickets/archive",
             "referrerPolicy": "strict-origin-when-cross-origin",
@@ -4179,13 +4173,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
-                "accept": "*/*",
-                "cache-control": "max-age=0",
                 "content-type": "application/json",
-                "sec-ch-ua-mobile": "?0",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
             },
             "referrer": "https://skyeng.autofaq.ai/tickets/archive",
             "referrerPolicy": "strict-origin-when-cross-origin",
