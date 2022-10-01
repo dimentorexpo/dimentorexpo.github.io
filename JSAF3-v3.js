@@ -4,8 +4,6 @@ let afopername;
 let foundarr;
 let flagsearch;
 let operchatsdata;
-let werechats = false;
-let chatisopen = "";
 let isChatOnOperator = false;
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
@@ -1394,7 +1392,6 @@ var win_serviceinfo =  // описание элементов окна инфо�
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="Начинает чат с пользователем" id="startnewchat" style="width: 25.23px;">💬</button>
-                                <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                                 <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								<span style="padding:7px; margin-left: 5px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
                         </div>
@@ -4145,13 +4142,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     function setRemindAf() { //функция  при наступлении времени перевода в статус занят Будильник №1
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
-                "accept": "*/*",
-                "cache-control": "max-age=0",
                 "content-type": "application/json",
-                "sec-ch-ua-mobile": "?0",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
             },
             "referrer": "https://skyeng.autofaq.ai/tickets/archive",
             "referrerPolicy": "strict-origin-when-cross-origin",
@@ -4179,13 +4170,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
             "headers": {
-                "accept": "*/*",
-                "cache-control": "max-age=0",
                 "content-type": "application/json",
-                "sec-ch-ua-mobile": "?0",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
             },
             "referrer": "https://skyeng.autofaq.ai/tickets/archive",
             "referrerPolicy": "strict-origin-when-cross-origin",
@@ -4248,8 +4233,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('responseTextarea1').value = `{
 			"headers": {
 				"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
 					"sec-fetch-site": "same-origin",
 					"sec-fetch-user": "?1",
 					"upgrade-insecure-requests": "1"
@@ -4264,7 +4247,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('sendResponse').click()
 
             function getPassInfo1() {
-
                 var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
                 document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
                 var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
@@ -4547,7 +4529,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-site"
 		  },
@@ -4570,7 +4551,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea1').value = `{
 		   "headers": {
 			"content-type": "application/json",
-			"sec-fetch-dest": "empty",
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-site"
 		  },
@@ -4807,17 +4787,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-
             logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
             logginerinfo = await logginerinfo;
-
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
             //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
             copyToClipboard1(logginerinfo[1])
             document.getElementById('responseTextarea1').removeAttribute('postdata')
-
-
         }, 2000)
     }
 
@@ -4835,8 +4811,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-
-
             getcrmstatusinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
             getcrmstatusinfo = await getcrmstatusinfo;
             getcrmstatusinfo = JSON.parse(getcrmstatusinfo);
@@ -4918,10 +4892,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         startnewchat(polzid)
     }
 
-    let convid;
-
     document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
-        convid = "";
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
         document.querySelector('#useravatar').src = "";
@@ -4939,26 +4910,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         setTimeout(checkemailandphoneidentity, 660);
         setTimeout(crmstatus, 680);
 
-        //  getservicearr();
-        setTimeout(chatstatus, 800)
-        setTimeout(function () {
-            if (werechats) {
-                document.getElementById('ChatStatus').style.display = "";
-                document.getElementById('ChatStatus').textContent = "📧";
-            } else if (!werechats) {
-                document.getElementById('ChatStatus').style.display = "";
-                document.getElementById('ChatStatus').textContent = "🚫";
-            }
-        }, 1000)
-
-        //   await getusernamecrm();
-        //   await getuseragecrm();
-        // await getunhideemail();
-        // await getunhidephone();
-        // await checkemailandphoneidentity();
-        // await getlogginer();
-        // await crmstatus();
-
         setTimeout(function () {
             document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
@@ -4966,11 +4917,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('sendResponse').click()
 
             async function getServInfo() {
-
-
                 servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
                 servicearr = JSON.parse(servicearr);
-                //console.log(servicearr);
+
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 
 
@@ -5134,7 +5083,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
 
-                if (arrservice != null && arrservice.length>0 && arrservice != undefined) {
+                if (arrservice != null && arrservice.length > 0 && arrservice != undefined) {
                     arrservice = arrservice.split(', ')
                 }
 
@@ -5201,21 +5150,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             setTimeout(getServInfo, 1200)
 
         }, 720)
-    }
-
-    document.getElementById('ChatStatus').onclick = function () { //обновить статус чата ДОРАБОТАТЬ НА НОВОГО КОТА, чтобы по клику чат открывался
-        if (document.getElementById('ChatStatus').textContent == "📧") {
-
-            if (document.querySelector('#hide_or_display').textContent != "свернуть") {
-                hide_or_display.click()
-                document.getElementById('chat_id').value = convid;
-
-                search.click()
-            } else if (document.querySelector('#hide_or_display').textContent == "свернуть") {
-                document.getElementById('chat_id').value = convid;
-                search.click()
-            }
-        } else { console.log("No chat with user!!!") }
     }
 
     document.getElementById('CrmStatus').onclick = function () { //обновить статус СРМ
@@ -5337,7 +5271,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('clearservinfo').onclick = function () { //очищает все в вензеле
         document.getElementById('idstudent').value = "";
         document.getElementById('servicetable').innerHTML = "";
-        document.getElementById('ChatStatus').style.display = "none";
         document.getElementById('CrmStatus').style.display = "none";
         document.getElementById('getcurrentstatus').style.display = "none";
         document.getElementById('changelocalelng').style.display = "";
@@ -5348,9 +5281,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('AF_Timetable').style.display = "none";
         document.getElementById('techsumdata').innerText = "";
         document.getElementById('timetabledata').innerText = "";
-        werechats = false;
-        convid = "";
-
     }
 
     document.getElementById('useravatar').onmouseover = function () { // взаимодействие с аватаром пользователя увеличивает
@@ -9959,41 +9889,7 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
     }
 };
 
-async function chatstatus() { //получение инфы обращался ли пользователль до этого или нет
-    let tempvariable = document.getElementById('idstudent').value.trim();
-    document.getElementById('ChatStatus').style.display = "none";
-    document.getElementById('getcurrentstatus').style.display = "none";
-    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-        "headers": {
-            "content-type": "application/json",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-11-01T19:00:00.000Z\",\"tsTo\":\"2022-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(r => r.json()).then(data => infres = data)
-    if (infres.total > 0) {
-        document.getElementById('ChatStatus').style.display = "";
-        document.getElementById('ChatStatus').textContent = "📧";
-        convid = infres.items[0].conversationId;
-        werechats = true;
-        if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
-            chatisopen = true;
-        else
-            chatisopen = false;
-    } else if (infres.total == 0) {
-        document.getElementById('ChatStatus').style.display = "";
-        document.getElementById('ChatStatus').textContent = "🚫";
-        werechats = false;
-    }
-}
-
-async function startnewchat(polzid) { //открывает чат с пользователем проверяя обращался ли он ранее и есть ли активный на операторе
+async function startnewchat(polzid) { //открывает чат с пользователем 
     if (operatorId == "") {
         await whoAmI()
     }
@@ -10016,9 +9912,6 @@ async function startnewchat(polzid) { //открывает чат с польз�
                 console.log(data, chatId)
             })
         alert(`Чат начат c пользователем ${polzid}`);
-        chatisopen = '';
-        werechats = false;
-
     } else alert('Не введен id пользователя');
 }
 
@@ -11289,7 +11182,7 @@ setInterval(remandressl, 3000);
 
 let getidusrteachreq;
 
-butteachid.addEventListener('click', function () { // копирует в буфер что-то но надо понять ЧТО?
+butteachid.addEventListener('click', function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
@@ -11304,7 +11197,7 @@ butteachid.addEventListener('click', function () { // копирует в буф
 
 let getidusrstud;
 
-butstdid.addEventListener('click', function () { //копирует в буфер nextClass-studentId
+butstdid.addEventListener('click', function () { // копирует в буфер ID У из секции nextclass-StudentId при создании задачи через АФ интеграцию
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
             getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -11314,7 +11207,7 @@ butstdid.addEventListener('click', function () { //копирует в буфе�
 
 let getidusrsteach;
 
-butteachidfstd.addEventListener('click', function () { //копирует в буфер nextClass-teacherId
+butteachidfstd.addEventListener('click', function () { // копирует в буфер ID П из секции nextclass-TeacherId при обращении У и создании задачи через АФ интеграцию
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
             getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -11324,7 +11217,7 @@ butteachidfstd.addEventListener('click', function () { //копирует в б�
 
 let getservidst;
 
-buttonservid.addEventListener('click', function () { //копирует в буфер nextClass-educationServiceId
+buttonservid.addEventListener('click', function () { //копирует в буфер nextClass-educationServiceId при обращении П во время крита услугу ученика при интеграции в форме АФ
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId")
             getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -11526,150 +11419,6 @@ function paintstatus() { //функция перекрашивания стат�
 
 setInterval(paintstatus, 5000);
 
-function backbtn() { //функция возвращает в кота омельченко возможность возвращаться на предыдущее окно после открытия чата например но для нового варианта уже Азара
-    if (document.getElementsByClassName('show').length >= 2) {
-
-        let barea = document.createElement('textarea')
-        barea.id = "notes_field"
-        barea.style = 'background: lightgrey; top: 90vh; position: fixed; width: 300px;'
-
-        let btnsndnotes = document.createElement('button')
-        btnsndnotes.innerText = "Notes"
-        btnsndnotes.style = 'position: fixed; top: 90vh; left: 32vh;'
-        btnsndnotes.id = "SendNotesToChat"
-        btnsndnotes.onclick = notetoclchat;
-
-        let btntakechat = document.createElement('button')
-        btntakechat.innerText = "Забрать"
-        btntakechat.style = 'position: fixed; top: 93vh; left: 32vh;'
-        btntakechat.id = "TakeChat"
-        btntakechat.onclick = get_used_chat;
-
-        if (document.getElementById('notes_field') == null && document.getElementById('SendNotesToChat') == null) {
-            document.getElementsByClassName('rounded vh-100')[0].append(barea)
-            document.getElementsByClassName('rounded vh-100')[0].append(btnsndnotes)
-            document.getElementsByClassName('rounded vh-100')[0].append(btntakechat)
-        }
-
-        let sesid;
-
-        async function notetoclchat() { //функция отправки заметок в чат
-            let chathashfromdiv = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
-
-            await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-                .then(r => r.json()).then(r => rdata = r)
-            sesid = rdata.sessionId;
-
-            let notemsg = '<p>' + document.getElementById('notes_field').value + '</p>';
-
-            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                "headers": {
-                    "accept": "*/*",
-                    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin"
-                },
-                "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-                "method": "POST",
-                "mode": "cors",
-                "credentials": "include"
-            });
-
-            document.getElementById('notes_field').value = ''
-        }
-
-        function get_used_chat() {
-            var result = confirm("Вы действительно желаете забрать чат?");
-            if (result) {
-                let chat_id = document.querySelector('.fs-custom-0_8', '.text-light').innerText.split('\n')[0].split(' ')[1];
-                let operator_id = operatorId;
-
-                fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
-                    "headers": {
-                        "content-type": "application/json"
-                    },
-                    "credentials": "include",
-                    "body": `{\"command\":\"DO_ASSIGN_CONVERSATION\",\"conversationId\":\"${chat_id}\",\"assignToOperatorId\":\"${operator_id}\"}`,
-                    "method": "POST"
-                });
-            }
-        }
-
-    } else if (document.getElementById('notes_field') != null && document.getElementById('SendNotesToChat') != null && document.getElementById('TakeChat') != null && document.getElementsByClassName('show').length < 2) {
-        document.getElementById('notes_field').remove()
-        document.getElementById('SendNotesToChat').remove()
-        document.getElementById('TakeChat').remove()
-    }
-
-}
-
-setInterval(backbtn, 5000);
-
-function backbtnold() { //функция возвращает в кота омельченко возможность возвращаться на предыдущее окно после открытия чата например, но для старого варианта Омельченко
-    if (document.getElementById('search') != null)
-        document.getElementById('back_btn').style.display = "";
-
-    let bareaold = document.createElement('textarea')
-    bareaold.id = "notes_field_old"
-    bareaold.style.background = "lightgrey";
-
-    let btnsndnotes = document.createElement('button')
-    btnsndnotes.innerText = "Notes"
-    btnsndnotes.id = "SendNotesToChatOld"
-    btnsndnotes.onclick = notetoclchat;
-
-
-    if (document.getElementById('notes_field_old') == null && document.getElementById('SendNotesToChatOld') == null) {
-        if (document.getElementById('send_btns') != null) {
-
-            document.getElementById('send_text').style.display = 'none'
-            document.getElementById('send_btn').style.display = 'none'
-
-            document.getElementById('send_btns').append(bareaold)
-            document.getElementById('send_btns').append(btnsndnotes)
-
-
-            let zambtnhide = document.getElementsByTagName('a')
-            for (let i = 0; i < zambtnhide.length; i++) {
-                if (zambtnhide[i].innerText == 'заметка')
-                    zambtnhide[i].style.display = 'none'
-            }
-        }
-    }
-
-    let sesid;
-    async function notetoclchat() {
-        let chathashfromdiv = document.querySelector('#msg_block').children[0].innerText.split('\n')[0].split(' ')[1];
-
-
-        await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-            .then(r => r.json()).then(r => rdata = r)
-        sesid = rdata.sessionId;
-
-
-        let notemsg = '<p>' + document.getElementById('notes_field_old').value + '</p>';
-
-        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-            "headers": {
-                "accept": "*/*",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        });
-
-        document.getElementById('notes_field_old').value = ''
-    }
-}
-
-setInterval(backbtnold, 5000);
-
 function timerHideButtons() { //функция добавления скрытия полей плюс также перекрашивает при выборе тп исход срм2 в красный, тп2л в зеленый
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
@@ -11851,7 +11600,7 @@ document.getElementById('changetheme').onclick = function () { //функция 
     else alert("Введите хэш чата в длинное поле по центру");
 }
 
-document.getElementById('gofindit').onclick = async function () { //функция поиска чатов по вытсалвенной тематике с отображениеи и тегов
+document.getElementById('gofindit').onclick = async function () { //функция поиска чатов по выставленной тематике с отображениеи и тегов
     let curval = document.getElementById('thematics').value;
     let strcsatnew = document.getElementById('themesdata');
     strcsatnew.textContent = "Загрузка"
@@ -12104,7 +11853,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
             arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             arregetted = JSON.parse(arregetted);
             if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
-				document.querySelector('#statustable').innerText = "";
+                document.querySelector('#statustable').innerText = "";
                 for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
                     if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
 
@@ -12136,7 +11885,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 
                         let tempor = document.createElement('textarea');
                         document.getElementById('statustable').append(tempor);
-						
+
                         //tempor.setAttribute('type', 'text');
                         tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
                         tempor.setAttribute('wrap', 'soft');
@@ -12294,13 +12043,7 @@ async function sendAnswerTemplate2(word, flag = 0) { //функция отпра
         try {
             a = await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
                 "headers": {
-                    "accept": "*/*",
-                    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "cache-control": "max-age=0",
                     "content-type": "application/json",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin"
                 },
                 "referrer": adr,
                 "referrerPolicy": "no-referrer-when-downgrade",
@@ -12362,177 +12105,6 @@ function resetFlags() { //функция обнуления флагов
     template_flag = 0
     template_flag2 = 0
 }
-async function checkHistory(id) { //проверка истории по чату чтобы занести переменные и флаги , но тоже проверить  нужна или нет ибо раньше использовалась для проверки повторного обращения чтобы при нажатии привет др шаблон отрабатывался НУЖНА?
-    var date = new Date()
-    var date2 = new Date()
-    date2.setTime(date - 8 * 60 * 60 * 1000)
-
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
-    if (date.getHours() < 10)
-        hours = '0' + date.getHours()
-    else
-        hours = date.getHours()
-    if (date.getMinutes() < 10)
-        minutes = '0' + date.getMinutes()
-    else
-        minutes = date.getMinutes()
-    if (date.getSeconds() < 10)
-        seconds = '0' + date.getSeconds()
-    else
-        seconds = date.getSeconds()
-
-    secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
-
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
-
-    if (date2.getHours() < 10)
-        hours2 = '0' + date2.getHours()
-    else
-        hours2 = date2.getHours()
-    if (date2.getMinutes() < 10)
-        minutes2 = '0' + date2.getMinutes()
-    else
-        minutes2 = date2.getMinutes()
-    if (date2.getSeconds() < 10)
-        seconds2 = '0' + date2.getSeconds()
-    else
-        seconds2 = date2.getSeconds()
-
-    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T" + hours2 + ":" + minutes2 + ":" + seconds2 + ".000z"
-    count = -1
-    serviceId = localStorage.getItem('serviceIdGlob')
-    a = await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-        "headers": {
-            "accept": "*/*",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-            "cache-control": "max-age=0",
-            "content-type": "application/json",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "referrer": "https://skyeng.autofaq.ai/logs",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"serviceId\":\"" + serviceId + "\",\"mode\":\"Json\",\"channelUserIds\":[\"" + id + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(a => b = a.json()).then(b => { count = b.items.length })
-    return count
-}
-
-async function getNotGoods(stringDate) { // функция проверки нот гуд оценок, рядовыми ТП не используется да и не знаю нужна ли она еще тут! НУЖНА?
-
-    async function goNotgood(list, list2, date1, date2) {
-        var text = ""
-        var text2 = "Дата: " + stringDate2 + "\n"
-        var page = 1
-        for (m = -1; m < list.length; m++) {
-            if (page == 2)
-                m--
-            a = await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-                "headers": {
-                    "accept": "*/*",
-                    "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                    "cache-control": "max-age=0",
-                    "content-type": "application/json",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin"
-                },
-                "referrer": "https://skyeng.autofaq.ai/logs",
-                "referrerPolicy": "strict-origin-when-cross-origin",
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + list[m] + "\"],\"tsFrom\":\"" + date1 + "\",\"tsTo\":\"" + date2 + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
-                "method": "POST",
-                "mode": "cors",
-                "credentials": "include"
-            }).then(a => b = a.json().then(array => {
-                array1 = array
-                n = 1
-                array1.items.forEach(a => {
-                    if (a.stats.rate != undefined)
-                        if (a.stats.rate.rate != undefined) {
-                            if (a.stats.rate.rate < 4) {
-                                text += stringDate2 + "	" + list2[m] + "	https://skyeng.autofaq.ai/logs/" + a.conversationId + "	" + a.stats.rate.rate + "\n"
-                                if (n == 1)
-                                    text2 += "\nАгент: `" + list2[m] + "` C	S	A		T =\n "
-                                text2 += "=HYPERLINK(\"https://skyeng.autofaq.ai/logs/" + a.conversationId + "\"; \"Нотгуд №" + n + "\" 	 (	оценка " + a.stats.rate.rate + ") - \n"
-                                n++
-                            }
-                        }
-                })
-                if (array1.total > 100)
-                    if (page == 2)
-                        page = 1
-                    else
-                        page = 2
-            }))
-        }
-        console.log(text)
-        console.log(text2)
-    }
-
-    var operatorId = []
-    var operatorNames = []
-    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-        "credentials": "include"
-    }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
-        if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
-                operatorId.push(k.operator.id)
-                operatorNames.push(k.operator.fullName.split('-')[1])
-            }
-    }))
-
-    list = operatorId
-    list2 = operatorNames
-
-    stringDate2 = stringDate
-    stringDate = stringDate.split(".")
-    stringDate[1]--
-    var date = new Date(stringDate[2], stringDate[1], stringDate[0])
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
-
-    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
-    date = date - 24 * 60 * 60 * 1000
-    var date2 = new Date()
-    date2.setTime(date)
-
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
-
-    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
-    goNotgood(list, list2, firstDate, secondDate)
-}
 
 function customTemplates(language = '') { //собственные шаблоны и их добавление
     if (localStorage.getItem('winCstmTmpsTop') == null) {
@@ -12553,7 +12125,6 @@ function customTemplates(language = '') { //собственные шаблон�
             document.getElementById('cstmTmplates').children[0].remove()
     }
     countOfTemplates = localStorage.getItem('cntTmplts' + language)
-
 
     var buttonOpenTmpWindow = document.createElement('button')
     buttonOpenTmpWindow.innerHTML = 'tmps'
@@ -12654,7 +12225,6 @@ function customTemplates(language = '') { //собственные шаблон�
             customTemplates(language)
         }
 
-
         var buttonSortUp = document.createElement('button')
         buttonSortUp.innerHTML = '↑'
         buttonSortUp.onclick = function () {
@@ -12729,9 +12299,11 @@ function customTemplates(language = '') { //собственные шаблон�
     newDiv.style = 'cursor: -webkit-grab;'
     newDiv.style.margin = '5px'
     newDiv.style.textAlign = 'center'
+	
     var addTmpl = document.createElement('button')
     addTmpl.textContent = 'Добавить шаблон'
     addTmpl.style.marginRight = '5px'
+	
     addTmpl.onclick = function () {
         countOfTemplates++
         localStorage.setItem('cntTmplts' + language, countOfTemplates)
@@ -12740,6 +12312,7 @@ function customTemplates(language = '') { //собственные шаблон�
         localStorage.setItem('tmp_name_' + language + countOfTemplates, "")
         addNewString(countOfTemplates)
     }
+	
     var saveAllTmp = document.createElement('button')
     saveAllTmp.textContent = 'Сохранить всё'
     saveAllTmp.style.marginRight = '5px'
@@ -12754,9 +12327,11 @@ function customTemplates(language = '') { //собственные шаблон�
 
     var but = document.createElement('button')
     but.innerHTML = 'hide'
+	
     but.onclick = function () {
         this.parentElement.parentElement.style.display = 'none'
     }
+	
     but.style.float = 'right'
 
     newDiv.append(saveAllTmp)
@@ -12783,6 +12358,7 @@ function customTemplates(language = '') { //собственные шаблон�
             document.addEventListener('mousemove', listenercstmTmp);
         }
     }
+	
     cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listenercstmTmp); }
 
     document.getElementById('languageAF').onclick = function () {
@@ -12798,7 +12374,7 @@ function customTemplates(language = '') { //собственные шаблон�
     }
 }
 
-async function getStats() {           // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
+async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
@@ -12823,22 +12399,7 @@ async function getStats() {           // функция получения ст�
     var array = []
     let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
     console.log("Подразделение - " + opsection);
-    await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1, {
-        "headers": {
-            "accept": "*/*",
-            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-            "cache-control": "max-age=0",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "referrer": "https://skyeng.autofaq.ai/reports/operator-activity",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": null,
-        "method": "GET",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(response => b = response.json().then(b => b.rows.forEach(k => {
+    await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
         if (k.operator.indexOf(opsection) != -1) {
             array.push(k)
         }
@@ -13566,10 +13127,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
         document.getElementById('AF_Links').style.display = 'none';
     } else {
         mystyles()
-
-        // document.getElementById('testid').remove() удаление с логинером кнопки/поля
-        // document.getElementById('idlogin').remove() удаление с логинером кнопки/поля
-
 
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
