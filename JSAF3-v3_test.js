@@ -1394,7 +1394,6 @@ var win_serviceinfo =  // описание элементов окна инфо�
                                 <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="Начинает чат с пользователем" id="startnewchat" style="width: 25.23px;">💬</button>
-                                <button title="отображает статус, 📧 - есть возможность создать исходящий чат, плюс по клику открыть самое последнее обращение через кота, 🚫 - нельзя открыть исходящее сообщение" id="ChatStatus" style="width:30px; display:none;"></button>
                                 <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								<span style="padding:7px; margin-left: 5px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
                         </div>
@@ -4916,18 +4915,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         setTimeout(checkemailandphoneidentity, 660);
         setTimeout(crmstatus, 680);
 
-        //  getservicearr();
-        setTimeout(chatstatus, 800)
-        setTimeout(function () {
-            if (werechats) {
-                document.getElementById('ChatStatus').style.display = "";
-                document.getElementById('ChatStatus').textContent = "📧";
-            } else if (!werechats) {
-                document.getElementById('ChatStatus').style.display = "";
-                document.getElementById('ChatStatus').textContent = "🚫";
-            }
-        }, 1000)
-
         setTimeout(function () {
             document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
@@ -5170,19 +5157,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }, 720)
     }
 
-    document.getElementById('ChatStatus').onclick = function () { // просмотреть последний активный чат пользователя
-        if (document.getElementById('ChatStatus').textContent == "📧") {
-			if (document.getElementById('AF_ChatHis').style.display == 'none') {
-				document.getElementById('butChatHistory').click();
-				document.getElementById('hashchathis').value = convid
-				btn_search_history.click()
-			} else {
-				document.getElementById('hashchathis').value = convid
-				btn_search_history.click()
-			}
-        } else { console.log("No chat with user!!!") }
-    }
-
     document.getElementById('CrmStatus').onclick = function () { //обновить статус СРМ
 
         let tempvarcrm = document.getElementById('idstudent').value;
@@ -5302,7 +5276,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('clearservinfo').onclick = function () { //очищает все в вензеле
         document.getElementById('idstudent').value = "";
         document.getElementById('servicetable').innerHTML = "";
-        document.getElementById('ChatStatus').style.display = "none";
         document.getElementById('CrmStatus').style.display = "none";
         document.getElementById('getcurrentstatus').style.display = "none";
         document.getElementById('changelocalelng').style.display = "";
@@ -9923,40 +9896,6 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
         checkandchangestyle();
     }
 };
-
-async function chatstatus() { //получение инфы обращался ли пользователль до этого или нет
-    let tempvariable = document.getElementById('idstudent').value.trim();
-    document.getElementById('ChatStatus').style.display = "none";
-    document.getElementById('getcurrentstatus').style.display = "none";
-    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-        "headers": {
-            "content-type": "application/json",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempvariable + "\",\"tsFrom\":\"2021-11-01T19:00:00.000Z\",\"tsTo\":\"2022-12-01T18:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":10}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(r => r.json()).then(data => infres = data)
-    if (infres.total > 0) {
-        document.getElementById('ChatStatus').style.display = "";
-        document.getElementById('ChatStatus').textContent = "📧";
-        convid = infres.items[0].conversationId;
-        werechats = true;
-        if (infres.items[0].stats.usedStatuses[0] == "AssignedToOperator" || infres.items[0].stats.usedStatuses[0] == "OnOperator")
-            chatisopen = true;
-        else
-            chatisopen = false;
-    } else if (infres.total == 0) {
-        document.getElementById('ChatStatus').style.display = "";
-        document.getElementById('ChatStatus').textContent = "🚫";
-        werechats = false;
-    }
-}
 
 async function startnewchat(polzid) { //открывает чат с пользователем проверяя обращался ли он ранее и есть ли активный на операторе
     if (operatorId == "") {
