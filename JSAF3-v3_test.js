@@ -4275,18 +4275,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
             commonidentity = await commonidentity;
 
-			if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) == null) {
-				console.log("It's a teacher!");
-			} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+			else if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
                 emailidentity = "📧✖";
                 phoneidentity = "☎✖";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+            } else if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) == null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
                 emailidentity = "📧✔";
                 phoneidentity = "☎✖";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+            } else if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) == null && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
                 emailidentity = "📧✖";
                 phoneidentity = "☎✔";
-            } else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+            } else if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) == null && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
                 emailidentity = "📧✔";
                 phoneidentity = "☎✔";
             }
