@@ -4318,7 +4318,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-
             unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
             unhidephone = await unhidephone;
             unhidephone = JSON.parse(unhidephone);
@@ -4354,7 +4353,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-
             servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
             servicearray = await servicearray;
             servicearray = JSON.parse(servicearray);
@@ -4369,30 +4367,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         stid = stid.trim();
         let pastlessondata = "";
         let pastlessoninfo = "";
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
         document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
         document.getElementById('sendResponse').click()
 
         setTimeout(function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/lessons-history/?page=0";
-            document.getElementById('responseTextarea3').value = 'pastlessoninfodata'
-            document.getElementById('sendResponse').click()
-
             pastlessoninfo = document.getElementById('responseTextarea1').getAttribute('pastlessoninfodata');
             pastlessoninfo = JSON.parse(pastlessoninfo);
             document.getElementById('responseTextarea1').removeAttribute('pastlessoninfodata')
@@ -4489,30 +4469,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         stid = stid.trim();
         let futurelessondata = "";
         let futurelessoninfo = "";
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
         document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
         document.getElementById('sendResponse').click()
 
         setTimeout(function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
-            document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
-            document.getElementById('sendResponse').click()
-
             futurelessoninfo = document.getElementById('responseTextarea1').getAttribute('futurelessoninfodata');
             futurelessoninfo = JSON.parse(futurelessoninfo);
             document.getElementById('responseTextarea1').removeAttribute('futurelessoninfodata')
