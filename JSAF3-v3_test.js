@@ -4276,7 +4276,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             commonidentity = await commonidentity;
 
 			if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/gm) == null) {
-				break;
+				console.log("It's a teacher!");
 			} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
                 emailidentity = "📧✖";
                 phoneidentity = "☎✖";
