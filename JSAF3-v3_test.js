@@ -4352,18 +4352,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
-            document.getElementById('responseTextarea3').value = 'emailishere'
-            document.getElementById('sendResponse').click()
-
             unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
             unhidenemail = await unhidenemail;
             unhidenemail = JSON.parse(unhidenemail);
             unhidenemail = unhidenemail.data.value;
             document.getElementById('responseTextarea1').removeAttribute('emailishere')
 
-        }, 600)
+        }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
     }
 
     let servicearray = "";
