@@ -13128,10 +13128,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
     } else {
         mystyles()
 
-        // document.getElementById('testid').remove() удаление с логинером кнопки/поля
-        // document.getElementById('idlogin').remove() удаление с логинером кнопки/поля
-
-
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
 
