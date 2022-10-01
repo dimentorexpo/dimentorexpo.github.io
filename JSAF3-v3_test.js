@@ -5157,7 +5157,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
                 }
 
-                if (arrservice != null && arrservice != undefined) {
+                if (arrservice != null && arrservice.length>0 && arrservice != undefined) {
                     arrservice = arrservice.split(', ')
                 }
 
