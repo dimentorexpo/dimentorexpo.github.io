@@ -4811,25 +4811,25 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         setTimeout(async function () {
 
-            document.getElementById('responseTextarea1').value = `{
-				   "headers": {
-					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-				  },
-				  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
-            document.getElementById('responseTextarea3').value = 'postdata'
-            document.getElementById('sendResponse').click()
+            // document.getElementById('responseTextarea1').value = `{
+				   // "headers": {
+					// "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					// "sec-fetch-dest": "document",
+					// "sec-fetch-mode": "navigate",
+					// "sec-fetch-site": "same-origin",
+					// "sec-fetch-user": "?1",
+					// "upgrade-insecure-requests": "1"
+				  // },
+				  // "referrer": "https://id.skyeng.ru/admin/auth/login-links",
+				  // "referrerPolicy": "strict-origin-when-cross-origin",
+				  // "body": null,
+				  // "method": "GET",
+				  // "mode": "cors",
+				  // "credentials": "include"
+			// }`
+            // document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links"
+            // document.getElementById('responseTextarea3').value = 'postdata'
+            // document.getElementById('sendResponse').click()
 
             logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
             logginerinfo = await logginerinfo;
