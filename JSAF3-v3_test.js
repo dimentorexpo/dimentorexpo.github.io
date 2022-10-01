@@ -4326,7 +4326,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             document.getElementById('responseTextarea1').removeAttribute('responseupdate')
 
-        }, 550)
+        }, 1000)
     }
 
     let unhidephone;
