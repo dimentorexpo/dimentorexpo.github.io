@@ -972,8 +972,8 @@ var win_Themes =  // описание элементов окна Тематик
                         </div>
 
 						<div>
-							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira">
-							<button id="linktojirasend">🚀</button>
+							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira" style="margin-left: 20px; width: 78%; text-align: center;">
+							<button id="linktojirasend" title="Отправить введеную ссылку в комментарий чата и в поле Ссылка на Jira в АФ">🚀</button>
 						</div>
 
 						<div id="themes_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
@@ -5821,7 +5821,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             } else alert("Не выбраны чекбоксы, выберите, пожалуйста, 1 или несколько и повторите попытку")
         }
 
-
+		document.getElementById('linktojirasend').onclick = function() {
+			let getval = document.getElementById('linktojiracoment').value;
+			if (getval != '') {
+				sendComment(getval);
+				    fetch("https://skyeng.autofaq.ai/api/conversation/" + splitter[5] + "/payload", {
+                            "headers": {
+                                "content-type": "application/json",
+                            },
+                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        })
+                     document.getElementById('linktojiracoment').value = "";
+			}
+		}
+		
         document.getElementById('vimcall').onclick = function () {
             document.getElementById('svyazissues').style.display = 'flex'
             document.getElementById('themes_body').style.display = 'none'
