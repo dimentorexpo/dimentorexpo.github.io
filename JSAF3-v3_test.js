@@ -4328,20 +4328,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     async function getunhidephone() { // открывает номер телефона
 
-        document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"accept": "application/json, text/plain, */*",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-	 }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'phoneishere'
         document.getElementById('sendResponse').click()
@@ -4359,20 +4346,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     let unhidenemail;
     async function getunhideemail() { //открывает почту пользователя
-        document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"accept": "application/json, text/plain, */*",
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://crm2.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-	 }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'emailishere'
         document.getElementById('sendResponse').click()
@@ -4395,15 +4369,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let servicearray = "";
     async function getservicearr() { // получает массив услуг с СРМки
 
-        document.getElementById('responseTextarea1').value = `{
-            "headers": {
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-site"
-              },
-              "method": "GET",
-              "mode": "cors",
-              "credentials": "include"
-       }`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
         document.getElementById('responseTextarea3').value = 'arrayofservices'
         document.getElementById('sendResponse').click()
