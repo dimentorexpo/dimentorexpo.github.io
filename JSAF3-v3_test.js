@@ -4270,8 +4270,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
         document.getElementById('responseTextarea3').value = 'responseupdate'
         document.getElementById('sendResponse').click()
+		
+		commonidentity='';
 
         setTimeout(async function () {
+
             commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
             commonidentity = await commonidentity;
 			
@@ -4891,7 +4894,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
             document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
 
-        }, 800)
+        }, 1000) //было 800
     }
 
     document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
