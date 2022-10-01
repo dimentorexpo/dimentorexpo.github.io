@@ -4712,30 +4712,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
         let filteredid = document.getElementById('idstudent').value;
         filteredid = filteredid.trim();
-        document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"accept": "application/json, text/plain, */*",
-				"sec-fetch-dest": "empty",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-site"
-			  },
-			  "referrer": "https://crm2.skyeng.ru/",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-	}`
+        document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
         document.getElementById('responseTextarea3').value = 'getusernameinfo'
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
-            document.getElementById('responseTextarea3').value = 'getusernameinfo'
-            document.getElementById('sendResponse').click()
-
             studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
             studentname = await studentname;
             studentname = JSON.parse(studentname);
@@ -4795,7 +4777,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 
-        }, 600)
+        }, 1000) // было 600, проверяю как будет работать 01 октября 2022
 
     }
 
