@@ -4397,14 +4397,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         document.getElementById('responseTextarea1').value = `{
             "headers": {
-                "accept": "application/json, text/plain, */*",
-                "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-site"
               },
-              "referrer": "https://crm2.skyeng.ru/",
-              "referrerPolicy": "strict-origin-when-cross-origin",
-              "body": null,
               "method": "GET",
               "mode": "cors",
               "credentials": "include"
