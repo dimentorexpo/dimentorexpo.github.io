@@ -4,8 +4,6 @@ let afopername;
 let foundarr;
 let flagsearch;
 let operchatsdata;
-let werechats = false;
-let chatisopen = "";
 let isChatOnOperator = false;
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
@@ -4894,10 +4892,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         startnewchat(polzid)
     }
 
-    let convid;
-
     document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
-        convid = "";
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
         document.querySelector('#useravatar').src = "";
@@ -5286,9 +5281,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('AF_Timetable').style.display = "none";
         document.getElementById('techsumdata').innerText = "";
         document.getElementById('timetabledata').innerText = "";
-        werechats = false;
-        convid = "";
-
     }
 
     document.getElementById('useravatar').onmouseover = function () { // взаимодействие с аватаром пользователя увеличивает
@@ -9897,7 +9889,7 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
     }
 };
 
-async function startnewchat(polzid) { //открывает чат с пользователем проверяя обращался ли он ранее и есть ли активный на операторе
+async function startnewchat(polzid) { //открывает чат с пользователем 
     if (operatorId == "") {
         await whoAmI()
     }
@@ -9920,9 +9912,6 @@ async function startnewchat(polzid) { //открывает чат с польз�
                 console.log(data, chatId)
             })
         alert(`Чат начат c пользователем ${polzid}`);
-        chatisopen = '';
-        werechats = false;
-
     } else alert('Не введен id пользователя');
 }
 
