@@ -5309,14 +5309,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 if (document.getElementById('getloginer') != null) {
                     document.getElementById('getloginer').onclick = function () {
-                        document.getElementById('getloginer1').style.color="orange"
+                        document.getElementById('getloginer').style.color="orange"
                             postuderdatatologin();
 							if (flaggetlogginer == 1)
-								document.getElementById('getloginer1').style.color="green"
-							else document.getElementById('getloginer1').style.color="red"
+								document.getElementById('getloginer').style.color="green"
+							else document.getElementById('getloginer').style.color="red"
 						
 						setTimeout(()=>{
-							document.getElementById('getloginer1').style.color="bisque"
+							document.getElementById('getloginer').style.color="bisque"
 						}, 10000)
                     }
                 }
