@@ -5270,9 +5270,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     }
 
                     if (document.getElementById('getloginer1') != null) {
-                        document.getElementById('getloginer1').onclick = function () {
+                        document.getElementById('getloginer1').onclick = async function () {
 							document.getElementById('getloginer1').style.color="orange"
-                            postuderdatatologin();
+                            await postuderdatatologin();
 							if (flaggetlogginer == 1)
 								document.getElementById('getloginer1').style.color="green"
 							else document.getElementById('getloginer1').style.color="red"
@@ -5308,9 +5308,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }
 
                 if (document.getElementById('getloginer') != null) {
-                    document.getElementById('getloginer').onclick = function () {
+                    document.getElementById('getloginer').onclick = async function () {
                         document.getElementById('getloginer').style.color="orange"
-                            postuderdatatologin();
+                           await postuderdatatologin();
 							if (flaggetlogginer == 1)
 								document.getElementById('getloginer').style.color="green"
 							else document.getElementById('getloginer').style.color="red"
