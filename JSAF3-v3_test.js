@@ -5013,7 +5013,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             arrservice += servicearr.data[i].id + ", "
                         } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
                             //	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
-                            console.log("Услуга потеряна");
+                            console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + "Услуга потеряна");
                         } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
                             //	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
                             console.log("Услуга некорректна");
