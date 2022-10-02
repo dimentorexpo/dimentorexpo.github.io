@@ -5,6 +5,8 @@ let foundarr;
 let flagsearch;
 let operchatsdata;
 let isChatOnOperator = false;
+let flagusertype;
+let flaggetlogginer;
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -4280,38 +4282,42 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			if (commonidentity == null) {
 				setTimeout(function() {
-					if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
+					// console.log('Type of userok: ' + flagusertype)
+					// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
+					if (flagusertype == "teacher") {
 						console.log('It is a teacher!')
-					} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
 						emailidentity = "📧✖";
 						phoneidentity = "☎✖";
-					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
 						emailidentity = "📧✔";
 						phoneidentity = "☎✖";
-					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
 						emailidentity = "📧✖";
 						phoneidentity = "☎✔";
-					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
 						emailidentity = "📧✔";
 						phoneidentity = "☎✔";
 					}
-				}, 2000)
+				}, 2100)
 			} else  {
-				if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
-					console.log('It is a teacher!')
-				} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-					emailidentity = "📧✖";
-					phoneidentity = "☎✖";
-				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-					emailidentity = "📧✔";
-					phoneidentity = "☎✖";
-				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-					emailidentity = "📧✖";
-					phoneidentity = "☎✔";
-				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-					emailidentity = "📧✔";
-					phoneidentity = "☎✔";
-				}
+				// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
+					
+					if (flagusertype == "teacher") {
+						console.log('It is a teacher!')
+					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+						emailidentity = "📧✖";
+						phoneidentity = "☎✖";
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+						emailidentity = "📧✔";
+						phoneidentity = "☎✖";
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+						emailidentity = "📧✖";
+						phoneidentity = "☎✔";
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+						emailidentity = "📧✔";
+						phoneidentity = "☎✔";
+					}
 			}
 
             document.getElementById('responseTextarea1').removeAttribute('responseupdate')
@@ -4327,13 +4333,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'phoneishere'
         document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
-            unhidephone = await unhidephone;
-            unhidephone = JSON.parse(unhidephone);
-            unhidephone = unhidephone.data.value;
-            document.getElementById('responseTextarea1').removeAttribute('phoneishere')
+		
+		  setTimeout(async function () {
+			unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
+			if  (unhidephone == null) {
+					setTimeout(async function () {
+						unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
+						unhidephone = await unhidephone;
+						unhidephone = JSON.parse(unhidephone);
+						unhidephone = unhidephone.data.value;
+						document.getElementById('responseTextarea1').removeAttribute('phoneishere')
+				}, 1000)
+			} else {
+				unhidephone = await unhidephone;
+				unhidephone = JSON.parse(unhidephone);
+				unhidephone = unhidephone.data.value;
+				document.getElementById('responseTextarea1').removeAttribute('phoneishere')
+			}
 
         }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
     }
@@ -4346,11 +4362,21 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-            unhidenemail = await unhidenemail;
-            unhidenemail = JSON.parse(unhidenemail);
-            unhidenemail = unhidenemail.data.value;
-            document.getElementById('responseTextarea1').removeAttribute('emailishere')
+			unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+			if  (unhidenemail == null) {
+					setTimeout(async function () {
+						unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+						unhidenemail = await unhidenemail;
+						unhidenemail = JSON.parse(unhidenemail);
+						unhidenemail = unhidenemail.data.value;
+						document.getElementById('responseTextarea1').removeAttribute('emailishere')
+				}, 1000)
+			} else {
+				unhidenemail = await unhidenemail;
+				unhidenemail = JSON.parse(unhidenemail);
+				unhidenemail = unhidenemail.data.value;
+				document.getElementById('responseTextarea1').removeAttribute('emailishere')
+			}
 
         }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
     }
@@ -4369,7 +4395,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             servicearray = JSON.parse(servicearray);
             document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 
-        }, 1000)
+        }, 1500)
     }
 
     document.getElementById('getlessonpast').onclick = function () { // показывает прошедшие уроки
@@ -4732,59 +4758,122 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             studentname = JSON.parse(studentname);
             nameofuser = "";
             teachername = "";
+			
+			if (studentname == null) {
+				setTimeout( function() {
+							if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
+								nameofuser = studentname.data.name + " " + studentname.data.surname;
+								flagusertype = 'student'
+							} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
+								nameofuser = studentname.data.name;
+								flagusertype = 'student'
+							} else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
+								flagusertype = 'teacher'
+								teachername = studentname.data.name + " " + studentname.data.surname;
+							} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
+								teachername = studentname.data.name;
+								flagusertype = 'teacher'
+							}
 
+							utczone = studentname.data.utcOffset;
+							if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
+								localtime = (curhours + (utczone - 3)) + ":" + curminutes;
+							} else if ((curhours + (utczone - 3)) >= 24) {
+								localtime = "0" + ((curhours + (utczone - 3)) - 24) + ":" + curminutes;
+							} else if ((curhours + (utczone - 3)) < 10 && (curhours + (utczone - 3)) >= 0) {
+								localtime = "0" + (curhours + (utczone - 3)) + ":" + curminutes;
+							} else if ((curhours + (utczone - 3)) < 0) {
+								localtime = ((curhours + (utczone - 3)) + 24) + ":" + curminutes;
+							}
 
-            if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
-                nameofuser = studentname.data.name + " " + studentname.data.surname;
-            } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
-                nameofuser = studentname.data.name;
-            } else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
-                teachername = studentname.data.name + " " + studentname.data.surname;
-            } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
-                teachername = studentname.data.name;
-            }
+							if (studentname.data.serviceLocale == null) {
+								servlocalestatus = "⭕"
+							} else {
+								servlocalestatus = studentname.data.serviceLocale;
+							}
 
-            utczone = studentname.data.utcOffset;
-            if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
-                localtime = (curhours + (utczone - 3)) + ":" + curminutes;
-            } else if ((curhours + (utczone - 3)) >= 24) {
-                localtime = "0" + ((curhours + (utczone - 3)) - 24) + ":" + curminutes;
-            } else if ((curhours + (utczone - 3)) < 10 && (curhours + (utczone - 3)) >= 0) {
-                localtime = "0" + (curhours + (utczone - 3)) + ":" + curminutes;
-            } else if ((curhours + (utczone - 3)) < 0) {
-                localtime = ((curhours + (utczone - 3)) + 24) + ":" + curminutes;
-            }
+							if (studentname.data.avatarUrl != null) {
+								avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+							} else {
+								avatarofuser = null;
+							}
 
-            if (studentname.data.serviceLocale == null) {
-                servlocalestatus = "⭕"
-            } else {
-                servlocalestatus = studentname.data.serviceLocale;
-            }
+							if (studentname.data.country != null) {
+								countryofuser = studentname.data.country;
+							} else {
+								countryofuser = null;
+							}
 
-            if (studentname.data.avatarUrl != null) {
-                avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
-            } else {
-                avatarofuser = null;
-            }
+							let goddata = new Date()
+							goddata = goddata.getFullYear();
+							if (studentname.data.birthday != null) {
+								studentname = studentname.data.birthday.split('-')
+								if (goddata - studentname[0] < 18)
+									ageofuser = "🔞"
+								else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
+									ageofuser = "🅰";
+							} else if (studentname.data.birthday == null)
+								ageofuser = "❓";
+				}, 2000)
 
-            if (studentname.data.country != null) {
-                countryofuser = studentname.data.country;
-            } else {
-                countryofuser = null;
-            }
+			} else {
 
-            let goddata = new Date()
-            goddata = goddata.getFullYear();
-            if (studentname.data.birthday != null) {
-                studentname = studentname.data.birthday.split('-')
-                if (goddata - studentname[0] < 18)
-                    ageofuser = "🔞"
-                else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
-                    ageofuser = "🅰";
-            } else if (studentname.data.birthday == null)
-                ageofuser = "❓";
+				if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
+					nameofuser = studentname.data.name + " " + studentname.data.surname;
+					flagusertype = 'student'
+				} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
+					nameofuser = studentname.data.name;
+					flagusertype = 'student'
+				} else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
+					flagusertype = 'teacher'
+					teachername = studentname.data.name + " " + studentname.data.surname;
+				} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
+					teachername = studentname.data.name;
+					flagusertype = 'teacher'
+				}
 
-            document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
+				utczone = studentname.data.utcOffset;
+				if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
+					localtime = (curhours + (utczone - 3)) + ":" + curminutes;
+				} else if ((curhours + (utczone - 3)) >= 24) {
+					localtime = "0" + ((curhours + (utczone - 3)) - 24) + ":" + curminutes;
+				} else if ((curhours + (utczone - 3)) < 10 && (curhours + (utczone - 3)) >= 0) {
+					localtime = "0" + (curhours + (utczone - 3)) + ":" + curminutes;
+				} else if ((curhours + (utczone - 3)) < 0) {
+					localtime = ((curhours + (utczone - 3)) + 24) + ":" + curminutes;
+				}
+
+				if (studentname.data.serviceLocale == null) {
+					servlocalestatus = "⭕"
+				} else {
+					servlocalestatus = studentname.data.serviceLocale;
+				}
+
+				if (studentname.data.avatarUrl != null) {
+					avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+				} else {
+					avatarofuser = null;
+				}
+
+				if (studentname.data.country != null) {
+					countryofuser = studentname.data.country;
+				} else {
+					countryofuser = null;
+				}
+
+				let goddata = new Date()
+				goddata = goddata.getFullYear();
+				if (studentname.data.birthday != null) {
+					studentname = studentname.data.birthday.split('-')
+					if (goddata - studentname[0] < 18)
+						ageofuser = "🔞"
+					else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
+						ageofuser = "🅰";
+				} else if (studentname.data.birthday == null)
+					ageofuser = "❓";
+
+				document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
+			}
 
         }, 1000) // было 600, проверяю как будет работать 01 октября 2022
 
@@ -4822,6 +4911,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
             //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
             copyToClipboard1(logginerinfo[1])
+			if (logginerinfo[1])
+				flaggetlogginer = 1;
+			else flaggetlogginer = 0;
             document.getElementById('responseTextarea1').removeAttribute('postdata')
         }, 2000)
     }
@@ -4849,6 +4941,75 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             let flagstatuswait;
             let flagstatusprocessing;
             let opername = "";
+			if (getcrmstatusinfo==null) {
+				setTimeout(function() {
+					            if (getcrmstatusinfo.data.length > 0) {
+                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
+                        flagtpout = 1;
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
+                        flagtp = 1;
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
+                        flagnottp = 1;
+                    }
+                }
+
+                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+                        flagstatuswait = 1;
+                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+                        flagstatusprocessing = 1;
+                        opername = getcrmstatusinfo.data[i].operator.name;
+                    }
+                }
+
+                if (flagstatuswait == 1) {
+                    document.getElementById('getcurrentstatus').style.display = "";
+                    document.getElementById('getcurrentstatus').innerText = "В ожидании";
+                    document.getElementById('getcurrentstatus').style.backgroundColor = "#1E90FF";
+                } else if (flagstatusprocessing == 1) {
+                    document.getElementById('getcurrentstatus').style.display = "";
+                    document.getElementById('getcurrentstatus').innerText = "Решается";
+                    document.getElementById('getcurrentstatus').title = opername;
+                    document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
+                }
+
+                if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи");
+                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "🛠";
+                    console.log("Входящий звонок или с др отдела на ТП была создана задача");
+                } else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "📵";
+                    console.log("Нет активных задач по ТП линии");
+                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи на исход и на ТП 1 линии");
+                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "💥";
+                    console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "🛠";
+                    console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
+                }
+
+            } else {
+                document.getElementById('CrmStatus').style.display = "";
+                document.getElementById('CrmStatus').innerText = "📵";
+                console.log("No DATA");
+            }
+            document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+				},2000)
+				
+			} else {
+			
             if (getcrmstatusinfo.data.length > 0) {
                 for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
                     if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
@@ -4912,6 +5073,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 console.log("No DATA");
             }
             document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+		}
 
         }, 1000) //было 800
     }
@@ -4933,9 +5095,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         stid = stid.trim();
 
         getservicearr();
+		setTimeout(getusernamecrm, 640);
         setTimeout(getunhideemail, 600);
         setTimeout(getunhidephone, 620);
-        setTimeout(getusernamecrm, 640);
         setTimeout(checkemailandphoneidentity, 660);
         setTimeout(crmstatus, 680);
 
@@ -4944,20 +5106,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
-
+			
             async function getServInfo() {
                 servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
                 servicearr = JSON.parse(servicearr);
 
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
-
-
+				
+				//console.log("User is: " + flagusertype)
                 let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
                 let servinfo = ""; //инфо об услуге
                 let noservinfo = ""; //нет инфо об услугах, обычно если профиль П или оператора
                 let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
-                if (servicearr.data.length === 0 || servicearr.data[0].incorrectnessReason == "attempt_to_find_job") {
+                if (flagusertype == "teacher") {
                     noservinfo = 1;
                     arrservice = null;
                 } else {
@@ -4993,13 +5155,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             arrservice += servicearr.data[i].id + ", "
                         } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
                             //	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
-                            console.log("Услуга потеряна");
+                            console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна");
                         } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
                             //	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
-                            console.log("Услуга некорректна");
+                            console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга некорректна");
                         } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
                             //	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
-                            console.log("Услуга потеряна и некорректна");
+                             console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
                         }
                     }
                 }
@@ -5105,11 +5267,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         };
                     }
 
-                    if (document.getElementById('getloginer1') != null) {
-                        document.getElementById('getloginer1').onclick = function () {
-                            postuderdatatologin();
-                        }
-                    }
+					if (document.getElementById('getloginer1') != null) {
+						document.getElementById('getloginer1').onclick = async function () {
+							document.getElementById('getloginer1').style.color="orange"
+							   await postuderdatatologin();
+								
+								setTimeout(function() { 
+								if (flaggetlogginer == 1)
+									document.getElementById('getloginer1').style.color="green"
+								else document.getElementById('getloginer1').style.color="red"
+							
+								setTimeout(()=>{
+									document.getElementById('getloginer1').style.color="bisque"
+								}, 5000)
+							}, 2000) 
+						}
+					}
+				
                 }
 
                 if (arrservice != null && arrservice.length > 0 && arrservice != undefined) {
@@ -5136,8 +5310,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 }
 
                 if (document.getElementById('getloginer') != null) {
-                    document.getElementById('getloginer').onclick = function () {
-                        postuderdatatologin();
+                    document.getElementById('getloginer').onclick = async function () {
+                        document.getElementById('getloginer').style.color="orange"
+                           await postuderdatatologin();
+							
+							setTimeout(function() { 
+							if (flaggetlogginer == 1)
+								document.getElementById('getloginer').style.color="green"
+							else document.getElementById('getloginer').style.color="red"
+						
+							setTimeout(()=>{
+								document.getElementById('getloginer').style.color="bisque"
+							}, 5000)
+						}, 2000) 
                     }
                 }
 
