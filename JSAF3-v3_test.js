@@ -4283,38 +4283,41 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			if (commonidentity == null) {
 				setTimeout(function() {
 					console.log('Type of userok: ' + flagusertype)
-					if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
+					// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
+						if(flagusertype == "teacher")
 						console.log('It is a teacher!')
-					} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
 						emailidentity = "📧✖";
 						phoneidentity = "☎✖";
-					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
 						emailidentity = "📧✔";
 						phoneidentity = "☎✖";
-					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
 						emailidentity = "📧✖";
 						phoneidentity = "☎✔";
-					} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
 						emailidentity = "📧✔";
 						phoneidentity = "☎✔";
 					}
 				}, 2100)
 			} else  {
-				if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
-					console.log('It is a teacher!')
-				} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-					emailidentity = "📧✖";
-					phoneidentity = "☎✖";
-				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-					emailidentity = "📧✔";
-					phoneidentity = "☎✖";
-				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-					emailidentity = "📧✖";
-					phoneidentity = "☎✔";
-				} else if (commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-					emailidentity = "📧✔";
-					phoneidentity = "☎✔";
-				}
+				// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
+					
+					if(flagusertype == "teacher")
+						console.log('It is a teacher!')
+					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+						emailidentity = "📧✖";
+						phoneidentity = "☎✖";
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+						emailidentity = "📧✔";
+						phoneidentity = "☎✖";
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+						emailidentity = "📧✖";
+						phoneidentity = "☎✔";
+					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+						emailidentity = "📧✔";
+						phoneidentity = "☎✔";
+					}
 			}
 
             document.getElementById('responseTextarea1').removeAttribute('responseupdate')
