@@ -6,6 +6,7 @@ let flagsearch;
 let operchatsdata;
 let isChatOnOperator = false;
 let flagusertype;
+let flaggetlogginer;
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -4906,6 +4907,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
             //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
             copyToClipboard1(logginerinfo[1])
+			if (logginerinfo[1])
+				flaggetlogginer = 1;
+			else flaggetlogginer = 0;
             document.getElementById('responseTextarea1').removeAttribute('postdata')
         }, 2000)
     }
@@ -5263,7 +5267,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                     if (document.getElementById('getloginer1') != null) {
                         document.getElementById('getloginer1').onclick = function () {
+							document.getElementById('getloginer').style.color="orange"
                             postuderdatatologin();
+							if (flaggetlogginer == 1)
+								document.getElementById('getloginer').style.color="green"
+							else document.getElementById('getloginer').style.color="red"
+						
+						setTimeout(()=>{
+							document.getElementById('getloginer').style.color="bisque"
+						}, 10000)
                         }
                     }
                 }
