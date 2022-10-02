@@ -5,6 +5,7 @@ let foundarr;
 let flagsearch;
 let operchatsdata;
 let isChatOnOperator = false;
+let flagusertype;
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -4756,12 +4757,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
                 nameofuser = studentname.data.name + " " + studentname.data.surname;
+				flagusertype = 'student'
             } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
                 nameofuser = studentname.data.name;
+				flagusertype = 'student'
             } else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
+				flagusertype = 'teacher'
                 teachername = studentname.data.name + " " + studentname.data.surname;
             } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
                 teachername = studentname.data.name;
+				flagusertype = 'teacher'
             }
 
             utczone = studentname.data.utcOffset;
@@ -4953,9 +4958,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         stid = stid.trim();
 
         getservicearr();
+		setTimeout(getusernamecrm, 640);
+		console.log("User is: " + flagusertype)
         setTimeout(getunhideemail, 600);
         setTimeout(getunhidephone, 620);
-        setTimeout(getusernamecrm, 640);
         setTimeout(checkemailandphoneidentity, 660);
         setTimeout(crmstatus, 680);
 
