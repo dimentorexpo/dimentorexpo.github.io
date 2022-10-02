@@ -4282,7 +4282,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			if (commonidentity == null) {
 				setTimeout(function() {
-					console.log('Type of userok: ' + flagusertype)
+					// console.log('Type of userok: ' + flagusertype)
 					// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
 					if (flagusertype == "teacher") {
 						console.log('It is a teacher!')
@@ -4761,7 +4761,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			if (studentname == null) {
 				setTimeout( function() {
-									            if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
+							if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
 								nameofuser = studentname.data.name + " " + studentname.data.surname;
 								flagusertype = 'student'
 							} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
@@ -5113,9 +5113,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 				
-				console.log("User is: " + flagusertype)
-
-
+				//console.log("User is: " + flagusertype)
                 let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
                 let servinfo = ""; //инфо об услуге
