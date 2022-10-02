@@ -4282,6 +4282,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			if (commonidentity == null) {
 				setTimeout(function() {
+					console.log('Type of userok: ' + flagusertype)
 					if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
 						console.log('It is a teacher!')
 					} else if (commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
@@ -4297,7 +4298,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						emailidentity = "📧✔";
 						phoneidentity = "☎✔";
 					}
-				}, 2000)
+				}, 2100)
 			} else  {
 				if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
 					console.log('It is a teacher!')
