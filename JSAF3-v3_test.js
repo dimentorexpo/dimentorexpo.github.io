@@ -4340,8 +4340,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						document.getElementById('responseTextarea1').removeAttribute('phoneishere')
 				}, 1000)
 			} else {
-				unhidephone = await unhidenemail;
-				unhidephone = JSON.parse(unhidenemail);
+				unhidephone = await unhidephone;
+				unhidephone = JSON.parse(unhidephone);
 				unhidephone = unhidephone.data.value;
 				document.getElementById('responseTextarea1').removeAttribute('phoneishere')
 			}
@@ -4983,7 +4983,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 let servinfo = ""; //инфо об услуге
                 let noservinfo = ""; //нет инфо об услугах, обычно если профиль П или оператора
                 let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
-                if (servicearr.data.length === 0 || servicearr.data[0].incorrectnessReason == "attempt_to_find_job") {
+                if (flagusertype == "teacher") {
                     noservinfo = 1;
                     arrservice = null;
                 } else {
