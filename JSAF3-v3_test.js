@@ -5269,19 +5269,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         };
                     }
 
-                    if (document.getElementById('getloginer1') != null) {
-                        document.getElementById('getloginer1').onclick = async function () {
+					if (document.getElementById('getloginer1') != null) {
+						document.getElementById('getloginer1').onclick = async function () {
 							document.getElementById('getloginer1').style.color="orange"
-                            await postuderdatatologin();
-							if (flaggetlogginer == 1)
-								document.getElementById('getloginer1').style.color="green"
-							else document.getElementById('getloginer1').style.color="red"
-						
-						setTimeout(()=>{
-							document.getElementById('getloginer1').style.color="bisque"
-						}, 10000)
-                        }
-                    }
+							   await postuderdatatologin();
+								
+								setTimeout(function() { 
+								if (flaggetlogginer == 1)
+									document.getElementById('getloginer1').style.color="green"
+								else document.getElementById('getloginer1').style.color="red"
+							
+								setTimeout(()=>{
+									document.getElementById('getloginer1').style.color="bisque"
+								}, 5000)
+							}, 2000) 
+						}
+					}
+				
                 }
 
                 if (arrservice != null && arrservice.length > 0 && arrservice != undefined) {
@@ -5311,13 +5315,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('getloginer').onclick = async function () {
                         document.getElementById('getloginer').style.color="orange"
                            await postuderdatatologin();
+							
+							setTimeout(function() { 
 							if (flaggetlogginer == 1)
 								document.getElementById('getloginer').style.color="green"
 							else document.getElementById('getloginer').style.color="red"
 						
-						setTimeout(()=>{
-							document.getElementById('getloginer').style.color="bisque"
-						}, 10000)
+							setTimeout(()=>{
+								document.getElementById('getloginer').style.color="bisque"
+							}, 5000)
+						}, 2000) 
                     }
                 }
 
