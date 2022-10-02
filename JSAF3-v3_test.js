@@ -4390,7 +4390,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             servicearray = JSON.parse(servicearray);
             document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 
-        }, 1000)
+        }, 1500)
     }
 
     document.getElementById('getlessonpast').onclick = function () { // показывает прошедшие уроки
@@ -5029,13 +5029,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
 			
-			console.log("User is: " + flagusertype)
-
             async function getServInfo() {
                 servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
                 servicearr = JSON.parse(servicearr);
 
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
+				
+				console.log("User is: " + flagusertype)
 
 
                 let tinfo = ""; // инфо о постоянном П
