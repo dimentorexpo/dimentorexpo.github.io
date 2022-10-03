@@ -11976,7 +11976,6 @@ document.getElementById('startlookstatus').onclick = async function () { //Фу�
         enddate = Number(enddate[2]) + '-' + Number(enddate[1]) + '-' + Number(enddate[0]) + ' ' + 21;
         console.log("end date= " + enddate);
 		
-	async function getarr() {
 		  document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"content-type": "application/x-www-form-urlencoded",
@@ -11994,11 +11993,16 @@ document.getElementById('startlookstatus').onclick = async function () { //Фу�
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
 		
-	}
+let arinterval = setInterval( function() {
+		arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+		arregetted = JSON.parse(arregetted);	
+		if (arregetted !=null) {
+			clearInterval(arinterval)
+		}
+}, 1000)
 
-	await getarr()
-	arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-	arregetted = JSON.parse(arregetted);			
+	// arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+	// arregetted = JSON.parse(arregetted);			
 
 			if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
 					document.querySelector('#statustable').innerText = "";
