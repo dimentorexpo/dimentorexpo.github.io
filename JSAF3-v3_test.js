@@ -1419,7 +1419,6 @@ var win_serviceinfo =  // описание элементов окна инфо�
 						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" class="usinfoops">✏</button>
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" class="usinfoops">🗄</button>
 						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" class="usinfoops">💸</button>
-						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" class="usinfoops">🎓</button>
 						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" class="usinfoops">💻</button>
 						</div>
 					   </span>
@@ -2692,6 +2691,7 @@ butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
+butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
 butLessonInfo.innerHTML = "🎓 Lesson Info"
 butLessonInfo.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
@@ -6230,6 +6230,32 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else
             document.getElementById('AF_Service').style.display = ''
     }
+	
+	document.getElementById('butLessonInfo').onclick = function() {
+		let getdateset = new Date()
+        let getyearLS = getdateset.getFullYear();
+        let getcurmonthLS = (getdateset.getMonth() + 1)
+        let todayLS = getdateset.getDate();
+        if (getcurmonthLS < 10) {
+            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        } else {
+            getcurmonthLS = (getdateset.getMonth() + 1);
+        }
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
+
+        if (document.getElementById('AF_LessonStatus').style.display == '')
+            document.getElementById('AF_LessonStatus').style.display = 'none'
+        else
+            document.getElementById('AF_LessonStatus').style.display = ''
+	}
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
 
@@ -8310,33 +8336,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('techsumdata').innerText = "Пользователь не обращался в чат, информация отсутствует";
         }
     }
-
-    document.getElementById('getlessonstatus').onclick = function () { // получение инфы о статусе урока кто удалил кем
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
-
-        if (document.getElementById('AF_LessonStatus').style.display == '')
-            document.getElementById('AF_LessonStatus').style.display = 'none'
-        else
-            document.getElementById('AF_LessonStatus').style.display = ''
-    }
-
+	
     let grdata = [];
     document.getElementById('getidgrouptolist').onclick = async function () {
         let dataarr = [];
