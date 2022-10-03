@@ -1147,6 +1147,8 @@ wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove
 // main script
 let token;
 document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
+    console.log(event.altKey)
+    console.log(event.code)
     if ((event.altKey && event.code == 'Numpad0') || (event.altKey && event.code == 'Digit0')) {
         if (document.getElementById('AFMS_addMenu').style.display == 'none') {
             document.getElementById('AFMS_addMenu').style.display = '';
