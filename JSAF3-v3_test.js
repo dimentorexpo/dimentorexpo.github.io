@@ -11956,7 +11956,7 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
 }
 
 //Функция проверки статусов урока
-let arregetted;
+let arregetted = null;
 
 document.getElementById('startlookstatus').onclick = function () { //Функция проверки статусов урока
     if (document.getElementById('idteacherforsearch').value != "") {
@@ -11992,10 +11992,9 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
-		
-		arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-		
+				
 		while (arregetted==null) {
+			arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
 			console.log('Загрузка')
 			if (arregetted != null)
 			break;
