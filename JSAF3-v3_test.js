@@ -13392,7 +13392,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
             menubar.append(document.getElementById('smartroomform'))
-            menubar.append(document.getElementById('getlessonstatus'))
+            menubar.append(document.getElementById('butLessonInfo'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
