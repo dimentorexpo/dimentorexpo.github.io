@@ -12060,6 +12060,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                 }
             } else {
                 alert("Уроков нет");
+				document.querySelector('#statustable').innerText = "";
             }
 
             document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
