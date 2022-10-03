@@ -2690,6 +2690,11 @@ butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
 butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
+let butLessonInfo = document.createElement('div')
+butLessonInfo.id = "butLessonInfo"
+butLessonInfo.innerHTML = "🎓 Lesson Info"
+butLessonInfo.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
@@ -13363,12 +13368,13 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
             btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[7])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[8])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[9])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[10])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[11])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[8])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[9])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[10])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[11])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[12])
         }, 2000)
 
         setTimeout(() => {
@@ -13376,9 +13382,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             let menubutarea = document.createElement('div')
             menubutarea.style = 'margin-right:20px;'
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[13])
+            headmenulist.insertBefore(menubutarea, headmenulist.children[14])
             menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[13])
+            headmenulist.insertBefore(menubar, headmenulist.children[14])
             menubar.append(document.getElementById('servDsk'))
             menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
@@ -13386,6 +13392,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
             menubar.append(document.getElementById('smartroomform'))
+            menubar.append(document.getElementById('getlessonstatus'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
