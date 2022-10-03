@@ -1146,26 +1146,25 @@ wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove
 
 // main script
 let token;
-document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
-    console.log(event.altKey)
-    console.log(event.code)
-    if ((event.altKey && event.code == 'Numpad0') || (event.altKey && event.code == 'Digit0')) {
-        if (document.getElementById('AFMS_addMenu').style.display == 'none') {
-            document.getElementById('AFMS_addMenu').style.display = '';
+if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
+    document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
+        if ((event.altKey && event.code == 'Numpad0') || (event.altKey && event.code == 'Digit0')) {
+            if (document.getElementById('AFMS_addMenu').style.display == 'none') {
+                document.getElementById('AFMS_addMenu').style.display = '';
 
-            token = Object.fromEntries(document.cookie.split(/; */).map(c => {
-                const [key, ...v] = c.split('=');
-                return [key, decodeURIComponent(v.join('='))];
-            }));
-            console.log(token)
+                token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+                    const [key, ...v] = c.split('=');
+                    return [key, decodeURIComponent(v.join('='))];
+                }));
+                console.log(token)
 
-            document.getElementById('hidemainmenu').onclick = function () {
-                document.getElementById('AFMS_addMenu').style.display = 'none';
-            }
+                document.getElementById('hidemainmenu').onclick = function () {
+                    document.getElementById('AFMS_addMenu').style.display = 'none';
+                }
 
-        } else document.getElementById('AFMS_addMenu').style.display = 'none'
+            } else document.getElementById('AFMS_addMenu').style.display = 'none'
+        }
     }
-
 }
 
 document.getElementById('openchataddmenu').onclick = async function () { // открывает меню для удаления и добавления чатов
