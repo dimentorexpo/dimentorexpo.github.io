@@ -11958,7 +11958,7 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
 //Функция проверки статусов урока
 let arregetted = null;
 
-document.getElementById('startlookstatus').onclick = function () { //Функция проверки статусов урока
+document.getElementById('startlookstatus').onclick = async function () { //Функция проверки статусов урока
     if (document.getElementById('idteacherforsearch').value != "") {
         document.querySelector('#statustable').style.display = "";
         document.querySelector('#statustable').innerText = "Загрузка...";
@@ -11975,8 +11975,9 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         enddate = enddate.split('-');
         enddate = Number(enddate[2]) + '-' + Number(enddate[1]) + '-' + Number(enddate[0]) + ' ' + 21;
         console.log("end date= " + enddate);
-
-        document.getElementById('responseTextarea1').value = `{
+		
+	async function getarr() {
+		  document.getElementById('responseTextarea1').value = `{
 		  "headers": {
 			"content-type": "application/x-www-form-urlencoded",
 			"sec-fetch-mode": "cors",
@@ -11992,17 +11993,12 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
-				
-				function getarr() {
-					arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-					if (arregetted==null) {
-						getarr();
-					} else {
-						arregetted = JSON.parse(arregetted);
-					}
-				}
-				
-			getarr()
+		
+	}
+
+	await getarr()
+	arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+	arregetted = JSON.parse(arregetted);			
 
 			if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
 					document.querySelector('#statustable').innerText = "";
