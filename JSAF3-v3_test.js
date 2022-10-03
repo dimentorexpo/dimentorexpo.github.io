@@ -305,6 +305,11 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
+		#butLessonInfo:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
 
 		#JiraOpenForm:hover {
 			background:DeepSkyBlue;
