@@ -11993,12 +11993,16 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
 				
-		while (arregetted==null) {
-			arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-			console.log('Загрузка')
-			if (arregetted != null)
-			break;
-		}
+				function getarr() {
+					arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+					if (arregetted==null) {
+						getarr();
+					} else {
+						arregetted = JSON.parse(arregetted);
+					}
+				}
+				
+			getarr()
 
 			if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
 					document.querySelector('#statustable').innerText = "";
