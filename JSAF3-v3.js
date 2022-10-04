@@ -4338,7 +4338,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     let unhidephone;
-
+	let phonecontainer;
     async function getunhidephone() { // открывает номер телефона
 
         document.getElementById('responseTextarea1').value = `{}`
@@ -4346,51 +4346,30 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea3').value = 'phoneishere'
         document.getElementById('sendResponse').click()
 		
-		  setTimeout(async function () {
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 			unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
-			if  (unhidephone == null) {
-					setTimeout(async function () {
-						unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
-						unhidephone = await unhidephone;
-						unhidephone = JSON.parse(unhidephone);
-						unhidephone = unhidephone.data.value;
-						document.getElementById('responseTextarea1').removeAttribute('phoneishere')
-				}, 1000)
-			} else {
-				unhidephone = await unhidephone;
-				unhidephone = JSON.parse(unhidephone);
-				unhidephone = unhidephone.data.value;
+			if (unhidephone != null) {
+				phonecontainer = JSON.parse(unhidephone).data.value;
 				document.getElementById('responseTextarea1').removeAttribute('phoneishere')
 			}
-
-        }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
+		})
     }
 
     let unhidenemail;
-    async function getunhideemail() { //открывает почту пользователя
+	let mailcontainer;
+    function getunhideemail() { //открывает почту пользователя
         document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'emailishere'
         document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 			unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-			if  (unhidenemail == null) {
-					setTimeout(async function () {
-						unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-						unhidenemail = await unhidenemail;
-						unhidenemail = JSON.parse(unhidenemail);
-						unhidenemail = unhidenemail.data.value;
-						document.getElementById('responseTextarea1').removeAttribute('emailishere')
-				}, 1000)
-			} else {
-				unhidenemail = await unhidenemail;
-				unhidenemail = JSON.parse(unhidenemail);
-				unhidenemail = unhidenemail.data.value;
+			if (unhidenemail != null) {
+				mailcontainer = JSON.parse(unhidenemail).data.value;
 				document.getElementById('responseTextarea1').removeAttribute('emailishere')
 			}
-
-        }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
+		})
     }
 
     let servicearray = "";
@@ -5183,7 +5162,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.querySelector('#useravatar').style.display = "";
                         document.querySelector('#useravatar').src = avatarofuser;
                     }
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации" class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " /  MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации" class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + mailcontainer + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + phonecontainer + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " /  MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
                     } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
@@ -5201,7 +5180,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.querySelector('#useravatar').style.display = "";
                         document.querySelector('#useravatar').src = avatarofuser;
                     }
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + mailcontainer + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + phonecontainer + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#32CD32; font-weight:900;">Основные преподаватели</span><br>' + tinfo + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
                     } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
@@ -5219,7 +5198,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.querySelector('#useravatar').style.display = "";
                         document.querySelector('#useravatar').src = avatarofuser;
                     }
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + mailcontainer + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + phonecontainer + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + '<span style="color:#FF8C00; font-weight:900;">Временные преподаватели</span><br>' + temtinfo + "<br>" + '<span style="color:#00BFFF; font-weight:900;">Информация об услугах:</span><br>' + servinfo;
                     if (servlocalestatus == "ru") {
                         document.getElementById('changelocalelng').style.display = "none"
                     } else if (servlocalestatus != "ru" || servlocalestatus == "⭕") {
@@ -5237,7 +5216,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.querySelector('#useravatar').style.display = "";
                         document.querySelector('#useravatar').src = avatarofuser;
                     }
-                    document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + teachername + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + unhidephone + "<br>" + "🌍: " + countryofuser + "<br>";
+                    document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + teachername + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + mailcontainer + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + phonecontainer + "<br>" + "🌍: " + countryofuser + "<br>";
                     document.getElementById('changelocalelng').style.display = "none";
                     document.getElementById('checkbalance').style.display = "none";
                     document.getElementById('getkglinfokid').style.display = "none";
@@ -5246,8 +5225,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('newtrm').style.display = "";
                     document.getElementById('personalteacherpage').style.display = "";
 
-                } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && unhidenemail.endsWith('@skyeng.ru') == true) {
-                    document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + "<br>";
+                } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && mailcontainer.endsWith('@skyeng.ru') == true) {
+                    document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + mailcontainer + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + phonecontainer + "<br>";
                     document.getElementById('checkbalance').style.display = "none";
                     document.getElementById('getkglinfokid').style.display = "none";
                     document.getElementById('partialpaymentinfo').style.display = "none";
@@ -5259,17 +5238,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.querySelector('#useravatar').style.display = "";
                         document.querySelector('#useravatar').src = avatarofuser;
                     }
-                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + unhidenemail + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + unhidephone + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
+                    document.getElementById('servicetable').innerHTML = '<span id="getshowcase1" title="При клике на кнопку копирует в буфер шоукейс ученика" style="cursor:pointer;">ℹ</span>' + ageofuser + '<span id="getloginer1" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns"> Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + mailcontainer + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + phonecontainer + " • 🌍: " + countryofuser + "<br>" + "Identity: " + emailidentity + " " + phoneidentity + "• Язык осблуж.: " + servlocalestatus + "<br>" + "UTC:" + utczone + " / MSK(+/-): " + (utczone - 3) + " Время(местное): " + localtime + "<br>" + "Нет активных услуг (П отсутствует). Услуги потеряны или некорректны";
 
                     if (document.getElementById('getusremail1') != null) {
                         document.getElementById('getusremail1').onclick = function () {
-                            copyToClipboard1(unhidenemail);
+                            copyToClipboard1(mailcontainer);
                         };
                     }
 
                     if (document.getElementById('getusrphone1') != null) {
                         document.getElementById('getusrphone1').onclick = function () {
-                            copyToClipboard1(unhidephone);
+                            copyToClipboard1(phonecontainer);
                         };
                     }
 
@@ -5311,13 +5290,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 if (document.getElementById('getusremail') != null) {
                     document.getElementById('getusremail').onclick = function () {
-                        copyToClipboard1(unhidenemail);
+                        copyToClipboard1(mailcontainer);
                     };
                 }
 
                 if (document.getElementById('getusrphone') != null) {
                     document.getElementById('getusrphone').onclick = function () {
-                        copyToClipboard1(unhidephone);
+                        copyToClipboard1(phonecontainer);
                     };
                 }
 
@@ -11996,10 +11975,8 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 		   arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             arregetted = JSON.parse(arregetted);
-			if (arregetted == null) {
-				console.log('Loading lessons data')
-			
-			} else if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
+			if (arregetted != null) {
+					if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
 					document.querySelector('#statustable').innerText = "";
 					for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
 						if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
@@ -12070,8 +12047,10 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
             }
  
             document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
+			}
+		})
 		
-		});
+		
 
     } else {
         alert("Введите ID учителя в поле");
