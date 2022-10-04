@@ -4348,11 +4348,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 			unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
-			if (unhidephone == null) {
-				console.log("Loading mail data")
-			} else {
-			phonecontainer = JSON.parse(unhidephone).data.value;
-			document.getElementById('responseTextarea1').removeAttribute('phoneishere')
+			if (unhidephone != null) {
+				phonecontainer = JSON.parse(unhidephone).data.value;
+				document.getElementById('responseTextarea1').removeAttribute('phoneishere')
 			}
 		})
     }
@@ -4367,11 +4365,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 			unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-			if (unhidenemail == null) {
-				console.log("Loading mail data")
-			} else {
-			mailcontainer = JSON.parse(unhidenemail).data.value;
-			document.getElementById('responseTextarea1').removeAttribute('emailishere')
+			if (unhidenemail != null) {
+				mailcontainer = JSON.parse(unhidenemail).data.value;
+				document.getElementById('responseTextarea1').removeAttribute('emailishere')
 			}
 		})
     }
@@ -11980,9 +11976,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 		   arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             arregetted = JSON.parse(arregetted);
 			if (arregetted == null) {
-				console.log('Loading lessons data')
-			
-			} else if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
+					if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
 					document.querySelector('#statustable').innerText = "";
 					for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
 						if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
