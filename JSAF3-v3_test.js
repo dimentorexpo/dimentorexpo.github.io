@@ -7089,10 +7089,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('sendResponse').click()
 
                 async function getJiraTask() {
-                    document.getElementById('responseTextarea1').value = '{}'
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-                    document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
+                    // document.getElementById('responseTextarea1').value = '{}'
+                    // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
+                    // document.getElementById('responseTextarea3').value = ''
+                    // document.getElementById('sendResponse').click()
 
                     rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
                     rezissuetable = await rezissuetable;
