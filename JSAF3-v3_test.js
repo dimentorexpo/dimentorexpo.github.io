@@ -11999,7 +11999,7 @@ document.getElementById('startlookstatus').onclick = async function () { //Фу�
 						if (arregetted != null)
 							resolve(arregetted)
 						else reject(arregetted)
-					} )						
+					},2000 )						
 		});
 		
 		await resfc;
