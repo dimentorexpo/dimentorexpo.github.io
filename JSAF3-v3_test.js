@@ -4746,7 +4746,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 		
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-		    responsedata = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+		    responsedata = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
 			if (responsedata !=null) {
 			studentname = JSON.parse(responsedata);
 			nameofuser = "";
