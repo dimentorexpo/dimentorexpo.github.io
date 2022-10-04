@@ -4915,7 +4915,8 @@ let serivceinforesponse;
         setTimeout(checkemailandphoneidentity, 660);
         setTimeout(crmstatus, 680);
 		
-		    document.getElementById('responseTextarea1').value = `{}`
+		setTimeout( function() {
+			 document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
@@ -5173,6 +5174,8 @@ let serivceinforesponse;
                 } // for let j
 						}
 					})
+		}, 1000)
+		   
     }
 
     document.getElementById('CrmStatus').onclick = crmstatus;
