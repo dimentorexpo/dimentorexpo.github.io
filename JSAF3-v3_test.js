@@ -11961,7 +11961,7 @@ let arregetted;
 document.getElementById('startlookstatus').onclick = function () { //Функция проверки статусов урока
     if (document.getElementById('idteacherforsearch').value != "") {
         document.querySelector('#statustable').style.display = "";
-        document.querySelector('#statustable').innerText = "Загрузка...";
+        document.querySelector('#statustable').innerText = "Загрузка. Если информация не появилась нажмите повторно на кнопку получить инфа";
         let time_t = new Date();
         let ticherid = document.getElementById('idteacherforsearch').value;
         let uchenikid = document.getElementById('idstudentforsearch').value;
@@ -12003,8 +12003,6 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 
 							let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
-							//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
-
 							if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
 								arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
 
@@ -12029,16 +12027,12 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 
 							let tempor = document.createElement('textarea');
 							document.getElementById('statustable').append(tempor);
-
-							//tempor.setAttribute('type', 'text');
 							tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
 							tempor.setAttribute('wrap', 'soft');
 							tempor.value = text;
 							//    console.log(text);
 						} else if (document.getElementById('idstudentforsearch').value == "") {
 							let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
-
-							//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
 
 							if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
 								arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
