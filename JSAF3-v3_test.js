@@ -4746,12 +4746,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 		
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-		   responsedata = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-            responsedata = JSON.parse(responsedata);
+		    responsedata = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+			if (responsedata !=null) {
+			studentname = JSON.parse(responsedata);
 			nameofuser = "";
             teachername = "";
-			
-			if (responsedata !=null) {
 				if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
 								nameofuser = studentname.data.name + " " + studentname.data.surname;
 								flagusertype = 'student'
