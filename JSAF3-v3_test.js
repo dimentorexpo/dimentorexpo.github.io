@@ -4802,6 +4802,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     function crmstatus() { // получить статус задача в СРМ в решении или в ожидании
         let tempvarcrm = document.getElementById('idstudent').value;
         tempvarcrm = tempvarcrm.trim();
+		
+		let flagtpout = 0;
+		let flagtp = 0;
+		let flagnottp = 0;
+		let flagstatuswait;
+		let flagstatusprocessing;
+		let opername = "";
+		document.getElementById('getcurrentstatus').innerText =''
 
         document.getElementById('CrmStatus').style.display = "none";
 
@@ -4814,12 +4822,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			crmresponseinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
 			if (crmresponseinfo != null) { 
 				getcrmstatusinfo = JSON.parse(crmresponseinfo);
-							let flagtpout = 0;
-							let flagtp = 0;
-							let flagnottp = 0;
-							let flagstatuswait;
-							let flagstatusprocessing;
-							let opername = "";
+
 	
 							if (getcrmstatusinfo.data.length > 0) {
 							for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
