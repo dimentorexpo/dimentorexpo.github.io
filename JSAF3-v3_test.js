@@ -4785,8 +4785,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 		    loginresponse = document.getElementById('responseTextarea1').getAttribute('postdata');
 				if(loginresponse !=null)( {
-					logginerinfo = loginresponse;
-					logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+					logginerinfo = loginresponse.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
 					logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
 
 					copyToClipboard1(logginerinfo[1])
