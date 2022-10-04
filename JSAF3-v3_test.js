@@ -7004,7 +7004,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
 
                 } else if (document.getElementById('freshQuery').classList.contains('active-query')) {
                     frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
@@ -7024,7 +7024,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
+			   
                 } else if (document.getElementById('customQuery').classList.contains('active-query')) {
                     customquery = `${localStorage.getItem('customquery')}`
                     document.getElementById('JQLquery').value = customquery
@@ -7042,7 +7043,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
+			   
                 } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
                     iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = iosbugsqueryitem;
@@ -7061,7 +7063,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
+			   
                 } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
                     androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = androidbugsqueryitem;
@@ -7080,21 +7083,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
                 }
 
 
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
                 document.getElementById('responseTextarea3').value = 'getissuetable'
                 document.getElementById('sendResponse').click()
-
-                function getJiraTask() {
-                    rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
-                    if (rezissuetable == null)
-                        setTimeout(getJiraTask, 1000)
-                    else {
-                        //   rezissuetable = JSON.parse(rezissuetable)
-                        document.getElementById('responseTextarea1').removeAttribute('getissuetable')
+				
+						document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+							rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+						if (rezissuetable != null) {
+								 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
                         let issues = [];
                         let temporarka;
                         if (rezissuetable.issueTable.issueKeys.length > 50)
@@ -7138,9 +7138,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 })
                             }
                         }
-
-
-                        let addtofarr = document.getElementsByName('addtofavourites')
+							
+							
+						let addtofarr = document.getElementsByName('addtofavourites')
                         let tagsarray = document.getElementsByName('buglinks');
                         let massivissueids = document.getElementsByName('issueIds')
                         for (let v = 0; v < addtofarr.length; v++) {
@@ -7168,11 +7168,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let jira_token;
                                 let increasedcount;
                                 setTimeout(async function () {
-                                    document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                                    document.getElementById('responseTextarea3').value = 'reportscount'
-                                    document.getElementById('sendResponse').click()
-
                                     let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
                                     repcount = await repcount;
                                     jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
@@ -7187,18 +7182,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                     setTimeout(function () {
 
                                         document.getElementById('responseTextarea1').value = `{
-						"headers": {
-							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-						    "sec-fetch-mode": "cors",
-							"sec-fetch-site": "same-origin",
-							"x-requested-with": "XMLHttpRequest",
-							"x-sitemesh-off": "true"
-									},
-						"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-						  "method": "POST",
-						  "mode": "cors",
-						  "credentials": "include"
-							}`
+										"headers": {
+											"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+											"sec-fetch-mode": "cors",
+											"sec-fetch-site": "same-origin",
+											"x-requested-with": "XMLHttpRequest",
+											"x-sitemesh-off": "true"
+													},
+										"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+										  "method": "POST",
+										  "mode": "cors",
+										  "credentials": "include"
+											}`
                                         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
@@ -7212,12 +7207,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                         console.log(rezissuetable.issueTable.issueKeys);
                         setTimeout(function () { issues = []; }, 5000)
-                    }
-
-                }
-
-                setTimeout(getJiraTask, 1000)
-
+						}
+						})
             }
             // Просмотр таски по джира по ее коду и номеру
             document.getElementById('getJiraTasks').ondblclick = function () {
