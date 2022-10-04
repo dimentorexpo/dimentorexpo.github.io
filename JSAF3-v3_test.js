@@ -4250,6 +4250,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     let commonidentity;
+	let responseinfo;
     let emailidentity;
     let phoneidentity;
 
@@ -4260,36 +4261,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 		
 		commonidentity='';
-
-        setTimeout(async function () {
-
-            commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-            commonidentity = await commonidentity;
-			
-			if (commonidentity == null) {
-				setTimeout(function() {
-					// console.log('Type of userok: ' + flagusertype)
-					// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
-					if (flagusertype == "teacher") {
-						console.log('It is a teacher!')
-					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-						emailidentity = "📧✖";
-						phoneidentity = "☎✖";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-						emailidentity = "📧✔";
-						phoneidentity = "☎✖";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-						emailidentity = "📧✖";
-						phoneidentity = "☎✔";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-						emailidentity = "📧✔";
-						phoneidentity = "☎✔";
-					}
-				}, 2100)
-			} else  {
-				// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
-					
-					if (flagusertype == "teacher") {
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+		    responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+			if (responseinfo !=null) {
+				commonidentity = JSON.parse(responseinfo);
+				if (flagusertype == "teacher") {
 						console.log('It is a teacher!')
 					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
 						emailidentity = "📧✖";
@@ -4305,10 +4282,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						phoneidentity = "☎✔";
 					}
 			}
-
-            document.getElementById('responseTextarea1').removeAttribute('responseupdate')
-
-        }, 1000) //было 550, тестирую как будет сейчас 01 октября 2022
+			})
     }
 
     let unhidephone;
