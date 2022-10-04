@@ -4262,10 +4262,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 		    responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-			console.log(responseinfo)
 			if (responseinfo !=null) {
 				commonidentity='';
-				commonidentity = JSON.parse(responseinfo);
+				commonidentity = responseinfo;
 				if (flagusertype == "teacher") {
 						console.log('It is a teacher!')
 					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
