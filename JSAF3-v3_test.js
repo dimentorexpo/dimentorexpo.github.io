@@ -4896,7 +4896,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         startnewchat(polzid)
     }
 
-let servrespdata;
     document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
@@ -4921,16 +4920,18 @@ let servrespdata;
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
 			
-			document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-				responseinfo = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+            async function getServInfo() {
+                servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+                servicearr = JSON.parse(servicearr);
+
+                document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 				
-				if (responseinfo !=null) {
-				let tinfo = ""; // инфо о постоянном П
+				//console.log("User is: " + flagusertype)
+                let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
                 let servinfo = ""; //инфо об услуге
                 let noservinfo = ""; //нет инфо об услугах, обычно если профиль П или оператора
                 let arrservice = []; // пустой массив, куда будет передавать ID отобранных услуг по условию
-				servicearr = JSON.parse(responseinfo);
                 if (flagusertype == "teacher") {
                     noservinfo = 1;
                     arrservice = null;
@@ -5144,6 +5145,7 @@ let servrespdata;
                     };
                 }
 
+
                 if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
                     let testids = document.querySelector('#servicetable').textContent.match(/(\d+,)/gm);
                     if (testids != null) {
@@ -5170,14 +5172,14 @@ let servrespdata;
                         }
                     }
                 } // for let j
-            document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
-				}    
-			})
+            }
 
-        }, 2000)
+            setTimeout(getServInfo, 1200)
+
+        }, 720)
     }
 
-    document.getElementById('CrmStatus').onclick = crmstatus; //функция обновляет статус  активных задача на ученике на тп исход
+    document.getElementById('CrmStatus').onclick = crmstatus;
 
     document.getElementById('crmactivetasks').onclick = function () { //открыват СРМ с активными задачами
         window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value + "/customer-support/list")
