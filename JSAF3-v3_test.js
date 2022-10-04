@@ -2956,8 +2956,11 @@ taskBut.onclick = function () { // функция открытия окна дл
             if (services.length == 1) {
                 document.getElementById('taskserviceid').value = services[0].replace('service-', '')
             } else {
-                document.getElementById('taskserviceid').value = 'У ученика несколько услуг, выберите подходящую!'
-                document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+						document.getElementById('taskserviceid').value  = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+					}
+				}
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
@@ -2984,8 +2987,11 @@ taskBut.onclick = function () { // функция открытия окна дл
             if (services.length == 1) {
                 document.getElementById('taskserviceid').value = services[0].replace('service-', '')
             } else {
-                document.getElementById('taskserviceid').value = 'У ученика несколько услуг, выберите подходящую!'
-                document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+						document.getElementById('taskserviceid').value  = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+					}
+				}
             }
 
         }
