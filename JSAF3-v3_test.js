@@ -13055,10 +13055,8 @@ document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
 
-btnsid.onclick = async function () { // копирует в буфер логиннер для У
-    let teststudid = localStorage.getItem('test_stud');
-    if (teststudid != null || teststudid != '') {
-        document.getElementById('responseTextarea1').value = `{
+function logginerfortests(polzovatel) {
+			document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"content-type": "application/x-www-form-urlencoded",
 				"sec-fetch-site": "same-origin",
@@ -13067,7 +13065,7 @@ btnsid.onclick = async function () { // копирует в буфер логи�
 			  },
 			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${teststudid}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
+			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlogginer}",
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
@@ -13075,56 +13073,39 @@ btnsid.onclick = async function () { // копирует в буфер логи�
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
         document.getElementById('responseTextarea3').value = 'senddata1'
         document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-
-            lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata1');
-            lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-            lginfo = lginfo[lginfo.length - 1].split("\"");
-            copyToClipboard1(lginfo[1])
-            document.getElementById('responseTextarea1').removeAttribute('senddata1')
-
-        }, 2000)
-        document.getElementById('sidcode').style.background = 'coral'
-        setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
-    } else alert("Введите ID тестового ученика в настройках ⚙");
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+		    logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
+				if(logginerinfo !=null) {
+					logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+					logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
+					copyToClipboard1(logginerinfo[1])
+				document.getElementById('responseTextarea1').removeAttribute('senddata1')
+			}
+		})
 }
 
-btntid.onclick = async function () { // копирует в буфер логиннер для П
+btnsid.onclick = function () { // копирует в буфер логиннер для У
+    let teststudid = localStorage.getItem('test_stud');
+    if (teststudid != null || teststudid != '') {
+		logginerfortests(teststudid)
+		document.getElementById('sidcode').style.background = 'coral'
+		setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
+
+	} else alert("Введите ID тестового ученика в настройках ⚙");
+}
+
+
+btntid.onclick = function () { // копирует в буфер логиннер для У
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
-        document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-site": "same-origin",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			  },
-			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${testteachid}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			}`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-        document.getElementById('responseTextarea3').value = 'senddata2'
-        document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-
-            lginfo = await document.getElementById('responseTextarea1').getAttribute('senddata2');
-            lginfo = lginfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-            lginfo = lginfo[lginfo.length - 1].split("\"");
-            copyToClipboard1(lginfo[1])
-            document.getElementById('responseTextarea1').removeAttribute('senddata2')
-
-        }, 2000)
+		logginerfortests(testteachid)
         document.getElementById('tidcode').style.background = 'coral'
         setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
-    } else alert("Введите ID тестового преподавателя в настройках ⚙");
-}
 
+	} else alert("Введите ID тестового преподавателя в настройках ⚙");
+}
+		
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
         localStorage.setItem('hesoyam', '0')
