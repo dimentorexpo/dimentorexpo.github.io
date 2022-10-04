@@ -11976,32 +11976,36 @@ document.getElementById('startlookstatus').onclick = async function () { //Фу�
         enddate = Number(enddate[2]) + '-' + Number(enddate[1]) + '-' + Number(enddate[0]) + ' ' + 21;
         console.log("end date= " + enddate);
 		
+		document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"content-type": "application/x-www-form-urlencoded",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			  },
+			  "referrer": "https://timetable.skyeng.ru/",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": "from=${startdate}:00:00&to=${enddate}:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			}`
+		document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+		document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+		document.getElementById('sendResponse').click()
+		
 		const resfc = new Promise((resolve, reject) => {
-					
-			document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-origin"
-				  },
-				  "referrer": "https://timetable.skyeng.ru/",
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": "from=${startdate}:00:00&to=${enddate}:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				}`
-			document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
-			document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
-			document.getElementById('sendResponse').click()
-			
-			arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-
-			resolve(arregetted)
-				
+					setTimeout( () => {
+						arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+						if (arregetted != null)
+							resolve(arregetted)
+						else reject(arregetted)
+					} )						
 		});
 		
-		console.log('Answer' + resfc.then(arregetted))
+		resfc.then(value => {
+			console.log(resfc);
+			console.log(value);
+		  })
 
         // setTimeout(function () {
             // arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
