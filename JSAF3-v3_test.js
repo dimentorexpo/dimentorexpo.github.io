@@ -5174,7 +5174,7 @@ let servrespdata;
 				}    
 			})
 
-        }, 720)
+        }, 800)
     }
 
     document.getElementById('CrmStatus').onclick = crmstatus; //функция обновляет статус  активных задача на ученике на тп исход
