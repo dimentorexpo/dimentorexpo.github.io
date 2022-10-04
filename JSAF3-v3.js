@@ -4372,21 +4372,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		})
     }
 
-    let servicearray = "";
-    async function getservicearr() { // получает массив услуг с СРМки
+    let servicearray;
+	let servicecontainer;
+    function getservicearr() { // получает массив услуг с СРМки
 
         document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
         document.getElementById('responseTextarea3').value = 'arrayofservices'
         document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
-            servicearray = await servicearray;
-            servicearray = JSON.parse(servicearray);
-            document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
-
-        }, 1500)
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+			servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
+			if (servicearray != null) {
+				servicecontainer = JSON.parse(servicearray);
+				document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
+			}
+		})
     }
 
     document.getElementById('getlessonpast').onclick = function () { // показывает прошедшие уроки
@@ -4461,9 +4462,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         pastlessoninfo.data[i].lessonType = "Пробный";
                     }
 
-                    for (let j = 0; j < servicearray.data.length; j++) {
-                        if (servicearray.data[j].serviceTypeKey == pastlessoninfo.data[i].educationService.serviceTypeKey)
-                            pastlessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
+                    for (let j = 0; j < servicecontainer.data.length; j++) {
+                        if (servicecontainer.data[j].serviceTypeKey == pastlessoninfo.data[i].educationService.serviceTypeKey)
+                            pastlessoninfo.data[i].educationService.serviceTypeKey = servicecontainer.data[j].title;
                     }
 
                     if (pastlessoninfo.data[i].educationService.serviceTypeKey == null) {
@@ -4544,9 +4545,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         futurelessoninfo.data[i].lessonType = "Пробный";
                     }
 
-                    for (let j = 0; j < servicearray.data.length; j++) {
-                        if (servicearray.data[j].serviceTypeKey == futurelessoninfo.data[i].educationService.serviceTypeKey)
-                            futurelessoninfo.data[i].educationService.serviceTypeKey = servicearray.data[j].title;
+                    for (let j = 0; j < servicecontainer.data.length; j++) {
+                        if (servicecontainer.data[j].serviceTypeKey == futurelessoninfo.data[i].educationService.serviceTypeKey)
+                            futurelessoninfo.data[i].educationService.serviceTypeKey = servicecontainer.data[j].title;
                     }
 
                     if (futurelessoninfo.data[i].teacher != null) {
@@ -5115,9 +5116,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     arrservice = null;
                 } else {
                     for (let i = 0; i < servicearr.data.length; i++) {
-                        for (let d = 0; d < servicearray.data.length; d++) {
-                            if (servicearray.data[d].serviceTypeKey == servicearr.data[i].serviceTypeKey)
-                                servicearr.data[i].serviceTypeKey = servicearray.data[d].shortTitle;
+                        for (let d = 0; d < servicecontainer.data.length; d++) {
+                            if (servicecontainer.data[d].serviceTypeKey == servicearr.data[i].serviceTypeKey)
+                                servicearr.data[i].serviceTypeKey = servicecontainer.data[d].shortTitle;
                         }
 
                         if (servicearr.data[i].student.general.id == stid && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher == null) {

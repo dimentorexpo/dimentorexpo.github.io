@@ -4383,7 +4383,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 			servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
-			console.log(servicearray)
 			if (servicearray != null) {
 				servicecontainer = JSON.parse(servicearray);
 				document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
