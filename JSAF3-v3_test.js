@@ -11996,10 +11996,10 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 		   arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             arregetted = JSON.parse(arregetted);
-			if (arregetted == null) 
+			if (arregetted == null) {
 				console.log('Loading lessons data')
 			
-				if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
+			} else if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
 					document.querySelector('#statustable').innerText = "";
 					for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
 						if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
