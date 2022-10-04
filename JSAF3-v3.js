@@ -4723,6 +4723,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let nameofuser;
     let teachername;
     let studentname;
+	let responsedata;
     let utczone;
     let localtime;
     let servlocalestatus;
@@ -4730,7 +4731,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let countryofuser;
     let ageofuser;
 
-    async function getusernamecrm() { //получить имя пользователя из СРМ
+    function getusernamecrm() { //получить имя пользователя из СРМ
         let curdate = new Date();
         let curhours = (curdate.getUTCHours() + 3);
         let curminutes = curdate.getMinutes();
@@ -4743,17 +4744,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
         document.getElementById('responseTextarea3').value = 'getusernameinfo'
         document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
-            studentname = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-            studentname = await studentname;
-            studentname = JSON.parse(studentname);
-            nameofuser = "";
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+		    responsedata = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+			if (responsedata !=null) {
+			studentname = JSON.parse(responsedata);
+			nameofuser = "";
             teachername = "";
-			
-			if (studentname == null) {
-				setTimeout( function() {
-							if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
+				if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
 								nameofuser = studentname.data.name + " " + studentname.data.surname;
 								flagusertype = 'student'
 							} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
@@ -4806,69 +4804,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									ageofuser = "🅰";
 							} else if (studentname.data.birthday == null)
 								ageofuser = "❓";
-				}, 2000)
-
-			} else {
-
-				if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
-					nameofuser = studentname.data.name + " " + studentname.data.surname;
-					flagusertype = 'student'
-				} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
-					nameofuser = studentname.data.name;
-					flagusertype = 'student'
-				} else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
-					flagusertype = 'teacher'
-					teachername = studentname.data.name + " " + studentname.data.surname;
-				} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
-					teachername = studentname.data.name;
-					flagusertype = 'teacher'
-				}
-
-				utczone = studentname.data.utcOffset;
-				if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
-					localtime = (curhours + (utczone - 3)) + ":" + curminutes;
-				} else if ((curhours + (utczone - 3)) >= 24) {
-					localtime = "0" + ((curhours + (utczone - 3)) - 24) + ":" + curminutes;
-				} else if ((curhours + (utczone - 3)) < 10 && (curhours + (utczone - 3)) >= 0) {
-					localtime = "0" + (curhours + (utczone - 3)) + ":" + curminutes;
-				} else if ((curhours + (utczone - 3)) < 0) {
-					localtime = ((curhours + (utczone - 3)) + 24) + ":" + curminutes;
-				}
-
-				if (studentname.data.serviceLocale == null) {
-					servlocalestatus = "⭕"
-				} else {
-					servlocalestatus = studentname.data.serviceLocale;
-				}
-
-				if (studentname.data.avatarUrl != null) {
-					avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
-				} else {
-					avatarofuser = null;
-				}
-
-				if (studentname.data.country != null) {
-					countryofuser = studentname.data.country;
-				} else {
-					countryofuser = null;
-				}
-
-				let goddata = new Date()
-				goddata = goddata.getFullYear();
-				if (studentname.data.birthday != null) {
-					studentname = studentname.data.birthday.split('-')
-					if (goddata - studentname[0] < 18)
-						ageofuser = "🔞"
-					else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
-						ageofuser = "🅰";
-				} else if (studentname.data.birthday == null)
-					ageofuser = "❓";
-
-				document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
+							
+							document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
 			}
-
-        }, 1000) // было 600, проверяю как будет работать 01 октября 2022
-
+		})
     }
 
     let tokenlogginer;
