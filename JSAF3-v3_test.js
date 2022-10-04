@@ -7094,27 +7094,25 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 							rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
 						if (rezissuetable != null) {
-								 document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-                        let issues = [];
-                        let temporarka;
-                        if (rezissuetable.issueTable.issueKeys.length > 50)
-                            rezissuetable.issueTable.issueKeys.length = 50;
-                        for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
+							document.getElementById('responseTextarea1').removeAttribute('getissuetable')
+							let issues = [];
+							let temporarka;
+								if (rezissuetable.issueTable.issueKeys.length > 50)
+									rezissuetable.issueTable.issueKeys.length = 50;
+								for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
 
-                            if (rezissuetable.issueTable.issueKeys[i] != undefined) {
+									if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 
-                                if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) != -1) {
-                                    temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').replace(new RegExp(document.getElementById('testJira').value, 'i'), `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${document.getElementById('testJira').value.toUpperCase()}</span>`)
-                                } else {
-                                    temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ')
-                                }
+										if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) != -1) {
+											temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').replace(new RegExp(document.getElementById('testJira').value, 'i'), `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${document.getElementById('testJira').value.toUpperCase()}</span>`)
+										} else {
+											temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ')
+										}
+									
+										issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}` + '</span>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
 
-
-                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}` + '</span>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
-
-                            }
-
-                        }
+									}
+								}
 
                         document.getElementById('issuetable').innerHTML = issues;
 
@@ -7138,7 +7136,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 })
                             }
                         }
-							
 							
 						let addtofarr = document.getElementsByName('addtofavourites')
                         let tagsarray = document.getElementsByName('buglinks');
@@ -7205,8 +7202,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             }
                         }
 
-                        console.log(rezissuetable.issueTable.issueKeys);
-                        setTimeout(function () { issues = []; }, 5000)
+							console.log(rezissuetable.issueTable.issueKeys);
+							setTimeout(function () { issues = []; }, 5000)
 						}
 						})
             }
