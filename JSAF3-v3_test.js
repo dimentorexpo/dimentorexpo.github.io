@@ -4809,7 +4809,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let flagstatuswait;
 		let flagstatusprocessing;
 		let opername = "";
-		document.getElementById('getcurrentstatus').innerText =''
+		document.getElementById('getcurrentstatus').style.display = "none";
 
         document.getElementById('CrmStatus').style.display = "none";
 
