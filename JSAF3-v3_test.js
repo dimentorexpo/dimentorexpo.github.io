@@ -4896,6 +4896,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         startnewchat(polzid)
     }
 
+let serivceinforesponse;
     document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
         // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
@@ -4913,21 +4914,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         setTimeout(getunhidephone, 620);
         setTimeout(checkemailandphoneidentity, 660);
         setTimeout(crmstatus, 680);
-
-        setTimeout(function () {
-            document.getElementById('responseTextarea1').value = `{}`
+		
+		    document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
 			
-            async function getServInfo() {
-                servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
-                servicearr = JSON.parse(servicearr);
-
-                document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
-				
-				//console.log("User is: " + flagusertype)
-                let tinfo = ""; // инфо о постоянном П
+					document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+						serivceinforesponse = document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+						if (serivceinforesponse != null) {
+							servicearr = JSON.parse(serivceinforesponse);
+							document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
+							
+							                let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
                 let servinfo = ""; //инфо об услуге
                 let noservinfo = ""; //нет инфо об услугах, обычно если профиль П или оператора
@@ -5172,11 +5171,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         }
                     }
                 } // for let j
-            }
-
-            setTimeout(getServInfo, 1200)
-
-        }, 720)
+						}
+					})
     }
 
     document.getElementById('CrmStatus').onclick = crmstatus;
