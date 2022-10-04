@@ -305,6 +305,11 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
+		#butLessonInfo:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
 
 		#JiraOpenForm:hover {
 			background:DeepSkyBlue;
@@ -1419,7 +1424,6 @@ var win_serviceinfo =  // описание элементов окна инфо�
 						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" class="usinfoops">✏</button>
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" class="usinfoops">🗄</button>
 						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" class="usinfoops">💸</button>
-						<button title="Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем" id="getlessonstatus" class="usinfoops">🎓</button>
 						<button title="Открывает окно с techsummary из автофака по пользователю" id="gettechsummary" class="usinfoops">💻</button>
 						</div>
 					   </span>
@@ -2689,6 +2693,12 @@ let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
 butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butLessonInfo = document.createElement('div')
+butLessonInfo.id = "butLessonInfo"
+butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
+butLessonInfo.innerHTML = "🎓 Lesson Info"
+butLessonInfo.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
@@ -6225,6 +6235,32 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else
             document.getElementById('AF_Service').style.display = ''
     }
+	
+	document.getElementById('butLessonInfo').onclick = function() {
+		let getdateset = new Date()
+        let getyearLS = getdateset.getFullYear();
+        let getcurmonthLS = (getdateset.getMonth() + 1)
+        let todayLS = getdateset.getDate();
+        if (getcurmonthLS < 10) {
+            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        } else {
+            getcurmonthLS = (getdateset.getMonth() + 1);
+        }
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
+
+        if (document.getElementById('AF_LessonStatus').style.display == '')
+            document.getElementById('AF_LessonStatus').style.display = 'none'
+        else
+            document.getElementById('AF_LessonStatus').style.display = ''
+	}
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
 
@@ -8305,33 +8341,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('techsumdata').innerText = "Пользователь не обращался в чат, информация отсутствует";
         }
     }
-
-    document.getElementById('getlessonstatus').onclick = function () { // получение инфы о статусе урока кто удалил кем
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
-
-        if (document.getElementById('AF_LessonStatus').style.display == '')
-            document.getElementById('AF_LessonStatus').style.display = 'none'
-        else
-            document.getElementById('AF_LessonStatus').style.display = ''
-    }
-
+	
     let grdata = [];
     document.getElementById('getidgrouptolist').onclick = async function () {
         let dataarr = [];
@@ -11967,20 +11977,18 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         console.log("end date= " + enddate);
 
         document.getElementById('responseTextarea1').value = `{
-  "headers": {
-    "accept": "*/*",
-    "content-type": "application/x-www-form-urlencoded",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin"
-  },
-  "referrer": "https://timetable.skyeng.ru/",
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": "from=${startdate}:00:00&to=${enddate}:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-	}`
+		  "headers": {
+			"content-type": "application/x-www-form-urlencoded",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://timetable.skyeng.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "from=${startdate}:00:00&to=${enddate}:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		}`
         document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
@@ -11988,87 +11996,6 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         setTimeout(function () {
             arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             arregetted = JSON.parse(arregetted);
-			if (arregetted == null) {
-				setTimeout(function() {
-					if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
-					document.querySelector('#statustable').innerText = "";
-					for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
-						if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
-
-							let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
-
-							//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
-
-							if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-								arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
-
-								text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
-								text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
-								text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-								text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-								text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
-								if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-									text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
-								}
-							} else if (arregetted[0].result[0].classes[i].removedAt) {
-
-								arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
-
-								arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
-
-
-								text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-								text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-							}
-
-							let tempor = document.createElement('textarea');
-							document.getElementById('statustable').append(tempor);
-
-							//tempor.setAttribute('type', 'text');
-							tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
-							tempor.setAttribute('wrap', 'soft');
-							tempor.value = text;
-							//    console.log(text);
-						} else if (document.getElementById('idstudentforsearch').value == "") {
-							let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
-
-							//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
-
-							if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-								arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
-								text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
-								text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
-								text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-								text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-								text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
-								if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-									text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
-								}
-							} else if (arregetted[0].result[0].classes[i].removedAt) {
-
-								arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
-
-								arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
-
-								text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-								text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-							}
-
-							let tempor = document.createElement('textarea');
-							document.getElementById('statustable').append(tempor);
-							// tempor.setAttribute('type', 'text');
-							tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
-							tempor.setAttribute('wrap', 'soft');
-							tempor.value = text;
-						}
-					}
-				} else {
-                alert("Уроков нет");
-            }
- 
-            document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
-				}, 3000)
-			} else {
 				if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
 					document.querySelector('#statustable').innerText = "";
 					for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
@@ -12146,9 +12073,9 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
             }
  
             document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
-		}
+		
 
-        }, 2000)
+        }, 5000)
 
     } else {
         alert("Введите ID учителя в поле");
@@ -13363,12 +13290,13 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
             btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
             btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[7])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[8])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[9])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[10])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[11])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[8])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[9])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[10])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[11])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[12])
         }, 2000)
 
         setTimeout(() => {
@@ -13376,9 +13304,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             let menubutarea = document.createElement('div')
             menubutarea.style = 'margin-right:20px;'
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[13])
+            headmenulist.insertBefore(menubutarea, headmenulist.children[14])
             menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[13])
+            headmenulist.insertBefore(menubar, headmenulist.children[14])
             menubar.append(document.getElementById('servDsk'))
             menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
@@ -13386,6 +13314,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('suggestform'))
             menubar.append(document.getElementById('otkaz'))
             menubar.append(document.getElementById('smartroomform'))
+            menubar.append(document.getElementById('butLessonInfo'))
             menubar.append(document.getElementById('butChatHistory'))
         }, 8000)
 
