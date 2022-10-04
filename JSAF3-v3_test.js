@@ -4254,17 +4254,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let emailidentity;
     let phoneidentity;
 
-    async function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
+    function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
         document.getElementById('responseTextarea1').value = `{}` // убрал тело проверим как будет работать
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
         document.getElementById('responseTextarea3').value = 'responseupdate'
         document.getElementById('sendResponse').click()
-		
-		commonidentity='';
-		
+
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 		    responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+			console.log(responseinfo)
 			if (responseinfo !=null) {
+				commonidentity='';
 				commonidentity = JSON.parse(responseinfo);
 				if (flagusertype == "teacher") {
 						console.log('It is a teacher!')
@@ -4281,7 +4281,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						emailidentity = "📧✔";
 						phoneidentity = "☎✔";
 					}
-			}
+				}
 			})
     }
 
