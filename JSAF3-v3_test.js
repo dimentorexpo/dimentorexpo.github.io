@@ -4383,7 +4383,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				unhidenemail = unhidenemail.data.value;
 				document.getElementById('responseTextarea1').removeAttribute('emailishere')
 			}
-		}
+		})
 
         // setTimeout(async function () {
 			// unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
