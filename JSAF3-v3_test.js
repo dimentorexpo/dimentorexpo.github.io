@@ -12047,8 +12047,10 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
             }
  
             document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
+			}
+		})
 		
-		});
+		
 
     } else {
         alert("Введите ID учителя в поле");
