@@ -4760,7 +4760,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let tokenlogginer;
     let logginerinfo;
 	let loginresponse;
-    async function postuderdatatologin() { // логгинер для У П , переработать нужно!
+    function postuderdatatologin() { // логгинер для У П , переработать нужно!
         logginerinfo = '';
         let useriddata = document.getElementById('idstudent').value;
         useriddata = useriddata.trim();
