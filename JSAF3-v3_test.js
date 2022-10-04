@@ -4376,7 +4376,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		console.log(unhidenemail)
 		console.log(document.getElementById("responseTextarea1"))
 		
-		document.getElementById("responseTextarea3").addEventListener("DOMSubtreeModified", function() {			
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {			
 			if (unhidenemail == null) {
 				console.log('Loading unhide mail data')
 			} else if (unhidenemail != null || unhidenemail != undefined){
