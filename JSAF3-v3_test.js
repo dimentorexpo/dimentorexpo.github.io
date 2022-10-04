@@ -11975,107 +11975,110 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         enddate = enddate.split('-');
         enddate = Number(enddate[2]) + '-' + Number(enddate[1]) + '-' + Number(enddate[0]) + ' ' + 21;
         console.log("end date= " + enddate);
+		
+		const resfc = new Promise((resolve, reject) => {
+					
+			document.getElementById('responseTextarea1').value = `{
+				  "headers": {
+					"content-type": "application/x-www-form-urlencoded",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-origin"
+				  },
+				  "referrer": "https://timetable.skyeng.ru/",
+				  "referrerPolicy": "strict-origin-when-cross-origin",
+				  "body": "from=${startdate}:00:00&to=${enddate}:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
+				  "method": "POST",
+				  "mode": "cors",
+				  "credentials": "include"
+				}`
+			document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
+			document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
+			document.getElementById('sendResponse').click()
+			
+			arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
 
-        document.getElementById('responseTextarea1').value = `{
-		  "headers": {
-			"content-type": "application/x-www-form-urlencoded",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-origin"
-		  },
-		  "referrer": "https://timetable.skyeng.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "from=${startdate}:00:00&to=${enddate}:00:00&offset=0&filters[teacherIds][]=${ticherid}&callback=getJSONP",
-		  "method": "POST",
-		  "mode": "cors",
-		  "credentials": "include"
-		}`
-        document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
-        document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
-        document.getElementById('sendResponse').click()
+			resolve(arregetted)
+				
+		});
+		
+		console.log('Answer' + resfc.then(arregetted))
 
-        setTimeout(function () {
-            arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-            arregetted = JSON.parse(arregetted);
-				if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
-					document.querySelector('#statustable').innerText = "";
-					for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
-						if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
+        // setTimeout(function () {
+            // arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+            // arregetted = JSON.parse(arregetted);
+				// if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
+					// document.querySelector('#statustable').innerText = "";
+					// for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
+						// if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
 
-							let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
+							// let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
-							//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
+							// if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
+								// arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
 
-							if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-								arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
+								// text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
+								// text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
+								// text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+								// text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+								// text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
+								// if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
+									// text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+								// }
+							// } else if (arregetted[0].result[0].classes[i].removedAt) {
 
-								text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
-								text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
-								text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-								text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-								text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
-								if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-									text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
-								}
-							} else if (arregetted[0].result[0].classes[i].removedAt) {
+								// arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-								arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+								// arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+								// text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
+								// text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+							// }
 
-								arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+							// let tempor = document.createElement('textarea');
+							// document.getElementById('statustable').append(tempor);
 
+							// tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
+							// tempor.setAttribute('wrap', 'soft');
+							// tempor.value = text;
 
-								text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-								text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-							}
+						// } else if (document.getElementById('idstudentforsearch').value == "") {
+							// let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
-							let tempor = document.createElement('textarea');
-							document.getElementById('statustable').append(tempor);
+							// if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
+								// arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
+								// text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
+								// text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
+								// text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+								// text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+								// text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
+								// if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
+									// text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+								// }
+							// } else if (arregetted[0].result[0].classes[i].removedAt) {
 
-							//tempor.setAttribute('type', 'text');
-							tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
-							tempor.setAttribute('wrap', 'soft');
-							tempor.value = text;
-							//    console.log(text);
-						} else if (document.getElementById('idstudentforsearch').value == "") {
-							let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
+								// arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-							//	new Date(arregetted[0].result[0].classes[i].startAt).toLocaleTimeString("ru-RU", {timeZone: 'Europe/Moscow'}).slice(0,5)
+								// arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-							if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-								arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
-								text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
-								text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
-								text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-								text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-								text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
-								if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-									text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
-								}
-							} else if (arregetted[0].result[0].classes[i].removedAt) {
+								// text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
+								// text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+							// }
 
-								arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
-
-								arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
-
-								text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-								text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-							}
-
-							let tempor = document.createElement('textarea');
-							document.getElementById('statustable').append(tempor);
-							// tempor.setAttribute('type', 'text');
-							tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
-							tempor.setAttribute('wrap', 'soft');
-							tempor.value = text;
-						}
-					}
-				} else {
-                alert("Уроков нет");
-            }
+							// let tempor = document.createElement('textarea');
+							// document.getElementById('statustable').append(tempor);
+							
+							// tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
+							// tempor.setAttribute('wrap', 'soft');
+							// tempor.value = text;
+						// }
+					// }
+				// } else {
+                // alert("Уроков нет");
+            // }
  
-            document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
+            // document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
 		
 
-        }, 5000)
+        // }, 5000)
 
     } else {
         alert("Введите ID учителя в поле");
