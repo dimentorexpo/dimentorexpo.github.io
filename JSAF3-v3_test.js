@@ -11958,7 +11958,7 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
 //Функция проверки статусов урока
 let arregetted;
 
-document.getElementById('startlookstatus').onclick = function () { //Функция проверки статусов урока
+document.getElementById('startlookstatus').onclick = async function () { //Функция проверки статусов урока
     if (document.getElementById('idteacherforsearch').value != "") {
         document.querySelector('#statustable').style.display = "";
         document.querySelector('#statustable').innerText = "Загрузка...";
