@@ -4367,30 +4367,42 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     let unhidenemail;
-    async function getunhideemail() { //открывает почту пользователя
+    function getunhideemail() { //открывает почту пользователя
         document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'emailishere'
         document.getElementById('sendResponse').click()
-
-        setTimeout(async function () {
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 			unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-			if  (unhidenemail == null) {
-					setTimeout(async function () {
-						unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-						unhidenemail = await unhidenemail;
-						unhidenemail = JSON.parse(unhidenemail);
-						unhidenemail = unhidenemail.data.value;
-						document.getElementById('responseTextarea1').removeAttribute('emailishere')
-				}, 1000)
+			unhidenemail = JSON.parse(unhidenemail);
+			
+			if (unhidenemail == null) {
+				console.log('Loading unhide mail data')
 			} else {
-				unhidenemail = await unhidenemail;
-				unhidenemail = JSON.parse(unhidenemail);
 				unhidenemail = unhidenemail.data.value;
 				document.getElementById('responseTextarea1').removeAttribute('emailishere')
 			}
+		}
 
-        }, 1000) // было 600 , тестирую как будет сейчас 01 октября 2022
+        // setTimeout(async function () {
+			// unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+			// if  (unhidenemail == null) {
+					// setTimeout(async function () {
+						// unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+						// unhidenemail = await unhidenemail;
+						// unhidenemail = JSON.parse(unhidenemail);
+						// unhidenemail = unhidenemail.data.value;
+						// document.getElementById('responseTextarea1').removeAttribute('emailishere')
+				// }, 1000)
+			// } else {
+				// unhidenemail = await unhidenemail;
+				// unhidenemail = JSON.parse(unhidenemail);
+				// unhidenemail = unhidenemail.data.value;
+				// document.getElementById('responseTextarea1').removeAttribute('emailishere')
+			// }
+
+        // }, 1000) 
     }
 
     let servicearray = "";
