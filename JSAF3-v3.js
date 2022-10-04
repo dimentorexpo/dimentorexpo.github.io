@@ -739,7 +739,6 @@ var win_taskform = //описание формы создания задач в 
 						<div id="addcreateformbtns">
 							<button id="critteachertostudent" style="height:25px; width: 130px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
 							<button id="critstudenttoteacher" style="height:25px; width: 130px;">Крит 👨‍🎓У -> П👽</button>
-							<button id="critstudent" style="height:25px; width: 130px;">Крит У👨‍🎓</button>
 							<br>
 							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
 							<button id="highteachersc" style="height:25px; width: 130px;">👽Исход звонки</button>
@@ -2956,40 +2955,15 @@ taskBut.onclick = function () { // функция открытия окна дл
             if (services.length == 1) {
                 document.getElementById('taskserviceid').value = services[0].replace('service-', '')
             } else {
-                document.getElementById('taskserviceid').value = 'У ученика несколько услуг, выберите подходящую!'
-                document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
+				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+						document.getElementById('taskserviceid').value  = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+					}
+				}
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
         }
-
-
-        document.getElementById('critstudent').onclick = function () {
-            document.getElementById('priority').children[3].selected = true;
-            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
-            document.getElementById('customerservice').children[1].selected = true;
-            let services;
-
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-            }
-
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
-                    services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
-                }
-            }
-
-            if (services.length == 1) {
-                document.getElementById('taskserviceid').value = services[0].replace('service-', '')
-            } else {
-                document.getElementById('taskserviceid').value = 'У ученика несколько услуг, выберите подходящую!'
-                document.getElementById('taskserviceid').style = 'color:red; font-weight:600;width:100%'
-            }
-
-        }
-
 
         document.getElementById('highsecondline').onclick = function () {
             document.getElementById('priority').children[2].selected = true;
@@ -4276,27 +4250,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     let commonidentity;
+	let responseinfo;
     let emailidentity;
     let phoneidentity;
 
-    async function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
+    function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
         document.getElementById('responseTextarea1').value = `{}` // убрал тело проверим как будет работать
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
         document.getElementById('responseTextarea3').value = 'responseupdate'
         document.getElementById('sendResponse').click()
-		
-		commonidentity='';
 
-        setTimeout(async function () {
-
-            commonidentity = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-            commonidentity = await commonidentity;
-			
-			if (commonidentity == null) {
-				setTimeout(function() {
-					// console.log('Type of userok: ' + flagusertype)
-					// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
-					if (flagusertype == "teacher") {
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+		    responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+			if (responseinfo !=null) {
+				commonidentity='';
+				commonidentity = responseinfo;
+				if (flagusertype == "teacher") {
 						console.log('It is a teacher!')
 					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
 						emailidentity = "📧✖";
@@ -4311,30 +4280,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						emailidentity = "📧✔";
 						phoneidentity = "☎✔";
 					}
-				}, 2100)
-			} else  {
-				// if (commonidentity.match(/name="newValue" value="(.*@skyeng.ru)/g) != null) {
-					
-					if (flagusertype == "teacher") {
-						console.log('It is a teacher!')
-					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-						emailidentity = "📧✖";
-						phoneidentity = "☎✖";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-						emailidentity = "📧✔";
-						phoneidentity = "☎✖";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-						emailidentity = "📧✖";
-						phoneidentity = "☎✔";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-						emailidentity = "📧✔";
-						phoneidentity = "☎✔";
-					}
-			}
-
-            document.getElementById('responseTextarea1').removeAttribute('responseupdate')
-
-        }, 1000) //было 550, тестирую как будет сейчас 01 октября 2022
+				}
+			})
     }
 
     let unhidephone;
