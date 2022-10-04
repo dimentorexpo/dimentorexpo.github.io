@@ -12002,9 +12002,9 @@ document.getElementById('startlookstatus').onclick = async function () { //Фу�
 					} )						
 		});
 		
+		await resfc;
 		resfc.then(value => {
-			console.log(resfc);
-			console.log(value);
+			console.log(JSON.parse(value));
 		  })
 
         // setTimeout(function () {
