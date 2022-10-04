@@ -4759,7 +4759,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     let tokenlogginer;
     let logginerinfo;
-
+	let loginresponse;
     async function postuderdatatologin() { // логгинер для У П , переработать нужно!
         logginerinfo = '';
         let useriddata = document.getElementById('idstudent').value;
@@ -4781,19 +4781,21 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
         document.getElementById('responseTextarea3').value = 'postdata'
         document.getElementById('sendResponse').click()
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+		    loginresponse = document.getElementById('responseTextarea1').getAttribute('postdata');
+				if(loginresponse !=null)( {
+					logginerinfo = loginresponse;
+					logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+					logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
 
-        setTimeout(async function () {
-            logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
-            logginerinfo = await logginerinfo;
-            logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-            logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
-            //console.log("WATCH OUT ITS LOGGINER:" + logginerinfo[1])
-            copyToClipboard1(logginerinfo[1])
-			if (logginerinfo[1])
-				flaggetlogginer = 1;
-			else flaggetlogginer = 0;
-            document.getElementById('responseTextarea1').removeAttribute('postdata')
-        }, 2000)
+					copyToClipboard1(logginerinfo[1])
+				if (logginerinfo[1])
+					flaggetlogginer = 1;
+				else flaggetlogginer = 0;
+				document.getElementById('responseTextarea1').removeAttribute('postdata')
+			}
+		})
     }
 
     let getcrmstatusinfo;
