@@ -4759,7 +4759,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     let tokenlogginer;
     let logginerinfo;
-	let loginresponse;
     function postuderdatatologin() { // логгинер для У П , переработать нужно!
         logginerinfo = '';
         let useriddata = document.getElementById('idstudent').value;
@@ -4783,9 +4782,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 		
 		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-		    loginresponse = document.getElementById('responseTextarea1').getAttribute('postdata');
-				if(loginresponse !=null)( {
-					logginerinfo = loginresponse.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+		    logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
+				if(logginerinfo !=null) {
+					logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
 					logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
 
 					copyToClipboard1(logginerinfo[1])
