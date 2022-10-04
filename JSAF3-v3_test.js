@@ -4373,16 +4373,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea3').value = 'emailishere'
         document.getElementById('sendResponse').click()
 		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-			unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-			unhidenemail = JSON.parse(unhidenemail);
-			
+		console.log(unhidenemail)
+		console.log(document.getElementById("responseTextarea1"))
+		
+		document.getElementById("responseTextarea3").addEventListener("DOMSubtreeModified", function() {			
 			if (unhidenemail == null) {
 				console.log('Loading unhide mail data')
-			} else {
+			} else if (unhidenemail != null || unhidenemail != undefined){
+				unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+				unhidenemail = JSON.parse(unhidenemail);
 				unhidenemail = unhidenemail.data.value;
-				document.getElementById('responseTextarea1').removeAttribute('emailishere')
 			}
+			
+			document.getElementById('responseTextarea1').removeAttribute('emailishere')
 		})
 
         // setTimeout(async function () {
