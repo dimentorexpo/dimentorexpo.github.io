@@ -7109,10 +7109,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let jira_token;
                                 let increasedcount;
                                 setTimeout(async function () {
-                                    document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                                    document.getElementById('responseTextarea3').value = 'reportscount'
-                                    document.getElementById('sendResponse').click()
 
                                     let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
                                     repcount = await repcount;
@@ -7154,7 +7150,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         console.log(rezissuetable.issueTable.issueKeys);
                         setTimeout(function () { issues = []; }, 5000)
                     }
-
                 }
 
                 setTimeout(getJiraTask, 1000)
@@ -7165,7 +7160,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (document.getElementById('AF_Jira').style.display == 'none') {
                     document.getElementById('AF_Jira').style.display = ''
                 }
-
 
                 let rezissuetable;
 
@@ -7187,11 +7181,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('sendResponse').click()
 
                 async function getJiraTask1() {
-                    document.getElementById('responseTextarea1').value = '{}'
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-                    document.getElementById('responseTextarea3').value = 'getissuetable1'
-                    document.getElementById('sendResponse').click()
-
 
                     rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
                     rezissuetable = await rezissuetable;
