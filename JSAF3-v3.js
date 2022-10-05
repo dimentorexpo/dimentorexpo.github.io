@@ -2955,11 +2955,11 @@ taskBut.onclick = function () { // функция открытия окна дл
             if (services.length == 1) {
                 document.getElementById('taskserviceid').value = services[0].replace('service-', '')
             } else {
-				for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-					if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
-						document.getElementById('taskserviceid').value  = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-					}
-				}
+                for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+                        document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                    }
+                }
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
@@ -4250,7 +4250,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     let commonidentity;
-	let responseinfo;
+    let responseinfo;
     let emailidentity;
     let phoneidentity;
 
@@ -4260,81 +4260,81 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea3').value = 'responseupdate'
         document.getElementById('sendResponse').click()
 
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-		    responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-			if (responseinfo !=null) {
-				commonidentity='';
-				commonidentity = responseinfo;
-				if (flagusertype == "teacher") {
-						console.log('It is a teacher!')
-					} else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-						emailidentity = "📧✖";
-						phoneidentity = "☎✖";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-						emailidentity = "📧✔";
-						phoneidentity = "☎✖";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-						emailidentity = "📧✖";
-						phoneidentity = "☎✔";
-					} else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-						emailidentity = "📧✔";
-						phoneidentity = "☎✔";
-					}
-				}
-			})
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+            if (responseinfo != null) {
+                commonidentity = '';
+                commonidentity = responseinfo;
+                if (flagusertype == "teacher") {
+                    console.log('It is a teacher!')
+                } else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+                    emailidentity = "📧✖";
+                    phoneidentity = "☎✖";
+                } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+                    emailidentity = "📧✔";
+                    phoneidentity = "☎✖";
+                } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+                    emailidentity = "📧✖";
+                    phoneidentity = "☎✔";
+                } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+                    emailidentity = "📧✔";
+                    phoneidentity = "☎✔";
+                }
+            }
+        })
     }
 
     let unhidephone;
-	let phonecontainer;
+    let phonecontainer;
     async function getunhidephone() { // открывает номер телефона
 
         document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'phoneishere'
         document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-			unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
-			if (unhidephone != null) {
-				phonecontainer = JSON.parse(unhidephone).data.value;
-				document.getElementById('responseTextarea1').removeAttribute('phoneishere')
-			}
-		})
+
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
+            if (unhidephone != null) {
+                phonecontainer = JSON.parse(unhidephone).data.value;
+                document.getElementById('responseTextarea1').removeAttribute('phoneishere')
+            }
+        })
     }
 
     let unhidenemail;
-	let mailcontainer;
+    let mailcontainer;
     function getunhideemail() { //открывает почту пользователя
         document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
         document.getElementById('responseTextarea3').value = 'emailishere'
         document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-			unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-			if (unhidenemail != null) {
-				mailcontainer = JSON.parse(unhidenemail).data.value;
-				document.getElementById('responseTextarea1').removeAttribute('emailishere')
-			}
-		})
+
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
+            if (unhidenemail != null) {
+                mailcontainer = JSON.parse(unhidenemail).data.value;
+                document.getElementById('responseTextarea1').removeAttribute('emailishere')
+            }
+        })
     }
 
     let servicearray;
-	let servicecontainer;
+    let servicecontainer;
     function getservicearr() { // получает массив услуг с СРМки
 
         document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
         document.getElementById('responseTextarea3').value = 'arrayofservices'
         document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-			servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
-			if (servicearray != null) {
-				servicecontainer = JSON.parse(servicearray);
-				document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
-			}
-		})
+
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
+            if (servicearray != null) {
+                servicecontainer = JSON.parse(servicearray);
+                document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
+            }
+        })
     }
 
     document.getElementById('getlessonpast').onclick = function () { // показывает прошедшие уроки
@@ -4670,7 +4670,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let nameofuser;
     let teachername;
     let studentname;
-	let responsedata;
+    let responsedata;
     let utczone;
     let localtime;
     let servlocalestatus;
@@ -4691,70 +4691,70 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + filteredid + "?crm2=true&debugParam=profile-page"
         document.getElementById('responseTextarea3').value = 'getusernameinfo'
         document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-		    responsedata = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
-			if (responsedata !=null) {
-			studentname = JSON.parse(responsedata);
-			nameofuser = "";
-            teachername = "";
-				if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
-								nameofuser = studentname.data.name + " " + studentname.data.surname;
-								flagusertype = 'student'
-							} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
-								nameofuser = studentname.data.name;
-								flagusertype = 'student'
-							} else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
-								flagusertype = 'teacher'
-								teachername = studentname.data.name + " " + studentname.data.surname;
-							} else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
-								teachername = studentname.data.name;
-								flagusertype = 'teacher'
-							}
 
-							utczone = studentname.data.utcOffset;
-							if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
-								localtime = (curhours + (utczone - 3)) + ":" + curminutes;
-							} else if ((curhours + (utczone - 3)) >= 24) {
-								localtime = "0" + ((curhours + (utczone - 3)) - 24) + ":" + curminutes;
-							} else if ((curhours + (utczone - 3)) < 10 && (curhours + (utczone - 3)) >= 0) {
-								localtime = "0" + (curhours + (utczone - 3)) + ":" + curminutes;
-							} else if ((curhours + (utczone - 3)) < 0) {
-								localtime = ((curhours + (utczone - 3)) + 24) + ":" + curminutes;
-							}
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            responsedata = document.getElementById('responseTextarea1').getAttribute('getusernameinfo');
+            if (responsedata != null) {
+                studentname = JSON.parse(responsedata);
+                nameofuser = "";
+                teachername = "";
+                if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "student") {
+                    nameofuser = studentname.data.name + " " + studentname.data.surname;
+                    flagusertype = 'student'
+                } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "student") {
+                    nameofuser = studentname.data.name;
+                    flagusertype = 'student'
+                } else if (studentname.data.name != null && studentname.data.surname != null && studentname.data.type == "teacher") {
+                    flagusertype = 'teacher'
+                    teachername = studentname.data.name + " " + studentname.data.surname;
+                } else if (studentname.data.name != null && studentname.data.surname == null && studentname.data.type == "teacher") {
+                    teachername = studentname.data.name;
+                    flagusertype = 'teacher'
+                }
 
-							if (studentname.data.serviceLocale == null) {
-								servlocalestatus = "⭕"
-							} else {
-								servlocalestatus = studentname.data.serviceLocale;
-							}
+                utczone = studentname.data.utcOffset;
+                if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
+                    localtime = (curhours + (utczone - 3)) + ":" + curminutes;
+                } else if ((curhours + (utczone - 3)) >= 24) {
+                    localtime = "0" + ((curhours + (utczone - 3)) - 24) + ":" + curminutes;
+                } else if ((curhours + (utczone - 3)) < 10 && (curhours + (utczone - 3)) >= 0) {
+                    localtime = "0" + (curhours + (utczone - 3)) + ":" + curminutes;
+                } else if ((curhours + (utczone - 3)) < 0) {
+                    localtime = ((curhours + (utczone - 3)) + 24) + ":" + curminutes;
+                }
 
-							if (studentname.data.avatarUrl != null) {
-								avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
-							} else {
-								avatarofuser = null;
-							}
+                if (studentname.data.serviceLocale == null) {
+                    servlocalestatus = "⭕"
+                } else {
+                    servlocalestatus = studentname.data.serviceLocale;
+                }
 
-							if (studentname.data.country != null) {
-								countryofuser = studentname.data.country;
-							} else {
-								countryofuser = null;
-							}
+                if (studentname.data.avatarUrl != null) {
+                    avatarofuser = studentname.data.avatarUrl.match(/(https:\/\/auth-avatars-skyeng.imgix.net.*?\d+.\S+).auto/)[1];
+                } else {
+                    avatarofuser = null;
+                }
 
-							let goddata = new Date()
-							goddata = goddata.getFullYear();
-							if (studentname.data.birthday != null) {
-								studentname = studentname.data.birthday.split('-')
-								if (goddata - studentname[0] < 18)
-									ageofuser = "🔞"
-								else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
-									ageofuser = "🅰";
-							} else if (studentname.data.birthday == null)
-								ageofuser = "❓";
-							
-							document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
-			}
-		})
+                if (studentname.data.country != null) {
+                    countryofuser = studentname.data.country;
+                } else {
+                    countryofuser = null;
+                }
+
+                let goddata = new Date()
+                goddata = goddata.getFullYear();
+                if (studentname.data.birthday != null) {
+                    studentname = studentname.data.birthday.split('-')
+                    if (goddata - studentname[0] < 18)
+                        ageofuser = "🔞"
+                    else if (goddata - studentname[0] >= 18 && goddata - studentname[0] < 99)
+                        ageofuser = "🅰";
+                } else if (studentname.data.birthday == null)
+                    ageofuser = "❓";
+
+                document.getElementById('responseTextarea1').removeAttribute('getusernameinfo')
+            }
+        })
     }
 
     let tokenlogginer;
@@ -4780,36 +4780,36 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
         document.getElementById('responseTextarea3').value = 'postdata'
         document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-		    logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
-				if(logginerinfo !=null) {
-					logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-					logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
 
-					copyToClipboard1(logginerinfo[1])
-				if (logginerinfo[1])
-					flaggetlogginer = 1;
-				else flaggetlogginer = 0;
-				document.getElementById('responseTextarea1').removeAttribute('postdata')
-			}
-		})
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            logginerinfo = document.getElementById('responseTextarea1').getAttribute('postdata');
+            if (logginerinfo != null) {
+                logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+                logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
+
+                copyToClipboard1(logginerinfo[1])
+                if (logginerinfo[1])
+                    flaggetlogginer = 1;
+                else flaggetlogginer = 0;
+                document.getElementById('responseTextarea1').removeAttribute('postdata')
+            }
+        })
     }
 
     let getcrmstatusinfo;
-	let crmresponseinfo;
+    let crmresponseinfo;
 
     function crmstatus() { // получить статус задача в СРМ в решении или в ожидании
         let tempvarcrm = document.getElementById('idstudent').value;
         tempvarcrm = tempvarcrm.trim();
-		
-		let flagtpout = 0;
-		let flagtp = 0;
-		let flagnottp = 0;
-		let flagstatuswait;
-		let flagstatusprocessing;
-		let opername = "";
-		document.getElementById('getcurrentstatus').style.display = "none";
+
+        let flagtpout = 0;
+        let flagtp = 0;
+        let flagnottp = 0;
+        let flagstatuswait;
+        let flagstatusprocessing;
+        let opername = "";
+        document.getElementById('getcurrentstatus').style.display = "none";
 
         document.getElementById('CrmStatus').style.display = "none";
 
@@ -4817,79 +4817,79 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
         document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
         document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-			crmresponseinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-			if (crmresponseinfo != null) { 
-				getcrmstatusinfo = JSON.parse(crmresponseinfo);
 
-	
-							if (getcrmstatusinfo.data.length > 0) {
-							for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-								if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
-									flagtpout = 1;
-								} else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
-									flagtp = 1;
-								} else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
-									flagnottp = 1;
-								}
-							}
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            crmresponseinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+            if (crmresponseinfo != null) {
+                getcrmstatusinfo = JSON.parse(crmresponseinfo);
 
-							for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-								if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
-									flagstatuswait = 1;
-								} else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
-									flagstatusprocessing = 1;
-									opername = getcrmstatusinfo.data[i].operator.name;
-								}
-							}
 
-							if (flagstatuswait == 1) {
-								document.getElementById('getcurrentstatus').style.display = "";
-								document.getElementById('getcurrentstatus').innerText = "В ожидании";
-								document.getElementById('getcurrentstatus').style.backgroundColor = "#1E90FF";
-							} else if (flagstatusprocessing == 1) {
-								document.getElementById('getcurrentstatus').style.display = "";
-								document.getElementById('getcurrentstatus').innerText = "Решается";
-								document.getElementById('getcurrentstatus').title = opername;
-								document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
-							}
+                if (getcrmstatusinfo.data.length > 0) {
+                    for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                        if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
+                            flagtpout = 1;
+                        } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
+                            flagtp = 1;
+                        } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
+                            flagnottp = 1;
+                        }
+                    }
 
-							if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
-								document.getElementById('CrmStatus').style.display = "";
-								document.getElementById('CrmStatus').innerText = "💥";
-								console.log("Есть активные задачи");
-							} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
-								document.getElementById('CrmStatus').style.display = "";
-								document.getElementById('CrmStatus').innerText = "🛠";
-								console.log("Входящий звонок или с др отдела на ТП была создана задача");
-							} else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
-								document.getElementById('CrmStatus').style.display = "";
-								document.getElementById('CrmStatus').innerText = "📵";
-								console.log("Нет активных задач по ТП линии");
-							} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
-								document.getElementById('CrmStatus').style.display = "";
-								document.getElementById('CrmStatus').innerText = "💥";
-								console.log("Есть активные задачи на исход и на ТП 1 линии");
-							} else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
-								document.getElementById('CrmStatus').style.display = "";
-								document.getElementById('CrmStatus').innerText = "💥";
-								console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
-							} else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
-								document.getElementById('CrmStatus').style.display = "";
-								document.getElementById('CrmStatus').innerText = "🛠";
-								console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
-							}
+                    for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                        if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+                            flagstatuswait = 1;
+                        } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+                            flagstatusprocessing = 1;
+                            opername = getcrmstatusinfo.data[i].operator.name;
+                        }
+                    }
 
-						} else {
-							document.getElementById('CrmStatus').style.display = "";
-							document.getElementById('CrmStatus').innerText = "📵";
-							console.log("No DATA");
-						}
-						document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
-		}
-		})
-	}
+                    if (flagstatuswait == 1) {
+                        document.getElementById('getcurrentstatus').style.display = "";
+                        document.getElementById('getcurrentstatus').innerText = "В ожидании";
+                        document.getElementById('getcurrentstatus').style.backgroundColor = "#1E90FF";
+                    } else if (flagstatusprocessing == 1) {
+                        document.getElementById('getcurrentstatus').style.display = "";
+                        document.getElementById('getcurrentstatus').innerText = "Решается";
+                        document.getElementById('getcurrentstatus').title = opername;
+                        document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
+                    }
+
+                    if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
+                        document.getElementById('CrmStatus').style.display = "";
+                        document.getElementById('CrmStatus').innerText = "💥";
+                        console.log("Есть активные задачи");
+                    } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+                        document.getElementById('CrmStatus').style.display = "";
+                        document.getElementById('CrmStatus').innerText = "🛠";
+                        console.log("Входящий звонок или с др отдела на ТП была создана задача");
+                    } else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+                        document.getElementById('CrmStatus').style.display = "";
+                        document.getElementById('CrmStatus').innerText = "📵";
+                        console.log("Нет активных задач по ТП линии");
+                    } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+                        document.getElementById('CrmStatus').style.display = "";
+                        document.getElementById('CrmStatus').innerText = "💥";
+                        console.log("Есть активные задачи на исход и на ТП 1 линии");
+                    } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+                        document.getElementById('CrmStatus').style.display = "";
+                        document.getElementById('CrmStatus').innerText = "💥";
+                        console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+                    } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+                        document.getElementById('CrmStatus').style.display = "";
+                        document.getElementById('CrmStatus').innerText = "🛠";
+                        console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
+                    }
+
+                } else {
+                    document.getElementById('CrmStatus').style.display = "";
+                    document.getElementById('CrmStatus').innerText = "📵";
+                    console.log("No DATA");
+                }
+                document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+            }
+        })
+    }
 
     document.getElementById('startnewchat').onclick = async function () { // нажатие на начать новый чат
         let polzid = document.getElementById('idstudent').value.trim();
@@ -4908,7 +4908,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         stid = stid.trim();
 
         getservicearr();
-		setTimeout(getusernamecrm, 640);
+        setTimeout(getusernamecrm, 640);
         setTimeout(getunhideemail, 600);
         setTimeout(getunhidephone, 620);
         setTimeout(checkemailandphoneidentity, 660);
@@ -4919,14 +4919,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
             document.getElementById('responseTextarea3').value = 'getserviceinfo'
             document.getElementById('sendResponse').click()
-			
+
             async function getServInfo() {
                 servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
                 servicearr = JSON.parse(servicearr);
 
                 document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
-				
-				//console.log("User is: " + flagusertype)
+
+                //console.log("User is: " + flagusertype)
                 let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
                 let servinfo = ""; //инфо об услуге
@@ -4974,7 +4974,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга некорректна");
                         } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
                             //	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
-                             console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
+                            console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
                         }
                     }
                 }
@@ -5080,23 +5080,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         };
                     }
 
-					if (document.getElementById('getloginer1') != null) {
-						document.getElementById('getloginer1').onclick = async function () {
-							document.getElementById('getloginer1').style.color="orange"
-							   await postuderdatatologin();
-								
-								setTimeout(function() { 
-								if (flaggetlogginer == 1)
-									document.getElementById('getloginer1').style.color="green"
-								else document.getElementById('getloginer1').style.color="red"
-							
-								setTimeout(()=>{
-									document.getElementById('getloginer1').style.color="bisque"
-								}, 5000)
-							}, 2000) 
-						}
-					}
-				
+                    if (document.getElementById('getloginer1') != null) {
+                        document.getElementById('getloginer1').onclick = async function () {
+                            document.getElementById('getloginer1').style.color = "orange"
+                            await postuderdatatologin();
+
+                            setTimeout(function () {
+                                if (flaggetlogginer == 1)
+                                    document.getElementById('getloginer1').style.color = "green"
+                                else document.getElementById('getloginer1').style.color = "red"
+
+                                setTimeout(() => {
+                                    document.getElementById('getloginer1').style.color = "bisque"
+                                }, 5000)
+                            }, 2000)
+                        }
+                    }
+
                 }
 
                 if (arrservice != null && arrservice.length > 0 && arrservice != undefined) {
@@ -5124,18 +5124,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 if (document.getElementById('getloginer') != null) {
                     document.getElementById('getloginer').onclick = async function () {
-                        document.getElementById('getloginer').style.color="orange"
-                           await postuderdatatologin();
-							
-							setTimeout(function() { 
-							if (flaggetlogginer == 1)
-								document.getElementById('getloginer').style.color="green"
-							else document.getElementById('getloginer').style.color="red"
-						
-							setTimeout(()=>{
-								document.getElementById('getloginer').style.color="bisque"
-							}, 5000)
-						}, 2000) 
+                        document.getElementById('getloginer').style.color = "orange"
+                        await postuderdatatologin();
+
+                        setTimeout(function () {
+                            if (flaggetlogginer == 1)
+                                document.getElementById('getloginer').style.color = "green"
+                            else document.getElementById('getloginer').style.color = "red"
+
+                            setTimeout(() => {
+                                document.getElementById('getloginer').style.color = "bisque"
+                            }, 5000)
+                        }, 2000)
                     }
                 }
 
@@ -5742,23 +5742,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             } else alert("Не выбраны чекбоксы, выберите, пожалуйста, 1 или несколько и повторите попытку")
         }
 
-		document.getElementById('linktojirasend').onclick = function() {
-			let getval = document.getElementById('linktojiracoment').value;
-			if (getval != '') {
-				sendComment(getval);
-				    fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", {
-                            "headers": {
-                                "content-type": "application/json",
-                            },
-                            "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        })
-                     document.getElementById('linktojiracoment').value = "";
-			}
-		}
-		
+        document.getElementById('linktojirasend').onclick = function () {
+            let getval = document.getElementById('linktojiracoment').value;
+            if (getval != '') {
+                sendComment(getval);
+                fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", {
+                    "headers": {
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + getval + "\"}]}",
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                })
+                document.getElementById('linktojiracoment').value = "";
+            }
+        }
+
         document.getElementById('vimcall').onclick = function () {
             document.getElementById('svyazissues').style.display = 'flex'
             document.getElementById('themes_body').style.display = 'none'
@@ -5934,9 +5934,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         else
             document.getElementById('AF_Service').style.display = ''
     }
-	
-	document.getElementById('butLessonInfo').onclick = function() {
-		let getdateset = new Date()
+
+    document.getElementById('butLessonInfo').onclick = function () {
+        let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
         let todayLS = getdateset.getDate();
@@ -5959,7 +5959,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_LessonStatus').style.display = 'none'
         else
             document.getElementById('AF_LessonStatus').style.display = ''
-	}
+    }
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
 
@@ -6662,32 +6662,32 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             let jiratkn;
 
-            function checkJiraToken() {
+            function checkJiraToken() { //функция проверки авторизации в jira
                 document.getElementById('responseTextarea1').value = '{}'
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
                 document.getElementById('responseTextarea3').value = 'getjiratoken'
                 document.getElementById('sendResponse').click()
-				
-				document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-					jiratkn = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-					if(jiratkn !=null) {
-						if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
-							jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
-							document.getElementById('searchjiratknstatus').innerText = "🟢"
-							console.log("TOKEN: " + jiratkn);
-						} else {
-							alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
-							document.getElementById('searchjiratknstatus').innerText = "🔴"
-						}
-                    document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 
-					}
-				})
+                document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+                    jiratkn = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+                    if (jiratkn != null) {
+                        if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
+                            jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+                            document.getElementById('searchjiratknstatus').innerText = "🟢"
+                            console.log("TOKEN: " + jiratkn);
+                        } else {
+                            alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+                            document.getElementById('searchjiratknstatus').innerText = "🔴"
+                        }
+                        document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+
+                    }
+                })
             }
 
             checkJiraToken()
 
-            document.getElementById('ClearJiraData').onclick = function () {
+            document.getElementById('ClearJiraData').onclick = function () {  // функция очистки полей в форме
                 document.getElementById('testJira').value = '';
                 document.getElementById('issuetable').innerText = ''
             }
@@ -6696,10 +6696,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-jirasearch%F0%9F%94%8EJiraSearch')
             }
 
-            document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
+            document.getElementById('RefreshJiraStatus').onclick = checkJiraToken // функция повторной проверки авторизации в Jira
             let favissues = [];
 
-            document.getElementById('defaultQuery').onclick = function () {
+            document.getElementById('defaultQuery').onclick = function () { // если выбрана default
                 defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
                 document.getElementById('testJira').value = ""
@@ -6715,7 +6715,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('favouriteissuetable').style.display = "none"
             }
 
-            document.getElementById('getiosbugs').onclick = function () {
+            document.getElementById('getiosbugs').onclick = function () { // если выбрана ios
                 document.getElementById('testJira').value = "ios"
                 this.classList.toggle('active-query')
                 document.getElementById('getandroidbugs').classList.remove('active-query')
@@ -6730,7 +6730,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('getJiraTasks').click()
             }
 
-            document.getElementById('getandroidbugs').onclick = function () {
+            document.getElementById('getandroidbugs').onclick = function () { // если выбрана android
                 document.getElementById('testJira').value = "android"
                 this.classList.toggle('active-query')
                 document.getElementById('getiosbugs').classList.remove('active-query')
@@ -6745,7 +6745,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('getJiraTasks').click()
             }
 
-            document.getElementById('freshQuery').onclick = function () {
+            document.getElementById('freshQuery').onclick = function () {  // если выбрана fresh
                 frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                 document.getElementById('JQLquery').value = frqueryitem;
                 document.getElementById('testJira').value = ""
@@ -6761,7 +6761,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('favouriteissuetable').style.display = "none"
             }
 
-            document.getElementById('customQuery').onclick = function () {
+            document.getElementById('customQuery').onclick = function () { // если выбрана custom
                 document.getElementById('JQLquery').oninput = function () {
                     localStorage.setItem('customquery', this.value)
                 }
@@ -6779,7 +6779,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('favouriteissuetable').style.display = "none"
             }
 
-            document.getElementById('favouriteBugs').onclick = function () {
+            document.getElementById('favouriteBugs').onclick = function () { // если выбрана ❤ favourite
                 if (document.getElementById('favouriteissuetable').style.display != "") {
                     document.getElementById('issuetable').style.display = "none"
                     document.getElementById('favouriteissuetable').style.display = ""
@@ -6853,58 +6853,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     let cnttoincrease = document.getElementsByName('increasecount');
                     let itarrs = document.getElementsByName('favissuemassive')
                     for (let c = 0; c < cnttoincrease.length; c++) {
-                        cnttoincrease[c].onclick = function () {
-                            console.log('clicked')
-
-                            document.getElementById('responseTextarea1').value = '{}'
-                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
-                            document.getElementById('responseTextarea3').value = 'suptabcnt'
-                            document.getElementById('sendResponse').click()
-
-                            let count;
-                            let jira_token;
-                            let increasedcount;
-                            setTimeout(async function () {
-                                document.getElementById('responseTextarea1').value = '{}'
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
-
-                                document.getElementById('responseTextarea3').value = 'suptabcnt'
-                                document.getElementById('sendResponse').click()
-
-                                let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
-                                repcount = await repcount;
-                                jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
-                                document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
-
-                                count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-                                count = parseInt(count);
-                                increasedcount = count + 1;
-                                increasedcount = increasedcount.toString();
-                                console.log("count=" + count + " increasedcount " + increasedcount);
-
-                                setTimeout(function () {
-
-                                    document.getElementById('responseTextarea1').value = `{
-											"headers": {
-												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-												"sec-fetch-mode": "cors",
-												"sec-fetch-site": "same-origin",
-												"x-requested-with": "XMLHttpRequest",
-												"x-sitemesh-off": "true"
-														},
-											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-											  "method": "POST",
-											  "mode": "cors",
-											  "credentials": "include"
-												}`
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
-                                    document.getElementById('responseTextarea3').value = ''
-                                    document.getElementById('sendResponse').click()
-
-                                    alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
-                                }, 1000);
-                            }, 1000)
-                        }
+                        cnttoincrease[c].onclick = plusonecount;
                     }
 
                     function plusonecount() {
@@ -6923,11 +6872,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let jira_token;
                                 let increasedcount;
                                 setTimeout(async function () {
-                                    document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
-
-                                    document.getElementById('responseTextarea3').value = 'suptabcnt'
-                                    document.getElementById('sendResponse').click()
 
                                     let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
                                     repcount = await repcount;
@@ -7001,7 +6945,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
 
                 } else if (document.getElementById('freshQuery').classList.contains('active-query')) {
                     frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
@@ -7021,7 +6965,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
+
                 } else if (document.getElementById('customQuery').classList.contains('active-query')) {
                     customquery = `${localStorage.getItem('customquery')}`
                     document.getElementById('JQLquery').value = customquery
@@ -7039,7 +6984,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
+
                 } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
                     iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = iosbugsqueryitem;
@@ -7058,7 +7004,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
+
                 } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
                     androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = androidbugsqueryitem;
@@ -7077,9 +7024,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-               }`
+					}`
                 }
-
 
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
                 document.getElementById('responseTextarea3').value = 'getissuetable'
@@ -7165,10 +7111,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let jira_token;
                                 let increasedcount;
                                 setTimeout(async function () {
-                                    document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
-                                    document.getElementById('responseTextarea3').value = 'reportscount'
-                                    document.getElementById('sendResponse').click()
 
                                     let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
                                     repcount = await repcount;
@@ -7184,18 +7126,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                     setTimeout(function () {
 
                                         document.getElementById('responseTextarea1').value = `{
-						"headers": {
-							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-						    "sec-fetch-mode": "cors",
-							"sec-fetch-site": "same-origin",
-							"x-requested-with": "XMLHttpRequest",
-							"x-sitemesh-off": "true"
-									},
-						"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-						  "method": "POST",
-						  "mode": "cors",
-						  "credentials": "include"
-							}`
+										"headers": {
+											"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+											"sec-fetch-mode": "cors",
+											"sec-fetch-site": "same-origin",
+											"x-requested-with": "XMLHttpRequest",
+											"x-sitemesh-off": "true"
+													},
+										"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+										  "method": "POST",
+										  "mode": "cors",
+										  "credentials": "include"
+											}`
                                         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
@@ -7210,7 +7152,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         console.log(rezissuetable.issueTable.issueKeys);
                         setTimeout(function () { issues = []; }, 5000)
                     }
-
                 }
 
                 setTimeout(getJiraTask, 1000)
@@ -7222,32 +7163,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     document.getElementById('AF_Jira').style.display = ''
                 }
 
-
                 let rezissuetable;
 
-                document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"accept": "*/*",
-					"sec-fetch-dest": "empty",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-origin",
-					"x-requested-with": "XMLHttpRequest"
-				  },
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-               }`
+                document.getElementById('responseTextarea1').value = `{}`
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
                 document.getElementById('responseTextarea3').value = 'getissuetable1'
                 document.getElementById('sendResponse').click()
 
                 async function getJiraTask1() {
-                    document.getElementById('responseTextarea1').value = '{}'
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-                    document.getElementById('responseTextarea3').value = 'getissuetable1'
-                    document.getElementById('sendResponse').click()
-
 
                     rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
                     rezissuetable = await rezissuetable;
@@ -8031,7 +7954,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('techsumdata').innerText = "Пользователь не обращался в чат, информация отсутствует";
         }
     }
-	
+
     let grdata = [];
     document.getElementById('getidgrouptolist').onclick = async function () {
         let dataarr = [];
@@ -9726,7 +9649,7 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
     }
 };
 
-async function startnewchat(polzid) { //открывает чат с пользователем 
+async function startnewchat(polzid) { //открывает чат с пользователем
     if (operatorId == "") {
         await whoAmI()
     }
@@ -10159,86 +10082,132 @@ function addbuttonsintegration() { // добавляет подсветку пр
 setInterval(addbuttonsintegration, 1000)
 
 async function remandressl() { // функция удаления и сброса слайдов но с добавлением также функций просмотра ID методиста которому была отправлена работае, информации об уроке в контенте
-        if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || (document.URL.split('/')[6] != undefined && document.URL.split('/')[6].match(/materials\?studentId=/)
-!= null && document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=')) {
-            let remove = document.createElement('span')
-            remove.id = "removebtn"
-            remove.title = "По нажатию удалит все заданные упражнения на дом из категорий Lesson и Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
-            remove.textContent = "❌"
-            remove.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
-            remove.onclick = removeslide;
+    if (document.URL.split('/')[2] + "/" + document.URL.split('/')[3] == "vimbox.skyeng.ru/workbook" || (document.URL.split('/')[6] != undefined && document.URL.split('/')[6].match(/materials\?studentId=/)
+        != null && document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=')) {
+        let remove = document.createElement('span')
+        remove.id = "removebtn"
+        remove.title = "По нажатию удалит все заданные упражнения на дом из категорий Lesson и Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
+        remove.textContent = "❌"
+        remove.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
+        remove.onclick = removeslide;
 
-            let lessoninfo = document.createElement('span')
-            lessoninfo.id = "lessoninfo"
-            lessoninfo.title = "По нажатию копирует в буфер информацию об уроке"
-            lessoninfo.textContent = "❓"
-            lessoninfo.style = 'cursor:pointer; position:absolute; top: 12px; left: 685px;'
-            lessoninfo.onclick = getlessoninfo;
+        let lessoninfo = document.createElement('span')
+        lessoninfo.id = "lessoninfo"
+        lessoninfo.title = "По нажатию копирует в буфер информацию об уроке"
+        lessoninfo.textContent = "❓"
+        lessoninfo.style = 'cursor:pointer; position:absolute; top: 12px; left: 685px;'
+        lessoninfo.onclick = getlessoninfo;
 
-            let methodist = document.createElement('span')
-            methodist.id = 'methodid';
-            methodist.innerText = "🆔"
-            methodist.title = "По нажатию получите информацию о том, какому методисту была отправлена работа эссе или рекординг"
-            methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
-            methodist.onclick = getmethodistid;
+        let methodist = document.createElement('span')
+        methodist.id = 'methodid';
+        methodist.innerText = "🆔"
+        methodist.title = "По нажатию получите информацию о том, какому методисту была отправлена работа эссе или рекординг"
+        methodist.style = 'cursor:pointer; position:absolute; top: 12px; left: 635px;'
+        methodist.onclick = getmethodistid;
 
-            let reset = document.createElement('span')
-            reset.id = "resetbtn"
-            reset.textContent = "🔄"
-            reset.title = "По нажатию сбросит прогресс выполнениях все слайдов из категории Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
-            reset.style = 'cursor:pointer; position:absolute; top: 12px; left: 660px;'
-            reset.onclick = resetslide;
+        let reset = document.createElement('span')
+        reset.id = "resetbtn"
+        reset.textContent = "🔄"
+        reset.title = "По нажатию сбросит прогресс выполнениях все слайдов из категории Homework. После чего сообщит об этом и по закрытию диалогового окна обновит страницу, чтобы увидели результат."
+        reset.style = 'cursor:pointer; position:absolute; top: 12px; left: 660px;'
+        reset.onclick = resetslide;
 
-            if (document.getElementById('lessoninfo') == null && document.getElementById('removebtn') == null && document.getElementById('resetbtn') == null) {
-                if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework") {
-                    document.getElementsByClassName('-type-primary')[4].appendChild(remove)
-                    document.getElementsByClassName('-type-primary')[4].appendChild(reset)
-                    document.getElementsByClassName('-type-primary')[4].appendChild(lessoninfo)
+        if (document.getElementById('lessoninfo') == null && document.getElementById('removebtn') == null && document.getElementById('resetbtn') == null) {
+            if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText == "Send Homework") {
+                document.getElementsByClassName('-type-primary')[4].appendChild(remove)
+                document.getElementsByClassName('-type-primary')[4].appendChild(reset)
+                document.getElementsByClassName('-type-primary')[4].appendChild(lessoninfo)
 
-                    if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
-                        document.getElementsByClassName('-type-primary')[4].appendChild(methodist)
-                    document.getElementById('methodid').style.left = '615px';
-                } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
-                    document.getElementsByClassName('-type-primary')[3].appendChild(remove)
-                    document.getElementsByClassName('-type-primary')[3].appendChild(reset)
-                    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
+                if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
+                    document.getElementsByClassName('-type-primary')[4].appendChild(methodist)
+                document.getElementById('methodid').style.left = '615px';
+            } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send as Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
+                document.getElementsByClassName('-type-primary')[3].appendChild(remove)
+                document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+                document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
 
-                    if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
-                        document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
-                    document.getElementById('methodid').style.left = '615px';
+                if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
+                    document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
+                document.getElementById('methodid').style.left = '615px';
 
-                } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
-                    document.getElementsByClassName('-type-primary')[3].appendChild(remove)
-                    document.getElementsByClassName('-type-primary')[3].appendChild(reset)
-                    document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
+            } else if (document.getElementsByClassName('-type-primary')[1].innerText == "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
+                document.getElementsByClassName('-type-primary')[3].appendChild(remove)
+                document.getElementsByClassName('-type-primary')[3].appendChild(reset)
+                document.getElementsByClassName('-type-primary')[3].appendChild(lessoninfo)
 
-                    if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
-                        document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
-                    document.getElementById('methodid').style.left = '615px';
+                if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
+                    document.getElementsByClassName('-type-primary')[3].appendChild(methodist)
+                document.getElementById('methodid').style.left = '615px';
 
-                } else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar") {
-                    document.getElementsByClassName('-type-primary')[2].appendChild(remove)
-                    document.getElementsByClassName('-type-primary')[2].appendChild(reset)
-                    document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
+            } else if (document.getElementsByClassName('-type-primary')[2].children[1].innerText == "Grammar") {
+                document.getElementsByClassName('-type-primary')[2].appendChild(remove)
+                document.getElementsByClassName('-type-primary')[2].appendChild(reset)
+                document.getElementsByClassName('-type-primary')[2].appendChild(lessoninfo)
 
-                    if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
-                        document.getElementsByClassName('-type-primary')[2].appendChild(methodist)
-                    document.getElementById('methodid').style.left = '615px';
-                }
+                if (document.URL.split('/')[6].match(/materials/)[0] == 'materials' || document.URL.split('/')[6].match(/materials\?studentId=/)[0] == 'materials?studentId=' || document.URL.split('/')[6] != 'materials?tool=homework')
+                    document.getElementsByClassName('-type-primary')[2].appendChild(methodist)
+                document.getElementById('methodid').style.left = '615px';
             }
-            if (document.getElementById('lessoninfo') == null && document.getElementById('methodid') == null && document.getElementById('resetbtn') == null) {
-                if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
-                    document.getElementsByClassName('-type-primary')[1].appendChild(reset)
-                    document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
-                    document.getElementsByClassName('-type-primary')[1].appendChild(lessoninfo)
-                }
+        }
+        if (document.getElementById('lessoninfo') == null && document.getElementById('methodid') == null && document.getElementById('resetbtn') == null) {
+            if (document.getElementsByClassName('-type-primary')[1].innerText != "Send Homework" && document.getElementsByClassName('-type-primary')[2].innerText != "Send Homework") {
+                document.getElementsByClassName('-type-primary')[1].appendChild(reset)
+                document.getElementsByClassName('-type-primary')[1].appendChild(methodist)
+                document.getElementsByClassName('-type-primary')[1].appendChild(lessoninfo)
+            }
+        }
+
+        async function removeslide() {
+            let d = document.cookie;
+            d = d.match(/token_global=(.*)/);
+
+            await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "authorization": "Bearer" + d[1],
+                },
+                "method": "PATCH",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(data => joinresult = data)
+
+            for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
+
+                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + joinresult.workbooks[0].id + "/step/" + joinresult.lessonPlan.Homework[i].stepUUID, {
+                    "headers": {
+                        "authorization": "Bearer" + d[1],
+                    },
+                    "method": "DELETE",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
             }
 
-            async function removeslide() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
+            for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
 
-                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + joinresult.workbooks[0].id + "/step/" + joinresult.lessonPlan.Lesson[i].stepUUID, {
+                    "headers": {
+                        "authorization": "Bearer" + d[1],
+                    },
+                    "method": "DELETE",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
+            }
+
+            alert("Слайды успешно отозваны с домашнего задания с категорий Lesson и Homework! Страница будет обновлена.")
+            window.location.reload();
+        }
+
+        // Кнопка для получения информации об методисте, которому ушло эссе/рекординг
+
+        async function getmethodistid() {
+            let d = document.cookie;
+            d = d.match(/token_global=(.*)/);
+
+
+            if (document.URL.split('/')[6] != 'materials?tool=homework') {
+                await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
                     "headers": {
                         "accept": "application/json, text/plain, */*",
                         "authorization": "Bearer" + d[1],
@@ -10246,209 +10215,163 @@ async function remandressl() { // функция удаления и сброс�
                     "method": "PATCH",
                     "mode": "cors",
                     "credentials": "include"
-                }).then(r => r.json()).then(data => joinresult = data)
+                }).then(r => r.json()).then(r => joinresult = r)
+                await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
+                    "headers": {
+                        "accept": "application/json, text/plain, */*",
+                        "accept-language": "ru",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    },
+                    "body": `studentId=${joinresult.students[0].id}&projectName=vimbox`,
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(r => result = r)
 
-                for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
+                if (result.record == undefined && result.text != null) {
+                    alert("Эссе отправлено методисту ID: " + result.methodistId)
 
-                    await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + joinresult.workbooks[0].id + "/step/" + joinresult.lessonPlan.Homework[i].stepUUID, {
+                } else {
+                    await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
                         "headers": {
+                            "accept": "application/json, text/plain, */*",
+                            "accept-language": "ru",
                             "authorization": "Bearer" + d[1],
+                            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                         },
-                        "method": "DELETE",
+                        "body": `studentId=${joinresult.students[0].id}&projectName=vimbox&sourceId=0`,
+                        "method": "POST",
                         "mode": "cors",
                         "credentials": "include"
-                    });
+                    }).then(r => r.json()).then(r => result = r)
+
+                    if (result.record != undefined)
+                        alert("Record отправлен методисту ID: " + result.record.methodistId)
+                }
+            } else {
+
+                await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                    "headers": {
+                        "accept": "application/json, text/plain, */*",
+                        "authorization": "Bearer" + d[1],
+                    },
+                    "method": "PATCH",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(r => joinresult = r)
+                await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
+                    "headers": {
+                        "accept": "application/json, text/plain, */*",
+                        "accept-language": "ru",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    },
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(r => result = r)
+
+                if (result.record == undefined && result.text != null) {
+                    alert("Эссе отправлено методисту ID: " + result.methodistId)
+
+                } else {
+                    await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
+                        "headers": {
+                            "accept": "application/json, text/plain, */*",
+                            "accept-language": "ru",
+                            "authorization": "Bearer" + d[1],
+                            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                        },
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    }).then(r => r.json()).then(r => result = r)
+
+                    if (result.record != undefined)
+                        alert("Record отправлен методисту ID: " + result.record.methodistId)
+                }
+            }
+        }
+
+        // аналогично для сброса прогресса слайдов
+
+        async function resetslide() {
+
+            let d = document.cookie;
+            d = d.match(/token_global=(.*)/);
+
+            await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "authorization": "Bearer" + d[1],
+                },
+                "method": "PATCH",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(data => joinresult = data)
+
+            for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
+                await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/" + joinresult.lessonPlan.Homework[i].id + "/reset", {
+                    "headers": {
+                        "accept": "application/json, text/plain, */*",
+                        "authorization": "Bearer" + d[1],
+                        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    },
+                    "body": "workbookIds[]=" + joinresult.workbooks[0].id,
+                    "method": "DELETE",
+                    "mode": "cors",
+                    "credentials": "include"
+                });
+            }
+            alert("Слайды из категории Homework сброшены успешно! Страница будет обновлена.")
+            window.location.reload();
+        }
+
+        async function getlessoninfo() {
+            let d = document.cookie;
+            d = d.match(/token_global=(.*)/);
+
+            await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
+                "headers": {
+                    "accept": "application/json, text/plain, */*",
+                    "authorization": "Bearer" + d[1],
+                },
+                "method": "PATCH",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(r => r.json()).then(data => joinresult = data)
+
+            if (joinresult.lessonPlan.Homework != undefined) {
+
+                for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
+                    if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
+                        console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                        copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                        alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
+                    }
                 }
 
                 for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
-
-                    await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + joinresult.workbooks[0].id + "/step/" + joinresult.lessonPlan.Lesson[i].stepUUID, {
-                        "headers": {
-                            "authorization": "Bearer" + d[1],
-                        },
-                        "method": "DELETE",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-                }
-
-                alert("Слайды успешно отозваны с домашнего задания с категорий Lesson и Homework! Страница будет обновлена.")
-                window.location.reload();
-            }
-
-            // Кнопка для получения информации об методисте, которому ушло эссе/рекординг
-
-            async function getmethodistid() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-
-                if (document.URL.split('/')[6] != 'materials?tool=homework') {
-                    await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
-                        "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "authorization": "Bearer" + d[1],
-                        },
-                        "method": "PATCH",
-                        "mode": "cors",
-                        "credentials": "include"
-                    }).then(r => r.json()).then(r => joinresult = r)
-                    await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
-                        "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "accept-language": "ru",
-                            "authorization": "Bearer" + d[1],
-                            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                        },
-                        "body": `studentId=${joinresult.students[0].id}&projectName=vimbox`,
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    }).then(r => r.json()).then(r => result = r)
-
-                    if (result.record == undefined && result.text != null) {
-                        alert("Эссе отправлено методисту ID: " + result.methodistId)
-
-                    } else {
-                        await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
-                            "headers": {
-                                "accept": "application/json, text/plain, */*",
-                                "accept-language": "ru",
-                                "authorization": "Bearer" + d[1],
-                                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                            },
-                            "body": `studentId=${joinresult.students[0].id}&projectName=vimbox&sourceId=0`,
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        }).then(r => r.json()).then(r => result = r)
-
-                        if (result.record != undefined)
-                            alert("Record отправлен методисту ID: " + result.record.methodistId)
-                    }
-                } else {
-
-                    await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
-                        "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "authorization": "Bearer" + d[1],
-                        },
-                        "method": "PATCH",
-                        "mode": "cors",
-                        "credentials": "include"
-                    }).then(r => r.json()).then(r => joinresult = r)
-                    await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
-                        "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "accept-language": "ru",
-                            "authorization": "Bearer" + d[1],
-                            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                        },
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    }).then(r => r.json()).then(r => result = r)
-
-                    if (result.record == undefined && result.text != null) {
-                        alert("Эссе отправлено методисту ID: " + result.methodistId)
-
-                    } else {
-                        await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
-                            "headers": {
-                                "accept": "application/json, text/plain, */*",
-                                "accept-language": "ru",
-                                "authorization": "Bearer" + d[1],
-                                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                            },
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        }).then(r => r.json()).then(r => result = r)
-
-                        if (result.record != undefined)
-                            alert("Record отправлен методисту ID: " + result.record.methodistId)
+                    if (joinresult.currentStepRevId == joinresult.lessonPlan.Lesson[i].id) {
+                        console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                        copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
+                        alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
                     }
                 }
-            }
 
-            // аналогично для сброса прогресса слайдов
-
-            async function resetslide() {
-
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
-                    "headers": {
-                        "accept": "application/json, text/plain, */*",
-                        "authorization": "Bearer" + d[1],
-                    },
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                }).then(r => r.json()).then(data => joinresult = data)
-
-                for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
-                    await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/" + joinresult.lessonPlan.Homework[i].id + "/reset", {
-                        "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "authorization": "Bearer" + d[1],
-                            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                        },
-                        "body": "workbookIds[]=" + joinresult.workbooks[0].id,
-                        "method": "DELETE",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-                }
-                alert("Слайды из категории Homework сброшены успешно! Страница будет обновлена.")
-                window.location.reload();
-            }
-
-            async function getlessoninfo() {
-                let d = document.cookie;
-                d = d.match(/token_global=(.*)/);
-
-                await fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/rooms/" + document.URL.split('/')[4] + "/join", {
-                    "headers": {
-                        "accept": "application/json, text/plain, */*",
-                        "authorization": "Bearer" + d[1],
-                    },
-                    "method": "PATCH",
-                    "mode": "cors",
-                    "credentials": "include"
-                }).then(r => r.json()).then(data => joinresult = data)
-
-                if (joinresult.lessonPlan.Homework != undefined) {
-
-                    for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
-                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
-                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-                            copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-                        }
-                    }
-
-                    for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
-                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Lesson[i].id) {
-                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-                            copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-                        }
-                    }
-
-                } else {
-                    for (let i = 0; i < joinresult.lessonPlan.Test.length; i++) {
-                        if (joinresult.currentStepRevId == joinresult.lessonPlan.Test[i].id) {
-                            console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
-                            copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
-                            alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
-                        }
+            } else {
+                for (let i = 0; i < joinresult.lessonPlan.Test.length; i++) {
+                    if (joinresult.currentStepRevId == joinresult.lessonPlan.Test[i].id) {
+                        console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+                        copyToClipboard1('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
+                        alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
                     }
                 }
             }
         }
- 
+    }
+
     // Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
     let achatb = document.createElement('span')
     achatb.id = "achatbtn"
@@ -11682,86 +11605,86 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-		   arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             arregetted = JSON.parse(arregetted);
-			if (arregetted != null) {
-					if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
-					document.querySelector('#statustable').innerText = "";
-					for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
-						if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
+            if (arregetted != null) {
+                if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
+                    document.querySelector('#statustable').innerText = "";
+                    for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
+                        if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
 
-							let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
+                            let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
-							if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-								arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
+                            if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
+                                arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
 
-								text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
-								text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
-								text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-								text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-								text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
-								if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-									text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
-								}
-							} else if (arregetted[0].result[0].classes[i].removedAt) {
+                                text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
+                                text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                                text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                                text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+                                text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
+                                if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
+                                    text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                }
+                            } else if (arregetted[0].result[0].classes[i].removedAt) {
 
-								arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                                arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-								arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                                arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
 
-								text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-								text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-							}
+                                text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
+                                text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            }
 
-							let tempor = document.createElement('textarea');
-							document.getElementById('statustable').append(tempor);
-							tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
-							tempor.setAttribute('wrap', 'soft');
-							tempor.value = text;
-							//    console.log(text);
-						} else if (document.getElementById('idstudentforsearch').value == "") {
-							let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
+                            let tempor = document.createElement('textarea');
+                            document.getElementById('statustable').append(tempor);
+                            tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
+                            tempor.setAttribute('wrap', 'soft');
+                            tempor.value = text;
+                            //    console.log(text);
+                        } else if (document.getElementById('idstudentforsearch').value == "") {
+                            let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
-							if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-								arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
-								text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
-								text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
-								text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-								text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-								text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
-								if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-									text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
-								}
-							} else if (arregetted[0].result[0].classes[i].removedAt) {
+                            if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
+                                arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
+                                text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
+                                text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
+                                text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                                text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
+                                text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
+                                if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
+                                    text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                }
+                            } else if (arregetted[0].result[0].classes[i].removedAt) {
 
-								arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                                arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-								arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                                arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
 
-								text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-								text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-							}
+                                text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
+                                text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                            }
 
-							let tempor = document.createElement('textarea');
-							document.getElementById('statustable').append(tempor);
-							// tempor.setAttribute('type', 'text');
-							tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
-							tempor.setAttribute('wrap', 'soft');
-							tempor.value = text;
-						}
-					}
-				} else {
-                alert("Уроков нет");
+                            let tempor = document.createElement('textarea');
+                            document.getElementById('statustable').append(tempor);
+                            // tempor.setAttribute('type', 'text');
+                            tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
+                            tempor.setAttribute('wrap', 'soft');
+                            tempor.value = text;
+                        }
+                    }
+                } else {
+                    alert("Уроков нет");
+                }
+
+                document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
             }
- 
-            document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
-			}
-		})
-		
-		
+        })
+
+
 
     } else {
         alert("Введите ID учителя в поле");
@@ -12128,11 +12051,11 @@ function customTemplates(language = '') { //собственные шаблон�
     newDiv.style = 'cursor: -webkit-grab;'
     newDiv.style.margin = '5px'
     newDiv.style.textAlign = 'center'
-	
+
     var addTmpl = document.createElement('button')
     addTmpl.textContent = 'Добавить шаблон'
     addTmpl.style.marginRight = '5px'
-	
+
     addTmpl.onclick = function () {
         countOfTemplates++
         localStorage.setItem('cntTmplts' + language, countOfTemplates)
@@ -12141,7 +12064,7 @@ function customTemplates(language = '') { //собственные шаблон�
         localStorage.setItem('tmp_name_' + language + countOfTemplates, "")
         addNewString(countOfTemplates)
     }
-	
+
     var saveAllTmp = document.createElement('button')
     saveAllTmp.textContent = 'Сохранить всё'
     saveAllTmp.style.marginRight = '5px'
@@ -12156,11 +12079,11 @@ function customTemplates(language = '') { //собственные шаблон�
 
     var but = document.createElement('button')
     but.innerHTML = 'hide'
-	
+
     but.onclick = function () {
         this.parentElement.parentElement.style.display = 'none'
     }
-	
+
     but.style.float = 'right'
 
     newDiv.append(saveAllTmp)
@@ -12187,7 +12110,7 @@ function customTemplates(language = '') { //собственные шаблон�
             document.addEventListener('mousemove', listenercstmTmp);
         }
     }
-	
+
     cstmTmp.onmouseup = function () { document.removeEventListener('mousemove', listenercstmTmp); }
 
     document.getElementById('languageAF').onclick = function () {
@@ -13047,7 +12970,7 @@ document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
 
 function logginerfortests(polzovatel) {
-			document.getElementById('responseTextarea1').value = `{
+    document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"content-type": "application/x-www-form-urlencoded",
 				"sec-fetch-site": "same-origin",
@@ -13061,42 +12984,42 @@ function logginerfortests(polzovatel) {
 			  "mode": "cors",
 			  "credentials": "include"
 			}`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-        document.getElementById('responseTextarea3').value = 'senddata1'
-        document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-		    logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-				if(logginerinfo !=null) {
-					logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-					logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
-					copyToClipboard1(logginerinfo[1])
-				document.getElementById('responseTextarea1').removeAttribute('senddata1')
-			}
-		})
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+    document.getElementById('responseTextarea3').value = 'senddata1'
+    document.getElementById('sendResponse').click()
+
+    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+        logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
+        if (logginerinfo != null) {
+            logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+            logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
+            copyToClipboard1(logginerinfo[1])
+            document.getElementById('responseTextarea1').removeAttribute('senddata1')
+        }
+    })
 }
 
 btnsid.onclick = function () { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
-		logginerfortests(teststudid)
-		document.getElementById('sidcode').style.background = 'coral'
-		setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
+        logginerfortests(teststudid)
+        document.getElementById('sidcode').style.background = 'coral'
+        setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
 
-	} else alert("Введите ID тестового ученика в настройках ⚙");
+    } else alert("Введите ID тестового ученика в настройках ⚙");
 }
 
 
 btntid.onclick = function () { // копирует в буфер логиннер для У
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
-		logginerfortests(testteachid)
+        logginerfortests(testteachid)
         document.getElementById('tidcode').style.background = 'coral'
         setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
 
-	} else alert("Введите ID тестового преподавателя в настройках ⚙");
+    } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
-		
+
 function hesoyam() {
     if (localStorage.getItem('hesoyam') == 1) {
         localStorage.setItem('hesoyam', '0')
