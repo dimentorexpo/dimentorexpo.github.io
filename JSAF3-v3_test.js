@@ -7971,7 +7971,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-            grdata = JSON.parse(document.getElementById('responseTextarea1').getAttribute('responseupdate'))
+            grdata = JSON.parse(document.getElementById('responseTextarea1').getAttribute('heredata'))
 			if (grdata != null || grdata != undefined) {
                 for (let i = 0; i < grdata.data.students.length; i++) {
                     dataarr += [i + 1] + "." + '<span class="grstdcrm" style="cursor:pointer" title="открывает профиль в CRM">ℹID У:</span>' + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + " " + '<span class="getstname" style="cursor:pointer" title="Узнать имя и фамилию ученика, если раз нажали не появилось нажмите через секунду второй раз, быстро на все глаза не нажимайте, иначе получите некорректную информацию">👁‍🗨</span>' + '<span class="stname"></span>' + '<br>';
