@@ -6662,25 +6662,30 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             let jiratkn;
 
-            function checkJiraToken() {
+            async function checkJiraToken() {
                 document.getElementById('responseTextarea1').value = '{}'
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
                 document.getElementById('responseTextarea3').value = 'getjiratoken'
                 document.getElementById('sendResponse').click()
-				
-				document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-					jiratkn = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-						if(jiratkn !=null) {
-							jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
-							document.getElementById('searchjiratknstatus').innerText = "🟢"
-							} else {
-								alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
-								document.getElementById('searchjiratknstatus').innerText = "🔴"
-							}
-							document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-							console.log("TOKEN: " + jiratkn);
-						
-				})
+
+                setTimeout(async function () {
+
+                    document.getElementById('responseTextarea1').value = '{}'
+                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+                    document.getElementById('responseTextarea3').value = 'getjiratoken'
+                    document.getElementById('sendResponse').click()
+
+                    jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+                    if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
+                        jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+                        document.getElementById('searchjiratknstatus').innerText = "🟢"
+                    } else {
+                        alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+                        document.getElementById('searchjiratknstatus').innerText = "🔴"
+                    }
+                    document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+                    console.log("TOKEN: " + jiratkn);
+                }, 5000)
             }
 
             checkJiraToken()
@@ -6999,7 +7004,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-					}`
+               }`
 
                 } else if (document.getElementById('freshQuery').classList.contains('active-query')) {
                     frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
@@ -7019,8 +7024,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-					}`
-			   
+               }`
                 } else if (document.getElementById('customQuery').classList.contains('active-query')) {
                     customquery = `${localStorage.getItem('customquery')}`
                     document.getElementById('JQLquery').value = customquery
@@ -7038,8 +7042,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-					}`
-			   
+               }`
                 } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
                     iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = iosbugsqueryitem;
@@ -7058,8 +7061,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-					}`
-			   
+               }`
                 } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
                     androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = androidbugsqueryitem;
@@ -7078,37 +7080,41 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                      "method": "POST",
                      "mode": "cors",
                      "credentials": "include"
-					}`
+               }`
                 }
 
 
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
                 document.getElementById('responseTextarea3').value = 'getissuetable'
                 document.getElementById('sendResponse').click()
-				
-						document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-							rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
-							console.log(rezissuetable)
-						if (rezissuetable != null) {
-							document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-							let issues = [];
-							let temporarka;
-								if (rezissuetable.issueTable.issueKeys.length > 50)
-									rezissuetable.issueTable.issueKeys.length = 50;
-								for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
 
-									if (rezissuetable.issueTable.issueKeys[i] != undefined) {
+                function getJiraTask() {
+                    rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+                    if (rezissuetable == null)
+                        setTimeout(getJiraTask, 1000)
+                    else {
+                        //   rezissuetable = JSON.parse(rezissuetable)
+                        document.getElementById('responseTextarea1').removeAttribute('getissuetable')
+                        let issues = [];
+                        let temporarka;
+                        if (rezissuetable.issueTable.issueKeys.length > 50)
+                            rezissuetable.issueTable.issueKeys.length = 50;
+                        for (let i = 0; i < rezissuetable.issueTable.issueKeys.length; i++) {
 
-										if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) != -1) {
-											temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').replace(new RegExp(document.getElementById('testJira').value, 'i'), `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${document.getElementById('testJira').value.toUpperCase()}</span>`)
-										} else {
-											temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ')
-										}
-									
-										issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}` + '</span>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
+                            if (rezissuetable.issueTable.issueKeys[i] != undefined) {
 
-									}
-								}
+                                if (rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').toLowerCase().indexOf(document.getElementById('testJira').value.toLowerCase()) != -1) {
+                                    temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ').replace(new RegExp(document.getElementById('testJira').value, 'i'), `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${document.getElementById('testJira').value.toUpperCase()}</span>`)
+                                } else {
+                                    temporarka = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(function (item, index, array) { if (index % 2 != 0) return item; })[i].replace('">', ' – ')
+                                }
+
+
+                                issues += '<span style="color: #00FA9A">&#5129;</span>' + `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + ' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i] + '</span>' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${rezissuetable.issueTable.issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}` + '</span>' + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
+
+                            }
+
+                        }
 
                         document.getElementById('issuetable').innerHTML = issues;
 
@@ -7132,8 +7138,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 })
                             }
                         }
-							
-						let addtofarr = document.getElementsByName('addtofavourites')
+
+
+                        let addtofarr = document.getElementsByName('addtofavourites')
                         let tagsarray = document.getElementsByName('buglinks');
                         let massivissueids = document.getElementsByName('issueIds')
                         for (let v = 0; v < addtofarr.length; v++) {
@@ -7161,6 +7168,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let jira_token;
                                 let increasedcount;
                                 setTimeout(async function () {
+                                    document.getElementById('responseTextarea1').value = '{}'
+                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+                                    document.getElementById('responseTextarea3').value = 'reportscount'
+                                    document.getElementById('sendResponse').click()
+
                                     let repcount = document.getElementById('responseTextarea1').getAttribute('reportscount')
                                     repcount = await repcount;
                                     jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
@@ -7175,18 +7187,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                     setTimeout(function () {
 
                                         document.getElementById('responseTextarea1').value = `{
-										"headers": {
-											"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-											"sec-fetch-mode": "cors",
-											"sec-fetch-site": "same-origin",
-											"x-requested-with": "XMLHttpRequest",
-											"x-sitemesh-off": "true"
-													},
-										"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-										  "method": "POST",
-										  "mode": "cors",
-										  "credentials": "include"
-											}`
+						"headers": {
+							"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+						    "sec-fetch-mode": "cors",
+							"sec-fetch-site": "same-origin",
+							"x-requested-with": "XMLHttpRequest",
+							"x-sitemesh-off": "true"
+									},
+						"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+						  "method": "POST",
+						  "mode": "cors",
+						  "credentials": "include"
+							}`
                                         document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
                                         document.getElementById('responseTextarea3').value = ''
                                         document.getElementById('sendResponse').click()
@@ -7198,10 +7210,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             }
                         }
 
-							console.log(rezissuetable.issueTable.issueKeys);
-							setTimeout(function () { issues = []; }, 5000)
-						}
-						})
+                        console.log(rezissuetable.issueTable.issueKeys);
+                        setTimeout(function () { issues = []; }, 5000)
+                    }
+
+                }
+
+                setTimeout(getJiraTask, 1000)
+
             }
             // Просмотр таски по джира по ее коду и номеру
             document.getElementById('getJiraTasks').ondblclick = function () {
