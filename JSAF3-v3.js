@@ -7961,7 +7961,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 	let responsegrdata;
     document.getElementById('getidgrouptolist').onclick = async function () {
         let dataarr = [];
-        document.getElementById('grlistinfo').innerHTML = "";
+        document.getElementById('grlistinfo').innerHTML = "Загрузка...";
         let tempgrid = document.getElementById('idgrouptolist').value;
         tempgrid = tempgrid.trim();
 
