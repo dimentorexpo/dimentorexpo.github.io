@@ -6871,19 +6871,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let count;
                                 let jira_token;
                                 let increasedcount;
-								
-								document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
-									repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt');
-									if (repcount !=null) {
-										jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
-										document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
-										count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-										count = parseInt(count);
-										increasedcount = count + 1;
-										increasedcount = increasedcount.toString();
-										console.log("count=" + count + " increasedcount=" + increasedcount);
-										
-										document.getElementById('responseTextarea1').value = `{
+                                setTimeout(async function () {
+
+                                    let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
+                                    repcount = await repcount;
+                                    jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
+                                    document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
+
+                                    count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
+                                    count = parseInt(count);
+                                    increasedcount = count + 1;
+                                    increasedcount = increasedcount.toString();
+                                    console.log("count=" + count + " increasedcount " + increasedcount);
+
+                                    setTimeout(function () {
+
+                                        document.getElementById('responseTextarea1').value = `{
 											"headers": {
 												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 												"sec-fetch-mode": "cors",
@@ -6901,8 +6904,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                         document.getElementById('sendResponse').click()
 
                                         alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
-									}
-								})
+                                    }, 1000);
+                                }, 1000)
                             }
                         }
                     }
