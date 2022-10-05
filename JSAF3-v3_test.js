@@ -7974,7 +7974,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
             responsegrdata = document.getElementById('responseTextarea1').getAttribute('heredata')
 			// grdata = responsegrdata;
-			console.log(grdata)
 			if (responsegrdata != null) {
 				grdata = JSON.parse(responsegrdata)
 				document.getElementById('responseTextarea1').removeAttribute('heredata');
