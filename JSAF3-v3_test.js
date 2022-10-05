@@ -6662,7 +6662,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             let jiratkn;
 
-            function checkJiraToken() {
+            function checkJiraToken() { //функция проверки авторизации в jira 
                 document.getElementById('responseTextarea1').value = '{}'
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
                 document.getElementById('responseTextarea3').value = 'getjiratoken'
@@ -6687,7 +6687,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             checkJiraToken()
 
-            document.getElementById('ClearJiraData').onclick = function () {
+            document.getElementById('ClearJiraData').onclick = function () {  // функция очистки полей в форме
                 document.getElementById('testJira').value = '';
                 document.getElementById('issuetable').innerText = ''
             }
@@ -6696,10 +6696,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-jirasearch%F0%9F%94%8EJiraSearch')
             }
 
-            document.getElementById('RefreshJiraStatus').onclick = checkJiraToken
+            document.getElementById('RefreshJiraStatus').onclick = checkJiraToken // функция повторной проверки авторизации в Jira
             let favissues = [];
 
-            document.getElementById('defaultQuery').onclick = function () {
+            document.getElementById('defaultQuery').onclick = function () { // если выбрана default
                 defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
                 document.getElementById('testJira').value = ""
@@ -6715,7 +6715,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('favouriteissuetable').style.display = "none"
             }
 
-            document.getElementById('getiosbugs').onclick = function () {
+            document.getElementById('getiosbugs').onclick = function () { // если выбрана ios
                 document.getElementById('testJira').value = "ios"
                 this.classList.toggle('active-query')
                 document.getElementById('getandroidbugs').classList.remove('active-query')
@@ -6730,7 +6730,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('getJiraTasks').click()
             }
 
-            document.getElementById('getandroidbugs').onclick = function () {
+            document.getElementById('getandroidbugs').onclick = function () { // если выбрана android
                 document.getElementById('testJira').value = "android"
                 this.classList.toggle('active-query')
                 document.getElementById('getiosbugs').classList.remove('active-query')
@@ -6745,7 +6745,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('getJiraTasks').click()
             }
 
-            document.getElementById('freshQuery').onclick = function () {
+            document.getElementById('freshQuery').onclick = function () {  // если выбрана fresh
                 frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                 document.getElementById('JQLquery').value = frqueryitem;
                 document.getElementById('testJira').value = ""
@@ -6761,7 +6761,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('favouriteissuetable').style.display = "none"
             }
 
-            document.getElementById('customQuery').onclick = function () {
+            document.getElementById('customQuery').onclick = function () { // если выбрана custom
                 document.getElementById('JQLquery').oninput = function () {
                     localStorage.setItem('customquery', this.value)
                 }
@@ -6779,7 +6779,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('favouriteissuetable').style.display = "none"
             }
 
-            document.getElementById('favouriteBugs').onclick = function () {
+            document.getElementById('favouriteBugs').onclick = function () { // если выбрана ❤ favourite
                 if (document.getElementById('favouriteissuetable').style.display != "") {
                     document.getElementById('issuetable').style.display = "none"
                     document.getElementById('favouriteissuetable').style.display = ""
@@ -6865,11 +6865,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                             let jira_token;
                             let increasedcount;
                             setTimeout(async function () {
-                                document.getElementById('responseTextarea1').value = '{}'
-                                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+                                // document.getElementById('responseTextarea1').value = '{}'
+                                // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
 
-                                document.getElementById('responseTextarea3').value = 'suptabcnt'
-                                document.getElementById('sendResponse').click()
+                                // document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                // document.getElementById('sendResponse').click()
 
                                 let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
                                 repcount = await repcount;
@@ -6923,11 +6923,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let jira_token;
                                 let increasedcount;
                                 setTimeout(async function () {
-                                    document.getElementById('responseTextarea1').value = '{}'
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
+                                    // document.getElementById('responseTextarea1').value = '{}'
+                                    // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
 
-                                    document.getElementById('responseTextarea3').value = 'suptabcnt'
-                                    document.getElementById('sendResponse').click()
+                                    // document.getElementById('responseTextarea3').value = 'suptabcnt'
+                                    // document.getElementById('sendResponse').click()
 
                                     let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
                                     repcount = await repcount;
