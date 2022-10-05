@@ -6853,58 +6853,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     let cnttoincrease = document.getElementsByName('increasecount');
                     let itarrs = document.getElementsByName('favissuemassive')
                     for (let c = 0; c < cnttoincrease.length; c++) {
-                        cnttoincrease[c].onclick = function () {
-                            console.log('clicked')
-
-                            document.getElementById('responseTextarea1').value = '{}'
-                            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
-                            document.getElementById('responseTextarea3').value = 'suptabcnt'
-                            document.getElementById('sendResponse').click()
-
-                            let count;
-                            let jira_token;
-                            let increasedcount;
-                            setTimeout(async function () {
-                                // document.getElementById('responseTextarea1').value = '{}'
-                                // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
-
-                                // document.getElementById('responseTextarea3').value = 'suptabcnt'
-                                // document.getElementById('sendResponse').click()
-
-                                let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
-                                repcount = await repcount;
-                                jira_token = repcount.match(/"atl_token":"(.*lin)/)[1]
-                                document.getElementById('responseTextarea1').removeAttribute('suptabcnt')
-
-                                count = repcount.match(/customfield_15410.*?value=.*?(\d+)/)[1];
-                                count = parseInt(count);
-                                increasedcount = count + 1;
-                                increasedcount = increasedcount.toString();
-                                console.log("count=" + count + " increasedcount " + increasedcount);
-
-                                setTimeout(function () {
-
-                                    document.getElementById('responseTextarea1').value = `{
-											"headers": {
-												"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-												"sec-fetch-mode": "cors",
-												"sec-fetch-site": "same-origin",
-												"x-requested-with": "XMLHttpRequest",
-												"x-sitemesh-off": "true"
-														},
-											"body": "customfield_15410=${increasedcount}&issueId=${itarrs[c].innerText}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
-											  "method": "POST",
-											  "mode": "cors",
-											  "credentials": "include"
-												}`
-                                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueAction.jspa?decorator=none"
-                                    document.getElementById('responseTextarea3').value = ''
-                                    document.getElementById('sendResponse').click()
-
-                                    alert(`Support Tab для задачи ${document.getElementsByName('favbugs')[c].href} увеличен на 1 и сейчас равен: ${increasedcount}`)
-                                }, 1000);
-                            }, 1000)
-                        }
+                        cnttoincrease[c].onclick = plusonecount;
                     }
 
                     function plusonecount() {
@@ -6923,11 +6872,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                 let jira_token;
                                 let increasedcount;
                                 setTimeout(async function () {
-                                    // document.getElementById('responseTextarea1').value = '{}'
-                                    // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + itarrs[c].innerText
-
-                                    // document.getElementById('responseTextarea3').value = 'suptabcnt'
-                                    // document.getElementById('sendResponse').click()
 
                                     let repcount = document.getElementById('responseTextarea1').getAttribute('suptabcnt')
                                     repcount = await repcount;
