@@ -6670,10 +6670,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 setTimeout(async function () {
 
-                    document.getElementById('responseTextarea1').value = '{}'
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-                    document.getElementById('responseTextarea3').value = 'getjiratoken'
-                    document.getElementById('sendResponse').click()
+                    // document.getElementById('responseTextarea1').value = '{}'
+                    // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+                    // document.getElementById('responseTextarea3').value = 'getjiratoken'
+                    // document.getElementById('sendResponse').click()
 
                     jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
                     if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
