@@ -8013,7 +8013,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			
             }
-			
+			dataarr=''
 			document.getElementById('responseTextarea1').removeAttribute('heredata');
 		})
 		
