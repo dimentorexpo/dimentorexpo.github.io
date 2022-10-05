@@ -6679,7 +6679,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							}
 							document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 							console.log("TOKEN: " + jiratkn);
-						}
+						
 				})
             }
 
