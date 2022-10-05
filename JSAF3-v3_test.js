@@ -7982,44 +7982,40 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 if (grdata.data.teachers == null || grdata.data.teachers == undefined)
                     document.getElementById('grlistinfo').innerHTML = dataarr;
                 else document.getElementById('grlistinfo').innerHTML = dataarr + '<br>' + " ID П " + grdata.data.teachers[0].userId;
+				
+				let arstname = document.querySelectorAll('.stname');
+				let getstnamearr = document.querySelectorAll('.getstname');
+				for (let f = 0; f < getstnamearr.length; f++) {
+					getstnamearr[f].onclick = function () {
+
+						document.getElementById('responseTextarea1').value = `{}`
+						document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
+						document.getElementById('responseTextarea3').value = 'dataname'
+						document.getElementById('sendResponse').click()
+
+						setTimeout(async function () {
+							namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
+							namedata = await namedata;
+							namedata = JSON.parse(namedata);
+							arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
+							namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
+						}, 500)
+					}
+				}
+				
+				    let grstdcrmarr = document.querySelectorAll('.grstdcrm');
+						for (let f = 0; f < grstdcrmarr.length; f++) {
+							grstdcrmarr[f].onclick = function () {
+								window.open("https://crm2.skyeng.ru/persons/" + grdata.data.students[f].userId)
+							}
+						}
+			
+			
             }
 			
 			document.getElementById('responseTextarea1').removeAttribute('heredata');
 		})
 		
-        setTimeout(() => {
-            let arstname = document.querySelectorAll('.stname');
-            let getstnamearr = document.querySelectorAll('.getstname');
-            for (let f = 0; f < getstnamearr.length; f++) {
-                getstnamearr[f].onclick = function () {
-
-                    document.getElementById('responseTextarea1').value = `{}`
-                    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
-                    document.getElementById('responseTextarea3').value = 'dataname'
-                    document.getElementById('sendResponse').click()
-
-                    setTimeout(async function () {
-                        namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
-                        namedata = await namedata;
-                        namedata = JSON.parse(namedata);
-                        arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
-                        namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
-                    }, 500)
-                }
-            }
-        }, 1000);
-
-        setTimeout(() => {
-            let grstdcrmarr = document.querySelectorAll('.grstdcrm');
-            for (let f = 0; f < grstdcrmarr.length; f++) {
-                grstdcrmarr[f].onclick = function () {
-                    window.open("https://crm2.skyeng.ru/persons/" + grdata.data.students[f].userId)
-                }
-            }
-        }, 1000);
-
-
-
     } // end of func getidgrouptolist
 
     document.getElementById('getStats').onclick = function () { // открытие Статистики
