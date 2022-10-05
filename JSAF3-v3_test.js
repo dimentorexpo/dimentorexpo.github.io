@@ -6674,12 +6674,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
 							jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
 							document.getElementById('searchjiratknstatus').innerText = "🟢"
+							console.log("TOKEN: " + jiratkn);
 						} else {
-                        alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
-                        document.getElementById('searchjiratknstatus').innerText = "🔴"
+							alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+							document.getElementById('searchjiratknstatus').innerText = "🔴"
 						}
                     document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-                    console.log("TOKEN: " + jiratkn);
+
 					}
 				})
             }
