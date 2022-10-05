@@ -7970,10 +7970,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('sendResponse').click()
 
         setTimeout(async function () {
-            document.getElementById('responseTextarea1').value = '{}'
-            document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
-            document.getElementById('responseTextarea3').value = 'heredata'
-            document.getElementById('sendResponse').click()
+            // document.getElementById('responseTextarea1').value = '{}'
+            // document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
+            // document.getElementById('responseTextarea3').value = 'heredata'
+            // document.getElementById('sendResponse').click()
+			
             grdata = await document.getElementById('responseTextarea1').getAttribute('heredata');
             //grdata = await grdata;
             grdata = JSON.parse(grdata);
