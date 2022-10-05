@@ -7163,19 +7163,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                 let rezissuetable;
 
-                document.getElementById('responseTextarea1').value = `{
-				  "headers": {
-					"accept": "*/*",
-					"sec-fetch-dest": "empty",
-					"sec-fetch-mode": "cors",
-					"sec-fetch-site": "same-origin",
-					"x-requested-with": "XMLHttpRequest"
-				  },
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-               }`
+                document.getElementById('responseTextarea1').value = `{}`
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
                 document.getElementById('responseTextarea3').value = 'getissuetable1'
                 document.getElementById('sendResponse').click()
