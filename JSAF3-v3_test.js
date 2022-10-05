@@ -4451,12 +4451,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/students/" + stid + "/timetable/future-lessons/"
         document.getElementById('responseTextarea3').value = 'futurelessoninfodata'
         document.getElementById('sendResponse').click()
-
-        setTimeout(function () {
-            futurelessoninfo = document.getElementById('responseTextarea1').getAttribute('futurelessoninfodata');
-            futurelessoninfo = JSON.parse(futurelessoninfo);
-            document.getElementById('responseTextarea1').removeAttribute('futurelessoninfodata')
-            if (futurelessoninfo.data == "") {
+		
+				document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+					futurelessoninfo = JSON.parse(document.getElementById('responseTextarea1').getAttribute('futurelessoninfodata'))
+						if(futurelessoninfo !=null) {
+							            if (futurelessoninfo.data == "") {
                 document.getElementById('timetabledata').innerHTML = "Уроки не запланированы";
             } else {
                 for (let i = 0; i < futurelessoninfo.data.length; i++) {
@@ -4516,8 +4515,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('timetabledata').innerHTML = futurelessondata;
                 futurelessondata = "";
             }
-        }, 1000)
-
+						}
+				})
     }
 
     document.getElementById('changelocalelng').onclick = function () { // меняет язык обслуживания выбранного пользователя в вензеле на русский
