@@ -6662,30 +6662,27 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
             let jiratkn;
 
-            async function checkJiraToken() {
+            function checkJiraToken() {
                 document.getElementById('responseTextarea1').value = '{}'
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
                 document.getElementById('responseTextarea3').value = 'getjiratoken'
                 document.getElementById('sendResponse').click()
-
-                setTimeout(async function () {
-
-                    document.getElementById('responseTextarea1').value = '{}'
-                    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-                    document.getElementById('responseTextarea3').value = 'getjiratoken'
-                    document.getElementById('sendResponse').click()
-
-                    jiratkn = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-                    if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
-                        jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
-                        document.getElementById('searchjiratknstatus').innerText = "🟢"
-                    } else {
-                        alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
-                        document.getElementById('searchjiratknstatus').innerText = "🔴"
-                    }
+				
+				document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
+					jiratkn = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+					if(jiratkn !=null) {
+						if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
+							jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+							document.getElementById('searchjiratknstatus').innerText = "🟢"
+							console.log("TOKEN: " + jiratkn);
+						} else {
+							alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+							document.getElementById('searchjiratknstatus').innerText = "🔴"
+						}
                     document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-                    console.log("TOKEN: " + jiratkn);
-                }, 5000)
+
+					}
+				})
             }
 
             checkJiraToken()
