@@ -6671,7 +6671,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function() {
 					jiratkn = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
 					if(jiratkn !=null) {
-						if ((jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null ) {
+						if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
 							jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
 							document.getElementById('searchjiratknstatus').innerText = "🟢"
 						} else {
