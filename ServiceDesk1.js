@@ -161,12 +161,12 @@ document.getElementById('servDsk').onclick = function () {
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
             responsejira = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
 			jiratoken = responsejira;
-			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 			if (jiratoken !=null) {
 				if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
 					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
 					document.getElementById('jiratknstatus').innerText = "🟢"
 					console.log("TOKEN: " + jiratoken);
+					document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 				} else {
 					alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
 					document.getElementById('jiratknstatus').innerText = "🔴"
