@@ -157,18 +157,20 @@ document.getElementById('servDsk').onclick = function () {
 	document.getElementById('responseTextarea3').value = 'getjiratoken'
 	document.getElementById('sendResponse').click()
 
-	setTimeout(async function () {
-		jiratoken = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-		if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
-			jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
-			document.getElementById('jiratknstatus').innerText = "🟢"
-		} else {
-			alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
-			document.getElementById('jiratknstatus').innerText = "🔴"
-		}
-		document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-		console.log("TOKEN: " + jiratoken);
-	}, 1000)
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+			if (jiratoken !=null) {
+				if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
+					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
+					document.getElementById('jiratknstatus').innerText = "🟢"
+					console.log("TOKEN: " + jiratoken);
+				} else {
+					alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
+					document.getElementById('jiratknstatus').innerText = "🔴"
+				}
+					}
+		})
 
 	getprsuplasttask();
 
