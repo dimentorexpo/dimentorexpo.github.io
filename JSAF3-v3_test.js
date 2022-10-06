@@ -2584,7 +2584,7 @@ buttonnextteacherid.onclick = function () { //искать историю чат
     }
 }
 
-trshooter.onclick = function () {
+trshotmain.onclick = function () {
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
             window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
