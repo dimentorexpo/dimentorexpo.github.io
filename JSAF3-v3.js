@@ -2267,17 +2267,23 @@ let buttonhistory = document.createElement('span');
 buttonhistory.id = 'lookForHistory';
 buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
 
+let trshotmain = document.createElement('span');
+trshotmain.id = 'originalusertrshooter'
+trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+
+let trshootnextuser = document.createElement('span');
+trshootnextuser.id = 'nextusertrshooter'
+trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+
 let buttonserv = document.createElement('span');
 buttonserv.id = 'nextStudentServiceInfo';
 buttonserv.innerHTML = " ⚜ ";
-buttonserv.style.width = "20px";
-buttonserv.style.cursor = "pointer";
+buttonserv.style = "width:20px; cursor:pointer";
 
 let buttonservstud = document.createElement('span');
 buttonservstud.id = 'nextStudentServiceInfo1';
 buttonservstud.innerHTML = " ⚜ ";
-buttonservstud.style.width = "20px";
-buttonservstud.style.cursor = "pointer";
+buttonservstud.style = "width:20px; cursor:pointer";
 
 let buttonservteach = document.createElement('span');
 buttonservteach.id = 'nextTeacherServiceInfo1';
@@ -2574,6 +2580,24 @@ buttonnextteacherid.onclick = function () { //искать историю чат
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
             document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
             btn_search_history.click()
+        }
+    }
+}
+
+trshotmain.onclick = function () {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
+        }
+    }
+}
+
+trshootnextuser.onclick = function () {
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
         }
     }
 }
@@ -7958,7 +7982,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     let grdata = [];
-	let responsegrdata;
+    let responsegrdata;
     document.getElementById('getidgrouptolist').onclick = async function () {
         let dataarr = [];
         document.getElementById('grlistinfo').innerHTML = "Загрузка...";
@@ -7969,55 +7993,55 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('responseTextarea2').value = "https://learning-groups-storage-api.skyeng.ru/api/v1/groupParticipants/getParticipants/" + tempgrid;
         document.getElementById('responseTextarea3').value = 'heredata'
         document.getElementById('sendResponse').click()
-		
-		
+
+
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
             responsegrdata = document.getElementById('responseTextarea1').getAttribute('heredata')
-			// grdata = responsegrdata;
-			if (responsegrdata != null) {
-				grdata = JSON.parse(responsegrdata)
-				document.getElementById('responseTextarea1').removeAttribute('heredata');
-				console.log(grdata)
+            // grdata = responsegrdata;
+            if (responsegrdata != null) {
+                grdata = JSON.parse(responsegrdata)
+                document.getElementById('responseTextarea1').removeAttribute('heredata');
+                console.log(grdata)
                 for (let i = 0; i < grdata.data.students.length; i++) {
                     dataarr += [i + 1] + "." + '<span class="grstdcrm" style="cursor:pointer" title="открывает профиль в CRM">ℹID У:</span>' + grdata.data.students[i].userId + " ID услуги: " + grdata.data.students[i].educationServiceId + " " + '<span class="getstname" style="cursor:pointer" title="Узнать имя и фамилию ученика, если раз нажали не появилось нажмите через секунду второй раз, быстро на все глаза не нажимайте, иначе получите некорректную информацию">👁‍🗨</span>' + '<span class="stname"></span>' + '<br>';
                 }
-				
+
                 if (grdata.data.teachers == null || grdata.data.teachers == undefined)
                     document.getElementById('grlistinfo').innerHTML = dataarr;
                 else document.getElementById('grlistinfo').innerHTML = dataarr + '<br>' + " ID П " + grdata.data.teachers[0].userId;
-				
-				let arstname = document.querySelectorAll('.stname');
-				let getstnamearr = document.querySelectorAll('.getstname');
-				for (let f = 0; f < getstnamearr.length; f++) {
-					getstnamearr[f].onclick = function () {
 
-						document.getElementById('responseTextarea1').value = `{}`
-						document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
-						document.getElementById('responseTextarea3').value = 'dataname'
-						document.getElementById('sendResponse').click()
+                let arstname = document.querySelectorAll('.stname');
+                let getstnamearr = document.querySelectorAll('.getstname');
+                for (let f = 0; f < getstnamearr.length; f++) {
+                    getstnamearr[f].onclick = function () {
 
-						setTimeout(async function () {
-							namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
-							namedata = await namedata;
-							namedata = JSON.parse(namedata);
-							arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
-							namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
-						}, 500)
-					}
-				}
-				
-				    let grstdcrmarr = document.querySelectorAll('.grstdcrm');
-						for (let f = 0; f < grstdcrmarr.length; f++) {
-							grstdcrmarr[f].onclick = function () {
-								window.open("https://crm2.skyeng.ru/persons/" + grdata.data.students[f].userId)
-							}
-						}
-			
-			
+                        document.getElementById('responseTextarea1').value = `{}`
+                        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + grdata.data.students[f].userId + "?crm2=true&debugParam=person-page";
+                        document.getElementById('responseTextarea3').value = 'dataname'
+                        document.getElementById('sendResponse').click()
+
+                        setTimeout(async function () {
+                            namedata = document.getElementById('responseTextarea1').getAttribute('dataname');
+                            namedata = await namedata;
+                            namedata = JSON.parse(namedata);
+                            arstname[f].innerHTML = namedata.data.name + " " + namedata.data.surname;
+                            namedata = document.getElementById('responseTextarea1').removeAttribute('dataname');
+                        }, 500)
+                    }
+                }
+
+                let grstdcrmarr = document.querySelectorAll('.grstdcrm');
+                for (let f = 0; f < grstdcrmarr.length; f++) {
+                    grstdcrmarr[f].onclick = function () {
+                        window.open("https://crm2.skyeng.ru/persons/" + grdata.data.students[f].userId)
+                    }
+                }
+
+
             }
-			dataarr=''
-		})
-		
+            dataarr = ''
+        })
+
     } // end of func getidgrouptolist
 
     document.getElementById('getStats').onclick = function () { // открытие Статистики
@@ -9230,20 +9254,9 @@ function startTimer() {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(infouserbut)
                 btn.appendChild(buttonservstud)
-            }
-
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonhistory)
-            }
-
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(marksstata)
-            }
-
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                btn.appendChild(trshotmain)
                 if (typeof buttonmobpas == 'object')
                     btn.appendChild(buttonmobpas)
             }
@@ -9252,23 +9265,18 @@ function startTimer() {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(nextstuduserbut)
                 btn.appendChild(buttonserv)
-            }
-
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(buttonnextstudentid)
+                btn.appendChild(trshootnextuser)
             }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(nextteachuserbut)
                 btn.appendChild(buttonservteach)
+                btn.appendChild(buttonnextteacherid)
+                btn.appendChild(trshootnextuser)
             }
 
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(buttonnextteacherid)
-            }
         }
     }
 
