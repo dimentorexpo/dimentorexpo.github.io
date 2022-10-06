@@ -144,7 +144,7 @@ function getslacklnk() { // получаем ссылку на обращени�
 }
 
 
-function checkjiraauth() {
+function checkjiraauth() { // функция проверки авторизации в Jira 
 		document.getElementById('responseTextarea1').value = '{}'
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
 		document.getElementById('responseTextarea3').value = 'getjiratoken'
@@ -315,7 +315,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('teacherssrvdskoptions').style.display = '';
 			document.getElementById('teachersform').style.display = '';
 
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
@@ -743,7 +743,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('edumodelform').style.display = '';
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
@@ -930,7 +930,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('billqaform').style.display = '';
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('mrktform').style.display = 'none';
@@ -1046,7 +1046,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('vimvideocallform').style.display = '';
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -1136,7 +1136,6 @@ document.getElementById('servDsk').onclick = function () {
 	document.getElementById('optionOnboarding').onclick = function () { //C1 Onboarding
 		if (document.getElementById('c1srvdskoptions').style.display != '') {
 			document.getElementById('c1srvdskoptions').style.display = '';
-			document.getElementById('onboardingform').style.display = '';
 
 			document.getElementById('teachersform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -1293,7 +1292,6 @@ document.getElementById('servDsk').onclick = function () {
 
 		} else {
 			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
 		}
 	}
 
@@ -1303,7 +1301,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('scheduleform').style.display = '';
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('mrktform').style.display = 'none';
@@ -1493,7 +1491,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('telephonyform').style.display = '';
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
@@ -1830,7 +1828,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('telephonyform').style.display = 'none';
@@ -2092,7 +2090,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('telephonyform').style.display = 'none';
@@ -2472,7 +2470,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('mrktform').style.display = '';
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('telephonyform').style.display = 'none';
@@ -2912,7 +2910,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('telephonyform').style.display = 'none';
@@ -3436,7 +3434,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('mrktform').style.display = 'none';
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('billqaform').style.display = 'none';
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('telephonyform').style.display = 'none';
@@ -3770,7 +3768,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -4128,7 +4126,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -4221,7 +4219,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('tripwireform').style.display = '';
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -4407,7 +4405,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -4500,7 +4498,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -4594,7 +4592,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -4688,7 +4686,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -4782,7 +4780,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -5143,7 +5141,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -5407,7 +5405,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';
@@ -5695,7 +5693,7 @@ document.getElementById('servDsk').onclick = function () {
 
 
 			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
+			
 			document.getElementById('scheduleform').style.display = 'none';
 			document.getElementById('billingform').style.display = 'none';
 			document.getElementById('billqaform').style.display = 'none';

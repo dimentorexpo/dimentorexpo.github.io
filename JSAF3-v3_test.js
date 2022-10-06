@@ -1612,6 +1612,17 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="c1sbtn widthofsd" id="c1payonboarding">Не завершился онбординг после оплаты</button>
 					<button class="c1sbtn widthofsd" id="c1redirects">Циклические редиректы</button>
 					<button class="c1sbtn widthofsd" id="c1underground">Подземный стук</button>
+					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
+					<br>
+					<textarea id="customfield_12" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+					<textarea id="customfield_13" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
+					<br>
+					<textarea id="customfield_14" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
+					<br>
+					<textarea id="customfield_15" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
+					<br>
+					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="telephonysrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px;">#telephony-support; Канал для поддержки внутренней телефонии</p>
@@ -1770,19 +1781,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_10" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
 					<br>
 					<button id="create_2" style="width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
-				<div id="onboardingform" style="display: none; margin-left:20px;">
-					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
-					<br>
-					<textarea id="customfield_12" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<br>
-					<textarea id="customfield_13" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
-					<br>
-					<textarea id="customfield_14" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
-					<br>
-					<textarea id="customfield_15" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<br>
-					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="billqaform" style="display: none; margin-left:20px;">
 					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
