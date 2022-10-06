@@ -194,6 +194,8 @@ function checkjiraauth() {
 					}
 			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 		});
+		
+		getprsuplasttask()
 
 }
 //main
@@ -206,7 +208,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	checkjiraauth()
 
-	setTimeout(getprsuplasttask, 2000)
+	// setTimeout(getprsuplasttask, 2000)
 	
 	$('.sdbtn').click(function () {
 		$('.sdbtn').not(this).removeClass('activebtnsd');
