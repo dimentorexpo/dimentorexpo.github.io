@@ -171,7 +171,7 @@ function getslacklnk() { // получаем ссылку на обращени�
 }
 
 
-function checkjiraauth() {
+async function checkjiraauth() {
 		document.getElementById('responseTextarea1').value = '{}'
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
 		document.getElementById('responseTextarea3').value = 'getjiratoken'
@@ -197,14 +197,14 @@ function checkjiraauth() {
 
 }
 //main
-document.getElementById('servDsk').onclick = function () {
+document.getElementById('servDsk').onclick = async function () {
 	if (document.getElementById('AF_ServDsk').style.display == '')
 		document.getElementById('AF_ServDsk').style.display = 'none'
 	else
 		document.getElementById('AF_ServDsk').style.display = ''
 	document.getElementById('idmymenu').style.display = 'none'
 
-	checkjiraauth()
+	await checkjiraauth()
 
 	getprsuplasttask();
 	
