@@ -31,16 +31,12 @@ buttonmobpas.onclick = function () {
     document.getElementById('sendResponse').click()
 
     function getPassInfoNew() {
-        document.getElementById('responseTextarea1').value = '{}'
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-        document.getElementById('responseTextarea3').value = ''
-
         var resprez2 = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
         document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
         var convertres2 = resprez2.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
         document.getElementById('copymobpass').innerHTML = convertres2[1];
     }
-    setTimeout(getPassInfoNew, 1000);
+    setTimeout(getPassInfoNew, 2000);
 
     setTimeout(function () { document.getElementById('copymobpass').innerHTML = "Generate Code📱" }, 15000);
 }
@@ -70,16 +66,12 @@ buttonmobpas.onclick = function () {
             document.getElementById('sendResponse').click()
 
             function getPassInfo() {
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-                document.getElementById('responseTextarea3').value = ''
-
                 var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
                 document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
                 var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
                 setidformobpass.value = convertres[1];
             }
-            setTimeout(getPassInfo, 1000);
+            setTimeout(getPassInfo, 2000);
         };
         setTimeout(function () { document.getElementById('setidformobpass').value = "" }, 15000);
 
