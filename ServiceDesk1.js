@@ -1,5 +1,6 @@
 //Global variables
 let jiratoken;
+let responsejira;
 let psarr = [];
 let firstEl;
 let slacklnk;
@@ -158,7 +159,8 @@ document.getElementById('servDsk').onclick = function () {
 	document.getElementById('sendResponse').click()
 
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-            jiratoken = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+            responsejira = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+			jiratoken = responsejira;
 			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 			if (jiratoken !=null) {
 				if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
