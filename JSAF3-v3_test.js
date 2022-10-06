@@ -1875,9 +1875,9 @@ var win_servicedesk = // описание элементов окна Service De
 							<option value="4">Minor</option>
 							<option value="5">Trivial</option>
 					   </select>
-					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
-                    <textarea id="customfield_911" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></textarea>
-                    <textarea id="customfield_912" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield"></textarea>
+					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield">
+                    <input id="customfield_911" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></input>
+                    <input id="customfield_912" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_92" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_94" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_95" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
