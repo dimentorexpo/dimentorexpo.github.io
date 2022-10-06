@@ -2584,6 +2584,24 @@ buttonnextteacherid.onclick = function () { //искать историю чат
     }
 }
 
+trshooter.onclick = function() {
+		    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+			window.open('https://video-trouble-shooter.skyeng.ru/?userId=' +document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
+        } 
+	}
+}
+
+trshootnextuser.onclick = function() {
+	    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+			window.open('https://video-trouble-shooter.skyeng.ru/?userId=' +document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+			window.open('https://video-trouble-shooter.skyeng.ru/?userId=' +document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
+        }
+	}
+}
+
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -9236,56 +9254,29 @@ function startTimer() {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(infouserbut)
                 btn.appendChild(buttonservstud)
-				btn.appendChild(buttonhistory) //тест
-				btn.appendChild(marksstata) //тест
-                btn.appendChild(trshotmain) //тест
+				btn.appendChild(buttonhistory) 
+				btn.appendChild(marksstata) 
+                btn.appendChild(trshotmain) 
 				  if (typeof buttonmobpas == 'object')
                     btn.appendChild(buttonmobpas)
             }
-
-            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-               // btn.appendChild(buttonhistory)
-            // }
-
-            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                // btn.appendChild(marksstata)
-                // btn.appendChild(trshotmain)
-            // }
-
-            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                // if (typeof buttonmobpas == 'object')
-                    // btn.appendChild(buttonmobpas)
-            // }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(nextstuduserbut)
                 btn.appendChild(buttonserv)
-				btn.appendChild(buttonnextstudentid) // testted
+				btn.appendChild(buttonnextstudentid) 
 				btn.appendChild(trshootnextuser)
             }
-
-            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                // btn.appendChild(buttonnextstudentid)
-				 // btn.appendChild(trshootnextuser)
-            // }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(nextteachuserbut)
                 btn.appendChild(buttonservteach)
-				btn.appendChild(buttonnextteacherid) // tested
+				btn.appendChild(buttonnextteacherid) 
                 btn.appendChild(trshootnextuser)
             }
 
-            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                // btn.appendChild(buttonnextteacherid)
-            // }
         }
     }
 
