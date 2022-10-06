@@ -2267,17 +2267,23 @@ let buttonhistory = document.createElement('span');
 buttonhistory.id = 'lookForHistory';
 buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
 
+let trshotmain = document.createElement('span');
+trshotmain.id = 'originalusertrshooter'
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+
+let trshootnextuser = document.createElement('span');
+trshootnextuser.id = 'nextusertrshooter'
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+
 let buttonserv = document.createElement('span');
 buttonserv.id = 'nextStudentServiceInfo';
 buttonserv.innerHTML = " ⚜ ";
-buttonserv.style.width = "20px";
-buttonserv.style.cursor = "pointer";
+buttonserv.style = "width:20px; cursor:pointer";
 
 let buttonservstud = document.createElement('span');
 buttonservstud.id = 'nextStudentServiceInfo1';
 buttonservstud.innerHTML = " ⚜ ";
-buttonservstud.style.width = "20px";
-buttonservstud.style.cursor = "pointer";
+buttonservstud.style = "width:20px; cursor:pointer";
 
 let buttonservteach = document.createElement('span');
 buttonservteach.id = 'nextTeacherServiceInfo1';
@@ -9252,23 +9258,28 @@ function startTimer() {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(nextstuduserbut)
                 btn.appendChild(buttonserv)
+				btn.appendChild(buttonnextstudentid) // testted
+				btn.appendChild(trshootnextuser)
             }
 
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(buttonnextstudentid)
-            }
+            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                // btn.appendChild(buttonnextstudentid)
+				 // btn.appendChild(trshootnextuser)
+            // }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(nextteachuserbut)
                 btn.appendChild(buttonservteach)
+				btn.appendChild(buttonnextteacherid) // tested
+                btn.appendChild(trshootnextuser)
             }
 
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(buttonnextteacherid)
-            }
+            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                // btn.appendChild(buttonnextteacherid)
+            // }
         }
     }
 
