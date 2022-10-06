@@ -8,12 +8,10 @@ let infoarr;
 let lasttsk;
 let prevtsk;
 let flagpsis = 0;
-let flagauth = 0;
 //func initialize
 
 function getprsuplasttask() { //функция для получения ссылки на последний проект в джира
-	if (flagauth == 1) {
-			document.getElementById('responseTextarea1').value = `{}`
+		document.getElementById('responseTextarea1').value = `{}`
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
 		document.getElementById('responseTextarea3').value = 'pstickets'
 		document.getElementById('sendResponse').click()
@@ -38,31 +36,6 @@ function getprsuplasttask() { //функция для получения ссы�
 			}
 			document.getElementById('responseTextarea1').removeAttribute('pstickets');
 		})
-
-		
-
-		// setTimeout(() => {
-			// psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
-			// document.getElementById('responseTextarea1').removeAttribute('pstickets');
-
-			// let sortarr = psarr.match(/PS-(\d+)/g);
-			// sortarr = sortarr.sort().reverse();
-			// firstEl = sortarr[0];
-
-			// prevtsk = firstEl;
-			// document.getElementById('prevtask').innerText = prevtsk;
-
-			// document.getElementById('prevtask').onclick = function () {
-				// if (document.getElementById('prevtask').innerText == "") {
-					// console.log('Введите Задача не найдена')
-				// } else {
-					// window.open("https://jira.skyeng.tech/browse/" + prevtsk);
-				// };
-			// }
-
-		// }, 2000);
-		
-	} else console.log('Not authorized to Jira')
 }
 
 
@@ -185,12 +158,10 @@ function checkjiraauth() {
 					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
 					document.getElementById('jiratknstatus').innerText = "🟢"
 					console.log("TOKEN: " + jiratoken);
-					flagauth = 1 ;
 					getprsuplasttask()
 				} else {
 					console.log("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
 					document.getElementById('jiratknstatus').innerText = "🔴"
-					flagauth = 0;
 				}
 					}
 			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
