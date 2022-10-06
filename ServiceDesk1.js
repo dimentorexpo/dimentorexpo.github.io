@@ -208,7 +208,7 @@ document.getElementById('servDsk').onclick = function () {
 
 	getprsuplasttask();
 	
-		$('.sdbtn').click(function () {
+	$('.sdbtn').click(function () {
 		$('.sdbtn').not(this).removeClass('activebtnsd');
 		$(this).toggleClass('activebtnsd');
 	});
@@ -308,7 +308,7 @@ document.getElementById('servDsk').onclick = function () {
 } // tested
 	
 
-
+	document.getElementById('refreshjiraauth').onclick = checkjiraauth;
 
 	function remres(a) {
 		$('.edumodbtn').not(a).removeClass('activebtn');
