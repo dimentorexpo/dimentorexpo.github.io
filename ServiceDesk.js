@@ -1,5 +1,6 @@
 //Global variables
 let jiratoken;
+let responsejira;
 let psarr = [];
 let firstEl;
 let slacklnk;
@@ -10,109 +11,42 @@ let flagpsis = 0;
 //func initialize
 
 function getprsuplasttask() { //функция для получения ссылки на последний проект в джира
-	document.getElementById('responseTextarea1').value = `{    "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-         }`
-	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-	document.getElementById('responseTextarea3').value = 'pstickets'
-	document.getElementById('sendResponse').click()
-
-	setTimeout(async () => {
-		document.getElementById('responseTextarea1').value = `{   "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-                 }`
+		document.getElementById('responseTextarea1').value = `{}`
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
 		document.getElementById('responseTextarea3').value = 'pstickets'
 		document.getElementById('sendResponse').click()
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+			psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
+			if (psarr !=null) {
+				let sortarr = psarr.match(/PS-(\d+)/g);
+				sortarr = sortarr.sort().reverse();
+				firstEl = sortarr[0];
 
-		psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
-		psarr = await psarr;
+				prevtsk = firstEl;
+				document.getElementById('prevtask').innerText = prevtsk;
 
-		document.getElementById('responseTextarea1').removeAttribute('pstickets');
-
-		let sortarr = psarr.match(/PS-(\d+)/g);
-		sortarr = sortarr.sort().reverse();
-		firstEl = sortarr[0];
-
-		prevtsk = firstEl;
-		document.getElementById('prevtask').innerText = prevtsk;
-
-		document.getElementById('prevtask').onclick = function () {
-			if (document.getElementById('prevtask').innerText == "") {
-				console.log('Введите Задача не найдена')
-			} else {
-				window.open("https://jira.skyeng.tech/browse/" + prevtsk);
-			};
-		}
-
-	}, 2000);
-
+				document.getElementById('prevtask').onclick = function () {
+					if (document.getElementById('prevtask').innerText == "") {
+						console.log('Введите Задача не найдена')
+					} else {
+						window.open("https://jira.skyeng.tech/browse/" + prevtsk);
+					};
+				}
+			}
+			document.getElementById('responseTextarea1').removeAttribute('pstickets');
+		})
 }
 
 
 function getprsup() { //функция для получения ссылки на последний проект в джира
-	document.getElementById('responseTextarea1').value = `{    "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-         }`
+	document.getElementById('responseTextarea1').value = `{}`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
 	document.getElementById('responseTextarea3').value = 'pstickets'
 	document.getElementById('sendResponse').click()
 
-	setTimeout(async () => {
-		document.getElementById('responseTextarea1').value = `{   "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-                 }`
-		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-		document.getElementById('responseTextarea3').value = 'pstickets'
-		document.getElementById('sendResponse').click()
-
+	setTimeout( () => {
 		psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
-		psarr = await psarr;
-
 		document.getElementById('responseTextarea1').removeAttribute('pstickets');
 
 		let sortarr = psarr.match(/PS-(\d+)/g);
@@ -140,44 +74,13 @@ function getprsup() { //функция для получения ссылки н
 }
 
 function getinfrasup() { //функция для получения ссылки на последний запрос Infra в джира
-	document.getElementById('responseTextarea1').value = `{    "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-         }`
+	document.getElementById('responseTextarea1').value = `{}`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?status=open&reporter=all";
 	document.getElementById('responseTextarea3').value = 'istickets'
 	document.getElementById('sendResponse').click()
 
-	setTimeout(async () => {
-		document.getElementById('responseTextarea1').value = `{   "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-                 }`
-		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?status=open&reporter=all";
-		document.getElementById('responseTextarea3').value = 'istickets'
-		document.getElementById('sendResponse').click()
-
-		psarr = await document.getElementById('responseTextarea1').getAttribute('istickets');
+	setTimeout( () => {
+		psarr = document.getElementById('responseTextarea1').getAttribute('istickets');
 
 		document.getElementById('responseTextarea1').removeAttribute('istickets');
 
@@ -199,43 +102,12 @@ function getinfrasup() { //функция для получения ссылки
 function getslacklnk() { // получаем ссылку на обращение в слака с помощью парсинга номера задачи в джире и вытягивание ссылки с нее
 	if (flagpsis == 1) {
 		if (lasttsk > prevtsk) {
-			document.getElementById('responseTextarea1').value = `{    "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-         }`
+			document.getElementById('responseTextarea1').value = `{}`
 			document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
 			document.getElementById('responseTextarea3').value = 'slacklnkhere'
 			document.getElementById('sendResponse').click()
 
 			setTimeout(async () => {
-				document.getElementById('responseTextarea1').value = `{    "headers": {
-    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "sec-fetch-dest": "document",
-    "sec-fetch-mode": "navigate",
-    "sec-fetch-site": "same-origin",
-    "sec-fetch-user": "?1",
-    "upgrade-insecure-requests": "1"
-  },
-  "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": null,
-  "method": "GET",
-  "mode": "cors",
-  "credentials": "include"
-         }`
-				document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
-				document.getElementById('responseTextarea3').value = 'slacklnkhere'
-				document.getElementById('sendResponse').click()
-
 				infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
 				document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
 
@@ -251,43 +123,12 @@ function getslacklnk() { // получаем ссылку на обращени�
 
 	} else if (flagpsis == 2) {
 
-		document.getElementById('responseTextarea1').value = `{    "headers": {
-					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-				  },
-				  "referrerPolicy": "strict-origin-when-cross-origin",
-				  "body": null,
-				  "method": "GET",
-				  "mode": "cors",
-				  "credentials": "include"
-				}`
+		document.getElementById('responseTextarea1').value = `{}`
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
 		document.getElementById('responseTextarea3').value = 'slacklnkhere'
 		document.getElementById('sendResponse').click()
 
 		setTimeout(async () => {
-			document.getElementById('responseTextarea1').value = `{    "headers": {
-				"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-				"sec-fetch-dest": "document",
-				"sec-fetch-mode": "navigate",
-				"sec-fetch-site": "same-origin",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			  },
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": null,
-			  "method": "GET",
-			  "mode": "cors",
-			  "credentials": "include"
-			}`
-			document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + firstEl;
-			document.getElementById('responseTextarea3').value = 'slacklnkhere'
-			document.getElementById('sendResponse').click()
-
 			infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
 			document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
 
@@ -302,6 +143,31 @@ function getslacklnk() { // получаем ссылку на обращени�
 
 }
 
+
+function checkjiraauth() { // функция проверки авторизации в Jira 
+		document.getElementById('responseTextarea1').value = '{}'
+		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+		document.getElementById('responseTextarea3').value = 'getjiratoken'
+		document.getElementById('sendResponse').click()
+
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            responsejira = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+			jiratoken = responsejira;
+			if (jiratoken !=null) {
+				if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
+					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
+					document.getElementById('jiratknstatus').innerText = "🟢"
+					console.log("TOKEN: " + jiratoken);
+					getprsuplasttask()
+				} else {
+					console.log("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
+					document.getElementById('jiratknstatus').innerText = "🔴"
+				}
+					}
+			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+		});
+		
+}
 //main
 document.getElementById('servDsk').onclick = function () {
 	if (document.getElementById('AF_ServDsk').style.display == '')
@@ -310,67 +176,16 @@ document.getElementById('servDsk').onclick = function () {
 		document.getElementById('AF_ServDsk').style.display = ''
 	document.getElementById('idmymenu').style.display = 'none'
 
+	checkjiraauth()
 
-	document.getElementById('responseTextarea1').value = '{}'
-	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-	document.getElementById('responseTextarea3').value = 'getjiratoken'
-	document.getElementById('sendResponse').click()
-
-	setTimeout(async function () {
-
-		document.getElementById('responseTextarea1').value = '{}'
-		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-		document.getElementById('responseTextarea3').value = 'getjiratoken'
-		document.getElementById('sendResponse').click()
-
-		jiratoken = await document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-		if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
-			jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
-			document.getElementById('jiratknstatus').innerText = "🟢"
-		} else {
-			alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
-			document.getElementById('jiratknstatus').innerText = "🔴"
-		}
-		document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-		console.log("TOKEN: " + jiratoken);
-	}, 1000)
-
-	getprsuplasttask();
-
-
+	// setTimeout(getprsuplasttask, 2000)
+	
 	$('.sdbtn').click(function () {
 		$('.sdbtn').not(this).removeClass('activebtnsd');
 		$(this).toggleClass('activebtnsd');
 	});
-
-	function remres(a) {
-		$('.edumodbtn').not(a).removeClass('activebtn');
-		$('.bilqabtn').not(a).removeClass('activebtn');
-		$('.teacbtn').not(a).removeClass('activebtn');
-		$('.c1sbtn').not(a).removeClass('activebtn');
-		$('.schdbtn').not(a).removeClass('activebtn');
-		$('.telepbtn').not(a).removeClass('activebtn');
-		$('.authbtn').not(a).removeClass('activebtn');
-		$('.crm2sbtn').not(a).removeClass('activebtn');
-		$('.mrktbtn').not(a).removeClass('activebtn');
-		$('.billbtn').not(a).removeClass('activebtn');
-		$('.vimbugsbtn').not(a).removeClass('activebtn');
-		$('.vimvidsbtn').not(a).removeClass('activebtn');
-		$('.studcabbtn').not(a).removeClass('activebtn');
-		$('.chatqabtn').not(a).removeClass('activebtn');
-		$('.tripwbtn').not(a).removeClass('activebtn');
-		$('.analystbtn').not(a).removeClass('activebtn');
-		$('.corpbtn').not(a).removeClass('activebtn');
-		$('.marketingbtn').not(a).removeClass('activebtn');
-		$('.mobbugsbtn').not(a).removeClass('activebtn');
-		$('.academymobbugsbtn').not(a).removeClass('activebtn');
-		$('.stcabmbsbtn').not(a).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(a).removeClass('activebtn');
-		$('.infrabtn').not(a).removeClass('activebtn');
-		$(a).toggleClass('activebtn');
-	}
-
-	$('.teacbtn').click(function () {
+	
+		$('.teacbtn').click(function () {
 		remres(this)
 	});
 
@@ -456,40 +271,46 @@ document.getElementById('servDsk').onclick = function () {
 
 	$('.marketprojbugsbtn').click(function () {  //поправить
 		remres(this)
-
 	});
 
 	$('.infrabtn').click(function () {  //поправить
 		remres(this)
-
 	});
+
+} // tested
+	
+	document.getElementById('refreshjiraauth').onclick = checkjiraauth;
+
+	function remres(a) {
+		$('.edumodbtn').not(a).removeClass('activebtn');
+		$('.bilqabtn').not(a).removeClass('activebtn');
+		$('.teacbtn').not(a).removeClass('activebtn');
+		$('.c1sbtn').not(a).removeClass('activebtn');
+		$('.schdbtn').not(a).removeClass('activebtn');
+		$('.telepbtn').not(a).removeClass('activebtn');
+		$('.authbtn').not(a).removeClass('activebtn');
+		$('.crm2sbtn').not(a).removeClass('activebtn');
+		$('.mrktbtn').not(a).removeClass('activebtn');
+		$('.billbtn').not(a).removeClass('activebtn');
+		$('.vimbugsbtn').not(a).removeClass('activebtn');
+		$('.vimvidsbtn').not(a).removeClass('activebtn');
+		$('.studcabbtn').not(a).removeClass('activebtn');
+		$('.chatqabtn').not(a).removeClass('activebtn');
+		$('.tripwbtn').not(a).removeClass('activebtn');
+		$('.analystbtn').not(a).removeClass('activebtn');
+		$('.corpbtn').not(a).removeClass('activebtn');
+		$('.marketingbtn').not(a).removeClass('activebtn');
+		$('.mobbugsbtn').not(a).removeClass('activebtn');
+		$('.academymobbugsbtn').not(a).removeClass('activebtn');
+		$('.stcabmbsbtn').not(a).removeClass('activebtn');
+		$('.marketprojbugsbtn').not(a).removeClass('activebtn');
+		$('.infrabtn').not(a).removeClass('activebtn');
+		$(a).toggleClass('activebtn');
+	}
 
 	document.getElementById('optionTeacher').onclick = function () { // Teachers
 		if (document.getElementById('teacherssrvdskoptions').style.display != '') {
 			document.getElementById('teacherssrvdskoptions').style.display = '';
-			document.getElementById('teachersform').style.display = '';
-
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
 
 			document.getElementById('infraoptions').style.display = 'none';
 			document.getElementById('marketprojbugsptions').style.display = 'none';
@@ -887,37 +708,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('teachersform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS
 		if (document.getElementById('edumodeloptions').style.display != '') {
 			document.getElementById('edumodeloptions').style.display = '';
-			document.getElementById('edumodelform').style.display = '';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -1074,37 +870,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('edumodeloptions').style.display = 'none';  // подумать как поправить
-			document.getElementById('edumodelform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionBillingQA').onclick = function () { //BillingQA
 		if (document.getElementById('billingqasrvdskoptions').style.display != '') {
 			document.getElementById('billingqasrvdskoptions').style.display = '';
-			document.getElementById('billqaform').style.display = '';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -1190,37 +961,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionVimvideocall').onclick = function () { //Vim-video-call
 		if (document.getElementById('vimvidoptions').style.display != '') {
 			document.getElementById('vimvidoptions').style.display = '';
-			document.getElementById('vimvideocallform').style.display = '';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -1244,7 +990,6 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
 
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
 
@@ -1283,37 +1028,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionOnboarding').onclick = function () { //C1 Onboarding
 		if (document.getElementById('c1srvdskoptions').style.display != '') {
 			document.getElementById('c1srvdskoptions').style.display = '';
-			document.getElementById('onboardingform').style.display = '';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -1447,37 +1167,12 @@ document.getElementById('servDsk').onclick = function () {
 
 		} else {
 			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionSchedule').onclick = function () { // Schedule
 		if (document.getElementById('schedulesrvdskoptions').style.display != '') {
 			document.getElementById('schedulesrvdskoptions').style.display = '';
-			document.getElementById('scheduleform').style.display = '';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -1637,37 +1332,12 @@ document.getElementById('servDsk').onclick = function () {
 
 		} else {
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionTelephony').onclick = function () { //Telephony
 		if (document.getElementById('telephonysrvdskoptions').style.display != '') {
 			document.getElementById('telephonysrvdskoptions').style.display = '';
-			document.getElementById('telephonyform').style.display = '';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -1973,38 +1643,12 @@ document.getElementById('servDsk').onclick = function () {
 
 		} else {
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionAuth').onclick = function () { //Auth
 		if (document.getElementById('authsrvdskoptions').style.display != '') {
 			document.getElementById('authsrvdskoptions').style.display = '';
-			document.getElementById('authform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -2028,7 +1672,6 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
-
 
 			document.getElementById('create_8').onclick = function () {
 				let idstdserv = encodeURIComponent(document.getElementById('customfield_26').value);
@@ -2234,39 +1877,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
 		}
-
 	}
 
 	document.getElementById('optionCRM2').onclick = function () { //CRM2
 		if (document.getElementById('crm2srvdskoptions').style.display != '') {
 			document.getElementById('crm2srvdskoptions').style.display = '';
-			document.getElementById('crm2form').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -2290,7 +1906,6 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
-
 
 			document.getElementById('create_9').onclick = function () {
 				let idstdserv = encodeURIComponent(document.getElementById('customfield_40').value);
@@ -2616,37 +2231,13 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionMrkt').onclick = function () { //MRKT
 		if (document.getElementById('mrktsrvdskoptions').style.display != '') {
 			document.getElementById('mrktsrvdskoptions').style.display = '';
-			document.getElementById('mrktform').style.display = '';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
+			
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
 			document.getElementById('marketprojbugsptions').style.display = 'none';
@@ -3047,46 +2638,17 @@ document.getElementById('servDsk').onclick = function () {
 					setTimeout(getprsup, 5000);
 					setTimeout(getslacklnk, 8000);
 
-				}
-
-				else console.log("Not found");
-
+				} else console.log("Not found");
 			}
 
 		} else {
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionBilling').onclick = function () { //billing
 		if (document.getElementById('billingsrvdskoptions').style.display != '') {
 			document.getElementById('billingsrvdskoptions').style.display = '';
-			document.getElementById('billingform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -3578,38 +3140,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionVimbugs').onclick = function () { //vimbugs
 		if (document.getElementById('vimbugsoptions').style.display != '') {
 			document.getElementById('vimbugsoptions').style.display = '';
-			document.getElementById('vimbugsform').style.display = '';
-
-			document.getElementById('mrktform').style.display = 'none';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -3640,7 +3176,6 @@ document.getElementById('servDsk').onclick = function () {
 				let str = encodeURIComponent(document.getElementById('customfield_53').value);
 				let erx = encodeURIComponent(document.getElementById('customfield_54').value);
 				let ary = encodeURIComponent(document.getElementById('customfield_55').value);
-
 
 				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('lessonbutwidg').textContent) {
 					console.log("Виджет входа у взрослых У и П: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
@@ -3913,38 +3448,12 @@ document.getElementById('servDsk').onclick = function () {
 
 		else {
 			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionStudcab').onclick = function () { //student-cabinet-bugs
 		if (document.getElementById('studcaboptions').style.display != '') {
 			document.getElementById('studcaboptions').style.display = '';
-			document.getElementById('studcabform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -3968,7 +3477,6 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
 
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
 
@@ -4271,38 +3779,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionChat').onclick = function () { //chat-qa-support
 		if (document.getElementById('chatqaoptions').style.display != '') {
 			document.getElementById('chatqaoptions').style.display = '';
-			document.getElementById('chatform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -4326,7 +3808,6 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
 
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
 
@@ -4365,37 +3846,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs
 		if (document.getElementById('tripwireoptions').style.display != '') {
 			document.getElementById('tripwireoptions').style.display = '';
-			document.getElementById('tripwireform').style.display = '';
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -4419,8 +3875,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
-
+			
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
 
 			document.getElementById('create_15').onclick = function () {
@@ -4550,38 +4005,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl
 		if (document.getElementById('analystoptions').style.display != '') {
 			document.getElementById('analystoptions').style.display = '';
-			document.getElementById('analystform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -4605,8 +4034,7 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
-
+			
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
 
 			document.getElementById('create_16').onclick = function () {
@@ -4643,38 +4071,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionCorp').onclick = function () { //corp-support
 		if (document.getElementById('corpoptions').style.display != '') {
 			document.getElementById('corpoptions').style.display = '';
-			document.getElementById('corpform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -4698,7 +4100,6 @@ document.getElementById('servDsk').onclick = function () {
 			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
 
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
 
@@ -4737,38 +4138,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionMarketing').onclick = function () { //marketing-qa (landing pages)
 		if (document.getElementById('marketingptions').style.display != '') {
-			document.getElementById('marketingptions').style.display = '';
-			document.getElementById('marketingform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
+			document.getElementById('marketingptions').style.display = '';		
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -4831,38 +4206,13 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('marketingptions').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionMrktprojbugs').onclick = function () { //marketing-projects-bugs(landing pages)
 		if (document.getElementById('marketprojbugsptions').style.display != '') {
 			document.getElementById('marketprojbugsptions').style.display = '';
-			document.getElementById('marketprojbugsform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
+			
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -4925,38 +4275,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('marketprojbugsptions').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs
 		if (document.getElementById('mobbugsoptions').style.display != '') {
 			document.getElementById('mobbugsoptions').style.display = '';
-			document.getElementById('mobileform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -5286,39 +4610,13 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionAcademymobbugs').onclick = function () { //academy-mobile-bugs
 		if (document.getElementById('academymobbugsoptions').style.display != '') {
 			document.getElementById('academymobbugsoptions').style.display = '';
-			document.getElementById('academymobileform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-
+			
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
 			document.getElementById('marketprojbugsptions').style.display = 'none';
@@ -5550,38 +4848,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-bugs
 		if (document.getElementById('studcabmobbugskoptions').style.display != '') {
 			document.getElementById('studcabmobbugskoptions').style.display = '';
-			document.getElementById('stcabmbbugsform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('infraoptions').style.display = 'none';
@@ -5838,38 +5110,12 @@ document.getElementById('servDsk').onclick = function () {
 			}
 		} else {
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
 		}
 	}
 
 	document.getElementById('optionInfra').onclick = function () { //Infra support for delete account
 		if (document.getElementById('infraoptions').style.display != '') {
 			document.getElementById('infraoptions').style.display = '';
-			document.getElementById('infraform').style.display = '';
-
-
-			document.getElementById('teachersform').style.display = 'none';
-			document.getElementById('onboardingform').style.display = 'none';
-			document.getElementById('scheduleform').style.display = 'none';
-			document.getElementById('billingform').style.display = 'none';
-			document.getElementById('billqaform').style.display = 'none';
-			document.getElementById('mrktform').style.display = 'none';
-			document.getElementById('crm2form').style.display = 'none';
-			document.getElementById('authform').style.display = 'none';
-			document.getElementById('telephonyform').style.display = 'none';
-			document.getElementById('vimbugsform').style.display = 'none';
-			document.getElementById('vimvideocallform').style.display = 'none';
-			document.getElementById('studcabform').style.display = 'none';
-			document.getElementById('chatform').style.display = 'none';
-			document.getElementById('tripwireform').style.display = 'none';
-			document.getElementById('analystform').style.display = 'none';
-			document.getElementById('corpform').style.display = 'none';
-			document.getElementById('marketingform').style.display = 'none';
-			document.getElementById('edumodelform').style.display = 'none';
-			document.getElementById('stcabmbbugsform').style.display = 'none';
-			document.getElementById('marketprojbugsform').style.display = 'none';
-			document.getElementById('mobileform').style.display = 'none';
-			document.getElementById('academymobileform').style.display = 'none';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -5938,9 +5184,8 @@ document.getElementById('servDsk').onclick = function () {
 
 		} else {
 			document.getElementById('infraoptions').style.display = 'none';
-			document.getElementById('infraform').style.display = 'none';
 		}
 	}
 
 	//End of script
-}
+// }

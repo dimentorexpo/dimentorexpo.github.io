@@ -279,7 +279,6 @@ document.getElementById('servDsk').onclick = function () {
 
 } // tested
 	
-
 	document.getElementById('refreshjiraauth').onclick = checkjiraauth;
 
 	function remres(a) {
