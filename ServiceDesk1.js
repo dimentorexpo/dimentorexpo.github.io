@@ -168,21 +168,23 @@ document.getElementById('servDsk').onclick = function () {
 					console.log("TOKEN: " + jiratoken);
 					//document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 				} else {
-					alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
+					console.log("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
 					document.getElementById('jiratknstatus').innerText = "🔴"
 				}
 					}
 		})
 
 	getprsuplasttask();
+	
+		$('.sdbtn').click(function () {
+		$('.sdbtn').not(this).removeClass('activebtnsd');
+		$(this).toggleClass('activebtnsd');
+	});
+
 } // tested
 	
 
 
-	$('.sdbtn').click(function () {
-		$('.sdbtn').not(this).removeClass('activebtnsd');
-		$(this).toggleClass('activebtnsd');
-	});
 
 	function remres(a) {
 		$('.edumodbtn').not(a).removeClass('activebtn');
