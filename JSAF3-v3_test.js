@@ -45,7 +45,6 @@ function mystyles() {
         width:50px;
     }
     .sdcustfieldformlines {
-        margin-top:5px;
         width: 420px;
     }
     .sdexpecactual {
