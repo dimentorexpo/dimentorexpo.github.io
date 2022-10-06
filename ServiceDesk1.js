@@ -186,6 +186,7 @@ function checkjiraauth() {
 					document.getElementById('jiratknstatus').innerText = "🟢"
 					console.log("TOKEN: " + jiratoken);
 					flagauth = 1 ;
+					getprsuplasttask()
 				} else {
 					console.log("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
 					document.getElementById('jiratknstatus').innerText = "🔴"
@@ -195,8 +196,6 @@ function checkjiraauth() {
 			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 		});
 		
-		getprsuplasttask()
-
 }
 //main
 document.getElementById('servDsk').onclick = function () {
