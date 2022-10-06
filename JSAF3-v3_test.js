@@ -1493,11 +1493,11 @@ var win_Techsummary = // описание элементов окна вывод
 </div>`;
 
 var win_servicedesk = // описание элементов окна Service Desk
-    `<div style="display: flex; width: 465px;">
-		<span style="width: 465px">
+    `<div style="display: flex; width: 480px;">
+		<span style="width: 480px">
         <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 465;" id="SrvDskSummary">
-                        <button id="hideMeSrvDsk" style="width:45px; background: #228B22;">hide</button>
+                <div style="margin: 5px; width: 480px;" id="SrvDskSummary">
+                        <button id="hideMeSrvDsk" style="width:30px; background: #228B22;">hide</button>
 						<button id="refreshjiraauth" title="Перепроверить авторизацию в Jira">🔄</button>
 						<button id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
 						<span style="color:bisque">Jira Status:</span>
@@ -5358,7 +5358,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('ServiceDeskinstr').onclick = function () {
         window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-ServiceDesk')
     }
-
+	
     document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
         if (document.getElementById('AF_ServDsk').style.display == '') {
             $('.sdbtn').click(function () {
