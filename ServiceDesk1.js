@@ -166,7 +166,7 @@ document.getElementById('servDsk').onclick = function () {
 					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
 					document.getElementById('jiratknstatus').innerText = "🟢"
 					console.log("TOKEN: " + jiratoken);
-					document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+					//document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 				} else {
 					alert("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
 					document.getElementById('jiratknstatus').innerText = "🔴"
@@ -175,6 +175,8 @@ document.getElementById('servDsk').onclick = function () {
 		})
 
 	getprsuplasttask();
+} // tested
+	
 
 
 	$('.sdbtn').click(function () {
@@ -5782,4 +5784,4 @@ document.getElementById('servDsk').onclick = function () {
 	}
 
 	//End of script
-}
+// }
