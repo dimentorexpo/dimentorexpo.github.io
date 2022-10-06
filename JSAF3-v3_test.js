@@ -2269,11 +2269,11 @@ buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat Histo
 
 let trshotmain = document.createElement('span');
 trshotmain.id = 'originalusertrshooter'
-buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
 
 let trshootnextuser = document.createElement('span');
 trshootnextuser.id = 'nextusertrshooter'
-buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
 
 let buttonserv = document.createElement('span');
 buttonserv.id = 'nextStudentServiceInfo';
@@ -9236,23 +9236,29 @@ function startTimer() {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                 btn.appendChild(infouserbut)
                 btn.appendChild(buttonservstud)
-            }
-
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(buttonhistory)
-            }
-
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(marksstata)
-            }
-
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                if (typeof buttonmobpas == 'object')
+				btn.appendChild(buttonhistory) //тест
+				btn.appendChild(marksstata) //тест
+                btn.appendChild(trshotmain) //тест
+				  if (typeof buttonmobpas == 'object')
                     btn.appendChild(buttonmobpas)
             }
+
+            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+               // btn.appendChild(buttonhistory)
+            // }
+
+            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                // btn.appendChild(marksstata)
+                // btn.appendChild(trshotmain)
+            // }
+
+            // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                // btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                // if (typeof buttonmobpas == 'object')
+                    // btn.appendChild(buttonmobpas)
+            // }
 
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
