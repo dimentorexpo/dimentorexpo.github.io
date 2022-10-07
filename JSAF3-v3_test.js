@@ -1658,10 +1658,10 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="c1srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#c1-support; Поддержка витрины оплаты (Не виджет оплаты в pcs), Onboarding (Kids&Adult), Scoring, AutoIntroLesson (АвтоВУ)</p>
-					<button class="c1sbtn widthofsd" id="c1verstka">Проблемы с версткой</button>
-					<button class="c1sbtn widthofsd" id="c1payonboarding">Не завершился онбординг после оплаты</button>
-					<button class="c1sbtn widthofsd" id="c1redirects">Циклические редиректы</button>
-					<button class="c1sbtn widthofsd" id="c1underground">Подземный стук</button>
+					<button class="c1sbtn widthofsd" value="597">Проблемы с версткой</button>
+					<button class="c1sbtn widthofsd" value="596">Не завершился онбординг после оплаты</button>
+					<button class="c1sbtn widthofsd" value="595">Циклические редиректы</button>
+					<button class="c1sbtn widthofsd" value="598">Подземный стук</button>
 					
 					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_12" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1752,7 +1752,7 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="vimvidoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#vim-video-call; Разработка модуля видеосвязи</p>
-					<button class="vimvidsbtn widthofsd" id="vimvidqa">Обращение для QA</button>
+					<button class="vimvidsbtn widthofsd" value="944">Обращение для QA</button>
 					
 					<input id="customfield_56" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_57" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -5266,56 +5266,56 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 remres(this)
             });
 
-            $('.vimbugsbtn').click(function () {  //поправить
+            $('.vimbugsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.vimvidsbtn').click(function () {  //поправить
+            $('.vimvidsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.studcabbtn').click(function () {  //поправить
+            $('.studcabbtn').click(function () {  
                 remres(this)
             });
 
-            $('.chatqabtn').click(function () {  //поправить
+            $('.chatqabtn').click(function () {  
                 remres(this)
             });
 
-            $('.tripwbtn').click(function () {  //поправить
+            $('.tripwbtn').click(function () {  
                 remres(this)
             });
 
-            $('.analystbtn').click(function () {  //поправить
+            $('.analystbtn').click(function () {  
                 remres(this)
             });
 
-            $('.corpbtn').click(function () {  //поправить
+            $('.corpbtn').click(function () {  
                 remres(this)
             });
 
-            $('.marketingbtn').click(function () {  //поправить
+            $('.marketingbtn').click(function () {  
                 remres(this)
             });
 
-            $('.mobbugsbtn').click(function () {  //поправить
+            $('.mobbugsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.academymobbugsbtn').click(function () {  //поправить
+            $('.academymobbugsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.stcabmbsbtn').click(function () {  //поправить
+            $('.stcabmbsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.marketprojbugsbtn').click(function () {  //поправить
+            $('.marketprojbugsbtn').click(function () {  
                 remres(this)
 
             });
 
-            $('.infrabtn').click(function () {  //поправить
+            $('.infrabtn').click(function () {  
                 remres(this)
 
             });
