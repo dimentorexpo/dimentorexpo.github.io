@@ -1713,17 +1713,17 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#vim-bugs; Проблемы с Vimbox/Smartroom</p>
-					<button class="vimbugsbtn widthofsd" id="smartroomonetoone">Smartroom уроки 1:1</button>
-					<button class="vimbugsbtn widthofsd" id="smartroomgroupl">Smartroom групп и параллельные уроки</button>
-					<button class="vimbugsbtn widthofsd" id="smartroomhwtests">Smartroom страница ДЗ и тестов</button>
-					<button class="vimbugsbtn widthofsd" id="adultselfstudy">Adults Self-Study</button>
-					<button class="vimbugsbtn widthofsd" id="premiumflip">Flip (web версия, не мобилка)</button>
-					<button class="vimbugsbtn widthofsd" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
-					<button class="vimbugsbtn widthofsd" id="automark">Автоотметка по урокам взрослых У</button>
-					<button class="vimbugsbtn widthofsd" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
-					<button class="vimbugsbtn widthofsd" id="adulthwlestest">Взрослый английский: Домашки, уроки, тесты</button>
-					<button class="vimbugsbtn widthofsd" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
-					<button class="vimbugsbtn widthofsd" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
+					<button class="vimbugsbtn widthofsd" value="1063">Smartroom уроки 1:1</button>
+					<button class="vimbugsbtn widthofsd" value="1062">Smartroom групп и параллельные уроки</button>
+					<button class="vimbugsbtn widthofsd" value="1061">Smartroom страница ДЗ и тестов</button>
+					<button class="vimbugsbtn widthofsd" value="942">Adults Self-Study (web версия, не мобилка)</button>
+					<button class="vimbugsbtn widthofsd" value="941">Flip (web версия, не мобилка)</button>
+					<button class="vimbugsbtn widthofsd" value="935">Виджет входа у взрослых У и П</button>
+					<button class="vimbugsbtn widthofsd" value="934">Автоотметка по урокам взрослых У</button>
+					<button class="vimbugsbtn widthofsd" value="933">Взрослый англиский: CMS и контент на взрослой платформе</button>
+					<button class="vimbugsbtn widthofsd" value="932">Взрослый английский: Домашки, уроки, тесты</button>
+					<button class="vimbugsbtn widthofsd" value="931">Шоукейс взрослого П/взрослого У</button>
+					<button class="vimbugsbtn widthofsd" value="936">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 					
 					<input id="customfield_50" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_52" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
