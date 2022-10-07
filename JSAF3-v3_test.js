@@ -1717,11 +1717,11 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="edumodeloptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#em-qa-support: Канал для обращений по функционалу Educational Model</p>
-					<button class="edumodbtn widthofsd" id="edumgoal">Анкета целей</button>
-					<button class="edumodbtn widthofsd" id="skysmartcertificate">Сертификаты</button>
-					<button class="edumodbtn widthofsd" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
-					<button class="edumodbtn widthofsd" id="skysmartprogress">Страница прогресса</button>
-					<button class="edumodbtn widthofsd" id="skysmartfeedback">Обратная связь</button>
+					<button class="edumodbtn widthofsd" value="983">Анкета целей</button>
+					<button class="edumodbtn widthofsd" value="982">Сертификаты</button>
+					<button class="edumodbtn widthofsd" value="980">Персотреки и виджет прогресса</button>
+					<button class="edumodbtn widthofsd" value="981">Страница прогресса</button>
+					<button class="edumodbtn widthofsd" value="979">Обратная связь</button>
 					
 					<input id="customfield_97" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_98" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
