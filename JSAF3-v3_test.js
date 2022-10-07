@@ -1788,7 +1788,7 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="corpoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#corp-support; Канал поддержки по вопросам корпоративных клиентов: ЛККК (не ЛКУ), начислялка, self-study, карточка компании.</p>
-					<button class="corpbtn widthofsd" id="corpqa">Обращение для QA</button>
+					<button class="corpbtn widthofsd" value="950">Обращение для QA</button>
 					
 					<input id="customfield_81" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_82" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1797,20 +1797,9 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_85" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
 					<button id="create_17" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-				<div id="marketingptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#marketing-qa; (регистрации, детские главные, взрослые главные, лендосы на лпг/тильде)</p>
-					<button class="marketingbtn widthofsd" id="marketingqa">Обращение для QA</button>
-					
-					<input id="customfield_86" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
-					<textarea id="customfield_87" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_88" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_89" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
-					<textarea id="customfield_90" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_18" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
 				<div id="marketprojbugsptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#marketing-projects-bugs; Канал для обращений от ТП, связанных с багами на лендингах Тильды и проектами маркетинга</p>
-					<button class="marketprojbugsbtn widthofsd" id="marketprojbugsqa">Обращение для QA</button>
+					<button class="marketprojbugsbtn widthofsd" value="952">Обращение для QA</button>
 					
 					<input id="customfield_109" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines  removefield"></input>
 					<textarea id="customfield_110" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -5208,7 +5197,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.tripwbtn').not(a).removeClass('activebtn');
                 $('.analystbtn').not(a).removeClass('activebtn');
                 $('.corpbtn').not(a).removeClass('activebtn');
-                $('.marketingbtn').not(a).removeClass('activebtn');
                 $('.mobbugsbtn').not(a).removeClass('activebtn');
                 $('.academymobbugsbtn').not(a).removeClass('activebtn');
                 $('.stcabmbsbtn').not(a).removeClass('activebtn');
@@ -5274,10 +5262,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             });
 
             $('.corpbtn').click(function () {  
-                remres(this)
-            });
-
-            $('.marketingbtn').click(function () {  
                 remres(this)
             });
 
