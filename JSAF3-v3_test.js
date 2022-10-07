@@ -1610,14 +1610,14 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="authsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#auth; Обсуждение общих вопросов по проектам Auth/ID (авторизация, роли и доступы, данные пользователей и т. д.)</p>
-					<button class="authbtn widthofsd" id="authdevq">Вопросы к разработке</button>
-					<button class="authbtn  widthofsd" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
-					<button class="authbtn widthofsd" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
-					<button class="authbtn widthofsd" id="auth2fasms">Проблемы с 2FA: не приходит смс</button>
-					<button class="authbtn widthofsd" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
-					<button class="authbtn widthofsd" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
-					<button class="authbtn widthofsd" id="authlogcheck">Проверка логов в ID</button>
-					<button class="authbtn widthofsd" id="authunderground">Подземный стук</button>
+					<button class="authbtn widthofsd" value="575">Вопросы к разработке</button>
+					<button class="authbtn widthofsd" value="576">Проблемы с 2FA : проблема с google authenticator</button>
+					<button class="authbtn widthofsd" value="573">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
+					<button class="authbtn widthofsd" value="572">Проблемы с 2FA: не приходит смс</button>
+					<button class="authbtn widthofsd" value="560">Удаление / добавление ролей Преподавателям</button>
+					<button class="authbtn widthofsd" value="559">Удаление / добавление ролей Ученикам</button>
+					<button class="authbtn widthofsd" value="558">Проверка логов в ID</button>
+					<button class="authbtn widthofsd" value="561">Подземный стук</button>
 					
 					<input id="customfield_26" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_27" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
