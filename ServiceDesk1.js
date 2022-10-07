@@ -191,6 +191,30 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 	setTimeout(getslacklnk, 8000);
 }
 
+function sendRequestBilling(str, erx, ary, idstd, code) {
+	document.getElementById('responseTextarea1').value = `{  "headers": {
+	 "content-type": "application/x-www-form-urlencoded",
+	 "sec-fetch-mode": "cors",
+	 "sec-fetch-site": "same-origin",
+	 "x-requested-with": "XMLHttpRequest",
+	 "x-sitemesh-off": "true"
+	  },
+	  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/${code}",
+	  "referrerPolicy": "strict-origin-when-cross-origin",
+	  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
+	 "method": "POST",
+	  "mode": "cors",
+	  "credentials": "include"
+	  }`
+	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
+	document.getElementById('responseTextarea3').value = ''
+	document.getElementById('sendResponse').click()
+	
+	//console.log(idstdserv + " " + dscr + " " + str + " " + erx  + " " + ary + " " + code)
+	setTimeout(getprsup, 5000);
+	setTimeout(getslacklnk, 8000);
+}
+
 function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, code) {
 	
 	document.getElementById('responseTextarea1').value = `{  "headers": {
@@ -365,7 +389,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
@@ -412,10 +435,8 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			document.getElementById('create_20').onclick = function () {
@@ -460,10 +481,8 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
@@ -507,10 +526,8 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -556,10 +573,8 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			document.getElementById('create_3').onclick = function () {
@@ -603,7 +618,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
-			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
@@ -630,7 +644,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionAuth').onclick = function () { //Auth
+	document.getElementById('optionAuth').onclick = function () { //Auth +
 		if (document.getElementById('authsrvdskoptions').style.display != '') {
 			document.getElementById('authsrvdskoptions').style.display = '';
 
@@ -720,7 +734,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionBilling').onclick = function () { //billing
+	document.getElementById('optionBilling').onclick = function () { //billing +
 		if (document.getElementById('billingsrvdskoptions').style.display != '') {
 			document.getElementById('billingsrvdskoptions').style.display = '';
 
@@ -752,465 +766,13 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 				let str = encodeURIComponent(document.getElementById('customfield_34').value);
 				let erx = encodeURIComponent(document.getElementById('customfield_35').value);
 				let ary = encodeURIComponent(document.getElementById('customfield_36').value);
-
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billcheques').textContent) {
-					console.log("Чеки/инвойсы: " + "  Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/681",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/681";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billdataanal').textContent) {
-					console.log("Data analytics: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/680",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/680";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billtaskfordev').textContent) {
-					console.log("Задача для разработки: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/679",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/679";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billadmreturn').textContent) {
-					console.log("Админка возвратов: " + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/667",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/667";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billtroublcodecard').textContent) {
-					console.log("Проблема с кодом для привязки карты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/666",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/666";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpaymentbot').textContent) {
-					console.log("Billing payment bot: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/664",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/664";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billschemes').textContent) {
-					console.log("Схемы вознаграждения: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/663",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/663";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billselfemployee').textContent) {
-					console.log("Самозанятые: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/662",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/662";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billrequisites').textContent) {
-					console.log("Реквизиты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/661",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/661";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpayments').textContent) {
-					console.log("Выплаты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/660",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/660";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billspisanie').textContent) {
-					console.log("Списание средств: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/659",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/659";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billreturns').textContent) {
-					console.log("Возвраты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/658",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18976=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/658";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpaymentmesystems').textContent) {
-					console.log("Платежные системы: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/657",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/657";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billwidgetpayment').textContent) {
-					console.log("Виджет оплаты: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/656",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/656";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billpay').textContent) {
-					console.log("Оплата: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/655",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/655";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billcredit').textContent) {
-					console.log("Рассрочка: " + " Id student: " + idstd + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/654",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/654";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billsubscribtions').textContent) {
-					console.log("Подписки: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/650",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/650";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billroles').textContent) {
-					console.log("Роли и доступы: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/647",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18976=${idstd}&customfield_18975=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/647";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billbusanalys').textContent) {
-					console.log("Бизнес Анализ: " + " Id student: " + idstd + " ID service " + servid + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/646",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/646";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
+				
+				for(let i=0; i<document.getElementsByClassName('billbtn').length;i++) {
+					if (document.getElementsByClassName('billbtn')[i].classList.contains('activebtn')) {
+						sendRequestBilling(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('billbtn')[i].value)
+						console.log("Выбранная тематика: " + document.getElementsByClassName('billbtn')[i].innerText)
+					}
 				}
-				else console.log("Not found");
 			}
 		} else {
 			document.getElementById('billingsrvdskoptions').style.display = 'none';

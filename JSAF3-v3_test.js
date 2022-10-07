@@ -1670,25 +1670,25 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="billingsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px; width:90%;">#billing</p>
-					<button class="billbtn widthofsd" id="billcheques">Чеки/Инвойсы</button>
-					<button class="billbtn widthofsd" id="billdataanal">Data analytics</button>
-					<button class="billbtn widthofsd" id="billtaskfordev">Задача для разработки</button>
-					<button class="billbtn widthofsd" id="billadmreturn">Админка возвратов</button>
-					<button class="billbtn widthofsd" id="billtroublcodecard">Проблема с кодом для привязки карты</button>
-					<button class="billbtn widthofsd" id="billpaymentbot">Вilling Payment Bot</button>
-					<button class="billbtn widthofsd" id="billschemes">Схемы вознаграждения </button>
-					<button class="billbtn widthofsd" id="billselfemployee">Самозанятые </button>
-					<button class="billbtn widthofsd" id="billrequisites">Реквизиты</button>
-					<button class="billbtn widthofsd" id="billpayments">Выплаты</button>
-					<button class="billbtn widthofsd" id="billspisanie">Списание средств</button>
-					<button class="billbtn widthofsd" id="billreturns">Возвраты</button>
-					<button class="billbtn widthofsd" id="billpaymentmesystems">Платежные системы</button>
-					<button class="billbtn widthofsd" id="billwidgetpayment">Виджет оплаты</button>
-					<button class="billbtn widthofsd" id="billpay">Оплата</button>
-					<button class="billbtn widthofsd" id="billcredit">Рассрочка</button>
-					<button class="billbtn widthofsd" id="billsubscribtions">Подписки</button>
-					<button class="billbtn widthofsd" id="billroles">Роли и доступы</button>
-					<button class="billbtn widthofsd" id="billbusanalys">Бизнес-анализ</button>
+					<button class="billbtn widthofsd" value="681">Чеки/Инвойсы</button>
+					<button class="billbtn widthofsd" value="680">Data analytics</button>
+					<button class="billbtn widthofsd" value="679">Задача для разработки</button>
+					<button class="billbtn widthofsd" value="667">Админка возвратов</button>
+					<button class="billbtn widthofsd" value="666">Проблема с кодом для привязки карты</button>
+					<button class="billbtn widthofsd" value="664">Вilling Payment Bot</button>
+					<button class="billbtn widthofsd" value="663">Схемы вознаграждения </button>
+					<button class="billbtn widthofsd" value="662">Самозанятые </button>
+					<button class="billbtn widthofsd" value="661">Реквизиты</button>
+					<button class="billbtn widthofsd" value="660">Выплаты</button>
+					<button class="billbtn widthofsd" value="659">Списание средств</button>
+					<button class="billbtn widthofsd" value="658">Возвраты</button>
+					<button class="billbtn widthofsd" value="657">Платежные системы</button>
+					<button class="billbtn widthofsd" value="656">Виджет оплаты</button>
+					<button class="billbtn widthofsd" value="655">Оплата</button>
+					<button class="billbtn widthofsd" value="654">Рассрочка</button>
+					<button class="billbtn widthofsd" value="650">Подписки</button>
+					<button class="billbtn widthofsd" value="647">Роли и доступы</button>
+					<button class="billbtn widthofsd" value="646">Бизнес-анализ</button>
 					
 					<input id="customfield_32" placeholder="ID пользователя" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
