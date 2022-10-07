@@ -1162,10 +1162,10 @@ if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
                     document.getElementById('AFMS_addMenu').style.display = 'none';
                 }
 
+        } else document.getElementById('AFMS_addMenu').style.display = 'none'
             } else document.getElementById('AFMS_addMenu').style.display = 'none'
         }
     }
-}
 
 document.getElementById('openchataddmenu').onclick = async function () { // открывает меню для удаления и добавления чатов
     if (document.getElementById('AFMS_addChatMenu').style.display == 'none') {
@@ -3642,7 +3642,6 @@ function addOldShowcaseBtn() { //функция добавляющая в лев
 			oldshowcase.onclick = function() {
 				window.open('https://vimbox.skyeng.ru/start?noredirect=1')
 			}
-			document.getElementsByClassName('category')[0].children
 			document.getElementsByClassName('category')[0].insertBefore(oldshowcase, document.getElementsByClassName('category')[0].children[2])
 		} else clearInterval(intOldShow)
 	}
