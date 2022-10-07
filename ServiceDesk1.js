@@ -264,10 +264,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		remres(this)
 	});
 
-	$('.mrktbtn').click(function () {
-		remres(this)
-	});
-
 	$('.billbtn').click(function () {
 		remres(this)
 	});
@@ -337,7 +333,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		$('.telepbtn').not(a).removeClass('activebtn');
 		$('.authbtn').not(a).removeClass('activebtn');
 		$('.crm2sbtn').not(a).removeClass('activebtn');
-		$('.mrktbtn').not(a).removeClass('activebtn');
 		$('.billbtn').not(a).removeClass('activebtn');
 		$('.vimbugsbtn').not(a).removeClass('activebtn');
 		$('.vimvidsbtn').not(a).removeClass('activebtn');
@@ -378,7 +373,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
@@ -426,7 +420,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			document.getElementById('create_20').onclick = function () {
@@ -474,7 +468,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
@@ -521,7 +515,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -589,7 +583,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			document.getElementById('create_3').onclick = function () {
@@ -728,7 +722,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			//Начало окрашивания кнопок и добавление закрашивания при переключении
@@ -893,7 +887,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			document.getElementById('telnoaccess').onclick = function () {
@@ -1204,7 +1198,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			document.getElementById('create_8').onclick = function () {
@@ -1438,7 +1432,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
 			document.getElementById('create_9').onclick = function () {
@@ -1768,418 +1762,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionMrkt').onclick = function () { //MRKT
-		if (document.getElementById('mrktsrvdskoptions').style.display != '') {
-			document.getElementById('mrktsrvdskoptions').style.display = '';
-			
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
-			document.getElementById('marketprojbugsptions').style.display = 'none';
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('marketingptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-
-			document.getElementById('mrktsubscribptions').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID ученика";
-					document.getElementById('customfield_48').placeholder = "ID услуги";
-				}
-			}
-
-			document.getElementById('mrktcertificates').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "none";
-					document.getElementById('customfield_48').style.display = "none";
-					document.getElementById('customfield_49').style.display = "";
-				}
-			}
-
-			document.getElementById('mrktpromocodes').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "none";
-					document.getElementById('customfield_48').style.display = "none";
-					document.getElementById('customfield_49').style.display = "";
-				}
-			}
-
-			document.getElementById('mrktdisablends').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID ученика";
-					document.getElementById('customfield_48').placeholder = "ID услуги";
-				}
-			}
-
-			document.getElementById('mrktnachisl').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID ученика";
-					document.getElementById('customfield_48').placeholder = "ID услуги";
-				}
-			}
-
-			document.getElementById('mrktdoublelessons').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID ученика";
-					document.getElementById('customfield_48').placeholder = "ID услуги";
-				}
-			}
-
-			document.getElementById('mrktpriceq').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "none";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID ученика";
-				}
-			}
-
-			document.getElementById('mrktreferal').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID приглашающего";
-					document.getElementById('customfield_48').placeholder = "ID приглашенного";
-				}
-			}
-
-			document.getElementById('mrktcertconsult').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID ученика";
-					document.getElementById('customfield_48').placeholder = "ID услуги";
-				}
-			}
-
-			document.getElementById('mrktpromocodesconsult').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID ученика";
-					document.getElementById('customfield_48').placeholder = "ID услуги";
-				}
-			}
-
-			document.getElementById('mrktunderground').onclick = function () {
-				if (document.getElementById('mrktform').style.display == '') {
-					document.getElementById('customfield_47').style.display = "";
-					document.getElementById('customfield_48').style.display = "";
-					document.getElementById('customfield_49').style.display = "";
-					document.getElementById('customfield_47').placeholder = "ID ученика";
-					document.getElementById('customfield_48').placeholder = "ID услуги";
-				}
-			}
-
-
-			document.getElementById('create_10').onclick = function () {
-				let idstd = encodeURIComponent(document.getElementById('customfield_47').value);
-				let servid = encodeURIComponent(document.getElementById('customfield_48').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_49').value);
-
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktsubscribptions').textContent) {
-					console.log("Подписки: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/889",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${dscr}&customfield_18975=${idstd}&customfield_18976=${servid}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/889";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktcertificates').textContent) {
-					console.log("Заказ сертификата: " + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/626",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/626";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpromocodes').textContent) {
-					console.log("Заказ промокодов: " + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/625",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/625";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktdisablends').textContent) {
-					console.log("Отключение НДС: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/605",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/605";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktnachisl').textContent) {
-					console.log("Начисления (срочные, журналисты, PR): " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/604",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/604";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktdoublelessons').textContent) {
-					console.log("Удвоение уроков: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/603",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/603";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpriceq').textContent) {
-					console.log("Вопросы по прайсам: " + " ID stud " + idstd + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/602",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/602";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktreferal').textContent) {
-					console.log("Реферальная программа: " + " ID прглашающего " + idstd + " Id приглашенного " + servid + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/601",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/601";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktcertconsult').textContent) {
-					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/600",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/600";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktpromocodesconsult').textContent) {
-					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/599",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/599";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('mrktunderground').textContent) {
-					console.log("Сертификаты консультация / тех. проблема: " + " ID stud " + idstd + " Id service " + servid + " Description " + dscr);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/606",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${idstd}&customfield_18976=${servid}&customfield_18808=${dscr}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/606";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else console.log("Not found");
-			}
-
-		} else {
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
-		}
-	}
-
 	document.getElementById('optionBilling').onclick = function () { //billing
 		if (document.getElementById('billingsrvdskoptions').style.display != '') {
 			document.getElementById('billingsrvdskoptions').style.display = '';
@@ -2205,7 +1787,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 
 			document.getElementById('create_6').onclick = function () {
 				let idstd = encodeURIComponent(document.getElementById('customfield_32').value);
@@ -2702,7 +2284,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 
 			document.getElementById('create_11').onclick = function () {
 				let idstdserv = encodeURIComponent(document.getElementById('customfield_50').value);
@@ -3008,7 +2590,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -3339,7 +2921,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -3406,7 +2988,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			
@@ -3565,7 +3147,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			
@@ -3631,7 +3213,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -3698,7 +3280,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -3767,7 +3349,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -3835,7 +3417,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -4170,7 +3752,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -4385,7 +3967,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-bugs +
+	document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-mobile-bugs +
 		if (document.getElementById('studcabmobbugskoptions').style.display != '') {
 			document.getElementById('studcabmobbugskoptions').style.display = '';
 
@@ -4408,7 +3990,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 
@@ -4458,7 +4040,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('telephonysrvdskoptions').style.display = 'none';
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('mrktsrvdskoptions').style.display = 'none';
+			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 

@@ -1515,7 +1515,6 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
                     <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">📞Telephn</button>
                     <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>
-                    <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">🎪MRKT</button>
                     <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
                     <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">📸Vid-call</button>
                     <button class="sdbtn" id="optionStudcab" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓Studcab</button>
@@ -1729,25 +1728,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_100" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_101" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
 					<button id="create_20" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
-				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#mrkt-bill-questions; Канал для вопросов по промокодам, сертификатам, реферальной программе</p>
-					<button class="mrktbtn widthofsd" id="mrktsubscribptions">Подписки</button>
-					<button class="mrktbtn widthofsd" id="mrktcertificates">Заказ сертификатов</button>
-					<button class="mrktbtn widthofsd" id="mrktpromocodes">Заказ промокодов</button>
-					<button class="mrktbtn widthofsd" id="mrktdisablends">Отключение НДС</button>
-					<button class="mrktbtn widthofsd" id="mrktnachisl">Начисления (срочные, журналисты, PR)</button>
-					<button class="mrktbtn widthofsd" id="mrktdoublelessons">Удвоение уроков (сотрудники)</button>
-					<button class="mrktbtn widthofsd" id="mrktpriceq">Вопросы по прайсам</button>
-					<button class="mrktbtn widthofsd" id="mrktreferal">Реферальная программа</button>
-					<button class="mrktbtn widthofsd" id="mrktcertconsult">Сертификаты консультация / тех. проблема</button>
-					<button class="mrktbtn widthofsd" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
-					<button class="mrktbtn widthofsd" id="mrktunderground">Подземный стук</button>
-					
-					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
-					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
-					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#vim-bugs; Проблемы с Vimbox/Smartroom</p>
@@ -5233,7 +5213,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.telepbtn').not(a).removeClass('activebtn');
                 $('.authbtn').not(a).removeClass('activebtn');
                 $('.crm2sbtn').not(a).removeClass('activebtn');
-                $('.mrktbtn').not(a).removeClass('activebtn');
                 $('.billbtn').not(a).removeClass('activebtn');
                 $('.vimbugsbtn').not(a).removeClass('activebtn');
                 $('.vimvidsbtn').not(a).removeClass('activebtn');
@@ -5280,10 +5259,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             });
 
             $('.crm2sbtn').click(function () {
-                remres(this)
-            });
-
-            $('.mrktbtn').click(function () {
                 remres(this)
             });
 
