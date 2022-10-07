@@ -1533,15 +1533,15 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengmainsrv">МП Skyeng: главная(кроме лайф и толкс) и стр подключ услуг</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengschedule">МП Skyeng: расписание и переносы</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengpodbor">МП Skyeng: подбор П</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengprofile">МП Skyeng: профиль У и настройки профиля, таймзоны</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengbalance">МП Skyeng: стр оплаты и трансферы</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengreferal">МП Skyeng: рефералка</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengstories">Skyeng: Stories</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskysmartparents">МП Skysmart Parents</button>
-					<button class="stcabmbsbtn widthofsd" id="mpunderground">Подземный стук</button>
+					<button class="stcabmbsbtn widthofsd" value="965">МП Skyeng: главная(кроме лайф и толкс) и стр подключ услуг</button>
+					<button class="stcabmbsbtn widthofsd" value="964">МП Skyeng: расписание и переносы</button>
+					<button class="stcabmbsbtn widthofsd" value="960">МП Skyeng: подбор П</button>
+					<button class="stcabmbsbtn widthofsd" value="963">МП Skyeng: профиль У и настройки профиля, таймзоны</button>
+					<button class="stcabmbsbtn widthofsd" value="962">МП Skyeng: стр оплаты и трансферы</button>
+					<button class="stcabmbsbtn widthofsd" value="961">МП Skyeng: рефералка</button>
+					<button class="stcabmbsbtn widthofsd" value="978">Skyeng: Stories</button>
+					<button class="stcabmbsbtn widthofsd" value="959">МП Skysmart Parents</button>
+					<button class="stcabmbsbtn widthofsd" value="958">Подземный стук</button>
 					
 					<input id="customfield_102" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_103" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></textarea>
