@@ -1566,21 +1566,21 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#teachers-qa-support; канал по вопросам ЛКП, ТРМ</p>
-					<button class="teacbtn widthofsd" id="teacherstatistic">Статистика</button>
-					<button class="teacbtn widthofsd" id="teacherstudy">Моё обучение</button>
-					<button class="teacbtn widthofsd" id="teacherbreak">Перерыв</button>
-					<button class="teacbtn widthofsd" id="teachermoney">Финансы</button>
-					<button class="teacbtn widthofsd" id="teachermap">Карта роста</button>
-					<button class="teacbtn widthofsd" id="teachertimetable">Расписание</button>
-					<button class="teacbtn  widthofsd" id="teacherperenos">Запрос на перенос</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetbalance">Виджет баланса</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetlessonmark">Виджет отметки уроков</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
-					<button class="teacbtn  widthofsd" id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetKPI">Виджет KPI</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
-					<button class="teacbtn widthofsd" id="teacherTRMquestions">Вопросы по ТРМ</button>
-					<button class="teacbtn widthofsd" id="teacherunderground">Подземный стук</button>
+					<button class="teacbtn widthofsd" value="644">Статистика</button>
+					<button class="teacbtn widthofsd" value="643">Моё обучение</button>
+					<button class="teacbtn widthofsd" value="642">Перерыв</button>
+					<button class="teacbtn widthofsd" value="641">Финансы</button>
+					<button class="teacbtn widthofsd" value="640">Карта роста</button>
+					<button class="teacbtn widthofsd" value="639">Расписание</button>
+					<button class="teacbtn widthofsd" value="637">Запрос на перенос</button>
+					<button class="teacbtn widthofsd" value="636">Виджет баланса</button>
+					<button class="teacbtn widthofsd" value="635">Виджет отметки уроков</button>
+					<button class="teacbtn widthofsd" value="634">Виджеты плана/факта уроков</button>
+					<button class="teacbtn widthofsd" value="633">Виджет расписания на неделю</button>
+					<button class="teacbtn widthofsd" value="632">Виджет KPI</button>
+					<button class="teacbtn widthofsd" value="631">Виджет "Мои ученики"</button>
+					<button class="teacbtn widthofsd" value="530">Вопросы по ТРМ</button>
+					<button class="teacbtn widthofsd" value="531">Подземный стук</button>
 					
 					<input id="customfield_6" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_7" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
