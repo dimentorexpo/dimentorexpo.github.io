@@ -75,18 +75,15 @@ chrome.contextMenus.create({"title": "🟢 Заступил", "contexts":["page"
 async function setstatusonlinetest(i){
 	
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-		await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-		tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-		localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
-	
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
+			
 	var curTime = new Date();
     var newTime = curTime / 1000;
 	lastmsgId = 0
 	localStorage.setItem('lastmsgId', 0)
 
-	
 	await fetch("https://skyeng.slack.com/api/chat.postMessage?_x_id=noversion-"+newTime+"&_x_csid=E6fL67nStxE&slack_route=T03A3SUFB&_x_version_ts=1660151243&_x_gantry=true&fp=78", {
 		  "headers": {
 			"content-type": "multipart/form-data; boundary=----WebKitFormBoundarysp2yqVxwp4SLnI3M",
@@ -110,11 +107,9 @@ async function setstatuspausetest(i){
     var newTime = curTime / 1000;
 	
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-		await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-		tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-		localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
 	
 	if (localStorage.getItem('lastmsgId') != 0) {
 		lastmsgId = localStorage.getItem('lastmsgId');
@@ -139,11 +134,9 @@ async function setstatuoncontinue(i){
     var newTime = curTime / 1000;
 	
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-		await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-		tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-		localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
 	
 	if (localStorage.getItem('lastmsgId') != 0) {
 		lastmsgId = localStorage.getItem('lastmsgId');
@@ -167,11 +160,9 @@ async function setstatusoffline(i){
     var newTime = curTime / 1000;
 	
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-		await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-		tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-		localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
 	
 	if (localStorage.getItem('lastmsgId') != 0) {
 		lastmsgId = localStorage.getItem('lastmsgId');
@@ -194,11 +185,9 @@ chrome.contextMenus.create({"title": "🆘 #dev-disaster", "contexts":["page"], 
 async function sendtodisaster(i,t){
 	
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-		await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-		tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-		localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
 	
 	var curTime = new Date();
     var newTime = curTime / 1000;
@@ -366,8 +355,6 @@ function opentrm(i){
 var createProperties = { url: encodeURI("https://trm.skyeng.ru/teacher/"  +  i.selectionText) }
 	chrome.tabs.create(createProperties);
 }
-
-
 // testlinkPKM
 
 var linkparent = chrome.contextMenus.create( {"id":"linkOption","title": "AutoFaq Support Master", "contexts":["link"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
@@ -375,12 +362,9 @@ var linkparent = chrome.contextMenus.create( {"id":"linkOption","title": "AutoFa
 chrome.contextMenus.create({"title": "🚫 Отмена ТП1Л (исход)", "contexts":["link"], "parentId": "linkOption", "onclick": cancelishodcall}); //опция для копирования ссылки для пропуска АП
 async function cancelishodcall(i,t){
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-		await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-		tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-		localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
-	
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
 	
 	var curTime = new Date();
     var newTime = curTime / 1000;
@@ -432,11 +416,9 @@ chrome.contextMenus.create({"title": "💬 Написать ТП1Л (исход)
 async function cancelishodcallwithowntext(i,t){
 	
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-		await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-		tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-		localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
 	
 	var curTime = new Date();
     var newTime = curTime / 1000;
@@ -492,11 +474,9 @@ async function cancelishodcallwithowntext(i,t){
 chrome.contextMenus.create({"title": "🚫 Отмена 2ЛТП", "contexts":["link"], "parentId": "linkOption", "onclick": cancelsecondline}); //опция для копирования ссылки для пропуска АП
 async function cancelsecondline(i,t){
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-			await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-			tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-			localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
 	
 	var curTime = new Date();
     var newTime = curTime / 1000;
@@ -548,11 +528,9 @@ chrome.contextMenus.create({"title": "💬 Написать 2ЛТП со ссы�
 async function cancelsecondlinewithowntext(i,t){
 	
 	let tokenslack;
-	if (localStorage.getItem('tokenslack') == null) { 
-		await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-		tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-		localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	} else tokenslack = localStorage.getItem('tokenslack');
+	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
+	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
+	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
 	
 	var curTime = new Date();
     var newTime = curTime / 1000;
