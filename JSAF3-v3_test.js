@@ -1548,7 +1548,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_106" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_107" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_108" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_21" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_21" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="infraoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">Здесь можно получить помощь от команды Инфраструктуры</p>
@@ -1560,7 +1560,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<input class="radio" type="radio" name="customfield_116" value="15820" resolved=""><label style="color:bisque; font-size: 16px;">Да</label>
 					<input class="radio" type="radio" name="customfield_116" value="15821" resolved=""><label style="color:bisque; font-size: 16px;">Нет</label>
 					<textarea id="customfield_117" placeholder="Комментарий"  class="sdexpecactual removefield"></textarea>
-					<button id="create_23" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_23" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#teachers-qa-support; канал по вопросам ЛКП, ТРМ</p>
@@ -1709,7 +1709,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_99" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_100" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_101" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_20" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_20" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#vim-bugs; Проблемы с Vimbox/Smartroom</p>
@@ -1741,7 +1741,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_58" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_59" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_60" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_12" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_12" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
                 <div id="chatqaoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque; font-size:18px; position:relative; top:7px; left:10px; width:90%;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
@@ -1758,7 +1758,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_68" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_69" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_70" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_14" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_14" style="width: 150px; position:relative; left:30%;">Создать</button>
                 </div>
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
@@ -1773,7 +1773,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_73" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_74" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_75" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_15" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_15" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="analystoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#analysts-gm-tl; канал аналитиков teachers продукта</p>
@@ -1784,7 +1784,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_78" placeholder="Как воспроизвести ошибку?" class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_79" placeholder="Ожидаемое поведение" class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_80" placeholder="Фактическое поведение" class="sdexpecactual removefield"></textarea>
-					<button id="create_16" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_16" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="corpoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#corp-support; Канал поддержки по вопросам корпоративных клиентов: ЛККК (не ЛКУ), начислялка, self-study, карточка компании.</p>
@@ -1795,7 +1795,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_83" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_84" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_85" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_17" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_17" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="marketprojbugsptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#marketing-projects-bugs; Канал для обращений от ТП, связанных с багами на лендингах Тильды и проектами маркетинга</p>
@@ -1806,7 +1806,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_111" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines  removefield"></textarea>
 					<textarea id="customfield_112" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_113" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_22" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
@@ -1869,7 +1869,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_122" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_123" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_124" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_24" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_24" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 
                 <div id="studcaboptions" style="display: none; margin-left:20px;">
@@ -1892,7 +1892,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_63" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_64" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_65" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_13" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_13" style="width: 150px; position:relative; left:30%;">Создать</button>
                 </div>
 	        </span>
 		</span>
