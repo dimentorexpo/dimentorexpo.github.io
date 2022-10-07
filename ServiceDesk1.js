@@ -252,10 +252,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		remres(this)
 	});
 
-	$('.telepbtn').click(function () {
-		remres(this)
-	});
-
 	$('.authbtn').click(function () {
 		remres(this)
 	});
@@ -330,7 +326,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		$('.teacbtn').not(a).removeClass('activebtn');
 		$('.c1sbtn').not(a).removeClass('activebtn');
 		$('.schdbtn').not(a).removeClass('activebtn');
-		$('.telepbtn').not(a).removeClass('activebtn');
 		$('.authbtn').not(a).removeClass('activebtn');
 		$('.crm2sbtn').not(a).removeClass('activebtn');
 		$('.billbtn').not(a).removeClass('activebtn');
@@ -370,7 +365,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
@@ -417,7 +412,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -465,7 +460,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -512,7 +507,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -561,7 +556,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -608,7 +603,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
@@ -635,317 +630,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionTelephony').onclick = function () { //Telephony
-		if (document.getElementById('telephonysrvdskoptions').style.display != '') {
-			document.getElementById('telephonysrvdskoptions').style.display = '';
-
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
-			document.getElementById('marketprojbugsptions').style.display = 'none';
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('marketingptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-
-			document.getElementById('telnoaccess').onclick = function () {
-				if (document.getElementById('telephonyform').style.display == '') {
-					document.getElementById('customfield_37').style.display = "";
-					document.getElementById('customfield_37').placeholder = "Ваш ID оператора";
-					document.getElementById('customfield_38').style.display = "";
-					document.getElementById('customfield_38').placeholder = "Краткое и структурированное описание проблемы";
-					document.getElementById('customfield_39').style.display = "none";
-				}
-			}
-
-			document.getElementById('teloutgoing').onclick = function () {
-				if (document.getElementById('telephonyform').style.display == '') {
-					document.getElementById('customfield_37').style.display = "";
-					document.getElementById('customfield_37').placeholder = "Ваш ID оператора";
-					document.getElementById('customfield_38').style.display = "";
-					document.getElementById('customfield_38').placeholder = "Краткое и структурированное описание проблемы и номера где проблемы";
-					document.getElementById('customfield_39').style.display = "none";
-				}
-			}
-
-			document.getElementById('telincoming').onclick = function () {
-				if (document.getElementById('telephonyform').style.display == '') {
-					document.getElementById('customfield_37').style.display = "";
-					document.getElementById('customfield_37').placeholder = "Ваш ID оператора";
-					document.getElementById('customfield_38').style.display = "";
-					document.getElementById('customfield_38').placeholder = "Краткое и структурированное описание проблемы и номера где проблемы";
-					document.getElementById('customfield_39').style.display = "none";
-				}
-			}
-
-			document.getElementById('telspeaking').onclick = function () {
-				if (document.getElementById('telephonyform').style.display == '') {
-					document.getElementById('customfield_37').style.display = "";
-					document.getElementById('customfield_37').placeholder = "Ваш ID оператора";
-					document.getElementById('customfield_38').style.display = "";
-					document.getElementById('customfield_38').placeholder = "Краткое и структурированное описание проблемы и номера где проблемы";
-					document.getElementById('customfield_39').style.display = "none";
-				}
-			}
-
-			document.getElementById('telrtstat').onclick = function () {
-				if (document.getElementById('telephonyform').style.display == '') {
-					document.getElementById('customfield_37').style.display = "";
-					document.getElementById('customfield_37').placeholder = "Краткое и структурированное описание проблемы";
-					document.getElementById('customfield_38').style.display = "";
-					document.getElementById('customfield_38').placeholder = "Ожидаемое поведение";
-					document.getElementById('customfield_39').style.display = "";
-				}
-			}
-
-			document.getElementById('telcallinfo').onclick = function () {
-				if (document.getElementById('telephonyform').style.display == '') {
-					document.getElementById('customfield_37').style.display = "";
-					document.getElementById('customfield_37').placeholder = "Ваш ID оператора";
-					document.getElementById('customfield_38').style.display = "";
-					document.getElementById('customfield_38').placeholder = "Краткое и структурированное описание проблемы и номера где проблемы";
-					document.getElementById('customfield_39').style.display = "none";
-				}
-			}
-
-			document.getElementById('telredicall').onclick = function () {
-				if (document.getElementById('telephonyform').style.display == '') {
-					document.getElementById('customfield_37').style.display = "";
-					document.getElementById('customfield_37').placeholder = "Ваш ID оператора";
-					document.getElementById('customfield_38').style.display = "";
-					document.getElementById('customfield_38').placeholder = "Краткое и структурированное описание проблемы и номера где проблемы";
-					document.getElementById('customfield_39').style.display = "none";
-				}
-			}
-
-			document.getElementById('telunderground').onclick = function () {
-				if (document.getElementById('telephonyform').style.display == '') {
-					document.getElementById('customfield_37').style.display = "none";
-					document.getElementById('customfield_38').placeholder = "Краткое и структурированное описание проблемы и номера где проблемы";
-					document.getElementById('customfield_39').style.display = "none";
-				}
-			}
-
-			document.getElementById('create_7').onclick = function () {
-				let ids = encodeURIComponent(document.getElementById('customfield_37').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_38').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_39').value);
-
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telnoaccess').textContent) {
-					console.log("Отсутствие доступа к странице телефонии: " + " ID operator " + ids + " Description " + erx);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/607",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${ids}&customfield_18808=${erx}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/607";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('teloutgoing').textContent) {
-					console.log("Проблема с исходящим вызовом: " + " ID operator " + ids + " Description " + erx);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/608",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${ids}&customfield_18808=${erx}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/608";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telincoming').textContent) {
-					console.log("Проблема с входящим вызовом: " + " ID operator " + ids + " Description " + erx);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/609",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${ids}&customfield_18808=${erx}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/609";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telspeaking').textContent) {
-					console.log("Проблема во время разговора: " + " ID operator " + ids + " Description " + erx);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/610",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${ids}&customfield_18808=${erx}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/610";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telrtstat').textContent) {
-					console.log("Проблема с реал-тайм статистикой: " + " Description " + ids + " ER " + erx + " AR " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/613",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${ids}&customfield_18320=${erx}&customfield_18321=${ary}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/613";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telcallinfo').textContent) {
-					console.log("Запрос информации по звонку: " + " ID operator " + ids + " Description " + erx);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/612",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${ids}&customfield_18808=${erx}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/612";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telredicall').textContent) {
-					console.log("Проблема при переводе вызова: " + " ID operator " + ids + " Description " + erx);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/611",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18975=${ids}&customfield_18808=${erx}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/611";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('telunderground').textContent) {
-					console.log("Подземный стук: " + " Description " + erx);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/614",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18808=${erx}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/614";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else
-					console.log("Not found");
-			}
-
-		} else {
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
-		}
-	}
-
 	document.getElementById('optionAuth').onclick = function () { //Auth
 		if (document.getElementById('authsrvdskoptions').style.display != '') {
 			document.getElementById('authsrvdskoptions').style.display = '';
@@ -968,7 +652,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
@@ -1202,7 +886,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
@@ -1556,7 +1240,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -2052,7 +1736,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
@@ -2359,7 +2043,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -2690,7 +2374,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -2757,7 +2441,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -2916,7 +2600,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -2982,7 +2666,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -3049,7 +2733,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -3118,7 +2802,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -3186,7 +2870,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -3521,7 +3205,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -3759,7 +3443,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			
@@ -3809,7 +3493,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('telephonysrvdskoptions').style.display = 'none';
+			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
 			

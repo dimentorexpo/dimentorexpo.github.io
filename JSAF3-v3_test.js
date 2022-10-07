@@ -1513,7 +1513,6 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">📆Schedul</button>
                     <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">💲Billing-QA</button>
                     <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
-                    <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">📞Telephn</button>
                     <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>
                     <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
                     <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">📸Vid-call</button>
@@ -1670,22 +1669,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_14" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_15" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
 					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
-				<div id="telephonysrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#telephony-support; Канал для поддержки внутренней телефонии</p>
-					<button class="telepbtn widthofsd" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
-					<button class="telepbtn widthofsd" id="teloutgoing">Проблема с исходящим вызовом</button>
-					<button class="telepbtn widthofsd" id="telincoming">Проблема с входящим вызовом</button>
-					<button class="telepbtn widthofsd" id="telspeaking">Проблема во время разговора</button>
-					<button class="telepbtn widthofsd" id="telrtstat">Проблема с реал-тайм статистикой</button>
-					<button class="telepbtn widthofsd" id="telcallinfo">Запрос информации по звонку</button>
-					<button class="telepbtn widthofsd" id="telredicall">Проблема при переводе вызова</button>
-					<button class="telepbtn widthofsd" id="telunderground">Подземный стук</button>
-					
-					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_38" placeholder="Ожидаемое поведение"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_39" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="billingsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px; width:90%;">#billing</p>
@@ -5211,7 +5194,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.teacbtn').not(a).removeClass('activebtn');
                 $('.c1sbtn').not(a).removeClass('activebtn');
                 $('.schdbtn').not(a).removeClass('activebtn');
-                $('.telepbtn').not(a).removeClass('activebtn');
                 $('.authbtn').not(a).removeClass('activebtn');
                 $('.crm2sbtn').not(a).removeClass('activebtn');
                 $('.billbtn').not(a).removeClass('activebtn');
@@ -5248,10 +5230,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             });
 
             $('.schdbtn').click(function () {
-                remres(this)
-            });
-
-            $('.telepbtn').click(function () {
                 remres(this)
             });
 
