@@ -1810,18 +1810,18 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
-					<button class="mobbugsbtn widthofsd" id="skymobauthorize">Skyeng МП: авторизация</button>
-					<button class="mobbugsbtn widthofsd" id="skymobregister">Skyeng МП: регистрация</button>
-					<button class="mobbugsbtn widthofsd" id="skymobregsocnetw">Skyeng МП: регистрация через соц. сети</button>
-					<button class="mobbugsbtn widthofsd" id="skymobpayment">Skyeng МП: оплата</button>
-					<button class="mobbugsbtn widthofsd" id="skymobauthsocnetw">Skyeng МП: аторизация через соц. сети</button>
-					<button class="mobbugsbtn widthofsd" id="skymobchats">Skyeng МП: чаты</button>
-					<button class="mobbugsbtn widthofsd" id="skymobpush">Skyeng МП: пуши</button>
-					<button class="mobbugsbtn widthofsd" id="skymobforcupd">Skyeng МП: force update</button>
-					<button class="mobbugsbtn widthofsd" id="skymobasettings">Skyeng МП: настройки</button>
-					<button class="mobbugsbtn widthofsd" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
-					<button class="mobbugsbtn widthofsd" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
-					<button class="mobbugsbtn widthofsd" id="skyteachmob">Teachers МП</button>
+					<button class="mobbugsbtn widthofsd" value="1031">Skyeng МП: авторизация</button>
+					<button class="mobbugsbtn widthofsd" value="1030">Skyeng МП: регистрация</button>
+					<button class="mobbugsbtn widthofsd" value="1029">Skyeng МП: регистрация через соц. сети</button>
+					<button class="mobbugsbtn widthofsd" value="1023">Skyeng МП: оплата</button>
+					<button class="mobbugsbtn widthofsd" value="1028">Skyeng МП: аторизация через соц. сети</button>
+					<button class="mobbugsbtn widthofsd" value="1027">Skyeng МП: чаты</button>
+					<button class="mobbugsbtn widthofsd" value="1026">Skyeng МП: пуши</button>
+					<button class="mobbugsbtn widthofsd" value="1025">Skyeng МП: force update</button>
+					<button class="mobbugsbtn widthofsd" value="1024">Skyeng МП: настройки</button>
+					<button class="mobbugsbtn widthofsd" value="1022">Skyeng МП: локализация(язык приложения, контента)</button>
+					<button class="mobbugsbtn widthofsd" value="1021">Skyeng МП: видеосвязь(необразовательная часть)</button>
+					<button class="mobbugsbtn widthofsd" value="1020">Teachers МП</button>
 					
 					<select style="height:28px;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
@@ -1839,19 +1839,19 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_94" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_95" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_96" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_19" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_19" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 
 				<div id="academymobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#academic-mobile-bugs; Канал обработки обращений по МП Skyeng связанных с обучением.</p>
-					<button class="academymobbugsbtn widthofsd" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobsituations">МП Skyeng: Ситуации</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobvideopractice">МП Skyeng: Видеопрактика</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobselfstudy">МП Skyeng: Self Study</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobvocabulartrainer">МП Skyeng: тренажер слов</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobvocabular">МП Skyeng: Словарь</button>
-					<button class="academymobbugsbtn widthofsd" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobhomeworks">МП Skyeng: Домашки</button>
+					<button class="academymobbugsbtn widthofsd" value="1019">МП Skyeng: Аудиокниги и Life + Talks</button>
+					<button class="academymobbugsbtn widthofsd" value="1018">МП Skyeng: Ситуации</button>
+					<button class="academymobbugsbtn widthofsd" value="1017">МП Skyeng: Видеопрактика</button>
+					<button class="academymobbugsbtn widthofsd" value="1016">МП Skyeng: Self Study</button>
+					<button class="academymobbugsbtn widthofsd" value="1015">МП Skyeng: тренажер слов</button>
+					<button class="academymobbugsbtn widthofsd" value="1014">МП Skyeng: Словарь</button>
+					<button class="academymobbugsbtn widthofsd" value="1013">МП Skyeng: уроки - образовательная часть</button>
+					<button class="academymobbugsbtn widthofsd" value="1012">МП Skyeng: Домашки</button>
 					
 					<select style="height:28px;" id="academyprioritymbugs">
 							<option selected disabled="">Приоритет</option>
