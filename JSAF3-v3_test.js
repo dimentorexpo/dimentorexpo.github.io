@@ -1762,11 +1762,11 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
-					<button class="tripwbtn widthofsd" id="vimboxtranslate">Расширение Vimbox Translate</button>
-					<button class="tripwbtn widthofsd" id="tripwlife">Life</button>
-					<button class="tripwbtn widthofsd" id="tripwtalks">Talks</button>
-					<button class="tripwbtn widthofsd" id="tripwsimavokado">Simulator + Avokado</button>
-					<button class="tripwbtn widthofsd" id="tripwqa">Обращение для QA</button>
+					<button class="tripwbtn widthofsd" value="987">Расширение Vimbox Translate</button>
+					<button class="tripwbtn widthofsd" value="986">Life</button>
+					<button class="tripwbtn widthofsd" value="985">Talks</button>
+					<button class="tripwbtn widthofsd" value="988">Simulator + Avokado</button>
+					<button class="tripwbtn widthofsd" value="949">Обращение для QA</button>
 					
 					<input id="customfield_71" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_72" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1777,7 +1777,7 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="analystoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#analysts-gm-tl; канал аналитиков teachers продукта</p>
-					<button class="analystbtn widthofsd" id="analystsqa">Обращение для QA</button>
+					<button class="analystbtn widthofsd" value="947">Обращение для QA</button>
 					
 					<input id="customfield_76" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_77" placeholder="Описание проблемы" class="sdcustfieldformlines removefield"></textarea>

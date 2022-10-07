@@ -867,7 +867,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionChat').onclick = function () { //chat-qa-support
+	document.getElementById('optionChat').onclick = function () { //chat-qa-support +
 		if (document.getElementById('chatqaoptions').style.display != '') {
 			document.getElementById('chatqaoptions').style.display = '';
 
@@ -913,7 +913,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs
+	document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs +
 		if (document.getElementById('tripwireoptions').style.display != '') {
 			document.getElementById('tripwireoptions').style.display = '';
 
@@ -933,10 +933,8 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('teacherssrvdskoptions').style.display = 'none';
 			document.getElementById('c1srvdskoptions').style.display = 'none';
 			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			
 			document.getElementById('authsrvdskoptions').style.display = 'none';
 			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			
 			document.getElementById('billingsrvdskoptions').style.display = 'none';
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
 			
@@ -949,130 +947,19 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 				let erx = encodeURIComponent(document.getElementById('customfield_74').value);
 				let ary = encodeURIComponent(document.getElementById('customfield_75').value);
 
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwqa').textContent) {
-					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/949",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/949";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('vimboxtranslate').textContent) {
-					console.log("Vimbox Translate: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-										
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/987",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/987";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwlife').textContent) {
-					console.log("Life: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-										
-															document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/986",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/986";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwtalks').textContent) {
-					console.log("Talks: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-										
-															document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/985",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/985";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('tripwsimavokado').textContent) {
-					console.log("Simulator + Avokado: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-										
-															document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/988",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/988";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-				} else console.log("Not found");
+				for(let i=0; i<document.getElementsByClassName('tripwbtn').length;i++) {
+					if (document.getElementsByClassName('tripwbtn')[i].classList.contains('activebtn')) {
+						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('tripwbtn')[i].value)
+						console.log("Выбранная тематика: " + document.getElementsByClassName('tripwbtn')[i].innerText)
+					}
+				}
 			}
 		} else {
 			document.getElementById('tripwireoptions').style.display = 'none';
 		}
 	}
 
-	document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl
+	document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl +
 		if (document.getElementById('analystoptions').style.display != '') {
 			document.getElementById('analystoptions').style.display = '';
 
@@ -1107,31 +994,13 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 				let str = encodeURIComponent(document.getElementById('customfield_78').value);
 				let erx = encodeURIComponent(document.getElementById('customfield_79').value);
 				let ary = encodeURIComponent(document.getElementById('customfield_80').value);
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('analystsqa').textContent) {
-					console.log("Обращение к QA: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/947",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/947";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else console.log("Not found");
+				
+				for(let i=0; i<document.getElementsByClassName('analystbtn').length;i++) {
+					if (document.getElementsByClassName('analystbtn')[i].classList.contains('activebtn')) {
+						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('analystbtn')[i].value)
+						console.log("Выбранная тематика: " + document.getElementsByClassName('analystbtn')[i].innerText)
+					}
+				}
 			}
 		} else {
 			document.getElementById('analystoptions').style.display = 'none';
