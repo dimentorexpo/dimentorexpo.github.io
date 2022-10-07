@@ -1879,18 +1879,18 @@ var win_servicedesk = // описание элементов окна Service De
 
                 <div id="studcaboptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
-					<button class="studcabbtn widthofsd" id="studadultcab">Взрослый ЛКУ Главная страница</button>
-					<button class="studcabbtn widthofsd" id="studkidcab">Детский ЛКУ Главная страница</button>
-					<button class="studcabbtn widthofsd" id="studcabfamandcourse">Страница семьи и курсов</button>
-					<button class="studcabbtn widthofsd" id="studstories">Stories </button>
-					<button class="studcabbtn widthofsd" id="studcabrefpage">Реферальная страница</button>
-					<button class="studcabbtn widthofsd" id="studcabtransfpayhist">Страница оплаты, трансфера и истории баланса</button>
-					<button class="studcabbtn widthofsd" id="studcabttmovelesson">Страница расписания и переноса урока</button>
-					<button class="studcabbtn widthofsd" id="studcabteacherpage">Страница преподавателя</button>
-					<button class="studcabbtn widthofsd" id="studcabprofilesettings">Страница профиля У настройки</button>
-					<button class="studcabbtn widthofsd" id="studcabmenunav">Меню навигации (лейаут) </button>
-					<button class="studcabbtn widthofsd" id="studcabshowcase">Страница шоукейса (подключение услуг)</button>
-					<button class="studcabbtn widthofsd" id="studcabunderground">Подземный стук</button>
+					<button class="studcabbtn widthofsd" value="975">Взрослый ЛКУ Главная страница</button>
+					<button class="studcabbtn widthofsd" value="974">Детский ЛКУ Главная страница</button>
+					<button class="studcabbtn widthofsd" value="968">Страница семьи и курсов</button>
+					<button class="studcabbtn widthofsd" value="977">Stories </button>
+					<button class="studcabbtn widthofsd" value="973">Реферальная страница</button>
+					<button class="studcabbtn widthofsd" value="972">Страница оплаты, трансфера и истории баланса</button>
+					<button class="studcabbtn widthofsd" value="971">Страница расписания и переноса урока</button>
+					<button class="studcabbtn widthofsd" value="970">Страница преподавателя</button>
+					<button class="studcabbtn widthofsd" value="969">Страница профиля У + настройки</button>
+					<button class="studcabbtn widthofsd" value="966">Меню навигации (лейаут) </button>
+					<button class="studcabbtn widthofsd" value="967">Страница шоукейса (подключение услуг)</button>
+					<button class="studcabbtn widthofsd" value="946">Подземный стук</button>
 					
 					<input id="customfield_61" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_62" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
