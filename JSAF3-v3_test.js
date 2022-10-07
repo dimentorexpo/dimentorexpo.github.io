@@ -1745,7 +1745,13 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
                 <div id="chatqaoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque; font-size:18px; position:relative; top:7px; left:10px; width:90%;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
-					<button class="chatqabtn widthofsd" id="chatqa">Обращение для QA</button>
+					<button class="chatqabtn widthofsd" value="1050">Проблемы с загрузкой чата</button>
+					<button class="chatqabtn widthofsd" value="1049">Проблемы с отправкой сообщений в чате</button>
+					<button class="chatqabtn widthofsd" value="1048">Не приходят сообщения в/из чата в AutoFAQ</button>
+					<button class="chatqabtn widthofsd" value="1047">Уведомления о непрочитанном сообщении</button>
+					<button class="chatqabtn widthofsd" value="1046">Добавить чат между У и П</button>
+					<button class="chatqabtn widthofsd" value="1045">Удалить чат между У и П</button>
+					<button class="chatqabtn widthofsd" value="948">Подземный стук</button>
 					
 					<input id="customfield_66" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_67" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
