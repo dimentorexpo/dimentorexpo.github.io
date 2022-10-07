@@ -1647,8 +1647,8 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="billingqasrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#billing-qa-support; Канал для рассмотрения причины расхождений баланса учеников</p>
-					<button class="bilqabtn widthofsd" id="billqarassroch">Вопросы по рассрочке ученика</button>
-					<button class="bilqabtn widthofsd" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
+					<button class="bilqabtn widthofsd" value="577">Вопросы по рассрочке ученика</button>
+					<button class="bilqabtn widthofsd" value="570">Проверка баланса У на расхождения</button>
 					
 					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_17" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>

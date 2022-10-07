@@ -329,7 +329,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		$(a).toggleClass('activebtn');
 	}
 
-	document.getElementById('optionTeacher').onclick = function () { // Teachers
+	document.getElementById('optionTeacher').onclick = function () { // Teachers +
 		if (document.getElementById('teacherssrvdskoptions').style.display != '') {
 			document.getElementById('teacherssrvdskoptions').style.display = '';
 
@@ -376,7 +376,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS
+	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS + 
 		if (document.getElementById('edumodeloptions').style.display != '') {
 			document.getElementById('edumodeloptions').style.display = '';
 
@@ -422,7 +422,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		}
 	}
 
-	document.getElementById('optionBillingQA').onclick = function () { //BillingQA
+	document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
 		if (document.getElementById('billingqasrvdskoptions').style.display != '') {
 			document.getElementById('billingqasrvdskoptions').style.display = '';
 
@@ -458,55 +458,12 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 				let erx = encodeURIComponent(document.getElementById('customfield_19').value);
 				let ary = encodeURIComponent(document.getElementById('customfield_20').value);
 
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqarassroch').textContent) {
-					console.log("Вопросы по рассрочке: " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/577",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/577";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('billqabalancecorrect').textContent) {
-					console.log("Проверка баланса у на расхождения : " + "  Id student and teacher: " + idstdserv + " Short description: " + dscr + " STR: " + str + " ER: " + erx + " AR: " + ary);
-
-					document.getElementById('responseTextarea1').value = `{  "headers": {
-					 "content-type": "application/x-www-form-urlencoded",
-					 "sec-fetch-mode": "cors",
-					 "sec-fetch-site": "same-origin",
-					 "x-requested-with": "XMLHttpRequest",
-					 "x-sitemesh-off": "true"
-					  },
-					  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/570",
-					  "referrerPolicy": "strict-origin-when-cross-origin",
-					  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
-					 "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					  }`
-					document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/570";
-					document.getElementById('responseTextarea3').value = ''
-					document.getElementById('sendResponse').click()
-
-					setTimeout(getprsup, 5000);
-					setTimeout(getslacklnk, 8000);
-
-				} else console.log("Not found");
+				for(let i=0; i<document.getElementsByClassName('bilqabtn').length;i++) {
+					if (document.getElementsByClassName('bilqabtn')[i].classList.contains('activebtn')) {
+						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('bilqabtn')[i].value)
+						console.log("Выбранная тематика: " + document.getElementsByClassName('bilqabtn')[i].innerText)
+					}
+				}
 			}
 		} else {
 			document.getElementById('billingqasrvdskoptions').style.display = 'none';
