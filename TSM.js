@@ -3642,7 +3642,6 @@ function addOldShowcaseBtn() { //функция добавляющая в лев
 			oldshowcase.onclick = function() {
 				window.open('https://vimbox.skyeng.ru/start?noredirect=1')
 			}
-			document.getElementsByClassName('category')[0].children
 			document.getElementsByClassName('category')[0].insertBefore(oldshowcase, document.getElementsByClassName('category')[0].children[2])
 		} else clearInterval(intOldShow)
 	}
