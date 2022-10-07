@@ -1589,19 +1589,17 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="crm2srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px; width:90%;">#crm2-support</p>
-					<button class="crm2sbtn widthofsd" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
-					<button class="crm2sbtn widthofsd" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
-					<button class="crm2sbtn widthofsd" id="crm2lessonhistory">Вопросы по "Истории уроков"</button>
-					<button class="crm2sbtn widthofsd" id="crm2paymenthistory">Вопросы про виджет "История платежей"</button>
-					<button class="crm2sbtn widthofsd" id="crm2convertsrc">Вопросы по "Визардам конвертации услуги"</button>
-					<button class="crm2sbtn widthofsd" id="crm2actionshistory">Вопросы о "История действий"</button>
-					<button class="crm2sbtn  widthofsd" id="crm2familycard">Вопросы о карточке "Семья"</button>
-					<button class="crm2sbtn widthofsd" id="crm2profile">Вопросы о "Профиле" заявки</button>
-					<button class="crm2sbtn widthofsd" id="crm2communications">Вопросы по разделу "Коммуникации"</button>
-					<button class="crm2sbtn widthofsd" id="crm2taskpoolsoporovd">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
-					<button class="crm2sbtn widthofsd" id="crm2taskpoolsales">Проблемы с функционалом пула задач "список задач" продажи</button>
-					<button class="crm2sbtn widthofsd" id="crm2migrationcrm">Миграция компании из CRM1 в CRM2</button>
-					<button class="crm2sbtn widthofsd" id="crm2changestk">Смена STK услуги</button>
+					<button class="crm2sbtn widthofsd" value="677">Вопросы по задачам "Сопровождения"</button>
+					<button class="crm2sbtn widthofsd" value="676">Вопросы по задачам "Продаж"</button>
+					<button class="crm2sbtn widthofsd" value="675">Вопросы по "Истории уроков"</button>
+					<button class="crm2sbtn widthofsd" value="674">Вопросы про виджет "История платежей"</button>
+					<button class="crm2sbtn widthofsd" value="673">Вопросы по "Визардам конвертации услуги"</button>
+					<button class="crm2sbtn widthofsd" value="672">Вопросы о "История действий"</button>
+					<button class="crm2sbtn widthofsd" value="671">Вопросы о карточке "Семья"</button>
+					<button class="crm2sbtn widthofsd" value="670">Вопросы о "Профиле" заявки</button>
+					<button class="crm2sbtn widthofsd" value="678">Вопросы по разделу "Коммуникации"</button>
+					<button class="crm2sbtn widthofsd" value="669">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
+					<button class="crm2sbtn widthofsd" value="668">Проблемы с функционалом пула задач "список задач" продажи</button>
 					
 					<input id="customfield_40" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_41" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
