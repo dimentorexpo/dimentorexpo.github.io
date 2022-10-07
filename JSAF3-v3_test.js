@@ -1631,11 +1631,12 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="schedulesrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#schedule-qa-support; Канал по вопросам расписания ученика, ТТ, автоподбора и ручного подбора</p>
-					<button class="schdbtn widthofsd" id="ttenableAP">Подключение АП</button>
-					<button class="schdbtn widthofsd" id="ttdisableAP">Отключить АП в ЛКУ</button>
-					<button class="schdbtn widthofsd" id="ttquestions">Вопросы по ТТ</button>
-					<button class="schdbtn widthofsd" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
-					<button class="schdbtn widthofsd" id="ttunderground">Подземный стук</button>
+					<button class="schdbtn widthofsd" value="566">Подключение АП</button>
+					<button class="schdbtn widthofsd" value="565">Отключить АП в ЛКУ</button>
+					<button class="schdbtn widthofsd" value="564">Вопросы по ТТ</button>
+					<button class="schdbtn widthofsd" value="563">Подтв в ЛКП перепод ВП</button>
+					<button class="schdbtn widthofsd" value="562">Почему нет задачи подбора?</button>
+					<button class="schdbtn widthofsd" value="567">Подземный стук</button>
 					
 					<input id="customfield_21" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_22" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
