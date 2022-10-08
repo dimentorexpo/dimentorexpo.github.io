@@ -169,8 +169,6 @@ function checkjiraauth() { // функция проверки авторизац
 }
 
 function sendRequest(idstdserv, dscr, str, erx, ary, code) {
-	console.log(jiratoken)
-	console.log(jiratokennew)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
@@ -195,7 +193,6 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 }
 
 function sendRequestBilling(str, erx, ary, idstd, code) {
-		console.log(jiratoken)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
@@ -220,7 +217,6 @@ function sendRequestBilling(str, erx, ary, idstd, code) {
 }
 
 function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, code) {
-		console.log(jiratoken)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
@@ -244,7 +240,6 @@ function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstds
 }
 
 function sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, code) {
-		console.log(jiratoken)
 	 document.getElementById('responseTextarea1').value = `{  "headers": {
 		 "content-type": "application/x-www-form-urlencoded",
 		 "sec-fetch-mode": "cors",
