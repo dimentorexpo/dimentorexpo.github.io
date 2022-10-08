@@ -1513,9 +1513,7 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">📆Schedul</button>
                     <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">💲Billing-QA</button>
                     <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
-                    <button class="sdbtn" id="optionTelephony" style="margin-left:2px; margin-top:2px; width:80px;">📞Telephn</button>
                     <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>
-                    <button class="sdbtn" id="optionMrkt" style="margin-left:2px; margin-top:2px; width:80px;">🎪MRKT</button>
                     <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
                     <button class="sdbtn" id="optionVimvideocall" style="margin-left:2px; margin-top:2px; width:80px;">📸Vid-call</button>
                     <button class="sdbtn" id="optionStudcab" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓Studcab</button>
@@ -1533,15 +1531,15 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengmainsrv">МП Skyeng: главная(кроме лайф и толкс) и стр подключ услуг</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengschedule">МП Skyeng: расписание и переносы</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengpodbor">МП Skyeng: подбор П</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengprofile">МП Skyeng: профиль У и настройки профиля, таймзоны</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengbalance">МП Skyeng: стр оплаты и трансферы</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengreferal">МП Skyeng: рефералка</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskyengstories">Skyeng: Stories</button>
-					<button class="stcabmbsbtn widthofsd" id="mpskysmartparents">МП Skysmart Parents</button>
-					<button class="stcabmbsbtn widthofsd" id="mpunderground">Подземный стук</button>
+					<button class="stcabmbsbtn widthofsd" value="965">МП Skyeng: главная(кроме лайф и толкс) и стр подключ услуг</button>
+					<button class="stcabmbsbtn widthofsd" value="964">МП Skyeng: расписание и переносы</button>
+					<button class="stcabmbsbtn widthofsd" value="960">МП Skyeng: подбор П</button>
+					<button class="stcabmbsbtn widthofsd" value="963">МП Skyeng: профиль У и настройки профиля, таймзоны</button>
+					<button class="stcabmbsbtn widthofsd" value="962">МП Skyeng: стр оплаты и трансферы</button>
+					<button class="stcabmbsbtn widthofsd" value="961">МП Skyeng: рефералка</button>
+					<button class="stcabmbsbtn widthofsd" value="978">Skyeng: Stories</button>
+					<button class="stcabmbsbtn widthofsd" value="959">МП Skysmart Parents</button>
+					<button class="stcabmbsbtn widthofsd" value="958">Подземный стук</button>
 					
 					<input id="customfield_102" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_103" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></textarea>
@@ -1550,7 +1548,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_106" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_107" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_108" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_21" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_21" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="infraoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">Здесь можно получить помощь от команды Инфраструктуры</p>
@@ -1562,25 +1560,25 @@ var win_servicedesk = // описание элементов окна Service De
 					<input class="radio" type="radio" name="customfield_116" value="15820" resolved=""><label style="color:bisque; font-size: 16px;">Да</label>
 					<input class="radio" type="radio" name="customfield_116" value="15821" resolved=""><label style="color:bisque; font-size: 16px;">Нет</label>
 					<textarea id="customfield_117" placeholder="Комментарий"  class="sdexpecactual removefield"></textarea>
-					<button id="create_23" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_23" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#teachers-qa-support; канал по вопросам ЛКП, ТРМ</p>
-					<button class="teacbtn widthofsd" id="teacherstatistic">Статистика</button>
-					<button class="teacbtn widthofsd" id="teacherstudy">Моё обучение</button>
-					<button class="teacbtn widthofsd" id="teacherbreak">Перерыв</button>
-					<button class="teacbtn widthofsd" id="teachermoney">Финансы</button>
-					<button class="teacbtn widthofsd" id="teachermap">Карта роста</button>
-					<button class="teacbtn widthofsd" id="teachertimetable">Расписание</button>
-					<button class="teacbtn  widthofsd" id="teacherperenos">Запрос на перенос</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetbalance">Виджет баланса</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetlessonmark">Виджет отметки уроков</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetplanfact">Виджеты плана/факта уроков</button>
-					<button class="teacbtn  widthofsd" id="teacherwidgettimetableweek">Виджет расписания на неделю</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetKPI">Виджет KPI</button>
-					<button class="teacbtn widthofsd" id="teacherwidgetmystudents">Виджет "Мои ученики"</button>
-					<button class="teacbtn widthofsd" id="teacherTRMquestions">Вопросы по ТРМ</button>
-					<button class="teacbtn widthofsd" id="teacherunderground">Подземный стук</button>
+					<button class="teacbtn widthofsd" value="644">Статистика</button>
+					<button class="teacbtn widthofsd" value="643">Моё обучение</button>
+					<button class="teacbtn widthofsd" value="642">Перерыв</button>
+					<button class="teacbtn widthofsd" value="641">Финансы</button>
+					<button class="teacbtn widthofsd" value="640">Карта роста</button>
+					<button class="teacbtn widthofsd" value="639">Расписание</button>
+					<button class="teacbtn widthofsd" value="637">Запрос на перенос</button>
+					<button class="teacbtn widthofsd" value="636">Виджет баланса</button>
+					<button class="teacbtn widthofsd" value="635">Виджет отметки уроков</button>
+					<button class="teacbtn widthofsd" value="634">Виджеты плана/факта уроков</button>
+					<button class="teacbtn widthofsd" value="633">Виджет расписания на неделю</button>
+					<button class="teacbtn widthofsd" value="632">Виджет KPI</button>
+					<button class="teacbtn widthofsd" value="631">Виджет "Мои ученики"</button>
+					<button class="teacbtn widthofsd" value="530">Вопросы по ТРМ</button>
+					<button class="teacbtn widthofsd" value="531">Подземный стук</button>
 					
 					<input id="customfield_6" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_7" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1591,19 +1589,17 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="crm2srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:160px; width:90%;">#crm2-support</p>
-					<button class="crm2sbtn widthofsd" id="crm2taskssoprovod">Вопросы по задачам "Сопровождения"</button>
-					<button class="crm2sbtn widthofsd" id="crm2taskssales">Вопросы по задачам "Продаж"</button>
-					<button class="crm2sbtn widthofsd" id="crm2lessonhistory">Вопросы по "Истории уроков"</button>
-					<button class="crm2sbtn widthofsd" id="crm2paymenthistory">Вопросы про виджет "История платежей"</button>
-					<button class="crm2sbtn widthofsd" id="crm2convertsrc">Вопросы по "Визардам конвертации услуги"</button>
-					<button class="crm2sbtn widthofsd" id="crm2actionshistory">Вопросы о "История действий"</button>
-					<button class="crm2sbtn  widthofsd" id="crm2familycard">Вопросы о карточке "Семья"</button>
-					<button class="crm2sbtn widthofsd" id="crm2profile">Вопросы о "Профиле" заявки</button>
-					<button class="crm2sbtn widthofsd" id="crm2communications">Вопросы по разделу "Коммуникации"</button>
-					<button class="crm2sbtn widthofsd" id="crm2taskpoolsoporovd">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
-					<button class="crm2sbtn widthofsd" id="crm2taskpoolsales">Проблемы с функционалом пула задач "список задач" продажи</button>
-					<button class="crm2sbtn widthofsd" id="crm2migrationcrm">Миграция компании из CRM1 в CRM2</button>
-					<button class="crm2sbtn widthofsd" id="crm2changestk">Смена STK услуги</button>
+					<button class="crm2sbtn widthofsd" value="677">Вопросы по задачам "Сопровождения"</button>
+					<button class="crm2sbtn widthofsd" value="676">Вопросы по задачам "Продаж"</button>
+					<button class="crm2sbtn widthofsd" value="675">Вопросы по "Истории уроков"</button>
+					<button class="crm2sbtn widthofsd" value="674">Вопросы про виджет "История платежей"</button>
+					<button class="crm2sbtn widthofsd" value="673">Вопросы по "Визардам конвертации услуги"</button>
+					<button class="crm2sbtn widthofsd" value="672">Вопросы о "История действий"</button>
+					<button class="crm2sbtn widthofsd" value="671">Вопросы о карточке "Семья"</button>
+					<button class="crm2sbtn widthofsd" value="670">Вопросы о "Профиле" заявки</button>
+					<button class="crm2sbtn widthofsd" value="678">Вопросы по разделу "Коммуникации"</button>
+					<button class="crm2sbtn widthofsd" value="669">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
+					<button class="crm2sbtn widthofsd" value="668">Проблемы с функционалом пула задач "список задач" продажи</button>
 					
 					<input id="customfield_40" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_41" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1614,14 +1610,14 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="authsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#auth; Обсуждение общих вопросов по проектам Auth/ID (авторизация, роли и доступы, данные пользователей и т. д.)</p>
-					<button class="authbtn widthofsd" id="authdevq">Вопросы к разработке</button>
-					<button class="authbtn  widthofsd" id="auth2google">Проблемы с 2FA : проблема с google authenticator</button>
-					<button class="authbtn widthofsd" id="auth2faemail">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
-					<button class="authbtn widthofsd" id="auth2fasms">Проблемы с 2FA: не приходит смс</button>
-					<button class="authbtn widthofsd" id="authdeladdrolesteach">Удаление / добавление ролей Преподавателям</button>
-					<button class="authbtn widthofsd" id="authdeladdrolesstud">Удаление / добавление ролей Ученикам</button>
-					<button class="authbtn widthofsd" id="authlogcheck">Проверка логов в ID</button>
-					<button class="authbtn widthofsd" id="authunderground">Подземный стук</button>
+					<button class="authbtn widthofsd" value="575">Вопросы к разработке</button>
+					<button class="authbtn widthofsd" value="576">Проблемы с 2FA : проблема с google authenticator</button>
+					<button class="authbtn widthofsd" value="573">Проблемы с 2FA: не приходит письмо о восстановлении пароля</button>
+					<button class="authbtn widthofsd" value="572">Проблемы с 2FA: не приходит смс</button>
+					<button class="authbtn widthofsd" value="560">Удаление / добавление ролей Преподавателям</button>
+					<button class="authbtn widthofsd" value="559">Удаление / добавление ролей Ученикам</button>
+					<button class="authbtn widthofsd" value="558">Проверка логов в ID</button>
+					<button class="authbtn widthofsd" value="561">Подземный стук</button>
 					
 					<input id="customfield_26" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_27" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1632,11 +1628,12 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="schedulesrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#schedule-qa-support; Канал по вопросам расписания ученика, ТТ, автоподбора и ручного подбора</p>
-					<button class="schdbtn widthofsd" id="ttenableAP">Подключение АП</button>
-					<button class="schdbtn widthofsd" id="ttdisableAP">Отключить АП в ЛКУ</button>
-					<button class="schdbtn widthofsd" id="ttquestions">Вопросы по ТТ</button>
-					<button class="schdbtn widthofsd" id="ttnottaskpodbor">Почему нет задачи подбора ?</button>
-					<button class="schdbtn widthofsd" id="ttunderground">Подземный стук</button>
+					<button class="schdbtn widthofsd" value="566">Подключение АП</button>
+					<button class="schdbtn widthofsd" value="565">Отключить АП в ЛКУ</button>
+					<button class="schdbtn widthofsd" value="564">Вопросы по ТТ</button>
+					<button class="schdbtn widthofsd" value="563">Подтв в ЛКП перепод ВП</button>
+					<button class="schdbtn widthofsd" value="562">Почему нет задачи подбора?</button>
+					<button class="schdbtn widthofsd" value="567">Подземный стук</button>
 					
 					<input id="customfield_21" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_22" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1647,8 +1644,8 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="billingqasrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#billing-qa-support; Канал для рассмотрения причины расхождений баланса учеников</p>
-					<button class="bilqabtn widthofsd" id="billqarassroch">Вопросы по рассрочке ученика</button>
-					<button class="bilqabtn widthofsd" id="billqabalancecorrect">Проверка баланса У на расхождения</button>
+					<button class="bilqabtn widthofsd" value="577">Вопросы по рассрочке ученика</button>
+					<button class="bilqabtn widthofsd" value="570">Проверка баланса У на расхождения</button>
 					
 					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_17" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1659,10 +1656,10 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="c1srvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#c1-support; Поддержка витрины оплаты (Не виджет оплаты в pcs), Onboarding (Kids&Adult), Scoring, AutoIntroLesson (АвтоВУ)</p>
-					<button class="c1sbtn widthofsd" id="c1verstka">Проблемы с версткой</button>
-					<button class="c1sbtn widthofsd" id="c1payonboarding">Не завершился онбординг после оплаты</button>
-					<button class="c1sbtn widthofsd" id="c1redirects">Циклические редиректы</button>
-					<button class="c1sbtn widthofsd" id="c1underground">Подземный стук</button>
+					<button class="c1sbtn widthofsd" value="597">Проблемы с версткой</button>
+					<button class="c1sbtn widthofsd" value="596">Не завершился онбординг после оплаты</button>
+					<button class="c1sbtn widthofsd" value="595">Циклические редиректы</button>
+					<button class="c1sbtn widthofsd" value="598">Подземный стук</button>
 					
 					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_12" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1671,43 +1668,27 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_15" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
 					<button id="create_3" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
-				<div id="telephonysrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#telephony-support; Канал для поддержки внутренней телефонии</p>
-					<button class="telepbtn widthofsd" id="telnoaccess">Отсутствие доступа к странице телефонии</button>
-					<button class="telepbtn widthofsd" id="teloutgoing">Проблема с исходящим вызовом</button>
-					<button class="telepbtn widthofsd" id="telincoming">Проблема с входящим вызовом</button>
-					<button class="telepbtn widthofsd" id="telspeaking">Проблема во время разговора</button>
-					<button class="telepbtn widthofsd" id="telrtstat">Проблема с реал-тайм статистикой</button>
-					<button class="telepbtn widthofsd" id="telcallinfo">Запрос информации по звонку</button>
-					<button class="telepbtn widthofsd" id="telredicall">Проблема при переводе вызова</button>
-					<button class="telepbtn widthofsd" id="telunderground">Подземный стук</button>
-					
-					<textarea id="customfield_37" placeholder="Краткое и структурированное описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_38" placeholder="Ожидаемое поведение"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_39" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_7" style="width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
 				<div id="billingsrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px; width:90%;">#billing</p>
-					<button class="billbtn widthofsd" id="billcheques">Чеки/Инвойсы</button>
-					<button class="billbtn widthofsd" id="billdataanal">Data analytics</button>
-					<button class="billbtn widthofsd" id="billtaskfordev">Задача для разработки</button>
-					<button class="billbtn widthofsd" id="billadmreturn">Админка возвратов</button>
-					<button class="billbtn widthofsd" id="billtroublcodecard">Проблема с кодом для привязки карты</button>
-					<button class="billbtn widthofsd" id="billpaymentbot">Вilling Payment Bot</button>
-					<button class="billbtn widthofsd" id="billschemes">Схемы вознаграждения </button>
-					<button class="billbtn widthofsd" id="billselfemployee">Самозанятые </button>
-					<button class="billbtn widthofsd" id="billrequisites">Реквизиты</button>
-					<button class="billbtn widthofsd" id="billpayments">Выплаты</button>
-					<button class="billbtn widthofsd" id="billspisanie">Списание средств</button>
-					<button class="billbtn widthofsd" id="billreturns">Возвраты</button>
-					<button class="billbtn widthofsd" id="billpaymentmesystems">Платежные системы</button>
-					<button class="billbtn widthofsd" id="billwidgetpayment">Виджет оплаты</button>
-					<button class="billbtn widthofsd" id="billpay">Оплата</button>
-					<button class="billbtn widthofsd" id="billcredit">Рассрочка</button>
-					<button class="billbtn widthofsd" id="billsubscribtions">Подписки</button>
-					<button class="billbtn widthofsd" id="billroles">Роли и доступы</button>
-					<button class="billbtn widthofsd" id="billbusanalys">Бизнес-анализ</button>
+					<button class="billbtn widthofsd" value="681">Чеки/Инвойсы</button>
+					<button class="billbtn widthofsd" value="680">Data analytics</button>
+					<button class="billbtn widthofsd" value="679">Задача для разработки</button>
+					<button class="billbtn widthofsd" value="667">Админка возвратов</button>
+					<button class="billbtn widthofsd" value="666">Проблема с кодом для привязки карты</button>
+					<button class="billbtn widthofsd" value="664">Вilling Payment Bot</button>
+					<button class="billbtn widthofsd" value="663">Схемы вознаграждения </button>
+					<button class="billbtn widthofsd" value="662">Самозанятые </button>
+					<button class="billbtn widthofsd" value="661">Реквизиты</button>
+					<button class="billbtn widthofsd" value="660">Выплаты</button>
+					<button class="billbtn widthofsd" value="659">Списание средств</button>
+					<button class="billbtn widthofsd" value="658">Возвраты</button>
+					<button class="billbtn widthofsd" value="657">Платежные системы</button>
+					<button class="billbtn widthofsd" value="656">Виджет оплаты</button>
+					<button class="billbtn widthofsd" value="655">Оплата</button>
+					<button class="billbtn widthofsd" value="654">Рассрочка</button>
+					<button class="billbtn widthofsd" value="650">Подписки</button>
+					<button class="billbtn widthofsd" value="647">Роли и доступы</button>
+					<button class="billbtn widthofsd" value="646">Бизнес-анализ</button>
 					
 					<input id="customfield_32" placeholder="ID пользователя" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1717,51 +1698,32 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="edumodeloptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#em-qa-support: Канал для обращений по функционалу Educational Model</p>
-					<button class="edumodbtn widthofsd" id="edumgoal">Анкета целей</button>
-					<button class="edumodbtn widthofsd" id="skysmartcertificate">Сертификаты</button>
-					<button class="edumodbtn widthofsd" id="skysmartpersotrackprogress">Персотреки и виджет прогресса</button>
-					<button class="edumodbtn widthofsd" id="skysmartprogress">Страница прогресса</button>
-					<button class="edumodbtn widthofsd" id="skysmartfeedback">Обратная связь</button>
+					<button class="edumodbtn widthofsd" value="983">Анкета целей</button>
+					<button class="edumodbtn widthofsd" value="982">Сертификаты</button>
+					<button class="edumodbtn widthofsd" value="980">Персотреки и виджет прогресса</button>
+					<button class="edumodbtn widthofsd" value="981">Страница прогресса</button>
+					<button class="edumodbtn widthofsd" value="979">Обратная связь</button>
 					
 					<input id="customfield_97" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_98" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_99" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_100" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_101" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_20" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
-				<div id="mrktsrvdskoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#mrkt-bill-questions; Канал для вопросов по промокодам, сертификатам, реферальной программе</p>
-					<button class="mrktbtn widthofsd" id="mrktsubscribptions">Подписки</button>
-					<button class="mrktbtn widthofsd" id="mrktcertificates">Заказ сертификатов</button>
-					<button class="mrktbtn widthofsd" id="mrktpromocodes">Заказ промокодов</button>
-					<button class="mrktbtn widthofsd" id="mrktdisablends">Отключение НДС</button>
-					<button class="mrktbtn widthofsd" id="mrktnachisl">Начисления (срочные, журналисты, PR)</button>
-					<button class="mrktbtn widthofsd" id="mrktdoublelessons">Удвоение уроков (сотрудники)</button>
-					<button class="mrktbtn widthofsd" id="mrktpriceq">Вопросы по прайсам</button>
-					<button class="mrktbtn widthofsd" id="mrktreferal">Реферальная программа</button>
-					<button class="mrktbtn widthofsd" id="mrktcertconsult">Сертификаты консультация / тех. проблема</button>
-					<button class="mrktbtn widthofsd" id="mrktpromocodesconsult">Промокоды консультация / тех.проблема</button>
-					<button class="mrktbtn widthofsd" id="mrktunderground">Подземный стук</button>
-					
-					<input id="customfield_47" placeholder="ID Ученика" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
-					<input id="customfield_48" placeholder="ID Услуги" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
-					<textarea id="customfield_49" placeholder="Краткое и структурированное описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<button id="create_10" style="width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_20" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#vim-bugs; Проблемы с Vimbox/Smartroom</p>
-					<button class="vimbugsbtn widthofsd" id="smartroomonetoone">Smartroom уроки 1:1</button>
-					<button class="vimbugsbtn widthofsd" id="smartroomgroupl">Smartroom групп и параллельные уроки</button>
-					<button class="vimbugsbtn widthofsd" id="smartroomhwtests">Smartroom страница ДЗ и тестов</button>
-					<button class="vimbugsbtn widthofsd" id="adultselfstudy">Adults Self-Study</button>
-					<button class="vimbugsbtn widthofsd" id="premiumflip">Flip (web версия, не мобилка)</button>
-					<button class="vimbugsbtn widthofsd" id="lessonbutwidg">Виджет входа у взрослых У и П</button>
-					<button class="vimbugsbtn widthofsd" id="automark">Автоотметка по урокам взрослых У</button>
-					<button class="vimbugsbtn widthofsd" id="cmscontentadult">Взрослый англиский: CMS и контент на взрослой платформе</button>
-					<button class="vimbugsbtn widthofsd" id="adulthwlestest">Взрослый английский: Домашки, уроки, тесты</button>
-					<button class="vimbugsbtn widthofsd" id="showcaseadult">Шоукейс взрослого П/взрослого У</button>
-					<button class="vimbugsbtn widthofsd" id="vimboxpages" style="width:420px;">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
+					<button class="vimbugsbtn widthofsd" value="1063">Smartroom уроки 1:1</button>
+					<button class="vimbugsbtn widthofsd" value="1062">Smartroom групп и параллельные уроки</button>
+					<button class="vimbugsbtn widthofsd" value="1061">Smartroom страница ДЗ и тестов</button>
+					<button class="vimbugsbtn widthofsd" value="942">Adults Self-Study (web версия, не мобилка)</button>
+					<button class="vimbugsbtn widthofsd" value="941">Flip (web версия, не мобилка)</button>
+					<button class="vimbugsbtn widthofsd" value="935">Виджет входа у взрослых У и П</button>
+					<button class="vimbugsbtn widthofsd" value="934">Автоотметка по урокам взрослых У</button>
+					<button class="vimbugsbtn widthofsd" value="933">Взрослый англиский: CMS и контент на взрослой платформе</button>
+					<button class="vimbugsbtn widthofsd" value="932">Взрослый английский: Домашки, уроки, тесты</button>
+					<button class="vimbugsbtn widthofsd" value="931">Шоукейс взрослого П/взрослого У</button>
+					<button class="vimbugsbtn widthofsd" value="936">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 					
 					<input id="customfield_50" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_52" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -1772,99 +1734,94 @@ var win_servicedesk = // описание элементов окна Service De
 				</div>
 				<div id="vimvidoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#vim-video-call; Разработка модуля видеосвязи</p>
-					<button class="vimvidsbtn widthofsd" id="vimvidqa">Обращение для QA</button>
+					<button class="vimvidsbtn widthofsd" value="944">Обращение для QA</button>
 					
 					<input id="customfield_56" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_57" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_58" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_59" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_60" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_12" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_12" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
                 <div id="chatqaoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque; font-size:18px; position:relative; top:7px; left:10px; width:90%;">#chat-qa-support; Решают проблемы с чатами в ЛКП и ЛКУ</p>
-					<button class="chatqabtn widthofsd" id="chatqa">Обращение для QA</button>
+					<button class="chatqabtn widthofsd" value="1050">Проблемы с загрузкой чата</button>
+					<button class="chatqabtn widthofsd" value="1049">Проблемы с отправкой сообщений в чате</button>
+					<button class="chatqabtn widthofsd" value="1048">Не приходят сообщения в/из чата в AutoFAQ</button>
+					<button class="chatqabtn widthofsd" value="1047">Уведомления о непрочитанном сообщении</button>
+					<button class="chatqabtn widthofsd" value="1046">Добавить чат между У и П</button>
+					<button class="chatqabtn widthofsd" value="1045">Удалить чат между У и П</button>
+					<button class="chatqabtn widthofsd" value="948">Подземный стук</button>
 					
 					<input id="customfield_66" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_67" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_68" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_69" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_70" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_14" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_14" style="width: 150px; position:relative; left:30%;">Создать</button>
                 </div>
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
-					<button class="tripwbtn widthofsd" id="vimboxtranslate">Расширение Vimbox Translate</button>
-					<button class="tripwbtn widthofsd" id="tripwlife">Life</button>
-					<button class="tripwbtn widthofsd" id="tripwtalks">Talks</button>
-					<button class="tripwbtn widthofsd" id="tripwsimavokado">Simulator + Avokado</button>
-					<button class="tripwbtn widthofsd" id="tripwqa">Обращение для QA</button>
+					<button class="tripwbtn widthofsd" value="987">Расширение Vimbox Translate</button>
+					<button class="tripwbtn widthofsd" value="986">Life</button>
+					<button class="tripwbtn widthofsd" value="985">Talks</button>
+					<button class="tripwbtn widthofsd" value="988">Simulator + Avokado</button>
+					<button class="tripwbtn widthofsd" value="949">Обращение для QA</button>
 					
 					<input id="customfield_71" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_72" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_73" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_74" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_75" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_15" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_15" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="analystoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#analysts-gm-tl; канал аналитиков teachers продукта</p>
-					<button class="analystbtn widthofsd" id="analystsqa">Обращение для QA</button>
+					<button class="analystbtn widthofsd" value="947">Обращение для QA</button>
 					
 					<input id="customfield_76" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_77" placeholder="Описание проблемы" class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_78" placeholder="Как воспроизвести ошибку?" class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_79" placeholder="Ожидаемое поведение" class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_80" placeholder="Фактическое поведение" class="sdexpecactual removefield"></textarea>
-					<button id="create_16" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_16" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="corpoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#corp-support; Канал поддержки по вопросам корпоративных клиентов: ЛККК (не ЛКУ), начислялка, self-study, карточка компании.</p>
-					<button class="corpbtn widthofsd" id="corpqa">Обращение для QA</button>
+					<button class="corpbtn widthofsd" value="950">Обращение для QA</button>
 					
 					<input id="customfield_81" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_82" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_83" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_84" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_85" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_17" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
-				</div>
-				<div id="marketingptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#marketing-qa; (регистрации, детские главные, взрослые главные, лендосы на лпг/тильде)</p>
-					<button class="marketingbtn widthofsd" id="marketingqa">Обращение для QA</button>
-					
-					<input id="customfield_86" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
-					<textarea id="customfield_87" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_88" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_89" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
-					<textarea id="customfield_90" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_18" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_17" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="marketprojbugsptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#marketing-projects-bugs; Канал для обращений от ТП, связанных с багами на лендингах Тильды и проектами маркетинга</p>
-					<button class="marketprojbugsbtn widthofsd" id="marketprojbugsqa">Обращение для QA</button>
+					<button class="marketprojbugsbtn widthofsd" value="952">Обращение для QA</button>
 					
 					<input id="customfield_109" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines  removefield"></input>
 					<textarea id="customfield_110" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_111" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines  removefield"></textarea>
 					<textarea id="customfield_112" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_113" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_22" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_22" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
-					<button class="mobbugsbtn widthofsd" id="skymobauthorize">Skyeng МП: авторизация</button>
-					<button class="mobbugsbtn widthofsd" id="skymobregister">Skyeng МП: регистрация</button>
-					<button class="mobbugsbtn widthofsd" id="skymobregsocnetw">Skyeng МП: регистрация через соц. сети</button>
-					<button class="mobbugsbtn widthofsd" id="skymobpayment">Skyeng МП: оплата</button>
-					<button class="mobbugsbtn widthofsd" id="skymobauthsocnetw">Skyeng МП: аторизация через соц. сети</button>
-					<button class="mobbugsbtn widthofsd" id="skymobchats">Skyeng МП: чаты</button>
-					<button class="mobbugsbtn widthofsd" id="skymobpush">Skyeng МП: пуши</button>
-					<button class="mobbugsbtn widthofsd" id="skymobforcupd">Skyeng МП: force update</button>
-					<button class="mobbugsbtn widthofsd" id="skymobasettings">Skyeng МП: настройки</button>
-					<button class="mobbugsbtn widthofsd" id="skymoblanguage">Skyeng МП: локализация(язык приложения, контента)</button>
-					<button class="mobbugsbtn widthofsd" id="skymovideocall">Skyeng МП: видеосвязь(необразовательная часть)</button>
-					<button class="mobbugsbtn widthofsd" id="skyteachmob">Teachers МП</button>
+					<button class="mobbugsbtn widthofsd" value="1031">Skyeng МП: авторизация</button>
+					<button class="mobbugsbtn widthofsd" value="1030">Skyeng МП: регистрация</button>
+					<button class="mobbugsbtn widthofsd" value="1029">Skyeng МП: регистрация через соц. сети</button>
+					<button class="mobbugsbtn widthofsd" value="1023">Skyeng МП: оплата</button>
+					<button class="mobbugsbtn widthofsd" value="1028">Skyeng МП: аторизация через соц. сети</button>
+					<button class="mobbugsbtn widthofsd" value="1027">Skyeng МП: чаты</button>
+					<button class="mobbugsbtn widthofsd" value="1026">Skyeng МП: пуши</button>
+					<button class="mobbugsbtn widthofsd" value="1025">Skyeng МП: force update</button>
+					<button class="mobbugsbtn widthofsd" value="1024">Skyeng МП: настройки</button>
+					<button class="mobbugsbtn widthofsd" value="1022">Skyeng МП: локализация(язык приложения, контента)</button>
+					<button class="mobbugsbtn widthofsd" value="1021">Skyeng МП: видеосвязь(необразовательная часть)</button>
+					<button class="mobbugsbtn widthofsd" value="1020">Teachers МП</button>
 					
 					<select style="height:28px;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
@@ -1875,26 +1832,26 @@ var win_servicedesk = // описание элементов окна Service De
 							<option value="4">Minor</option>
 							<option value="5">Trivial</option>
 					   </select>
-					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
-                    <textarea id="customfield_911" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></textarea>
-                    <textarea id="customfield_912" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield"></textarea>
+					<input id="customfield_91" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield">
+                    <input id="customfield_911" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></input>
+                    <input id="customfield_912" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_92" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_94" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_95" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_96" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_19" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_19" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 
 				<div id="academymobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#academic-mobile-bugs; Канал обработки обращений по МП Skyeng связанных с обучением.</p>
-					<button class="academymobbugsbtn widthofsd" id="academmobaudiobookslifetalks">МП Skyeng: Аудиокниги и Life + Talks</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobsituations">МП Skyeng: Ситуации</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobvideopractice">МП Skyeng: Видеопрактика</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobselfstudy">МП Skyeng: Self Study</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobvocabulartrainer">МП Skyeng: тренажер слов</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobvocabular">МП Skyeng: Словарь</button>
-					<button class="academymobbugsbtn widthofsd" id="academmoblessons">МП Skyeng: уроки - образовательная часть</button>
-					<button class="academymobbugsbtn widthofsd" id="academmobhomeworks">МП Skyeng: Домашки</button>
+					<button class="academymobbugsbtn widthofsd" value="1019">МП Skyeng: Аудиокниги и Life + Talks</button>
+					<button class="academymobbugsbtn widthofsd" value="1018">МП Skyeng: Ситуации</button>
+					<button class="academymobbugsbtn widthofsd" value="1017">МП Skyeng: Видеопрактика</button>
+					<button class="academymobbugsbtn widthofsd" value="1016">МП Skyeng: Self Study</button>
+					<button class="academymobbugsbtn widthofsd" value="1015">МП Skyeng: тренажер слов</button>
+					<button class="academymobbugsbtn widthofsd" value="1014">МП Skyeng: Словарь</button>
+					<button class="academymobbugsbtn widthofsd" value="1013">МП Skyeng: уроки - образовательная часть</button>
+					<button class="academymobbugsbtn widthofsd" value="1012">МП Skyeng: Домашки</button>
 					
 					<select style="height:28px;" id="academyprioritymbugs">
 							<option selected disabled="">Приоритет</option>
@@ -1912,30 +1869,30 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_122" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_123" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_124" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_24" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_24" style="width: 150px; position:relative; left:30%;">Создать</button>
 				</div>
 
                 <div id="studcaboptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#student-cabinet-bugs; Сообщаем о проблемах во взрослом и детском ЛКУ (страницы на домене student.skyeng.ru)</p>
-					<button class="studcabbtn widthofsd" id="studadultcab">Взрослый ЛКУ Главная страница</button>
-					<button class="studcabbtn widthofsd" id="studkidcab">Детский ЛКУ Главная страница</button>
-					<button class="studcabbtn widthofsd" id="studcabfamandcourse">Страница семьи и курсов</button>
-					<button class="studcabbtn widthofsd" id="studstories">Stories </button>
-					<button class="studcabbtn widthofsd" id="studcabrefpage">Реферальная страница</button>
-					<button class="studcabbtn widthofsd" id="studcabtransfpayhist">Страница оплаты, трансфера и истории баланса</button>
-					<button class="studcabbtn widthofsd" id="studcabttmovelesson">Страница расписания и переноса урока</button>
-					<button class="studcabbtn widthofsd" id="studcabteacherpage">Страница преподавателя</button>
-					<button class="studcabbtn widthofsd" id="studcabprofilesettings">Страница профиля У настройки</button>
-					<button class="studcabbtn widthofsd" id="studcabmenunav">Меню навигации (лейаут) </button>
-					<button class="studcabbtn widthofsd" id="studcabshowcase">Страница шоукейса (подключение услуг)</button>
-					<button class="studcabbtn widthofsd" id="studcabunderground">Подземный стук</button>
+					<button class="studcabbtn widthofsd" value="975">Взрослый ЛКУ Главная страница</button>
+					<button class="studcabbtn widthofsd" value="974">Детский ЛКУ Главная страница</button>
+					<button class="studcabbtn widthofsd" value="968">Страница семьи и курсов</button>
+					<button class="studcabbtn widthofsd" value="977">Stories </button>
+					<button class="studcabbtn widthofsd" value="973">Реферальная страница</button>
+					<button class="studcabbtn widthofsd" value="972">Страница оплаты, трансфера и истории баланса</button>
+					<button class="studcabbtn widthofsd" value="971">Страница расписания и переноса урока</button>
+					<button class="studcabbtn widthofsd" value="970">Страница преподавателя</button>
+					<button class="studcabbtn widthofsd" value="969">Страница профиля У + настройки</button>
+					<button class="studcabbtn widthofsd" value="966">Меню навигации (лейаут) </button>
+					<button class="studcabbtn widthofsd" value="967">Страница шоукейса (подключение услуг)</button>
+					<button class="studcabbtn widthofsd" value="946">Подземный стук</button>
 					
 					<input id="customfield_61" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_62" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_63" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_64" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_65" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_13" style="margin-top:5px; width: 150px; position:relative; left:30%;">Создать</button>
+					<button id="create_13" style="width: 150px; position:relative; left:30%;">Создать</button>
                 </div>
 	        </span>
 		</span>
@@ -5227,10 +5184,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.teacbtn').not(a).removeClass('activebtn');
                 $('.c1sbtn').not(a).removeClass('activebtn');
                 $('.schdbtn').not(a).removeClass('activebtn');
-                $('.telepbtn').not(a).removeClass('activebtn');
                 $('.authbtn').not(a).removeClass('activebtn');
                 $('.crm2sbtn').not(a).removeClass('activebtn');
-                $('.mrktbtn').not(a).removeClass('activebtn');
                 $('.billbtn').not(a).removeClass('activebtn');
                 $('.vimbugsbtn').not(a).removeClass('activebtn');
                 $('.vimvidsbtn').not(a).removeClass('activebtn');
@@ -5239,7 +5194,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 $('.tripwbtn').not(a).removeClass('activebtn');
                 $('.analystbtn').not(a).removeClass('activebtn');
                 $('.corpbtn').not(a).removeClass('activebtn');
-                $('.marketingbtn').not(a).removeClass('activebtn');
                 $('.mobbugsbtn').not(a).removeClass('activebtn');
                 $('.academymobbugsbtn').not(a).removeClass('activebtn');
                 $('.stcabmbsbtn').not(a).removeClass('activebtn');
@@ -5268,10 +5222,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 remres(this)
             });
 
-            $('.telepbtn').click(function () {
-                remres(this)
-            });
-
             $('.authbtn').click(function () {
                 remres(this)
             });
@@ -5280,64 +5230,56 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 remres(this)
             });
 
-            $('.mrktbtn').click(function () {
-                remres(this)
-            });
-
             $('.billbtn').click(function () {
                 remres(this)
             });
 
-            $('.vimbugsbtn').click(function () {  //поправить
+            $('.vimbugsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.vimvidsbtn').click(function () {  //поправить
+            $('.vimvidsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.studcabbtn').click(function () {  //поправить
+            $('.studcabbtn').click(function () {  
                 remres(this)
             });
 
-            $('.chatqabtn').click(function () {  //поправить
+            $('.chatqabtn').click(function () {  
                 remres(this)
             });
 
-            $('.tripwbtn').click(function () {  //поправить
+            $('.tripwbtn').click(function () {  
                 remres(this)
             });
 
-            $('.analystbtn').click(function () {  //поправить
+            $('.analystbtn').click(function () {  
                 remres(this)
             });
 
-            $('.corpbtn').click(function () {  //поправить
+            $('.corpbtn').click(function () {  
                 remres(this)
             });
 
-            $('.marketingbtn').click(function () {  //поправить
+            $('.mobbugsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.mobbugsbtn').click(function () {  //поправить
+            $('.academymobbugsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.academymobbugsbtn').click(function () {  //поправить
+            $('.stcabmbsbtn').click(function () {  
                 remres(this)
             });
 
-            $('.stcabmbsbtn').click(function () {  //поправить
-                remres(this)
-            });
-
-            $('.marketprojbugsbtn').click(function () {  //поправить
+            $('.marketprojbugsbtn').click(function () {  
                 remres(this)
 
             });
 
-            $('.infrabtn').click(function () {  //поправить
+            $('.infrabtn').click(function () {  
                 remres(this)
 
             });
