@@ -5105,9 +5105,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     if (localStorage.getItem('scriptAdr') != TP_addr) {
-        document.getElementById('msg1').style.display = 'none'
-        document.getElementById('snd').style.marginLeft = '120px'
-        document.getElementById('msg1').innerHTML = 'Доработать'
         document.getElementById('testUsers').style.display = 'none'
     } else {
         prepTp()
