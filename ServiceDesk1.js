@@ -41,11 +41,11 @@ function getprsuplasttask() { //функция для получения ссы�
 function getprsup() { //функция для получения ссылки на последний проект в джира
 	document.getElementById('responseTextarea1').value = `{}`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-	document.getElementById('responseTextarea3').value = 'pstickets'
+	document.getElementById('responseTextarea3').value = 'shmikets'
 	document.getElementById('sendResponse').click()
 	
 	document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-		psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
+		psarr = document.getElementById('responseTextarea1').getAttribute('shmikets');
 		
 		let sortarr = psarr.match(/PS-(\d+)/g);
 		sortarr = sortarr.sort().reverse();
