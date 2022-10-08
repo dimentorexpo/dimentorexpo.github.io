@@ -65,7 +65,7 @@ function getprsup() { //функция для получения ссылки н
 				document.getElementsByClassName('removefield')[i].value = ''
 			}
 		} else if (lasttsk <= prevtsk) {
-			alert("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!")
+			console.log("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!")
 		}
 		
 		document.getElementById('responseTextarea1').removeAttribute('pstickets');
