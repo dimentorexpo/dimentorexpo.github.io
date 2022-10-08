@@ -43,11 +43,10 @@ function getprsup() { //функция для получения ссылки н
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
 	document.getElementById('responseTextarea3').value = 'pstickets'
 	document.getElementById('sendResponse').click()
-
-	setTimeout( () => {
+	
+	document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
 		psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
-		document.getElementById('responseTextarea1').removeAttribute('pstickets');
-
+		
 		let sortarr = psarr.match(/PS-(\d+)/g);
 		sortarr = sortarr.sort().reverse();
 		firstEl = sortarr[0];
@@ -67,9 +66,9 @@ function getprsup() { //функция для получения ссылки н
 		} else if (lasttsk <= prevtsk) {
 			alert("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!")
 		}
-
-	}, 2000);
-
+		
+		document.getElementById('responseTextarea1').removeAttribute('pstickets');
+	})
 }
 
 function getinfrasup() { //функция для получения ссылки на последний запрос Infra в джира
