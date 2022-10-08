@@ -180,7 +180,7 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 	  },
 	  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/${code}",
 	  "referrerPolicy": "strict-origin-when-cross-origin",
-	  "body": "atl_token=${jiratoken}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+	  "body": "atl_token=${jiratokennew}&projectId=15206&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 	 "method": "POST",
 	  "mode": "cors",
 	  "credentials": "include"
@@ -205,7 +205,7 @@ function sendRequestBilling(str, erx, ary, idstd, code) {
 	  },
 	  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/${code}",
 	  "referrerPolicy": "strict-origin-when-cross-origin",
-	  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
+	  "body": "atl_token=${jiratokennew}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
 	 "method": "POST",
 	  "mode": "cors",
 	  "credentials": "include"
@@ -230,7 +230,7 @@ function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstds
 	  },
 	  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/${code}",
 	  "referrerPolicy": "strict-origin-when-cross-origin",
-	  "body": "atl_token=${jiratoken}&projectId=15206&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+	  "body": "atl_token=${jiratokennew}&projectId=15206&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 	 "method": "POST",
 	  "mode": "cors",
 	  "credentials": "include"
@@ -254,7 +254,7 @@ function sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, er
 		  },
 		  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/${code}",
 		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": "atl_token=${jiratoken}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
+		  "body": "atl_token=${jiratokennew}&projectId=15206&priority=${priorvalue}&customfield_18813=${issuename}&customfield_18814=${device}&description=${dscr}&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstdserv}&sd-kb-article-viewed=false",
 		 "method": "POST",
 		  "mode": "cors",
 		  "credentials": "include"
