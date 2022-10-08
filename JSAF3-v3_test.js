@@ -2401,19 +2401,52 @@ buttonnextteacherid.onclick = function () { //искать историю чат
 }
 
 trshotmain.onclick = function () {
+	let curtime = new Date();
+	let mesjac;
+	let denj;
+	
+	if (curtime.getDate() < 10) {
+		denj = "0" + curtime.getDate();
+	} else {
+		denj = curtime.getDate();
+	}
+	if (curtime.getMonth() + 1 < 10) {
+		mesjac = "0" + (curtime.getMonth() + 1);
+	} else {
+		mesjac = curtime.getMonth() + 1;
+	}
+	
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+			'&from='+curtime.getFullYear() + '-' + mesjac + '-' + (denj-1 < 10 ? "0" + (denj-1) : denj) + 'T00:00:00&to='+curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
         }
     }
 }
 
 trshootnextuser.onclick = function () {
+	let curtime = new Date();
+	let mesjac;
+	let denj;
+	
+	if (curtime.getDate() < 10) {
+		denj = "0" + curtime.getDate();
+	} else {
+		denj = curtime.getDate();
+	}
+	if (curtime.getMonth() + 1 < 10) {
+		mesjac = "0" + (curtime.getMonth() + 1);
+	} else {
+		mesjac = curtime.getMonth() + 1;
+	}
+	
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]+
+			'&from='+curtime.getFullYear() + '-' + mesjac + '-' + (denj-1 < 10 ? "0" + (denj-1) : denj) + 'T00:00:00&to='+curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
         } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0])
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]+
+			'&from='+curtime.getFullYear() + '-' + mesjac + '-' + (denj-1 < 10 ? "0" + (denj-1) : denj) + 'T00:00:00&to='+curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
         }
     }
 }
