@@ -355,6 +355,12 @@ function opentrm(i){
 var createProperties = { url: encodeURI("https://trm.skyeng.ru/teacher/"  +  i.selectionText) }
 	chrome.tabs.create(createProperties);
 }
+
+chrome.contextMenus.create({"title": "♐ Открыть ТШ по хешу: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opntshash}); //опция для копирования ссылки для пропуска АП
+function opntshash(i){
+var createProperties = { url: encodeURI("https://video-trouble-shooter.skyeng.ru/?hash="  +  i.selectionText) }
+	chrome.tabs.create(createProperties);
+}
 // testlinkPKM
 
 var linkparent = chrome.contextMenus.create( {"id":"linkOption","title": "AutoFaq Support Master", "contexts":["link"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
@@ -408,8 +414,6 @@ async function cancelishodcall(i,t){
 			"mode": "cors",
 			"credentials": "include"
 		});
-		
-
 }
 
 chrome.contextMenus.create({"title": "💬 Написать ТП1Л (исход) со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": cancelishodcallwithowntext}); //опция для копирования ссылки для пропуска АП
