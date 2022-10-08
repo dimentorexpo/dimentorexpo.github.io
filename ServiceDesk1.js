@@ -1,5 +1,6 @@
 //Global variables
 let jiratoken;
+let jiratokennew;
 let responsejira;
 let psarr = [];
 let firstEl;
@@ -153,6 +154,7 @@ function checkjiraauth() { // функция проверки авторизац
 			if (jiratoken !=null) {
 				if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
 					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
+					jiratokennew = jiratoken;
 					document.getElementById('jiratknstatus').innerText = "🟢"
 					console.log("TOKEN: " + jiratoken);
 					getprsuplasttask()
@@ -168,6 +170,7 @@ function checkjiraauth() { // функция проверки авторизац
 
 function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 	console.log(jiratoken)
+	console.log(jiratokennew)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
