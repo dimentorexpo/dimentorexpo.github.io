@@ -1149,21 +1149,21 @@ let token;
 if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
     document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
         if ((event.altKey && event.code == 'Numpad0') || (event.altKey && event.code == 'Digit0')) {
-            if (document.getElementById('AFMS_addMenu').style.display == 'none') {
-                document.getElementById('AFMS_addMenu').style.display = '';
+				if (document.getElementById('AFMS_addMenu').style.display == 'none') {
+					document.getElementById('AFMS_addMenu').style.display = '';
 
-                token = Object.fromEntries(document.cookie.split(/; */).map(c => {
-                    const [key, ...v] = c.split('=');
-                    return [key, decodeURIComponent(v.join('='))];
-                }));
-                console.log(token)
+					token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+						const [key, ...v] = c.split('=');
+						return [key, decodeURIComponent(v.join('='))];
+					}));
+					console.log(token)
 
-                document.getElementById('hidemainmenu').onclick = function () {
-                    document.getElementById('AFMS_addMenu').style.display = 'none';
-                }
+					document.getElementById('hidemainmenu').onclick = function () {
+						document.getElementById('AFMS_addMenu').style.display = 'none';
+					}
 
-        } else document.getElementById('AFMS_addMenu').style.display = 'none'
-            } else document.getElementById('AFMS_addMenu').style.display = 'none'
+				} else document.getElementById('AFMS_addMenu').style.display = 'none'
+            } 
         }
     }
 
@@ -1486,8 +1486,10 @@ async function getvideoconfigkids(api1) { // функция получения �
         "credentials": "include"
     }).then(r => r.json()).then(r => vidconfresult = r)
     console.log(vidconfresult)
-
-    document.getElementById('vidserverurl').textContent = vidconfresult.endpoint.match(/video.*/)[0];
+	
+	if(vidconfresult !=null && vidconfresult !=undefined && vidconfresult.error == ''){
+		document.getElementById('vidserverurl').textContent = vidconfresult.endpoint.match(/video.*/)[0];
+	} else console.log(vidconfresult.error.code + ' ' +vidconfresult.error.message)
 }
 
 async function loadinfo(api2) { // инициализация функции для загрузки инфо о комнате
