@@ -12829,3 +12829,8 @@ function hesoyam() {
     newDiv.append(button)
     document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
 }
+
+function ShowMustGoOn() {
+    localStorage.setItem('scriptAdr', KC_addr)
+    location.reload()
+}
