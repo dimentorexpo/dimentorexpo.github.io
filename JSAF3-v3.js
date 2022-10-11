@@ -12834,3 +12834,8 @@ function ShowMustGoOn() {
     localStorage.setItem('scriptAdr', KC_addr)
     location.reload()
 }
+
+function WeAreTheChempions() {
+	localStorage.setItem('scriptAdr', TP_addr)
+	location.reload()
+}
