@@ -1186,6 +1186,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 				let str = encodeURIComponent(document.getElementById('customfield_122').value);
 				let erx = encodeURIComponent(document.getElementById('customfield_123').value);
 				let ary = encodeURIComponent(document.getElementById('customfield_124').value);
+				let priorvalue = document.getElementById('academyprioritymbugs').value;
 				
 				for(let i=0; i<document.getElementsByClassName('academymobbugsbtn').length;i++) {
 					if (document.getElementsByClassName('academymobbugsbtn')[i].classList.contains('activebtn')) {
