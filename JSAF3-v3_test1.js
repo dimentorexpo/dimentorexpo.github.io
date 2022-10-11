@@ -556,10 +556,6 @@ var win_linksd =  // описание элементов окна доступо
                             <button id="mobappidbut">🔎</button>
                             <input id="rpayid" placeholder="ID платежи" title="Вводим id пользователя для открытия лога платежей" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="rpayidbut">🔎</button>
-							<input id="FeedbackStatus" placeholder="ID У ОС статус" title="Вводим id пользователя для открытия логов по статусу ОС с У. full / отчет+встреча+звонок ; call / только звонок ; report / только отчет; disabled / полностью отключено" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="GetFeedbackStatus">🔎</button>
-							<input id="TeacherReport" placeholder="ID У Отчет" title="Вводим id пользователя для открытия полной информации что П вносила в отчет и когда и по какой комнате" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-                            <button id="GetTeacherReport">🔎</button>
  							<input id="UserActions" placeholder="ID У/П действ" title="Вводим id пользователя для открытия информации о действиях в личном кабинете" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="GetUserActions">🔎</button>
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>
@@ -3464,7 +3460,7 @@ wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
-var KC_addr = 'https://script.google.com/macros/s/AKfycbzNJgvbbgMIRzEuIMv2yR2VRE5lT7xrhouGVod0/exec'
+var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 
 var flagLangBut = 0
@@ -3736,24 +3732,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             window.open("https://redash.skyeng.ru/queries/22630?p_ID%20%D0%A1%D1%82%D1%83%D0%B4%D0%B5%D0%BD%D1%82%D0%B0=" + rpayid.value);
         };
         rpayid.value = "";
-    }
-
-    document.getElementById('GetFeedbackStatus').onclick = function () { // Редаш логи платежей
-        if (FeedbackStatus.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/27681?p_Student_id=" + FeedbackStatus.value);
-        };
-        FeedbackStatus.value = "";
-    }
-
-    document.getElementById('GetTeacherReport').onclick = function () { // Редаш логи платежей
-        if (TeacherReport.value == "") {
-            console.log('Введите id в поле')
-        } else {
-            window.open("https://redash.skyeng.ru/queries/27679?p_Id=" + TeacherReport.value + "&p_Student%2FTeacher=student_id");
-        };
-        TeacherReport.value = "";
     }
 
     document.getElementById('GetUserActions').onclick = function () { // Редаш логи платежей
