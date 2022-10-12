@@ -521,6 +521,10 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
+                <br><span style="color:bisque">Выберите отдел:</span>
+                <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
+                <button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
+                <br>
 				<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
 				<input type="file" id="fileinput" title="Загружает все настройки в localstorage из ранее сохраненного файла настроек в формте .json" style="display:none;">
 				<label style="color: #e5ece6; background: #768d87; padding: 5px; border-radius: 5px; border: 1px solid #566963;" for="fileinput">⤵ Загрузить настройки</label>
@@ -1031,7 +1035,7 @@ var win_Themes =  // описание элементов окна Тематик
 							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button name="tagssbtn" value="smartroom" style="margin-left:2px; width:125px; height: 25px;">Smartroom</button>
 							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
-							<button name="tagssbtn" value="didnt_help" style="margin-left:2px; width:125px; height: 25px;">Не помогли</button>
+							<button name="tagssbtn" value="untargeted" style="margin-left:2px; width:125px; height: 25px;">Нецелевой</button>
 							<input type="checkbox" name="tagcheck" style="margin: 2px; width: 20px;">
 							<button id="multitag" style="width: 300px; margin-top:5px;">Мультитег</button>
 						</div>
@@ -9245,7 +9249,13 @@ function startTimer() {
         btn6.id = 'servis'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
         btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Серверные</a>';
-        btn6.setAttribute('onClick', 'newTaggg("server_issues");')
+        btn6.setAttribute('onClick', 'newTaggg("server_issues");')  
+
+		let btn7 = document.createElement('span');
+        btn7.id = 'untargeted'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
+        btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
+        btn7.setAttribute('onClick', 'newTaggg("untargeted");')
     }
 }
 
@@ -12828,4 +12838,14 @@ function hesoyam() {
     }
     newDiv.append(button)
     document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
+}
+
+function ShowMustGoOn() {
+    localStorage.setItem('scriptAdr', KC_addr)
+    location.reload()
+}
+
+function WeAreTheChempions() {
+	localStorage.setItem('scriptAdr', TP_addr)
+	location.reload()
 }
