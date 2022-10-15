@@ -9255,7 +9255,13 @@ function startTimer() {
         btn7.id = 'untargeted'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
         btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
-        btn7.setAttribute('onClick', 'newTaggg("untargeted");')
+        btn7.setAttribute('onClick', 'newTaggg("untargeted");')	
+
+		let btn8 = document.createElement('span');
+        btn8.id = 'ochered'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
+        btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
+        btn8.setAttribute('onClick', 'newTaggg("queue");')
     }
 }
 
