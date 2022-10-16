@@ -5129,6 +5129,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     if (localStorage.getItem('scriptAdr') == TP_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
+        document.getElementById('pages').title = 'Включены резервные шаблоны, если в АФ нет сбоя в работе Баз знаний - переключи на обычные шаблоны'
         languageAF.addEventListener('click', function () {
             if(document.getElementById('pages').style.background != 'red'){
                 document.getElementById('pages').style.background = 'red'
