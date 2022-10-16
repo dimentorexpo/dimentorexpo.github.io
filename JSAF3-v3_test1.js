@@ -522,6 +522,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
                 <br><span style="color:bisque">Выберите отдел:</span>
+                <button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает БазыЗнаний" style="margin-top: 5px">ТП рез</button>
                 <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
                 <button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
                 <br>
@@ -3466,6 +3467,7 @@ var chatsArray = []
 var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
 var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
+var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
 
 var flagLangBut = 0
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
@@ -5119,11 +5121,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    if (localStorage.getItem('scriptAdr') != TP_addr) {
+    if (localStorage.getItem('scriptAdr') != TP_addr || localStorage.getItem('scriptAdr') != TP_addrRzrv) {
         document.getElementById('testUsers').style.display = 'none'
     } else {
         prepTp()
     }
+
+    if (localStorage.getItem('scriptAdr') == TP_addrRzrv) {
+        document.getElementById('1str').style.color = 'red'
+        languageAF.addEventListener('click', function () {
+            if(document.getElementById('1str').style.color != 'red'){
+                document.getElementById('1str').style.color = 'red'
+            }
+        })
+    }    
 
     document.getElementById('suggestinstr').onclick = function () {
         window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-suggestionform%F0%9F%93%9D%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F')
@@ -8988,7 +8999,7 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
                 nextClassstudentId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
         }
-        if (localStorage.getItem('scriptAdr') == TP_addr) { // поиск группы, с которой  сейчас идет занятие
+        if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) { // поиск группы, с которой  сейчас идет занятие
             if (nextClassMode == 'group') {
                 nextClassstudentId = nextClassstudentId.split(',')[0]
                 document.getElementsByClassName('expert-user_details-list')[1].childNodes[nextClassModeId].childNodes[1].textContent = 'group '
@@ -9096,7 +9107,7 @@ function startTimer() {
         }
     }
 
-    if (localStorage.getItem('scriptAdr') == TP_addr) {
+    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
             if (document.getElementsByClassName('expert-user_details-list')[1].children[0] != undefined) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].children[0].classList != "") {
@@ -9212,7 +9223,7 @@ function startTimer() {
         }
     }
 
-    if ((localStorage.getItem('scriptAdr') == TP_addr) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
@@ -12856,5 +12867,10 @@ function ShowMustGoOn() {
 
 function WeAreTheChempions() {
 	localStorage.setItem('scriptAdr', TP_addr)
+	location.reload()
+}
+
+function AFthePieceofShit(){
+    localStorage.setItem('scriptAdr', TP_addrRzrv)
 	location.reload()
 }
