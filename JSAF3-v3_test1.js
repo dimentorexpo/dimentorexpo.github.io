@@ -5128,10 +5128,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     if (localStorage.getItem('scriptAdr') == TP_addrRzrv) {
-        document.getElementById('1str').style.color = 'red'
+        document.getElementById('pages').style.background = 'red'
         languageAF.addEventListener('click', function () {
-            if(document.getElementById('1str').style.color != 'red'){
-                document.getElementById('1str').style.color = 'red'
+            if(document.getElementById('pages').style.background != 'red'){
+                document.getElementById('pages').style.background = 'red'
             }
         })
     }    
