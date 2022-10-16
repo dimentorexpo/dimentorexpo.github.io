@@ -7190,6 +7190,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('clientid').value = ''
                         document.getElementById('fullcomentsmartroom').value = ''
                         clearradio()
+						sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
 
                     } else if (alloptions[i].checked && alloptions[i].value == 'Другое') {
                         let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value) + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156.other_option_response=' + encodeURIComponent(document.getElementById('otheroptionsmartchecked').value) + '&entry.1552539156=__other_option__'
@@ -7213,6 +7214,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('fullcomentsmartroom').value = ''
                         clearradio()
                         document.getElementById('otheroptionsmartchecked').value = ''
+						
+						sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
                     }
                 }
             }
@@ -9255,7 +9258,13 @@ function startTimer() {
         btn7.id = 'untargeted'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
         btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
-        btn7.setAttribute('onClick', 'newTaggg("untargeted");')
+        btn7.setAttribute('onClick', 'newTaggg("untargeted");')	
+
+		let btn8 = document.createElement('span');
+        btn8.id = 'ochered'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
+        btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
+        btn8.setAttribute('onClick', 'newTaggg("queue");')
     }
 }
 
