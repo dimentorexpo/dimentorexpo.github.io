@@ -9,6 +9,7 @@ let infoarr;
 let lasttsk;
 let prevtsk;
 let flagpsis = 0;
+let msgissnd = 0;
 //func initialize
 
 function getprsuplasttask() { //функция для получения ссылки на последний проект в джира +
@@ -58,9 +59,10 @@ function getprsup() { //функция для получения ссылки н
 		lasttsk = firstEl;
 		flagpsis = 1;
 
-		if (lasttsk > prevtsk) {
+		if (lasttsk > prevtsk & msgissnd == 0) {
 			document.getElementById('newtask').innerText = lasttsk;
 			sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
+			msgissnd = 1;
 			for (let i = 0; i < document.getElementsByClassName('removefield').length; i++) {
 				document.getElementsByClassName('removefield')[i].value = ''
 			}
@@ -70,6 +72,7 @@ function getprsup() { //функция для получения ссылки н
 		
 		document.getElementById('responseTextarea1').removeAttribute('pstickets');
 	})
+	msgissnd = 0;
 }
 
 function getinfrasup() { //функция для получения ссылки на последний запрос Infra в джира
