@@ -12,7 +12,7 @@ let flagpsis = 0;
 let msgissnd = 0;
 //func initialize
 
-function getprsuplasttask() { //функция для получения ссылки на последний проект в джира +
+function getprsuplasttask() { //функция для получения ссылки на последний созданный после отправки в канал тикет в джира +
 		document.getElementById('responseTextarea1').value = `{}`
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
 		document.getElementById('responseTextarea3').value = 'pstickets'
@@ -40,7 +40,7 @@ function getprsuplasttask() { //функция для получения ссы�
 		})
 }
 
-function getprsup() { //функция для получения ссылки на последний проект в джира
+function getprsup() { //функция для получения ссылки на предыдщий созданный тикет в джира
 	document.getElementById('responseTextarea1').value = `{}`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
 	document.getElementById('responseTextarea3').value = 'shmikets'
@@ -146,29 +146,36 @@ function getslacklnk() { // получаем ссылку на обращени�
 }
 
 function checkjiraauth() { // функция проверки авторизации в Jira 
-		document.getElementById('responseTextarea1').value = '{}'
-		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-		document.getElementById('responseTextarea3').value = 'getjiratoken'
-		document.getElementById('sendResponse').click()
+		if (localStorage.getItem('jiratoken') == null || localStorage.getItem('jiratoken') == undefined) {
+			document.getElementById('responseTextarea1').value = '{}'
+			document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+			document.getElementById('responseTextarea3').value = 'getjiratoken'
+			document.getElementById('sendResponse').click()
 
-        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-            responsejira = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-			jiratoken = responsejira;
-			if (jiratoken !=null) {
-				if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
-					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
-					jiratokennew = jiratoken;
-					document.getElementById('jiratknstatus').innerText = "🟢"
-					console.log("TOKEN: " + jiratoken);
-					getprsuplasttask()
-				} else {
-					console.log("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
-					document.getElementById('jiratknstatus').innerText = "🔴"
-				}
+			document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+				responsejira = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+				jiratoken = responsejira;
+				if (jiratoken !=null) {
+					if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
+						localStorage.setItem('jiratoken', jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1])
+						// jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
+						jiratokennew = localStorage.getItem('jiratoken');
+						console.log(jiratokennew)
+						document.getElementById('jiratknstatus').innerText = "🟢"
+						console.log("TOKEN: " + jiratoken);
+						getprsuplasttask()
+					} else {
+						console.log("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
+						document.getElementById('jiratknstatus').innerText = "🔴"
 					}
-			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-		});
-		
+						}
+				document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+			});
+		} else {
+			jiratokennew = localStorage.getItem('jiratoken')
+			console.log(jiratokennew)
+			document.getElementById('jiratknstatus').innerText = "🟢"
+		}	
 }
 
 function sendRequest(idstdserv, dscr, str, erx, ary, code) {
