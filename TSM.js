@@ -1487,7 +1487,7 @@ async function getvideoconfigkids(api1) { // функция получения �
     }).then(r => r.json()).then(r => vidconfresult = r)
     console.log(vidconfresult)
 	
-	if(vidconfresult !=null && vidconfresult !=undefined && vidconfresult.error == ''){
+	if(vidconfresult !=null && vidconfresult !=undefined && vidconfresult.error == undefined){
 		document.getElementById('vidserverurl').textContent = vidconfresult.endpoint.match(/video.*/)[0];
 	} else console.log(vidconfresult.error.code + ' ' +vidconfresult.error.message)
 }
