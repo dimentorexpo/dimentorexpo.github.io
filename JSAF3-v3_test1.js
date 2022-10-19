@@ -5121,7 +5121,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    if (localStorage.getItem('scriptAdr') != TP_addr || localStorage.getItem('scriptAdr') != TP_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
         document.getElementById('testUsers').style.display = 'none'
     } else {
         prepTp()
