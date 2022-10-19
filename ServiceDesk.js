@@ -9,9 +9,10 @@ let infoarr;
 let lasttsk;
 let prevtsk;
 let flagpsis = 0;
+let msgissnd = 0;
 //func initialize
 
-function getprsuplasttask() { //функция для получения ссылки на последний проект в джира +
+function getprsuplasttask() { //функция для получения ссылки на последний созданный после отправки в канал тикет в джира +
 		document.getElementById('responseTextarea1').value = `{}`
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
 		document.getElementById('responseTextarea3').value = 'pstickets'
@@ -39,7 +40,7 @@ function getprsuplasttask() { //функция для получения ссы�
 		})
 }
 
-function getprsup() { //функция для получения ссылки на последний проект в джира
+function getprsup() { //функция для получения ссылки на предыдщий созданный тикет в джира
 	document.getElementById('responseTextarea1').value = `{}`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
 	document.getElementById('responseTextarea3').value = 'shmikets'
@@ -58,9 +59,10 @@ function getprsup() { //функция для получения ссылки н
 		lasttsk = firstEl;
 		flagpsis = 1;
 
-		if (lasttsk > prevtsk) {
+		if (lasttsk > prevtsk & msgissnd == 0) {
 			document.getElementById('newtask').innerText = lasttsk;
 			sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
+			msgissnd = 1;
 			for (let i = 0; i < document.getElementsByClassName('removefield').length; i++) {
 				document.getElementsByClassName('removefield')[i].value = ''
 			}
@@ -70,6 +72,7 @@ function getprsup() { //функция для получения ссылки н
 		
 		document.getElementById('responseTextarea1').removeAttribute('pstickets');
 	})
+	msgissnd = 0;
 }
 
 function getinfrasup() { //функция для получения ссылки на последний запрос Infra в джира
@@ -143,6 +146,7 @@ function getslacklnk() { // получаем ссылку на обращени�
 }
 
 function checkjiraauth() { // функция проверки авторизации в Jira 
+i
 		document.getElementById('responseTextarea1').value = '{}'
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
 		document.getElementById('responseTextarea3').value = 'getjiratoken'
@@ -169,6 +173,7 @@ function checkjiraauth() { // функция проверки авторизац
 }
 
 function sendRequest(idstdserv, dscr, str, erx, ary, code) {
+	console.log(jiratoken)
 	console.log(jiratokennew)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
@@ -194,7 +199,7 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 }
 
 function sendRequestBilling(str, erx, ary, idstd, code) {
-	console.log(jiratokennew)
+		console.log(jiratoken)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
@@ -219,7 +224,7 @@ function sendRequestBilling(str, erx, ary, idstd, code) {
 }
 
 function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, code) {
-	console.log(jiratokennew)
+		console.log(jiratoken)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
@@ -243,7 +248,7 @@ function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstds
 }
 
 function sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, code) {
-	console.log(jiratokennew)
+		console.log(jiratoken)
 	 document.getElementById('responseTextarea1').value = `{  "headers": {
 		 "content-type": "application/x-www-form-urlencoded",
 		 "sec-fetch-mode": "cors",
