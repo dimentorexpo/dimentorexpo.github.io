@@ -4756,9 +4756,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         let polzid = document.getElementById('idstudent').value.trim();
         startnewchat(polzid)
     }
-
-    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
-        // document.getElementById('servicetable').innerHTML = "";
+	
+	function getuserinfo() {
+		        // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
         document.querySelector('#useravatar').src = "";
         if (document.querySelector('#useravatar').style.display != "none")
@@ -5038,6 +5038,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             setTimeout(getServInfo, 1200)
 
         }, 720)
+	}
+
+    document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
+		getuserinfo()
+		setTimeout( function() {
+			if (document.getElementById('servicetable').innerHTML == "Загрузка информации о пользователе") {
+				getuserinfo()
+			}
+		}, 5000)
     }
 
     document.getElementById('CrmStatus').onclick = crmstatus;
