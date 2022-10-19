@@ -2997,40 +2997,116 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     }
 
 }
-let wintLinks = document.createElement('div'); // создание окна ссылок
-document.body.append(wintLinks);
-wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintLinks.style.display = 'none';
-wintLinks.setAttribute('id', 'AF_Links');
-wintLinks.innerHTML = win_Links;
 
-let wintLinksd = document.createElement('div'); // создание окна доступов
-document.body.append(wintLinksd);
-wintLinksd.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksd') + 'px; left: ' + localStorage.getItem('winLeftLinksd') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintLinksd.style.display = 'none';
-wintLinksd.setAttribute('id', 'AF_Linksd');
-wintLinksd.innerHTML = win_linksd;
+function LoadOnlyForTP(){
 
-let wintJira = document.createElement('div'); // создание окна поиска по Jira
-document.body.append(wintJira);
-wintJira.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopJira') + 'px; left: ' + localStorage.getItem('winLeftJira') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintJira.style.display = 'none';
-wintJira.setAttribute('id', 'AF_Jira');
-wintJira.innerHTML = win_Jira;
+        // начало модуля отрисовки окон только для ТП
+    let wintLinks = document.createElement('div'); // создание окна ссылок
+    document.body.append(wintLinks);
+    wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintLinks.style.display = 'none';
+    wintLinks.setAttribute('id', 'AF_Links');
+    wintLinks.innerHTML = win_Links;
 
-let wintStat = document.createElement('div'); // создание окна работы со статистикой
-document.body.append(wintStat);
-wintStat.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopStat') + 'px; left: ' + localStorage.getItem('winLeftStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintStat.style.display = 'none';
-wintStat.setAttribute('id', 'AF_Stat');
-wintStat.innerHTML = win_Stat;
+    let wintLinksd = document.createElement('div'); // создание окна доступов
+    document.body.append(wintLinksd);
+    wintLinksd.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksd') + 'px; left: ' + localStorage.getItem('winLeftLinksd') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintLinksd.style.display = 'none';
+    wintLinksd.setAttribute('id', 'AF_Linksd');
+    wintLinksd.innerHTML = win_linksd;
 
-let wintServices = document.createElement('div'); // создание окна вензель user info
-document.body.append(wintServices);
-wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintServices.style.display = 'none';
-wintServices.setAttribute('id', 'AF_Service');
-wintServices.innerHTML = win_serviceinfo;
+    let wintJira = document.createElement('div'); // создание окна поиска по Jira
+    document.body.append(wintJira);
+    wintJira.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopJira') + 'px; left: ' + localStorage.getItem('winLeftJira') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintJira.style.display = 'none';
+    wintJira.setAttribute('id', 'AF_Jira');
+    wintJira.innerHTML = win_Jira;
+    
+    let wintStat = document.createElement('div'); // создание окна работы со статистикой
+    document.body.append(wintStat);
+    wintStat.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopStat') + 'px; left: ' + localStorage.getItem('winLeftStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintStat.style.display = 'none';
+    wintStat.setAttribute('id', 'AF_Stat');
+    wintStat.innerHTML = win_Stat;
+    
+    let wintServices = document.createElement('div'); // создание окна вензель user info
+    document.body.append(wintServices);
+    wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintServices.style.display = 'none';
+    wintServices.setAttribute('id', 'AF_Service');
+    wintServices.innerHTML = win_serviceinfo;
+    
+    let wintTechSummary = document.createElement('div'); // создание окна инфо об устройстве пользователя
+    document.body.append(wintTechSummary);
+    wintTechSummary.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTechSum') + 'px; left: ' + localStorage.getItem('winLeftTechSum') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintTechSummary.style.display = 'none';
+    wintTechSummary.setAttribute('id', 'AF_TechSummary');
+    wintTechSummary.innerHTML = win_Techsummary;
+
+    let wintServDsk = document.createElement('div'); // создание окна ServiceDesk
+    document.body.append(wintServDsk);
+    wintServDsk.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopServDsk') + 'px; left: ' + localStorage.getItem('winLeftServDsk') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintServDsk.style.display = 'none';
+    wintServDsk.setAttribute('id', 'AF_ServDsk');
+    wintServDsk.innerHTML = win_servicedesk;
+
+    let wintThemes = document.createElement('div'); // создание окна ServiceDesk
+    document.body.append(wintThemes);
+    wintThemes.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopThemes') + 'px; left: ' + localStorage.getItem('winLeftThemes') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintThemes.style.display = 'none';
+    wintThemes.setAttribute('id', 'AF_Themes');
+    wintThemes.innerHTML = win_Themes;
+
+    let wintGrList = document.createElement('div'); // создание окна Список группы
+    document.body.append(wintGrList);
+    wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrList') + 'px; left: ' + localStorage.getItem('winLeftGrList') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintGrList.style.display = 'none';
+    wintGrList.setAttribute('id', 'AF_GrList');
+    wintGrList.innerHTML = win_GrList;
+
+    let wintTimetable = document.createElement('div'); // создание окна предстоящих и прошедших занятиях
+    document.body.append(wintTimetable);
+    wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintTimetable.style.display = 'none';
+    wintTimetable.setAttribute('id', 'AF_Timetable');
+    wintTimetable.innerHTML = win_Timetable;
+
+    let wintSugform = document.createElement('div'); // создание окна предложения
+    document.body.append(wintSugform);
+    wintSugform.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSugest') + 'px; left: ' + localStorage.getItem('winLeftSugest') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintSugform.style.display = 'none';
+    wintSugform.setAttribute('id', 'AF_Sugform');
+    wintSugform.innerHTML = win_suggest;
+
+    let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
+    document.body.append(wintRefuseFormNew);
+    wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintRefuseFormNew.style.display = 'none';
+    wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
+    wintRefuseFormNew.innerHTML = win_refusefrom;
+
+    let wintSmartroom = document.createElement('div'); // создание окна Мультирум пожелания/баги
+    document.body.append(wintSmartroom);
+    wintSmartroom.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopSmartroom') + 'px; left: ' + localStorage.getItem('winLeftSmartroom') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintSmartroom.style.display = 'none';
+    wintSmartroom.setAttribute('id', 'AF_Smartroomform');
+    wintSmartroom.innerHTML = win_smartroomform;
+
+    let wintChatHis = document.createElement('div'); // создание окна работы с историей чата
+    document.body.append(wintChatHis);
+    wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
+    wintChatHis.style.display = 'none';
+    wintChatHis.setAttribute('id', 'AF_ChatHis');
+    wintChatHis.innerHTML = win_Chathis;
+
+    let wintCreateTask = document.createElement('div'); // создание окна создания задачи в CRM2
+    document.body.append(wintCreateTask);
+    wintCreateTask.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopTaskCreate') + 'px; left: ' + localStorage.getItem('winLeftTaskCreate') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintCreateTask.style.display = 'none';
+    wintCreateTask.setAttribute('id', 'AF_Createtask');
+    wintCreateTask.innerHTML = win_taskform;
+        // конец модуля отрисовки окон только для ТП
+}
 
 let wintLessonStatus = document.createElement('div'); // создание окна статус урока
 document.body.append(wintLessonStatus);
@@ -3039,41 +3115,6 @@ wintLessonStatus.style.display = 'none';
 wintLessonStatus.setAttribute('id', 'AF_LessonStatus');
 wintLessonStatus.innerHTML = win_LessonStatus;
 
-let wintTimetable = document.createElement('div'); // создание окна предстоящих и прошедших занятиях
-document.body.append(wintTimetable);
-wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintTimetable.style.display = 'none';
-wintTimetable.setAttribute('id', 'AF_Timetable');
-wintTimetable.innerHTML = win_Timetable;
-
-let wintTechSummary = document.createElement('div'); // создание окна инфо об устройстве пользователя
-document.body.append(wintTechSummary);
-wintTechSummary.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTechSum') + 'px; left: ' + localStorage.getItem('winLeftTechSum') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintTechSummary.style.display = 'none';
-wintTechSummary.setAttribute('id', 'AF_TechSummary');
-wintTechSummary.innerHTML = win_Techsummary;
-
-let wintServDsk = document.createElement('div'); // создание окна ServiceDesk
-document.body.append(wintServDsk);
-wintServDsk.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopServDsk') + 'px; left: ' + localStorage.getItem('winLeftServDsk') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintServDsk.style.display = 'none';
-wintServDsk.setAttribute('id', 'AF_ServDsk');
-wintServDsk.innerHTML = win_servicedesk;
-
-let wintThemes = document.createElement('div'); // создание окна ServiceDesk
-document.body.append(wintThemes);
-wintThemes.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopThemes') + 'px; left: ' + localStorage.getItem('winLeftThemes') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintThemes.style.display = 'none';
-wintThemes.setAttribute('id', 'AF_Themes');
-wintThemes.innerHTML = win_Themes;
-
-let wintGrList = document.createElement('div'); // создание окна Список группы
-document.body.append(wintGrList);
-wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrList') + 'px; left: ' + localStorage.getItem('winLeftGrList') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintGrList.style.display = 'none';
-wintGrList.setAttribute('id', 'AF_GrList');
-wintGrList.innerHTML = win_GrList;
-
 let wintMarks = document.createElement('div'); // создание окна поиска оценок от пользователя
 document.body.append(wintMarks);
 wintMarks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopMarks') + 'px; left: ' + localStorage.getItem('winLeftMarks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -3081,40 +3122,6 @@ wintMarks.style.display = 'none';
 wintMarks.setAttribute('id', 'AF_Marks');
 wintMarks.innerHTML = win_Marks;
 
-let wintSugform = document.createElement('div'); // создание окна предложения
-document.body.append(wintSugform);
-wintSugform.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSugest') + 'px; left: ' + localStorage.getItem('winLeftSugest') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintSugform.style.display = 'none';
-wintSugform.setAttribute('id', 'AF_Sugform');
-wintSugform.innerHTML = win_suggest;
-
-let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
-document.body.append(wintRefuseFormNew);
-wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintRefuseFormNew.style.display = 'none';
-wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
-wintRefuseFormNew.innerHTML = win_refusefrom;
-
-let wintSmartroom = document.createElement('div'); // создание окна Мультирум пожелания/баги
-document.body.append(wintSmartroom);
-wintSmartroom.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopSmartroom') + 'px; left: ' + localStorage.getItem('winLeftSmartroom') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintSmartroom.style.display = 'none';
-wintSmartroom.setAttribute('id', 'AF_Smartroomform');
-wintSmartroom.innerHTML = win_smartroomform;
-
-let wintChatHis = document.createElement('div'); // создание окна работы с историей чата
-document.body.append(wintChatHis);
-wintChatHis.style = 'min-height: 25px; min-width: 65px; height:100vh; background: rgb(70, 68, 81); top: 0px; right:0px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; overflow:hidden';
-wintChatHis.style.display = 'none';
-wintChatHis.setAttribute('id', 'AF_ChatHis');
-wintChatHis.innerHTML = win_Chathis;
-
-let wintCreateTask = document.createElement('div'); // создание окна ссылок
-document.body.append(wintCreateTask);
-wintCreateTask.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopTaskCreate') + 'px; left: ' + localStorage.getItem('winLeftTaskCreate') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintCreateTask.style.display = 'none';
-wintCreateTask.setAttribute('id', 'AF_Createtask');
-wintCreateTask.innerHTML = win_taskform;
 
 var listenerLinks = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -5122,7 +5129,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
-        document.getElementById('testUsers').style.display = 'none'
+        prepKC()
     } else {
         prepTp()
     }
@@ -12599,6 +12606,7 @@ function prepTp() { //функция подготовки расширения �
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '10px'
 
+    LoadOnlyForTP()
 
     if (localStorage.getItem('disablelpmwindow') == 1)
         document.getElementById('testUsers').style.display = "none";
@@ -12681,6 +12689,37 @@ function prepTp() { //функция подготовки расширения �
     }, 4000)
 
 }
+
+function prepKC() { //функция подготовки расширения ТП
+    document.getElementById('msg1').style.display = ''
+    document.getElementById('snd').style.marginLeft = '10px'
+    document.getElementById('testUsers').style.display = 'none'
+
+    if (localStorage.getItem('disablelngpmwindow') == 1)
+        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+
+    flagLangBut = 1
+    customTemplates()
+    setTimeout(whoAmI, 2000)
+
+    setTimeout(function () {
+        let lboxstyles = document.createElement('link')
+        lboxstyles.rel = 'stylesheet'
+        lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+        document.querySelector('header').append(lboxstyles)
+        include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+        include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
+    }, 2000)
+
+    setTimeout(function () {
+
+        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
+
+    }, 4000)
+
+}
+
 function include(url) {
     var script = document.createElement('script');
     script.src = url;
