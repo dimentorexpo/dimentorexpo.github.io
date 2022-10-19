@@ -4537,13 +4537,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let countryofuser;
     let ageofuser;
 
-    function getusernamecrm() { //получить имя пользователя из СРМ
-        let curdate = new Date();
-        let curhours = (curdate.getUTCHours() + 3);
-        let curminutes = curdate.getMinutes();
-        if (curminutes < 10) {
-            curminutes = "0" + curminutes;
-        }
+    function getusernamecrm() { //получить имя пользователя из СРМ		
         let filteredid = document.getElementById('idstudent').value;
         filteredid = filteredid.trim();
         document.getElementById('responseTextarea1').value = `{}`
@@ -4571,6 +4565,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     flagusertype = 'teacher'
                 }
 
+				let curdate = new Date();
+				let curhours = (curdate.getUTCHours() + 3);
+				let curminutes = curdate.getMinutes();
+				if (curminutes < 10) {
+					curminutes = "0" + curminutes;
+				}
                 utczone = studentname.data.utcOffset;
                 if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
                     localtime = (curhours + (utczone - 3)) + ":" + curminutes;
