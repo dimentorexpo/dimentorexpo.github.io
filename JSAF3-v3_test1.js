@@ -3386,6 +3386,20 @@ function LoadOnlyForTP(){
         if (checkelementtype(a)) { document.getElementById('hideMeThemes').click(); }
     }
     // Конец модуля скрытия окон по двойному клику
+
+    document.getElementById('chagetheme').onclick = () => { //функция переключения  по кнопке темы в истории чатов на светлую(классическуб в стиле АФ) и темную
+        if (localStorage.getItem('theme') == 'light') {
+            localStorage.setItem('theme', 'dark')
+            document.getElementById('chagetheme').innerHTML = '🌛'
+            document.getElementById('infofield').style.background = "#464451";
+            checkandchangestyle();
+        } else if (localStorage.getItem('theme') == 'dark') {
+            localStorage.setItem('theme', 'light')
+            document.getElementById('chagetheme').innerHTML = '☀'
+            document.getElementById('infofield').style.background = "#f5f5f5";
+            checkandchangestyle();
+        }
+    };
 }
 
 let wintLessonStatus = document.createElement('div'); // создание окна статус урока
@@ -9460,20 +9474,6 @@ function checkandchangestyle() { //функция проверки и перек
         }
     }
 }
-
-document.getElementById('chagetheme').onclick = () => { //функция переключения  по кнопке темы в истории чатов на светлую(классическуб в стиле АФ) и темную
-    if (localStorage.getItem('theme') == 'light') {
-        localStorage.setItem('theme', 'dark')
-        document.getElementById('chagetheme').innerHTML = '🌛'
-        document.getElementById('infofield').style.background = "#464451";
-        checkandchangestyle();
-    } else if (localStorage.getItem('theme') == 'dark') {
-        localStorage.setItem('theme', 'light')
-        document.getElementById('chagetheme').innerHTML = '☀'
-        document.getElementById('infofield').style.background = "#f5f5f5";
-        checkandchangestyle();
-    }
-};
 
 async function startnewchat(polzid) { //открывает чат с пользователем
     if (operatorId == "") {
