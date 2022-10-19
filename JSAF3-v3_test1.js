@@ -12682,7 +12682,7 @@ function prepTp() { //функция подготовки расширения �
 
 }
 
-function prepKC() { //функция подготовки расширения ТП
+function prepKC() { //функция подготовки расширения КЦ
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '10px'
     document.getElementById('testUsers').style.display = 'none'
