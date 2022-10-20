@@ -2086,47 +2086,39 @@ nextteachuserbut.innerHTML = '<a style="color: black; cursor: pointer;"> Info </
 
 let buttonhistory = document.createElement('span');
 buttonhistory.id = 'lookForHistory';
-buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>'
-buttonhistory.classList.add('onlyfortp');
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
 
 let trshotmain = document.createElement('span');
 trshotmain.id = 'originalusertrshooter'
-trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>'
-trshotmain.classList.add('onlyfortp');
+trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
 
 let trshootnextuser = document.createElement('span');
 trshootnextuser.id = 'nextusertrshooter'
-trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>'
-trshootnextuser.classList.add('onlyfortp');
+trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
 
 let buttonserv = document.createElement('span');
 buttonserv.id = 'nextStudentServiceInfo';
 buttonserv.innerHTML = " ⚜ ";
-buttonserv.style = "width:20px; cursor:pointer"
-buttonserv.classList.add('onlyfortp');
+buttonserv.style = "width:20px; cursor:pointer";
 
 let buttonservstud = document.createElement('span');
 buttonservstud.id = 'nextStudentServiceInfo1';
 buttonservstud.innerHTML = " ⚜ ";
-buttonservstud.style = "width:20px; cursor:pointer"
-buttonservstud.classList.add('onlyfortp');
+buttonservstud.style = "width:20px; cursor:pointer";
 
 let buttonservteach = document.createElement('span');
 buttonservteach.id = 'nextTeacherServiceInfo1';
 buttonservteach.innerHTML = " ⚜ ";
 buttonservteach.style.width = "20px";
 buttonservteach.style.cursor = "pointer";
-buttonservteach.classList.add('onlyfortp');
 
 let buttonnextstudentid = document.createElement('span');
 buttonnextstudentid.id = 'nextStudentIdChatHistory';
 buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
-buttonnextstudentid.classList.add('onlyfortp');
 
 let buttonnextteacherid = document.createElement('span');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
-buttonnextteacherid.classList.add('onlyfortp');
 
 let butteachid = document.createElement('button');
 butteachid.id = 'teacheridtofield';
@@ -2135,7 +2127,6 @@ butteachid.style.width = "160px";
 butteachid.style.cursor = "pointer";
 butteachid.style.border = "1px solid black";
 butteachid.style.borderRadius = "10px";
-butteachid.classList.add('onlyfortp');
 
 let butstdid = document.createElement('button');
 butstdid.id = 'studentidtofield';
@@ -2145,7 +2136,6 @@ butstdid.style.cursor = "pointer";
 butstdid.style.marginLeft = "2px";
 butstdid.style.border = "1px solid black";
 butstdid.style.borderRadius = "10px";
-butstdid.classList.add('onlyfortp');
 
 let butteachidfstd = document.createElement('button');
 butteachidfstd.id = 'teacheridfromstudent';
@@ -2155,7 +2145,6 @@ butteachidfstd.style.cursor = "pointer";
 butteachidfstd.style.marginLeft = "2px";
 butteachidfstd.style.border = "1px solid black";
 butteachidfstd.style.borderRadius = "10px";
-butteachidfstd.classList.add('onlyfortp');
 
 let buttonservid = document.createElement('button');
 buttonservid.id = 'servidstudento';
@@ -2166,12 +2155,10 @@ buttonservid.style.marginLeft = "2px";
 buttonservid.style.border = "1px solid black";
 buttonservid.style.borderRadius = "10px";
 buttonservid.style.marginTop = "5px";
-buttonservid.classList.add('onlyfortp');
 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
-marksstata.classList.add('onlyfortp');
 
 
 function changesoundaddr() {
@@ -9123,7 +9110,9 @@ function startTimer() {
                 }
             }
         }
+    }
 
+    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                 btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
@@ -9153,9 +9142,6 @@ function startTimer() {
             }
 
         }
-    }
-
-    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
             if (document.getElementsByClassName('expert-user_details-list')[1].children[0] != undefined) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].children[0].classList != "") {
@@ -9914,7 +9900,7 @@ async function findchatsoper() { // ищет активные чаты на вы
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) &&document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
@@ -12645,7 +12631,7 @@ async function checkCSAT() {             // функция проверки CSAT
 function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '10px'
-
+    addtoTP()
 
     if (localStorage.getItem('disablelpmwindow') == 1)
         document.getElementById('testUsers').style.display = "none";
