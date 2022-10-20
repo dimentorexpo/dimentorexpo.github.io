@@ -12718,6 +12718,7 @@ function prepKC() { //функция подготовки расширения �
 
     }, 4000)
 
+    setTimeout(function () {
     let wintLinksKC = document.createElement('div'); // создание окна ссылок КЦ
     document.body.append(wintLinksKC);
     wintLinksKC.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksKC') + 'px; left: ' + localStorage.getItem('winLeftLinksKC') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -12796,6 +12797,7 @@ function prepKC() { //функция подготовки расширения �
     document.getElementById('grafKC').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1SiD1yfpzIEF8ZafVXnq0Z-hyF0b45aAQ8s6BWgy-s0c/edit#gid=1933422994")
     })
+    }, 2000)
 }
 
 function include(url) {
