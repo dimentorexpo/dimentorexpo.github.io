@@ -7872,8 +7872,36 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 document.getElementById('techsumdata').innerText = "Пользователь не обращался в чат, информация отсутствует";
             }
         }
-    }
+        document.getElementById('getStats').onclick = function () { // открытие Статистики
+            let getcurdate = new Date()
+            let getyear = getcurdate.getFullYear();
+            let getcurmonth = (getcurdate.getMonth() + 1)
+            let today = getcurdate.getDate();
     
+            if (getcurmonth < 10) {
+                getcurmonth = "0" + (getcurdate.getMonth() + 1);
+            } else {
+                getcurmonth = (getcurdate.getMonth() + 1);
+            }
+    
+            if (getcurdate.getDate() < 10) {
+                today = "0" + getcurdate.getDate();
+                document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
+                document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+            } else {
+                today = getcurdate.getDate();
+                document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
+                document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+            }
+            document.querySelector('#chatcommentsdata').style.display = "none"
+            document.querySelector('#lowCSATcount').style.display = "none"
+            if (document.getElementById('AF_Stat').style.display == '')
+                document.getElementById('AF_Stat').style.display = 'none'
+            else
+                document.getElementById('AF_Stat').style.display = ''
+        }
+    }
+
     let grdata = [];
     let responsegrdata;
     document.getElementById('getidgrouptolist').onclick = async function () {
@@ -7936,35 +7964,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         })
 
     } // end of func getidgrouptolist
-
-    document.getElementById('getStats').onclick = function () { // открытие Статистики
-        let getcurdate = new Date()
-        let getyear = getcurdate.getFullYear();
-        let getcurmonth = (getcurdate.getMonth() + 1)
-        let today = getcurdate.getDate();
-
-        if (getcurmonth < 10) {
-            getcurmonth = "0" + (getcurdate.getMonth() + 1);
-        } else {
-            getcurmonth = (getcurdate.getMonth() + 1);
-        }
-
-        if (getcurdate.getDate() < 10) {
-            today = "0" + getcurdate.getDate();
-            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
-            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-        } else {
-            today = getcurdate.getDate();
-            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
-            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-        }
-        document.querySelector('#chatcommentsdata').style.display = "none"
-        document.querySelector('#lowCSATcount').style.display = "none"
-        if (document.getElementById('AF_Stat').style.display == '')
-            document.getElementById('AF_Stat').style.display = 'none'
-        else
-            document.getElementById('AF_Stat').style.display = ''
-    }
 
     document.getElementById('deleteaclnk').addEventListener('click', function () {
         window.open("https://infra.skyeng.ru/request/create/166")    // открываем ссылку в новой вкладке для создания задачи на удаление аккаунта
