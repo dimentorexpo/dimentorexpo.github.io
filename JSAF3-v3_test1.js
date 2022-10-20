@@ -12755,14 +12755,14 @@ function prepKC() { //функция подготовки расширения �
 
     }, 4000)
 
-    let wintLinksKC = document.createElement('div'); // создание окна ссылок
+    let wintLinksKC = document.createElement('div'); // создание окна ссылок КЦ
     document.body.append(wintLinksKC);
     wintLinksKC.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksKC') + 'px; left: ' + localStorage.getItem('winLeftLinksKC') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
     wintLinksKC.style.display = 'none';
     wintLinksKC.setAttribute('id', 'AF_LinksKC');
     wintLinks.innerHTML = win_LinksKC;
 
-    document.getElementById('AF_LinksKC').ondblclick = function (a) { // скрытие окна ссылок по двойному клику
+    document.getElementById('AF_LinksKC').ondblclick = function (a) { // скрытие окна ссылок КЦ по двойному клику
         if (checkelementtype(a)) { document.getElementById('AF_LinksKC').style.display = 'none'; }
     }    
     document.getElementById('hideMeLKC').onclick = function () { // скрытие окна ссылок
@@ -12770,21 +12770,21 @@ function prepKC() { //функция подготовки расширения �
             document.getElementById('AF_LinksKC').style.display = 'none'
     }
 
-    var listenerLinksKC = function (e, a) { // сохранение позиции окна доступов
+    var listenerLinksKC = function (e, a) { // сохранение позиции окна доступов КЦ
         wintLinksKC.style.left = Number(e.clientX - myX29) + "px";
         wintLinksKC.style.top = Number(e.clientY - myY29) + "px";
         localStorage.setItem('winTopLinksKC', String(Number(e.clientY - myY29)));
         localStorage.setItem('winLeftLinksKC', String(Number(e.clientX - myX29)));
     };
     
-    wintLinksKC.onmousedown = function (a) { // изменение позиции окна доступов
+    wintLinksKC.onmousedown = function (a) { // изменение позиции окна доступов КЦ
         if (checkelementtype(a)) {
             window.myX29 = a.layerX;
             window.myY29 = a.layerY;
             document.addEventListener('mousemove', listenerLinksKC);
         }
     }
-    wintLinksKC.onmouseup = function () { document.removeEventListener('mousemove', listenerLinksKC); } // прекращение изменения позиции окна доступо
+    wintLinksKC.onmouseup = function () { document.removeEventListener('mousemove', listenerLinksKC); } // прекращение изменения позиции окна доступо КЦ
 }
 
 function include(url) {
