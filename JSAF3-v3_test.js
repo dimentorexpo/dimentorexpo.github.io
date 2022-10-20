@@ -5925,11 +5925,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
-			let timer[uniqarr[uniqarr.length-1]] = setTimeout( function() {
+			for (let j=0; j<uniqarr.length; j++) {
+				let timer[j] = setTimeout( function() {
 				 sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-				 clearTimeout(timer[uniqarr[uniqarr.length-1]])
+				 clearTimeout(timer[j])
 			 } , 20 * 1000)
-			
+			 console.log(timer[j])
+			}
+						
 			// function next() {
 				// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
 				// sessid.pop()
