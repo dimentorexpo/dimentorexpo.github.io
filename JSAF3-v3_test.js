@@ -1226,8 +1226,8 @@ var win_FrozeChat =  // описание формы чтобы не давала
 								<button id="clearallchathash">🧹</button>
                         </div>
 						<div>
-							<input id="chatfrozehash" placeholder="ID У/П для 🔎статистики оценок" title="Введите хеш чата без hdi или skyeng обычный хеш, которые хотите, чтобы не закрывался" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
-							<input id="frozetimer" value="10">
+							<input id="chatfrozehash" placeholder="Введите хэш чата" title="Введите хеш чата без hdi или skyeng обычный хеш, которые хотите, чтобы не закрывался" autocomplete="off" type="text" style="text-align: center; width: 340px; color: black;margin-left:5px">
+							<input id="frozetimer" value="10" style="width:30px;">
 							<button id="freezechat">❄</button>
 						</div>
 			    </span>
@@ -2295,7 +2295,7 @@ marksstata.onclick = async function () { //проверка статистики
             'Оценка 3 😐: ' + count[3] + ' ................... ' + ((count[3] / markscount) * 100).toFixed(1) + "%" + '<br>' +
             'Оценка 4 🥴: ' + count[4] + ' ................... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
             'Оценка 5 😊: ' + count[5] + ' ................... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
-            'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
+            'Всего оценок: ' + markscount + '<br>' + 'Обращений с 01.05.22 ' + datamarks.total + '<br>' +
             'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
             'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
             'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
@@ -2378,7 +2378,7 @@ marksstata.onclick = async function () { //проверка статистики
                 'Оценка 3 😐: ' + count[3] + ' ................... ' + ((count[3] / markscount) * 100).toFixed(1) + "%" + '<br>' +
                 'Оценка 4 🥴: ' + count[4] + ' ................... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
                 'Оценка 5 😊: ' + count[5] + ' ................... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
-                'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
+                'Всего оценок: ' + markscount + '<br>' + 'Обращений с 01.05.22: ' + datamarks.total + '<br>' +
                 'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
                 'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
                 'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
@@ -7731,7 +7731,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     'Оценка 3 😐: ' + count[3] + ' ................... ' + ((count[3] / markscount) * 100).toFixed(1) + "%" + '<br>' +
                     'Оценка 4 🥴: ' + count[4] + ' ................... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
                     'Оценка 5 😊: ' + count[5] + ' ................... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
-                    'Всего оценок: ' + markscount + '<br>' + 'Обращений с начала года: ' + datamarks.total + '<br>' +
+                    'Всего оценок: ' + markscount + '<br>' + 'Обращений с 01.05.22: ' + datamarks.total + '<br>' +
                     'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
                     'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
                     'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
