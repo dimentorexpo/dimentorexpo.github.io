@@ -2550,13 +2550,15 @@ hashBut.style.marginRight = "15px";
 let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
-taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;";
-taskBut.classList.add('ant-btn')
+taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
+taskBut.classList.add('ant-btn','onlyfortp');
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
-butServ.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butServ.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butServ.classList.add('onlyfortp');
+
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
@@ -2566,7 +2568,8 @@ butMarks.style = 'margin-right:15px; height:50px; cursor:pointer;';
 let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butChatHistory.classList.add('onlyfortp');
 
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
@@ -2577,33 +2580,38 @@ butLessonInfo.style = 'margin-right:15px; height:50px; cursor:pointer;';
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;';
+servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;'
+servDsk.classList.add('onlyfortp');
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butopensugestform.classList.add('onlyfortp');
 
 let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
-butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butrefuse.classList.add('onlyfortp');
 
 let butsmartroom = document.createElement('div')
 butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
-butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butsmartroom.classList.add('onlyfortp');
 
 let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn')
+butThemes.classList.add('ant-btn','onlyfortp')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
-butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butJiraOpenForm.classList.add('onlyfortp');
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -12712,6 +12720,11 @@ function prepKC() { //функция подготовки расширения �
     if (localStorage.getItem('disablelngpmwindow') == 1)
         document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
     else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+
+    let needtohide = document.getElementsByClassName('onlyfortp')
+    for (i=0;i < needtohide.length;i++){
+        needtohide[i].style.display = 'none'
+    }
 
     flagLangBut = 1
     customTemplates()
