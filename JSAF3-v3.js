@@ -9094,35 +9094,38 @@ function startTimer() {
     }
 
     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
-        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(infouserbut)
-                btn.appendChild(buttonservstud)
-                btn.appendChild(buttonhistory)
-                btn.appendChild(marksstata)
-                btn.appendChild(trshotmain)
-                if (typeof buttonmobpas == 'object')
-                    btn.appendChild(buttonmobpas)
-            }
+		if(document.getElementsByClassName('expert-user_details-list').length != 0) {
+			for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+					btn.appendChild(infouserbut)
+					btn.appendChild(buttonservstud)
+					btn.appendChild(buttonhistory)
+					btn.appendChild(marksstata)
+					btn.appendChild(trshotmain)
+					if (typeof buttonmobpas == 'object')
+						btn.appendChild(buttonmobpas)
+				}
 
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(nextstuduserbut)
-                btn.appendChild(buttonserv)
-                btn.appendChild(buttonnextstudentid)
-                btn.appendChild(trshootnextuser)
-            }
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+					btn.appendChild(nextstuduserbut)
+					btn.appendChild(buttonserv)
+					btn.appendChild(buttonnextstudentid)
+					btn.appendChild(trshootnextuser)
+				}
 
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-                btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                btn.appendChild(nextteachuserbut)
-                btn.appendChild(buttonservteach)
-                btn.appendChild(buttonnextteacherid)
-                btn.appendChild(trshootnextuser)
-            }
+				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+					btn.appendChild(nextteachuserbut)
+					btn.appendChild(buttonservteach)
+					btn.appendChild(buttonnextteacherid)
+					btn.appendChild(trshootnextuser)
+				}
 
-        }
+			}
+		}
+		
         if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
             if (document.getElementsByClassName('expert-user_details-list')[1].children[0] != undefined) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].children[0].classList != "") {
