@@ -8323,25 +8323,6 @@ async function buttonsFromDoc(butName) { // функция отправки ша
     msgFromTable(butName)
 
     // start of counter of pressed key script то есть при нажатии на кнопку с шаблоном передает в гугл таблицу ин6формацию какая кнопка была нажата и там уже др скрипты считают сколько  раз и сортируют
-    let nameusedbut = encodeURIComponent(butName)
-    let counter = '1'
-
-    let body = 'entry.362470677=' + nameusedbut + '&entry.613447261=' + counter
-
-    let options = {
-        "headers": {
-            "content-type": "application/x-www-form-urlencoded;",
-        },
-        "body": body,
-        "method": "POST",
-    }
-
-    document.getElementById('responseTextarea1').value = JSON.stringify(options)
-    document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSehbskocVj0Wh1ubRwUbD6rwiG7EDAjNu9ahYWMmgcdswp4zw/formResponse'
-    if (document.getElementById('responseTextarea3') != null)
-        document.getElementById('responseTextarea3').value = ''
-    document.getElementById('sendResponse').click()
-    // end of counter of pressed key script
 }
 
 function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
