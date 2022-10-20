@@ -443,8 +443,8 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
 					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
-					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
-					<button id="addsrc" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
+					<button id="links" class="onlyfortp" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
+					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
 					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
@@ -513,14 +513,14 @@ var win_AFhelper =  // описание элементов главного ок
 				<input title="Ввод числа для автозакрытия, при этом от этого числа будет отнято 2 минуты чтобы чат закрасился в фиолетовый цвет, то есть при значении по-умолчанию 12 на 10 минуте чат зальется фиолетовым цветом оповещая, что скоро будет закрыт" id="autoclosetime" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="2" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black; margin-left: 78px;">
 				<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
 					<br>
-					<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+					<label class="onlyfortp" style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
 					<br>
                     <label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
 					<br>
-				<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
-				<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
-				<button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
+				<input id="test_std" class="onlyfortp" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="setteststd" class="onlyfortp" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
+				<input id="test_teach" class="onlyfortp" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
+				<button id="settestteach" class="onlyfortp" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
                 <br><span style="color:bisque">Выберите отдел:</span>
                 <button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
                 <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
@@ -2083,39 +2083,47 @@ nextteachuserbut.innerHTML = '<a style="color: black; cursor: pointer;"> Info </
 
 let buttonhistory = document.createElement('span');
 buttonhistory.id = 'lookForHistory';
-buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>'
+buttonhistory.classList.add('onlyfortp');
 
 let trshotmain = document.createElement('span');
 trshotmain.id = 'originalusertrshooter'
-trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>'
+trshotmain.classList.add('onlyfortp');
 
 let trshootnextuser = document.createElement('span');
 trshootnextuser.id = 'nextusertrshooter'
-trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>'
+trshootnextuser.classList.add('onlyfortp');
 
 let buttonserv = document.createElement('span');
 buttonserv.id = 'nextStudentServiceInfo';
 buttonserv.innerHTML = " ⚜ ";
-buttonserv.style = "width:20px; cursor:pointer";
+buttonserv.style = "width:20px; cursor:pointer"
+buttonserv.classList.add('onlyfortp');
 
 let buttonservstud = document.createElement('span');
 buttonservstud.id = 'nextStudentServiceInfo1';
 buttonservstud.innerHTML = " ⚜ ";
-buttonservstud.style = "width:20px; cursor:pointer";
+buttonservstud.style = "width:20px; cursor:pointer"
+buttonservstud.classList.add('onlyfortp');
 
 let buttonservteach = document.createElement('span');
 buttonservteach.id = 'nextTeacherServiceInfo1';
 buttonservteach.innerHTML = " ⚜ ";
 buttonservteach.style.width = "20px";
 buttonservteach.style.cursor = "pointer";
+buttonservteach.classList.add('onlyfortp');
 
 let buttonnextstudentid = document.createElement('span');
 buttonnextstudentid.id = 'nextStudentIdChatHistory';
 buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+buttonnextstudentid.classList.add('onlyfortp');
 
 let buttonnextteacherid = document.createElement('span');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+buttonnextteacherid.classList.add('onlyfortp');
 
 let butteachid = document.createElement('button');
 butteachid.id = 'teacheridtofield';
@@ -2156,6 +2164,8 @@ buttonservid.style.marginTop = "5px";
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
+marksstata.classList.add('onlyfortp');
+
 
 function changesoundaddr() {
     let objSoundList = document.getElementById('soundlistaddr')
@@ -2550,13 +2560,15 @@ hashBut.style.marginRight = "15px";
 let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
-taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;";
-taskBut.classList.add('ant-btn')
+taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
+taskBut.classList.add('ant-btn','onlyfortp');
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
-butServ.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butServ.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butServ.classList.add('onlyfortp');
+
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
@@ -2566,7 +2578,8 @@ butMarks.style = 'margin-right:15px; height:50px; cursor:pointer;';
 let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butChatHistory.classList.add('onlyfortp');
 
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
@@ -2577,33 +2590,38 @@ butLessonInfo.style = 'margin-right:15px; height:50px; cursor:pointer;';
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;';
+servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;'
+servDsk.classList.add('onlyfortp');
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butopensugestform.classList.add('onlyfortp');
 
 let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
-butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butrefuse.classList.add('onlyfortp');
 
 let butsmartroom = document.createElement('div')
 butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
-butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butsmartroom.classList.add('onlyfortp');
 
 let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn')
+butThemes.classList.add('ant-btn','onlyfortp')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
-butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butJiraOpenForm.classList.add('onlyfortp');
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -12712,6 +12730,11 @@ function prepKC() { //функция подготовки расширения �
     if (localStorage.getItem('disablelngpmwindow') == 1)
         document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
     else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+
+    let needtohide = document.getElementsByClassName('onlyfortp')
+    for (i=0; i<needtohide.length; i++){
+        needtohide[i].style.display = 'none'
+    }
 
     flagLangBut = 1
     customTemplates()
