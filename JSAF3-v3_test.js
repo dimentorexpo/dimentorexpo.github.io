@@ -5924,13 +5924,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         "credentials": "include"
                     });
 			}
-			let timer;
+			let timer=[];
 			for (let j=0; j<uniqarr.length; j++) {
 				timer[j] = setTimeout( function() {
-				 sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+				 sndmsgaftertime(sessid[j], uniqarr[j])
 				 clearTimeout(timer[j])
 			 } , 20 * 1000)
-			 console.log(timer[j])
+			 console.log(timer[j] + ' ' + uniqarr[j] + ' ' + sessid[j])
 			}
 						
 			// function next() {
