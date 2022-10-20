@@ -5587,6 +5587,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 else
                     document.getElementById('AF_Stat').style.display = ''
             }
+            document.getElementById('probniki').addEventListener('click', function () {
+                window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
+            })
+        
+            document.getElementById('grouplist').addEventListener('click', function () {
+                if (document.getElementById('AF_GrList').style.display == '')
+                    document.getElementById('AF_GrList').style.display = 'none'
+                else
+                    document.getElementById('AF_GrList').style.display = ''
+            })
+        
+            document.getElementById('probnikinstr').addEventListener('click', function () {
+                window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
+            })
         }
     }
 
@@ -7961,21 +7975,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     document.getElementById('deleteaclnk').addEventListener('click', function () {
         window.open("https://infra.skyeng.ru/request/create/166")    // открываем ссылку в новой вкладке для создания задачи на удаление аккаунта
-    })
-
-    document.getElementById('probniki').addEventListener('click', function () {
-        window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
-    })
-
-    document.getElementById('grouplist').addEventListener('click', function () {
-        if (document.getElementById('AF_GrList').style.display == '')
-            document.getElementById('AF_GrList').style.display = 'none'
-        else
-            document.getElementById('AF_GrList').style.display = ''
-    })
-
-    document.getElementById('probnikinstr').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
     })
 
     document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
