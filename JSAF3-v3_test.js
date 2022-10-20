@@ -5899,6 +5899,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			await fetch("https://skyeng.autofaq.ai/api/conversations/" + uniqarr[uniqarr.length-1]).then(r=>r.json()).then(r=>datachat=r)
 			console.log(datachat)
 		}
+		
+		document.getElementById('clearallchathash').onclick = function() {
+			document.getElementById('chathastable').innerHTML = ''
+			uniqarr = []
+		}
 	}
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
