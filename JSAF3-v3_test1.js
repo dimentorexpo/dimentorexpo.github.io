@@ -1998,9 +1998,11 @@ if (localStorage.getItem('winTopLinks') == null) { // началоное пол�
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winLeftLinks', '295');
 }
+
 if (localStorage.getItem('winTopLinksKC') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinksKC', '120');
     localStorage.setItem('winLeftLinksKC', '295');
+}
 
 if (localStorage.getItem('winTopLinksd') == null) { // началоное положение окна ссылок с доступами (если не задано ранее)
     localStorage.setItem('winTopLinksd', '120');
