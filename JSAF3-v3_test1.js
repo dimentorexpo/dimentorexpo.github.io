@@ -3042,7 +3042,7 @@ document.body.append(wintLinksKC);
 wintLinksKC.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksKC') + 'px; left: ' + localStorage.getItem('winLeftLinksKC') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintLinksKC.style.display = 'none';
 wintLinksKC.setAttribute('id', 'AF_LinksKC');
-wintLinks.innerHTML = win_LinksKC;
+wintLinksKC.innerHTML = win_LinksKC;
 
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
