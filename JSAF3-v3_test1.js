@@ -2135,6 +2135,7 @@ butteachid.style.width = "160px";
 butteachid.style.cursor = "pointer";
 butteachid.style.border = "1px solid black";
 butteachid.style.borderRadius = "10px";
+butteachid.classList.add('onlyfortp');
 
 let butstdid = document.createElement('button');
 butstdid.id = 'studentidtofield';
@@ -2144,6 +2145,7 @@ butstdid.style.cursor = "pointer";
 butstdid.style.marginLeft = "2px";
 butstdid.style.border = "1px solid black";
 butstdid.style.borderRadius = "10px";
+butstdid.classList.add('onlyfortp');
 
 let butteachidfstd = document.createElement('button');
 butteachidfstd.id = 'teacheridfromstudent';
@@ -2153,6 +2155,7 @@ butteachidfstd.style.cursor = "pointer";
 butteachidfstd.style.marginLeft = "2px";
 butteachidfstd.style.border = "1px solid black";
 butteachidfstd.style.borderRadius = "10px";
+butteachidfstd.classList.add('onlyfortp');
 
 let buttonservid = document.createElement('button');
 buttonservid.id = 'servidstudento';
@@ -2163,6 +2166,7 @@ buttonservid.style.marginLeft = "2px";
 buttonservid.style.border = "1px solid black";
 buttonservid.style.borderRadius = "10px";
 buttonservid.style.marginTop = "5px";
+buttonservid.classList.add('onlyfortp');
 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
