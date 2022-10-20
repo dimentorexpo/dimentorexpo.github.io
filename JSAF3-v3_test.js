@@ -5893,6 +5893,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById('freezechat').onclick = async function() {
 			chathasharr.push(document.getElementById('chatfrozehash').value)
 			document.getElementById('chatfrozehash').value = ''
+			document.getElementById('chathastable').innerHTML  = ''
 			uniqarr = new Set(chathasharr)
 			uniqarr = [...uniqarr]
 			for (let i=0; i<uniqarr.length; i++) {
@@ -5902,6 +5903,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			await fetch("https://skyeng.autofaq.ai/api/conversations/" + uniqarr[uniqarr.length-1]).then(r=>r.json()).then(r=>datachat=r)
 			console.log(datachat)
 			sessid.push(datachat.sessionId)
+			sessid = Array.from(new Set(sessid))
 			console.log(sessid)
 		}
 		
