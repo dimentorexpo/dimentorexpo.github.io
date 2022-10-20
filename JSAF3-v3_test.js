@@ -5879,7 +5879,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 	
 	document.getElementById('butFrozeChat').onclick = function () {
-		let chathasharrfirst = [];
+		let chathasharr = [];
 		let uniqarr = [];
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') 
 			document.getElementById('AF_FrozeChat').style.display = ''
