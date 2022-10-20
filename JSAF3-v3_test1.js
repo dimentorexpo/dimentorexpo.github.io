@@ -444,6 +444,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" class="onlyfortp" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
+                    <button id="linksKC" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px; display: none;">L</button>
 					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
 					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
@@ -12785,6 +12786,27 @@ function prepKC() { //функция подготовки расширения �
         }
     }
     wintLinksKC.onmouseup = function () { document.removeEventListener('mousemove', listenerLinksKC); } // прекращение изменения позиции окна доступо КЦ
+
+    document.getElementById('linksKC').style.display = ''
+
+    document.getElementById('linksKC').onclick = function () { //открывает окно ссылок
+        if (document.getElementById('AF_LinksKC').style.display == '')
+            document.getElementById('AF_LinksKC').style.display = 'none'
+        else document.getElementById('AF_LinksKC').style.display = ''
+    }
+
+    document.getElementById('knoweledgebaseKC').addEventListener('click', function () {
+        window.open("https://confluence.skyeng.tech/display/CSW/Customer+Service+WIKI")
+    })    
+    document.getElementById('lessonrecordKC').addEventListener('click', function () {
+        window.open("https://tramway.skyeng.ru/record")
+    })    
+    document.getElementById('skyhomeKC').addEventListener('click', function () {
+        window.open("https://home.skyeng.ru/dashboard")
+    })
+    document.getElementById('timetableKC').addEventListener('click', function () {
+        window.open("https://timetable.skyeng.ru/")
+    })
 }
 
 function include(url) {
