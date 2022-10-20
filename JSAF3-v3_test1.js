@@ -2118,12 +2118,12 @@ buttonservteach.classList.add('onlyfortp');
 let buttonnextstudentid = document.createElement('span');
 buttonnextstudentid.id = 'nextStudentIdChatHistory';
 buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
-buttonservteach.classList.add('onlyfortp');
+buttonnextstudentid.classList.add('onlyfortp');
 
 let buttonnextteacherid = document.createElement('span');
 buttonnextteacherid.id = 'nextTeacherIdChatHistory';
 buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
-buttonservteach.classList.add('onlyfortp');
+buttonnextteacherid.classList.add('onlyfortp');
 
 let butteachid = document.createElement('button');
 butteachid.id = 'teacheridtofield';
