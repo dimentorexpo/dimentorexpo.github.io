@@ -12722,7 +12722,7 @@ function prepKC() { //функция подготовки расширения �
     else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
     let needtohide = document.getElementsByClassName('onlyfortp')
-    for (i=0;i < needtohide.length;i++){
+    for (i=0; i<needtohide.length; i++){
         needtohide[i].style.display = 'none'
     }
 
