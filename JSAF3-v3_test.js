@@ -5925,17 +5925,22 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
-			function next() {
-				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-				sessid.shift()
-				uniqarr.shift()
-				console.log(uniqarr)
-				console.log(sessid)
-				if(uniqarr.length)
-					setTimeout (next, 1000)
-			}
+			let timer[uniqarr[uniqarr.length-1]] = setTimeout( function() {
+				 sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+				 clearTimeout(timer[uniqarr[uniqarr.length-1]])
+			 } , 20 * 1000)
 			
-			setTimeout(next, 20 * 1000)
+			// function next() {
+				// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+				// sessid.pop()
+				// uniqarr.pop()
+				// console.log(uniqarr)
+				// console.log(sessid)
+				// if(uniqarr.length)
+					// setTimeout (next, 1000)
+			// }
+			
+			// setTimeout(next, 20 * 1000)
 			
 			// setTimeout( function() {
 				// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
