@@ -5817,10 +5817,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
 
-        if (document.getElementById('AF_LessonStatus').style.display == '')
+        if (document.getElementById('AF_LessonStatus').style.display == ''){
             document.getElementById('AF_LessonStatus').style.display = 'none'
-        else
+            document.getElementById('idmymenu').style.display = 'none'
+        }else {
             document.getElementById('AF_LessonStatus').style.display = ''
+            document.getElementById('idmymenu').style.display = 'none'
+        }       
     }
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
@@ -6400,9 +6403,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('suggestform').onclick = () => { // открыть форму для предложения и пожеланий
-        if (document.getElementById('AF_Sugform').style.display == '')
+        if (document.getElementById('AF_Sugform').style.display == ''){
             document.getElementById('AF_Sugform').style.display = 'none'
-        else {
+            document.getElementById('idmymenu').style.display = 'none'
+        } else {
             document.getElementById('AF_Sugform').style.display = ''
             document.getElementById('idmymenu').style.display = 'none'
 
@@ -6514,6 +6518,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('JiraOpenForm').onclick = function () { // открывает поле для работой с JIRA поиском
         if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
+            document.getElementById('idmymenu').style.display = 'none'
 
             let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
             document.getElementById('JQLquery').innerText = defqueryitem;
@@ -7086,14 +7091,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
         } else if (document.getElementById('AF_Jira').style.display == '') {
             document.getElementById('AF_Jira').style.display = 'none'
+            document.getElementById('idmymenu').style.display = 'none'
         }
     }
 
     document.getElementById('smartroomform').onclick = function () {
-        if (document.getElementById('AF_Smartroomform').style.display == '')
+        if (document.getElementById('AF_Smartroomform').style.display == ''){
             document.getElementById('AF_Smartroomform').style.display = 'none'
-        else
+            document.getElementById('idmymenu').style.display = 'none'
+        } else {
             document.getElementById('AF_Smartroomform').style.display = ''
+            document.getElementById('idmymenu').style.display = 'none'
+        }
 
         function clearradio() {
             for (let j = 0; j < 2; j++) {
@@ -7287,9 +7296,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
-        if (document.getElementById('AF_Refuseformnew').style.display == '')
+        if (document.getElementById('AF_Refuseformnew').style.display == ''){
             document.getElementById('AF_Refuseformnew').style.display = 'none'
-        else {
+            document.getElementById('idmymenu').style.display = 'none'
+        } else {
             document.getElementById('AF_Refuseformnew').style.display = ''
             document.getElementById('idmymenu').style.display = 'none'
 
@@ -7592,9 +7602,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
-        if (document.getElementById('AF_Marks').style.display == '')
+        if (document.getElementById('AF_Marks').style.display == ''){
             document.getElementById('AF_Marks').style.display = 'none'
-        else {
+            document.getElementById('idmymenu').style.display = 'none'
+        } else {
             document.getElementById('AF_Marks').style.display = ''
             document.getElementById('idmymenu').style.display = 'none'
 
