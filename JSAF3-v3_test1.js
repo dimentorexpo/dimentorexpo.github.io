@@ -3037,6 +3037,13 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     }
 
 }
+let wintLinksKC = document.createElement('div'); // создание окна ссылок КЦ
+document.body.append(wintLinksKC);
+wintLinksKC.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksKC') + 'px; left: ' + localStorage.getItem('winLeftLinksKC') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintLinksKC.style.display = 'none';
+wintLinksKC.setAttribute('id', 'AF_LinksKC');
+wintLinks.innerHTML = win_LinksKC;
+
 let wintLinks = document.createElement('div'); // создание окна ссылок
 document.body.append(wintLinks);
 wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinks') + 'px; left: ' + localStorage.getItem('winLeftLinks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
@@ -12718,14 +12725,6 @@ function prepKC() { //функция подготовки расширения �
 
     }, 4000)
 
-    setTimeout(function () {
-    let wintLinksKC = document.createElement('div'); // создание окна ссылок КЦ
-    document.body.append(wintLinksKC);
-    wintLinksKC.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksKC') + 'px; left: ' + localStorage.getItem('winLeftLinksKC') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-    wintLinksKC.style.display = 'none';
-    wintLinksKC.setAttribute('id', 'AF_LinksKC');
-    wintLinks.innerHTML = win_LinksKC;
-
     document.getElementById('AF_LinksKC').ondblclick = function (a) { // скрытие окна ссылок КЦ по двойному клику
         if (checkelementtype(a)) { document.getElementById('AF_LinksKC').style.display = 'none'; }
     }    
@@ -12797,7 +12796,6 @@ function prepKC() { //функция подготовки расширения �
     document.getElementById('grafKC').addEventListener('click', function () {
         window.open("https://docs.google.com/spreadsheets/d/1SiD1yfpzIEF8ZafVXnq0Z-hyF0b45aAQ8s6BWgy-s0c/edit#gid=1933422994")
     })
-    }, 2000)
 }
 
 function include(url) {
