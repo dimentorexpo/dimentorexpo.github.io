@@ -9094,7 +9094,7 @@ function startTimer() {
     }
 
     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
-		if(document.getElementsByClassName('expert-user_details-list') != undefined) {
+		if(document.getElementsByClassName('expert-user_details-list').length != 0) {
 			for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
 				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
 					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
