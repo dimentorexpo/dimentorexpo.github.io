@@ -12807,6 +12807,9 @@ function prepKC() { //функция подготовки расширения �
     document.getElementById('timetableKC').addEventListener('click', function () {
         window.open("https://timetable.skyeng.ru/")
     })
+    document.getElementById('CalcKC').addEventListener('click', function () {
+        window.open("https://billing-api.skyeng.ru/operations")
+    })
 }
 
 function include(url) {
