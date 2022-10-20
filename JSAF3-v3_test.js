@@ -5899,11 +5899,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			for (let i=0; i<uniqarr.length; i++) {
 				document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 			}
+			console.log(uniqarr)
 
 			await fetch("https://skyeng.autofaq.ai/api/conversations/" + uniqarr[uniqarr.length-1]).then(r=>r.json()).then(r=>datachat=r)
 			console.log(datachat)
 			sessid.push(datachat.sessionId)
-			// sessid = Array.from(new Set(sessid))
+			 // sessid = Array.from(new Set(sessid))
 			// console.log(sessid)
 			
 			function sndmsgaftertime(session, hashchat) {
@@ -5926,8 +5927,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			function next() {
 				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-				sessid.pop()
-				uniqarr.pop()
+				sessid.shift()
+				uniqarr.shift()
+				console.log(uniqarr)
+				console.log(sessid)
 				if(uniqarr.length)
 					setTimeout (next, 1000)
 			}
