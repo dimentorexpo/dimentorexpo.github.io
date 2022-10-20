@@ -5905,6 +5905,28 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			sessid.push(datachat.sessionId)
 			sessid = Array.from(new Set(sessid))
 			console.log(sessid)
+			
+			function sndmsgaftertime(session, hashchat) {
+				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+			}
+			
+			setTimeout( function() {
+				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+			} , 20000)
 		}
 		
 		document.getElementById('clearallchathash').onclick = function() {
