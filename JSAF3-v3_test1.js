@@ -802,7 +802,7 @@ var win_Links =  // описание элементов окна ссылок
 				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
 					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
-					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
+					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависших уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
 					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Компенсация</button>
 					<button title="Открывает CMS хранилище материалов уроков" id="CMS" style="width:105px">CMS</button>
 					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Админка</button>
@@ -860,6 +860,32 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;"></button>
 			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
+				</div>
+			</span>
+	</span>
+</div>`;
+
+var win_LinksKC =  // описание элементов окна ссылок для КЦ
+    `<div style="display: flex; width: 550px;">
+        <span style="width: 550px">
+			<span style="cursor: -webkit-grab;">
+				<div style="margin: 5px; width: 550;" id="linksKC_1str">
+					<button title="Скрытие меню" id="hideMeLKC" style="width:50px; background: #228B22;">hide</button>
+					<button title="Открывает Базу знаний в Confluence" id="knoweledgebaseKC" class="uplinksbar">📚</button>
+                    <button title="Прослушать запись урока" id="lessonrecordKC" class="uplinksbar">👩‍🏫</button>
+					<button title="Личный кабинет в Skyeng" id="skyhomeKC" class="uplinksbar">💼</button>
+				</div>
+				<div style="margin: 5px; width: 550px;" id="linksKC_but">
+					<button title="Открывает Timetable" id="timetableKC" style="width:105px">TimeTable</button>
+                    <button title="Проведение операций с балансом ученика" id="CalcKC" style="width:105px">Калькулятор</button>
+                    <button title="Проведение компенсаций, условия промокодов/сертиикатов" id="nachislyatorKC" style="width:105px">Начислятор</button>
+                    <button title="Админка рассрочек" id="rassrochKC" style="width:105px">Рассрочка</button>
+                    <button title="Админка подписок" id="pondpisKC" style="width:105px">Подписки</button>
+                    <button title="Открывает Omnidesk" id="omniKC" style="width:105px">Omni</button>
+                    <button title="Админка разговорных клубов" id="RKKC" style="width:105px">РК</button>
+                    <button title="Актуальные шаблоны КЦ" id="shablKC" style="width:105px">Шаблоны</button>
+                    <button title="Написать нарушение бизнес-процесса на менеджера" id="narushKC" style="width:105px">Нарушение БП</button>
+                    <button title="Учет рабочего времени КЦ" id="grafKC" style="width:105px">График</button>
 				</div>
 			</span>
 	</span>
@@ -12728,6 +12754,13 @@ function prepKC() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
     }, 4000)
+
+    let wintLinksKC = document.createElement('div'); // создание окна ссылок
+    document.body.append(wintLinksKC);
+    wintLinksKC.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopLinksKC') + 'px; left: ' + localStorage.getItem('winLeftLinksKC') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+    wintLinksKC.style.display = 'none';
+    wintLinksKC.setAttribute('id', 'AF_LinksKC');
+    wintLinks.innerHTML = win_LinksKC;
 
 }
 
