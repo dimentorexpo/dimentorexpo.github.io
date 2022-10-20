@@ -12631,7 +12631,6 @@ async function checkCSAT() {             // функция проверки CSAT
 function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '10px'
-    addtoTP()
 
     if (localStorage.getItem('disablelpmwindow') == 1)
         document.getElementById('testUsers').style.display = "none";
