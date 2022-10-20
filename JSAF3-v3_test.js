@@ -319,6 +319,11 @@ function mystyles() {
 			background:DeepSkyBlue;
 			color:white;
 			font-weight:700;
+		}	
+		#butFrozeChat:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
 		}
 
 		.hyperlnk {
@@ -5874,12 +5879,25 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 	
 	document.getElementById('butFrozeChat').onclick = function () {
+		let chathasharrfirst = [];
+		let uniqarr = [];
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') 
 			document.getElementById('AF_FrozeChat').style.display = ''
 		else document.getElementById('AF_FrozeChat').style.display = 'none'
 		
 		document.getElementById('hidefrozechat').onclick = function() {
 			document.getElementById('AF_FrozeChat').style.display = 'none'
+		}
+		
+		document.getElementById('freezechat').onclick = async function() {
+			chathasharr.push(document.getElementById('chatfrozehash').value)
+			uniqarr = new Set(chathasharr)
+			uniqarr = [...uniqarr]
+			document.getElementById('chathastable').innerHTML += document.getElementById('chatfrozehash').value + '<br>'
+			document.getElementById('chatfrozehash').value = ''
+			
+			await fetch("https://skyeng.autofaq.ai/api/conversations/" + uniqarr[uniqarr.length-1]).then(r=>r.json()).then(r=>datachat=r)
+			console.log(datachat)
 		}
 	}
 
