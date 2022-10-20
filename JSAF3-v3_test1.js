@@ -3822,35 +3822,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")    // открываем инструкцию по расширению
     })
 
-    document.getElementById('talksadm').addEventListener('click', function () {
-        window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
-    })
-
-    document.getElementById('billingadm').addEventListener('click', function () {
-        window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
-    })
-
-    document.getElementById('compens').addEventListener('click', function () {
-        window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // открываем ссылку в новой вкладке на  Компенсации
-    })
-
-    document.getElementById('useradm').addEventListener('click', function () {
-        window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
-    })
-
     document.getElementById('GotoCRM').onclick = function () {
         window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value)    // открываем ссылку в новой вкладке на  Пользовательская админка
     }
 
-    document.getElementById('suggestions').addEventListener('click', function () {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
-    })
-    document.getElementById('transactions').addEventListener('click', function () {
-        window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // открываем ссылку в новой вкладке на  Поиск транзакций
-    })
-    document.getElementById('CMS').addEventListener('click', function () {
-        window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
-    })
     document.getElementById('subscribebilling').addEventListener('click', function () {
         window.open("https://billing-api.skyeng.ru/subscriptions")    // открываем ссылку в новой вкладке на Необоснованные оценки ТП АФ
     })
@@ -3859,10 +3834,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     })
     document.getElementById('groupfeatures').addEventListener('click', function () {
         window.open("https://vimbox.skyeng.ru/circles/group/editor ")    // открываем редактор фич группя для активации видеосвязи на ГУ
-    })
-
-    document.getElementById('confbugs').addEventListener('click', function () {
-        window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
     })
 
     document.getElementById('restartlesson').addEventListener('click', function () {
@@ -5589,17 +5560,42 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
             document.getElementById('probniki').addEventListener('click', function () {
                 window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    // открывает график пробников и там же ссылки на них будут
-            })
-        
+            })        
             document.getElementById('grouplist').addEventListener('click', function () {
                 if (document.getElementById('AF_GrList').style.display == '')
                     document.getElementById('AF_GrList').style.display = 'none'
                 else
                     document.getElementById('AF_GrList').style.display = ''
-            })
-        
+            })        
             document.getElementById('probnikinstr').addEventListener('click', function () {
                 window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82215113")    // открывает график пробников и там же ссылки на них будут
+            })
+            document.getElementById('deleteaclnk').addEventListener('click', function () {
+                window.open("https://infra.skyeng.ru/request/create/166")    // открываем ссылку в новой вкладке для создания задачи на удаление аккаунта
+            })
+            document.getElementById('confbugs').addEventListener('click', function () {
+                window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=96042583")    // открываем ссылку список багов в confluence
+            })
+            document.getElementById('talksadm').addEventListener('click', function () {
+                window.open("https://vimbox.skyeng.ru/talks/admin/statistics")    // открываем ссылку в новой вкладке на  Talks админку
+            })
+            document.getElementById('billingadm').addEventListener('click', function () {
+                window.open("https://billing-api.skyeng.ru/operations")    // открываем ссылку в новой вкладке на  Начислятор
+            })
+            document.getElementById('compens').addEventListener('click', function () {
+                window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")    // открываем ссылку в новой вкладке на  Компенсации
+            })
+            document.getElementById('CMS').addEventListener('click', function () {
+                window.open("https://cms-vimbox.skyeng.ru/vim")    // открываем ссылку в новой вкладке на CMS
+            })
+            document.getElementById('useradm').addEventListener('click', function () {
+                window.open("https://id.skyeng.ru/admin/users")    // открываем ссылку в новой вкладке на  Пользовательская админка
+            })
+            document.getElementById('transactions').addEventListener('click', function () {
+                window.open("https://accounting.skyeng.ru/userpayment/search/transaction")    // открываем ссылку в новой вкладке на  Поиск транзакций
+            })
+            document.getElementById('suggestions').addEventListener('click', function () {
+                window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")    // открываем ссылку в новой вкладке на  Предложения/пожелания
             })
         }
     }
@@ -7972,10 +7968,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         })
 
     } // end of func getidgrouptolist
-
-    document.getElementById('deleteaclnk').addEventListener('click', function () {
-        window.open("https://infra.skyeng.ru/request/create/166")    // открываем ссылку в новой вкладке для создания задачи на удаление аккаунта
-    })
 
     document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
