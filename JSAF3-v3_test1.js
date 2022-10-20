@@ -12772,6 +12772,30 @@ function prepKC() { //функция подготовки расширения �
     document.getElementById('CalcKC').addEventListener('click', function () {
         window.open("https://billing-api.skyeng.ru/operations")
     })
+    document.getElementById('nachislyatorKC').addEventListener('click', function () {
+        window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")
+    })
+    document.getElementById('rassrochKC').addEventListener('click', function () {
+        window.open("https://accounting.skyeng.ru/credit/list")
+    })
+    document.getElementById('pondpisKC').addEventListener('click', function () {
+        window.open("https://billing-api.skyeng.ru/subscriptions")
+    })
+    document.getElementById('omniKC').addEventListener('click', function () {
+        window.open("https://skyeng.omnidesk.ru/")
+    })
+    document.getElementById('RKKC').addEventListener('click', function () {
+        window.open("https://group.skyeng.ru/admin/?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CClubMemberCrudController&signature=V8w5PW8LT3GcoYMoSYzprG1lCW8F5sb5y7Bdrxh08pc")
+    })
+    document.getElementById('shablKC').addEventListener('click', function () {
+        window.open("https://docs.google.com/spreadsheets/d/14paTabjaJcRIvlpTQzdGePltiN0bsPaFjFEbn4DD3Ho/edit#gid=410124091")
+    })
+    document.getElementById('narushKC').addEventListener('click', function () {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSeAxtdad9yc5iLo-7v4rqMj5M2wdaJKOpzy5X_eWkHqHWY9sg/viewform")
+    })
+    document.getElementById('grafKC').addEventListener('click', function () {
+        window.open("https://docs.google.com/spreadsheets/d/1SiD1yfpzIEF8ZafVXnq0Z-hyF0b45aAQ8s6BWgy-s0c/edit#gid=1933422994")
+    })
 }
 
 function include(url) {
