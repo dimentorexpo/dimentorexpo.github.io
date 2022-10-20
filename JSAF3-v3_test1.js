@@ -7741,9 +7741,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('hideMe').onclick = function () { // скрытие окна ссылок
-        if (document.getElementById('AF_Links').style.display == '')
-            document.getElementById('AF_Links').style.display = 'none'
+    if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv) {
+        document.getElementById('hideMe').onclick = function () { // скрытие окна ссылок
+            if (document.getElementById('AF_Links').style.display == '')
+                document.getElementById('AF_Links').style.display = 'none'
+        }
     }
 
     document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна доступов
@@ -12732,14 +12734,7 @@ function prepKC() { //функция подготовки расширения �
         document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
     else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
-    setTimeout(function () {
         let needtohide = document.getElementsByClassName('onlyfortp')
-        for (i=0; i<needtohide.length; i++){
-          needtohide[i].style.display = 'none'
-        }
-        document.getElementById('linksKC').style.display = ''
-    }, 1000)
-    let needtohide = document.getElementsByClassName('onlyfortp')
     for (i=0; i<needtohide.length; i++){
         needtohide[i].style.display = 'none'
     }
