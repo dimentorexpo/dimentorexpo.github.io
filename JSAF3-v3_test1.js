@@ -12732,6 +12732,13 @@ function prepKC() { //функция подготовки расширения �
         document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
     else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
+    setTimeout(function () {
+        let needtohide = document.getElementsByClassName('onlyfortp')
+        for (i=0; i<needtohide.length; i++){
+          needtohide[i].style.display = 'none'
+        }
+        document.getElementById('linksKC').style.display = ''
+    }, 1000)
     let needtohide = document.getElementsByClassName('onlyfortp')
     for (i=0; i<needtohide.length; i++){
         needtohide[i].style.display = 'none'
