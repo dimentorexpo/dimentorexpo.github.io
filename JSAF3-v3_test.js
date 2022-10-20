@@ -5903,8 +5903,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			await fetch("https://skyeng.autofaq.ai/api/conversations/" + uniqarr[uniqarr.length-1]).then(r=>r.json()).then(r=>datachat=r)
 			console.log(datachat)
 			sessid.push(datachat.sessionId)
-			sessid = Array.from(new Set(sessid))
-			console.log(sessid)
+			// sessid = Array.from(new Set(sessid))
+			// console.log(sessid)
 			
 			function sndmsgaftertime(session, hashchat) {
 				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
@@ -5927,7 +5927,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			function next() {
 				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
 				sessid.pop()
-				uniqar.pop()
+				uniqarr.pop()
 				if(uniqarr.length)
 					setTimeout (next, 1000)
 			}
