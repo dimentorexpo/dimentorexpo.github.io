@@ -1217,6 +1217,26 @@ var win_Marks =  // описание элементов окна оценок о
         </span>
 </div>`;
 
+var win_FrozeChat =  // описание формы чтобы не давала чату закрыться
+    `<div style="display: flex; width: 500px;">
+        <span style="width: 500px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 300px;" id="froze_chat_header">
+                                <button title="скрывает меню" id="hidefrozechat" style="width:50px; background: #228B22;">hide</button>
+								<button id="clearallchathash">🧹</button>
+                        </div>
+						<div>
+							<input id="chatfrozehash" placeholder="ID У/П для 🔎статистики оценок" title="Введите хеш чата без hdi или skyeng обычный хеш, которые хотите, чтобы не закрывался" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
+							<input id="frozetimer" value="10">
+							<button id="freezechat">❄</button>
+						</div>
+			    </span>
+                        <div style="margin: 5px; width: 500px" id="chats_hash_box">
+                                <p id="chathastable" style="max-height:400px; margin-left:5px; font-size:16px; color:bisque; overflow:auto;"></p>
+                        </div>
+        </span>
+</div>`;
+
 var win_Stat =  // описание элементов окна Статистики
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -1545,7 +1565,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="stcabmbsbtn widthofsd" value="978">Skyeng: Stories</button>
 					<button class="stcabmbsbtn widthofsd" value="959">МП Skysmart Parents</button>
 					<button class="stcabmbsbtn widthofsd" value="958">Подземный стук</button>
-					
+
 					<input id="customfield_102" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_103" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></textarea>
                     <textarea id="customfield_104" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield"></textarea>
@@ -1558,7 +1578,7 @@ var win_servicedesk = // описание элементов окна Service De
 				<div id="infraoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">Здесь можно получить помощь от команды Инфраструктуры</p>
 					<button class="infrabtn" id="askfordelacc">Запрос на удаление перс. данных</button>
-					
+
 					<input id="customfield_114" placeholder="ID в системе Auth"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_115" placeholder="Ссылка на запрос (об удалении данных)"  class="sdcustfieldformlines  removefield"></textarea>
 					<legend style="color:bisque" id="customfield_116-label">Нужен ли официальный ответ на запрос?</legend>
@@ -1584,7 +1604,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="teacbtn widthofsd" value="631">Виджет "Мои ученики"</button>
 					<button class="teacbtn widthofsd" value="530">Вопросы по ТРМ</button>
 					<button class="teacbtn widthofsd" value="531">Подземный стук</button>
-					
+
 					<input id="customfield_6" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_7" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_8" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1605,7 +1625,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="crm2sbtn widthofsd" value="678">Вопросы по разделу "Коммуникации"</button>
 					<button class="crm2sbtn widthofsd" value="669">Проблемы с ф-лом пула задач "список задач" сопровождение</button>
 					<button class="crm2sbtn widthofsd" value="668">Проблемы с функционалом пула задач "список задач" продажи</button>
-					
+
 					<input id="customfield_40" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_41" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_42" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1623,7 +1643,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="authbtn widthofsd" value="559">Удаление / добавление ролей Ученикам</button>
 					<button class="authbtn widthofsd" value="558">Проверка логов в ID</button>
 					<button class="authbtn widthofsd" value="561">Подземный стук</button>
-					
+
 					<input id="customfield_26" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_27" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_28" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1639,7 +1659,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="schdbtn widthofsd" value="563">Подтв в ЛКП перепод ВП</button>
 					<button class="schdbtn widthofsd" value="562">Почему нет задачи подбора?</button>
 					<button class="schdbtn widthofsd" value="567">Подземный стук</button>
-					
+
 					<input id="customfield_21" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_22" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_23" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1651,7 +1671,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#billing-qa-support; Канал для рассмотрения причины расхождений баланса учеников</p>
 					<button class="bilqabtn widthofsd" value="577">Вопросы по рассрочке ученика</button>
 					<button class="bilqabtn widthofsd" value="570">Проверка баланса У на расхождения</button>
-					
+
 					<input id="customfield_16" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_17" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_18" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1665,7 +1685,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="c1sbtn widthofsd" value="596">Не завершился онбординг после оплаты</button>
 					<button class="c1sbtn widthofsd" value="595">Циклические редиректы</button>
 					<button class="c1sbtn widthofsd" value="598">Подземный стук</button>
-					
+
 					<input id="customfield_11" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_12" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_13" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1694,7 +1714,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="billbtn widthofsd" value="650">Подписки</button>
 					<button class="billbtn widthofsd" value="647">Роли и доступы</button>
 					<button class="billbtn widthofsd" value="646">Бизнес-анализ</button>
-					
+
 					<input id="customfield_32" placeholder="ID пользователя" oninput="onlyNumber(this)" class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_34" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_35" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
@@ -1708,7 +1728,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="edumodbtn widthofsd" value="980">Персотреки и виджет прогресса</button>
 					<button class="edumodbtn widthofsd" value="981">Страница прогресса</button>
 					<button class="edumodbtn widthofsd" value="979">Обратная связь</button>
-					
+
 					<input id="customfield_97" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_98" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_99" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1729,7 +1749,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="vimbugsbtn widthofsd" value="932">Взрослый английский: Домашки, уроки, тесты</button>
 					<button class="vimbugsbtn widthofsd" value="931">Шоукейс взрослого П/взрослого У</button>
 					<button class="vimbugsbtn widthofsd" value="936">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
-					
+
 					<input id="customfield_50" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_52" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_53" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1740,7 +1760,7 @@ var win_servicedesk = // описание элементов окна Service De
 				<div id="vimvidoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#vim-video-call; Разработка модуля видеосвязи</p>
 					<button class="vimvidsbtn widthofsd" value="944">Обращение для QA</button>
-					
+
 					<input id="customfield_56" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_57" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_58" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1757,7 +1777,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="chatqabtn widthofsd" value="1046">Добавить чат между У и П</button>
 					<button class="chatqabtn widthofsd" value="1045">Удалить чат между У и П</button>
 					<button class="chatqabtn widthofsd" value="948">Подземный стук</button>
-					
+
 					<input id="customfield_66" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_67" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_68" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1772,7 +1792,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="tripwbtn widthofsd" value="985">Talks</button>
 					<button class="tripwbtn widthofsd" value="988">Simulator + Avokado</button>
 					<button class="tripwbtn widthofsd" value="949">Обращение для QA</button>
-					
+
 					<input id="customfield_71" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_72" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_73" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1783,7 +1803,7 @@ var win_servicedesk = // описание элементов окна Service De
 				<div id="analystoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#analysts-gm-tl; канал аналитиков teachers продукта</p>
 					<button class="analystbtn widthofsd" value="947">Обращение для QA</button>
-					
+
 					<input id="customfield_76" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_77" placeholder="Описание проблемы" class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_78" placeholder="Как воспроизвести ошибку?" class="sdcustfieldformlines removefield"></textarea>
@@ -1794,7 +1814,7 @@ var win_servicedesk = // описание элементов окна Service De
 				<div id="corpoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#corp-support; Канал поддержки по вопросам корпоративных клиентов: ЛККК (не ЛКУ), начислялка, self-study, карточка компании.</p>
 					<button class="corpbtn widthofsd" value="950">Обращение для QA</button>
-					
+
 					<input id="customfield_81" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_82" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_83" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -1805,7 +1825,7 @@ var win_servicedesk = // описание элементов окна Service De
 				<div id="marketprojbugsptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#marketing-projects-bugs; Канал для обращений от ТП, связанных с багами на лендингах Тильды и проектами маркетинга</p>
 					<button class="marketprojbugsbtn widthofsd" value="952">Обращение для QA</button>
-					
+
 					<input id="customfield_109" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines  removefield"></input>
 					<textarea id="customfield_110" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_111" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines  removefield"></textarea>
@@ -1827,7 +1847,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="mobbugsbtn widthofsd" value="1022">Skyeng МП: локализация(язык приложения, контента)</button>
 					<button class="mobbugsbtn widthofsd" value="1021">Skyeng МП: видеосвязь(необразовательная часть)</button>
 					<button class="mobbugsbtn widthofsd" value="1020">Teachers МП</button>
-					
+
 					<select style="height:28px;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="1">Blocker</option>
@@ -1857,7 +1877,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="academymobbugsbtn widthofsd" value="1014">МП Skyeng: Словарь</button>
 					<button class="academymobbugsbtn widthofsd" value="1013">МП Skyeng: уроки - образовательная часть</button>
 					<button class="academymobbugsbtn widthofsd" value="1012">МП Skyeng: Домашки</button>
-					
+
 					<select style="height:28px;" id="academyprioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="1">Blocker</option>
@@ -1891,7 +1911,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="studcabbtn widthofsd" value="966">Меню навигации (лейаут) </button>
 					<button class="studcabbtn widthofsd" value="967">Страница шоукейса (подключение услуг)</button>
 					<button class="studcabbtn widthofsd" value="946">Подземный стук</button>
-					
+
 					<input id="customfield_61" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_62" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
 					<textarea id="customfield_63" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
@@ -2032,6 +2052,11 @@ if (localStorage.getItem('winTopSugest') == null) { //начальное пол�
     localStorage.setItem('winLeftSugest', '295');
 }
 
+if (localStorage.getItem('winTopFrozeChat') == null) { //начальное положение окна заморозки чатов
+    localStorage.setItem('winTopFrozeChat', '120');
+    localStorage.setItem('winLeftFrozeChat', '295');
+}
+
 if (localStorage.getItem('winTopRefuseNew') == null) { //начальное положение окна Отказ от помощи
     localStorage.setItem('winTopRefuseNew', '295');
     localStorage.setItem('winLeftRefuseNew', '295');
@@ -2131,35 +2156,21 @@ butteachid.style.borderRadius = "10px";
 let butstdid = document.createElement('button');
 butstdid.id = 'studentidtofield';
 butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
-butstdid.style.width = "150px";
-butstdid.style.cursor = "pointer";
-butstdid.style.marginLeft = "2px";
-butstdid.style.border = "1px solid black";
-butstdid.style.borderRadius = "10px";
+butstdid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
 
 let butteachidfstd = document.createElement('button');
 butteachidfstd.id = 'teacheridfromstudent';
 butteachidfstd.innerHTML = "👽 (ID П) У обратился";
-butteachidfstd.style.width = "150px";
-butteachidfstd.style.cursor = "pointer";
-butteachidfstd.style.marginLeft = "2px";
-butteachidfstd.style.border = "1px solid black";
-butteachidfstd.style.borderRadius = "10px";
+butteachidfstd.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
 
 let buttonservid = document.createElement('button');
 buttonservid.id = 'servidstudento';
 buttonservid.innerHTML = "ID услуги У (крит)";
-buttonservid.style.width = "150px";
-buttonservid.style.cursor = "pointer";
-buttonservid.style.marginLeft = "2px";
-buttonservid.style.border = "1px solid black";
-buttonservid.style.borderRadius = "10px";
-buttonservid.style.marginTop = "5px";
+buttonservid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
-
 
 function changesoundaddr() {
     let objSoundList = document.getElementById('soundlistaddr')
@@ -2326,16 +2337,12 @@ marksstata.onclick = async function () { //проверка статистики
                     "accept": "*/*",
                     "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
                     "content-type": "application/json",
-                    "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": "\"Windows\"",
-                    "sec-fetch-dest": "empty",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-site": "same-origin"
                 },
                 "referrer": "https://skyeng.autofaq.ai/tickets/archive",
                 "referrerPolicy": "strict-origin-when-cross-origin",
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempval + "\",\"tsFrom\":\"2022-01-01T00:00:00.000Z\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempval + "\",\"tsFrom\":\"2022-05-01T00:00:00.000Z\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
                 "method": "POST",
                 "mode": "cors",
                 "credentials": "include"
@@ -2407,52 +2414,52 @@ buttonnextteacherid.onclick = function () { //искать историю чат
 }
 
 trshotmain.onclick = function () {
-	let curtime = new Date();
-	let mesjac;
-	let denj;
-	
-	if (curtime.getDate() < 10) {
-		denj = "0" + curtime.getDate();
-	} else {
-		denj = curtime.getDate();
-	}
-	if (curtime.getMonth() + 1 < 10) {
-		mesjac = "0" + (curtime.getMonth() + 1);
-	} else {
-		mesjac = curtime.getMonth() + 1;
-	}
-	
+    let curtime = new Date();
+    let mesjac;
+    let denj;
+
+    if (curtime.getDate() < 10) {
+        denj = "0" + curtime.getDate();
+    } else {
+        denj = curtime.getDate();
+    }
+    if (curtime.getMonth() + 1 < 10) {
+        mesjac = "0" + (curtime.getMonth() + 1);
+    } else {
+        mesjac = curtime.getMonth() + 1;
+    }
+
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
             window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
-			'&from='+curtime.getFullYear() + '-' + mesjac + '-' + (denj-1 < 10 ? "0" + (denj-1) : denj) + 'T00:00:00&to='+curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 < 10 ? "0" + (denj - 1) : denj) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
         }
     }
 }
 
 trshootnextuser.onclick = function () {
-	let curtime = new Date();
-	let mesjac;
-	let denj;
-	
-	if (curtime.getDate() < 10) {
-		denj = "0" + curtime.getDate();
-	} else {
-		denj = curtime.getDate();
-	}
-	if (curtime.getMonth() + 1 < 10) {
-		mesjac = "0" + (curtime.getMonth() + 1);
-	} else {
-		mesjac = curtime.getMonth() + 1;
-	}
-	
+    let curtime = new Date();
+    let mesjac;
+    let denj;
+
+    if (curtime.getDate() < 10) {
+        denj = "0" + curtime.getDate();
+    } else {
+        denj = curtime.getDate();
+    }
+    if (curtime.getMonth() + 1 < 10) {
+        mesjac = "0" + (curtime.getMonth() + 1);
+    } else {
+        mesjac = curtime.getMonth() + 1;
+    }
+
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]+
-			'&from='+curtime.getFullYear() + '-' + mesjac + '-' + (denj-1 < 10 ? "0" + (denj-1) : denj) + 'T00:00:00&to='+curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 < 10 ? "0" + (denj - 1) : denj) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
         } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]+
-			'&from='+curtime.getFullYear() + '-' + mesjac + '-' + (denj-1 < 10 ? "0" + (denj-1) : denj) + 'T00:00:00&to='+curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 < 10 ? "0" + (denj - 1) : denj) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
         }
     }
 }
@@ -2555,7 +2562,7 @@ let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
 taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
-taskBut.classList.add('ant-btn','onlyfortp');
+taskBut.classList.add('ant-btn', 'onlyfortp');
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
@@ -2609,7 +2616,7 @@ let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn','onlyfortp')
+butThemes.classList.add('ant-btn', 'onlyfortp')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
@@ -3122,12 +3129,19 @@ wintChatHis.style.display = 'none';
 wintChatHis.setAttribute('id', 'AF_ChatHis');
 wintChatHis.innerHTML = win_Chathis;
 
-let wintCreateTask = document.createElement('div'); // создание окна ссылок
+let wintCreateTask = document.createElement('div'); // создание окна создания задачи через интеграцию в АФ
 document.body.append(wintCreateTask);
 wintCreateTask.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopTaskCreate') + 'px; left: ' + localStorage.getItem('winLeftTaskCreate') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintCreateTask.style.display = 'none';
 wintCreateTask.setAttribute('id', 'AF_Createtask');
 wintCreateTask.innerHTML = win_taskform;
+
+let wintFrozeChat = document.createElement('div'); // создание окна для заморозки чата
+document.body.append(wintFrozeChat);
+wintFrozeChat.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopFrozeChat') + 'px; left: ' + localStorage.getItem('winLeftFrozeChat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintFrozeChat.style.display = 'none';
+wintFrozeChat.setAttribute('id', 'AF_FrozeChat');
+wintFrozeChat.innerHTML = win_FrozeChat;
 
 var listenerLinks = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
@@ -3355,7 +3369,6 @@ wintCreateTask.onmousedown = function (a) {
 }
 wintCreateTask.onmouseup = function () { document.removeEventListener('mousemove', listenerTaskCreate); }
 
-
 var listenerThemes = function (e, a) { // сохранение позиции окна Тематик
     wintThemes.style.left = Number(e.clientX - myX18) + "px";
     wintThemes.style.top = Number(e.clientY - myY18) + "px";
@@ -3387,6 +3400,23 @@ wintSmartroom.onmousedown = function (a) { // изменение позиции 
     }
 }
 wintSmartroom.onmouseup = function () { document.removeEventListener('mousemove', listenerSmartroom); } // прекращение изменения позиции окна Мультирум пожелания/баги
+
+var listenerFrozeChat = function (e, a) { // сохранение позиции окна заморозки
+    wintFrozeChat.style.left = Number(e.clientX - myX20) + "px";
+    wintFrozeChat.style.top = Number(e.clientY - myY20) + "px";
+    localStorage.setItem('winTopFrozeChat', String(Number(e.clientY - myY20)));
+    localStorage.setItem('winLeftFrozeChat', String(Number(e.clientX - myX20)));
+};
+
+wintFrozeChat.onmousedown = function (a) {
+    if (checkelementtype(a)) {
+        window.myX20 = a.layerX;
+        window.myY20 = a.layerY;
+        document.addEventListener('mousemove', listenerFrozeChat);
+    }
+}
+wintFrozeChat.onmouseup = function () { document.removeEventListener('mousemove', listenerFrozeChat); }
+
 
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
@@ -4551,7 +4581,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let countryofuser;
     let ageofuser;
 
-    function getusernamecrm() { //получить имя пользователя из СРМ		
+    function getusernamecrm() { //получить имя пользователя из СРМ
         let filteredid = document.getElementById('idstudent').value;
         filteredid = filteredid.trim();
         document.getElementById('responseTextarea1').value = `{}`
@@ -4579,12 +4609,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     flagusertype = 'teacher'
                 }
 
-				let curdate = new Date();
-				let curhours = (curdate.getUTCHours() + 3);
-				let curminutes = curdate.getMinutes();
-				if (curminutes < 10) {
-					curminutes = "0" + curminutes;
-				}
+                let curdate = new Date();
+                let curhours = (curdate.getUTCHours() + 3);
+                let curminutes = curdate.getMinutes();
+                if (curminutes < 10) {
+                    curminutes = "0" + curminutes;
+                }
                 utczone = studentname.data.utcOffset;
                 if ((curhours + (utczone - 3)) < 24 && (curhours + (utczone - 3)) >= 10) {
                     localtime = (curhours + (utczone - 3)) + ":" + curminutes;
@@ -4768,9 +4798,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         let polzid = document.getElementById('idstudent').value.trim();
         startnewchat(polzid)
     }
-	
-	function getuserinfo() {
-		        // document.getElementById('servicetable').innerHTML = "";
+
+    function getuserinfo() {
+        // document.getElementById('servicetable').innerHTML = "";
         document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
         document.querySelector('#useravatar').src = "";
         if (document.querySelector('#useravatar').style.display != "none")
@@ -5050,15 +5080,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             setTimeout(getServInfo, 1200)
 
         }, 720)
-	}
+    }
 
     document.getElementById('getidstudent').onclick = function () { // нажатие на ракету
-		getuserinfo()
-		setTimeout( function() {
-			if (document.getElementById('servicetable').innerHTML == "Загрузка информации о пользователе") {
-				getuserinfo()
-			}
-		}, 5000)
+        getuserinfo()
+        setTimeout(function () {
+            if (document.getElementById('servicetable').innerHTML == "Загрузка информации о пользователе") {
+                getuserinfo()
+            }
+        }, 5000)
     }
 
     document.getElementById('CrmStatus').onclick = crmstatus;
@@ -5154,11 +5184,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('pages').style.background = 'red'
         document.getElementById('pages').title = 'Включены резервные шаблоны, если в АФ нет сбоя в работе Баз знаний - переключи на обычные шаблоны'
         languageAF.addEventListener('click', function () {
-            if(document.getElementById('pages').style.background != 'red'){
+            if (document.getElementById('pages').style.background != 'red') {
                 document.getElementById('pages').style.background = 'red'
             }
         })
-    }    
+    }
 
     document.getElementById('suggestinstr').onclick = function () {
         window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-suggestionform%F0%9F%93%9D%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F')
@@ -5220,7 +5250,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     document.getElementById('ServiceDeskinstr').onclick = function () {
         window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-ServiceDesk')
     }
-	
+
     document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
         if (document.getElementById('AF_ServDsk').style.display == '') {
             $('.sdbtn').click(function () {
@@ -5284,52 +5314,52 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                 remres(this)
             });
 
-            $('.vimbugsbtn').click(function () {  
+            $('.vimbugsbtn').click(function () {
                 remres(this)
             });
 
-            $('.vimvidsbtn').click(function () {  
+            $('.vimvidsbtn').click(function () {
                 remres(this)
             });
 
-            $('.studcabbtn').click(function () {  
+            $('.studcabbtn').click(function () {
                 remres(this)
             });
 
-            $('.chatqabtn').click(function () {  
+            $('.chatqabtn').click(function () {
                 remres(this)
             });
 
-            $('.tripwbtn').click(function () {  
+            $('.tripwbtn').click(function () {
                 remres(this)
             });
 
-            $('.analystbtn').click(function () {  
+            $('.analystbtn').click(function () {
                 remres(this)
             });
 
-            $('.corpbtn').click(function () {  
+            $('.corpbtn').click(function () {
                 remres(this)
             });
 
-            $('.mobbugsbtn').click(function () {  
+            $('.mobbugsbtn').click(function () {
                 remres(this)
             });
 
-            $('.academymobbugsbtn').click(function () {  
+            $('.academymobbugsbtn').click(function () {
                 remres(this)
             });
 
-            $('.stcabmbsbtn').click(function () {  
+            $('.stcabmbsbtn').click(function () {
                 remres(this)
             });
 
-            $('.marketprojbugsbtn').click(function () {  
+            $('.marketprojbugsbtn').click(function () {
                 remres(this)
 
             });
 
-            $('.infrabtn').click(function () {  
+            $('.infrabtn').click(function () {
                 remres(this)
 
             });
@@ -5829,13 +5859,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
 
-        if (document.getElementById('AF_LessonStatus').style.display == ''){
+        if (document.getElementById('AF_LessonStatus').style.display == '') {
             document.getElementById('AF_LessonStatus').style.display = 'none'
             document.getElementById('idmymenu').style.display = 'none'
-        }else {
+        } else {
             document.getElementById('AF_LessonStatus').style.display = ''
             document.getElementById('idmymenu').style.display = 'none'
-        }       
+        }
     }
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
@@ -6415,7 +6445,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('suggestform').onclick = () => { // открыть форму для предложения и пожеланий
-        if (document.getElementById('AF_Sugform').style.display == ''){
+        if (document.getElementById('AF_Sugform').style.display == '') {
             document.getElementById('AF_Sugform').style.display = 'none'
             document.getElementById('idmymenu').style.display = 'none'
         } else {
@@ -7108,7 +7138,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('smartroomform').onclick = function () {
-        if (document.getElementById('AF_Smartroomform').style.display == ''){
+        if (document.getElementById('AF_Smartroomform').style.display == '') {
             document.getElementById('AF_Smartroomform').style.display = 'none'
             document.getElementById('idmymenu').style.display = 'none'
         } else {
@@ -7234,7 +7264,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('clientid').value = ''
                         document.getElementById('fullcomentsmartroom').value = ''
                         clearradio()
-						sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
+                        sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
 
                     } else if (alloptions[i].checked && alloptions[i].value == 'Другое') {
                         let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value) + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156.other_option_response=' + encodeURIComponent(document.getElementById('otheroptionsmartchecked').value) + '&entry.1552539156=__other_option__'
@@ -7258,8 +7288,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         document.getElementById('fullcomentsmartroom').value = ''
                         clearradio()
                         document.getElementById('otheroptionsmartchecked').value = ''
-						
-						sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
+
+                        sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
                     }
                 }
             }
@@ -7308,7 +7338,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('otkaz').onclick = () => { // открыть форму Отказ от помощи
-        if (document.getElementById('AF_Refuseformnew').style.display == ''){
+        if (document.getElementById('AF_Refuseformnew').style.display == '') {
             document.getElementById('AF_Refuseformnew').style.display = 'none'
             document.getElementById('idmymenu').style.display = 'none'
         } else {
@@ -7614,7 +7644,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
-        if (document.getElementById('AF_Marks').style.display == ''){
+        if (document.getElementById('AF_Marks').style.display == '') {
             document.getElementById('AF_Marks').style.display = 'none'
             document.getElementById('idmymenu').style.display = 'none'
         } else {
@@ -9094,38 +9124,38 @@ function startTimer() {
     }
 
     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
-		if(document.getElementsByClassName('expert-user_details-list').length != 0) {
-			for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-					btn.appendChild(infouserbut)
-					btn.appendChild(buttonservstud)
-					btn.appendChild(buttonhistory)
-					btn.appendChild(marksstata)
-					btn.appendChild(trshotmain)
-					if (typeof buttonmobpas == 'object')
-						btn.appendChild(buttonmobpas)
-				}
+        if (document.getElementsByClassName('expert-user_details-list').length != 0) {
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                    btn.appendChild(infouserbut)
+                    btn.appendChild(buttonservstud)
+                    btn.appendChild(buttonhistory)
+                    btn.appendChild(marksstata)
+                    btn.appendChild(trshotmain)
+                    if (typeof buttonmobpas == 'object')
+                        btn.appendChild(buttonmobpas)
+                }
 
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-					btn.appendChild(nextstuduserbut)
-					btn.appendChild(buttonserv)
-					btn.appendChild(buttonnextstudentid)
-					btn.appendChild(trshootnextuser)
-				}
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                    btn.appendChild(nextstuduserbut)
+                    btn.appendChild(buttonserv)
+                    btn.appendChild(buttonnextstudentid)
+                    btn.appendChild(trshootnextuser)
+                }
 
-				if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-					btn.appendChild(nextteachuserbut)
-					btn.appendChild(buttonservteach)
-					btn.appendChild(buttonnextteacherid)
-					btn.appendChild(trshootnextuser)
-				}
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                    btn.appendChild(nextteachuserbut)
+                    btn.appendChild(buttonservteach)
+                    btn.appendChild(buttonnextteacherid)
+                    btn.appendChild(trshootnextuser)
+                }
 
-			}
-		}
-		
+            }
+        }
+
         if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
             if (document.getElementsByClassName('expert-user_details-list')[1].children[0] != undefined) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].children[0].classList != "") {
@@ -9281,15 +9311,15 @@ function startTimer() {
         btn6.id = 'servis'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
         btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Серверные</a>';
-        btn6.setAttribute('onClick', 'newTaggg("server_issues");')  
+        btn6.setAttribute('onClick', 'newTaggg("server_issues");')
 
-		let btn7 = document.createElement('span');
+        let btn7 = document.createElement('span');
         btn7.id = 'untargeted'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
         btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
-        btn7.setAttribute('onClick', 'newTaggg("untargeted");')	
+        btn7.setAttribute('onClick', 'newTaggg("untargeted");')
 
-		let btn8 = document.createElement('span');
+        let btn8 = document.createElement('span');
         btn8.id = 'ochered'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
         btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
@@ -9884,7 +9914,7 @@ async function findchatsoper() { // ищет активные чаты на вы
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) &&document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
@@ -12709,7 +12739,7 @@ function prepKC() { //функция подготовки расширения �
     else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
     let needtohide = document.getElementsByClassName('onlyfortp')
-    for (i=0; i<needtohide.length; i++){
+    for (i = 0; i < needtohide.length; i++) {
         needtohide[i].style.display = 'none'
     }
 
@@ -12920,16 +12950,16 @@ function ShowMustGoOn() {
 }
 
 function WeAreTheChempions() {
-	localStorage.setItem('scriptAdr', TP_addr)
-	location.reload()
+    localStorage.setItem('scriptAdr', TP_addr)
+    location.reload()
 }
 
-function AFthePieceofShit(){
+function AFthePieceofShit() {
     localStorage.setItem('scriptAdr', TP_addrRzrv)
-	location.reload()
+    location.reload()
 }
 
-function AFthePieceofShitKC(){
+function AFthePieceofShitKC() {
     localStorage.setItem('scriptAdr', KC_addrRzrv)
-	location.reload()
+    location.reload()
 }
