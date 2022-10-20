@@ -2582,7 +2582,7 @@ butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butChatHistory.classList.add('onlyfortp');
 
 let butFrozeChat = document.createElement('div')
-butFrozeChat.id = "butChatFroze"
+butFrozeChat.id = "butFrozeChat"
 butFrozeChat.innerHTML = "❄ Froze Chat"
 butFrozeChat.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butFrozeChat.classList.add('onlyfortp');
