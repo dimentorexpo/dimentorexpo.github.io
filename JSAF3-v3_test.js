@@ -5924,9 +5924,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
-			setTimeout( function() {
+			function next() {
 				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-			} , 20000)
+				sessid.pop()
+				uniqar.pop()
+				if(uniqarr.length)
+					setTimeout (next, 1000)
+			}
+			
+			setTimeout(next, 20 * 1000)
+			
+			// setTimeout( function() {
+				// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+			// } , 20 * 1000)
 		}
 		
 		document.getElementById('clearallchathash').onclick = function() {
