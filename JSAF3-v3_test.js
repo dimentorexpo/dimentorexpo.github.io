@@ -5943,9 +5943,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
-			let uniqarr[uniqarr.length-1] = setTimeout ( function() {
-				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-			}, 20 * 1000)
+			if (uniqarr.length == 1) {
+				setTimeout ( function() {
+					sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+				}, 20 * 1000)
+			} else if (uniqarr.length > 1) {
+				console.log('2+ chata')
+			}
+
 			
 			// let timer=[]; // выполняются оба одновременно надо как то разделять, нажал на один на него повесился таймер, нажал через пару мин на другой на него повесился , а на старый не обновился повторно
 			// for (let j=uniqarr.length-1; j>=0; j--) {
