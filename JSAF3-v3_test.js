@@ -5895,7 +5895,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу
+			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
 				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
 					
 					fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
@@ -5913,6 +5913,25 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
+			// function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу , ее потом включить сейчас для теста использую заметки
+				  // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
+
+                    // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        // "headers": {
+                            // "accept": "*/*",
+                            // "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            // "sec-fetch-mode": "cors",
+                            // "sec-fetch-site": "same-origin"
+                        // },
+                        // "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        // "method": "POST",
+                        // "mode": "cors",
+                        // "credentials": "include"
+                    // });
+			// }
+			
+			
 			hashcht = document.getElementById('chatfrozehash').value.trim()
 			
 			chathasharr.push(document.getElementById('chatfrozehash').value.trim())
@@ -5921,10 +5940,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
 				return datachat.sessionId
 			}
-			
-			// await fetch("https://skyeng.autofaq.ai/api/conversations/" + hashcht).then(r=>r.json()).then(r=>datachat=r)
-			// console.log(datachat.sessionId)
-			// sessid.push(datachat.sessionId)
 
 			document.getElementById('chatfrozehash').value = ''
 			document.getElementById('chathastable').innerHTML  = ''
@@ -5947,70 +5962,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					}				
 				}
 				
-				// console.log(sessid)
 				console.log(uniqarr)
-
-
-			 // sessid = Array.from(new Set(sessid))
-			// console.log(sessid)
-			
-			// function sndmsgaftertime(session, hashchat) {
-				  // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
-
-                    // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                        // "headers": {
-                            // "accept": "*/*",
-                            // "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
-                            // "sec-fetch-mode": "cors",
-                            // "sec-fetch-site": "same-origin"
-                        // },
-                        // "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
-                        // "method": "POST",
-                        // "mode": "cors",
-                        // "credentials": "include"
-                    // });
-			// }
-								
-			// let timer_one_chat;
-			
-			// if (uniqarr.length == 1) {
-				// timer_one_chat = setTimeout ( function() {
-					// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-				// }, 20 * 1000)
-			// } else if (uniqarr.length > 1) {
-				// if (timer_one_chat != undefined) {
-					// console.log('odin taimer uge est aktivniy')
-				// } else {
-					// console.log('2+ chata')
-				// }
-			// }
-
-			
-			// let timer=[]; // выполняются оба одновременно надо как то разделять, нажал на один на него повесился таймер, нажал через пару мин на другой на него повесился , а на старый не обновился повторно
-			// for (let j=uniqarr.length-1; j>=0; j--) {
-				// timer[j] = setTimeout( function() {
-				 // sndmsgaftertime(sessid[j], uniqarr[j])
-				 // clearTimeout(timer[j])
-			 // } , 20 * 1000)
-			 // console.log(timer[j] + ' ' + uniqarr[j] + ' ' + sessid[j])
-			// }
-						
-			// function next() {
-				// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-				// sessid.pop()
-				// uniqarr.pop()
-				// console.log(uniqarr)
-				// console.log(sessid)
-				// if(uniqarr.length)
-					// setTimeout (next, 1000)
-			// }
-			
-			// setTimeout(next, 20 * 1000)
-			
-			// setTimeout( function() {
-				// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-			// } , 20 * 1000)
 		}
 		
 		document.getElementById('clearallchathash').onclick = function() {
