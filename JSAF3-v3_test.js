@@ -5934,17 +5934,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							sndmsgaftertime(sessid[i], uniqarr[i])
 							flagtimer.push(0);
 						} , 20 * 1000) 
-					}
+					}				
 				}
 			console.log(uniqarr)
-			
-			timerId[counter] = setTimeout( function () {
-				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-				clearTimeout(timerId[counter])
-				counter--;
-			} , 20 * 1000) 
-			counter++;
-
 
 			 // sessid = Array.from(new Set(sessid))
 			// console.log(sessid)
