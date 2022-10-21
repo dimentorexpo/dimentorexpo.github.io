@@ -5884,6 +5884,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let chathasharr = [];
 		let sessid = [];
 		let timeoutsarr = []
+		let flagtimeout = 0;
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') 
 			document.getElementById('AF_FrozeChat').style.display = ''
 		else document.getElementById('AF_FrozeChat').style.display = 'none'
@@ -5903,7 +5904,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 			}
 			console.log(uniqarr)
-			
 			console.log(timeoutsarr)
 
 			await fetch("https://skyeng.autofaq.ai/api/conversations/" + uniqarr[uniqarr.length-1]).then(r=>r.json()).then(r=>datachat=r)
@@ -5948,19 +5948,31 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
-			let timer_one_chat;
-			
-			if (uniqarr.length == 1) {
-				timer_one_chat = setTimeout ( function() {
-					sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
-				}, 20 * 1000)
-			} else if (uniqarr.length > 1) {
-				if (timer_one_chat != undefined) {
-					console.log('odin taimer uge est aktivniy')
-				} else {
-					console.log('2+ chata')
+			setInterval( function() {
+				
+			for(let i=0; i< timeoutsarr.length;i++) {
+				if (timeoutsarr[i] + (20 * 1000) == Date.now() ) {
+					sndmsgaftertime(sessid[i], uniqarr[i])
 				}
 			}
+				
+			},  1000) 
+			
+
+			
+			// let timer_one_chat;
+			
+			// if (uniqarr.length == 1) {
+				// timer_one_chat = setTimeout ( function() {
+					// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+				// }, 20 * 1000)
+			// } else if (uniqarr.length > 1) {
+				// if (timer_one_chat != undefined) {
+					// console.log('odin taimer uge est aktivniy')
+				// } else {
+					// console.log('2+ chata')
+				// }
+			// }
 
 			
 			// let timer=[]; // выполняются оба одновременно надо как то разделять, нажал на один на него повесился таймер, нажал через пару мин на другой на него повесился , а на старый не обновился повторно
