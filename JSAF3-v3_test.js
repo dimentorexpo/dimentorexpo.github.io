@@ -5933,6 +5933,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			timerId[counter] = setTimeout( function () {
 				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+				clearTimeout(timerId[counter])
+				counter--;
 			} , 20 * 1000) 
 			counter++;
 
