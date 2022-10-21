@@ -5944,8 +5944,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					}				
 				}
 			console.log(uniqarr)
-			console.log(sessid)
 			sessid = [];
+			console.log(sessid)
 
 			 // sessid = Array.from(new Set(sessid))
 			// console.log(sessid)
