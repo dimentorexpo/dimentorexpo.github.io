@@ -5912,7 +5912,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
-			hashcht = document.getElementById('chatfrozehash').value)
+			hashcht = document.getElementById('chatfrozehash').value
 			
 			chathasharr.push(document.getElementById('chatfrozehash').value)
 			
