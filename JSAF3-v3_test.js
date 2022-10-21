@@ -5917,9 +5917,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			chathasharr.push(document.getElementById('chatfrozehash').value.trim())
 			
-			await fetch("https://skyeng.autofaq.ai/api/conversations/" + hashcht).then(r=>r.json()).then(r=>datachat=r)
-			console.log(datachat.sessionId)
-			sessid.push(datachat.sessionId)
+			async function getsesid(arg) {
+				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
+				return datachat.sessionId
+			}
+			
+			// await fetch("https://skyeng.autofaq.ai/api/conversations/" + hashcht).then(r=>r.json()).then(r=>datachat=r)
+			// console.log(datachat.sessionId)
+			// sessid.push(datachat.sessionId)
 
 			document.getElementById('chatfrozehash').value = ''
 			document.getElementById('chathastable').innerHTML  = ''
@@ -5929,10 +5934,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 					if (flagtimer[i] != 0) {
 						flagtimer[i] = 0
-						setTimeout( function () {
-							sndmsgaftertime(sessid[i], uniqarr[i])
+						setTimeout(async function () {
+							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
 							chathasharr.shift()
-							sessid.pop();
 							flagtimer[i] = 1;
 							console.log(flagtimer)
 							document.getElementById('chathastable').innerHTML  = ''
