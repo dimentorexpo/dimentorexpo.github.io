@@ -5934,6 +5934,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						setTimeout( function () {
 							sndmsgaftertime(sessid[i], uniqarr[i])
 							chathasharr.shift()
+							sessid.shift()
 							flagtimer[i] = 1;
 							console.log(flagtimer)
 							document.getElementById('chathastable').innerHTML  = ''
