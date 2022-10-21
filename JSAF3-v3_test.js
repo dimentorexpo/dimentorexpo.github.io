@@ -5884,6 +5884,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let chathasharr = [];
 		let sessid = [];
 		let hashcht;
+		let timerId = [];
+		let counter = 0;
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') 
 			document.getElementById('AF_FrozeChat').style.display = ''
 		else document.getElementById('AF_FrozeChat').style.display = 'none'
@@ -5894,7 +5896,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function sndmsgaftertime(session, hashchat) {
+			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу
 				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
 					
 					fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
@@ -5928,9 +5930,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 			console.log(uniqarr)
 			
-			setTimeout( function () {
+			timerId[counter] = setTimeout( function () {
 				sndmsgaftertime(datachat.sessionId, hashcht)
 			} , 20 * 1000) 
+			counter++;
 
 
 			 // sessid = Array.from(new Set(sessid))
