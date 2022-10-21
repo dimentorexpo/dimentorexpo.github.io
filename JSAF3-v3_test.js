@@ -5907,25 +5907,48 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			 // sessid = Array.from(new Set(sessid))
 			// console.log(sessid)
 			
+			// function sndmsgaftertime(session, hashchat) {
+				  // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
+
+                    // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        // "headers": {
+                            // "accept": "*/*",
+                            // "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            // "sec-fetch-mode": "cors",
+                            // "sec-fetch-site": "same-origin"
+                        // },
+                        // "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        // "method": "POST",
+                        // "mode": "cors",
+                        // "credentials": "include"
+                    // });
+			// }
+			
 			function sndmsgaftertime(session, hashchat) {
 				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
-
-                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+					
+					fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                         "headers": {
                             "accept": "*/*",
                             "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
                             "sec-fetch-mode": "cors",
                             "sec-fetch-site": "same-origin"
                         },
-                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
                         "method": "POST",
                         "mode": "cors",
                         "credentials": "include"
                     });
 			}
-			let timer=[];
-			for (let j=uniqarr.length; j>0; j--) {
+			
+			
+			
+			
+			
+			let timer=[]; // выполняются оба одновременно надо как то разделять, нажал на один на него повесился таймер, нажал через пару мин на другой на него повесился , а на старый не обновился повторно
+			for (let j=uniqarr.length-1; j>=0; j--) {
 				timer[j] = setTimeout( function() {
 				 sndmsgaftertime(sessid[j], uniqarr[j])
 				 clearTimeout(timer[j])
