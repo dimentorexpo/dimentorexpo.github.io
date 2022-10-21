@@ -5883,8 +5883,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let uniqarr = [];
 		let chathasharr = [];
 		let sessid = [];
-		let timeoutsarr = []
-		let flagtimeout = 0;
+		let hashcht;
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') 
 			document.getElementById('AF_FrozeChat').style.display = ''
 		else document.getElementById('AF_FrozeChat').style.display = 'none'
@@ -5894,8 +5893,32 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		}
 		
 		document.getElementById('freezechat').onclick = async function() {
+			
+			function sndmsgaftertime(session, hashchat) {
+				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
+					
+					fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+			}
+			
+			hashcht = document.getElementById('chatfrozehash').value)
+			
 			chathasharr.push(document.getElementById('chatfrozehash').value)
-			timeoutsarr.push(Date.now())
+			
+			await fetch("https://skyeng.autofaq.ai/api/conversations/" + hashcht).then(r=>r.json()).then(r=>datachat=r)
+			console.log(datachat.sessionId)
+
 			document.getElementById('chatfrozehash').value = ''
 			document.getElementById('chathastable').innerHTML  = ''
 			uniqarr = new Set(chathasharr)
@@ -5904,11 +5927,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 			}
 			console.log(uniqarr)
-			console.log(timeoutsarr)
+			
+			setTimeout( function () {
+				sndmsgaftertime(datachat.sessionId, hashcht)
+			} , 20 * 1000) 
 
-			await fetch("https://skyeng.autofaq.ai/api/conversations/" + uniqarr[uniqarr.length-1]).then(r=>r.json()).then(r=>datachat=r)
-			console.log(datachat)
-			sessid.push(datachat.sessionId)
+
 			 // sessid = Array.from(new Set(sessid))
 			// console.log(sessid)
 			
@@ -5929,38 +5953,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                         // "credentials": "include"
                     // });
 			// }
-			
-			function sndmsgaftertime(session, hashchat) {
-				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
-					
-					fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                        "headers": {
-                            "accept": "*/*",
-                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-origin"
-                        },
-                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-			}
-			
-			setInterval( function() {
-				
-			for(let i=0; i< timeoutsarr.length;i++) {
-				if (timeoutsarr[i] + (20 * 1000) == Date.now() ) {
-					sndmsgaftertime(sessid[i], uniqarr[i])
-					console.log('Worked for item ' + sessid[i] + ' ' + uniqarr[i])
-				}
-			}
-				
-			},  1000) 
-			
-
-			
+								
 			// let timer_one_chat;
 			
 			// if (uniqarr.length == 1) {
@@ -6006,8 +5999,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			document.getElementById('chathastable').innerHTML = '';
 			uniqarr = [];
 			chathasharr = [];
-			sessid = [];
-			timeoutsarr = [];
 		}
 	}
 
