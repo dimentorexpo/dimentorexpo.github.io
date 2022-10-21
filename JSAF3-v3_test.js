@@ -5886,6 +5886,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let hashcht;
 		let timerId = [];
 		let counter = 0;
+		let flagtimer = 1;
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') 
 			document.getElementById('AF_FrozeChat').style.display = ''
 		else document.getElementById('AF_FrozeChat').style.display = 'none'
@@ -5926,13 +5927,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			document.getElementById('chathastable').innerHTML  = ''
 			uniqarr = new Set(chathasharr)
 			uniqarr = [...uniqarr]
-			for (let i=0; i<uniqarr.length; i++) {
-				document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
-			}
+				for (let i=0; i<uniqarr.length; i++) {
+					document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
+					if (flagtimer == 1) {
+						setTimeout( function () {
+							sndmsgaftertime(sessid[i], uniqarr[i])
+							flagtimer =  0;
+						} , 20 * 1000) 
+					}
+				}
 			console.log(uniqarr)
 			
 			timerId[counter] = setTimeout( function () {
-				sndmsgaftertime(sessid[counter], uniqarr[counter])
+				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
 				clearTimeout(timerId[counter])
 				counter--;
 			} , 20 * 1000) 
