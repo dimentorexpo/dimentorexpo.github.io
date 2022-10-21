@@ -5917,7 +5917,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			hashcht = document.getElementById('chatfrozehash').value.trim()
 			
-			chathasharr.push(document.getElementById('chatfrozehash').value)
+			chathasharr.push(document.getElementById('chatfrozehash').value.trim())
 			
 			await fetch("https://skyeng.autofaq.ai/api/conversations/" + hashcht).then(r=>r.json()).then(r=>datachat=r)
 			console.log(datachat.sessionId)
@@ -5930,13 +5930,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				for (let i=0; i<uniqarr.length; i++) {
 					document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 					if (flagtimer[i] != 0) {
-						flagtimer.push(0);
+						flagtimer[i] = 0
 						setTimeout( function () {
 							sndmsgaftertime(sessid[i], uniqarr[i])
-							chathasharr.shift()
+							uniqarr.shift()
+							flagtimer[i] = 1;
 							document.getElementById('chathastable').innerHTML  = ''
-											for (let i=0; i<chathasharr.length; i++) {
-												document.getElementById('chathastable').innerHTML += chathasharr[i] + '<br>'
+											ffor (let i=0; i<uniqarr.length; i++) {
+												document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 											}
 						} , 20 * 1000) 
 					}				
