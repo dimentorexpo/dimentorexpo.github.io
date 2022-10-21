@@ -5947,7 +5947,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					}				
 				}
 				
-				console.log(sessid)
+				// console.log(sessid)
 				console.log(uniqarr)
 
 
