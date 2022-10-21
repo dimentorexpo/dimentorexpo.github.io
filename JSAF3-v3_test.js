@@ -5885,9 +5885,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let sessid = [];
 		let hashcht;
 		let flagtimer = [];
-		if (document.getElementById('AF_FrozeChat').style.display == 'none') 
+		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
-		else document.getElementById('AF_FrozeChat').style.display = 'none'
+		    document.getElementById('idmymenu').style.display = 'none'
+		} else document.getElementById('AF_FrozeChat').style.display = 'none'
 		
 		document.getElementById('hidefrozechat').onclick = function() {
 			document.getElementById('AF_FrozeChat').style.display = 'none'
