@@ -5943,12 +5943,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
+			let timer_one_chat;
+			
 			if (uniqarr.length == 1) {
-				setTimeout ( function() {
+				timer_one_chat = setTimeout ( function() {
 					sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
 				}, 20 * 1000)
 			} else if (uniqarr.length > 1) {
-				console.log('2+ chata')
+				if (timer_one_chat != undefined) {
+					console.log('odin taimer uge est aktivniy')
+				} else {
+					console.log('2+ chata')
+				}
 			}
 
 			
