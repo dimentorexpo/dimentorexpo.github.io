@@ -5936,7 +5936,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							uniqarr.shift()
 							flagtimer[i] = 1;
 							document.getElementById('chathastable').innerHTML  = ''
-											ffor (let i=0; i<uniqarr.length; i++) {
+											for (let i=0; i<uniqarr.length; i++) {
 												document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 											}
 						} , 20 * 1000) 
