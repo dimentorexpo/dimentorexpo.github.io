@@ -5943,18 +5943,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
+			let uniqarr[uniqarr.length-1] = setTimeout ( function() {
+				sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
+			}, 20 * 1000)
 			
-			
-			
-			
-			let timer=[]; // выполняются оба одновременно надо как то разделять, нажал на один на него повесился таймер, нажал через пару мин на другой на него повесился , а на старый не обновился повторно
-			for (let j=uniqarr.length-1; j>=0; j--) {
-				timer[j] = setTimeout( function() {
-				 sndmsgaftertime(sessid[j], uniqarr[j])
-				 clearTimeout(timer[j])
-			 } , 20 * 1000)
-			 console.log(timer[j] + ' ' + uniqarr[j] + ' ' + sessid[j])
-			}
+			// let timer=[]; // выполняются оба одновременно надо как то разделять, нажал на один на него повесился таймер, нажал через пару мин на другой на него повесился , а на старый не обновился повторно
+			// for (let j=uniqarr.length-1; j>=0; j--) {
+				// timer[j] = setTimeout( function() {
+				 // sndmsgaftertime(sessid[j], uniqarr[j])
+				 // clearTimeout(timer[j])
+			 // } , 20 * 1000)
+			 // console.log(timer[j] + ' ' + uniqarr[j] + ' ' + sessid[j])
+			// }
 						
 			// function next() {
 				// sndmsgaftertime(sessid[sessid.length-1], uniqarr[uniqarr.length-1])
