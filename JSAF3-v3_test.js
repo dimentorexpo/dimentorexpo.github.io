@@ -5943,9 +5943,20 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						} , 20 * 1000) 
 					}				
 				}
+				
+				console.log(sessid)
+				let massivfinish;
+				for(let j=0; j<flagtimer.length; j++) {
+					if (flagtimer[i] == 1) {
+						massivfinish++
+					}
+				}
+				if (massivfinish == flagtimer.length) {
+								sessid = [];
+								console.log(sessid)
+				}
 			console.log(uniqarr)
-			sessid = [];
-			console.log(sessid)
+
 
 			 // sessid = Array.from(new Set(sessid))
 			// console.log(sessid)
