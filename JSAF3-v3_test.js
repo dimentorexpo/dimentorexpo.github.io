@@ -5925,7 +5925,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			let timer=[];
-			for (let j=0; j<uniqarr.length; j++) {
+			for (let j=uniqarr.length; j>0; j--) {
 				timer[j] = setTimeout( function() {
 				 sndmsgaftertime(sessid[j], uniqarr[j])
 				 clearTimeout(timer[j])
