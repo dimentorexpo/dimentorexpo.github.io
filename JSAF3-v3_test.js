@@ -5933,7 +5933,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						flagtimer.push(0);
 						setTimeout( function () {
 							sndmsgaftertime(sessid[i], uniqarr[i])
-							chathasharr.splice(i, 1)
+							chathasharr.shift()
 							document.getElementById('chathastable').innerHTML  = ''
 											for (let i=0; i<chathasharr.length; i++) {
 												document.getElementById('chathastable').innerHTML += chathasharr[i] + '<br>'
