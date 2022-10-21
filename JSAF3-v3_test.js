@@ -5943,7 +5943,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								for (let i=0; i<chathasharr.length; i++) {
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + '<br>'
 								}
-						} , 20 * 1000) 
+						} , document.getElementById('frozetimer').value * 1000) 
 					}				
 				}
 				
