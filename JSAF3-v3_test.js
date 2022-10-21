@@ -5881,12 +5881,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 	document.getElementById('butFrozeChat').onclick = function () {
 		let uniqarr = [];
-		let uniqsessid = [];
 		let chathasharr = [];
 		let sessid = [];
 		let hashcht;
-		let timerId = [];
-		let counter = 0;
 		let flagtimer = [];
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') 
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5919,16 +5916,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			hashcht = document.getElementById('chatfrozehash').value.trim()
 			
 			chathasharr.push(document.getElementById('chatfrozehash').value.trim())
-			if (sessid.length == 0) {
-				await fetch("https://skyeng.autofaq.ai/api/conversations/" + hashcht).then(r=>r.json()).then(r=>datachat=r)
-				console.log(datachat.sessionId)
-				sessid.push(datachat.sessionId)
-			} else {
-				sessid.shift()
-				await fetch("https://skyeng.autofaq.ai/api/conversations/" + hashcht).then(r=>r.json()).then(r=>datachat=r)
-				console.log(datachat.sessionId)
-				sessid.push(datachat.sessionId)
-			}
+			
+			await fetch("https://skyeng.autofaq.ai/api/conversations/" + hashcht).then(r=>r.json()).then(r=>datachat=r)
+			console.log(datachat.sessionId)
+			sessid.push(datachat.sessionId)
 
 			document.getElementById('chatfrozehash').value = ''
 			document.getElementById('chathastable').innerHTML  = ''
@@ -5941,6 +5932,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						setTimeout( function () {
 							sndmsgaftertime(sessid[i], uniqarr[i])
 							chathasharr.shift()
+							sessid.splice(0,1);
 							flagtimer[i] = 1;
 							console.log(flagtimer)
 							document.getElementById('chathastable').innerHTML  = ''
