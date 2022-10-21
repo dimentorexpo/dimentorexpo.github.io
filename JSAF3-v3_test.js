@@ -5915,7 +5915,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     });
 			}
 			
-			hashcht = document.getElementById('chatfrozehash').value
+			hashcht = document.getElementById('chatfrozehash').value.trim()
 			
 			chathasharr.push(document.getElementById('chatfrozehash').value)
 			
@@ -5933,7 +5933,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						flagtimer.push(0);
 						setTimeout( function () {
 							sndmsgaftertime(sessid[i], uniqarr[i])
-							flagtimer[i] = 1;
+							uniqarr.splice(i, 1)
+							document.getElementById('chathastable').innerHTML  = ''
+											for (let i=0; i<uniqarr.length; i++) {
+												document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
+											}
 						} , 20 * 1000) 
 					}				
 				}
