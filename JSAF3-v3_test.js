@@ -5930,9 +5930,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				for (let i=0; i<uniqarr.length; i++) {
 					document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 					if (flagtimer[i] != 0) {
+						flagtimer.push(0);
 						setTimeout( function () {
 							sndmsgaftertime(sessid[i], uniqarr[i])
-							flagtimer.push(0);
 						} , 20 * 1000) 
 					}				
 				}
