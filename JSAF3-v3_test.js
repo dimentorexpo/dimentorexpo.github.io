@@ -5937,13 +5937,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							flagtimer[i] = 1;
 							console.log(flagtimer)
 							document.getElementById('chathastable').innerHTML  = ''
-											for (let i=0; i<chathasharr.length; i++) {
-												document.getElementById('chathastable').innerHTML += chathasharr[i] + '<br>'
-											}
+								for (let i=0; i<chathasharr.length; i++) {
+									document.getElementById('chathastable').innerHTML += chathasharr[i] + '<br>'
+								}
 						} , 20 * 1000) 
 					}				
 				}
 			console.log(uniqarr)
+			console.log(sessid)
 
 			 // sessid = Array.from(new Set(sessid))
 			// console.log(sessid)
