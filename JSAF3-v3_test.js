@@ -5953,7 +5953,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			for(let i=0; i< timeoutsarr.length;i++) {
 				if (timeoutsarr[i] + (20 * 1000) == Date.now() ) {
 					sndmsgaftertime(sessid[i], uniqarr[i])
-					console.log("Worked for item " + sessid[i] + ' ' uniqarr[i])
+					console.log('Worked for item ' + sessid[i] + ' ' + uniqarr[i])
 				}
 			}
 				
