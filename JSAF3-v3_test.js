@@ -5968,8 +5968,6 @@ let hashnum;
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
 					document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
-					if (flagtimer[i] != 0) {
-						
 						timer(
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
@@ -5980,7 +5978,9 @@ let hashnum;
 								console.log("Timer complete!");
 							}
 						)
-					
+						
+					if (flagtimer[i] != 0) {
+						
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
