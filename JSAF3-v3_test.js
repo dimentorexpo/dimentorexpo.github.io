@@ -1231,8 +1231,9 @@ var win_FrozeChat =  // описание формы чтобы не давала
 								<button id="clearallchathash">🧹</button>
                         </div>
 						<div>
-							<input id="chatfrozehash" placeholder="Введите хэш чата" title="Введите хеш чата без hdi или skyeng обычный хеш, которые хотите, чтобы не закрывался" autocomplete="off" type="text" style="text-align: center; width: 340px; color: black;margin-left:5px">
+							<input id="chatfrozehash" placeholder="Введите хэш чата" title="Введите хеш чата без hdi или skyeng обычный хеш, которые хотите, чтобы не закрывался" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black;margin-left:5px">
 							<input id="frozetimer" value="10" style="width:30px;">
+							<span style="color:bisque;">min</span>
 							<button id="freezechat">❄</button>
 						</div>
 			    </span>
@@ -5964,7 +5965,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							console.log(flagtimer)
 							document.getElementById('chathastable').innerHTML  = ''
 								for (let i=0; i<chathasharr.length; i++) {
-									document.getElementById('chathastable').innerHTML += chathasharr[i] + '<br>'
+									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
 								}
 							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value * 1000) 
@@ -5978,7 +5979,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			document.getElementById('chathastable').innerHTML = '';
 			uniqarr = [];
 			chathasharr = [];
-			counter = 0;
+			timeoutsarr = [];
+			flagtimer = [];
 		}
 	}
 
