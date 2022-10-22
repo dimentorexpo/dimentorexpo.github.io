@@ -5964,14 +5964,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				return datachat.sessionId
 			}
 
+			if (flagtimer.indexOf(0) === -1) {
+				uniqarr = [];
+			} else {
+				uniqarr = new Set(chathasharr)
+				uniqarr = [...uniqarr]
+			}
+			
 			document.getElementById('chatfrozehash').value = ''
 			document.getElementById('chathastable').innerHTML  = ''
 			uniqarr = new Set(chathasharr)
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
 					infoarr[i] = document.createElement('div')
-					infoarr[i].setAttribute('name', 'chatslines')
-					infoarr[i].setAttribute('hash', chathasharr[i])
 					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
 					document.getElementById('chathastable').append(infoarr[i])
 					
@@ -5993,10 +5998,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
-							sndmsgaftertime(session = await getsesid( document.getElementsByName('chatslines')[i].getAttribute('hash') , document.getElementsByName('chatslines')[i].getAttribute('hash')  ) )
+							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
 							chathasharr.shift()
-							infoarr.shift()
-							document.getElementById('chathastable').children[0].remove()
 							flagtimer[i] = 1;
 							chatflagtimer[i] = 1;
 							console.log(flagtimer)
@@ -6023,6 +6026,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}
 				
 				console.log(uniqarr)
+
 		}
 		
 		document.getElementById('clearallchathash').onclick = function() {
