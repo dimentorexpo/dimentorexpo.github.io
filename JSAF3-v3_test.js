@@ -5968,7 +5968,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
 							timer(
-						document.getElementById('frozetimer').value * 60 * 1000, // milliseconds
+						document.getElementById('frozetimer').value * 1000, // milliseconds
 						function (timeleft) { // called every step to update the visible countdown
 							document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 						},
