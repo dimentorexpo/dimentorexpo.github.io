@@ -5955,7 +5955,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			uniqarr = new Set(chathasharr)
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
-					document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
+					document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
 					if (flagtimer[i] != 0) {
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
