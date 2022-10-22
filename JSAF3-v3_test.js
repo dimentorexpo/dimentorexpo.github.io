@@ -5904,7 +5904,7 @@ let hashnum = [];
 				intervalsarr[hashnum] = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(intervalsarr[hashnum);
+						clearInterval(intervalsarr[hashnum]);
 						complete();
 					}
 					else update(Math.floor(now / 1000));
