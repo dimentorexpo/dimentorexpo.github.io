@@ -5997,7 +5997,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
 
 									timer(
-										timeleftarr[i] * 1000, // milliseconds
+										document.getElementsByName('frozechattimer')[i].getAttribute('timeleft') * 1000, // milliseconds
 										function (timeleft = document.getElementsByName('frozechattimer')[i].getAttribute('timeleft')) { // called every step to update the visible countdown
 											document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 										},
