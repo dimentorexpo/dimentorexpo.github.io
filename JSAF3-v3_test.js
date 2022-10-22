@@ -5965,7 +5965,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 
 			document.getElementById('chatfrozehash').value = ''
-			//document.getElementById('chathastable').innerHTML  = ''
+			document.getElementById('chathastable').innerHTML  = ''
 			uniqarr = new Set(chathasharr)
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
@@ -5993,7 +5993,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
-							sndmsgaftertime(session = await getsesid( infoarr[i].getAttribute(chathasharr[i]) , infoarr[i].getAttribute(chathasharr[i]) ) )
+							sndmsgaftertime(session = await getsesid( document.getElementsByName('chatslines')[i].getAttribute('hash') , document.getElementsByName('chatslines')[i].getAttribute('hash')  ) )
 							chathasharr.shift()
 							infoarr.shift()
 							document.getElementById('chathastable').children[0].remove()
