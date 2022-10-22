@@ -5885,6 +5885,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let sessid = [];
 		let hashcht;
 		let flagtimer = [];
+		let timeoutsarr=[];
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
 		    document.getElementById('idmymenu').style.display = 'none'
@@ -5956,7 +5957,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					document.getElementById('chathastable').innerHTML += uniqarr[i] + '<br>'
 					if (flagtimer[i] != 0) {
 						flagtimer[i] = 0
-						setTimeout(async function () {
+						timer[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
 							chathasharr.shift()
 							flagtimer[i] = 1;
@@ -5965,6 +5966,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								for (let i=0; i<chathasharr.length; i++) {
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + '<br>'
 								}
+							clearTimeout(timer[i])
 						} , document.getElementById('frozetimer').value * 1000) 
 					}				
 				}
