@@ -3149,7 +3149,7 @@ wintCreateTask.innerHTML = win_taskform;
 
 let wintFrozeChat = document.createElement('div'); // создание окна для заморозки чата
 document.body.append(wintFrozeChat);
-wintFrozeChat.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopFrozeChat') + 'px; left: ' + localStorage.getItem('winLeftFrozeChat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintFrozeChat.style = 'min-height: 25px; width: 500px; background: #464451; top: ' + localStorage.getItem('winTopFrozeChat') + 'px; left: ' + localStorage.getItem('winLeftFrozeChat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintFrozeChat.style.display = 'none';
 wintFrozeChat.setAttribute('id', 'AF_FrozeChat');
 wintFrozeChat.innerHTML = win_FrozeChat;
@@ -5970,7 +5970,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
 					infoarr[i] = document.createElement('div')
-					infoarr[i] = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
+					infoarr[i].innerHTML] = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
 					document.getElementById('chathastable').append(infoarr[i])
 					
 					if (chatflagtimer[i] !=0) {
