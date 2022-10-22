@@ -5981,7 +5981,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							function () { // what to do after
 								console.log("Timer complete!");
 							}
-						);
+						)
 					
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
@@ -6001,7 +6001,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 											function () { // what to do after
 												console.log("Timer complete!");
 											}
-										);
+										)
 									
 								}
 							clearTimeout(timeoutsarr[i])
