@@ -5994,7 +5994,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							console.log(flagtimer)
 							document.getElementById('chathastable').innerHTML  = ''
 								for (let i=0; i<chathasharr.length; i++) {
-									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer" timeleft="${document.getElementsByName('frozechattimer')[i].getAttribute('timeleft')}"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
+									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + `<button name="frozechattimer" timeleft="${document.getElementsByName('frozechattimer')[i].getAttribute('timeleft')}"></button>` + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
 
 									timer(
 										document.getElementsByName('frozechattimer')[i].getAttribute('timeleft') * 1000, // milliseconds
