@@ -5887,6 +5887,7 @@ let hashnum;
 		let hashcht;
 		let flagtimer = [];
 		let timeoutsarr=[];
+		let intervalsarr=[];
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
 		    document.getElementById('idmymenu').style.display = 'none'
@@ -5900,14 +5901,14 @@ let hashnum;
 			
 			function timer(time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
-				var interval = setInterval(function () {
+				intervalsarr[i] = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(interval);
+						clearInterval(intervalsarr[i);
 						complete();
 					}
 					else update(Math.floor(now / 1000));
-				}, 100); // the smaller this number, the more accurate the timer will be
+				}, 1000); // the smaller this number, the more accurate the timer will be
 			}
 			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
