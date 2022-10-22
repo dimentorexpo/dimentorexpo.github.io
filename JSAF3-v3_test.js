@@ -5879,7 +5879,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 	
-let hashnum;
+let hashnum = [];
 	document.getElementById('butFrozeChat').onclick = function () {
 		let uniqarr = [];
 		let chathasharr = [];
@@ -5899,12 +5899,12 @@ let hashnum;
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function timer(time, update, complete) { // таймер обратного отсчета
+			function timer(hashnum, time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
-				intervalsarr[i] = setInterval(function () {
+				intervalsarr[hashnum] = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(intervalsarr[i);
+						clearInterval(intervalsarr[hashnum);
 						complete();
 					}
 					else update(Math.floor(now / 1000));
@@ -5970,6 +5970,7 @@ let hashnum;
 				for (let i=0; i<uniqarr.length; i++) {
 					document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
 						timer(
+							hasnum[i] = i,
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
 								document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
