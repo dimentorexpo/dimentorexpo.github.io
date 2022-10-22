@@ -5976,7 +5976,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
 								document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-								timeleftar[i] = timeleft;
+								timeleftarr[i] = timeleft;
 							},
 							function () { // what to do after
 								console.log("Timer complete!");
@@ -5994,8 +5994,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
 									
 										timer(
-											document.getElementById('frozetimer').value * 1000, // milliseconds
-											function (timeleft=timeleftar[i]) { // called every step to update the visible countdown
+											timeleftarr[i] * 1000, // milliseconds
+											function (timeleft=timeleftarr[i]) { // called every step to update the visible countdown
 												document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 											},
 											function () { // what to do after
