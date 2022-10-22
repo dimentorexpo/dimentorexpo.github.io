@@ -5992,19 +5992,17 @@ let hashnum = [];
 							document.getElementById('chathastable').innerHTML  = ''
 								for (let i=0; i<chathasharr.length; i++) {
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
-									
-									if (hashnum >=0) {
-											timer(
-												timeleftarr[i] * 1000, // milliseconds
-												function (timeleft = document.getElementsByName('frozechattimer')[i].getAttribute('timeleft')) { // called every step to update the visible countdown
-													document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-												},
-												function () { // what to do after
-													console.log("Timer complete!");
+										timer(
+											hasnum[i] = i,
+											document.getElementById('frozetimer').value * 1000, // milliseconds
+											function (timeleft) { // called every step to update the visible countdown
+												document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+												document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
+											},
+											function () { // what to do after
+												console.log("Timer complete!");
 											}
 										)
-										
-									}
 								}
 								
 							clearTimeout(timeoutsarr[i])
