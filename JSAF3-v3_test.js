@@ -5932,14 +5932,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     // });
 			// }
 			
-			if (document.getElementById('chatfrozehash').value.split('/').length == 1)
+			if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 				hashcht = document.getElementById('chatfrozehash').value.trim()
-			else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru")
+				chathasharr.push(document.getElementById('chatfrozehash').value.trim())
+			} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
 				hashcht = document.getElementById('chatfrozehash').value.split('/')[6]
-			else if (document.getElementById('chatfrozehash').value.split('/')[4] == "assigned")
+				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[6])
+			} else if (document.getElementById('chatfrozehash').value.split('/')[4] == "assigned"){
 				hashcht = document.getElementById('chatfrozehash').value.split('/')[5]
-			
-			chathasharr.push(document.getElementById('chatfrozehash').value.trim())
+				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[5])
+			}
 			
 			async function getsesid(arg) {
 				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
