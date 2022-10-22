@@ -5966,7 +5966,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								for (let i=0; i<chathasharr.length; i++) {
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + '<br>'
 								}
-							clearTimeout(timer[i])
+							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value * 1000) 
 					}				
 				}
