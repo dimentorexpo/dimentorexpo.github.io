@@ -5967,6 +5967,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
 					document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
+					
 						timer(
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
@@ -5990,15 +5991,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								for (let i=0; i<chathasharr.length; i++) {
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
 
-											timer(
-												timeleftarr[i] * 1000, // milliseconds
-												function (timeleft = document.getElementsByName('frozechattimer')[i].getAttribute('timeleft')) { // called every step to update the visible countdown
-													document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-												},
-												function () { // what to do after
-													console.log("Timer complete!");
-											}
-										)
+									timer(
+										timeleftarr[i] * 1000, // milliseconds
+										function (timeleft = document.getElementsByName('frozechattimer')[i].getAttribute('timeleft')) { // called every step to update the visible countdown
+											document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+										},
+										function () { // what to do after
+											console.log("Timer complete!");
+										}
+									)
 										
 								}
 								
