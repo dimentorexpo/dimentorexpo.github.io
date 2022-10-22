@@ -5987,6 +5987,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							document.getElementById('chathastable').innerHTML  = ''
 								for (let i=0; i<chathasharr.length; i++) {
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
+										timer(
+										timeleft * 1000, // milliseconds
+										function (timeleft) { // called every step to update the visible countdown
+											document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+										},
+										function () { // what to do after
+											console.log("Timer complete!");
+										}
+									);
 								}
 							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value * 1000) 
