@@ -5879,7 +5879,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 	
-let hashnum = [];
+let hashnum;
 	document.getElementById('butFrozeChat').onclick = function () {
 		let uniqarr = [];
 		let chathasharr = [];
@@ -5887,7 +5887,6 @@ let hashnum = [];
 		let hashcht;
 		let flagtimer = [];
 		let timeoutsarr=[];
-		let intervalsarr=[];
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
 		    document.getElementById('idmymenu').style.display = 'none'
@@ -5899,12 +5898,12 @@ let hashnum = [];
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function timer(hashnum, time, update, complete) { // таймер обратного отсчета
+			function timer(time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
-				intervalsarr[hashnum] = setInterval(function () {
+				var interval = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(intervalsarr[hashnum]);
+						clearInterval(interval);
 						complete();
 					}
 					else update(Math.floor(now / 1000));
@@ -5970,7 +5969,6 @@ let hashnum = [];
 				for (let i=0; i<uniqarr.length; i++) {
 					document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
 						timer(
-							hasnum[i] = i,
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
 								document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
@@ -5986,24 +5984,14 @@ let hashnum = [];
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
-							chathasharr.shift()
+							// chathasharr.shift()
 							flagtimer[i] = 1;
 							console.log(flagtimer)
-							document.getElementById('chathastable').innerHTML  = ''
-								for (let i=0; i<chathasharr.length; i++) {
-									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
-										timer(
-											hasnum[i] = i,
-											document.getElementById('frozetimer').value * 1000, // milliseconds
-											function (timeleft) { // called every step to update the visible countdown
-												document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-												document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
-											},
-											function () { // what to do after
-												console.log("Timer complete!");
-											}
-										)
-								}
+							// document.getElementById('chathastable').innerHTML  = ''
+								// for (let i=0; i<chathasharr.length; i++) {
+									// document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
+									// }
+								// }
 								
 							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value * 1000) 
