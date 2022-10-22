@@ -5887,6 +5887,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let flagtimer = [];
 		let timeoutsarr=[];
 		let chatflagtimer = [];
+		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
 		    document.getElementById('idmymenu').style.display = 'none'
@@ -5982,7 +5983,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							}
 						)
 					}
-						 
+						
 					if (flagtimer[i] != 0) {
 						
 						flagtimer[i] = 0
