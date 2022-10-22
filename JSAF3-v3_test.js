@@ -5982,7 +5982,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							}
 						)
 					}
-						
+						 
 					if (flagtimer[i] != 0) {
 						
 						flagtimer[i] = 0
