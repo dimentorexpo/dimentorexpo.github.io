@@ -5993,7 +5993,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
-							sndmsgaftertime(session = await getsesid( infoarr[i].getAttribute(chathasharr[i]) , infoarr[i].getAttribute(chathasharr[i]) )
+							sndmsgaftertime(session = await getsesid( infoarr[i].getAttribute(chathasharr[i]) , infoarr[i].getAttribute(chathasharr[i]) ) )
 							chathasharr.shift()
 							infoarr.shift()
 							document.getElementById('chathastable').children[0].remove()
