@@ -5879,7 +5879,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 	
-let hashnum;
 	document.getElementById('butFrozeChat').onclick = function () {
 		let uniqarr = [];
 		let chathasharr = [];
@@ -5984,14 +5983,24 @@ let hashnum;
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
-							// chathasharr.shift()
+							chathasharr.shift()
 							flagtimer[i] = 1;
 							console.log(flagtimer)
-							// document.getElementById('chathastable').innerHTML  = ''
-								// for (let i=0; i<chathasharr.length; i++) {
-									// document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
-									// }
-								// }
+							document.getElementById('chathastable').innerHTML  = ''
+								for (let i=0; i<chathasharr.length; i++) {
+									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
+
+											timer(
+												timeleftarr[i] * 1000, // milliseconds
+												function (timeleft = document.getElementsByName('frozechattimer')[i].getAttribute('timeleft')) { // called every step to update the visible countdown
+													document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+												},
+												function () { // what to do after
+													console.log("Timer complete!");
+											}
+										)
+										
+								}
 								
 							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value * 1000) 
