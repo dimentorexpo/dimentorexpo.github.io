@@ -5887,7 +5887,6 @@ let hashnum;
 		let hashcht;
 		let flagtimer = [];
 		let timeoutsarr=[];
-		let timeleftarr=[];
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
 		    document.getElementById('idmymenu').style.display = 'none'
@@ -5899,7 +5898,7 @@ let hashnum;
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function timer(time, update, complete, hasnum) { // таймер обратного отсчета
+			function timer(time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
 				var interval = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
@@ -5975,12 +5974,11 @@ let hashnum;
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
 								document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-								timeleftarr[i] = timeleft;
+								document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
 							},
 							function () { // what to do after
 								console.log("Timer complete!");
-							},
-							hasnum = uniqarr.length-1
+							}
 						)
 					
 						flagtimer[i] = 0
@@ -5994,16 +5992,16 @@ let hashnum;
 									document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer">❌</span>' + '<br>'
 									
 									if (hashnum >=0) {
-																				timer(
-											timeleftarr[i] * 1000, // milliseconds
-											function (timeleft) { // called every step to update the visible countdown
-												document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-											},
-											function () { // what to do after
-												console.log("Timer complete!");
-											},
-											hashnum = uniqarr.length-1
+											timer(
+												timeleftarr[i] * 1000, // milliseconds
+												function (timeleft = document.getElementsByName('frozechattimer')[i].getAttribute('timeleft')) { // called every step to update the visible countdown
+													document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+												},
+												function () { // what to do after
+													console.log("Timer complete!");
+											}
 										)
+										
 									}
 								}
 								
