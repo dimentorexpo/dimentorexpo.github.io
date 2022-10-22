@@ -5898,7 +5898,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function timer(time, update, complete) {
+			function timer(time, update, complete) { // таймер обратного отсчета
 			var start = new Date().getTime();
 			var interval = setInterval(function () {
 				var now = time - (new Date().getTime() - start);
@@ -5967,7 +5967,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			uniqarr = new Set(chathasharr)
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
-							timer(
+					document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
+					if (flagtimer[i] != 0) {
+						timer(
 						document.getElementById('frozetimer').value * 1000, // milliseconds
 						function (timeleft) { // called every step to update the visible countdown
 							document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
@@ -5976,8 +5978,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							console.log("Timer complete!");
 						}
 					);
-					document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
-					if (flagtimer[i] != 0) {
 						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
