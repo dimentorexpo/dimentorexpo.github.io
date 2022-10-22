@@ -1232,7 +1232,7 @@ var win_FrozeChat =  // описание формы чтобы не давала
                         </div>
 						<div>
 							<input id="chatfrozehash" placeholder="Введите хэш чата" title="Введите хеш чата без hdi или skyeng обычный хеш, которые хотите, чтобы не закрывался" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black;margin-left:5px">
-							<input id="frozetimer" value="10" style="width:30px;" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59">
+							<input id="frozetimer" value="10" style="width:38px;" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59">
 							<span style="color:bisque;">min</span>
 							<button id="freezechat">❄</button>
 						</div>
@@ -5898,6 +5898,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
+			function timer(time, update, complete) {
+			var start = new Date().getTime();
+			var interval = setInterval(function () {
+				var now = time - (new Date().getTime() - start);
+				if (now <= 0) {
+					clearInterval(interval);
+					complete();
+				}
+				else update(Math.floor(now / 1000));
+			}, 100); // the smaller this number, the more accurate the timer will be
+		}
+			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
 				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
 					
@@ -5955,6 +5967,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			uniqarr = new Set(chathasharr)
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
+							timer(
+						document.getElementById('frozetimer').value * 60 * 1000, // milliseconds
+						function (timeleft) { // called every step to update the visible countdown
+							document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+						},
+						function () { // what to do after
+							console.log("Timer complete!");
+						}
+					);
 					document.getElementById('chathastable').innerHTML += chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>' + '<br>'
 					if (flagtimer[i] != 0) {
 						flagtimer[i] = 0
