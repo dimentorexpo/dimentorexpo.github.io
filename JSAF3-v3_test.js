@@ -5887,6 +5887,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let hashcht;
 		let flagtimer = [];
 		let timeoutsarr=[];
+		let timeleftarr=[];
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
 		    document.getElementById('idmymenu').style.display = 'none'
@@ -5958,7 +5959,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[5])
 			}
 			
-			async function getsesid(arg) {
+			async function getsesid(arg) { // функция получения Idsession из хеша чата для отправки заметок или сообщений в чат пользователю
 				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
 				return datachat.sessionId
 			}
@@ -5975,6 +5976,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
 								document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+								timeleftar[i] = timeleft;
 							},
 							function () { // what to do after
 								console.log("Timer complete!");
@@ -5993,7 +5995,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									
 										timer(
 											document.getElementById('frozetimer').value * 1000, // milliseconds
-											function (Math.floor((new Date().getTime() - start2)/1000)) { // called every step to update the visible countdown
+											function (timeleft=timeleftar[i]) { // called every step to update the visible countdown
 												document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 											},
 											function () { // what to do after
