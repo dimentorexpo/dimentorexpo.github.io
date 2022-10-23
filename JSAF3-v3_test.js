@@ -5983,7 +5983,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 
 			if (flagtimer.indexOf(0) === -1) {
-				chathasharr=[]
 				uniqarr = [];
 				intervarr = [];
 				timeoutsarr=[]
@@ -6037,11 +6036,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let removetimerarray = document.getElementsByName('deletetimer');
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
+						clearTimeout(timeoutsarr[i])
+						chathasharr.shift()
 						flagtimer[i] = 1;
 						stopfunc[i] = 1;
-						clearTimeout(timeoutsarr[i])
-						console.log(stopfunc)
-						console.log(flagtimer)
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
