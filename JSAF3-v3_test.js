@@ -6022,7 +6022,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							},
 							function () { // what to do after
 								// console.log("Timer complete!");
-								document.getElementsByName('frozechattimer')[i].innerText = "Done!"
+								if (stopfunc[i] == 1) {
+									document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
+								} else {
+									document.getElementsByName('frozechattimer')[i].innerText = "Done!"
+								}
 							}
 						)
 					}
