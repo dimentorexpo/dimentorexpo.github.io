@@ -5988,6 +5988,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				intervarr = [];
 				timeoutsarr=[]
 				stopfunc = [];
+				flagtimer=[];
 			} else {
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
