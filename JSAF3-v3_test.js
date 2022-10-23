@@ -5903,6 +5903,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let timeoutsarr=[];
 		let chatflagtimer = [];
 		let infoarr = [];
+		let intervarr = [];
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5917,10 +5918,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			function timer(time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
-				var interval = setInterval(function () {
+				intervarr[i] = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(interval);
+						clearInterval(intervarr[i]);
 						complete();
 					}
 					else update(Math.floor(now / 1000));
@@ -5981,6 +5982,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 			if (flagtimer.indexOf(0) === -1) {
 				uniqarr = [];
+				intervarr = [];
+				timeoutsarr=[]
 			} else {
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
@@ -6033,9 +6036,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let removetimerarray = document.getElementsByName('deletetimer');
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
-						console.log('before ' + timeoutsarr[i])
 						clearTimeout(timeoutsarr[i])
-						console.log('after ' + timeoutsarr[i])
+						clearInterval(intervarr[i])
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
