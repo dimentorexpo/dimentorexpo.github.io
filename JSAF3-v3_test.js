@@ -6041,10 +6041,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let removetimerarray = document.getElementsByName('deletetimer');
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
-						clearTimeout(timeoutsarr[i])
-						clearInterval(intervarr[i])
 						flagtimer[i] = 1;
 						stopfunc[i] = 1;
+						clearInterval(intervarr[i])
+						clearTimeout(timeoutsarr[i])
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
