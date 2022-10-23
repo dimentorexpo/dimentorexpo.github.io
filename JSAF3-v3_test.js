@@ -5894,7 +5894,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 	
-	let interarray = []
 	document.getElementById('butFrozeChat').onclick = function () {
 		let uniqarr = [];
 		let chathasharr = [];
@@ -5919,10 +5918,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			function timer(time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
-				interarray[i] = setInterval(function () {
+				let interval = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(interarray[i]);
+						clearInterval(interval);
 						complete();
 					}
 					else update(Math.floor(now / 1000));
@@ -6032,10 +6031,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let removetimerarray = document.getElementsByName('deletetimer');
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
-						console.log('before ' + interarray[i])
-						clearInterval(interarray[i])
 						clearTimeout(timeoutsarr[i])
-						console.log('after ' + interarray[i] )
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
