@@ -5904,6 +5904,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let chatflagtimer = [];
 		let infoarr = [];
 		let intervarr = [];
+		let stopfunc = [];
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5984,6 +5985,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				uniqarr = [];
 				intervarr = [];
 				timeoutsarr=[]
+				stopfunc = [];
 			} else {
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
@@ -6000,15 +6002,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					
 					if (chatflagtimer[i] !=0) {
 						chatflagtimer[i] = 0;
+						stopfunc[i] = 0;
 						timer(
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
+								if (stopfunc[i]) == 1)  {
+									document.getElementsByName('frozechattimer')[i].innerText = 'Canceled!'
+								}  else {
 								document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 								document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
 								if ( document.getElementsByName('frozechattimer')[i].innerText == '0 second(s)' ) {
 									document.getElementsByName('frozechattimer')[i].innerText = "Done!"
 								}
-
+								}
 							},
 							function () { // what to do after
 								console.log("Timer complete!");
@@ -6038,6 +6044,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						clearTimeout(timeoutsarr[i])
 						clearInterval(intervarr[i])
 						flagtimer[i] = 1;
+						stopfunc[i] = 1;
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
