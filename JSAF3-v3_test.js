@@ -5918,15 +5918,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById('freezechat').onclick = async function() {
 			
 			function timer(time, update) { // таймер обратного отсчета
-				if(stopfunc[i] == 0) {
 				var start = new Date().getTime();
+				if(stopfunc[i] == 0) {
 				intervarr[i] = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
 						clearInterval(intervarr[i]);
+						stopfunc[i] = 1;
 					}
 					else update(Math.floor(now / 1000));
-				}, 100); // the smaller this number, the more accurate the timer will be
+				}, 1000); // the smaller this number, the more accurate the timer will be
 				} else return false;
 			}
 			
