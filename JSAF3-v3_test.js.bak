@@ -448,7 +448,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
 					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
-					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
+					<button id="links" class="onlyfortp" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
 					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
@@ -794,35 +794,20 @@ var win_Links =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 550;" id="links_1str">
 					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
-					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar onlyfortp">ℹ</button>
-					<button title="Открывает раздел для формирования заявки на удаленине персональных данных" id="deleteaclnk" class="uplinksbar onlyfortp">🗑</button>
-					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" class="uplinksbar onlyfortp">📚</button>
-					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" class="uplinksbar onlyfortp">📆</button>
-					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar onlyfortp">📋</button>
-					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" class="uplinksbar onlyfortp">💼</button>
-					<button title="Открывает инструкцию по пробникам" id="probnikinstr" class="uplinksbar onlyfortp">🗃</button>
-					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" class="uplinksbar onlyfortp">👩‍👧‍👧</button>
-                    <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px" class="uplinksbar onlyfortp">🐞</button>
-                    <button title="Открывает Базу знаний в Confluence" id="knoweledgebaseKC" class="uplinksbar onlyforkc" style="display:none">📚</button>
-                    <button title="Прослушать запись урока" id="lessonrecordKC" class="uplinksbar onlyforkc" style="display:none">👩‍🏫</button>
-					<button title="Личный кабинет в Skyeng" id="skyhomeKC" class="uplinksbar onlyforkc" style="display:none">💼</button>
+					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar">ℹ</button>
+					<button title="Открывает раздел для формирования заявки на удаленине персональных данных" id="deleteaclnk" class="uplinksbar">🗑</button>
+					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" class="uplinksbar">📚</button>
+					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" class="uplinksbar">📆</button>
+					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar">📋</button>
+					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" class="uplinksbar">💼</button>
+					<button title="Открывает инструкцию по пробникам" id="probnikinstr" class="uplinksbar">🗃</button>
+					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" class="uplinksbar">👩‍👧‍👧</button>
+                    <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px">🐞</button>
 				</div>
-                <div style="margin: 5px; width: 550px; display:none;" id="links_butKC" class="onlyforkc">
-                    <button title="Открывает Timetable" id="timetableKC" style="width:105px">TimeTable</button>
-                    <button title="Проведение операций с балансом ученика" id="CalcKC" style="width:105px">Калькулятор</button>
-                    <button title="Проведение компенсаций, условия промокодов/сертиикатов" id="nachislyatorKC" style="width:105px">Начислятор</button>
-                    <button title="Админка рассрочек" id="rassrochKC" style="width:105px">Рассрочка</button>
-                    <button title="Админка подписок" id="pondpisKC" style="width:105px">Подписки</button>
-                    <button title="Открывает Omnidesk" id="omniKC" style="width:105px">Omni</button>
-                    <button title="Админка разговорных клубов" id="RKKC" style="width:105px">РК</button>
-                    <button title="Актуальные шаблоны КЦ" id="shablKC" style="width:105px">Шаблоны</button>
-                    <button title="Написать нарушение бизнес-процесса на менеджера" id="narushKC" style="width:105px">Нарушение БП</button>
-                    <button title="Учет рабочего времени КЦ" id="grafKC" style="width:105px">График</button>
-				</div>
-				<div style="margin: 5px; width: 550px;" id="links_but" class="onlyfortp">
+				<div style="margin: 5px; width: 550px;" id="links_but">
 					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
 					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
-					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависших уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
+					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависшщих уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
 					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Компенсация</button>
 					<button title="Открывает CMS хранилище материалов уроков" id="CMS" style="width:105px">CMS</button>
 					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Админка</button>
@@ -841,7 +826,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
 					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
 				</div>
-				<div style="margin: 5px; width: 550px" id="links_box" class="onlyfortp">
+				<div style="margin: 5px; width: 550px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="benchmark">🔎</button>
 					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -874,7 +859,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="reportmvu" placeholder="У отчет МВУ" title="Введите ID ученика, чтобы в буфер обмена скопировать ссылку на отчет МВУ и открывать ее под преподавателем" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getmvureport" style="width: 25.23px;">💾</button>
 				</div>
-				<div style="margin: 5px; width: 550px" id="links_butd" class="onlyfortp">
+				<div style="margin: 5px; width: 550px" id="links_butd">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
 					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
@@ -2583,7 +2568,7 @@ let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
 taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
-taskBut.classList.add('ant-btn','onlyfortp');
+taskBut.classList.add('ant-btn', 'onlyfortp');
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
@@ -2642,7 +2627,7 @@ let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn','onlyfortp')
+butThemes.classList.add('ant-btn', 'onlyfortp')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
@@ -8028,58 +8013,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         window.open("https://datsy.ru/")
     }
 
-    document.getElementById('knoweledgebaseKC').addEventListener('click', function () { // открытие Confluence Customer Service WIKI для КЦ
-        window.open("https://confluence.skyeng.tech/display/CSW/Customer+Service+WIKI")
-    }) 
-
-    document.getElementById('lessonrecordKC').addEventListener('click', function () { // открытие записи уроков для КЦ
-        window.open("https://tramway.skyeng.ru/record")
-    }) 
-
-    document.getElementById('skyhomeKC').addEventListener('click', function () { // открытие Skyeng Home для КЦ
-        window.open("https://home.skyeng.ru/dashboard")
-    })
-
-    document.getElementById('timetableKC').addEventListener('click', function () { // открытие Timetable для КЦ
-        window.open("https://timetable.skyeng.ru/")
-    })
-
-    document.getElementById('CalcKC').addEventListener('click', function () { // открытие Калькулятор для КЦ
-        window.open("https://billing-api.skyeng.ru/operations")
-    })
-
-    document.getElementById('nachislyatorKC').addEventListener('click', function () { // открытие Начислятор для КЦ
-        window.open("https://billing-marketing.skyeng.ru/accrual-operations/create")
-    })
-
-    document.getElementById('rassrochKC').addEventListener('click', function () { // открытие Рассрочки для КЦ
-        window.open("https://accounting.skyeng.ru/credit/list")
-    })
-
-    document.getElementById('pondpisKC').addEventListener('click', function () { // открытие Подписки для КЦ
-        window.open("https://billing-api.skyeng.ru/subscriptions")
-    })
-
-    document.getElementById('omniKC').addEventListener('click', function () { // открытие Omni для КЦ
-        window.open("https://skyeng.omnidesk.ru/")
-    })
-
-    document.getElementById('RKKC').addEventListener('click', function () { // открытие админки РК для КЦ
-        window.open("https://group.skyeng.ru/admin/?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CClubMemberCrudController&signature=V8w5PW8LT3GcoYMoSYzprG1lCW8F5sb5y7Bdrxh08pc")
-    })
-
-    document.getElementById('shablKC').addEventListener('click', function () { // открытие актуальных габлонов для КЦ
-        window.open("https://docs.google.com/spreadsheets/d/14paTabjaJcRIvlpTQzdGePltiN0bsPaFjFEbn4DD3Ho/edit#gid=410124091")
-    })
-
-    document.getElementById('narushKC').addEventListener('click', function () { // открытие формы нарушений для КЦ
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSeAxtdad9yc5iLo-7v4rqMj5M2wdaJKOpzy5X_eWkHqHWY9sg/viewform")
-    })
-
-    document.getElementById('grafKC').addEventListener('click', function () { // открытие гркфика работы для КЦ
-        window.open("https://docs.google.com/spreadsheets/d/1SiD1yfpzIEF8ZafVXnq0Z-hyF0b45aAQ8s6BWgy-s0c/edit#gid=1933422994")
-    })
-
     document.getElementById('gettechsummary').onclick = async function () { //получает инфо об устройстве пользователя
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
@@ -12978,11 +12911,6 @@ function prepKC() { //функция подготовки расширения �
     let needtohide = document.getElementsByClassName('onlyfortp')
     for (i = 0; i < needtohide.length; i++) {
         needtohide[i].style.display = 'none'
-    }
-
-    let needtoopen = document.getElementsByClassName('onlyforkc')
-    for (i=0; i<needtoopen.length; i++){
-        needtoopen[i].style.display = ''
     }
 
     flagLangBut = 1
