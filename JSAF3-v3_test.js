@@ -6015,15 +6015,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								}  else {
 									document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 									document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
-									// if ( document.getElementsByName('frozechattimer')[i].innerText == '0 second(s)' ) {
-										// document.getElementsByName('frozechattimer')[i].innerText = "Done!"
-									// }
 								}
 							},
 							function () { // what to do after
 								// console.log("Timer complete!");
 								if (stopfunc[i] == 1) {
 									document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
+									return false;
 								} else {
 									document.getElementsByName('frozechattimer')[i].innerText = "Done!"
 								}
