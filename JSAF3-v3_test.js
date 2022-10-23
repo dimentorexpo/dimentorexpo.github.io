@@ -5924,7 +5924,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						complete();
 					}
 					else update(Math.floor(now / 1000));
-				}, 1000); // the smaller this number, the more accurate the timer will be
+				}, 100); // the smaller this number, the more accurate the timer will be
 			}
 			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
