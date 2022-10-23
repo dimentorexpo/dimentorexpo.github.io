@@ -5894,166 +5894,166 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 	
-    document.getElementById('butFrozeChat').onclick = function () {
-        let uniqarr = [];
-        let chathasharr = [];
-        let sessid = [];
-        let hashcht;
-        let flagtimer = [];
-        let timeoutsarr = [];
-        let chatflagtimer = [];
-        let infoarr = [];
-        let intervarr = [];
-
-        if (document.getElementById('AF_FrozeChat').style.display == 'none') {
-            document.getElementById('AF_FrozeChat').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
-        } else document.getElementById('AF_FrozeChat').style.display = 'none'
-
-        document.getElementById('hidefrozechat').onclick = function () {
-            document.getElementById('AF_FrozeChat').style.display = 'none'
-        }
-
-        document.getElementById('freezechat').onclick = async function () {
-
-            function timer(time, update, complete) { // таймер обратного отсчета
-                var start = new Date().getTime();
-                intervarr[i] = setInterval(function () {
-                    var now = time - (new Date().getTime() - start);
-                    if (now <= 0) {
-                        clearInterval(intervarr[i]);
-                        complete();
-                    }
-                    else update(Math.floor(now / 1000));
-                }, 100); // the smaller this number, the more accurate the timer will be
-            }
-
-            function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
-                let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
-
-                fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                    "headers": {
-                        "accept": "*/*",
-                        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                        "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-                        "sec-fetch-mode": "cors",
-                        "sec-fetch-site": "same-origin"
-                    },
-                    "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-                    "method": "POST",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-            }
-
-            // function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу , ее потом включить сейчас для теста использую заметки
-            // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
-
-            // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-            // "headers": {
-            // "accept": "*/*",
-            // "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
-            // "sec-fetch-mode": "cors",
-            // "sec-fetch-site": "same-origin"
-            // },
-            // "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
-            // "method": "POST",
-            // "mode": "cors",
-            // "credentials": "include"
-            // });
-            // }
-
-            if (document.getElementById('chatfrozehash').value.split('/').length == 1) {
-                hashcht = document.getElementById('chatfrozehash').value.trim()
-                chathasharr.push(document.getElementById('chatfrozehash').value.trim())
-            } else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru") {
-                hashcht = document.getElementById('chatfrozehash').value.split('/')[6]
-                chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[6])
-            } else if (document.getElementById('chatfrozehash').value.split('/')[4] == "assigned") {
-                hashcht = document.getElementById('chatfrozehash').value.split('/')[5]
-                chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[5])
-            }
-
-            async function getsesid(arg) { // функция получения Idsession из хеша чата для отправки заметок или сообщений в чат пользователю
-                await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r => r.json()).then(r => datachat = r)
-                return datachat.sessionId
-            }
-
-            if (flagtimer.indexOf(0) === -1) {
-                uniqarr = [];
-                intervarr = [];
-                timeoutsarr = []
-            } else {
-                uniqarr = new Set(chathasharr)
-                uniqarr = [...uniqarr]
-            }
-
-            document.getElementById('chatfrozehash').value = ''
-            document.getElementById('chathastable').innerHTML = ''
-            uniqarr = new Set(chathasharr)
-            uniqarr = [...uniqarr]
-            for (let i = 0; i < uniqarr.length; i++) {
-                infoarr[i] = document.createElement('div')
-                infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
-                document.getElementById('chathastable').append(infoarr[i])
-
-                if (chatflagtimer[i] != 0) {
-                    chatflagtimer[i] = 0;
-                    timer(
-                        document.getElementById('frozetimer').value * 1000, // milliseconds
-                        function (timeleft) { // called every step to update the visible countdown
-                            document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-                            document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
-                            if (document.getElementsByName('frozechattimer')[i].innerText == '0 second(s)') {
-                                document.getElementsByName('frozechattimer')[i].innerText = "Done!"
-                            }
-
+	document.getElementById('butFrozeChat').onclick = function () {
+		let uniqarr = [];
+		let chathasharr = [];
+		let sessid = [];
+		let hashcht;
+		let flagtimer = [];
+		let timeoutsarr=[];
+		let chatflagtimer = [];
+		let infoarr = [];
+		let intervarr = [];
+		let stopfunc = [];
+		
+		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
+			document.getElementById('AF_FrozeChat').style.display = ''
+		    document.getElementById('idmymenu').style.display = 'none'
+		} else document.getElementById('AF_FrozeChat').style.display = 'none'
+		
+		document.getElementById('hidefrozechat').onclick = function() {
+			document.getElementById('AF_FrozeChat').style.display = 'none'
+		}
+		
+		document.getElementById('freezechat').onclick = async function() {
+			
+			function timer(time, update) { // таймер обратного отсчета
+				if(stopfunc[i] == 0) {
+				var start = new Date().getTime();
+				intervarr[i] = setInterval(function () {
+					var now = time - (new Date().getTime() - start);
+					if (now <= 0) {
+						clearInterval(intervarr[i]);
+					}
+					else update(Math.floor(now / 1000));
+				}, 100); // the smaller this number, the more accurate the timer will be
+				} else return false;
+			}
+			
+			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
+				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
+					
+					fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
                         },
-                        function () { // what to do after
-                            console.log("Timer complete!");
-                        }
-                    )
-                }
+                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+			}
+			
+			// function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу , ее потом включить сейчас для теста использую заметки
+				  // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
 
-                if (flagtimer[i] != 0) {
+                    // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        // "headers": {
+                            // "accept": "*/*",
+                            // "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            // "sec-fetch-mode": "cors",
+                            // "sec-fetch-site": "same-origin"
+                        // },
+                        // "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        // "method": "POST",
+                        // "mode": "cors",
+                        // "credentials": "include"
+                    // });
+			// }
+			
+			if (document.getElementById('chatfrozehash').value.split('/').length == 1){
+				hashcht = document.getElementById('chatfrozehash').value.trim()
+				chathasharr.push(document.getElementById('chatfrozehash').value.trim())
+			} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
+				hashcht = document.getElementById('chatfrozehash').value.split('/')[6]
+				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[6])
+			} else if (document.getElementById('chatfrozehash').value.split('/')[4] == "assigned"){
+				hashcht = document.getElementById('chatfrozehash').value.split('/')[5]
+				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[5])
+			}
+			
+			async function getsesid(arg) { // функция получения Idsession из хеша чата для отправки заметок или сообщений в чат пользователю
+				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
+				return datachat.sessionId
+			}
 
-                    flagtimer[i] = 0
-                    timeoutsarr[i] = setTimeout(async function () {
-                        sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
-                        chathasharr.shift()
-                        flagtimer[i] = 1;
-                        chatflagtimer[i] = 1;
-                        console.log(flagtimer)
+			if (flagtimer.indexOf(0) === -1) {
+				uniqarr = [];
+				intervarr = [];
+				timeoutsarr=[]
+				stopfunc = [];
+				flagtimer=[];
+			} else {
+				uniqarr = new Set(chathasharr)
+				uniqarr = [...uniqarr]
+			}
+			
+			document.getElementById('chatfrozehash').value = ''
+			document.getElementById('chathastable').innerHTML  = ''
+			uniqarr = new Set(chathasharr)
+			uniqarr = [...uniqarr]
+				for (let i=0; i<uniqarr.length; i++) {
+					infoarr[i] = document.createElement('div')
+					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
+					document.getElementById('chathastable').append(infoarr[i])
+					stopfunc[i] = 0;
+					
+					if (chatflagtimer[i] !=0) {
+						chatflagtimer[i] = 0;
+						timer(
+							document.getElementById('frozetimer').value * 1000, // milliseconds
+							function (timeleft) { // called every step to update the visible countdown
+									document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+									document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
+									if (document.getElementsByName('frozechattimer')[i].innerHTML == "0 second(s)") {
+										document.getElementsByName('frozechattimer')[i].innerText = "Done!"
+									}
+							}
+						)
+					}
+						
+					if (flagtimer[i] != 0) {
+						
+						flagtimer[i] = 0
+						timeoutsarr[i] = setTimeout(async function () {
+							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
+							chathasharr.shift()
+							flagtimer[i] = 1;
+							chatflagtimer[i] = 1;
+							console.log(flagtimer)
+							clearTimeout(timeoutsarr[i])
+						} , document.getElementById('frozetimer').value * 1000) 
+					}				
+				}
+				
+				console.log(uniqarr)
+				
+				let removetimerarray = document.getElementsByName('deletetimer');
+				for (let i=0; i<removetimerarray.length; i++) {
+					removetimerarray[i].onclick = function() {
+						clearTimeout(timeoutsarr[i])
+						chathasharr.shift()
+						flagtimer[i] = 1;
+						stopfunc[i] = 1;
+						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
+					}
+				}
 
-                        clearTimeout(timeoutsarr[i])
-                    }, document.getElementById('frozetimer').value * 1000)
-                }
-            }
-
-            console.log(uniqarr)
-
-            let removetimerarray = document.getElementsByName('deletetimer');
-            for (let i = 0; i < removetimerarray.length; i++) {
-                removetimerarray[i].onclick = function () {
-                    clearTimeout(timeoutsarr[i])
-                    clearInterval(intervarr[i])
-                    flagtimer[i] = 1;
-                    chatflagtimer[i] = 1;
-                    document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
-                }
-            }
-
-        }
-
-        document.getElementById('clearallchathash').onclick = function () {
-            document.getElementById('chathastable').innerHTML = '';
-            uniqarr = [];
-            chathasharr = [];
-            timeoutsarr = [];
-            flagtimer = [];
-        }
-    }
+		}
+		
+		document.getElementById('clearallchathash').onclick = function() {
+			document.getElementById('chathastable').innerHTML = '';
+			uniqarr = [];
+			chathasharr = [];
+			timeoutsarr = [];
+			flagtimer = [];
+		}
+	}
 
     document.getElementById('butChatHistory').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
 
