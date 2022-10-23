@@ -6050,7 +6050,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						clearTimeout(timeoutsarr[i])
 						console.log(stopfunc)
 						console.log(flagtimer)
-						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
+						//document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
 
