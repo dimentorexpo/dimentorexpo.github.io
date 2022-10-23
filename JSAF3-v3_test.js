@@ -5917,14 +5917,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function timer(time, update, complete) { // таймер обратного отсчета
+			function timer(time, update) { // таймер обратного отсчета
 				if(stopfunc[i] == 0) {
 				var start = new Date().getTime();
 				intervarr[i] = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
 						clearInterval(intervarr[i]);
-						complete();
 					}
 					else update(Math.floor(now / 1000));
 				}, 100); // the smaller this number, the more accurate the timer will be
@@ -6015,15 +6014,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								}  else {
 									document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 									document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
-								}
-							},
-							function () { // what to do after
-								// console.log("Timer complete!");
-								if (stopfunc[i] == 1) {
-									document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
-									return false;
-								} else {
-									document.getElementsByName('frozechattimer')[i].innerText = "Done!"
+									if (document.getElementsByName('frozechattimer')[i].innerHTML == "0 second(s)") {
+										document.getElementsByName('frozechattimer')[i].innerText = "Done!"
+									}
 								}
 							}
 						)
