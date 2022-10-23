@@ -5903,7 +5903,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let timeoutsarr=[];
 		let chatflagtimer = [];
 		let infoarr = [];
-		var stopfunc=[]
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5917,16 +5916,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		document.getElementById('freezechat').onclick = async function() {
 			
 			function timer(time, update, complete) { // таймер обратного отсчета
-				if (stopfunc[i] == false) {
-					var start = new Date().getTime();
-					let interval = setInterval(function () {
-						var now = time - (new Date().getTime() - start);
-						if (now <= 0) {
-							clearInterval(interval);
-							complete();
-						} else update(Math.floor(now / 1000));
+				var start = new Date().getTime();
+				var interval = setInterval(function () {
+					var now = time - (new Date().getTime() - start);
+					if (now <= 0) {
+						clearInterval(interval);
+						complete();
+					}
+					else update(Math.floor(now / 1000));
 				}, 100); // the smaller this number, the more accurate the timer will be
-				} else return false;
 			}
 			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
@@ -5994,12 +5992,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
 					infoarr[i] = document.createElement('div')
-					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа" style="cursor:pointer;">❌</span>'
+					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
 					document.getElementById('chathastable').append(infoarr[i])
 					
 					if (chatflagtimer[i] !=0) {
 						chatflagtimer[i] = 0;
-						stopfunc[i]=false;
 						timer(
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
@@ -6025,21 +6022,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							flagtimer[i] = 1;
 							chatflagtimer[i] = 1;
 							console.log(flagtimer)
+								
 							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value * 1000) 
 					}				
 				}
 				
+				console.log(uniqarr)
+				
 				let removetimerarray = document.getElementsByName('deletetimer');
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
-						//clearTimeout(timeoutsarr[i])
-						stopfunc[i] = true;
+						console.log('before ' + timeoutsarr[i]
+						clearTimeout(timeoutsarr[i])
+						console.log('after ' + timeoutsarr[i]
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
-				
-				console.log(uniqarr)
 
 		}
 		
