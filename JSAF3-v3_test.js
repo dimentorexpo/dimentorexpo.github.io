@@ -6006,7 +6006,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						timer(
 							document.getElementById('frozetimer').value * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
-								if (stopfunc[i]) == 1)  {
+								if (stopfunc[i] == 1)  {
 									document.getElementsByName('frozechattimer')[i].innerText = 'Canceled!'
 								}  else {
 								document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
