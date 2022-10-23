@@ -6038,6 +6038,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					removetimerarray[i].onclick = function() {
 						clearTimeout(timeoutsarr[i])
 						clearInterval(intervarr[i])
+						flagtimer[i] = 1;
+						chatflagtimer[i] = 1;
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
