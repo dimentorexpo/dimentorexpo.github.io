@@ -6025,7 +6025,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							flagtimer[i] = 1;
 							chatflagtimer[i] = 1;
 							console.log(flagtimer)
-								
 							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value * 1000) 
 					}				
@@ -6039,7 +6038,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						clearTimeout(timeoutsarr[i])
 						clearInterval(intervarr[i])
 						flagtimer[i] = 1;
-						chatflagtimer[i] = 1;
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
