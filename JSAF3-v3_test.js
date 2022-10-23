@@ -6009,11 +6009,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								if (stopfunc[i] == 1)  {
 									document.getElementsByName('frozechattimer')[i].innerText = 'Canceled!'
 								}  else {
-								document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-								document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
-								if ( document.getElementsByName('frozechattimer')[i].innerText == '0 second(s)' ) {
-									document.getElementsByName('frozechattimer')[i].innerText = "Done!"
-								}
+									document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
+									document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
+									if ( document.getElementsByName('frozechattimer')[i].innerText == '0 second(s)' ) {
+										document.getElementsByName('frozechattimer')[i].innerText = "Done!"
+									}
 								}
 							},
 							function () { // what to do after
@@ -6045,6 +6045,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						stopfunc[i] = 1;
 						clearInterval(intervarr[i])
 						clearTimeout(timeoutsarr[i])
+						console.log(stopfunc)
+						console.log(flagtimer)
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
