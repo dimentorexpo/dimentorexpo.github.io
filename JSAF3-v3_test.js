@@ -5922,7 +5922,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				interarray[i] = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(interval[i]);
+						clearInterval(interarray[i]);
 						complete();
 					}
 					else update(Math.floor(now / 1000));
