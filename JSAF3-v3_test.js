@@ -6033,9 +6033,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				let removetimerarray = document.getElementsByName('deletetimer');
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
-						console.log('before ' + timeoutsarr[i]
+						console.log('before ' + timeoutsarr[i])
 						clearTimeout(timeoutsarr[i])
-						console.log('after ' + timeoutsarr[i]
+						console.log('after ' + timeoutsarr[i])
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
