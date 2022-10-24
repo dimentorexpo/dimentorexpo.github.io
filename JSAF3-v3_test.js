@@ -5920,7 +5920,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				var m = Math.floor(d % 3600 / 60);
 				var s = Math.floor(d % 3600 % 60);
 
-				var mDisplay = m > 0 ? m + : "";
+				var mDisplay = (m > 0 && m < 10) ? '0' + m + ':' : (m > 0 && m < 10) ? m + ':' : "";
 				var sDisplay = s > 0 ? s : "";
 				return mDisplay + sDisplay; 
 			}
