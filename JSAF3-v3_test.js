@@ -1247,7 +1247,7 @@ var win_FrozeChat =  // описание формы чтобы не давала
                         </div>
 						<div>
 							<input id="chatfrozehash" placeholder="Введите хэш чата" title="Введите хеш чата без hdi или skyeng обычный хеш, которые хотите, чтобы не закрывался" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black;margin-left:5px">
-							<input id="frozetimer" value="10" style="width:38px;" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59">
+							<input id="frozetimer" value="6" style="width:38px;" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59">
 							<span style="color:bisque;">min</span>
 							<button id="freezechat">❄</button>
 						</div>
@@ -5927,41 +5927,41 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}, 1000); // the smaller this number, the more accurate the timer will be
 			}
 			
-			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
-				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
+			// function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
+				  // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
 					
-					fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                        "headers": {
-                            "accept": "*/*",
-                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-origin"
-                        },
-                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-			}
-			
-			// function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу , ее потом включить сейчас для теста использую заметки
-				  // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
-
-                    // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+					// fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                         // "headers": {
                             // "accept": "*/*",
                             // "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
                             // "sec-fetch-mode": "cors",
                             // "sec-fetch-site": "same-origin"
                         // },
-                        // "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        // "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
                         // "method": "POST",
                         // "mode": "cors",
                         // "credentials": "include"
                     // });
 			// }
+			
+			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу , ее потом включить сейчас для теста использую заметки
+				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще больше времени. Ожидайте, пожалуйста!</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+			}
 			
 			if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 				hashcht = document.getElementById('chatfrozehash').value.trim()
@@ -6003,7 +6003,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					if (chatflagtimer[i] !=0) {
 						chatflagtimer[i] = 0;
 						timer(
-							document.getElementById('frozetimer').value * 1000, // milliseconds
+							document.getElementById('frozetimer').value * 60 * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
 									console.log(chatflagtimer)
 									console.log(i)
@@ -6013,9 +6013,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 									document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
 									}
-									// if (document.getElementsByName('frozechattimer')[i].innerHTML == "0 second(s)") {
-										// document.getElementsByName('frozechattimer')[i].innerText = "Done!"
-									// }
 							},
 							function () {
 								if (flagtimer[i] == 1) {
@@ -6023,7 +6020,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								} else {
 									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
 									}
-								
 							}
 						)
 					}
