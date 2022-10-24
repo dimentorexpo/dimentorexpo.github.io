@@ -6931,7 +6931,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                                     "sec-fetch-mode": "cors",
                                     "sec-fetch-site": "same-origin"
                                 },
-                                "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://skyeng.autofaq.ai/api/conversation/${favissues[j].match(/browse.(\S+)"/)[1]}\"}]}`,
+                                "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/${favissues[j].match(/browse.(\S+)"/)[1]}\"}]}`,
                                 "method": "POST",
                                 "mode": "cors",
                                 "credentials": "include"
