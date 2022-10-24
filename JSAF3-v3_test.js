@@ -6041,7 +6041,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						clearTimeout(timeoutsarr[i])
 						chathasharr.shift()
 						flagtimer[i] = 1;
-						chatflagtimer[i] = 1;
+						chatflagtimer[i] = 0; // пробуем 0 вместо 1
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
