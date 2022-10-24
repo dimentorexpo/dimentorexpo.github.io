@@ -5903,6 +5903,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let timeoutsarr=[];
 		let chatflagtimer = [];
 		let infoarr = [];
+		let intervarr =[];
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5934,10 +5935,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			
 			function timer(time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
-				var intervalik = setInterval(function () {
+				intervarr[i] = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(intervalik);
+						clearInterval(intervarr[i]);
 						complete();
 					}
 					else update(Math.floor(now / 1000));
@@ -6003,6 +6004,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				stopfunc = [];
 				flagtimer=[];
 				chatflagtimer=[];
+				intervarr[i] =[];
 			} else {
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
@@ -6059,6 +6061,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
 						clearTimeout(timeoutsarr[i])
+						clearInterval(intervarr[i])
 						chathasharr.shift()
 						flagtimer[i] = 1;
 						chatflagtimer[i] = 1; 
