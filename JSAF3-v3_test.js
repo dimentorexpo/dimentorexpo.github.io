@@ -5927,7 +5927,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					// m = m;
 				// }
 
-				var mDisplay = (m > 0 && m < 10) ? '0' + m + ':' : (m > 0 && m >= 10) ? m + ':' : "";
+				var mDisplay = (m > 0 && m < 10) ? '0' + m + ':' : (m > 0 && m >= 10) ? m + ':' : "00:";
 				var sDisplay = s > 0 ? s : "";
 				return mDisplay + sDisplay; 
 			}
