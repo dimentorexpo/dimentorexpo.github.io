@@ -6034,7 +6034,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							chatflagtimer[i] = 1;
 							console.log(flagtimer)
 							clearTimeout(timeoutsarr[i])
-						} , document.getElementById('frozetimer').value * 1000) 
+						} , document.getElementById('frozetimer').value * 60 * 1000) 
 					}				
 				}
 				
