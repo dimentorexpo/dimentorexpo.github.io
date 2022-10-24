@@ -5915,6 +5915,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
+			function secondsToHms(d) {
+				d = Number(d);
+				var m = Math.floor(d % 3600 / 60);
+				var s = Math.floor(d % 3600 % 60);
+
+				var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+				var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+				return hDisplay + mDisplay + sDisplay; 
+			}
+
+			
 			function timer(time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
 				var intervalik = setInterval(function () {
@@ -6008,8 +6019,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									if (flagtimer[i] == 1) {
 										return false;
 									} else {
-									document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
-									document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
+									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToHms(timeleft)
 									}
 							},
 							function () {
