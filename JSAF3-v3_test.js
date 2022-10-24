@@ -5922,7 +5922,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 				var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
 				var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
-				return hDisplay + mDisplay + sDisplay; 
+				return mDisplay + sDisplay; 
 			}
 
 			
