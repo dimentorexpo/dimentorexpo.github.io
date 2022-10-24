@@ -5915,12 +5915,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function secondsToHms(d) {
+			function secondsToms(d) {
 				d = Number(d);
 				var m = Math.floor(d % 3600 / 60);
 				var s = Math.floor(d % 3600 % 60);
+				
+				// if (m> 0 && m<10) {
+					// m = '0'+ m
+				// } else if (m> 0 && m>=10) {
+					// m = m;
+				// }
 
-				var mDisplay = (m > 0 && m < 10) ? '0' + m + ':' : (m > 0 && m < 10) ? m + ':' : "";
+				var mDisplay = (m > 0 && m < 10) ? '0' + m + ':' : (m > 0 && m >= 10) ? m + ':' : "";
 				var sDisplay = s > 0 ? s : "";
 				return mDisplay + sDisplay; 
 			}
@@ -6019,7 +6025,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									if (flagtimer[i] == 1) {
 										return false;
 									} else {
-									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToHms(timeleft)
+									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
 									}
 							},
 							function () {
