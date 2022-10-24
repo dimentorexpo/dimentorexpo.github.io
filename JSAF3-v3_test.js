@@ -6018,7 +6018,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									// }
 							},
 							function () {
-								document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
+								if (flagtimer[i] == 1) {
+									console.log(i + ' element was canceled')
+								} else {
+									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
+									}
+								
 							}
 						)
 					}
