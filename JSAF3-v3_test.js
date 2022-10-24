@@ -6005,8 +6005,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						timer(
 							document.getElementById('frozetimer').value * 60 * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
-									console.log(chatflagtimer)
-									console.log(i)
 									if (flagtimer[i] == 1) {
 										return false;
 									} else {
