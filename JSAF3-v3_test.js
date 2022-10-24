@@ -6007,14 +6007,18 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							function (timeleft) { // called every step to update the visible countdown
 									console.log(chatflagtimer)
 									console.log(i)
+									if (flagtimer[i] == 1) {
+										return false;
+									} else {
 									document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 									document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
+									}
 									// if (document.getElementsByName('frozechattimer')[i].innerHTML == "0 second(s)") {
 										// document.getElementsByName('frozechattimer')[i].innerText = "Done!"
 									// }
 							},
 							function () {
-								document.getElementsByName('frozechattimer')[i].innerText = "Done!"
+								document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
 							}
 						)
 					}
@@ -6041,7 +6045,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						clearTimeout(timeoutsarr[i])
 						chathasharr.shift()
 						flagtimer[i] = 1;
-						chatflagtimer[i] = 0; // пробуем 0 вместо 1
+						chatflagtimer[i] = 1; 
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
