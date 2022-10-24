@@ -6001,6 +6001,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				for (let i=0; i<uniqarr.length; i++) {
 					infoarr[i] = document.createElement('div')
 					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
+					console.log(stopfunc)
 					document.getElementById('chathastable').append(infoarr[i])
 					stopfunc[i] = 0;
 					
