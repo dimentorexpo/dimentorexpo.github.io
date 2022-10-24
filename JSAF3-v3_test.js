@@ -5903,8 +5903,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let timeoutsarr=[];
 		let chatflagtimer = [];
 		let infoarr = [];
-		let intervarr = [];
-		let stopfunc = [];
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5917,18 +5915,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function timer(time, update) { // таймер обратного отсчета
+			function timer(time, update, complete) { // таймер обратного отсчета
 				var start = new Date().getTime();
-				if(stopfunc[i] == 0) {
-				intervarr[i] = setInterval(function () {
+				var intervalik = setInterval(function () {
 					var now = time - (new Date().getTime() - start);
 					if (now <= 0) {
-						clearInterval(intervarr[i]);
-						stopfunc[i] = 1;
+						clearInterval(intervalik);
+						complete();
 					}
 					else update(Math.floor(now / 1000));
 				}, 1000); // the smaller this number, the more accurate the timer will be
-				} else return false;
 			}
 			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
@@ -5989,6 +5985,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				timeoutsarr=[]
 				stopfunc = [];
 				flagtimer=[];
+				chatflagtimer=[];
 			} else {
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
@@ -6001,9 +5998,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				for (let i=0; i<uniqarr.length; i++) {
 					infoarr[i] = document.createElement('div')
 					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
-					console.log(stopfunc)
 					document.getElementById('chathastable').append(infoarr[i])
-					stopfunc[i] = 0;
 					
 					if (chatflagtimer[i] !=0) {
 						chatflagtimer[i] = 0;
@@ -6014,9 +6009,12 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									console.log(i)
 									document.getElementsByName('frozechattimer')[i].innerHTML = timeleft + " second(s)";
 									document.getElementsByName('frozechattimer')[i].setAttribute('timeleft', timeleft)
-									if (document.getElementsByName('frozechattimer')[i].innerHTML == "0 second(s)") {
-										document.getElementsByName('frozechattimer')[i].innerText = "Done!"
-									}
+									// if (document.getElementsByName('frozechattimer')[i].innerHTML == "0 second(s)") {
+										// document.getElementsByName('frozechattimer')[i].innerText = "Done!"
+									// }
+							},
+							function () {
+								document.getElementsByName('frozechattimer')[i].innerText = "Done!"
 							}
 						)
 					}
@@ -6043,7 +6041,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						clearTimeout(timeoutsarr[i])
 						chathasharr.shift()
 						flagtimer[i] = 1;
-						stopfunc[i] = 1;
 						chatflagtimer[i] = 1;
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
