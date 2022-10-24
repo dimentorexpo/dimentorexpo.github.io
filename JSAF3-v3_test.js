@@ -11716,7 +11716,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                 if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
                     document.querySelector('#statustable').innerText = "";
                     for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
-                        if (arregetted[0].result[0].classes[i].studentId == uchenikid) {
+                        if (arregetted[0].result[0].classes[i].studentId == document.getElementById('idstudentforsearch').value.trim()) {
 
                             let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
