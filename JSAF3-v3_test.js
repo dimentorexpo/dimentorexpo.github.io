@@ -6920,7 +6920,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
                     for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
                         document.getElementsByName('addtonotesbug')[j].onclick = function () {
-                            sendComment(favissues[j].match(/href.=(\S+)/)[1])
+                            sendComment(favissues[j].match(/browse.(\S+)"/)[1])
 
                             let b = document.URL.split('/')
                             fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
