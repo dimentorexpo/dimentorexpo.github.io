@@ -6028,7 +6028,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							function () {
 								if (flagtimer[i] == 1) {
 									console.log(i + ' element was canceled')
-									return false;
+									clearInterval(intervarr[i])
 								} else {
 									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
 									}
