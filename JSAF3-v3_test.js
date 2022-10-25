@@ -5990,7 +5990,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				return datachat.sessionId
 			}
 			
-			if ( document.getElementById('chatfrozehash').value
 				if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 					chathasharr.push(document.getElementById('chatfrozehash').value.trim())
 				} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
