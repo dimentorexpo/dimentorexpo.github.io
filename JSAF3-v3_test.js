@@ -5915,7 +5915,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		
 		document.getElementById('freezechat').onclick = async function() {
 			
-			function secondsToms(d) {
+			if (document.getElementById('chatfrozehash').value != '') {
+				function secondsToms(d) {
 				d = Number(d);
 				var m = Math.floor(d % 3600 / 60);
 				var s = Math.floor(d % 3600 % 60);
@@ -5989,7 +5990,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				return datachat.sessionId
 			}
 			
-
+			if ( document.getElementById('chatfrozehash').value
 				if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 					chathasharr.push(document.getElementById('chatfrozehash').value.trim())
 				} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
@@ -6059,6 +6060,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}
 
 		}
+			} else {
+				alert('Не введен хеш чата!. Введите хеш и попробуйте еще раз.')
+			}
+			
 		
 		document.getElementById('clearallchathash').onclick = function() {
 			document.getElementById('chathastable').innerHTML = '';
