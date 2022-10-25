@@ -6004,9 +6004,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						if (now <= 0 || flagtimer[i] == 1 && cancelflag[i] == 0) {
 							clearInterval(intervarr[i]);
 							document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
-						} else if (cancelflag[i] == 1) {
-							clearInterval(intervarr[i]);
-							document.getElementsByName('frozechattimer')[i].innerHTML = "Canceled!"
 						} else document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(Math.floor(now / 1000));
 					}, 300); // the smaller this number, the more accurate the timer will be
 																		
@@ -6029,6 +6026,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						console.log(intervarr)
 						cancelflag[i] = 1;
 						flagtimer[i] = 1;
+						document.getElementsByName('frozechattimer')[i].innerHTML = "Canceled!"
 						// chathasharr.splice(i,1)
 						//document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
