@@ -5965,7 +5965,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 			
 			if (flagtimer.indexOf(0) === -1) {
-				timerarray = []
+				timerarray = [];
 				uniqarr = []; 
 				timeoutsarr=[] 
 				stopfunc = [];
@@ -5980,8 +5980,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				return datachat.sessionId
 			}
 			
-				timerarray[i] = document.getElementById('frozetimer').value
-				console.log(timerarray)
+
 			
 				if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 					chathasharr.push(document.getElementById('chatfrozehash').value.trim())
@@ -6002,6 +6001,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 					if (flagtimer[i] != 0 && cancelflag[i] != 1) {
 						flagtimer[i] = 0
+						
+					timerarray[i] = document.getElementById('frozetimer').value
+					console.log(timerarray)
 						
 					startarr[i] = new Date().getTime();
 					intervarr[i] = setInterval(function () {
