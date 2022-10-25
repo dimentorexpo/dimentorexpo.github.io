@@ -5902,7 +5902,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let timeoutsarr=[]; // массив таймаутов
 		let chatflagtimer = []; // флаг  для проверки есть ли уже на одном элементе активная интервальная функция
 		let infoarr = []; // массив выводимого в HTML хеша чата с кнопкой таймера обратного отсчета и отмены
-		let intervarr =[]; // массив интервалов
+		var intervarr =[]; // массив интервалов
 		let cancelflag=[]; // флаг что таймер был отменен
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
@@ -5929,7 +5929,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 			function timer(time, update, complete) { // таймер обратного отсчета
 					var start = new Date().getTime();
-					let intrvl = setInterval(function () {
+					var intrvl = setInterval(function () {
 						var now = time - (new Date().getTime() - start);
 						if (now <= 0 || flagtimer[i] ==1) {
 							clearInterval(intrvl);
@@ -6018,8 +6018,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
 								},
 								function () {
-									console.log(cancelflag[i])
-										document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
+									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
 								}
 							)
 						} , 300)
@@ -6044,6 +6043,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					removetimerarray[i].onclick = function() {
 						clearTimeout(timeoutsarr[i])
 						clearInterval(intervarr[i])
+						console.log(intervarr)
 						cancelflag[i] = 1;
 						flagtimer[i] = 1;
 						// chathasharr.splice(i,1)
