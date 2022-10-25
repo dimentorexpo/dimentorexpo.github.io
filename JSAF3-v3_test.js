@@ -5927,8 +5927,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 
 			
-			function timer(time, update, complete) { // таймер обратного отсчета
-				if (flagtimer[i] !=1) {
+			function timer(arg, time, update, complete) { // таймер обратного отсчета
+				if (arg !=1) {
+console.log(arg)
 					var start = new Date().getTime();
 					intervarr[i] = setInterval(function () {
 						var now = time - (new Date().getTime() - start);
@@ -6013,6 +6014,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 						console.log(flagtimer)
 						timer(
+							flagtimer[i],
 						document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
 							function (timeleft) { // called every step to update the visible countdown
 									if (flagtimer[i] == 1) {
