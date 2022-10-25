@@ -71,7 +71,10 @@ function getDate() {
             seconds = '0' + date.getSeconds()
         else
             seconds = date.getSeconds()
+		
+		year = date.getFullYear()
 
+	return year;
     return month;
     return day;
     return minuts;
@@ -109,7 +112,7 @@ function getDate() {
 
 				getDate()
 
-                secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
+                secondDate = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
@@ -178,7 +181,7 @@ function getDate() {
 
 		getDate()
 
-        secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
+        secondDate = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
