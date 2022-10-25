@@ -5989,8 +5989,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				return datachat.sessionId
 			}
 			
-			document.getElementById('chatfrozehash').value = ''
-			document.getElementById('chathastable').innerHTML  = ''
+
 				if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 					chathasharr.push(document.getElementById('chatfrozehash').value.trim())
 				} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
@@ -6000,6 +5999,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				}
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
+				document.getElementById('chatfrozehash').value = ''
+				document.getElementById('chathastable').innerHTML  = ''
 				for (let i=0; i<uniqarr.length; i++) {
 					infoarr[i] = document.createElement('div')
 					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
