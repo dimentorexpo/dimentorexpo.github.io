@@ -5979,9 +5979,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
 				return datachat.sessionId
 			}
-			
-
-			
+						
 				if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 					chathasharr.push(document.getElementById('chatfrozehash').value.trim())
 				} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
