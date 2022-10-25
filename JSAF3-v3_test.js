@@ -6062,7 +6062,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				alert('Не введен хеш чата!. Введите хеш и попробуйте еще раз.')
 			}
 			
-		
+		}
 		document.getElementById('clearallchathash').onclick = function() {
 			document.getElementById('chathastable').innerHTML = '';
 			uniqarr = [];
