@@ -192,11 +192,8 @@ async function getUserMarks(option) {
 
     if (document.getElementById('AF_Marks').style.display == 'none') {
         document.getElementById('AF_Marks').style.display = ''
-		
 		getUserMarks('userdetailsbar')
-
-
     } else {
-			getUserMarks('menu')
+			getUserMarks('userdetailsbar')
         }
     }
