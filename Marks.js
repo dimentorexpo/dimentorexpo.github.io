@@ -13,7 +13,7 @@ var win_Marks =  // описание элементов окна оценок о
 							<button id="clearmarksstat">🧹</button>
 						</div>
 			    </span>
-                        <div style="margin: 5px; width: 550px" id="marks_box">
+                        <div style="margin: 5px; width: 300px" id="marks_box">
                                 <p id="markstable" style="max-height:400px; margin-left:5px; font-size:16px; color:bisque; overflow:auto;"></p>
                         </div>
         </span>
@@ -46,6 +46,37 @@ wintMarks.onmousedown = function (a) { // изменение позиции ок
     }
 }
 wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listenerMarks); } // прекращение изменения позиции окна поиска оценок от пользователя
+
+function getDate() {
+        var date = new Date()
+
+        day = month = ""
+        if (date.getMonth() < 9)
+            month = "0" + (date.getMonth() + 1)
+        else
+            month = (date.getMonth() + 1)
+        if (date.getDate() < 10)
+            day = "0" + date.getDate()
+        else
+            day = date.getDate()
+        if (date.getHours() < 10)
+            hours = '0' + date.getHours()
+        else
+            hours = date.getHours()
+        if (date.getMinutes() < 10)
+            minutes = '0' + date.getMinutes()
+        else
+            minutes = date.getMinutes()
+        if (date.getSeconds() < 10)
+            seconds = '0' + date.getSeconds()
+        else
+            seconds = date.getSeconds()
+
+    return month;
+    return day;
+    return minuts;
+    return seconds;
+}
 	
 	document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
 		if (checkelementtype(a)) { document.getElementById('AF_Marks').style.display = 'none'; }
@@ -60,41 +91,23 @@ wintMarks.onmouseup = function () { document.removeEventListener('mousemove', li
             document.getElementById('idmymenu').style.display = 'none'
 			
 			 document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
-					if (document.getElementById('AF_Marks').style.display == '')
-						document.getElementById('AF_Marks').style.display = 'none'
+				if (document.getElementById('AF_Marks').style.display == '')
+					document.getElementById('AF_Marks').style.display = 'none'
 			}
 			
-			    document.getElementById('marksinstr').onclick = function () {
-					window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-Score%F0%9F%93%8A%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B8')
-				}
+			document.getElementById('marksinstr').onclick = function () {
+				window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-Score%F0%9F%93%8A%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B8')
+			}
+			
+			document.getElementById('clearmarksstat').onclick = function () { // кнопка очистки поля
+                document.getElementById('markstable').innerHTML = "";
+            }
 
             document.getElementById('findmarksstat').onclick = async function () {
                 let tempval = document.getElementById('useridsearch').value.trim();
                 document.getElementById('markstable').innerText = "Загрузка..."
 
-                var date = new Date()
-
-                day = month = ""
-                if (date.getMonth() < 9)
-                    month = "0" + (date.getMonth() + 1)
-                else
-                    month = (date.getMonth() + 1)
-                if (date.getDate() < 10)
-                    day = "0" + date.getDate()
-                else
-                    day = date.getDate()
-                if (date.getHours() < 10)
-                    hours = '0' + date.getHours()
-                else
-                    hours = date.getHours()
-                if (date.getMinutes() < 10)
-                    minutes = '0' + date.getMinutes()
-                else
-                    minutes = date.getMinutes()
-                if (date.getSeconds() < 10)
-                    seconds = '0' + date.getSeconds()
-                else
-                    seconds = date.getSeconds()
+				getDate()
 
                 secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
@@ -155,9 +168,6 @@ wintMarks.onmouseup = function () { document.removeEventListener('mousemove', li
                 document.getElementById('useridsearch').value = "";
             }
 
-            document.getElementById('clearmarksstat').onclick = function () {
-                document.getElementById('markstable').innerHTML = "";
-            }
         }
     }
 	
@@ -166,29 +176,7 @@ wintMarks.onmouseup = function () { document.removeEventListener('mousemove', li
     if (document.getElementById('AF_Marks').style.display == 'none') {
         document.getElementById('AF_Marks').style.display = ''
 
-        var date = new Date()
-
-        day = month = ""
-        if (date.getMonth() < 9)
-            month = "0" + (date.getMonth() + 1)
-        else
-            month = (date.getMonth() + 1)
-        if (date.getDate() < 10)
-            day = "0" + date.getDate()
-        else
-            day = date.getDate()
-        if (date.getHours() < 10)
-            hours = '0' + date.getHours()
-        else
-            hours = date.getHours()
-        if (date.getMinutes() < 10)
-            minutes = '0' + date.getMinutes()
-        else
-            minutes = date.getMinutes()
-        if (date.getSeconds() < 10)
-            seconds = '0' + date.getSeconds()
-        else
-            seconds = date.getSeconds()
+		getDate()
 
         secondDate = date.getFullYear() + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 
