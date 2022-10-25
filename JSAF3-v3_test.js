@@ -5928,40 +5928,40 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
-				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
-					
-					fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                        "headers": {
-                            "accept": "*/*",
-                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-origin"
-                        },
-                        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-			}
-			
-			// function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу , ее потом включить сейчас для теста использую заметки
 				  // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
-
-                    // fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+					
+					// fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                         // "headers": {
                             // "accept": "*/*",
                             // "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            // "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
                             // "sec-fetch-mode": "cors",
                             // "sec-fetch-site": "same-origin"
                         // },
-                        // "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        // "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
                         // "method": "POST",
                         // "mode": "cors",
                         // "credentials": "include"
                     // });
 			// }
+			
+			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу , ее потом включить сейчас для теста использую заметки
+				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
+
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                        "headers": {
+                            "accept": "*/*",
+                            "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+                            "sec-fetch-mode": "cors",
+                            "sec-fetch-site": "same-origin"
+                        },
+                        "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + session + "\",\"conversationId\":\"" + hashchat + "\",\"text\":\"" + notemsg + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
+			}
 			
 			if (flagtimer.indexOf(0) === -1) {
 				uniqarr = []; 
@@ -6000,7 +6000,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 					startarr[i] = new Date().getTime();
 					intervarr[i] = setInterval(function () {
-						var now = document.getElementById('frozetimer').value * 1000 - (new Date().getTime() - startarr[i]);
+						var now = document.getElementById('frozetimer').value * 60 * 1000 - (new Date().getTime() - startarr[i]);
 						if (now <= 0 || flagtimer[i] == 1 && cancelflag[i] == 0) {
 							clearInterval(intervarr[i]);
 							document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
@@ -6012,7 +6012,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							flagtimer[i] = 1;
 							console.log(flagtimer)
 							clearTimeout(timeoutsarr[i])
-						} , document.getElementById('frozetimer').value  * 1000) //*60  убрал чтобы в секундах бьыстрее тестить
+						} , document.getElementById('frozetimer').value  * 60 * 1000) //*60  убрал чтобы в секундах бьыстрее тестить
 					} 			
 				}
 				
