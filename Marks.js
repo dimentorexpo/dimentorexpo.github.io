@@ -85,15 +85,7 @@ function getDate() {
 		if (checkelementtype(a)) { document.getElementById('AF_Marks').style.display = 'none'; }
 	}
 	
-	document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
-        if (document.getElementById('AF_Marks').style.display == '') {
-            document.getElementById('AF_Marks').style.display = 'none'
-            document.getElementById('idmymenu').style.display = 'none'
-        } else {
-            document.getElementById('AF_Marks').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
-			
-			 document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
+			document.getElementById('hideMeMarks').onclick = function () { // скрытие окна поиска оценок от пользователя
 				if (document.getElementById('AF_Marks').style.display == '')
 					document.getElementById('AF_Marks').style.display = 'none'
 			}
@@ -105,6 +97,20 @@ function getDate() {
 			document.getElementById('clearmarksstat').onclick = function () { // кнопка очистки поля
                 document.getElementById('markstable').innerHTML = "";
             }
+
+			
+			
+	
+	document.getElementById('butMarks').onclick = function () { //открыть форму для поиска оценок от пользователя
+        if (document.getElementById('AF_Marks').style.display == '') {
+            document.getElementById('AF_Marks').style.display = 'none'
+            document.getElementById('idmymenu').style.display = 'none'
+        } else {
+            document.getElementById('AF_Marks').style.display = ''
+            document.getElementById('idmymenu').style.display = 'none'
+			
+
+			
 
             document.getElementById('findmarksstat').onclick = async function () {
                 let tempval = document.getElementById('useridsearch').value.trim();
@@ -324,9 +330,5 @@ function getDate() {
                 'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
             document.getElementById('useridsearch').value = "";
         }
-    }
-
-    document.getElementById('clearmarksstat').onclick = function () {
-        document.getElementById('markstable').innerHTML = "";
     }
 }
