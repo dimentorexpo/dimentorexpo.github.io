@@ -5900,10 +5900,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let sessid = []; //массив сессий для каждого хеша чата
 		let flagtimer = []; // флаг для проверки есть ли на чате таймаут, который выполнит функцию по истечении времени
 		let timeoutsarr=[]; // массив таймаутов
-		let chatflagtimer = []; // флаг  для проверки есть ли уже на одном элементе активная интервальная функция
 		let infoarr = []; // массив выводимого в HTML хеша чата с кнопкой таймера обратного отсчета и отмены
 		var intervarr =[]; // массив интервалов
 		let cancelflag=[]; // флаг что таймер был отменен
+		var startarr=[];
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5927,18 +5927,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				return mDisplay + sDisplay; 
 			}
 
-			function timer(time, update, complete) { // таймер обратного отсчета
-					var start = new Date().getTime();
-					intervarr[i] = setInterval(function () {
-						var now = time - (new Date().getTime() - start);
-						if (now <= 0 || flagtimer[i] ==1) {
-							clearInterval(intervarr[i]);
-							complete();
-						}
-						else update(Math.floor(now / 1000));
-					}, 1000); // the smaller this number, the more accurate the timer will be
-			}
-			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
 				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
 					
@@ -5980,7 +5968,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				timeoutsarr=[] 
 				stopfunc = [];
 				flagtimer=[];
-				chatflagtimer=[]; 
 				intervarr =[]; 
 				chathasharr=[] //testovo proverochka!
 				cancelflag=[];
@@ -6011,27 +5998,25 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					if (flagtimer[i] != 0 && cancelflag[i] != 1) {
 						flagtimer[i] = 0
 						
-							timer(
-								document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
-								function (timeleft) { // called every step to update the visible countdown
-									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
-								},
-								function () {
-									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
-								}
-							)
-												
+					startarr[i] = new Date().getTime();
+					intervarr[i] = setInterval(function () {
+						var now = document.getElementById('frozetimer').value * 1000 - (new Date().getTime() - startarr[i]);
+						if (now <= 0 || flagtimer[i] == 1 && cancelflag[i] == 0) {
+							clearInterval(intervarr[i]);
+							document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
+						} else if (cancelflag[i] == 1) {
+							clearInterval(intervarr[i]);
+							document.getElementsByName('frozechattimer')[i].innerHTML = "Canceled!"
+						} else document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(Math.floor(now / 1000));
+					}, 300); // the smaller this number, the more accurate the timer will be
+																		
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
-							chathasharr.splice(i,1)
 							flagtimer[i] = 1;
-							chatflagtimer[i] = 1;
 							console.log(flagtimer)
 							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value  * 1000) //*60  убрал чтобы в секундах бьыстрее тестить
-					} else if ((flagtimer[i] == 1 && cancelflag[i] == 1) ) {
-						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
-					}			
+					} 			
 				}
 				
 				console.log(uniqarr)
