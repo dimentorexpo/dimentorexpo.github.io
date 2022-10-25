@@ -6044,10 +6044,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		}
 		document.getElementById('clearallchathash').onclick = function() {
 			document.getElementById('chathastable').innerHTML = '';
-			uniqarr = [];
-			chathasharr = [];
-			timeoutsarr = [];
-			flagtimer = [];
+				timerarray = [];
+				uniqarr = []; 
+				timeoutsarr=[] 
+				stopfunc = [];
+				flagtimer=[];
+				intervarr =[]; 
+				chathasharr=[] //testovo proverochka!
+				cancelflag=[];
 		}
 	}
 
