@@ -5903,6 +5903,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		let chatflagtimer = []; // флаг  для проверки есть ли уже на одном элементе активная интервальная функция
 		let infoarr = []; // массив выводимого в HTML хеша чата с кнопкой таймера обратного отсчета и отмены
 		let intervarr =[]; // массив интервалов
+		let cancelflag=[]; // флаг что таймер был отменен
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5982,6 +5983,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				chatflagtimer=[]; 
 				intervarr =[]; 
 				chathasharr=[] //testovo proverochka!
+				cancelflag=[];
 			} 
 			
 			async function getsesid(arg) { // функция получения Idsession из хеша чата для отправки заметок или сообщений в чат пользователю
@@ -6016,7 +6018,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 								document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
 							},
 							function () {
-								document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
+								if (cancelflag[i] == 0) {
+									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
+								} else {
+									document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
+								}
 							}
 						)
 						
@@ -6038,10 +6044,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					removetimerarray[i].onclick = function() {
 						clearTimeout(timeoutsarr[i])
 						// clearInterval(intervarr[i])
+						cancelflag[i] = 1;
 						chathasharr.splice(i,1)
 						flagtimer[i] = 1;
 						chatflagtimer[i] = 1; 
-						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
+						//document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
 
