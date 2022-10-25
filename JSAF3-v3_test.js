@@ -5904,6 +5904,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		var intervarr =[]; // массив интервалов
 		let cancelflag=[]; // флаг что таймер был отменен
 		var startarr=[];
+		var timerarray=[];
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5964,6 +5965,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 			
 			if (flagtimer.indexOf(0) === -1) {
+				timerarray = []
 				uniqarr = []; 
 				timeoutsarr=[] 
 				stopfunc = [];
@@ -5977,6 +5979,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
 				return datachat.sessionId
 			}
+			
+				timerarray[i] = document.getElementById('frozetimer').value
 			
 				if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 					chathasharr.push(document.getElementById('chatfrozehash').value.trim())
@@ -6000,7 +6004,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 					startarr[i] = new Date().getTime();
 					intervarr[i] = setInterval(function () {
-						var now = document.getElementById('frozetimer').value * 60 * 1000 - (new Date().getTime() - startarr[i]);
+						var now = timerarray[i] * 60 * 1000 - (new Date().getTime() - startarr[i]);
 						if (now <= 0 || flagtimer[i] == 1 && cancelflag[i] == 0) {
 							clearInterval(intervarr[i]);
 							document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
