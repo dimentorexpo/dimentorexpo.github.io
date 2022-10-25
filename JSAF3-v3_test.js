@@ -5929,10 +5929,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 			function timer(time, update, complete) { // таймер обратного отсчета
 					var start = new Date().getTime();
-					var intrvl = setInterval(function () {
+					intervarr[i] = setInterval(function () {
 						var now = time - (new Date().getTime() - start);
 						if (now <= 0 || flagtimer[i] ==1) {
-							clearInterval(intrvl);
+							clearInterval(intervarr[i]);
 							complete();
 						}
 						else update(Math.floor(now / 1000));
@@ -6011,7 +6011,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					if (flagtimer[i] != 0 && cancelflag[i] != 1) {
 						flagtimer[i] = 0
 						
-						intervarr[i] = setInterval( function() {
 							timer(
 								document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
 								function (timeleft) { // called every step to update the visible countdown
@@ -6021,7 +6020,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
 								}
 							)
-						} , 300)
 												
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
