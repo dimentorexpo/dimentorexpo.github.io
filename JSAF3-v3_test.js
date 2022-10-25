@@ -5926,20 +5926,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				return mDisplay + sDisplay; 
 			}
 
-			
 			function timer(arg, time, update, complete) { // таймер обратного отсчета
-				if (arg !=1) {
-console.log(arg)
 					var start = new Date().getTime();
 					intervarr[i] = setInterval(function () {
 						var now = time - (new Date().getTime() - start);
-						if (now <= 0) {
+						if (now <= 0 || flagtimer[i] ==1) {
 							clearInterval(intervarr[i]);
 							complete();
 						}
 						else update(Math.floor(now / 1000));
 					}, 300); // the smaller this number, the more accurate the timer will be
-				} else return false;
 			}
 			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
@@ -6017,12 +6013,7 @@ console.log(arg)
 							flagtimer[i],
 						document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
 							function (timeleft) { // called every step to update the visible countdown
-									if (flagtimer[i] == 1) {
-										 return 0;
-										// return timeleft = 0;
-									} else {
-									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
-									}
+								document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
 							},
 							function () {
 								document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
@@ -6046,7 +6037,7 @@ console.log(arg)
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
 						clearTimeout(timeoutsarr[i])
-						clearInterval(intervarr[i])
+						// clearInterval(intervarr[i])
 						chathasharr.splice(i,1)
 						flagtimer[i] = 1;
 						chatflagtimer[i] = 1; 
