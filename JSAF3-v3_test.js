@@ -5998,7 +5998,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				stopfunc = [];
 				flagtimer=[];
 				chatflagtimer=[];
-				intervarr[i] =[];
+				intervarr =[];
 			} else {
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
@@ -6019,7 +6019,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							document.getElementById('frozetimer').value * 60 * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
 									if (flagtimer[i] == 1) {
-											return false;
+										 return false;
+										// return timeleft = 0;
 									} else {
 									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
 									}
