@@ -5981,6 +5981,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 			
 				timerarray[i] = document.getElementById('frozetimer').value
+				console.log(timerarray)
 			
 				if (document.getElementById('chatfrozehash').value.split('/').length == 1){
 					chathasharr.push(document.getElementById('chatfrozehash').value.trim())
