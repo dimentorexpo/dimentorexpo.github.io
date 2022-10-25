@@ -100,7 +100,7 @@ function getDate() {
 
 async function getUserMarks(option) {
 	let tempval;
-	if (optiom == 'menu') {		
+	if (option == 'menu') {		
 		tempval = document.getElementById('useridsearch').value.trim();
 	} else if (option == 'userdetailsbar') {
 		for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
