@@ -5974,19 +5974,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
                     // });
 			// }
 			
-			if (document.getElementById('chatfrozehash').value.split('/').length == 1){
-				chathasharr.push(document.getElementById('chatfrozehash').value.trim())
-			} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
-				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[6])
-			} else if (document.getElementById('chatfrozehash').value.split('/')[4] == "assigned"){
-				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[5])
-			}
-			
-			async function getsesid(arg) { // функция получения Idsession из хеша чата для отправки заметок или сообщений в чат пользователю
-				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
-				return datachat.sessionId
-			}
-
 			if (flagtimer.indexOf(0) === -1) {
 				uniqarr = []; 
 				timeoutsarr=[] 
@@ -5994,15 +5981,28 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				flagtimer=[];
 				chatflagtimer=[]; 
 				intervarr =[]; 
-				} else {
+				chathasharr=[] //testovo proverochka!
+			} else {
+				if (document.getElementById('chatfrozehash').value.split('/').length == 1){
+				chathasharr.push(document.getElementById('chatfrozehash').value.trim())
+				} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
+					chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[6])
+				} else if (document.getElementById('chatfrozehash').value.split('/')[4] == "assigned"){
+					chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[5])
+				}
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
 			}
 			
+			async function getsesid(arg) { // функция получения Idsession из хеша чата для отправки заметок или сообщений в чат пользователю
+				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
+				return datachat.sessionId
+			}
+			
 			document.getElementById('chatfrozehash').value = ''
 			document.getElementById('chathastable').innerHTML  = ''
-			uniqarr = new Set(chathasharr)
-			uniqarr = [...uniqarr]
+			// uniqarr = new Set(chathasharr)
+			// uniqarr = [...uniqarr]
 				for (let i=0; i<uniqarr.length; i++) {
 					infoarr[i] = document.createElement('div')
 					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
