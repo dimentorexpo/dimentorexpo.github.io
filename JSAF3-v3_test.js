@@ -5895,15 +5895,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 	
 	document.getElementById('butFrozeChat').onclick = function () {
-		let uniqarr = [];
-		let chathasharr = [];
-		let sessid = [];
-		let hashcht;
-		let flagtimer = [];
-		let timeoutsarr=[];
-		let chatflagtimer = [];
-		let infoarr = [];
-		let intervarr =[];
+		let uniqarr = []; //уникальный массив. чтобы не было задвоение одного и того же хеша
+		let chathasharr = []; // исходный массив, куда  заносятя все хеши чатов
+		let sessid = []; //массив сессий для каждого хеша чата
+		let flagtimer = []; // флаг для проверки есть ли на чате таймаут, который выполнит функцию по истечении времени
+		let timeoutsarr=[]; // массив таймаутов
+		let chatflagtimer = []; // флаг  для проверки есть ли уже на одном элементе активная интервальная функция
+		let infoarr = []; // массив выводимого в HTML хеша чата с кнопкой таймера обратного отсчета и отмены
+		let intervarr =[]; // массив интервалов
 		
 		if (document.getElementById('AF_FrozeChat').style.display == 'none') {
 			document.getElementById('AF_FrozeChat').style.display = ''
@@ -5976,13 +5975,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			// }
 			
 			if (document.getElementById('chatfrozehash').value.split('/').length == 1){
-				hashcht = document.getElementById('chatfrozehash').value.trim()
 				chathasharr.push(document.getElementById('chatfrozehash').value.trim())
 			} else if (document.getElementById('chatfrozehash').value.split('/')[2] == "hdi.skyeng.ru"){
-				hashcht = document.getElementById('chatfrozehash').value.split('/')[6]
 				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[6])
 			} else if (document.getElementById('chatfrozehash').value.split('/')[4] == "assigned"){
-				hashcht = document.getElementById('chatfrozehash').value.split('/')[5]
 				chathasharr.push(document.getElementById('chatfrozehash').value.split('/')[5])
 			}
 			
@@ -5992,13 +5988,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 			}
 
 			if (flagtimer.indexOf(0) === -1) {
-				uniqarr = [];
-				intervarr = [];
-				timeoutsarr=[]
+				uniqarr = []; 
+				timeoutsarr=[] 
 				stopfunc = [];
 				flagtimer=[];
-				chatflagtimer=[];
-				intervarr =[];
+				chatflagtimer=[]; 
+				intervarr =[]; 
+				infoarr = []
 			} else {
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
@@ -6016,10 +6012,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					if (chatflagtimer[i] !=0) {
 						chatflagtimer[i] = 0;
 						timer(
-						flagtimer[i] == 1 ? 0 : document.getElementById('frozetimer').value * 60 * 1000, // milliseconds
+						flagtimer[i] == 1 ? 0 : document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
 							function (timeleft) { // called every step to update the visible countdown
 									if (flagtimer[i] == 1) {
-										 return false;
+										 return 0;
 										// return timeleft = 0;
 									} else {
 									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
@@ -6046,7 +6042,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							chatflagtimer[i] = 1;
 							console.log(flagtimer)
 							clearTimeout(timeoutsarr[i])
-						} , document.getElementById('frozetimer').value * 60 * 1000) 
+						} , document.getElementById('frozetimer').value  * 1000) //*60  убрал чтобы в секундах бьыстрее тестить
 					}				
 				}
 				
