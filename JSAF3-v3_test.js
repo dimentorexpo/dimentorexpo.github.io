@@ -11191,6 +11191,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/ServiceDesk1.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/AutoRespond.js") // модуль автоответа по таймеру
+        include("https://dimentorexpo.github.io/JiraSearch.js") // модуль поиска по Jira
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
