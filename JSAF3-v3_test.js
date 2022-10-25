@@ -5927,16 +5927,16 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				return mDisplay + sDisplay; 
 			}
 
-			function timer(arg, time, update, complete) { // таймер обратного отсчета
+			function timer(time, update, complete) { // таймер обратного отсчета
 					var start = new Date().getTime();
-					intervarr[i] = setInterval(function () {
+					let intrvl = setInterval(function () {
 						var now = time - (new Date().getTime() - start);
 						if (now <= 0 || flagtimer[i] ==1) {
-							clearInterval(intervarr[i]);
+							clearInterval(intrvl);
 							complete();
 						}
 						else update(Math.floor(now / 1000));
-					}, 300); // the smaller this number, the more accurate the timer will be
+					}, 1000); // the smaller this number, the more accurate the timer will be
 			}
 			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
@@ -6006,26 +6006,24 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					infoarr[i] = document.createElement('div')
 					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
 					document.getElementById('chathastable').append(infoarr[i])
+					cancelflag[i] = 0
 						
-					if (flagtimer[i] != 0) {
+					if (flagtimer[i] != 0 && cancelflag[i] != 1) {
 						flagtimer[i] = 0
 						
-						console.log(flagtimer)
-						timer(
-							flagtimer[i],
-						document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
-							function (timeleft) { // called every step to update the visible countdown
-								document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
-							},
-							function () {
-								if (cancelflag[i] == 0) {
-									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
-								} else {
-									document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
+						intervarr[i] = setInterval( function() {
+							timer(
+								document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
+								function (timeleft) { // called every step to update the visible countdown
+									document.getElementsByName('frozechattimer')[i].innerHTML = secondsToms(timeleft)
+								},
+								function () {
+									console.log(cancelflag[i])
+										document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
 								}
-							}
-						)
-						
+							)
+						} , 300)
+												
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
 							chathasharr.splice(i,1)
@@ -6034,7 +6032,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							console.log(flagtimer)
 							clearTimeout(timeoutsarr[i])
 						} , document.getElementById('frozetimer').value  * 1000) //*60  убрал чтобы в секундах бьыстрее тестить
-					}				
+					} else if ((flagtimer[i] == 1 && cancelflag[i] == 1) ) {
+						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
+					}			
 				}
 				
 				console.log(uniqarr)
@@ -6043,11 +6043,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				for (let i=0; i<removetimerarray.length; i++) {
 					removetimerarray[i].onclick = function() {
 						clearTimeout(timeoutsarr[i])
-						// clearInterval(intervarr[i])
+						clearInterval(intervarr[i])
 						cancelflag[i] = 1;
-						chathasharr.splice(i,1)
 						flagtimer[i] = 1;
-						chatflagtimer[i] = 1; 
+						// chathasharr.splice(i,1)
 						//document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
 					}
 				}
