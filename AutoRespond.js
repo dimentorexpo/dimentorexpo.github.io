@@ -146,7 +146,7 @@ wintFrozeChat.onmouseup = function () { document.removeEventListener('mousemove'
 				document.getElementById('chathastable').innerHTML  = ''
 				for (let i=0; i<uniqarr.length; i++) {
 					infoarr[i] = document.createElement('div')
-					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
+					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа" style="cursor:pointer">❌</span>'
 					document.getElementById('chathastable').append(infoarr[i])
 					cancelflag[i] = 0
 						
