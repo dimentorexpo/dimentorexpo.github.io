@@ -5928,15 +5928,17 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 			
 			function timer(time, update, complete) { // таймер обратного отсчета
-				var start = new Date().getTime();
-				intervarr[i] = setInterval(function () {
-					var now = time - (new Date().getTime() - start);
-					if (now <= 0) {
-						clearInterval(intervarr[i]);
-						complete();
-					}
-					else update(Math.floor(now / 1000));
-				}, 300); // the smaller this number, the more accurate the timer will be
+				if (flagtimer[i] !=1) {
+					var start = new Date().getTime();
+					intervarr[i] = setInterval(function () {
+						var now = time - (new Date().getTime() - start);
+						if (now <= 0) {
+							clearInterval(intervarr[i]);
+							complete();
+						}
+						else update(Math.floor(now / 1000));
+					}, 300); // the smaller this number, the more accurate the timer will be
+				} else return false;
 			}
 			
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
@@ -6022,7 +6024,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							},
 							function () {
 								document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
-								clearInterval(intervarr[i])
 							}
 						)
 						
