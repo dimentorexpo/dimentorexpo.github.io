@@ -6037,7 +6037,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 						
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
-							chathasharr.shift()
+							chathasharr.splice(i,1)
 							flagtimer[i] = 1;
 							chatflagtimer[i] = 1;
 							console.log(flagtimer)
