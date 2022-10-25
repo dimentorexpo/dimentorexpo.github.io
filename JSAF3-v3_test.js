@@ -5994,8 +5994,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 				flagtimer=[];
 				chatflagtimer=[]; 
 				intervarr =[]; 
-				infoarr = []
-			} else {
+				} else {
 				uniqarr = new Set(chathasharr)
 				uniqarr = [...uniqarr]
 			}
@@ -6009,10 +6008,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					infoarr[i].innerHTML = chathasharr[i] + ' ' + '<button name="frozechattimer"></button>' + ' ' + '<span name="deletetimer" title="Удаляет таймер автоответа">❌</span>'
 					document.getElementById('chathastable').append(infoarr[i])
 					
-					if (chatflagtimer[i] !=0) {
-						chatflagtimer[i] = 0;
+
+						
+					if (flagtimer[i] != 0) {
+						
+						flagtimer[i] = 0
+						
+						console.log(flagtimer)
 						timer(
-						flagtimer[i] == 1 ? 0 : document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
+						document.getElementById('frozetimer').value * 1000, // milliseconds //*60  убрал чтобы в секундах бьыстрее тестить
 							function (timeleft) { // called every step to update the visible countdown
 									if (flagtimer[i] == 1) {
 										 return 0;
@@ -6030,11 +6034,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 									}
 							}
 						)
-					}
 						
-					if (flagtimer[i] != 0) {
-						
-						flagtimer[i] = 0
 						timeoutsarr[i] = setTimeout(async function () {
 							sndmsgaftertime(session = await getsesid(uniqarr[i]), uniqarr[i])
 							chathasharr.shift()
@@ -6053,7 +6053,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					removetimerarray[i].onclick = function() {
 						clearTimeout(timeoutsarr[i])
 						clearInterval(intervarr[i])
-						chathasharr.shift()
+						chathasharr.splice(i,1)
 						flagtimer[i] = 1;
 						chatflagtimer[i] = 1; 
 						document.getElementsByName('frozechattimer')[i].innerText = "Canceled!"
