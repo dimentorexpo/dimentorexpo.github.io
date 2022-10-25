@@ -6016,7 +6016,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 					if (chatflagtimer[i] !=0) {
 						chatflagtimer[i] = 0;
 						timer(
-							document.getElementById('frozetimer').value * 60 * 1000, // milliseconds
+						flagtimer[i] == 1 ? 0 : document.getElementById('frozetimer').value * 60 * 1000, // milliseconds
 							function (timeleft) { // called every step to update the visible countdown
 									if (flagtimer[i] == 1) {
 										 return false;
@@ -6028,6 +6028,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 							function () {
 								if (flagtimer[i] == 1) {
 									console.log(i + ' element was canceled')
+									return false;
 								} else {
 									document.getElementsByName('frozechattimer')[i].innerHTML = "Done!"
 									}
