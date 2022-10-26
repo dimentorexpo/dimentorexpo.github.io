@@ -7689,11 +7689,6 @@ function prepTp() { //функция подготовки расширения �
     openchhis.id = 'opennewcat'
     document.getElementsByTagName('section')[1].append(openchhis)
 
-    openchhis.onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == 'none')
-            document.getElementById('butChatHistory').click()
-    }
-
     flagLangBut = 1
     customTemplates()
     setTimeout(whoAmI, 2000)
@@ -7755,7 +7750,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
         include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
-        include("https://dimentorexpo.github.io/Modules/ChatHistory.js.js") // модуль просмотра истории чатов
+        include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
