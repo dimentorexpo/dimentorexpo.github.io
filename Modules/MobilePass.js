@@ -41,7 +41,7 @@ buttonmobpas.onclick = function () {
     setTimeout(function () { document.getElementById('copymobpass').innerHTML = "Generate Code📱" }, 15000);
 }
 
-    document.getElementById('getmobpasscode').addEventListener('click', function () {
+    document.getElementById('getmobpasscode').onclick = function () {
         if (setidformobpass.value == "")
             console.log('Введите id в поле')
         else {
@@ -75,4 +75,4 @@ buttonmobpas.onclick = function () {
         };
         setTimeout(function () { document.getElementById('setidformobpass').value = "" }, 15000);
 
-    })
+    }
