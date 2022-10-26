@@ -9159,7 +9159,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи
         include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
         include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
-        include("https://dimentorexpo.github.io/Modules/TaskCreate.js.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
+        include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
