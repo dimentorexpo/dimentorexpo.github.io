@@ -544,26 +544,6 @@ var win_AFhelper =  // описание элементов главного ок
 	</span>
 </div>`;
 
-var win_GrList =  // описание элементов окна Списка группы
-    `<div style="display: flex; width: 450px;">
-        <span style="width: 450px">
-                <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 400;" id="grlistdata">
-                                <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
-                        </div>
-						<div>
-                        <input id="idgrouptolist" placeholder="ID группы" title="Введите ID группы для получения списка учеников" autocomplete="off" type="text" style="text-align: center; width: 80px; color: black;margin-left:5px; position:relative; left:30%;">
-							<button title="Запуск получения списка учеников группы" id="getidgrouptolist" style="position:relative; left:30%;">Get info</button>
-						</div>
-				</span>
-						<div id="grlstdiv">
-							 <br>
-							 <p id="grlistinfo" style="margin-left: 5px; color:bisque;"></span>
-							 <br>
-						</div>
-        </span>
-</div>`;
-
 var win_LessonStatus =  // описание элементов окна статуса уроков
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -700,11 +680,6 @@ if (localStorage.getItem('winTopTimetable') == null) { // начальное п�
 if (localStorage.getItem('winTopTechSum') == null) { // начальное положение окна проверки тех информации об устройстве пользователя обратившегося в чат АФ
     localStorage.setItem('winTopTechSum', '120');
     localStorage.setItem('winLeftTechSum', '295');
-}
-
-if (localStorage.getItem('winTopGrList') == null) {  // начальное положение окна списка группы
-    localStorage.setItem('winTopGrList', '120');
-    localStorage.setItem('winLeftGrList', '295');
 }
 
 //заносим переменную для переключения окна
@@ -1219,13 +1194,6 @@ wintTechSummary.style.display = 'none';
 wintTechSummary.setAttribute('id', 'AF_TechSummary');
 wintTechSummary.innerHTML = win_Techsummary;
 
-let wintGrList = document.createElement('div'); // создание окна Список группы
-document.body.append(wintGrList);
-wintGrList.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrList') + 'px; left: ' + localStorage.getItem('winLeftGrList') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintGrList.style.display = 'none';
-wintGrList.setAttribute('id', 'AF_GrList');
-wintGrList.innerHTML = win_GrList;
-
 var listenerLessonStatus = function (e, a) { // сохранение позиции окна статус урока
     wintLessonStatus.style.left = Number(e.clientX - myX8) + "px";
     wintLessonStatus.style.top = Number(e.clientY - myY8) + "px";
@@ -1274,22 +1242,6 @@ wintTechSummary.onmousedown = function (a) { // изменение позици�
 }
 wintTechSummary.onmouseup = function () { document.removeEventListener('mousemove', listenerTechSummary); } // прекращение изменения позиции окна инфо об устройстве пользователя
 
-var listenerGrList = function (e, a) { // сохранение позиции окна Список группы
-    wintGrList.style.left = Number(e.clientX - myX13) + "px";
-    wintGrList.style.top = Number(e.clientY - myY13) + "px";
-    localStorage.setItem('winTopGrList', String(Number(e.clientY - myY13)));
-    localStorage.setItem('winLeftGrList', String(Number(e.clientX - myX13)));
-};
-
-wintGrList.onmousedown = function (a) { // изменение позиции окна Список группы
-    if (checkelementtype(a)) {
-        window.myX13 = a.layerX;
-        window.myY13 = a.layerY;
-        document.addEventListener('mousemove', listenerGrList);
-    }
-}
-wintGrList.onmouseup = function () { document.removeEventListener('mousemove', listenerGrList); } // прекращение изменения позиции окна Список группы
-
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
@@ -1301,9 +1253,6 @@ function checkelementtype(a) { // проверка на какой элемен�
 
 // Модуль скрытия окон по двойному клику
 
-document.getElementById('AF_GrList').ondblclick = function (a) { // скрытие окна Список группы по двойному клику
-    if (checkelementtype(a)) { document.getElementById('AF_GrList').style.display = 'none'; }
-}
 document.getElementById('AF_Timetable').ondblclick = function (a) { // скрытие окна предстоящих и прошедших занятиях по двойному клику
     if (checkelementtype(a)) {
         document.getElementById('AF_Timetable').style.display = 'none';
@@ -1976,14 +1925,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         if (document.getElementById('AF_LessonStatus').style.display == '') {
             document.getElementById('AF_LessonStatus').style.display = 'none'
             document.getElementById('statustable').innerText = "";
-        }
-    }
-
-    document.getElementById('hideMeGrList').onclick = function () { // скрытие окна Список группы
-        if (document.getElementById('AF_GrList').style.display == '') {
-            document.getElementById('AF_GrList').style.display = 'none';
-            document.getElementById('grlistinfo').innerText = "";
-            document.getElementById('idgrouptolist').value = "";
         }
     }
 
@@ -6197,6 +6138,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
+        include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
         include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
 		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
