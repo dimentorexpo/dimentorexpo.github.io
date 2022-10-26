@@ -109,6 +109,14 @@ wintChatHis.innerHTML = win_Chathis;
         document.getElementById('hashchathis').value = ''
     }
 	
+	    document.getElementById('chid').onclick = () => { // копирует в буфер айди чата
+        copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
+    }
+
+    document.getElementById('usidchat').onclick = () => { //копирует в буфер айди пользователя
+        copyToClipboard1(document.getElementById('placeusid').innerText)
+    }
+	
 	function changeviewtheme() { //функция переключения темы в истории чатов на светлую(классическуб в стиле АФ) и темную в зависимости от значения переменной полученной в локалсторедж
 
     if (localStorage.getItem('theme') == 'light') {

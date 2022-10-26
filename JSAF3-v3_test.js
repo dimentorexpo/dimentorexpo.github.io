@@ -1746,14 +1746,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    document.getElementById('chid').onclick = () => { // копирует в буфер айди чата
-        copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
-    }
-
-    document.getElementById('usidchat').onclick = () => { //копирует в буфер айди пользователя
-        copyToClipboard1(document.getElementById('placeusid').innerText)
-    }
-
     document.getElementById('timetable').addEventListener('click', function () {
         window.open("https://timetable.skyeng.ru/")    // копируем в буфер ссылку на Timetable
     })
