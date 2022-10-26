@@ -869,3 +869,8 @@ async function startnewchatfast(polzid) { //открывает быстро ча
             }
         }
     }
+	
+	    openchhis.onclick = () => {
+        if (document.getElementById('AF_ChatHis').style.display == 'none')
+            document.getElementById('butChatHistory').click()
+    }
