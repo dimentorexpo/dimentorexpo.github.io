@@ -7688,6 +7688,11 @@ function prepTp() { //функция подготовки расширения �
     openchhis.style = 'position:fixed;top:45px;right:0px;z-index:5;'
     openchhis.id = 'opennewcat'
     document.getElementsByTagName('section')[1].append(openchhis)
+	
+	openchhis.onclick = () => {
+        if (document.getElementById('AF_ChatHis').style.display == 'none')
+            document.getElementById('butChatHistory').click()
+    }
 
     flagLangBut = 1
     customTemplates()
