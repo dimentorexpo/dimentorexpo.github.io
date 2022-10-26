@@ -544,25 +544,6 @@ var win_AFhelper =  // описание элементов главного ок
 	</span>
 </div>`;
 
-var win_Timetable = // описание элементов окна предстоящих и прошедших занятиях
-    `<div style="display: flex; width: 450px;">
-<span style="width: 450px">
-        <span style="cursor: -webkit-grab;">
-                <div style="margin: 5px; width: 450;" id="HeadTimetable">
-                        <button id="hideMeTT" style="width:50px; background: #228B22;">hide</button>
-                </div>
-                <div style="display:flex; justify-content:space-evenly; margin-top:5px;">
-                     <button title="Выводит инфо о прошедших уроках" id="getlessonpast">Прошедшие уроки</button>
-                     <button title="Выводит инфо о предстоящих уроках" id="getlessonfuture">Предстоящие уроки</button>
-                 </div>
-                 </span>
-                <div id="timetableinfo">
-                     <p id="timetabledata" style="width:450px;color:bisque; max-height:400px; margin-left:5px; margin-top:5px; overflow:auto;text-align:center;"></p>
-                </div>
-</span>
-</div>`;
-
-
 var win_Techsummary = // описание элементов окна вывода технической информации обратившегося последний раз в чат пользователя
     `<div style="display: flex; width: 400px;">
 <span style="width: 400px">
@@ -639,11 +620,6 @@ function noDoubts(object) { // функция для разрешения вво
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
-}
-
-if (localStorage.getItem('winTopTimetable') == null) { // начальное положение окна проверки прошедшего расписания и предстоящих уроков
-    localStorage.setItem('winTopTimetable', '120');
-    localStorage.setItem('winLeftTimetable', '295');
 }
 
 if (localStorage.getItem('winTopTechSum') == null) { // начальное положение окна проверки тех информации об устройстве пользователя обратившегося в чат АФ
@@ -1142,37 +1118,12 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
 
 }
 
-
-
-let wintTimetable = document.createElement('div'); // создание окна предстоящих и прошедших занятиях
-document.body.append(wintTimetable);
-wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintTimetable.style.display = 'none';
-wintTimetable.setAttribute('id', 'AF_Timetable');
-wintTimetable.innerHTML = win_Timetable;
-
 let wintTechSummary = document.createElement('div'); // создание окна инфо об устройстве пользователя
 document.body.append(wintTechSummary);
 wintTechSummary.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTechSum') + 'px; left: ' + localStorage.getItem('winLeftTechSum') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintTechSummary.style.display = 'none';
 wintTechSummary.setAttribute('id', 'AF_TechSummary');
 wintTechSummary.innerHTML = win_Techsummary;
-
-var listenerTimetable = function (e, a) { // сохранение позиции окна предстоящих и прошедших занятиях
-    wintTimetable.style.left = Number(e.clientX - myX10) + "px";
-    wintTimetable.style.top = Number(e.clientY - myY10) + "px";
-    localStorage.setItem('winTopTimetable', String(Number(e.clientY - myY10)));
-    localStorage.setItem('winLeftTimetable', String(Number(e.clientX - myX10)));
-};
-
-wintTimetable.onmousedown = function (a) { // изменение позиции окна предстоящих и прошедших занятиях
-    if (checkelementtype(a)) {
-        window.myX10 = a.layerX;
-        window.myY10 = a.layerY;
-        document.addEventListener('mousemove', listenerTimetable);
-    }
-}
-wintTimetable.onmouseup = function () { document.removeEventListener('mousemove', listenerTimetable); } // прекращение изменения позиции окна предстоящих и прошедших занятиях
 
 var listenerTechSummary = function (e, a) { // сохранение позиции окна инфо об устройстве пользователя
     wintTechSummary.style.left = Number(e.clientX - myX11) + "px";
@@ -1201,12 +1152,6 @@ function checkelementtype(a) { // проверка на какой элемен�
 
 // Модуль скрытия окон по двойному клику
 
-document.getElementById('AF_Timetable').ondblclick = function (a) { // скрытие окна предстоящих и прошедших занятиях по двойному клику
-    if (checkelementtype(a)) {
-        document.getElementById('AF_Timetable').style.display = 'none';
-        document.getElementById('timetabledata').innerHTML = "";
-    }
-}
 document.getElementById('AF_TechSummary').ondblclick = function (a) { // скрытие окна инфо об устройстве пользователя по двойному клику
     if (checkelementtype(a)) {
         document.getElementById('AF_TechSummary').style.display = 'none';
@@ -1852,13 +1797,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 	
-    document.getElementById('hideMeTT').onclick = function () { // скрытие окна предстоящих и прошедших занятиях
-        if (document.getElementById('AF_Timetable').style.display == '')
-            document.getElementById('AF_Timetable').style.display = 'none'
-
-        document.getElementById('timetabledata').innerHTML = "";
-    }
-
     document.getElementById('hideMeTechSum').onclick = function () { // скрытие окна инфо об устройстве пользователя
         if (document.getElementById('AF_TechSummary').style.display == '')
             document.getElementById('AF_TechSummary').style.display = 'none'
@@ -5871,6 +5809,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
 		include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
+		include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика
 		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
 		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
