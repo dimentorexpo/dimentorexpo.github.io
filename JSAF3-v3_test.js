@@ -7250,13 +7250,13 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
         include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
         include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи
-        include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
         include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
         include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
+		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
