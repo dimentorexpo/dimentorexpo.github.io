@@ -3390,17 +3390,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Service').style.display = 'none'
     }
 
-    document.getElementById('hideuserdatainfo').onclick = () => { // форма hide
-        if (document.getElementById('userchatdata').style.display == '')
-            document.getElementById('userchatdata').style.display = 'none'
-    }
-
-    document.getElementById('gotocrmhis').onclick = () => { //открывает СРМ пользователя паари в меню с историей чатов
-        let fdata = document.getElementById('datafield').innerHTML
-        fdata = fdata.match(/ID:.?\d+/)[0].split(' ')[1]
-        window.open(`https://crm2.skyeng.ru/persons/${fdata}`)
-    }
-
     document.getElementById('hideMeLessonStatus').onclick = function () { // скрытие окна статус урока
         if (document.getElementById('AF_LessonStatus').style.display == '') {
             document.getElementById('AF_LessonStatus').style.display = 'none'

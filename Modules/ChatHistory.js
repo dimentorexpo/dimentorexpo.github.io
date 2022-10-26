@@ -98,7 +98,7 @@ wintChatHis.innerHTML = win_Chathis;
         }
     }
 	
-	    document.getElementById('clearallinfo').onclick = () => { //кнопка очистки
+	document.getElementById('clearallinfo').onclick = () => { //кнопка очистки
         document.getElementById('infofield').innerText = ''
         document.getElementById('placeusid').innerText = ''
         document.getElementById('placechatid').innerText = ''
@@ -109,13 +109,25 @@ wintChatHis.innerHTML = win_Chathis;
         document.getElementById('hashchathis').value = ''
     }
 	
-	    document.getElementById('chid').onclick = () => { // копирует в буфер айди чата
+	document.getElementById('chid').onclick = () => { // копирует в буфер айди чата
         copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
     }
 
     document.getElementById('usidchat').onclick = () => { //копирует в буфер айди пользователя
         copyToClipboard1(document.getElementById('placeusid').innerText)
     }
+	
+	document.getElementById('hideuserdatainfo').onclick = () => { // форма hide
+        if (document.getElementById('userchatdata').style.display == '')
+            document.getElementById('userchatdata').style.display = 'none'
+    }
+	
+	document.getElementById('gotocrmhis').onclick = () => { //открывает СРМ пользователя паари в меню с историей чатов
+        let fdata = document.getElementById('datafield').innerHTML
+        fdata = fdata.match(/ID:.?\d+/)[0].split(' ')[1]
+        window.open(`https://crm2.skyeng.ru/persons/${fdata}`)
+    }
+
 	
 	function changeviewtheme() { //функция переключения темы в истории чатов на светлую(классическуб в стиле АФ) и темную в зависимости от значения переменной полученной в локалсторедж
 
