@@ -5794,8 +5794,11 @@ function prepKC() { //функция подготовки расширения �
         lboxstyles.rel = 'stylesheet'
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('header').append(lboxstyles)
+        include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+        include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
+        include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        include("https://dimentorexpo.github.io/unsub.js") // подключаем модуль unsub валентина
+        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
 
     setTimeout(function () {
