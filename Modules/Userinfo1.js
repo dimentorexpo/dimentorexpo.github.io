@@ -1226,7 +1226,7 @@ function getuserinfo() {
     // } // for let j
     // }
 
-    setTimeout(getServInfo, 1200)
+    // setTimeout(getServInfo, 1200)
 
 }, 720)
     }
