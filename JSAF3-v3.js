@@ -1,4 +1,4 @@
-﻿let pldata;
+﻿﻿let pldata;
 let drevo;
 let afopername;
 let foundarr;
@@ -309,7 +309,6 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-
 		#JiraOpenForm:hover {
 			background:DeepSkyBlue;
 			color:white;
@@ -325,14 +324,12 @@ function mystyles() {
 			color:white;
 			font-weight:700;
 		}
-
 		.hyperlnk {
 			height:0px;
 			opacity:0;
 			visibility: hidden;
 			transition: 1s;
 		}
-
 		.hyper-active {
 			opacity:1;
 			height: 32px;
@@ -345,26 +342,22 @@ function mystyles() {
 		font-size: 16px;
 		transition: all 0.5s ease;
 		}
-
 		.sugops:hover {
 			font-size:18px;
 			color: SteelBlue;
 			font-weight: 600;
 		}
-
 		.catsmartroom {
 			margin-left: 5px;
 			color: bisque;
 			font-size: 16px;
 			transition: all 0.5s ease;
 		}
-
 		.catsmartroom:hover {
 			font-size:18px;
 			color: SteelBlue;
 			font-weight: 600;
 		}
-
 		.otherfieldoff {
 			text-align: center;
 			width: 400px;
@@ -373,7 +366,6 @@ function mystyles() {
 			background:lightgrey;
 			cursor:wait;
 		}
-
 		.otherfieldon{
 			text-align: center;
 			width: 400px;
@@ -459,7 +451,6 @@ var win_AFhelper =  // описание элементов главного ок
 			</span>
 			<div style="margin: 5px;" id="6str">
 			</div>
-
 			<div style="margin: 5px;" id="7str">
 				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
 			<div id="hyperlnk" class="hyperlnk">
@@ -472,7 +463,6 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
 				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width: 80px; margin-left: 20px;">Чат</button>
 			</div>
-
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
 			</div>
@@ -538,7 +528,6 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
 				<input type="file" id="fileinput" title="Загружает все настройки в localstorage из ранее сохраненного файла настроек в формте .json" style="display:none;">
 				<label style="color: #e5ece6; background: #768d87; padding: 5px; border-radius: 5px; border: 1px solid #566963;" for="fileinput">⤵ Загрузить настройки</label>
-
 			</div>
 		</div>
 	</span>
@@ -1148,12 +1137,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.execCommand('copy');
         document.body.removeChild(el);
     }
-<<<<<<< HEAD
-	
-var flagLangBut = 0
-function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
-=======
->>>>>>> parent of 4769dac (Update JSAF3-v3.js)
 
     if (window.location.href.indexOf('autofaq') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
@@ -4650,12 +4633,12 @@ function requestsRed() { //функция окрашивает в красный
 }
 
 const copyToClipboard1 = str => { // функция копирования в буфер обмена
-    const el1 = document.createElement('textarea');
-    el1.value = str;
-    document.body.appendChild(el1);
-    el1.select();
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
     document.execCommand('copy');
-    document.body.removeChild(el1);
+    document.body.removeChild(el);
 };
 
 var operatorId = ""
