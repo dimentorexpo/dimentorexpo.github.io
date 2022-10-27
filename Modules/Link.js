@@ -94,6 +94,18 @@ var win_Links =  // описание элементов окна ссылок
 	</span>
 </div>`;
 
+if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
+    let needtohide = document.getElementsByClassName('onlyfortp')
+    for (i = 0; i < needtohide.length; i++) {
+        needtohide[i].style.display = 'none'
+    }
+
+    let needtoopen = document.getElementsByClassName('onlyforkc')
+    for (i=0; i<needtoopen.length; i++){
+        needtoopen[i].style.display = ''
+    }
+}
+
 if (localStorage.getItem('winTopLinks') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winLeftLinks', '295');
