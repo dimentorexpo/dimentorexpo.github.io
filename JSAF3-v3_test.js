@@ -4645,12 +4645,12 @@ function requestsRed() { //функция окрашивает в красный
 }
 
 const copyToClipboard1 = str => { // функция копирования в буфер обмена
-    const el = document.createElement('textarea');
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
+    const el1 = document.createElement('textarea');
+    el1.value = str;
+    document.body.appendChild(el1);
+    el1.select();
     document.execCommand('copy');
-    document.body.removeChild(el);
+    document.body.removeChild(el1);
 };
 
 var operatorId = ""
