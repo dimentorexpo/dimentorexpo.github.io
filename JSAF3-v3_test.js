@@ -725,16 +725,1124 @@ function changesoundaddr() {
     }
 }
 
-const copyToClipboard1 = str => { // функция копирования в буфер обмена
-    const el1 = document.createElement('textarea');
-    el1.value = str;
-    document.body.appendChild(el1);
-    el1.select();
-    document.execCommand('copy');
-    document.body.removeChild(el1);
-};
+let template_flag = 0
+let template_flag2 = 0
+let word_text = ""
+let template_text = ""
+let flagggg = 0
 
 
+buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
+    document.getElementById('butChatHistory').click();
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            btn_search_history.click()
+        }
+    }
+}
+
+buttonnextstudentid.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
+    document.getElementById('butChatHistory').click();
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            btn_search_history.click()
+        }
+    }
+}
+
+buttonnextteacherid.onclick = function () { //искать историю чатов по преподавателю с которым след урок при обращении У
+    document.getElementById('butChatHistory').click();
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            btn_search_history.click()
+        }
+    }
+}
+
+trshotmain.onclick = function () {
+    let curtime = new Date();
+    let mesjac;
+    let denj;
+
+    if (curtime.getDate() < 10) {
+        denj = "0" + curtime.getDate();
+    } else {
+        denj = curtime.getDate();
+    }
+    if (curtime.getMonth() + 1 < 10) {
+        mesjac = "0" + (curtime.getMonth() + 1);
+    } else {
+        mesjac = curtime.getMonth() + 1;
+    }
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 < 10 ? "0" + (denj - 1) : denj) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+        }
+    }
+}
+
+trshootnextuser.onclick = function () {
+    let curtime = new Date();
+    let mesjac;
+    let denj;
+
+    if (curtime.getDate() < 10) {
+        denj = "0" + curtime.getDate();
+    } else {
+        denj = curtime.getDate();
+    }
+    if (curtime.getMonth() + 1 < 10) {
+        mesjac = "0" + (curtime.getMonth() + 1);
+    } else {
+        mesjac = curtime.getMonth() + 1;
+    }
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 < 10 ? "0" + (denj - 1) : denj) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 < 10 ? "0" + (denj - 1) : denj) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+        }
+    }
+}
+
+infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]}`,
+                    }
+                }
+            )
+        }
+    }
+}
+
+buttonserv.onclick = function () { //открывает окно вензель user info
+    if (document.getElementById('AF_Service').style.display == 'none')
+        document.getElementById('AF_Service').style.display = '';
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+            getidstudent.click();
+        }
+    }
+}
+
+buttonservteach.onclick = function () { //открывает окно вензель user info
+    if (document.getElementById('AF_Service').style.display == 'none')
+        document.getElementById('AF_Service').style.display = '';
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+            getidstudent.click();
+        }
+    }
+}
+
+buttonservstud.onclick = function () { //открывает окно вензель user info
+    if (document.getElementById('AF_Service').style.display == 'none')
+        document.getElementById('AF_Service').style.display = '';
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            getidstudent.click();
+        }
+    }
+}
+
+nextstuduserbut.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+                    }
+                }
+            )
+        }
+    }
+}
+
+nextteachuserbut.onclick = function () { // открывает просмотр инфо о пользователе преподе при обращении У  взаимодействуя
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+                    }
+                }
+            )
+        }
+    }
+}
+
+let addInfoUser = document.createElement('div')
+
+let hashBut = document.createElement('div')
+hashBut.id = "hashBut"
+hashBut.innerHTML = "Хэш"
+hashBut.style.marginRight = "15px";
+
+let taskBut = document.createElement('div')
+taskBut.id = "taskBut"
+taskBut.innerHTML = "🛠 Task"
+taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
+taskBut.classList.add('ant-btn','onlyfortp');
+
+let butServ = document.createElement('div')
+butServ.id = "butServ"
+butServ.innerHTML = "⚜UserInfo"
+butServ.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butServ.classList.add('onlyfortp');
+
+let butMarks = document.createElement('div')
+butMarks.id = "butMarks"
+butMarks.innerHTML = "📊Оценки"
+butMarks.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let butChatHistory = document.createElement('div')
+butChatHistory.id = "butChatHistory"
+butChatHistory.innerHTML = "💬Chat History"
+butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butChatHistory.classList.add('onlyfortp');
+
+let butFrozeChat = document.createElement('div')
+butFrozeChat.id = "butFrozeChat"
+butFrozeChat.innerHTML = "❄ Froze Chat"
+butFrozeChat.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butFrozeChat.classList.add('onlyfortp');
+
+let butLessonInfo = document.createElement('div')
+butLessonInfo.id = "butLessonInfo"
+butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
+butLessonInfo.innerHTML = "🎓 Lesson Info"
+butLessonInfo.style = 'margin-right:15px; height:50px; cursor:pointer;';
+
+let servDsk = document.createElement('div')
+servDsk.id = "servDsk"
+servDsk.innerHTML = "🛠ServiceDesk"
+servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;'
+servDsk.classList.add('onlyfortp');
+
+let butopensugestform = document.createElement('div')
+butopensugestform.id = "suggestform"
+butopensugestform.innerHTML = "📝Предложения"
+butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butopensugestform.classList.add('onlyfortp');
+
+let butrefuse = document.createElement('div')
+butrefuse.id = "otkaz"
+butrefuse.innerHTML = "❌Отказ от помощи"
+butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butrefuse.classList.add('onlyfortp');
+
+let butsmartroom = document.createElement('div')
+butsmartroom.id = "smartroomform"
+butsmartroom.innerHTML = "🦐Smartroom"
+butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butsmartroom.classList.add('onlyfortp');
+
+let butThemes = document.createElement('div')
+butThemes.id = "themes"
+butThemes.innerHTML = "Темы"
+butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
+butThemes.classList.add('ant-btn','onlyfortp')
+
+let butJiraOpenForm = document.createElement('div')
+butJiraOpenForm.id = "JiraOpenForm"
+butJiraOpenForm.innerHTML = "🔎Jira Search"
+butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butJiraOpenForm.classList.add('onlyfortp');
+
+let butmenu = document.createElement('button')
+butmenu.innerText = 'Меню'
+butmenu.id = 'headmymenu'
+butmenu.style = 'height:32px;'
+butmenu.classList.add('ant-btn')
+
+let menubar = document.createElement('div')
+menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+menubar.id = 'idmymenu'
+
+butmenu.onclick = () => { // кнопка открытия Меню
+    if (menubar.style.display == 'none') {
+        menubar.style.display = ''
+        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
+        menubar.style.left = xvarmenu + 'px';
+        if (document.querySelector('.ant-layout-content .expert-chat_content') != null) {
+            document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function (event) {
+                var e = document.getElementById('idmymenu');
+                if (!e.contains(event.target)) e.style.display = 'none';
+            });
+        } else if (document.querySelector('.ant-layout-content .app-body-content-inner-right') != null) {
+            document.querySelector('.ant-layout-content .app-body-content-inner-right').addEventListener('click', function (event) {
+                var e = document.getElementById('idmymenu');
+                if (!e.contains(event.target)) e.style.display = 'none';
+            });
+        }
+    } else menubar.style.display = 'none'
+}
+
+let maskBack = document.createElement('div')
+maskBack.id = "maskBack"
+maskBack.innerHTML = "Вернуть"
+maskBack.style.marginRight = "15px";
+maskBack.style.display = "none";
+
+maskBack.onclick = function () { // кнопка свернуть
+    name = document.getElementById('maskBack').getAttribute('name')
+    email = document.getElementById('maskBack').getAttribute('email')
+    phone = document.getElementById('maskBack').getAttribute('phone')
+    mask = document.getElementById('maskBack').getAttribute('mask')
+    if (document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText == name &&
+        document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText == email &&
+        document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText == phone) {
+        document.getElementsByClassName('ant-modal-wrap')[mask].style.display = ''
+        document.getElementsByClassName('ant-modal-mask')[mask].style.display = ''
+        document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = '' // кнопки сверху
+        document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = '' // кнопка заметок
+        document.getElementById('maskBack').style.display = 'none'
+    } else {
+        document.getElementById('maskBack').innerHTML = "Открыт неверный чат"
+        setTimeout(function () { document.getElementById('maskBack').innerHTML = "Вернуть" }, 3000)
+    }
+}
+
+let maskBackHide = document.createElement('span')
+maskBackHide.id = "maskBackHide"
+maskBackHide.innerHTML = "Скрыть"
+maskBackHide.style.marginRight = "15px";
+maskBackHide.style.marginLeft = "15px";
+maskBackHide.style.display = "";
+
+maskBackHide.onclick = function () { // кнопка скрыть
+    if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.innerText == "Добавить комментарий к диалогу") {
+        document.getElementsByClassName('ant-modal-wrap')[0].style.display = 'none'
+        document.getElementsByClassName('ant-modal-mask')[0].style.display = 'none'
+        document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
+        document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
+        document.getElementById('maskBack').style.display = ''
+
+        document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText)
+        document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText)
+        document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText)
+        document.getElementById('maskBack').setAttribute('mask', 0)
+    } else
+        for (i = 0; ; i++) {
+            if (document.getElementsByClassName('ant-modal-wrap')[i] == undefined) {
+                document.getElementsByClassName('ant-modal-wrap')[i - 1].style.display = 'none'
+                document.getElementsByClassName('ant-modal-mask')[i - 1].style.display = 'none'
+                document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
+                document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
+                document.getElementById('maskBack').style.display = ''
+
+
+                document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText)
+                document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText)
+                document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText)
+                document.getElementById('maskBack').setAttribute('mask', i - 1)
+                break;
+            }
+        }
+}
+
+hashBut.onclick = function () { // кнопка копирующая хеш чата
+    adr = document.location.href
+    adr1 = document.location.pathname
+    adr1 = adr1.split('/')
+    adr1 = adr1[3]
+    if ((adr1 == undefined || adr1 == "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
+        if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
+            document.getElementById('hashBut').innerHTML = "Ошибка"
+            setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
+        } else {
+            adr1 = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
+            document.getElementById('hashBut').innerHTML = "Скопировано"
+            setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
+        }
+    } else {
+        if (localStorage.getItem('scriptAdr') == TS_addr)
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-18/' + adr1)
+        else
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
+        document.getElementById('hashBut').innerHTML = "Скопировано"
+        setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
+    }
+
+}
+
+function checkelementtype(a) { // проверка на какой элемент нажали
+    let elem = document.elementFromPoint(a.clientX, a.clientY)
+
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT') {
+        return true;
+    }
+    return false;
+}
+
+document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
+    if (checkelementtype(a)) {
+        // if ( document.getElementById('testid') != null && document.getElementById('idlogin')!=null &&
+        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
+            document.getElementById('testid').style.display = 'none';
+            document.getElementById('idlogin').style.display = 'none';
+            localStorage.setItem('Hidetestid', '0');
+
+        }
+        else {
+            document.getElementById('testid').style.display = '';
+            document.getElementById('idlogin').style.display = '';
+            localStorage.setItem('Hidetestid', '1');
+        }
+    }
+}
+
+let wintAF = document.createElement('div'); // создание главного окна
+document.body.append(wintAF);
+wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintAF.setAttribute('id', 'AF_helper'﻿let pldata;
+let drevo;
+let afopername;
+let foundarr;
+let flagsearch;
+let operchatsdata;
+let isChatOnOperator = false;
+let flagusertype;
+let flaggetlogginer;
+document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
+
+function mystyles() {
+    let mstl = document.createElement('style');
+    document.body.append(mstl);
+    var style = `.win_btn {
+		background-color: #768d87;
+		border-radius: 10px;
+		border: 1px solid #566963;
+		color: #ffffff;
+		font-size: 12px;
+		padding: 3px 2px;
+		margin: -2px 1px;
+	}
+	button {
+		background-color:#768d87;
+		border-radius:5px;
+		border:1px solid #566963;
+		color:#ffffff;
+		padding:2px 2px;
+	}
+	button:hover {
+		background: #6A5ACD;
+	}
+	.activebtn {
+		background-color: #1e90ff;
+	}
+	.activebtnsd {
+		background-color: #ff6347;
+	}
+    .usinfoops{
+        margin-left: 5px;
+        width: 25.23px;
+    }
+    .uplinksbar {
+        width:50px;
+    }
+    .sdcustfieldformlines {
+        width: 420px;
+    }
+    .sdexpecactual {
+        width: 420px;
+    }
+	.selchatact {
+		border-left: 6px solid DeepSkyBlue;
+	}
+		.checkbox-audio {
+			display: inline-block;
+			height: 28px;
+			line-height: 28px;
+			margin-right: 10px;
+			position: relative;
+			vertical-align: middle;
+			font-size: 14px;
+			user-select: none;
+		}
+		.checkbox-audio .checkbox-audio-switch {
+			position: relative;
+			display: inline-block;
+			box-sizing: border-box;
+			width: 56px;
+			height: 28px;
+			border: 1px solid rgba(0, 0, 0, .1);
+			border-radius: 25%/50%;
+			vertical-align: top;
+			background: #eee;
+			transition: .2s;
+		}
+		.checkbox-audio .checkbox-audio-switch:before {
+			content: '🔈';
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			background: white;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+			transition: .15s;
+		}
+		.checkbox-audio input[type=checkbox] {
+			display: block;
+			width: 0;
+			height: 0;
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+		.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before {
+			box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+		}
+		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch {
+			background: limegreen;
+		}
+		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
+			content: '🔊';
+			transform:translateX(28px);
+		}
+		#buttonOpenForm {
+			height:50px;
+		}
+		.question-event {
+			background:#1890FF26;
+			min-width:280px;
+			max-width:290px;
+			margin-left: 10px;
+			margin-bottom: 5px;
+			padding: 5px 5px;
+			float:left;
+		}
+		.question-event-name {
+			color:#00BFFF;
+			font-weight:700;
+			font-size:12px;
+			float:left;
+			margin-right:5px;
+			padding-left:5px;
+		}
+		.question-event-date {
+			color: #C0C0C0;
+			float: right;
+			max-width: 333px;
+			font-size: 12px;
+		}
+		.question-event-text {
+			color:white;
+			word-wrap: break-word;
+			padding-left:5px;
+		}
+		.event-container  {
+			float: left;
+			color: white;
+			text-align: center;
+			width: 380px;
+			font-size: 12px;
+		}
+		.event-name {
+			float: left;
+			color: white;
+			text-align: center;
+			width: 380px;
+			font-size: 12px;
+		}
+		.event-date {
+			float:right;
+		}
+		.event-other-date {
+			float:right;
+			font-size:12px;
+		}
+		.answer-bot-container {
+			background: #52C41A26;
+			min-width: 280px;
+			max-width: 300px;
+			float: right;
+			margin-bottom: 5px;
+			margin-right: 15px;
+			padding: 5px 5px;
+		}
+		.answer-bot-name {
+			color:#9ACD32;
+			float:left;
+			font-size:12px;
+			font-weight:700;
+			margin-right:5px;
+			padding-left:5px;
+		}
+		.answer-bot-date {
+			font-size:12px;
+			color:#C0C0C0;
+			float:right;
+			max-width:400px;
+		}
+		.answer-oper-container {
+			background: #FADA5E26;
+			min-width: 280px;
+			max-width: 320px;
+			float: right;
+			margin-bottom: 5px;
+			margin-right: 15px;
+			padding: 5px 5px;
+		}
+		.answer-oper-name {
+			color:bisque;
+			float:left;
+			font-size:12px;
+			padding-left:5px;
+		}
+		.oper-comment-container {
+			background:#80808054;
+			width:355px;
+			float:left;
+			margin-bottom:5px;
+			margin-left: 10px;
+			padding: 5px 5px;
+		}
+		.oper-comment-name {
+			color:#C0C0C0;
+			float:left;
+			font-size:12px;"
+		}
+		.oper-comment-operator {
+			color:#66CDAA;
+			float:left;
+			font-size:12px;
+		}
+		.event-name.light {
+			color: #999999 !important;
+		}
+		.question-event-text.light {
+			color: #000 !important;
+		}
+		.question-event-name.light {
+			color: #23609E !important;
+		}
+		.event-container.light {
+			color: #999999 !important;
+		}
+		.oper-comment-container.light {
+			background: #80808026 !important;
+		}
+		.oper-comment-name.light {
+			color: #808080 !important;
+		}
+		.oper-comment-operator.light {
+			color: #2a8ed9 !important;
+		}
+		.question-event-date.light {
+			color: #999999 !important;
+		}
+		.answer-bot-date.light {
+			color: #999999 !important;
+		}
+		.answer-oper-name.light {
+			color: #b8860b  !important;
+		}
+		.answer-bot-name.light {
+			color: #388C11 !important;
+		}
+		.chatlist.light {
+			color:#000 !important;
+		}
+		.copyserviceid {
+			margin-left: 5px;
+			cursor: pointer;
+		}
+		.underline-service {
+			width:260px; border: 1px dotted #ff0000;
+			border-style: none none dotted;
+			color: #fff;
+			background-color: #fff;
+		}
+		.img-chat-history {
+			width:160px;
+			transition: all 0.5s ease-out;
+		}
+		.img-chat-history:hover {
+			transform: scale(1.5);
+			width: 300px;
+			margin-left: 50px;
+			z-index: 9999;
+		}
+		.cursor-userinfobtns {
+			cursor:pointer;
+			font-weight:700;
+		}
+		#servDsk:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#buttonOpenForm:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#butMarks:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#suggestform:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#otkaz:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#butChatHistory:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#butLessonInfo:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#JiraOpenForm:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		#smartroomform:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}	
+		#butFrozeChat:hover {
+			background:DeepSkyBlue;
+			color:white;
+			font-weight:700;
+		}
+		.hyperlnk {
+			height:0px;
+			opacity:0;
+			visibility: hidden;
+			transition: 1s;
+		}
+		.hyper-active {
+			opacity:1;
+			height: 32px;
+			visibility: visible;
+			transition: 1s;
+		}
+		.sugops {
+		margin-left:5px;
+		color:bisque;
+		font-size: 16px;
+		transition: all 0.5s ease;
+		}
+		.sugops:hover {
+			font-size:18px;
+			color: SteelBlue;
+			font-weight: 600;
+		}
+		.catsmartroom {
+			margin-left: 5px;
+			color: bisque;
+			font-size: 16px;
+			transition: all 0.5s ease;
+		}
+		.catsmartroom:hover {
+			font-size:18px;
+			color: SteelBlue;
+			font-weight: 600;
+		}
+		.otherfieldoff {
+			text-align: center;
+			width: 400px;
+			color: black;
+			margin-top: 5px;
+			background:lightgrey;
+			cursor:wait;
+		}
+		.otherfieldon{
+			text-align: center;
+			width: 400px;
+			color: black;
+			margin-top: 5px;
+			background:white;
+			cursor:text;
+		}
+		.active-query {
+			border-left:6px solid #1ff400;
+			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
+			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+			font-weight: 700;
+			color: greenyellow;
+			transition: all 1s ease;
+		}
+	.radio {
+		width:15px;
+		height:15px;
+		transition: all 0.5s ease;
+	}
+	.radio:hover {
+		transform: scale(1.5);
+		font-weight: 600;
+	}
+	.widthofsd {
+		width:420px;
+	}
+	.switch-btn {
+		display: inline-block;
+		width: 62px; /* ширина переключателя */
+		height: 24px; /* высота переключателя */
+		border-radius: 12px; /* радиус скругления */
+		background: #bfbfbf; /* цвет фона */
+		z-index: 0;
+		margin: 0;
+		padding: 0;
+		border: none;
+		cursor: pointer;
+		position: relative;
+		transition-duration: 300ms; /* анимация */
+	}
+	.switch-btn::after {
+		content: "";
+		height: 36px; /* высота кнопки */
+		width: 36px; /* ширина кнопки */
+		border-radius: 18px; /* радиус кнопки */
+		background: #fff; /* цвет кнопки */
+		top: -6px; /* положение кнопки по вертикали относительно основы */
+		left: -6px; /* положение кнопки по горизонтали относительно основы */
+		transition-duration: 300ms; /* анимация */
+		box-shadow: 0 0 10px 0 #999999; /* тень */
+		position: absolute;
+		z-index: 1;
+	}
+	.switch-on {
+		background: #fff;
+		box-shadow: inset 0 0 10px 0 #999999; /* тень */
+	}
+	.switch-on::after {
+		left: 30px;
+		background: #118c4e;
+	}`
+    mstl.innerHTML = style;
+}
+
+var win_AFhelper =  // описание элементов главного окна
+    `<div style="display: flex; width: 351px;">
+        <span style="width: 351px">
+			<span style="cursor: -webkit-grab;">
+				<div style="margin: 5px;" id="1str">
+					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
+					<button id="hideMenu" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
+					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
+					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
+					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
+					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
+					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
+                    <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
+				</div>
+				<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="pages">
+				</div>
+			</span>
+			<div style="margin: 5px;" id="6str">
+			</div>
+			<div style="margin: 5px;" id="7str">
+				<textarea style="width: 341px; height: 56px;" id="inp"></textarea>
+			<div id="hyperlnk" class="hyperlnk">
+				<input type="text" placeholder="Enter your link 🔗 here" style="margin-bottom:5px;width:270px;text-align:center;" id="bindlinktotext" title="Вводите в это поле ссылку, после чего в общем поле выделяете слово или фразу и кнопкой Insert встраиваете ссылку в текст шаблона"></input>
+				<button id="insertlinktotext" title="Добавляет ссылку из поля слева в выделеное слово или фразу в тексте шаблона">Insert ✅</button>
+			</div>
+				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Доработать</button>
+				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;" title="Открывает форму для прикрепления ссылки в текст">🔗</button>
+                <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width: 80px; margin-left: 20px;">Чат</button>
+			</div>
+		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
+			<div style="margin: 5px; width: 350px">
+			</div>
+		</div>
+			<div style="border: 2px double black; display: none; background-color: #464451" id="reminder_bar">
+				<div style="margin: 5px; width: 350px">
+					<label style="color:bisque">__Будильник №1</label> <label style="color:bisque">........................... Будильник №2__</label>
+				<br>
+					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+					<button title="Запуск будильника при устаноовленном времени" id="setreminder" style="margin-top: 5px">SET🔔</button>
+					<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchas1" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+					<input title="Ввод минут от 0 до 59 для будильника" id="setminuta1" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+					<button title="Запуск будильника при устаноовленном времени" id="setreminder1" style="margin-top: 5px">SET🔔</button>
+				<br>
+					<button title="Отображение текущего времени" id="clock_js" style="color: white; margin-top: 5px"></button>
+					<button id="clock_remin" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
+					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
+				</div>
+			</div>
+	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
+		<div style="margin: 5px; width: 350px">
+                <select style="height:28px; width:210px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
+                    <option selected="" disabled="">Звук нового сообщения</option>
+                    <option value="othersound">Выбрать свой звук</option>
+                    </select>
+				<button title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
+				<label title="Включение и отключение звука в АФ входящих запросов" class="checkbox-audio">
+					<input id="audioswitcher" type="checkbox" checked="">
+						<span class="checkbox-audio-switch"></span>
+				</label>
+                <input id="sound_adr" placeholder="Введи адрес звука" autocomplete="off" type="text" style="display: none; text-align: center; width: 210px; color: black;">
+				<button title="Сохраняет ссылки на новый источник звука для входящего запроса в АФ" id="sound_save" style="display: none">💾</button>
+				<br>
+				<span style="color:bisque">Громкость звука в АФ</span>
+				<input id="range" min="0" max="1" value="1.0" step="0.1" type="range">
+                    <br>
+				<span style="color:bisque">Интервал воспроизведения звука:</span>
+				<input title="Ввод интервала в секундах между повторами звука нового чата" id="soundplayinterval" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;">
+				<button title="Внести изменения в интервал между повторами звука нового чата" id="setsoundplayinterval" style="margin-top: 5px">SET⌚</button>
+					<br>
+				<span style="color:bisque">Таймер автозакрытия:</span>
+				<input title="Ввод числа для автозакрытия, при этом от этого числа будет отнято 2 минуты чтобы чат закрасился в фиолетовый цвет, то есть при значении по-умолчанию 12 на 10 минуте чат зальется фиолетовым цветом оповещая, что скоро будет закрыт" id="autoclosetime" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="2" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black; margin-left: 78px;">
+				<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
+					<br>
+					<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
+				<div class="onlyfortp" style="margin-top: 5px; width: 320px">
+                    <label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+                    <br>
+                    <input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
+                    <button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
+                    <input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
+                    <button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
+                </div>
+                <div style="margin-top: 5px; width: 320px">
+                    <span style="color:bisque">Выберите отдел:</span>
+                    <button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
+                    <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
+                    <button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
+                    <button onclick="AFthePieceofShitKC()" id="set_TPrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
+                    <br>
+                </div>
+				<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
+				<input type="file" id="fileinput" title="Загружает все настройки в localstorage из ранее сохраненного файла настроек в формте .json" style="display:none;">
+				<label style="color: #e5ece6; background: #768d87; padding: 5px; border-radius: 5px; border: 1px solid #566963;" for="fileinput">⤵ Загрузить настройки</label>
+			</div>
+		</div>
+	</span>
+</div>`;
+
+let audio
+
+// Блок горячих клавиш
+if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
+    document.onkeydown = function (event) {
+        if (event.altKey && event.code == 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
+            fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+
+                "headers": {
+                    "content-type": "application/json",
+                },
+
+                "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+                "referrerPolicy": "strict-origin-when-cross-origin",
+                "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Offline\",\"source\":\"Operator\"}",
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            });
+            console.log("Status changed to Offline")
+        } else if (event.altKey && event.code == 'KeyI') { // горячие клавиши для смены статуса в Занят
+            fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+
+                "headers": {
+                    "content-type": "application/json",
+                },
+
+                "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+                "referrerPolicy": "strict-origin-when-cross-origin",
+                "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            });
+            console.log("Status changed to Busy")
+        }
+    }
+}
+
+// Конец блока горячих клавиш
+
+function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
+{
+    if (object.value.length > object.maxLength)
+        object.value = object.value.slice(0, object.maxLength)
+}
+
+function onlyNumber(object) { // функция для разрешения ввода только цифр и знака -
+    object.value = object.value.replace(/[^0-9-]/g, '');
+}
+
+function onlyNumbers(object) { // функция для разрешения ввода только цифр
+    object.value = object.value.replace(/[^0-9]/g, '');
+}
+
+function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
+    object.value = object.value.replace(/["'\\]/gi, '');
+}
+
+if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
+    localStorage.setItem('winTopAF', '120');
+    localStorage.setItem('winLeftAF', '295');
+}
+
+//заносим переменную для переключения окна
+if (localStorage.getItem('theme') == null) {
+    localStorage.setItem('theme', 'dark');
+}
+
+//Для таймера автозакрытия
+if (localStorage.getItem('aclstime') == null) {
+    localStorage.setItem('aclstime', 12);
+}
+
+//Для интервала воспроизведения звука
+if (localStorage.getItem('splinter') == null) {
+    localStorage.setItem('splinter', 3);
+}
+
+//Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
+if (localStorage.getItem('scriptAdr') == null) {
+    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
+}
+
+let infouserbut = document.createElement('p');
+infouserbut.id = 'userIdScript';
+infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+
+let nextstuduserbut = document.createElement('p');
+nextstuduserbut.id = 'nextStudentIdScript';
+nextstuduserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+
+let nextteachuserbut = document.createElement('p');
+nextteachuserbut.id = 'nextTeacherIdScript';
+nextteachuserbut.innerHTML = '<a style="color: black; cursor: pointer;"> Info </a>';
+
+let buttonhistory = document.createElement('span');
+buttonhistory.id = 'lookForHistory';
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
+
+let trshotmain = document.createElement('span');
+trshotmain.id = 'originalusertrshooter'
+trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+
+let trshootnextuser = document.createElement('span');
+trshootnextuser.id = 'nextusertrshooter'
+trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+
+let buttonserv = document.createElement('span');
+buttonserv.id = 'nextStudentServiceInfo';
+buttonserv.innerHTML = " ⚜ ";
+buttonserv.style = "width:20px; cursor:pointer";
+
+let buttonservstud = document.createElement('span');
+buttonservstud.id = 'nextStudentServiceInfo1';
+buttonservstud.innerHTML = " ⚜ ";
+buttonservstud.style = "width:20px; cursor:pointer";
+
+let buttonservteach = document.createElement('span');
+buttonservteach.id = 'nextTeacherServiceInfo1';
+buttonservteach.innerHTML = " ⚜ ";
+buttonservteach.style.width = "20px";
+buttonservteach.style.cursor = "pointer";
+
+let buttonnextstudentid = document.createElement('span');
+buttonnextstudentid.id = 'nextStudentIdChatHistory';
+buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+
+let buttonnextteacherid = document.createElement('span');
+buttonnextteacherid.id = 'nextTeacherIdChatHistory';
+buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+
+let butteachid = document.createElement('button');
+butteachid.id = 'teacheridtofield';
+butteachid.innerHTML = "👽 (ID П) П обратился ";
+butteachid.style.width = "160px";
+butteachid.style.cursor = "pointer";
+butteachid.style.border = "1px solid black";
+butteachid.style.borderRadius = "10px";
+
+let butstdid = document.createElement('button');
+butstdid.id = 'studentidtofield';
+butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
+butstdid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
+
+let butteachidfstd = document.createElement('button');
+butteachidfstd.id = 'teacheridfromstudent';
+butteachidfstd.innerHTML = "👽 (ID П) У обратился";
+butteachidfstd.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
+
+let buttonservid = document.createElement('button');
+buttonservid.id = 'servidstudento';
+buttonservid.innerHTML = "ID услуги У (крит)";
+buttonservid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let marksstata = document.createElement('span');
+marksstata.id = 'marksstata';
+marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
+
+function changesoundaddr() {
+    let objSoundList = document.getElementById('soundlistaddr')
+
+    if (objSoundList.length > 1) {
+        for (let i = 1; i < objSoundList.length; i++) {
+            if (objSoundList[i].selected == true) {
+                if (objSoundList[i].value == "othersound") {
+                    document.getElementById('sound_adr').style.display = ''
+                    document.getElementById('sound_save').style.display = ''
+                } else {
+                    document.getElementById('sound_adr').style.display = 'none'
+                    document.getElementById('sound_save').style.display = 'none'
+                    document.getElementById('sound_adr').value = ""
+                    console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
+                    localStorage.setItem('sound_str', objSoundList[i].value)
+                    audio = new Audio(localStorage.getItem('sound_str'))
+                }
+            }
+        }
+    }
+}
 
 let template_flag = 0
 let template_flag2 = 0
@@ -1147,9 +2255,18 @@ var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2
 var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
-	
+
 var flagLangBut = 0
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
+
+    const copyToClipboard = str => {           // инициализация функции копирования в буфер обмена
+        const el = document.createElement('textarea');
+        el.value = str;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+    }
 
     if (window.location.href.indexOf('autofaq') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
@@ -4645,6 +5762,15 @@ function requestsRed() { //функция окрашивает в красный
     }
 }
 
+const copyToClipboard1 = str => { // функция копирования в буфер обмена
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
+
 var operatorId = ""
 var operatorsarray = [];
 async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
@@ -5728,7 +6854,7 @@ function prepTp() { //функция подготовки расширения �
         lboxstyles.rel = 'stylesheet'
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('header').append(lboxstyles)
-		include("https://dimentorexpo.github.io/Modules/Linktest.js") // модуль ссылкера (L)inks
+		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
