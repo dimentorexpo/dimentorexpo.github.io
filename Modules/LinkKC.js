@@ -4,20 +4,11 @@ var win_Links =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 550;" id="links_1str">
 					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
-					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar onlyfortp">ℹ</button>
-					<button title="Открывает раздел для формирования заявки на удаленине персональных данных" id="deleteaclnk" class="uplinksbar onlyfortp">🗑</button>
-					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" class="uplinksbar onlyfortp">📚</button>
-					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" class="uplinksbar onlyfortp">📆</button>
-					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar onlyfortp">📋</button>
-					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" class="uplinksbar onlyfortp">💼</button>
-					<button title="Открывает инструкцию по пробникам" id="probnikinstr" class="uplinksbar onlyfortp">🗃</button>
-					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" class="uplinksbar onlyfortp">👩‍👧‍👧</button>
-                    <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px" class="uplinksbar onlyfortp">🐞</button>
-                    <button title="Открывает Базу знаний в Confluence" id="knoweledgebaseKC" class="uplinksbar onlyforkc" style="display:none">📚</button>
-                    <button title="Прослушать запись урока" id="lessonrecordKC" class="uplinksbar onlyforkc" style="display:none">👩‍🏫</button>
-					<button title="Личный кабинет в Skyeng" id="skyhomeKC" class="uplinksbar onlyforkc" style="display:none">💼</button>
+                    <button title="Открывает Базу знаний в Confluence" id="knoweledgebaseKC" class="uplinksbar onlyforkc">📚</button>
+                    <button title="Прослушать запись урока" id="lessonrecordKC" class="uplinksbar onlyforkc">👩‍🏫</button>
+					<button title="Личный кабинет в Skyeng" id="skyhomeKC" class="uplinksbar onlyforkc">💼</button>
 				</div>
-                <div style="margin: 5px; width: 550px; display:none;" id="links_butKC" class="onlyforkc">
+                <div style="margin: 5px; width: 550px;" id="links_butKC">
                     <button title="Открывает Timetable" id="timetableKC" style="width:105px">TimeTable</button>
                     <button title="Проведение операций с балансом ученика" id="CalcKC" style="width:105px">Калькулятор</button>
                     <button title="Проведение компенсаций, условия промокодов/сертиикатов" id="nachislyatorKC" style="width:105px">Начислятор</button>
@@ -28,67 +19,6 @@ var win_Links =  // описание элементов окна ссылок
                     <button title="Актуальные шаблоны КЦ" id="shablKC" style="width:105px">Шаблоны</button>
                     <button title="Написать нарушение бизнес-процесса на менеджера" id="narushKC" style="width:105px">Нарушение БП</button>
                     <button title="Учет рабочего времени КЦ" id="grafKC" style="width:105px">График</button>
-				</div>
-				<div style="margin: 5px; width: 550px;" id="links_but" class="onlyfortp">
-					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
-					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
-					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависших уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
-					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Компенсация</button>
-					<button title="Открывает CMS хранилище материалов уроков" id="CMS" style="width:105px">CMS</button>
-					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Админка</button>
-					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
-					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
-					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
-					<button title="Открывает сайт для просмотра ошибок и логов в комнате" id="trshoothing" style="width:105px; margin-top: 3px">Troubleshooting</button>
-					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
-					<button title="Открывает билинг для просмотра и редактирования подписок" id="subscribebilling" style="width:105px; margin-top: 3px">$Подписки</button>
-					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
-					<button title="открывает фичи групп для активации связи на ГУ" id="groupfeatures" style="width:105px; margin-top: 3px">Фичи Групп</button>
-					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
-					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
-					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
-					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>
-				</div>
-				<div style="margin: 5px; width: 550px" id="links_box" class="onlyfortp">
-					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="benchmark">🔎</button>
-					<input id="studguid" placeholder="ID У ГУ" title="вводим ID У, чтобы зайти в профиль ученика из групповых  уроков (увидеть историю занятий, баланс, препода)" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="sguid">🔎</button>
-					<input id="creditstatus" placeholder="ID У рассрочка" title="вводим ID У, чтобы получить прямую ссылку для проверки рассрочек ученика" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="credits">🔎</button>
-					<input id="iplookup" placeholder="IP У/П/Vimbox" title="вводим IP У/П/Платформы, чтобы получить информацию о месторасположении географического адреса и получения информации о хостинге" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="gotolookip">🔎</button>
-					<input id="lgssearch" placeholder="ID Группы" title="Введите ID LGS или обычной группы KGL для просмотра информации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getlgsinfo">🔎</button>
-					<input id="cmsstepid" placeholder="CMS stepUUID" title="вводим stepUUID, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="cmsid">🔎</button>
-					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="setservicelocaleru">🚀</button>
-					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getmobpasscode" style="width: 25.23px;">🚀</button>
-					<input id="trshooterhash" placeholder="hash trshooter" title="Вводим хеш комнаты чтобы посмотреть сразу инфу в трабл шутере" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="gettrshinfo" style="width: 25.23px;">🚀</button>
-					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="gethash" style="width: 25.23px;">💾</button>
-					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getenablerAP" style="width: 25.23px;">💾</button>
-					<input id="skipAP" placeholder="ID ус(skipАП)" title="копируем услуги, где нужно пропустить АП и сохраняем в буфер, в ЛКУ переходим по ссылке для деактивации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getskipAP" style="width: 25.23px;">💾</button>
-					<input id="skiponboarding" placeholder="ID ус(skip Onbo)" title="копируем услуги, где нужно отключить онбоардинг в ЛКУ" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="doskiponboard" style="width: 25.23px;">💾</button>
-					<input id="idteacheradult" placeholder="ID П add 💬 ->" title="введите айди П и во второе поле справа ID У для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
-					<input id="idstudentadult" placeholder="<- ID У add 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
-					<button id="setchatsadults" style="width: 25.23px;">💾</button>
-					<input id="reportmvu" placeholder="У отчет МВУ" title="Введите ID ученика, чтобы в буфер обмена скопировать ссылку на отчет МВУ и открывать ее под преподавателем" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getmvureport" style="width: 25.23px;">💾</button>
-				</div>
-				<div style="margin: 5px; width: 550px" id="links_butd" class="onlyfortp">
-					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
-					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
-					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
-			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;"></button>
-			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
 				</div>
 			</span>
 	</span>
