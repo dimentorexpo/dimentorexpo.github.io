@@ -6854,7 +6854,7 @@ function prepTp() { //функция подготовки расширения �
         lboxstyles.rel = 'stylesheet'
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('header').append(lboxstyles)
-		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+		include("https://dimentorexpo.github.io/Modules/Linktest.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
