@@ -1019,13 +1019,13 @@ function getuserinfo() {
     // servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" >💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
     // arrservice += servicearr.data[i].id + ", "
     // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
-    tinfo += [i + 1] + ") " + "Нет П, услуга(и) потеряна(ы)" + "<br>";
+    // tinfo += [i + 1] + ") " + "Нет П, услуга(и) потеряна(ы)" + "<br>";
     // console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна");
     // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
-    tinfo += [i + 1] + ") " + "Нет П, услуга(и) некорректна(ы)" + "<br>";
+    // tinfo += [i + 1] + ") " + "Нет П, услуга(и) некорректна(ы)" + "<br>";
     // console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга некорректна");
     // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
-    tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)" + "<br>";
+    // tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)" + "<br>";
     // console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
     // }
     // }
@@ -1208,14 +1208,14 @@ function getuserinfo() {
     // if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
     // let getidusr = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
     // if (infoiduslugi != undefined || infoiduslugi != null || infoiduslugi != "") {
-    for (let d = 0; d < infoiduslugi.length; d++) {
+    // for (let d = 0; d < infoiduslugi.length; d++) {
         // for (let v = 0; v < testids.length; v++) {
         // if (testids[v] == getidusr + ",")
         // infoiduslugi[v].innerText = "ID Услуги 🔥";
         // else
         // console.log("Not found") //если услуги не совпали с П обратившимся
         // } // for v
-    } // for d
+    // } // for d
     // } //проверка на наличие услуг, чтобы не были андейфайнед, нулл или пустыми
     // } else
     // console.log("No such field"); // если обратился У в консоли получим сообщение или обратился П, который указал У который не является его учеником
