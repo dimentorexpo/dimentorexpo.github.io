@@ -5733,7 +5733,7 @@ function prepTp() { //функция подготовки расширения �
 		include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика
 		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
 		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
-		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
+		include("https://dimentorexpo.github.io/Modules/Userinfo1.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
