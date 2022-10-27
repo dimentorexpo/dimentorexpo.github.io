@@ -968,7 +968,7 @@ function getuserinfo() {
                     }
                 } // for let j
                 // }
-            }
+            // }
         }
 	})
 
