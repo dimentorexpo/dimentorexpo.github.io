@@ -694,6 +694,7 @@ function crmstatus() { // получить статус задача в СРМ �
 
     let servicearr = "";
     let srvparsed = "";
+	let stid;
 	
 function getuserinfo() {
     // document.getElementById('servicetable').innerHTML = "";
@@ -703,8 +704,7 @@ function getuserinfo() {
         document.querySelector('#useravatar').style.display = "none";
 
     document.getElementById('getcurrentstatus').title = "";
-    let stid = document.getElementById('idstudent').value;
-    stid = stid.trim();
+    stid = document.getElementById('idstudent').value.trim();
 
     getservicearr();
     setTimeout(getusernamecrm, 640);
@@ -723,8 +723,8 @@ function getuserinfo() {
             servicearr = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getserviceinfo'))
 			srvparsed = servicearr;
 			console.log(srvparsed)
-            if (servicearr != null) {
-                // if (servicearr.data == "") {
+            if (srvparsed != null) {
+                // if (srvparsed.data == "") {
                 //console.log("User is: " + flagusertype)
                 let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
@@ -735,45 +735,45 @@ function getuserinfo() {
                     noservinfo = 1;
                     arrservice = null;
                 } else {
-                    for (let i = 0; i < servicearr.data.length; i++) {
+                    for (let i = 0; i < srvparsed.data.length; i++) {
                         for (let d = 0; d < servicecontainer.data.length; d++) {
-                            if (servicecontainer.data[d].serviceTypeKey == servicearr.data[i].serviceTypeKey)
-                                servicearr.data[i].serviceTypeKey = servicecontainer.data[d].shortTitle;
+                            if (servicecontainer.data[d].serviceTypeKey == srvparsed.data[i].serviceTypeKey)
+                                srvparsed.data[i].serviceTypeKey = servicecontainer.data[d].shortTitle;
                         }
 
-                        if (servicearr.data[i].student.general.id == stid && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher == null) {
+                        if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost" && srvparsed.data[i].teacher != null && srvparsed.data[i].temporaryTeacher == null) {
 
-                            tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + "," + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher == null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+                            tinfo += [i + 1] + ") " + srvparsed.data[i].teacher.general.id + "," + " " + srvparsed.data[i].teacher.general.name + " " + srvparsed.data[i].teacher.general.surname + "<br>";
+                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += srvparsed.data[i].id + ", "
+                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].teacher == null && srvparsed.data[i].temporaryTeacher != null && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost") {
 
-                            temtinfo += [i + 1] + ") " + servicearr.data[i].temporaryTeacher.general.id + "," + " " + servicearr.data[i].temporaryTeacher.general.name + " " + servicearr.data[i].temporaryTeacher.general.surname + "<br>";
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher == null && servicearr.data[i].serviceTypeKey == "Групп англ дети РЯ" && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+                            temtinfo += [i + 1] + ") " + srvparsed.data[i].temporaryTeacher.general.id + "," + " " + srvparsed.data[i].temporaryTeacher.general.name + " " + srvparsed.data[i].temporaryTeacher.general.surname + "<br>";
+                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += srvparsed.data[i].id + ", "
+                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].teacher == null && srvparsed.data[i].serviceTypeKey == "Групп англ дети РЯ" && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost") {
 
                             tinfo = "KGL student" + "<br>";
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
-                            tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + "," + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
-                            temtinfo += [i + 1] + ") " + servicearr.data[i].temporaryTeacher.general.id + "," + " " + servicearr.data[i].temporaryTeacher.general.name + " " + servicearr.data[i].temporaryTeacher.general.surname + "<br>";
-                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && (servicearr.data[i].stage == "after_trial" || servicearr.data[i].stage == "before_call") && servicearr.data[i].incorrectnessReason == null) {
+                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += srvparsed.data[i].id + ", "
+                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].teacher != null && srvparsed.data[i].temporaryTeacher != null && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost") {
+                            tinfo += [i + 1] + ") " + srvparsed.data[i].teacher.general.id + "," + " " + srvparsed.data[i].teacher.general.name + " " + srvparsed.data[i].teacher.general.surname + "<br>";
+                            temtinfo += [i + 1] + ") " + srvparsed.data[i].temporaryTeacher.general.id + "," + " " + srvparsed.data[i].temporaryTeacher.general.name + " " + srvparsed.data[i].temporaryTeacher.general.surname + "<br>";
+                            servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += srvparsed.data[i].id + ", "
+                        } else if (srvparsed.data[i].student.general.id == stid && (srvparsed.data[i].stage == "after_trial" || srvparsed.data[i].stage == "before_call") && srvparsed.data[i].incorrectnessReason == null) {
                             tinfo += [i + 1] + ") " + '<span style="color:#FF7F50; font-weight:900;">Этап ВУ</span><br>';
-                            servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" >💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-                            arrservice += servicearr.data[i].id + ", "
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
+                            servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid" >💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+                            arrservice += srvparsed.data[i].id + ", "
+                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage == "lost" && srvparsed.data[i].incorrectnessReason == null) {
                             //	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
-                            console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна");
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
+                            console.log(srvparsed.data[i].id + ' ' + srvparsed.data[i].serviceTypeKey + ' ' + "Услуга потеряна");
+                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage != "lost" && srvparsed.data[i].incorrectnessReason != null) {
                             //	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
-                            console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга некорректна");
-                        } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
+                            console.log(srvparsed.data[i].id + ' ' + srvparsed.data[i].serviceTypeKey + ' ' + "Услуга некорректна");
+                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage == "lost" && srvparsed.data[i].incorrectnessReason == null) {
                             //	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
-                            console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
+                            console.log(srvparsed.data[i].id + ' ' + srvparsed.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
                         }
                     }
                 }
@@ -978,8 +978,8 @@ function getuserinfo() {
 	})
 
     // async function getServInfo() {
-    // servicearr = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
-    // servicearr = JSON.parse(servicearr);
+    // srvparsed = await document.getElementById('responseTextarea1').getAttribute('getserviceinfo');
+    // srvparsed = JSON.parse(srvparsed);
 
     // document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
 
@@ -993,45 +993,45 @@ function getuserinfo() {
     // noservinfo = 1;
     // arrservice = null;
     // } else {
-    // for (let i = 0; i < servicearr.data.length; i++) {
+    // for (let i = 0; i < srvparsed.data.length; i++) {
     // for (let d = 0; d < servicecontainer.data.length; d++) {
-    // if (servicecontainer.data[d].serviceTypeKey == servicearr.data[i].serviceTypeKey)
-    // servicearr.data[i].serviceTypeKey = servicecontainer.data[d].shortTitle;
+    // if (servicecontainer.data[d].serviceTypeKey == srvparsed.data[i].serviceTypeKey)
+    // srvparsed.data[i].serviceTypeKey = servicecontainer.data[d].shortTitle;
     // }
 
-    // if (servicearr.data[i].student.general.id == stid && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost" && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher == null) {
+    // if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost" && srvparsed.data[i].teacher != null && srvparsed.data[i].temporaryTeacher == null) {
 
-    // tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + "," + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
-    // servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-    // arrservice += servicearr.data[i].id + ", "
-    // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher == null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+    // tinfo += [i + 1] + ") " + srvparsed.data[i].teacher.general.id + "," + " " + srvparsed.data[i].teacher.general.name + " " + srvparsed.data[i].teacher.general.surname + "<br>";
+    // servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+    // arrservice += srvparsed.data[i].id + ", "
+    // } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].teacher == null && srvparsed.data[i].temporaryTeacher != null && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost") {
 
-    // temtinfo += [i + 1] + ") " + servicearr.data[i].temporaryTeacher.general.id + "," + " " + servicearr.data[i].temporaryTeacher.general.name + " " + servicearr.data[i].temporaryTeacher.general.surname + "<br>";
-    // servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-    // arrservice += servicearr.data[i].id + ", "
-    // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher == null && servicearr.data[i].serviceTypeKey == "Групп англ дети РЯ" && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
+    // temtinfo += [i + 1] + ") " + srvparsed.data[i].temporaryTeacher.general.id + "," + " " + srvparsed.data[i].temporaryTeacher.general.name + " " + srvparsed.data[i].temporaryTeacher.general.surname + "<br>";
+    // servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+    // arrservice += srvparsed.data[i].id + ", "
+    // } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].teacher == null && srvparsed.data[i].serviceTypeKey == "Групп англ дети РЯ" && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost") {
 
     // tinfo = "KGL student" + "<br>";
-    // servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-    // arrservice += servicearr.data[i].id + ", "
-    // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].teacher != null && servicearr.data[i].temporaryTeacher != null && servicearr.data[i].incorrectnessReason == null && servicearr.data[i].stage != "lost") {
-    // tinfo += [i + 1] + ") " + servicearr.data[i].teacher.general.id + "," + " " + servicearr.data[i].teacher.general.name + " " + servicearr.data[i].teacher.general.surname + "<br>";
-    // temtinfo += [i + 1] + ") " + servicearr.data[i].temporaryTeacher.general.id + "," + " " + servicearr.data[i].temporaryTeacher.general.name + " " + servicearr.data[i].temporaryTeacher.general.surname + "<br>";
-    // servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-    // arrservice += servicearr.data[i].id + ", "
-    // } else if (servicearr.data[i].student.general.id == stid && (servicearr.data[i].stage == "after_trial" || servicearr.data[i].stage == "before_call") && servicearr.data[i].incorrectnessReason == null) {
+    // servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+    // arrservice += srvparsed.data[i].id + ", "
+    // } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].teacher != null && srvparsed.data[i].temporaryTeacher != null && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost") {
+    // tinfo += [i + 1] + ") " + srvparsed.data[i].teacher.general.id + "," + " " + srvparsed.data[i].teacher.general.name + " " + srvparsed.data[i].teacher.general.surname + "<br>";
+    // temtinfo += [i + 1] + ") " + srvparsed.data[i].temporaryTeacher.general.id + "," + " " + srvparsed.data[i].temporaryTeacher.general.name + " " + srvparsed.data[i].temporaryTeacher.general.surname + "<br>";
+    // servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+    // arrservice += srvparsed.data[i].id + ", "
+    // } else if (srvparsed.data[i].student.general.id == stid && (srvparsed.data[i].stage == "after_trial" || srvparsed.data[i].stage == "before_call") && srvparsed.data[i].incorrectnessReason == null) {
     // tinfo += [i + 1] + ") " + '<span style="color:#FF7F50; font-weight:900;">Этап ВУ</span><br>';
-    // servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + servicearr.data[i].id + '<span class = "copyserviceid" >💾</span>' + '<br> Баланс: ' + servicearr.data[i].balance + '<br>' + servicearr.data[i].serviceTypeKey + '<hr class="underline-service">';
-    // arrservice += servicearr.data[i].id + ", "
-    // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
+    // servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid" >💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
+    // arrservice += srvparsed.data[i].id + ", "
+    // } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage == "lost" && srvparsed.data[i].incorrectnessReason == null) {
     // tinfo += [i + 1] + ") " + "Нет П, услуга(и) потеряна(ы)" + "<br>";
-    // console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна");
-    // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage != "lost" && servicearr.data[i].incorrectnessReason != null) {
+    // console.log(srvparsed.data[i].id + ' ' + srvparsed.data[i].serviceTypeKey + ' ' + "Услуга потеряна");
+    // } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage != "lost" && srvparsed.data[i].incorrectnessReason != null) {
     // tinfo += [i + 1] + ") " + "Нет П, услуга(и) некорректна(ы)" + "<br>";
-    // console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга некорректна");
-    // } else if (servicearr.data[i].student.general.id == stid && servicearr.data[i].stage == "lost" && servicearr.data[i].incorrectnessReason == null) {
+    // console.log(srvparsed.data[i].id + ' ' + srvparsed.data[i].serviceTypeKey + ' ' + "Услуга некорректна");
+    // } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage == "lost" && srvparsed.data[i].incorrectnessReason == null) {
     // tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)" + "<br>";
-    // console.log(servicearr.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
+    // console.log(srvparsed.data[i].id + ' ' + servicearr.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
     // }
     // }
     // }
