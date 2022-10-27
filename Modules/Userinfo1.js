@@ -692,13 +692,16 @@ function crmstatus() { // получить статус задача в СРМ �
     })
 }
 
+    let servicearr = "";
+    let srvparsed = "";
+	
 function getuserinfo() {
     // document.getElementById('servicetable').innerHTML = "";
     document.getElementById('servicetable').innerHTML = "Загрузка информации о пользователе";
     document.querySelector('#useravatar').src = "";
     if (document.querySelector('#useravatar').style.display != "none")
         document.querySelector('#useravatar').style.display = "none";
-    let servicearr = "";
+
     document.getElementById('getcurrentstatus').title = "";
     let stid = document.getElementById('idstudent').value;
     stid = stid.trim();
@@ -718,10 +721,10 @@ function getuserinfo() {
 
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
             servicearr = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getserviceinfo'))
+			srvparsed = servicearr;
+			console.log(srvparsed)
             if (servicearr != null) {
                 // if (servicearr.data == "") {
-                document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
-
                 //console.log("User is: " + flagusertype)
                 let tinfo = ""; // инфо о постоянном П
                 let temtinfo = ""; // инфо о временном П
@@ -967,6 +970,7 @@ function getuserinfo() {
                         }
                     }
                 } // for let j
+				                document.getElementById('responseTextarea1').removeAttribute('getserviceinfo')
                 // }
             // }
         }
