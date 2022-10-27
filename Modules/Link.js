@@ -65,8 +65,7 @@ var win_Links =  // описание элементов окна ссылок
 					<input id="idteacheradult" placeholder="ID П add 💬 ->" title="введите айди П и во второе поле справа ID У для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<input id="idstudentadult" placeholder="<- ID У add 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
 					<button id="setchatsadults" style="width: 25.23px;">💾</button>
-					<input id="reportmvu" placeholder="У отчет МВУ" title="Введите ID ученика, чтобы в буфер обмена скопировать ссылку на отчет МВУ и открывать ее под преподавателем" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="getmvureport" style="width: 25.23px;">💾</button>
+
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_butd">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
@@ -249,17 +248,6 @@ document.getElementById('benchmark').onclick = function () {                  //
         window.open(lnkgr + cpuname.value);
     };
     cpuname.value = "";
-}
-
-document.getElementById('getmvureport').onclick = function () {                  //поиск по имени процессора на сайте cpubenchmark
-    if (reportmvu.value == "")
-        console.log('Введите ID в поле')
-    else {
-        copyToClipboard1('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
-    };
-    document.getElementById('getmvureport').innerHTML = "✅";
-    setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
-    reportmvu.value = "";
 }
 	
 	document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
