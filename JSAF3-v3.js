@@ -5781,7 +5781,7 @@ function prepKC() { //функция подготовки расширения �
     }
 
     let needtoopen = document.getElementsByClassName('onlyforkc')
-    for (i=0; i<needtoopen.length; i++){
+    for (i = 0; i < needtoopen.length; i++){
         needtoopen[i].style.display = ''
     }
 

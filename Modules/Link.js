@@ -94,18 +94,6 @@ var win_Links =  // описание элементов окна ссылок
 	</span>
 </div>`;
 
-if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
-    let needtohide = document.getElementsByClassName('onlyfortp')
-    for (i = 0; i < needtohide.length; i++) {
-        needtohide[i].style.display = 'none'
-    }
-
-    let needtoopen = document.getElementsByClassName('onlyforkc')
-    for (i=0; i<needtoopen.length; i++){
-        needtoopen[i].style.display = ''
-    }
-}
-
 if (localStorage.getItem('winTopLinks') == null) { // началоное положение окна ссылок (если не задано ранее)
     localStorage.setItem('winTopLinks', '120');
     localStorage.setItem('winLeftLinks', '295');
@@ -117,6 +105,18 @@ wintLinks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: 
 wintLinks.style.display = 'none';
 wintLinks.setAttribute('id', 'AF_Links');
 wintLinks.innerHTML = win_Links;
+
+if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
+    let needtohide = document.getElementsByClassName('onlyfortp')
+    for (i = 0; i < needtohide.length; i++) {
+        needtohide[i].style.display = 'none'
+    }
+
+    let needtoopen = document.getElementsByClassName('onlyforkc')
+    for (i = 0; i < needtoopen.length; i++){
+        needtoopen[i].style.display = ''
+    }
+}
 
 var listenerLinks = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
