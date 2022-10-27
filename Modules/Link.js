@@ -204,7 +204,7 @@ document.getElementById('confbugs').addEventListener('click', function () { // �
 })
 
 document.getElementById('restartlesson').addEventListener('click', function () { // копируем ссылку в буфер для перезапуска урока
-    copyToClipboard("setStatus('classwork')")   
+    copyToClipboard1("setStatus('classwork')")   
     document.getElementById('restartlesson').innerHTML = "Copied!";
     setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
 })
@@ -255,7 +255,7 @@ document.getElementById('getmvureport').onclick = function () {                 
     if (reportmvu.value == "")
         console.log('Введите ID в поле')
     else {
-        copyToClipboard('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
+        copyToClipboard1('https://marketing-core.skyeng.ru/report/html/report?student_id=' + reportmvu.value);
     };
     document.getElementById('getmvureport').innerHTML = "✅";
     setTimeout(function () { document.getElementById('getmvureport').innerHTML = "💾" }, 2000);
@@ -307,7 +307,7 @@ document.getElementById('gethash').onclick = function () {                  // �
     if (lookhash.value == "")
         console.log('Введите hash комнаты в поле')
     else {
-        copyToClipboard(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
+        copyToClipboard1(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
     };
     document.getElementById('gethash').innerHTML = "✅";
     setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
@@ -319,7 +319,7 @@ document.getElementById('setchatsadults').onclick = function () {               
     if (idteacheradult.value == "")
         console.log('Введите hash комнаты в поле')
     else {
-        copyToClipboard("fetch('https://notify-vimbox.skyeng.ru/api/v1/chat/contact', { method: 'POST', headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({userId1:" + document.getElementById('idteacheradult').value + "," + "userId2:" + document.getElementById('idstudentadult').value + "," + "})})")
+        copyToClipboard1("fetch('https://notify-vimbox.skyeng.ru/api/v1/chat/contact', { method: 'POST', headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({userId1:" + document.getElementById('idteacheradult').value + "," + "userId2:" + document.getElementById('idstudentadult').value + "," + "})})")
     }
     document.getElementById('setchatsadults').innerHTML = "✅";
     setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
@@ -332,7 +332,7 @@ document.getElementById('getenablerAP').onclick = function () {               //
     if (enablerAP.value == "")
         console.log('Введите hash комнаты в поле')
     else {
-        copyToClipboard(enableAPlnk + enablerAP.value);
+        copyToClipboard1(enableAPlnk + enablerAP.value);
     };
     document.getElementById('getenablerAP').innerHTML = "✅";
     setTimeout(function () { document.getElementById('getenablerAP').innerHTML = "💾" }, 2000);
@@ -344,7 +344,7 @@ document.getElementById('getskipAP').onclick = function () {               // с
     if (skipAP.value == "")
         console.log('Введите hash комнаты в поле')
     else {
-        copyToClipboard(skipAPlnk + skipAP.value);
+        copyToClipboard1(skipAPlnk + skipAP.value);
     };
     document.getElementById('getskipAP').innerHTML = "✅";
     setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
@@ -357,7 +357,7 @@ document.getElementById('doskiponboard').onclick = function () {               /
     if (skiponboarding.value == "")
         console.log('Введите ID услуги в поле')
     else {
-        copyToClipboard(skiponblnk + skiponboarding.value);
+        copyToClipboard1(skiponblnk + skiponboarding.value);
     };
     document.getElementById('doskiponboard').innerHTML = "✅";
     setTimeout(function () { document.getElementById('doskiponboard').innerHTML = "💾" }, 2000);
