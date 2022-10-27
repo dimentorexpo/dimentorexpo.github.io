@@ -1129,14 +1129,14 @@ var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq
 var flagLangBut = 0
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
-    const copyToClipboard = str => {           // инициализация функции копирования в буфер обмена
-        const el = document.createElement('textarea');
-        el.value = str;
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-    }
+    // const copyToClipboard = str => {           // инициализация функции копирования в буфер обмена
+        // const el = document.createElement('textarea');
+        // el.value = str;
+        // document.body.appendChild(el);
+        // el.select();
+        // document.execCommand('copy');
+        // document.body.removeChild(el);
+    // }
 
     if (window.location.href.indexOf('autofaq') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
