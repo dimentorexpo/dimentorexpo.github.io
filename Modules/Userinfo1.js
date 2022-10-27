@@ -246,6 +246,7 @@ function getservicearr() { // получает массив услуг с СРМ
         servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
         if (servicearray != null) {
             servicecontainer = JSON.parse(servicearray);
+			console.log(servicecontainer)
             document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
         }
     })
