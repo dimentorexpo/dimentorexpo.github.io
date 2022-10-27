@@ -1137,8 +1137,6 @@ var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W
 var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
 
-var flagLangBut = 0
-function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
     const copyToClipboard = str => {           // инициализация функции копирования в буфер обмена
         const el = document.createElement('textarea');
@@ -1148,6 +1146,19 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.execCommand('copy');
         document.body.removeChild(el);
     }
+	
+	
+var flagLangBut = 0
+function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
+
+    // const copyToClipboard = str => {           // инициализация функции копирования в буфер обмена
+        // const el = document.createElement('textarea');
+        // el.value = str;
+        // document.body.appendChild(el);
+        // el.select();
+        // document.execCommand('copy');
+        // document.body.removeChild(el);
+    // }
 
     if (window.location.href.indexOf('autofaq') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
