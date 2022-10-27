@@ -204,7 +204,7 @@ document.getElementById('confbugs').addEventListener('click', function () { // �
 })
 
 document.getElementById('restartlesson').addEventListener('click', function () { // копируем ссылку в буфер для перезапуска урока
-    copyToClipboard11("setStatus('classwork')")   
+    copyToClipboard1("setStatus('classwork')")   
     document.getElementById('restartlesson').innerHTML = "Copied!";
     setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
 })
