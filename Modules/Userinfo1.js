@@ -722,7 +722,7 @@ function getuserinfo() {
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
             servicearr = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getserviceinfo'))
 			srvparsed = servicearr;
-			console.log(srvparsed)
+			// console.log(srvparsed)
             if (srvparsed != null) {
                 // if (srvparsed.data == "") {
                 //console.log("User is: " + flagusertype)
