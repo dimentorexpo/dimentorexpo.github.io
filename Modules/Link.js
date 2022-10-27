@@ -70,7 +70,6 @@ var win_Links =  // описание элементов окна ссылок
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_butd">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
-					<button title="копирует в буфер обмена команду для разовой актиивации кнопки New Student на платформе Adult английского языка" id="enableNS" style="width:100px">Enable NS💾</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;"></button>
 			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
@@ -208,12 +207,6 @@ document.getElementById('restartlesson').addEventListener('click', function () {
     copyToClipboard("setStatus('classwork')")   
     document.getElementById('restartlesson').innerHTML = "Copied!";
     setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
-})
-
-document.getElementById('enableNS').addEventListener('click', function () { // копируем ссылку в буфер для открытия NewStudent
-    copyToClipboard("https://vimbox.skyeng.ru/start?enableNewStudent")   
-    document.getElementById('enableNS').innerHTML = "Copied!";
-    setTimeout(function () { document.getElementById('enableNS').innerHTML = "Enable NS💾" }, 2000);
 })
 
 document.getElementById('browserstack').addEventListener('click', function () { // открываем ссылку в новой вкладке на Browserstak
