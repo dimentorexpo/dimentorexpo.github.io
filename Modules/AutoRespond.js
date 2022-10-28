@@ -7,10 +7,10 @@ var win_FrozeChat =  // описание формы чтобы не давала
 								<button id="clearallchathash">🧹</button>
                         </div>
 						<div>
-							<input id="chatfrozehash" placeholder="Введите хэш чата" title="Введите хеш чата без hdi или skyeng обычный хеш, которые хотите, чтобы не закрывался" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black;margin-left:5px">
+							<input id="chatfrozehash" placeholder="Введите хэш чата" title="Введите хеш чата, которые хотите, чтобы через время скрипт отправил ответ от вашего имени" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black;margin-left:5px">
 							<input id="frozetimer" value="6" style="width:38px;" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59">
 							<span style="color:bisque;">min</span>
-							<button id="freezechat">❄</button>
+							<button id="freezechat" title="Задать таймер автоответа">❄</button>
 						</div>
 			    </span>
                         <div style="margin: 5px; width: 500px" id="chats_hash_box">
