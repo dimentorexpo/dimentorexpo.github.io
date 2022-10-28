@@ -24,7 +24,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
 					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
 					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
-					<button title="Открывает сайт для просмотра ошибок и логов в комнате" id="trshoothing" style="width:105px; margin-top: 3px">Troubleshooting</button>
+					<button title="Открывает  CMS детских предметов" id="kidscms" style="width:105px; margin-top: 3px">Kids CMS</button>
 					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
 					<button title="Открывает билинг для просмотра и редактирования подписок" id="subscribebilling" style="width:105px; margin-top: 3px">$Подписки</button>
 					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
@@ -34,7 +34,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
 					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
 					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>	
-					<button title="Открывает  CMS детских предметов" id="kidscms" style="width:105px; margin-top: 3px">Kids CMS</button>
+					<button title="Открывает сайт для просмотра ошибок и логов в комнате" id="trshoothing" style="width:105px; margin-top: 3px">Troubleshooting</button>
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -63,10 +63,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getskipAP" style="width: 25.23px;">💾</button>
 					<input id="skiponboarding" placeholder="ID ус(skip Onbo)" title="копируем услуги, где нужно отключить онбоардинг в ЛКУ" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="doskiponboard" style="width: 25.23px;">💾</button>
-					<input id="idteacheradult" placeholder="ID П add 💬 ->" title="введите айди П и во второе поле справа ID У для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
-					<input id="idstudentadult" placeholder="<- ID У add 💬" title="введите айди У и во второе поле слева ID П для копирования команды в буфер обмена и выполнения ее после авторизации в профиль П для добавления чата с учениками как adults так и kids (авторизовались - ввели айди и скопировали и выполнили в консоле)" autocomplete="off" type="text" style="text-align: center; width: 118px; color: black; margin-top: 5px">
-					<button id="setchatsadults" style="width: 25.23px;">💾</button>
-
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_butd">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
@@ -305,19 +301,6 @@ document.getElementById('gethash').onclick = function () {                  // �
     document.getElementById('gethash').innerHTML = "✅";
     setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
     lookhash.value = "";
-}
-
-document.getElementById('setchatsadults').onclick = function () {                  // добавляем чаты с учениками adults
-    let hashlnk = 'fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/' + document.getElementById('idteacheradult').value.trim() + '/students"';
-    if (idteacheradult.value == "")
-        console.log('Введите hash комнаты в поле')
-    else {
-        copyToClipboard1("fetch('https://notify-vimbox.skyeng.ru/api/v1/chat/contact', { method: 'POST', headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({userId1:" + document.getElementById('idteacheradult').value + "," + "userId2:" + document.getElementById('idstudentadult').value + "," + "})})")
-    }
-    document.getElementById('setchatsadults').innerHTML = "✅";
-    setTimeout(function () { document.getElementById('setchatsadults').innerHTML = "💾" }, 2000);
-    idteacheradult.value = "";
-    idstudentadult.value = "";
 }
 
 document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
