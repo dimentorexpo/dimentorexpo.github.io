@@ -924,7 +924,7 @@ butChatHistory.classList.add('onlyfortp');
 
 let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
-butFrozeChat.innerHTML = "❄ Froze Chat"
+butFrozeChat.innerHTML = "❄ Auto Respond"
 butFrozeChat.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butFrozeChat.classList.add('onlyfortp');
 
