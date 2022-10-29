@@ -90,6 +90,7 @@ function getDate() {
 			
 			document.getElementById('clearmarksstat').onclick = function () { // кнопка очистки поля
                 document.getElementById('markstable').innerHTML = "";
+                document.getElementById('useridsearch').value = "";
             }
 
 async function getUserMarks(option) {
