@@ -9,10 +9,8 @@ var win_Marks =  // описание элементов окна оценок о
                         </div>
 						<div>
 							<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
-							<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataMarks id=" datefrommarks="">
-
+							<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center;" name="StartDataMarks" id="datefrommarks">
 							<span style="color:bisque; margin-top:5px; margin-left:10px; height:28px;">До </span>
-
 							<input type="date" style="color:black; margin-left:5px; margin-right:10px; width:115px; text-align:center;" name="EndDataMarks" id="dateToMarks">
 						</div>
 						<div>
@@ -56,37 +54,56 @@ wintMarks.onmousedown = function (a) { // изменение позиции ок
 wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listenerMarks); } // прекращение изменения позиции окна поиска оценок от пользователя
 
 function getDate() {
-        var date = new Date()
+        // var date = new Date()
 
-        day = month = ""
-        if (date.getMonth() < 9)
-            month = "0" + (date.getMonth() + 1)
-        else
-            month = (date.getMonth() + 1)
-        if (date.getDate() < 10)
-            day = "0" + date.getDate()
-        else
-            day = date.getDate()
-        if (date.getHours() < 10)
-            hours = '0' + date.getHours()
-        else
-            hours = date.getHours()
-        if (date.getMinutes() < 10)
-            minutes = '0' + date.getMinutes()
-        else
-            minutes = date.getMinutes()
-        if (date.getSeconds() < 10)
-            seconds = '0' + date.getSeconds()
-        else
-            seconds = date.getSeconds()
+        // day = month = ""
+        // if (date.getMonth() < 9)
+            // month = "0" + (date.getMonth() + 1)
+        // else
+            // month = (date.getMonth() + 1)
+        // if (date.getDate() < 10)
+            // day = "0" + date.getDate()
+        // else
+            // day = date.getDate()
+        // if (date.getHours() < 10)
+            // hours = '0' + date.getHours()
+        // else
+            // hours = date.getHours()
+        // if (date.getMinutes() < 10)
+            // minutes = '0' + date.getMinutes()
+        // else
+            // minutes = date.getMinutes()
+        // if (date.getSeconds() < 10)
+            // seconds = '0' + date.getSeconds()
+        // else
+            // seconds = date.getSeconds()
 		
-		year = date.getFullYear()
+		// year = date.getFullYear()
 
-	return year;
-    return month;
-    return day;
-    return minuts;
-    return seconds;
+	// return year;
+    // return month;
+    // return day;
+    // return minuts;
+    // return seconds;
+	
+		let getdateset = new Date()
+        let getyearLS = getdateset.getFullYear();
+        let getcurmonthLS = (getdateset.getMonth() + 1)
+        let todayLS = getdateset.getDate();
+        if (getcurmonthLS < 10) {
+            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        } else {
+            getcurmonthLS = (getdateset.getMonth() + 1);
+        }
+        if (getdateset.getDate() < 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('datefrommarks').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+            document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
+            document.getElementById('datefrommarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        }
 }
 	
 	document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
@@ -119,25 +136,23 @@ async function getUserMarks(option) {
 	
 	   document.getElementById('markstable').innerText = "Загрузка..."
 	
-	   getDate()
+	   // getDate()
 
-       secondDate = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
+       // secondDate = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
+	   
+	            let from = document.getElementById('datefrommarks').value
+                let to = document.getElementById('dateToMarks').value
 	   
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
-                        "accept": "*/*",
-                        "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
                         "content-type": "application/json",
-                        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
-                        "sec-ch-ua-mobile": "?0",
-                        "sec-ch-ua-platform": "\"Windows\"",
                         "sec-fetch-dest": "empty",
                         "sec-fetch-mode": "cors",
                         "sec-fetch-site": "same-origin"
                     },
                     "referrer": "https://skyeng.autofaq.ai/tickets/archive",
                     "referrerPolicy": "strict-origin-when-cross-origin",
-                    "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempval + "\",\"tsFrom\":\"2022-05-01T00:00:00.000Z\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
+                    "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempval + "\",\"tsFrom\":\"${from}T00:00:00.000Z\",\"tsTo\":\"${to}T23:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
                     "method": "POST",
                     "mode": "cors",
                     "credentials": "include"
@@ -189,7 +204,8 @@ async function getUserMarks(option) {
         } else {
             document.getElementById('AF_Marks').style.display = ''
             document.getElementById('idmymenu').style.display = 'none'
-				
+							
+			getDate()
             document.getElementById('findmarksstat').onclick = async function () {
 				getUserMarks('menu')
             }
@@ -200,8 +216,10 @@ async function getUserMarks(option) {
 
     if (document.getElementById('AF_Marks').style.display == 'none') {
         document.getElementById('AF_Marks').style.display = ''
+		getDate()
 		getUserMarks('userdetailsbar')
     } else {
+			getDate()
 			getUserMarks('userdetailsbar')
         }
     }
