@@ -9,7 +9,7 @@ var win_Marks =  // описание элементов окна оценок о
                         </div>
 						<div>
 							<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
-							<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center;" name="StartDataMarks" id="datefrommarks">
+							<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center;" name="StartDataMarks" id="dateFromMarks">
 							<span style="color:bisque; margin-top:5px; margin-left:10px; height:28px;">До </span>
 							<input type="date" style="color:black; margin-left:5px; margin-right:10px; width:115px; text-align:center;" name="EndDataMarks" id="dateToMarks">
 						</div>
@@ -97,12 +97,12 @@ function getDate() {
         }
         if (getdateset.getDate() < 10) {
             todayLS = "0" + getdateset.getDate();
-            document.getElementById('datefrommarks').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+            document.getElementById('dateFromMarks').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
             document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         } else {
             todayLS = getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
-            document.getElementById('datefrommarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+            document.getElementById('dateFromMarks').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
+            document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
 }
 	
@@ -140,7 +140,7 @@ async function getUserMarks(option) {
 
        // secondDate = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 	   
-	            let from = document.getElementById('datefrommarks').value
+	            let from = document.getElementById('dateFromMarks').value
                 let to = document.getElementById('dateToMarks').value
 	   
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
