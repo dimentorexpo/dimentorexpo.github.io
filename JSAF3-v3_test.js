@@ -5098,13 +5098,13 @@ async function getStats() { // функция получения статист�
                 case 2:
                     for (let j = 0; j < operatorNames.length; j++)
                         if (array[i].operator == operatorNames[j]) {
-                            td.textContent = '| ' + operatorChatCount[j] + ' |'
+                            td.textContent = operatorChatCount[j]
                             td.classList.add("chtcnt");
                             break
                         }
                     break;
                 case 1:
-                    td.textContent = '| ' + array[i].conversationClosed + ' |'
+                    td.textContent = array[i].conversationClosed;
                     td.classList.add("chtclosed");
                     break;
                 case 3:
