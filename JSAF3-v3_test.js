@@ -5090,6 +5090,9 @@ async function getStats() { // функция получения статист�
             switch (j) {
                 case 0:
                     td.textContent = array[i].operator;
+					if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == array[i].operator) {
+						td.style = 'text-align: left; padding-left: 50px; color: #ffffff; background: #05bbf7; font-weight: 700; border-radius: 50px;'
+					} else 
                     td.style = 'text-align: left; padding-left: 50px'
                     break;
                 case 2:
