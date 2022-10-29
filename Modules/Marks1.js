@@ -1,17 +1,19 @@
     
 var win_Marks =  // описание элементов окна оценок от пользователя
-    `<div style="display: flex; width: 300px;">
-        <span style="width: 300px">
+    `<div style="display: flex; width: 320px;">
+        <span style="width: 320px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 300px;" id="marks_header">
+                        <div style="margin: 5px; width: 320px;" id="marks_header">
                                 <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
 								<button id="marksinstr" style="float: right; margin-right: 10px;" title="Инструкция по этой форме">❓</button>
                         </div>
 						<div>
 							<span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">От </span>
-							<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataMarks id="dateFromMarks>
-							<span style="color:bisque; margin-top:5px; margin-left:10px; float:right; height:28px;">До </span>
-							<input type="date" style="color:black; float:right; margin-left:5px; margin-right:10px; width:115px; text-align:center;" name="EndDataMarks" id="dateToMarks">
+							<input type="date" style="color:black; margin-left:5px;  width:115px; text-align:center; " name="StartDataMarks id=" datefrommarks="">
+
+							<span style="color:bisque; margin-top:5px; margin-left:10px; height:28px;">До </span>
+
+							<input type="date" style="color:black; margin-left:5px; margin-right:10px; width:115px; text-align:center;" name="EndDataMarks" id="dateToMarks">
 						</div>
 						<div>
 							<input id="useridsearch" placeholder="ID У/П для 🔎статистики оценок" title="Ввведите ID ученика или учителя для получения информации с начала года по выставляемым оценкам" autocomplete="off" type="text" style="text-align: center; width: 230px; color: black;margin-left:5px">
