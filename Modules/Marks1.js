@@ -54,37 +54,6 @@ wintMarks.onmousedown = function (a) { // изменение позиции ок
 wintMarks.onmouseup = function () { document.removeEventListener('mousemove', listenerMarks); } // прекращение изменения позиции окна поиска оценок от пользователя
 
 function getDate() {
-        // var date = new Date()
-
-        // day = month = ""
-        // if (date.getMonth() < 9)
-            // month = "0" + (date.getMonth() + 1)
-        // else
-            // month = (date.getMonth() + 1)
-        // if (date.getDate() < 10)
-            // day = "0" + date.getDate()
-        // else
-            // day = date.getDate()
-        // if (date.getHours() < 10)
-            // hours = '0' + date.getHours()
-        // else
-            // hours = date.getHours()
-        // if (date.getMinutes() < 10)
-            // minutes = '0' + date.getMinutes()
-        // else
-            // minutes = date.getMinutes()
-        // if (date.getSeconds() < 10)
-            // seconds = '0' + date.getSeconds()
-        // else
-            // seconds = date.getSeconds()
-		
-		// year = date.getFullYear()
-
-	// return year;
-    // return month;
-    // return day;
-    // return minuts;
-    // return seconds;
 	
 		let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
@@ -135,10 +104,6 @@ async function getUserMarks(option) {
 	}
 	
 	   document.getElementById('markstable').innerText = "Загрузка..."
-	
-	   // getDate()
-
-       // secondDate = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" + seconds + ".000z"
 	   
 	            let from = document.getElementById('dateFromMarks').value
                 let to = document.getElementById('dateToMarks').value
@@ -188,7 +153,7 @@ async function getUserMarks(option) {
                     'Оценка 3 😐: ' + count[3] + ' ................... ' + ((count[3] / markscount) * 100).toFixed(1) + "%" + '<br>' +
                     'Оценка 4 🥴: ' + count[4] + ' ................... ' + ((count[4] / markscount) * 100).toFixed(1) + "%" + '<br>' +
                     'Оценка 5 😊: ' + count[5] + ' ................... ' + ((count[5] / markscount) * 100).toFixed(1) + '%' + '<br>' +
-                    'Всего оценок: ' + markscount + '<br>' + 'Обращений с 01.05.22: ' + datamarks.total + '<br>' +
+                    'Всего оценок: ' + markscount + '<br>' + `Обращений с ${from} ` + datamarks.total + '<br>' +
                     'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
                     'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
                     'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
