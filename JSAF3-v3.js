@@ -5090,7 +5090,10 @@ async function getStats() { // функция получения статист�
             switch (j) {
                 case 0:
                     td.textContent = array[i].operator;
-                    td.style = 'text-align: left; padding-left: 50px'
+					if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == array[i].operator) {
+						td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
+					} else 
+                    td.style = 'text-align: left; padding-left: 5px'
                     break;
                 case 2:
                     for (let j = 0; j < operatorNames.length; j++)
