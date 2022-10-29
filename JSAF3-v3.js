@@ -210,7 +210,7 @@ function mystyles() {
 			font-size:12px;"
 		}
 		.oper-comment-operator {
-			color:#66CDAA;
+			color:#3eade5;
 			float:left;
 			font-size:12px;
 		}
