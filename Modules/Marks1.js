@@ -147,7 +147,10 @@ async function getUserMarks(option) {
                 if (count[5] == undefined)
                     count[5] = 0;
                 markscount = (count[1] + count[2] + count[3] + count[4] + count[5]);
-                document.getElementById('markstable').innerHTML = 'Пользователь 🕵️‍♀️: ' + tempval + '<br>' +
+				if (datamarks.items == '') {
+					document.getElementById('markstable').innerHTML = 'Пользователь не обращался за выбранный период'
+				} else {
+					 document.getElementById('markstable').innerHTML = 'Пользователь 🕵️‍♀️: ' + tempval + '<br>' +
                     'Name: ' + datamarks.items[0].channelUser.fullName + '<br>' +
                     'Оценка 1 🤬: ' + count[1] + ' ................... ' + ((count[1] / markscount) * 100).toFixed(1) + '%' + '<br>' +
                     'Оценка 2 🤢: ' + count[2] + ' ................... ' + ((count[2] / markscount) * 100).toFixed(1) + "%" + '<br>' +
@@ -158,6 +161,7 @@ async function getUserMarks(option) {
                     'Оценки/кол-во обращений: ' + ((markscount / datamarks.total) * 100).toFixed(1) + '%' + '<br>' +
                     'Закрыто без оценок: ' + clswoutmark + ' ............. ' + (clswoutmark / datamarks.total * 100).toFixed(1) + '%' + '<br>' +
                     'Автозакрытие: ' + (datamarks.total - clswoutmark - markscount) + ' ....................... ' + ((datamarks.total - clswoutmark - markscount) / datamarks.total * 100).toFixed(1) + '%';
+				}
 }
 			
 			
