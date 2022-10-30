@@ -386,8 +386,8 @@ function mystylesAFMS() {
 
     .portfoliolist:hover {
         font-size: 20px;
-    }	
-	
+    }
+
 	.removestudent  {
         cursor:pointer;
 		transition:all 0.7s ease;
@@ -453,7 +453,7 @@ function mystylesAFMS() {
 		background: #2b6da5;
 		margin-right:5px;
 	}
-	
+
 	.badgename {
 		text-align:center;
 		border: 1px solid black;
@@ -461,14 +461,14 @@ function mystylesAFMS() {
 		margin-right:5px;
 		color:bisque;
 	}
-	
+
 	.languageobsl {
 		text-align:center;
 		padding:2px;
 		font-weight:600;
-		text-shadow: 1px 0 1px #000, 
-			0 1px 1px #000, 
-			-1px 0 1px #000, 
+		text-shadow: 1px 0 1px #000,
+			0 1px 1px #000,
+			-1px 0 1px #000,
 			0 -1px 1px #000;
 		color:gainsboro;
 	}
@@ -780,7 +780,7 @@ var win_kidsExercises = `<div style="display: flex;">
 							<span id="studserviceid" style="color:bisque; cursor:text; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
 							<span id="studid" style="color:bisque; cursor:text; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
                         </div>
-						
+
 						<div style="margin: 5px; width:500px;" id="exercisesSkysmartTeacher">
 							<span id="teachname" style="color:#d5f4ff; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
 							<span id="teachdid" style="color:bisque; cursor:text; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
@@ -829,7 +829,7 @@ var win_adultsExercises = `<div style="display: flex;">
 
 					</span>
 				   </div>`;
-				   
+
 var win_TTCExercises = `<div style="display: flex;">
 					<span style="cursor: -webkit-grab;">
 
@@ -847,7 +847,7 @@ var win_TTCExercises = `<div style="display: flex;">
 						<div>
 
 					</span>
-				   </div>`;			
+				   </div>`;
 
 
 var win_Vocabulary = `<div style="display: flex;">
@@ -988,10 +988,10 @@ wintVocabulary.style = 'display:none;  top: ' + localStorage.getItem('winTopVoca
 wintVocabulary.setAttribute('id', 'AFMS_Vocabulary');
 wintVocabulary.innerHTML = win_Vocabulary;
 
-function checkelementt (a){ // проверка на какой элемент нажали
-    let elem = document.elementFromPoint(a.clientX,a.clientY)
-    
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT'){
+function checkelementt(a) { // проверка на какой элемент нажали
+    let elem = document.elementFromPoint(a.clientX, a.clientY)
+
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT') {
         return true;
     }
     return false;
@@ -1006,7 +1006,7 @@ var listenerAddMenu = function (e, a) {
     localStorage.setItem('winLeftAddMenu', String(Number(e.clientX - myX9999)));
 };
 wintAddMenu.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9999 = a.layerX;
         window.myY9999 = a.layerY;
         document.addEventListener('mousemove', listenerAddMenu);
@@ -1025,7 +1025,7 @@ var listenerAddChatMenu = function (e, a) {
     localStorage.setItem('winLeftAddChatMenu', String(Number(e.clientX - myX9998)));
 };
 wintAddChatMenu.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9998 = a.layerX;
         window.myY9998 = a.layerY;
         document.addEventListener('mousemove', listenerAddChatMenu);
@@ -1044,7 +1044,7 @@ var listenerLessonInfo = function (e, a) {
     localStorage.setItem('winLeftLessonInfo', String(Number(e.clientX - myX9997)));
 };
 wintLessonInfo.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9997 = a.layerX;
         window.myY9997 = a.layerY;
         document.addEventListener('mousemove', listenerLessonInfo);
@@ -1063,7 +1063,7 @@ var listenerStudAdults = function (e, a) {
     localStorage.setItem('winLeftstudentsAdults', String(Number(e.clientX - myX9996)));
 };
 wintStudAdults.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9996 = a.layerX;
         window.myY9996 = a.layerY;
         document.addEventListener('mousemove', listenerStudAdults);
@@ -1082,7 +1082,7 @@ var listenerStudSkysmart = function (e, a) {
     localStorage.setItem('winLeftstudentsSkysmart', String(Number(e.clientX - myX9995)));
 };
 wintStudSkysmart.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9995 = a.layerX;
         window.myY9995 = a.layerY;
         document.addEventListener('mousemove', listenerStudSkysmart);
@@ -1101,7 +1101,7 @@ var listenerExercAdults = function (e, a) {
     localStorage.setItem('winLeftexercisesAdults', String(Number(e.clientX - myX9994)));
 };
 wintExercAdults.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9994 = a.layerX;
         window.myY9994 = a.layerY;
         document.addEventListener('mousemove', listenerExercAdults);
@@ -1120,7 +1120,7 @@ var listenerExercSkysmart = function (e, a) {
     localStorage.setItem('winLeftexercisesSkysmart', String(Number(e.clientX - myX9993)));
 };
 wintExercSkysmart.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9993 = a.layerX;
         window.myY9993 = a.layerY;
         document.addEventListener('mousemove', listenerExercSkysmart);
@@ -1139,7 +1139,7 @@ var listenerExercTTC = function (e, a) {
     localStorage.setItem('winLeftexercisesTTC', String(Number(e.clientX - myX9992)));
 };
 wintExercTTC.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9992 = a.layerX;
         window.myY9992 = a.layerY;
         document.addEventListener('mousemove', listenerExercTTC);
@@ -1158,7 +1158,7 @@ var listenerVocabulary = function (e, a) {
     localStorage.setItem('winLeftVocabulary', String(Number(e.clientX - myX9992)));
 };
 wintVocabulary.onmousedown = function (a) {
-    if (checkelementt(a)){
+    if (checkelementt(a)) {
         window.myX9992 = a.layerX;
         window.myY9992 = a.layerY;
         document.addEventListener('mousemove', listenerVocabulary);
@@ -1174,23 +1174,23 @@ let token;
 if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
     document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
         if ((event.altKey && event.code == 'Numpad0') || (event.altKey && event.code == 'Digit0')) {
-				if (document.getElementById('AFMS_addMenu').style.display == 'none') {
-					document.getElementById('AFMS_addMenu').style.display = '';
+            if (document.getElementById('AFMS_addMenu').style.display == 'none') {
+                document.getElementById('AFMS_addMenu').style.display = '';
 
-					token = Object.fromEntries(document.cookie.split(/; */).map(c => {
-						const [key, ...v] = c.split('=');
-						return [key, decodeURIComponent(v.join('='))];
-					}));
-					console.log(token)
+                token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+                    const [key, ...v] = c.split('=');
+                    return [key, decodeURIComponent(v.join('='))];
+                }));
+                console.log(token)
 
-					document.getElementById('hidemainmenu').onclick = function () {
-						document.getElementById('AFMS_addMenu').style.display = 'none';
-					}
+                document.getElementById('hidemainmenu').onclick = function () {
+                    document.getElementById('AFMS_addMenu').style.display = 'none';
+                }
 
-				} else document.getElementById('AFMS_addMenu').style.display = 'none'
-            } 
+            } else document.getElementById('AFMS_addMenu').style.display = 'none'
         }
     }
+}
 
 document.getElementById('openchataddmenu').onclick = async function () { // открывает меню для удаления и добавления чатов
     if (document.getElementById('AFMS_addChatMenu').style.display == 'none') {
@@ -1212,29 +1212,29 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
 
             fetchaddchat(document.getElementById('userid1').value, document.getElementById('userid2').value, "POST")
             console.log('%cChat was added successfully!', 'color:lightgreen; font-weight:700');
-			document.getElementById('outputstatus').innerText =  "Чат добавлен"
-			document.getElementById('outputstatus').style.color =  "#48e114"
-			document.getElementById('outputstatus').style.display =  ""
-			setTimeout( () => {
-				document.getElementById('outputstatus').innerText =  ""
-				document.getElementById('outputstatus').style.display =  "none"
-			}, 3000 ) 
+            document.getElementById('outputstatus').innerText = "Чат добавлен"
+            document.getElementById('outputstatus').style.color = "#48e114"
+            document.getElementById('outputstatus').style.display = ""
+            setTimeout(() => {
+                document.getElementById('outputstatus').innerText = ""
+                document.getElementById('outputstatus').style.display = "none"
+            }, 3000)
         }
 
         document.getElementById('RemoveChat').onclick = function () { //функция удаления чата
 
             fetchaddchat(document.getElementById('userid1').value, document.getElementById('userid2').value, "DELETE")
             console.log('%cChat was removed successfully!', 'color:orange; font-weight:700');
-			
-			document.getElementById('outputstatus').innerText =  "Чат удалён"
-			document.getElementById('outputstatus').style.color =  "orange"
-			document.getElementById('outputstatus').style.display =  ""
-			setTimeout( () => {
-				document.getElementById('outputstatus').innerText =  ""
-				document.getElementById('outputstatus').style.color =  "#48e114"
-				document.getElementById('outputstatus').style.display =  "none"
-			}, 3000 ) 
-			
+
+            document.getElementById('outputstatus').innerText = "Чат удалён"
+            document.getElementById('outputstatus').style.color = "orange"
+            document.getElementById('outputstatus').style.display = ""
+            setTimeout(() => {
+                document.getElementById('outputstatus').innerText = ""
+                document.getElementById('outputstatus').style.color = "#48e114"
+                document.getElementById('outputstatus').style.display = "none"
+            }, 3000)
+
         }
 
         document.getElementById('hideMeAddChatMenu').onclick = function () { //функция скрытия меню чатов
@@ -1511,10 +1511,10 @@ async function getvideoconfigkids(api1) { // функция получения �
         "credentials": "include"
     }).then(r => r.json()).then(r => vidconfresult = r)
     console.log(vidconfresult)
-	
-	if(vidconfresult !=null && vidconfresult !=undefined && vidconfresult.error == undefined){
-		document.getElementById('vidserverurl').textContent = vidconfresult.endpoint.match(/video.*/)[0];
-	} else console.log(vidconfresult.error.code + ' ' +vidconfresult.error.message)
+
+    if (vidconfresult != null && vidconfresult != undefined && vidconfresult.error == undefined) {
+        document.getElementById('vidserverurl').textContent = vidconfresult.endpoint.match(/video.*/)[0];
+    } else console.log(vidconfresult.error.code + ' ' + vidconfresult.error.message)
 }
 
 async function loadinfo(api2) { // инициализация функции для загрузки инфо о комнате
@@ -1641,14 +1641,14 @@ function setstclasswork(api, status) { // функция изменяющая с
         fetch(api + document.URL.split('/')[6], {
             "headers": {
                 "accept": "application/json",
-				"content-type": "application/json",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-site"
+                "content-type": "application/json",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
             },
-			  "body": "{\"status\":\""+status+"\",\"name\":\"\"}",
-			  "method": "PATCH",
-			  "mode": "cors",
-			  "credentials": "include"
+            "body": "{\"status\":\"" + status + "\",\"name\":\"\"}",
+            "method": "PATCH",
+            "mode": "cors",
+            "credentials": "include"
         });
 
         alert('Выставлен статус ' + status + ' !')
@@ -1656,16 +1656,16 @@ function setstclasswork(api, status) { // функция изменяющая с
     } else if (hashval != '') {
 
         fetch(api + hashval[6], {
-			 "headers": {
+            "headers": {
                 "accept": "application/json",
-				"content-type": "application/json",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-site"
+                "content-type": "application/json",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site"
             },
-			  "body": "{\"status\":\""+status+"\",\"name\":\"\"}",
-			  "method": "PATCH",
-			  "mode": "cors",
-			  "credentials": "include"
+            "body": "{\"status\":\"" + status + "\",\"name\":\"\"}",
+            "method": "PATCH",
+            "mode": "cors",
+            "credentials": "include"
         });
 
     }
@@ -1737,11 +1737,11 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
         console.log(artId)
 
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-			"headers": {
-				"content-type": "application/json",
-			},
+            "headers": {
+                "content-type": "application/json",
+            },
             "method": "POST",
-			"body": "{\"teacherId\":null}",
+            "body": "{\"teacherId\":null}",
             "credentials": "include"
         }).then(r => r.json()).then(r => kidsdata = r)
         console.log(kidsdata)
@@ -1872,19 +1872,19 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
                 for (let j = 0; j < Object.values(kidsdata)[i].length; j++) {
                     if (Object.values(kidsdata)[i][j].id == val2) {
                         if (Object.values(kidsdata)[i][j].status == "sleep") {
-                            s2 += '<div class="kidsoutdata sleep">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + '<span title="💤 - ученик уснул">💤</span>' + ' ' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale !=null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
+                            s2 += '<div class="kidsoutdata sleep">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + '<span title="💤 - ученик уснул">💤</span>' + ' ' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale != null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
                         } else if (Object.values(kidsdata)[i][j].status == "vacation") {
-                            s2 += '<div class="kidsoutdata vacation">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + '<span title="⛱ - ученик в отпуске">⛱</span>' + ' ' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale !=null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
+                            s2 += '<div class="kidsoutdata vacation">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + '<span title="⛱ - ученик в отпуске">⛱</span>' + ' ' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale != null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
                         } else {
-                            s2 += '<div class="kidsoutdata">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale !=null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
+                            s2 += '<div class="kidsoutdata">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale != null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
                         }
                     } else if (Object.values(kidsdata)[i][j].name.toUpperCase() == val2.toUpperCase()) {
                         if (Object.values(kidsdata)[i][j].status == "sleep") {
-                            s2 += '<div class="kidsoutdata sleep">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + '<span title="💤 - ученик уснул">💤</span>' + ' ' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale !=null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
+                            s2 += '<div class="kidsoutdata sleep">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + '<span title="💤 - ученик уснул">💤</span>' + ' ' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale != null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
                         } else if (Object.values(kidsdata)[i][j].status == "vacation") {
-                            s2 += '<div class="kidsoutdata vacation">' + '<div class="studadultname">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<span title="⛱ - ученик в отпуске">⛱</span>' + ' ' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div  class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale !=null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
+                            s2 += '<div class="kidsoutdata vacation">' + '<div class="studadultname">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<span title="⛱ - ученик в отпуске">⛱</span>' + ' ' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div  class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale != null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
                         } else {
-                            s2 += '<div class="kidsoutdata">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale !=null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
+                            s2 += '<div class="kidsoutdata">' + '<div class="sbjnamesearch">' + Object.keys(kidsdata)[i] + '</div>' + '<div class="studadultname">' + Object.values(kidsdata)[i][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[i][j].id + '</div>' + (Object.values(kidsdata)[i][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[i][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[i][j].serviceLocale != null ? Object.values(kidsdata)[i][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>' + '</div>';
                         }
                     }
                 }
@@ -1938,13 +1938,13 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
 
         async function outputskysmartstudents(item) { //вывод учеников чтобы 100500 раз не писать этот текст
             for (let j = 0; j < Object.values(kidsdata)[item].length; j++) {
-				Object.values(kidsdata)[item][j].segmentBadge != null ? Object.values(kidsdata)[item][j].segmentBadge : '';
+                Object.values(kidsdata)[item][j].segmentBadge != null ? Object.values(kidsdata)[item][j].segmentBadge : '';
                 if (Object.values(kidsdata)[item][j].status == 'sleep') {
-                    arraytoshow += '<div class="kidsoutdata sleep">' + '<div class="studkidstname">' + '<span title="💤 - ученик уснул">💤</span>' + Object.values(kidsdata)[item][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[item][j].id + '</div>' + (Object.values(kidsdata)[item][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[item][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[item][j].serviceLocale !=null ? Object.values(kidsdata)[item][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>';
+                    arraytoshow += '<div class="kidsoutdata sleep">' + '<div class="studkidstname">' + '<span title="💤 - ученик уснул">💤</span>' + Object.values(kidsdata)[item][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[item][j].id + '</div>' + (Object.values(kidsdata)[item][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[item][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[item][j].serviceLocale != null ? Object.values(kidsdata)[item][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>';
                 } else if (Object.values(kidsdata)[item][j].status == 'vacation') {
-                    arraytoshow += '<div class="kidsoutdata vacation">' + '<div class="studkidstname">' + '<span title="⛱ - ученик в отпуске">⛱</span>' + Object.values(kidsdata)[item][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[item][j].id + '</div>' + (Object.values(kidsdata)[item][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[item][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[item][j].serviceLocale !=null ? Object.values(kidsdata)[item][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>';
+                    arraytoshow += '<div class="kidsoutdata vacation">' + '<div class="studkidstname">' + '<span title="⛱ - ученик в отпуске">⛱</span>' + Object.values(kidsdata)[item][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[item][j].id + '</div>' + (Object.values(kidsdata)[item][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[item][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[item][j].serviceLocale != null ? Object.values(kidsdata)[item][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>';
                 } else {
-                    arraytoshow += '<div class="kidsoutdata">' + '<div class="studkidstname">' + Object.values(kidsdata)[item][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[item][j].id + '</div>' + (Object.values(kidsdata)[item][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[item][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[item][j].serviceLocale !=null ? Object.values(kidsdata)[item][j].serviceLocale : 'Пусто')  + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>';
+                    arraytoshow += '<div class="kidsoutdata">' + '<div class="studkidstname">' + Object.values(kidsdata)[item][j].name + '</div>' + '<div class="idkidsstyle">' + 'ID: ' + Object.values(kidsdata)[item][j].id + '</div>' + (Object.values(kidsdata)[item][j].segmentBadge != null ? '<div class="badgename">' + Object.values(kidsdata)[item][j].segmentBadge + '</div>' : '') + '<div class="languageobsl">' + 'Яз.обслуж: ' + (Object.values(kidsdata)[item][j].serviceLocale != null ? Object.values(kidsdata)[item][j].serviceLocale : 'Пусто') + '</div>' + '<div style="text-align:center;">' + '<span name="mvurkidseport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delkidschat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openkidsprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentkidsshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + '</div>' + '</div>';
                 }
             }
         }
@@ -2466,19 +2466,19 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
         document.getElementById('usersearch').oninput = function () { //функция поикска по айди пользователя
             var text1 = document.getElementById("usersearch");
             var val1 = text1.value;
-			var idcontainer  = [];
+            var idcontainer = [];
             s = '';
 
             for (var i = 0; i < testos.length; ++i) {
                 if (adultdata[i].id == val1) {
                     s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
-					idcontainer.push(adultdata[i].id)
+                    idcontainer.push(adultdata[i].id)
                 } else if (adultdata[i].name.toUpperCase() == val1.toUpperCase()) {
                     s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
-					idcontainer.push(adultdata[i].id)
+                    idcontainer.push(adultdata[i].id)
                 }
             }
-			console.log("ID's: " + idcontainer)
+            console.log("ID's: " + idcontainer)
             document.getElementById('infobaradult').innerHTML = document.getElementById("usersearch").value != '' ? s : arrtoshow;
 
             let arrmvurep = document.getElementsByName('mvureport')
@@ -2486,21 +2486,21 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
                 arrmvurep[j].onclick = function () {
                     window.open("https://marketing-core.skyeng.ru/report/html/report?student_id=" + idcontainer[j])
                 }
-            }    
+            }
 
-			let removestudent = document.getElementsByName('removeadult')
+            let removestudent = document.getElementsByName('removeadult')
             for (let z = 0; z < removestudent.length; z++) {
                 removestudent[z].onclick = function () {
-					
-					let answ = confirm("Вы действительно желаете удалить ученика " + idcontainer[z] + " из списка?");
+
+                    let answ = confirm("Вы действительно желаете удалить ученика " + idcontainer[z] + " из списка?");
                     if (answ) {
-						                    fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/"+idcontainer[z], {
-					  "method": "POST",
-					  "mode": "cors",
-					  "credentials": "include"
-					});
-					}
-				}
+                        fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/" + idcontainer[z], {
+                            "method": "POST",
+                            "mode": "cors",
+                            "credentials": "include"
+                        });
+                    }
+                }
             }
 
             let deleteonechat = document.getElementsByName('delchat')
@@ -2511,34 +2511,34 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
 
                         fetchaddchat(artId.user.id, idcontainer[i], "DELETE")
                     }
-				}
+                }
             }
 
             let adultprofile = document.getElementsByName('openprofile')
             for (let l = 0; l < adultprofile.length; l++) {
                 adultprofile[l].onclick = function () {
-						window.open("https://vimbox.skyeng.ru/profile/" + idcontainer[l])
+                    window.open("https://vimbox.skyeng.ru/profile/" + idcontainer[l])
                 }
             }
 
             let showpaymentshistory = document.getElementsByName('openpaymentshistory')
             for (let l = 0; l < showpaymentshistory.length; l++) {
                 showpaymentshistory[l].onclick = function () {
-						window.open('https://vimbox.skyeng.ru/profile/student/' + idcontainer[l] + '/last-classes')
+                    window.open('https://vimbox.skyeng.ru/profile/student/' + idcontainer[l] + '/last-classes')
                 }
             }
 
             let hwlist = document.getElementsByName('listofhomework')
             for (let l = 0; l < hwlist.length; l++) {
                 hwlist[l].onclick = function () {
-						window.open('https://vimbox.skyeng.ru/student/' + idcontainer[l]+ '/homework')
+                    window.open('https://vimbox.skyeng.ru/student/' + idcontainer[l] + '/homework')
                 }
             }
 
             let portflist = document.getElementsByName('portfolioadult')
             for (let l = 0; l < portflist.length; l++) {
                 portflist[l].onclick = function () {
-						window.open('https://vimbox.skyeng.ru/portfolio?studentId=' + idcontainer[l])
+                    window.open('https://vimbox.skyeng.ru/portfolio?studentId=' + idcontainer[l])
                 }
             }
         }
@@ -2573,22 +2573,22 @@ document.getElementById('lkpadult').onclick = async function () { // функц�
                 window.open("https://marketing-core.skyeng.ru/report/html/report?student_id=" + adultdata[j].id)
             }
         }
-		
-			let removestudent = document.getElementsByName('removeadult')
-            for (let z = 0; z < removestudent.length; z++) {
-                removestudent[z].onclick = function () {
-					let deletestudansw;
-					deletestudansw = confirm("Вы уверены, что хотите удалить ученика из Showcase?")
-					if (deletestudansw) {
-						
-						fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/"+adultdata[z].id, {
-						  "method": "POST",
-						  "mode": "cors",
-						  "credentials": "include"
-						});
-					}
+
+        let removestudent = document.getElementsByName('removeadult')
+        for (let z = 0; z < removestudent.length; z++) {
+            removestudent[z].onclick = function () {
+                let deletestudansw;
+                deletestudansw = confirm("Вы уверены, что хотите удалить ученика из Showcase?")
+                if (deletestudansw) {
+
+                    fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/" + adultdata[z].id, {
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
                 }
             }
+        }
 
         let deleteonechat = document.getElementsByName('delchat')
         for (let l = 0; l < deleteonechat.length; l++) {
@@ -2653,201 +2653,201 @@ async function gethwroominfo(api, hash) {
 }
 
 function getkidsroominfo(data) {
-	let temparr = [];
-	let hwarr = [];
-	for (let i = 0; i < data.lessonCards[1].themes.length; i++) {
-	temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[1].themes[i].name + '<br>' + '</div>'
-	for (let j = 0; j < data.lessonCards[1].themes[i].cards.length; j++) {
-		(data.lessonCards[1].themes[i].cards[j].completeness == 100 && data.lessonCards[1].themes[i].cards[j].score == null) ? data.lessonCards[1].themes[i].cards[j].score = 100 : data.lessonCards[1].themes[i].cards[j].score;
-		if (data.lessonCards[1].themes[i].cards[j].completeness == null) {
-			data.lessonCards[1].themes[i].cards[j].completeness = '——'
-			data.lessonCards[1].themes[i].cards[j].score = '—'
-		}
-		temparr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
-			data.lessonCards[1].themes[i].cards[j].name + ' ' +
-			'<span class="stepuidslkids" style="display:none">' + data.lessonCards[1].themes[i].cards[j].stepUuid + '</span>' +
-			'<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
-			'<span style="float:right; margin-right: 80px;">' + data.lessonCards[1].themes[i].cards[j].completeness + '</span>' +
-			'<span style="float:right; margin-right: 60px;">' + data.lessonCards[1].themes[i].cards[j].score + '</span>' +
-			'</div>';
-	}
+    let temparr = [];
+    let hwarr = [];
+    for (let i = 0; i < data.lessonCards[1].themes.length; i++) {
+        temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[1].themes[i].name + '<br>' + '</div>'
+        for (let j = 0; j < data.lessonCards[1].themes[i].cards.length; j++) {
+            (data.lessonCards[1].themes[i].cards[j].completeness == 100 && data.lessonCards[1].themes[i].cards[j].score == null) ? data.lessonCards[1].themes[i].cards[j].score = 100 : data.lessonCards[1].themes[i].cards[j].score;
+            if (data.lessonCards[1].themes[i].cards[j].completeness == null) {
+                data.lessonCards[1].themes[i].cards[j].completeness = '——'
+                data.lessonCards[1].themes[i].cards[j].score = '—'
+            }
+            temparr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
+                data.lessonCards[1].themes[i].cards[j].name + ' ' +
+                '<span class="stepuidslkids" style="display:none">' + data.lessonCards[1].themes[i].cards[j].stepUuid + '</span>' +
+                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
+                '<span style="float:right; margin-right: 80px;">' + data.lessonCards[1].themes[i].cards[j].completeness + '</span>' +
+                '<span style="float:right; margin-right: 60px;">' + data.lessonCards[1].themes[i].cards[j].score + '</span>' +
+                '</div>';
+        }
+    }
+
+    document.getElementById('exercisebarskysmart').innerHTML += '<div class="roomtype">Lesson</div>' +
+        '<div class="boxwithslides" style="display:none">' +
+        '<div class="itemexerciseskids">' +
+        '<div style="text-align:center;">Информация по категории: Lesson</div>' +
+        'Количество завершенных карточек: ' + data.lessonCards[1].completedCardsCount + ' из ' + data.lessonCards[1].cardsCount +
+        '<br>Общий % завершения слайдов: ' + data.lessonCards[1].completeness + '%' +
+        '<br>Итоговый результат: ' + data.lessonCards[1].score + ' баллов из 100<br>' +
+        '<div class="headerexplain">' +
+        '<span style="margin-left: 60px;">Название слайда</span>' +
+        '<span style="margin-left: 140px;">Балл</span>' +
+        '<span style="margin-left: 60px;">%</span>' +
+        '</div>' +
+        '</div>' +
+        temparr +
+        '</div>';
+
+    for (let i = 0; i < data.homeworkCards[1].themes.length; i++) {
+        hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[1].themes[i].name + '<br>' + '</div>'
+        for (let j = 0; j < data.homeworkCards[1].themes[i].cards.length; j++) {
+            (data.homeworkCards[1].themes[i].cards[j].completeness == 100 && data.homeworkCards[1].themes[i].cards[j].score == null) ? data.homeworkCards[1].themes[i].cards[j].score = 100 : data.homeworkCards[1].themes[i].cards[j].score;
+            if (data.homeworkCards[1].themes[i].cards[j].completeness == null) {
+                data.homeworkCards[1].themes[i].cards[j].completeness = '——'
+                data.homeworkCards[1].themes[i].cards[j].score = '—'
+            }
+
+            if (data.homeworkCards[1].themes[i].cards[j].emphasis == 'writing') {
+                data.homeworkCards[1].themes[i].cards[j].name = data.homeworkCards[1].themes[i].cards[j].name + '✏'
+            } else if (data.homeworkCards[1].themes[i].cards[j].emphasis == 'pronunciation') {
+                data.homeworkCards[1].themes[i].cards[j].name = data.homeworkCards[1].themes[i].cards[j].name + '🎧'
+            }
+            hwarr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
+                data.homeworkCards[1].themes[i].cards[j].name + ' ' +
+                '<span class="stepuidslkids" style="display:none">' + data.homeworkCards[1].themes[i].cards[j].stepUuid + '</span>' +
+                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
+                '<span style="float:right; margin-right: 80px;">' + data.homeworkCards[1].themes[i].cards[j].completeness + '</span>' +
+                '<span style="float:right; margin-right: 60px;">' + data.homeworkCards[1].themes[i].cards[j].score + '</span>' +
+                '</div>';
+        }
+    }
+
+    document.getElementById('exercisebarskysmart').innerHTML += '<div class="roomtype">Homework</div>' +
+        '<div class="boxwithslides" style="display:none">' +
+        '<div class="itemexerciseskids">' +
+        '<div style="text-align:center;">Информация по категории: Homework</div>' +
+        'Количество завершенных карточек: ' + data.homeworkCards[1].completedCardsCount + ' из ' + data.homeworkCards[1].cardsCount +
+        '<br>Общий % завершения слайдов: ' + data.homeworkCards[1].completeness + '%' +
+        '<br>Итоговый результат: ' + data.homeworkCards[1].score + ' баллов из 100<br>' +
+        '<div class="headerexplain">' +
+        '<span style="margin-left: 60px;">Название слайда</span>' +
+        '<span style="margin-left: 140px;">Балл</span>' +
+        '<span style="margin-left: 60px;">%</span>' +
+        '</div>' +
+        '</div>' +
+        hwarr +
+        '</div>';
+
+    let subjbtnsarr = document.getElementsByClassName('roomtype')
+    let slidesbar = document.getElementsByClassName('boxwithslides')
+    for (let i = 0; i < subjbtnsarr.length; i++) {
+        subjbtnsarr[i].onclick = function () {
+            if (slidesbar[i].style.display == 'none')
+                slidesbar[i].style.display = ''
+            else slidesbar[i].style.display = 'none'
+        }
+    }
+
+    let savelinkarr = document.getElementsByClassName('savelinktocms')
+    for (let z = 0; z < savelinkarr.length; z++) {
+        savelinkarr[z].onclick = function () {
+            copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('stepuidslkids')[z].textContent)
+        }
+    }
+
+    if (data.participants[0].role = 'student') {
+        document.getElementById('studname').innerHTML = '<span style="font-size: 17px;"> 👨‍🎓 </span>' + data.participants[0].name
+        document.getElementById('studserviceid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔 услуги: </span>' + data.participants[0].educationServiceId
+        document.getElementById('studid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[0].userId
+        document.getElementById('teachname').innerHTML = '<span style="font-size: 17px;"> 👽 Teacher </span>' + data.participants[1].name
+        document.getElementById('teachdid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[1].userId
+    } else if (data.participants[1].role = 'student') {
+        document.getElementById('studname').innerHTML = '<span style="font-size: 17px;"> 👨‍🎓 </span>' + data.participants[1].name
+        document.getElementById('studserviceid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔 услуги: </span>' + data.participants[1].educationServiceId
+        document.getElementById('studid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[1].userId
+        document.getElementById('teachname').innerHTML = '<span style="font-size: 17px;"> 👽 Teacher </span>' + data.participants[0].name
+        document.getElementById('teachdid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[0].userId
+    }
+
+    // if (data.participants[1].educationServiceId != null) {
+    // document.getElementById('studname').innerHTML = '<span style="font-size: 17px;"> 👨‍🎓 </span>' + data.participants[1].name
+    // document.getElementById('studserviceid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔 услуги: </span>' + data.participants[1].educationServiceId
+    // document.getElementById('studid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[1].userId
+    // } else {
+    // document.getElementById('studname').innerHTML = '<span style="font-size: 17px;"> 👽 </span>' + data.participants[1].name
+    // document.getElementById('studserviceid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔 учителя ➡ </span>'
+    // document.getElementById('studid').innerHTML = data.participants[1].userId
+    // }
+
 }
 
-document.getElementById('exercisebarskysmart').innerHTML += '<div class="roomtype">Lesson</div>' +
-	'<div class="boxwithslides" style="display:none">' +
-	'<div class="itemexerciseskids">' +
-	'<div style="text-align:center;">Информация по категории: Lesson</div>' +
-	'Количество завершенных карточек: ' + data.lessonCards[1].completedCardsCount + ' из ' + data.lessonCards[1].cardsCount +
-	'<br>Общий % завершения слайдов: ' + data.lessonCards[1].completeness + '%' +
-	'<br>Итоговый результат: ' + data.lessonCards[1].score + ' баллов из 100<br>' +
-	'<div class="headerexplain">' +
-	'<span style="margin-left: 60px;">Название слайда</span>' +
-	'<span style="margin-left: 140px;">Балл</span>' +
-	'<span style="margin-left: 60px;">%</span>' +
-	'</div>' +
-	'</div>' +
-	temparr +
-	'</div>';
-
-for (let i = 0; i < data.homeworkCards[1].themes.length; i++) {
-	hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[1].themes[i].name + '<br>' + '</div>'
-	for (let j = 0; j < data.homeworkCards[1].themes[i].cards.length; j++) {
-		(data.homeworkCards[1].themes[i].cards[j].completeness == 100 && data.homeworkCards[1].themes[i].cards[j].score == null) ? data.homeworkCards[1].themes[i].cards[j].score = 100 : data.homeworkCards[1].themes[i].cards[j].score;
-		if (data.homeworkCards[1].themes[i].cards[j].completeness == null) {
-			data.homeworkCards[1].themes[i].cards[j].completeness = '——'
-			data.homeworkCards[1].themes[i].cards[j].score = '—'
-		}
-
-		if (data.homeworkCards[1].themes[i].cards[j].emphasis == 'writing') {
-			data.homeworkCards[1].themes[i].cards[j].name = data.homeworkCards[1].themes[i].cards[j].name + '✏'
-		} else if (data.homeworkCards[1].themes[i].cards[j].emphasis == 'pronunciation') {
-			data.homeworkCards[1].themes[i].cards[j].name = data.homeworkCards[1].themes[i].cards[j].name + '🎧'
-		}
-		hwarr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
-			data.homeworkCards[1].themes[i].cards[j].name + ' ' +
-			'<span class="stepuidslkids" style="display:none">' + data.homeworkCards[1].themes[i].cards[j].stepUuid + '</span>' +
-			'<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
-			'<span style="float:right; margin-right: 80px;">' + data.homeworkCards[1].themes[i].cards[j].completeness + '</span>' +
-			'<span style="float:right; margin-right: 60px;">' + data.homeworkCards[1].themes[i].cards[j].score + '</span>' +
-			'</div>';
-	}
-}
-
-document.getElementById('exercisebarskysmart').innerHTML += '<div class="roomtype">Homework</div>' +
-	'<div class="boxwithslides" style="display:none">' +
-	'<div class="itemexerciseskids">' +
-	'<div style="text-align:center;">Информация по категории: Homework</div>' +
-	'Количество завершенных карточек: ' + data.homeworkCards[1].completedCardsCount + ' из ' + data.homeworkCards[1].cardsCount +
-	'<br>Общий % завершения слайдов: ' + data.homeworkCards[1].completeness + '%' +
-	'<br>Итоговый результат: ' + data.homeworkCards[1].score + ' баллов из 100<br>' +
-	'<div class="headerexplain">' +
-	'<span style="margin-left: 60px;">Название слайда</span>' +
-	'<span style="margin-left: 140px;">Балл</span>' +
-	'<span style="margin-left: 60px;">%</span>' +
-	'</div>' +
-	'</div>' +
-	hwarr +
-	'</div>';
-
-let subjbtnsarr = document.getElementsByClassName('roomtype')
-let slidesbar = document.getElementsByClassName('boxwithslides')
-for (let i = 0; i < subjbtnsarr.length; i++) {
-	subjbtnsarr[i].onclick = function () {
-		if (slidesbar[i].style.display == 'none')
-			slidesbar[i].style.display = ''
-		else slidesbar[i].style.display = 'none'
-	}
-}
-
-let savelinkarr = document.getElementsByClassName('savelinktocms')
-for (let z = 0; z < savelinkarr.length; z++) {
-	savelinkarr[z].onclick = function () {
-		copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('stepuidslkids')[z].textContent)
-	}
-}
-
-if (data.participants[0].role ='student') {
-	document.getElementById('studname').innerHTML = '<span style="font-size: 17px;"> 👨‍🎓 </span>' + data.participants[0].name
-	document.getElementById('studserviceid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔 услуги: </span>' + data.participants[0].educationServiceId
-	document.getElementById('studid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[0].userId
-	document.getElementById('teachname').innerHTML = '<span style="font-size: 17px;"> 👽 Teacher </span>' + data.participants[1].name
-	document.getElementById('teachdid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[1].userId
-} else if (data.participants[1].role ='student') {
-	document.getElementById('studname').innerHTML = '<span style="font-size: 17px;"> 👨‍🎓 </span>' + data.participants[1].name
-	document.getElementById('studserviceid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔 услуги: </span>' + data.participants[1].educationServiceId
-	document.getElementById('studid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[1].userId
-	document.getElementById('teachname').innerHTML = '<span style="font-size: 17px;"> 👽 Teacher </span>' + data.participants[0].name
-	document.getElementById('teachdid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[0].userId
-}
-
-// if (data.participants[1].educationServiceId != null) {
-	// document.getElementById('studname').innerHTML = '<span style="font-size: 17px;"> 👨‍🎓 </span>' + data.participants[1].name
-	// document.getElementById('studserviceid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔 услуги: </span>' + data.participants[1].educationServiceId
-	// document.getElementById('studid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔: </span>' + data.participants[1].userId
-// } else {
-	// document.getElementById('studname').innerHTML = '<span style="font-size: 17px;"> 👽 </span>' + data.participants[1].name
-	// document.getElementById('studserviceid').innerHTML = '<span style="user-select:none; font-size: 17px;">🆔 учителя ➡ </span>'
-	// document.getElementById('studid').innerHTML = data.participants[1].userId
-	// }
-
-}
-
-document.getElementById('exercisesttc').onclick = async function() {
-	if (document.getElementById('AFMS_TTCExercInfo').style.display == 'none') {
-		document.getElementById('AFMS_TTCExercInfo').style.display = ''
-		document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
+document.getElementById('exercisesttc').onclick = async function () {
+    if (document.getElementById('AFMS_TTCExercInfo').style.display == 'none') {
+        document.getElementById('AFMS_TTCExercInfo').style.display = ''
+        document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
         document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
-		
-		if (location.host == 'ttc.skyeng.ru')
-			document.getElementById('roomhashttc').value = document.URL.split('/')[5]
-		else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
-		
-		document.getElementById('hideExercisesTTCMenu').onclick = function() {
-			document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
-		}
-		
-		document.getElementById('RefreshInfoExerciseTTC').onclick = function() {
-			if (location.host == 'ttc.skyeng.ru')
-				document.getElementById('roomhashttc').value = document.URL.split('/')[5]
-			else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
-		}
-		
-		document.getElementById('getroomdatattc').onclick = async function() {
-			let rhash = document.getElementById('roomhashttc').value
-			if (rhash.length < 20) {
-				await fetch("https://ttc-api.skyeng.ru/api/v1/lesson/join", {
-				  "headers": {
-					"content-type": "application/json",
-				  },
-				  "body": "{\"roomHash\":\""+rhash+"\"}",
-				  "method": "POST",
-				  "mode": "cors",
-				  "credentials": "include"
-				}).then(r=>r.json()).then(r=>ttcroomdata=r)
-				
-				console.log(ttcroomdata)
-				
-				let tmparr=[];
-				for (let i=0; i< ttcroomdata.participants[0].nodes[0].steps.length; i++) {
-					if (ttcroomdata.participants[0].nodes[0].steps[i].score == null)
-						ttcroomdata.participants[0].nodes[0].steps[i].score = 0
-					if (ttcroomdata.participants[0].nodes[0].steps[i].completeness == null)
-						ttcroomdata.participants[0].nodes[0].steps[i].completeness = 0
-					tmparr += '<div class="itemexerciseskids">' + [i + 1] + '.' + '<span>'+ttcroomdata.participants[0].nodes[0].steps[i].title+'</span>' + '<span class="TTCstepid" style="display:none">' + ttcroomdata.participants[0].nodes[0].steps[i].stepId + '</span>' + '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' + '<span style="float:right;margin-right:20%">' + ttcroomdata.participants[0].nodes[0].steps[i].completeness + '%' + '</span>' + '<span style="float:right;margin-right:11%">' + ttcroomdata.participants[0].nodes[0].steps[i].score/10 + '</span>' + '<br>' + '</div>'
-				}
-				
-				document.getElementById('exercisebarttc').innerHTML = `<div style="width:90%; margin-left:5%; text-align:center; color:bisque; background: #bb531a; border-radius: 20px;">"${ttcroomdata.participants[0].nodes[0].title}" • Выполнено на: ${ttcroomdata.participants[0].nodes[0].completeness}% • Оценка: ${ttcroomdata.participants[0].nodes[0].score/10}</div>`+'<br>' + 
-				'<div class="headerexplain">' +
-					'<span style="margin-left: 60px;">Название слайда</span>' +
-					'<span style="margin-left: 140px;">Балл</span>' +
-					'<span style="margin-left: 60px;">%</span>' +
-				'</div>' +
-				tmparr;
-				
-				let savelinkarr = document.getElementsByClassName('savelinktocms')
-				for (let z = 0; z < savelinkarr.length; z++) {
-					savelinkarr[z].onclick = function () {
-						copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('TTCstepid')[z].textContent)
-					}
-				}
-				
-			}
-		}
-	}
-	else { 
-		document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
-	}
+
+        if (location.host == 'ttc.skyeng.ru')
+            document.getElementById('roomhashttc').value = document.URL.split('/')[5]
+        else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
+
+        document.getElementById('hideExercisesTTCMenu').onclick = function () {
+            document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
+        }
+
+        document.getElementById('RefreshInfoExerciseTTC').onclick = function () {
+            if (location.host == 'ttc.skyeng.ru')
+                document.getElementById('roomhashttc').value = document.URL.split('/')[5]
+            else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
+        }
+
+        document.getElementById('getroomdatattc').onclick = async function () {
+            let rhash = document.getElementById('roomhashttc').value
+            if (rhash.length < 20) {
+                await fetch("https://ttc-api.skyeng.ru/api/v1/lesson/join", {
+                    "headers": {
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"roomHash\":\"" + rhash + "\"}",
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(r => r.json()).then(r => ttcroomdata = r)
+
+                console.log(ttcroomdata)
+
+                let tmparr = [];
+                for (let i = 0; i < ttcroomdata.participants[0].nodes[0].steps.length; i++) {
+                    if (ttcroomdata.participants[0].nodes[0].steps[i].score == null)
+                        ttcroomdata.participants[0].nodes[0].steps[i].score = 0
+                    if (ttcroomdata.participants[0].nodes[0].steps[i].completeness == null)
+                        ttcroomdata.participants[0].nodes[0].steps[i].completeness = 0
+                    tmparr += '<div class="itemexerciseskids">' + [i + 1] + '.' + '<span>' + ttcroomdata.participants[0].nodes[0].steps[i].title + '</span>' + '<span class="TTCstepid" style="display:none">' + ttcroomdata.participants[0].nodes[0].steps[i].stepId + '</span>' + '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' + '<span style="float:right;margin-right:20%">' + ttcroomdata.participants[0].nodes[0].steps[i].completeness + '%' + '</span>' + '<span style="float:right;margin-right:11%">' + ttcroomdata.participants[0].nodes[0].steps[i].score / 10 + '</span>' + '<br>' + '</div>'
+                }
+
+                document.getElementById('exercisebarttc').innerHTML = `<div style="width:90%; margin-left:5%; text-align:center; color:bisque; background: #bb531a; border-radius: 20px;">"${ttcroomdata.participants[0].nodes[0].title}" • Выполнено на: ${ttcroomdata.participants[0].nodes[0].completeness}% • Оценка: ${ttcroomdata.participants[0].nodes[0].score / 10}</div>` + '<br>' +
+                    '<div class="headerexplain">' +
+                    '<span style="margin-left: 60px;">Название слайда</span>' +
+                    '<span style="margin-left: 140px;">Балл</span>' +
+                    '<span style="margin-left: 60px;">%</span>' +
+                    '</div>' +
+                    tmparr;
+
+                let savelinkarr = document.getElementsByClassName('savelinktocms')
+                for (let z = 0; z < savelinkarr.length; z++) {
+                    savelinkarr[z].onclick = function () {
+                        copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('TTCstepid')[z].textContent)
+                    }
+                }
+
+            }
+        }
+    }
+    else {
+        document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
+    }
 }
 
 document.getElementById('exercisekysmart').onclick = async function () { // открывает менюшку скайсмарт упражнений
     if (document.getElementById('AFMS_SkysmartExercInfo').style.display == 'none') {
         document.getElementById('AFMS_SkysmartExercInfo').style.display = ''
         document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
-		document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
-		
-		document.getElementById('RefreshInfoExerciseKids').onclick = function() {
-			document.getElementById('roomhashhwkids').value = document.URL;
-		}
+        document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
+
+        document.getElementById('RefreshInfoExerciseKids').onclick = function () {
+            document.getElementById('roomhashhwkids').value = document.URL;
+        }
 
 
         document.getElementById('hideExercisesSkysmartMenu').onclick = function () { // функция скрывает меню
@@ -2865,79 +2865,79 @@ document.getElementById('exercisekysmart').onclick = async function () { // от
                 case 'english':
                     await gethwroominfo("https://api-english.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;  
-				case 'math':
+                    getkidsroominfo(data = hwroomdata)
+                    break;
+                case 'math':
                     await gethwroominfo("https://api-math.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
+                    getkidsroominfo(data = hwroomdata)
                     break;
 
-				case 'computer-science':
+                case 'computer-science':
                     await gethwroominfo("https://api-computer-science.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
-				case 'geography':
+                case 'geography':
                     await gethwroominfo("https://api-geography.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
-				case 'chess':
+                case 'chess':
                     await gethwroominfo("https://api-chess.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
-				case 'preschool':
+                case 'preschool':
                     await gethwroominfo("https://api-preschool.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
-				case 'russian':
+                case 'russian':
                     await gethwroominfo("https://api-russian.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
-				case 'social-science':
+                case 'social-science':
                     await gethwroominfo("https://api-social-science.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
-				case 'history':
+                case 'history':
                     await gethwroominfo("https://api-history.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
+                    getkidsroominfo(data = hwroomdata)
                     break;
-					
-				case 'biology':
+
+                case 'biology':
                     await gethwroominfo("https://api-biology.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
-				case 'physics':
+                case 'physics':
                     await gethwroominfo("https://api-physics.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
-				case 'literature':
+                case 'literature':
                     await gethwroominfo("https://api-literature.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
+                    getkidsroominfo(data = hwroomdata)
                     break;
-					
-				case 'chemistry':
+
+                case 'chemistry':
                     await gethwroominfo("https://api-chemistry.skyeng.ru/api/v2/rooms/", hashroomkids)
                     console.log(hwroomdata)
-					getkidsroominfo(data = hwroomdata)
-                    break;	
+                    getkidsroominfo(data = hwroomdata)
+                    break;
 
             }
         }
@@ -2952,7 +2952,7 @@ document.getElementById('exerciseadult').onclick = async function () { // отк
     if (document.getElementById('AFMS_AdultExercInfo').style.display == 'none') {
         document.getElementById('AFMS_AdultExercInfo').style.display = ''
         document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
-		document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
+        document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
 
         document.getElementById('hideExercisesAdultsMenu').onclick = function () { // функция скрывает меню
             document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
@@ -3013,13 +3013,13 @@ document.getElementById('exerciseadult').onclick = async function () { // отк
                         }
                         document.getElementById('exercisebaradults').innerHTML += '<div class="roomtype">Lesson</div>' +
                             '<div class="boxwithslides" style="display:none">' +
-								'<div class="headerexplain">' +
-									'<span style="margin-left: 60px;">Название слайда</span>' +
-									'<span style="margin-left: 160px;">%</span>' +
-									'<span style="margin-left: 24px;">Балл</span>' +
-									'<span style="margin-left: 20px;">💼</span>' +
-									'<input type="checkbox" name="checkroomtype" class="checkroom">' +
-								'</div>' +
+                            '<div class="headerexplain">' +
+                            '<span style="margin-left: 60px;">Название слайда</span>' +
+                            '<span style="margin-left: 160px;">%</span>' +
+                            '<span style="margin-left: 24px;">Балл</span>' +
+                            '<span style="margin-left: 20px;">💼</span>' +
+                            '<input type="checkbox" name="checkroomtype" class="checkroom">' +
+                            '</div>' +
                             temparr + '</div>'
                         break;
 
@@ -3046,13 +3046,13 @@ document.getElementById('exerciseadult').onclick = async function () { // отк
                         }
                         document.getElementById('exercisebaradults').innerHTML += '<div class="roomtype">Homework</div>' +
                             '<div class="boxwithslides" style="display:none">' +
-								'<div class="headerexplain">' +
-									'<span style="margin-left: 60px;">Название слайда</span>' +
-									'<span style="margin-left: 160px;">%</span>' +
-									'<span style="margin-left: 24px;">Балл</span>' +
-									'<span style="margin-left: 20px;">💼</span>' +
-									'<input type="checkbox" name="checkroomtype" class="checkroom">' +
-								'</div>' +
+                            '<div class="headerexplain">' +
+                            '<span style="margin-left: 60px;">Название слайда</span>' +
+                            '<span style="margin-left: 160px;">%</span>' +
+                            '<span style="margin-left: 24px;">Балл</span>' +
+                            '<span style="margin-left: 20px;">💼</span>' +
+                            '<input type="checkbox" name="checkroomtype" class="checkroom">' +
+                            '</div>' +
                             temparr + '</div>'
                         break;
 
@@ -3584,7 +3584,6 @@ async function getwordsets(studentId) { // функция получения и�
             },
         }).then(r => r.json()).then(r => objectwdsets = r)
 
-
         for (let k = 0; k < objectwdsets.data.length; k++) {
             wordsname.push(objectwdsets.data[k].meaningId)
         }
@@ -3667,34 +3666,30 @@ async function getwordsets(studentId) { // функция получения и�
             copyToClipboard("https://dictionary.skyeng.ru/cms/meaning/" + allmeanings[z].textContent)
         }
     }
-
-
 }
 
 intOldShow = setInterval(addOldShowcaseBtn, 3000) // переменная которая хранит интервал и если условие выполняется прекращает его выполнение
 
-function addOldShowcaseBtn() { //функция добавляющая в левое меню Showcase * 
-	if (location.host == 'new-teachers.skyeng.ru' || location.href.split('/')[6] =="multi-classroom" || location.host =='teachers.skyeng.ru') { 
-	
-			let clearterms = document.querySelectorAll('.terms-popup-accept-button')
-			for (let i=0; i<clearterms.length; i++) {
-				clearterms[i].click()
-			}
-			
-		if (document.getElementById('oldShowcase') == null) {
-			let oldshowcase = document.createElement('div')
-			oldshowcase.innerText = "🎓 Showcase*"
-			oldshowcase.id = 'oldShowcase'
-			oldshowcase.style = 'cursor:pointer;color;#04121B7A; margin-left: 12px; font-size:18px;'
-			oldshowcase.onclick = function() {
-				window.open('https://vimbox.skyeng.ru/start?noredirect=1')
-			}
-			document.getElementsByClassName('category')[0].insertBefore(oldshowcase, document.getElementsByClassName('category')[0].children[2])
-		} else clearInterval(intOldShow)
-	}
+function addOldShowcaseBtn() { //функция добавляющая в левое меню Showcase *
+    if (location.host == 'new-teachers.skyeng.ru' || location.href.split('/')[6] == "multi-classroom" || location.host == 'teachers.skyeng.ru') {
+
+        let clearterms = document.querySelectorAll('.terms-popup-accept-button')
+        for (let i = 0; i < clearterms.length; i++) {
+            clearterms[i].click()
+        }
+
+        if (document.getElementById('oldShowcase') == null) {
+            let oldshowcase = document.createElement('div')
+            oldshowcase.innerText = "🎓 Showcase*"
+            oldshowcase.id = 'oldShowcase'
+            oldshowcase.style = 'cursor:pointer;color;#04121B7A; margin-left: 12px; font-size:18px;'
+            oldshowcase.onclick = function () {
+                window.open('https://vimbox.skyeng.ru/start?noredirect=1')
+            }
+            document.getElementsByClassName('category')[0].insertBefore(oldshowcase, document.getElementsByClassName('category')[0].children[2])
+        } else clearInterval(intOldShow)
+    }
 }
-
-
 
 function addOption(oListbox, text, value) {  //функция добавления опции в список
     var oOption = document.createElement("option");
