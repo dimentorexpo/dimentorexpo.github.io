@@ -573,6 +573,12 @@ var win_refusefrom =  // описание элементов окна отказ
 
 let audio
 
+function include(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}		
+
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
     document.onkeydown = function (event) {
@@ -6174,12 +6180,6 @@ function prepKC() { //функция подготовки расширения �
 
     }, 4000)
 
-}
-
-function include(url) {
-    var script = document.createElement('script');
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
 }
 
 function firstLoadPage() { //первичаня загрузка страницы
