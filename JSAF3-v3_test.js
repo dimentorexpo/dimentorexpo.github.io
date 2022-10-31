@@ -577,12 +577,7 @@ function include(url) {
     var script = document.createElement('script');
     script.src = url;
     document.getElementsByTagName('head')[0].appendChild(script);
-}
-//подключаем модули без таймаута
-		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
-		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
-		include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
-        include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
+}		
 
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
@@ -6114,14 +6109,14 @@ function prepTp() { //функция подготовки расширения �
         lboxstyles.rel = 'stylesheet'
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('header').append(lboxstyles)
-		// include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
-		// include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
+		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
         include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
-        // include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
-        // include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
+        include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
+        include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
         // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи
         include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
