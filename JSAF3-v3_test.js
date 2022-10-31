@@ -572,11 +572,11 @@ var win_refusefrom =  // описание элементов окна отказ
 </div>`;
 
 let audio
-
+let scriptsarray = [];
 function include(url) {
-    var script = document.createElement('script');
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
+    scriptsarray[i] = document.createElement('script');
+    scriptsarray[i].src = url;
+    document.getElementsByTagName('head')[0].appendChild(scriptsarray[i]);
 }		
 
 // Блок горячих клавиш
