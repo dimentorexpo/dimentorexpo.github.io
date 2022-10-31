@@ -579,7 +579,7 @@ function include(url) {
 	script.setAttribute('defer', '')
     document.getElementsByTagName('head')[0].appendChild(script);
 }		
-
+ 
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
     document.onkeydown = function (event) {
