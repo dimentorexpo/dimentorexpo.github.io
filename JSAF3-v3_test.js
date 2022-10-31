@@ -573,12 +573,10 @@ var win_refusefrom =  // описание элементов окна отказ
 
 let audio
 
-let scriptsarray = [];
-function include(url, counter=0) {
-    scriptsarray[counter] = document.createElement('script');
-    scriptsarray[counter].src = url;
-    document.getElementsByTagName('head')[0].appendChild(scriptsarray[counter]);
-	return counter +=1;
+function include(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
 }		
 
 // Блок горячих клавиш
@@ -6104,13 +6102,15 @@ function prepTp() { //функция подготовки расширения �
     document.getElementById('app-header').append(buttonGetStat)
 
     setInterval(timerHideButtons, 300)
-
-    setTimeout(function () {
+	
 		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         let lboxstyles = document.createElement('link')
         lboxstyles.rel = 'stylesheet'
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-        document.querySelector('header').append(lboxstyles)
+        document.querySelector('head').append(lboxstyles)
+
+    setTimeout(function () {
+
 		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
