@@ -576,7 +576,7 @@ let audio
 function include(url) {
     var script = document.createElement('script');
     script.src = url;
-	script.setAttribute('defer', true)
+	script.setAttribute('defer', 'defer')
     document.getElementsByTagName('head')[0].appendChild(script);
 }		
 
