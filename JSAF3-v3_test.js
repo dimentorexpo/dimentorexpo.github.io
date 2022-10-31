@@ -6108,7 +6108,6 @@ function prepTp() { //функция подготовки расширения �
         lboxstyles.rel = 'stylesheet'
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('head').append(lboxstyles)
-		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
     setTimeout(function () {
 
@@ -6134,11 +6133,11 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2000)
 
-    // setTimeout(function () {
+    setTimeout(function () {
 
-        // include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
+        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
-    // }, 4000)
+    }, 4000)
 
 }
 
