@@ -576,9 +576,9 @@ let audio
 let scriptsarray = [];
 function include(url, counter) {
 	counter=0;
-    scriptsarray[i] = document.createElement('script');
-    scriptsarray[i].src = url;
-    document.getElementsByTagName('head')[0].appendChild(scriptsarray[i]);
+    scriptsarray[counter] = document.createElement('script');
+    scriptsarray[counter].src = url;
+    document.getElementsByTagName('head')[0].appendChild(scriptsarray[counter]);
 	return counter++;
 }		
 
