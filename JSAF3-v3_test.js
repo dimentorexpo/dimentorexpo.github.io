@@ -573,6 +573,15 @@ var win_refusefrom =  // описание элементов окна отказ
 
 let audio
 
+function include(url) {
+    var script = document.createElement('script');
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
+
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
     document.onkeydown = function (event) {
@@ -6103,8 +6112,8 @@ function prepTp() { //функция подготовки расширения �
         lboxstyles.rel = 'stylesheet'
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('header').append(lboxstyles)
-		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
-		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
+		// include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+		// include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
@@ -6174,12 +6183,6 @@ function prepKC() { //функция подготовки расширения �
 
     }, 4000)
 
-}
-
-function include(url) {
-    var script = document.createElement('script');
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
 }
 
 function firstLoadPage() { //первичаня загрузка страницы
