@@ -148,7 +148,7 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
 
             let flagemptysmart = 0;
 
-            if (!document.getElementsByName('typetoform')[0].checked && !document.getElementsByName('typetoform')[1].checked) {
+            if (!document.getElementsByName('typetoform')[0].checked && !document.getElementsByName('typetoform')[1].checked && !document.getElementsByName('typetoform')[2].checked) {
                 document.getElementById('smartroomuser').style.backgroundColor = 'Coral';
                 document.getElementById('smartroomuser').style.color = 'black';
                 flagemptysmart = 1;
