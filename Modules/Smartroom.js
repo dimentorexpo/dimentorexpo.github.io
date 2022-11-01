@@ -95,10 +95,10 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
         }
 
         function clearradio() {
-            for (let j = 0; j < 4; j++) {
+            for (let j = 0; j < 3; j++) {
                 document.getElementsByName('typetoform')[j].checked = false
             }
-            for (let k = 0; k < 8; k++) {
+            for (let k = 0; k < 6; k++) {
                 document.getElementsByName('catsmartroom')[k].checked = false
             }
         }
