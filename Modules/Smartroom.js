@@ -18,8 +18,8 @@ var win_smartroomform =  // описание элементов окна Мул�
 								<label for="typestud">Ученик</label>
 							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
 								<label for="typeteach">Преподаватель</label>
-                                <input type="radio" id="typeteach" name="typetoform" value="Ученик Premium">
-								<label for="typeteach">Ученик Premium</label>
+                                <input type="radio" id="typestudprem" name="typetoform" value="Ученик Premium">
+								<label for="typestudprem">Ученик Premium</label>
 							</div>
 							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
 							<br>
