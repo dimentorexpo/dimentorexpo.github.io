@@ -98,7 +98,7 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
             for (let j = 0; j < document.getElementsByName('typetoform').length; j++) {
                 document.getElementsByName('typetoform')[j].checked = false
             }
-            for (let k = 0; k < document.getElementsByName('catsmartroom').length; j++) {
+            for (let k = 0; k < document.getElementsByName('catsmartroom').length; k++) {
                 document.getElementsByName('catsmartroom')[k].checked = false
             }
         }
