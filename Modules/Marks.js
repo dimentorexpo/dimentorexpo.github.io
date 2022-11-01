@@ -64,15 +64,20 @@ function getDate() {
         } else {
             getcurmonthLS = (getdateset.getMonth() + 1);
         }
-        if (getdateset.getDate() < 10) {
+        if (getdateset.getDate() < 10 && getcurmonthLS <=10) {
             todayLS = "0" + getdateset.getDate();
             document.getElementById('dateFromMarks').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
             document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
+        } else  if  (getdateset.getDate() < 10 && getcurmonthLS > 10) {
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromMarks').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+            document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+		} else {
             todayLS = getdateset.getDate();
             document.getElementById('dateFromMarks').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
             document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
+        }		
+		
 }
 	
 	document.getElementById('AF_Marks').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
