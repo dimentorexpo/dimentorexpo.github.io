@@ -3137,17 +3137,17 @@ function startTimer() {
         if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
 			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
 				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
+				if (txt[14] > 0) {
+					if (soudflag == 0) {
+						audio.play()
+						soudintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
+						soudflag = 1
+					}
+				} else {
+					soudflag = 0
+					clearInterval(soudintervalset)
+				}
 			}
-            if (txt[14] > 0) {
-                if (soudflag == 0) {
-                    audio.play()
-                    soudintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
-                    soudflag = 1
-                }
-            } else {
-                soudflag = 0
-                clearInterval(soudintervalset)
-            }
         }
 
 
