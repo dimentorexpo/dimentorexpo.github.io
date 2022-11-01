@@ -3025,6 +3025,7 @@ function addTimers() { // еще функция тоже добавления т
 function refreshTimer() { //функция обновления таймера
     btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
     j = 0
+	try {
     while (true) {
         if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
             break;
@@ -3054,6 +3055,7 @@ function refreshTimer() { //функция обновления таймера
         }
         j++
     }
+	} catch (e) { console.error(e, e.stack); }
 }
 
 function refCurTimer(time) { //функция обновления текущего таймера на чате
