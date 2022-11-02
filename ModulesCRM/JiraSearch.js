@@ -20,7 +20,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 							<button id="favouriteBugs" title="Страница с сохраненными багами для быстрого доступа" style="color: transparent; text-shadow: rgb(255 0 0) 1px 0px 1px, rgb(0 0 0) 0px 1px 1px, rgb(0 0 0) -1px 0px 1px, rgb(0 0 0) 0px -1px 1px;">❤</button>
 							<textarea id="JQLquery" placeholder="JQL запрос" title="Введите сюда JQL запрос" autocomplete="off" type="text" style="text-align: center; width: 500px; color: black; margin-top: 5px; margin-left: 5%;"></textarea>
 							<input id="testJira" placeholder="Введите слово или фразу для поиска" title="введите слово или фразу для поиска по Jira при одном клике будет искать по багам, если ввести в поле номер задачи например VIM-7288 и дабл кликнуть на рокету будет поиск по номеру" autocomplete="off" type="text" style="text-align: center; width: 300px; color: black; margin-top: 5px; margin-left: 20%;">
-							<button id="getJiraTasks" style="width: 25.23px;">🚀</button>
+							<button id="getJiraTasks" style="width: 30px;">🚀</button>
 						</div>
 
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
