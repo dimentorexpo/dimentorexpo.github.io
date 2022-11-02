@@ -30,9 +30,6 @@ function mystyles() {
 		color: greenyellow;
 		transition: all 1s ease;
 	}
-	#MenubarCRM {
-		
-	}
 	#jirafinder {
 		cursor: pointer;
 		font-size: 14px;
