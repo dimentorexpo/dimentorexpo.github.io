@@ -227,7 +227,7 @@ for(let i = 0; i < blocks.length; i++) {
 	}
 	
 	button.onclick = function() {
-		this.setAttribute('disabled', 'disabled')
+		this.setAttribute('disabled', '')
 		setTimeout(function() {
 			if(document.getElementById('formToSlackSend') != null)
 				document.getElementById('formToSlackSend').removeAttribute('disabled')
