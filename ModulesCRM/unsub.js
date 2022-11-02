@@ -80,7 +80,7 @@ function openSlackSocket() {          // Функция открытия Сок�
 					}
 					return
 				}
-				document.getElementById('buttonOpenForm').style.display = ''
+				document.getElementById('buttonUnsub').style.display = ''
 				return
 			}
 		}
@@ -185,7 +185,7 @@ for(let i = 0; i < blocks.length; i++) {
 	button2.style.marginLeft = '5px'
 	button2.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
-		document.getElementById('buttonOpenForm').style.display = ''
+		document.getElementById('buttonUnsub').style.display = ''
 	}
 	let button3 = document.createElement('button')
 	button3.textContent = "Закрыть"
@@ -194,7 +194,7 @@ for(let i = 0; i < blocks.length; i++) {
 		socket.close()
 		socketOpened = 0
 		this.parentElement.parentElement.remove()
-		document.getElementById('buttonOpenForm').style.display = ''
+		document.getElementById('buttonUnsub').style.display = ''
 	}
 	
 	button.onclick = function() {
@@ -223,7 +223,7 @@ for(let i = 0; i < blocks.length; i++) {
 		submitSlackView(view)
 		flagFormSubmited = 1
 		document.getElementById('formToSlack').remove()
-		document.getElementById('buttonOpenForm').style.display = ''
+		document.getElementById('buttonUnsub').style.display = ''
 		
 	}
 
@@ -234,12 +234,12 @@ for(let i = 0; i < blocks.length; i++) {
 	console.log("Форма получена и заплонена успешно")
 }
 
-// let buttonOpenForm = document.createElement('div');
-// buttonOpenForm.id = 'buttonOpenForm';
-// buttonOpenForm.textContent = "📧Unsub";
-// buttonOpenForm.style.marginRight = "30px";
-// buttonOpenForm.style.cursor = "pointer";
-buttonOpenForm.onclick = function() {
+// let buttonUnsub = document.createElement('div');
+// buttonUnsub.id = 'buttonUnsub';
+// buttonUnsub.textContent = "📧Unsub";
+// buttonUnsub.style.marginRight = "30px";
+// buttonUnsub.style.cursor = "pointer";
+buttonUnsub.onclick = function() {
 	document.getElementById('idmymenucrm').style.display = 'none'
 	if(socketOpened == 0) {
 		if(localStorage.getItem('token') == undefined)
