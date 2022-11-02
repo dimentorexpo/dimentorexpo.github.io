@@ -111,5 +111,12 @@ jirasearchbtn.id = "jirafinder"
 document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
+let buttonOpenForm = document.createElement('div');
+buttonOpenForm.id = 'buttonOpenForm';
+buttonOpenForm.textContent = "📧Unsub";
+buttonOpenForm.style.marginRight = "30px";
+buttonOpenForm.style.cursor = "pointer";
+document.getElementById('idmymenucrm').append(buttonOpenForm)
+
 // document.getElementById('idmymenucrm').append(document.getElementById('buttonOpenForm')) // подключение кнопки unsub
 
