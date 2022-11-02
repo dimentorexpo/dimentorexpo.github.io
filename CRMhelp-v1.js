@@ -40,6 +40,11 @@ function mystyles() {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
+	}	
+	#buttonUnsub:hover {
+		background:DeepSkyBlue;
+		color:white;
+		font-weight:700;
 	}
 `
     mstl.innerHTML = style;
@@ -112,10 +117,9 @@ document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
 let buttonOpenForm = document.createElement('div');
-buttonOpenForm.id = 'buttonOpenForm';
+buttonOpenForm.id = 'buttonUnsub';
 buttonOpenForm.textContent = "📧Unsub";
-buttonOpenForm.style.marginRight = "30px";
-buttonOpenForm.style.cursor = "pointer";
+buttonOpenForm.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 2px; border-left: 1px solid black; border-right: 1px solid black;"
 document.getElementById('idmymenucrm').append(buttonOpenForm)
 
 include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
