@@ -118,5 +118,8 @@ buttonOpenForm.style.marginRight = "30px";
 buttonOpenForm.style.cursor = "pointer";
 document.getElementById('idmymenucrm').append(buttonOpenForm)
 
+include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
+
+
 // document.getElementById('idmymenucrm').append(document.getElementById('buttonOpenForm')) // подключение кнопки unsub
 
