@@ -8,6 +8,15 @@ try {
 	if (location.origin == 'https://crm2.skyeng.ru')
 		if (document.getElementById('MenubarCRM') == null) {
 			document.getElementsByClassName('mat-toolbar-row')[0].children[1].children[0].append(upmenubtn)
+			
+			document.getElementById('MenubarCRM').onclick = function() {
+				if (document.getElementById('idmymenucrm').style.display == 'none')  {
+					document.getElementById('idmymenucrm').style.display =''
+				} else {
+					document.getElementById('idmymenucrm').style.display ='none'
+
+				}
+			}
 		}
 } 
 catch (e) { console.error(e, e.stack); }
@@ -22,14 +31,7 @@ menubarcrm.id = 'idmymenucrm'
 
 document.body.append(menubarcrm)
 
-document.getElementById('MenubarCRM').onclick = function() {
-    if (document.getElementById('idmymenucrm').style.display == 'none')  {
-        document.getElementById('idmymenucrm').style.display =''
-    } else {
-        document.getElementById('idmymenucrm').style.display ='none'
 
-    }
-}
 
 let jirasearchbtn = document.createElement('div')
 jirasearchbtn.innerText = "🔎Jira search"
