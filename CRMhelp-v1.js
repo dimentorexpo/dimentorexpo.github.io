@@ -7,7 +7,7 @@ function mystyles() {
 		border-radius:5px;
 		border:1px solid #566963;
 		color:#ffffff;
-		padding:2px 2px;
+		padding:5px 5px;
 	}
 	button:hover {
 		background: #6A5ACD;
@@ -19,6 +19,11 @@ function mystyles() {
 		font-weight: 700;
 		color: greenyellow;
 		transition: all 1s ease;
+	}
+	#jirafinder:hover {
+		background:DeepSkyBlue;
+		color:white;
+		font-weight:700;
 	}
 `
     mstl.innerHTML = style;
