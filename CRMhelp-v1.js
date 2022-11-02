@@ -17,7 +17,7 @@ try {
 
 				}
 			}
-			console/log('1')
+			console.log('1')
 			clearInterval(init)
 		}
 } 
