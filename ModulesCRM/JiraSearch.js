@@ -80,7 +80,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
     document.getElementById('jirafinder').onclick = function () { // открывает поле для работой с JIRA поиском
         if (document.getElementById('AF_Jira').style.display == 'none') {
             document.getElementById('AF_Jira').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenucrm').style.display = 'none'
 
             let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
             document.getElementById('JQLquery').innerText = defqueryitem;
@@ -644,6 +644,6 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 
         } else if (document.getElementById('AF_Jira').style.display == '') {
             document.getElementById('AF_Jira').style.display = 'none'
-            document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenucrm').style.display = 'none'
         }
     }
