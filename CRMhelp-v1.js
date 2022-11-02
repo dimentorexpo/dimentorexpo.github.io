@@ -16,6 +16,8 @@ function mystyles() {
     mstl.innerHTML = style;
 }
 
+mystyles()
+
 
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
@@ -46,6 +48,8 @@ try {
 	if (location.origin == 'https://crm2.skyeng.ru')
 		if (document.getElementsByClassName('mat-toolbar-row')[0] != undefined && document.getElementById('MenubarCRM') == null) {
 			document.getElementsByClassName('mat-toolbar-row')[0].children[1].children[0].append(upmenubtn)
+			
+			
 			
 			document.getElementById('MenubarCRM').onclick = function() {
 				if (document.getElementById('idmymenucrm').style.display == 'none')  {
