@@ -12,6 +12,14 @@ function mystyles() {
 	button:hover {
 		background: #6A5ACD;
 	}
+	.active-query {
+		border-left:6px solid #1ff400;
+		box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+		font-weight: 700;
+		color: greenyellow;
+		transition: all 1s ease;
+	}
 `
     mstl.innerHTML = style;
 }
