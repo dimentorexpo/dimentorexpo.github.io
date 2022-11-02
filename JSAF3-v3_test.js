@@ -12,15 +12,7 @@ document.getElementById('testUsers').style.display = 'none'; // скрываю �
 function mystyles() {
     let mstl = document.createElement('style');
     document.body.append(mstl);
-    var style = `.win_btn {
-		background-color: #768d87;
-		border-radius: 10px;
-		border: 1px solid #566963;
-		color: #ffffff;
-		font-size: 12px;
-		padding: 3px 2px;
-		margin: -2px 1px;
-	}
+    var style = `
 	button {
 		background-color:#768d87;
 		border-radius:5px;

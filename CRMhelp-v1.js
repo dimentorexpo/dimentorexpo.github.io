@@ -1,3 +1,22 @@
+function mystyles() {
+    let mstl = document.createElement('style');
+    document.body.append(mstl);
+    var style = `
+	button {
+		background-color:#768d87;
+		border-radius:5px;
+		border:1px solid #566963;
+		color:#ffffff;
+		padding:2px 2px;
+	}
+	button:hover {
+		background: #6A5ACD;
+	}
+`
+    mstl.innerHTML = style;
+}
+
+
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
