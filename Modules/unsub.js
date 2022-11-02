@@ -154,11 +154,6 @@ for(let i = 0; i < blocks.length; i++) {
 			let select = document.createElement('select')   // создаем выпадающее меню выбора
 			select.style.width = '100%'
 			select.id = 'formToSlackField' + i
-			// if(i == 2 || i == 3) {
-				// let option = document.createElement('option')   //  создаем опции выбора  
-				// option.textContent = i == 2 ? 'Выберите канал *' : 'Приоритет *'
-				// select.append(option)
-			// }
 			for(let j = 0; j < blocks[i].element.options.length; j++) {
 				let option = document.createElement('option')
 				option.textContent = blocks[i].element.options[j].text.text  // отображаемый текст в пути переменной масива при доступе к апишке (elements-options-text-text) , при этом // blocks[i].element.options[j].value[j] помогает получить значение радиокнопки value либо mrkt либо all
