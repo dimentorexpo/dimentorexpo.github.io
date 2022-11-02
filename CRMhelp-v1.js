@@ -111,5 +111,5 @@ jirasearchbtn.id = "jirafinder"
 document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
-document.getElementById('idmymenucrm').append(document.getElementById('buttonOpenForm')) // подключение кнопки unsub
+// document.getElementById('idmymenucrm').append(document.getElementById('buttonOpenForm')) // подключение кнопки unsub
 
