@@ -65,7 +65,7 @@ function include(url) {
 }	
 
 include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
-// include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
+include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 //Объявление кнопки в верхней панели CRM
 let upmenubtn = document.createElement('span')
 upmenubtn.innerText = "Меню"
@@ -111,5 +111,11 @@ jirasearchbtn.id = "jirafinder"
 document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
-// document.getElementById('idmymenucrm').append(document.getElementById('buttonOpenForm')) // подключение кнопки unsub
+let buttonOpenForm = document.createElement('div');
+buttonOpenForm.id = 'buttonOpenForm';
+buttonOpenForm.textContent = "📧Unsub";
+buttonOpenForm.style.marginRight = "30px";
+buttonOpenForm.style.cursor = "pointer";
+
+document.getElementById('idmymenucrm').append(document.getElementById('buttonOpenForm')) // подключение кнопки unsub
 
