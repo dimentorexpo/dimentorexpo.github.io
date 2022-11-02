@@ -1,3 +1,12 @@
+function checkelementtype(a) { // проверка на какой элемент нажали
+    let elem = document.elementFromPoint(a.clientX, a.clientY)
+
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT') {
+        return true;
+    }
+    return false;
+}
+
 function include(url) {
     var script = document.createElement('script');
     script.src = url;
