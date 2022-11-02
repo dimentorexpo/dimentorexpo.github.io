@@ -219,7 +219,6 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                             favissues = JSON.parse(localStorage.getItem('bugsarray'))
                             document.getElementById('favouriteissuetable').innerHTML = favissues;
                             removebug();
-                            sndmsgafterdeletebug()
                             plusonecount()
                         }
                     }
@@ -233,43 +232,11 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                                 favissues = JSON.parse(localStorage.getItem('bugsarray'))
                                 document.getElementById('favouriteissuetable').innerHTML = favissues;
                                 removebug();
-                                sndmsgafterdeletebug()
                                 plusonecount()
                             }
                         }
                     }
-
-
-                    for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
-                        document.getElementsByName('addtonotesbug')[j].onclick = function () {
-                            sendComment('https://jira.skyeng.tech/browse/' + favissues[j].match(/browse.(\S+)"/)[1])
-
-                            let b = document.URL.split('/')
-                            fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                                "headers": {
-                                    "accept": "*/*",
-                                    "content-type": "application/json",
-                                    "sec-fetch-dest": "empty",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-origin"
-                                },
-                                "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/${favissues[j].match(/browse.(\S+)"/)[1]}\"}]}`,
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            })
-
-                        }
-                    }
-
-                    function sndmsgafterdeletebug() {
-                        for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
-                            document.getElementsByName('addtonotesbug')[j].onclick = function () {
-                                sendComment(favissues[j].match(/href.=(\S+)/)[1])
-                            }
-                        }
-                    }
-
+					
                     let cnttoincrease = document.getElementsByName('increasecount');
                     let itarrs = document.getElementsByName('favissuemassive')
                     for (let c = 0; c < cnttoincrease.length; c++) {
@@ -489,7 +456,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                                 addtofarr[v].innerText = "❤"
                                 for (let x = 0; x < tagsarray.length; x++) {
                                     if (x == v) {
-                                        favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
+                                        favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
                                         localStorage.setItem('bugsarray', JSON.stringify(favissues))
                                     }
                                 }
