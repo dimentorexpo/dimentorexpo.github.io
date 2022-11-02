@@ -17,12 +17,14 @@ try {
 
 				}
 			}
+			console/log('1')
+			clearInterval(init)
 		}
 } 
 catch (e) { console.error(e, e.stack); }
 }
 
-setInterval(initialize, 3000)
+var init = setInterval(initialize, 3000)
 
 
 let menubarcrm = document.createElement('div')
