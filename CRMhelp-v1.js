@@ -31,14 +31,7 @@ function mystyles() {
 		transition: all 1s ease;
 	}
 	#MenubarCRM {
-		background: white;
-		position:absolute;
-		left: 950px;
-		top: 50px;
-		border: 0px solid #000000;
-		display:none; min-height: 60px; min-width:150px;
-		box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09);
-		z-index:999;
+		
 	}
 	#jirafinder {
 		cursor: pointer;
@@ -108,6 +101,7 @@ catch (e) { console.error(e, e.stack); }
 var init = setInterval(initialize, 3000) //заносим в переменную чтобы ее потом в функции можно было удалить интервал
 
 let menubarcrm = document.createElement('div')
+menubarcrm.style = `background: white; position:absolute; left: 950px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:150px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09); z-index:999;`
 menubarcrm.id = 'idmymenucrm'
 
 document.body.append(menubarcrm)
