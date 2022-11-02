@@ -3,7 +3,13 @@ upmenubtn.innerText = "Меню"
 upmenubtn.id = 'MenubarCRM'
 upmenubtn.style="cursor:pointer;font-weight:500; text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;"
 
-document.getElementsByClassName('mat-toolbar-row')[0].children[1].children[0].append(upmenubtn)
+try {
+	if (location.origin == 'https://crm2.skyeng.ru')
+		if (document.getElementById('MenubarCRM') == null) {
+			document.getElementsByClassName('mat-toolbar-row')[0].children[1].children[0].append(upmenubtn)
+		}
+} 
+catch (e) { console.error(e, e.stack); }
 
 
 let menubarcrm = document.createElement('div')
