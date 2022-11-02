@@ -454,6 +454,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         for (let v = 0; v < addtofarr.length; v++) {
                             addtofarr[v].onclick = function () {
                                 addtofarr[v].innerText = "❤"
+                                addtofarr[v].style = "color: transparent; text-shadow: rgb(255 0 0) 1px 0px 1px, rgb(0 0 0) 0px 1px 1px, rgb(0 0 0) -1px 0px 1px, rgb(0 0 0) 0px -1px 1px;"
                                 for (let x = 0; x < tagsarray.length; x++) {
                                     if (x == v) {
                                         favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
