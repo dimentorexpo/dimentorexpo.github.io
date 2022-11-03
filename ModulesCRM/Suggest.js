@@ -164,7 +164,6 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
                         document.getElementById('sendResponse').click()
 
                         console.log('Выбрана тема из предложенных')
-                        sendComment('https://skr.sh/sEHecwURANZ')
                         document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
                         setTimeout(() => {
                             document.getElementById('sendtosuggestdoc').innerText = "Отправить"
@@ -190,7 +189,6 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
                         document.getElementById('sendResponse').click()
 
                         console.log('Выбрана опция Другое')
-                        sendComment('https://skr.sh/sEHecwURANZ')
                         document.getElementById('sendtosuggestdoc').innerText = "Отправлено✅"
                         setTimeout(() => {
                             document.getElementById('sendtosuggestdoc').innerText = "Отправить"
