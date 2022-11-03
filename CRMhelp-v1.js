@@ -36,7 +36,7 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover {
+	#jirafinder:hover, #buttonUnsub:hover, #suggestform:hover, #servDsk:hover, #smartroomform:hover, #butLessonInfo:hover  {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
@@ -49,16 +49,7 @@ function mystyles() {
 		border-left: 1px solid black;
 		border-right: 1px solid black;
 	}	
-	#buttonUnsub:hover {
-		background:DeepSkyBlue;
-		color:white;
-		font-weight:700;
-	}	
-	#suggestform:hover {
-		background:DeepSkyBlue;
-		color:white;
-		font-weight:700;
-	}
+
 	.radio {
 		width:15px;
 		height:15px;
@@ -94,16 +85,7 @@ function mystyles() {
 		color: SteelBlue;
 		font-weight: 600;
 	}
-	#smartroomform:hover {
-		background:DeepSkyBlue;
-		color:white;
-		font-weight:700;
-	}
-	#servDsk:hover {
-		background:DeepSkyBlue;
-		color:white;
-		font-weight:700;
-	}	
+
 	.catsmartroom {
 		margin-left: 5px;
 		color: bisque;
