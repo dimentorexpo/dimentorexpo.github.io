@@ -127,12 +127,12 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
 
             document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
 
-            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+            if (location.origin == 'https://crm2.skyeng.ru')
+                document.getElementById('linktochatsuggest').value = document.URL
 
             document.getElementById('refreshchathash').onclick = () => {
-                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    document.getElementById('linktochatsuggest').value = "https://hdi.skyeng.ru/autofaq/conversation/-11/" + document.URL.split('/')[5]
+				if (location.origin == 'https://crm2.skyeng.ru')
+					document.getElementById('linktochatsuggest').value = document.URL
             }
 
             document.getElementById('getdocsuggestions').onclick = () => {
