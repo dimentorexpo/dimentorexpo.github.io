@@ -116,7 +116,7 @@ jirasearchbtn.id = "jirafinder"
 document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
-let buttonOpenForm = document.createElement('div');
+let buttonOpenForm = document.createElement('div'); //unsub
 buttonOpenForm.id = 'buttonUnsub';
 buttonOpenForm.textContent = "📧Unsub";
 buttonOpenForm.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 2px; border-left: 1px solid black; border-right: 1px solid black;"
@@ -124,6 +124,9 @@ document.getElementById('idmymenucrm').append(buttonOpenForm)
 
 include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 
+let butopensugestform = document.createElement('div') //suggest common
+butopensugestform.id = "suggestform"
+butopensugestform.innerHTML = "📝Предложения"
+butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;'
 
-// document.getElementById('idmymenucrm').append(document.getElementById('buttonOpenForm')) // подключение кнопки unsub
-
+document.getElementById('idmymenucrm').append(butopensugestform)
