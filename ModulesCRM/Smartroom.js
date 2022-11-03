@@ -102,6 +102,9 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
                 document.getElementsByName('catsmartroom')[k].checked = false
             }
         }
+		
+		if (document.URL.split('/')[3] == 'persons')
+			document.getElementById('clientid').value = document.URL.split('/')[4]
 
         //
         let catsmartroom = document.getElementsByName('catsmartroom')
@@ -196,7 +199,7 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
                         document.getElementById('clientid').value = ''
                         document.getElementById('fullcomentsmartroom').value = ''
                         clearradio()
-                        sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
+                        
 
                     } else if (alloptions[i].checked && alloptions[i].value == 'Другое') {
                         let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value) + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156.other_option_response=' + encodeURIComponent(document.getElementById('otheroptionsmartchecked').value) + '&entry.1552539156=__other_option__'
@@ -221,7 +224,6 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
                         clearradio()
                         document.getElementById('otheroptionsmartchecked').value = ''
 
-                        sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
                     }
                 }
             }
@@ -250,21 +252,7 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
         }
 
         document.getElementById('refreshhashsmartform').onclick = function () {
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                    document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
-                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
-                        document.getElementsByName('typetoform')[0].checked = true
-                        document.getElementsByName('typetoform')[1].checked = false
-                    } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
-                        document.getElementsByName('typetoform')[0].checked = false
-                        document.getElementsByName('typetoform')[1].checked = true
-                    } else {
-                        document.getElementsByName('typetoform')[0].checked = false
-                        document.getElementsByName('typetoform')[1].checked = false
-                    }
-                }
-            }
+			if (document.URL.split('/')[3] == 'persons')
+				document.getElementById('clientid').value = document.URL.split('/')[4]
         }
     }
