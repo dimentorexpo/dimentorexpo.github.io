@@ -2073,34 +2073,34 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('AF_Service').style.display = ''
     }
 
-    document.getElementById('butLessonInfo').onclick = function () {
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
+    // document.getElementById('butLessonInfo').onclick = function () {
+        // let getdateset = new Date()
+        // let getyearLS = getdateset.getFullYear();
+        // let getcurmonthLS = (getdateset.getMonth() + 1)
+        // let todayLS = getdateset.getDate();
+        // if (getcurmonthLS < 10) {
+            // getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        // } else {
+            // getcurmonthLS = (getdateset.getMonth() + 1);
+        // }
+        // if (getdateset.getDate() < 10) {
+            // todayLS = "0" + getdateset.getDate();
+            // document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
+            // document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        // } else {
+            // todayLS = getdateset.getDate();
+            // document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
+            // document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        // }
 
-        if (document.getElementById('AF_LessonStatus').style.display == '') {
-            document.getElementById('AF_LessonStatus').style.display = 'none'
-            document.getElementById('idmymenu').style.display = 'none'
-        } else {
-            document.getElementById('AF_LessonStatus').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
-        }
-    }
+        // if (document.getElementById('AF_LessonStatus').style.display == '') {
+            // document.getElementById('AF_LessonStatus').style.display = 'none'
+            // document.getElementById('idmymenu').style.display = 'none'
+        // } else {
+            // document.getElementById('AF_LessonStatus').style.display = ''
+            // document.getElementById('idmymenu').style.display = 'none'
+        // }
+    // }
 	
     document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
         localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
