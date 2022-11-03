@@ -6128,7 +6128,7 @@ function prepTp() { //функция подготовки расширения �
 		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
-    }, 2000)
+    }, 2500)
 
     setTimeout(function () {
 
