@@ -471,7 +471,6 @@ function getprsup() { //функция для получения ссылки н
 
 		if (lasttsk > prevtsk & msgissnd == 0) {
 			document.getElementById('newtask').innerText = lasttsk;
-			sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
 			msgissnd = 1;
 			for (let i = 0; i < document.getElementsByClassName('removefield').length; i++) {
 				document.getElementsByClassName('removefield')[i].value = ''
@@ -505,7 +504,6 @@ function getinfrasup() { //функция для получения ссылки
 
 		lasttsk = firstEl;
 		flagpsis = 2;
-		sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
 
 	}, 2000);
 
@@ -526,8 +524,6 @@ function getslacklnk() { // получаем ссылку на обращени�
 				slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
 
 				console.log("Slack link " + slacklnk);
-				sendComment("Slack Service Desk link: " + slacklnk);
-
 
 			}, 2000);
 
@@ -547,7 +543,6 @@ function getslacklnk() { // получаем ссылку на обращени�
 			slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
 
 			console.log("Slack link " + slacklnk);
-			sendComment("Slack Service Desk link: " + slacklnk);
 
 		}, 2000);
 
