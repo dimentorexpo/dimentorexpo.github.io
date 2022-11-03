@@ -101,10 +101,10 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
     document.getElementById('suggestform').onclick = () => { // открыть форму для предложения и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '') {
             document.getElementById('AF_Sugform').style.display = 'none'
-            document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenucrm').style.display = 'none'
         } else {
             document.getElementById('AF_Sugform').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenucrm').style.display = 'none'
 
             let topiclisttgcls = document.getElementsByName('topicofsuggest')
 
