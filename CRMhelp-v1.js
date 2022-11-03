@@ -163,4 +163,6 @@ butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
 butsmartroom.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 2px; border-left: 1px solid black; border-right: 1px solid black;"
 
+document.getElementById('idmymenucrm').append(butsmartroom)
+
 include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
