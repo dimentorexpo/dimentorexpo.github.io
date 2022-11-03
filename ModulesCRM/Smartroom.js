@@ -88,10 +88,10 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
     document.getElementById('smartroomform').onclick = function () {
         if (document.getElementById('AF_Smartroomform').style.display == '') {
             document.getElementById('AF_Smartroomform').style.display = 'none'
-            document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenucrm').style.display = 'none'
         } else {
             document.getElementById('AF_Smartroomform').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
+            document.getElementById('idmymenucrm').style.display = 'none'
         }
 
         function clearradio() {
@@ -123,25 +123,6 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
         }
 
         //
-
-        if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                    document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
-                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
-                        document.getElementsByName('typetoform')[0].checked = true
-                        document.getElementsByName('typetoform')[1].checked = false
-                    } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
-                        document.getElementsByName('typetoform')[0].checked = false
-                        document.getElementsByName('typetoform')[1].checked = true
-                    } else {
-                        document.getElementsByName('typetoform')[0].checked = false
-                        document.getElementsByName('typetoform')[1].checked = false
-                    }
-                }
-            }
-        }
 
         document.getElementById('send2smartroom').onclick = function () {
 

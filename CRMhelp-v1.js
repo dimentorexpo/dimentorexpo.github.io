@@ -157,3 +157,10 @@ butopensugestform.style = "cursor: pointer; font-size: 14px; border-bottom: 1px 
 document.getElementById('idmymenucrm').append(butopensugestform)
 
 include("https://dimentorexpo.github.io/ModulesCRM/Suggest.js")
+
+let butsmartroom = document.createElement('div') // smartroom sugest
+butsmartroom.id = "smartroomform"
+butsmartroom.innerHTML = "🦐Smartroom"
+butsmartroom.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 2px; border-left: 1px solid black; border-right: 1px solid black;"
+
+include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
