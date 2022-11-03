@@ -60,6 +60,9 @@ function mystyles() {
 		transform: scale(1.5);
 		font-weight: 600;
 	}
+	.widthofsd {
+		width:420px;
+	}
 	.sugops {
 		margin-left:5px;
 		color:bisque;
