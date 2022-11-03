@@ -51,6 +51,26 @@ function mystyles() {
 		color:white;
 		font-weight:700;
 	}
+	.radio {
+		width:15px;
+		height:15px;
+		transition: all 0.5s ease;
+	}
+	.radio:hover {
+		transform: scale(1.5);
+		font-weight: 600;
+	}
+	.sugops {
+		margin-left:5px;
+		color:bisque;
+		font-size: 16px;
+		transition: all 0.5s ease;
+	}
+	.sugops:hover {
+			font-size:18px;
+			color: SteelBlue;
+			font-weight: 600;
+	}
 `
     mstl.innerHTML = style;
 }
