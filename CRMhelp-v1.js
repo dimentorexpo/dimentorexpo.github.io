@@ -75,6 +75,11 @@ function mystyles() {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
+	}
+	#servDsk:hover {
+		background:DeepSkyBlue;
+		color:white;
+		font-weight:700;
 	}	
 	.catsmartroom {
 		margin-left: 5px;
