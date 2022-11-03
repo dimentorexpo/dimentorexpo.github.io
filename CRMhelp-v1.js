@@ -189,7 +189,6 @@ document.getElementById('idmymenucrm').append(jirasearchbtn)
 let buttonOpenForm = document.createElement('div'); //unsub
 buttonOpenForm.id = 'buttonUnsub';
 buttonOpenForm.textContent = "📧Unsub";
-// buttonOpenForm.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 6px; border-left: 1px solid black; border-right: 1px solid black;"
 document.getElementById('idmymenucrm').append(buttonOpenForm)
 
 include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
@@ -197,7 +196,6 @@ include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 let butopensugestform = document.createElement('div') //suggest common
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-// butopensugestform.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 6px; border-left: 1px solid black; border-right: 1px solid black;"
 
 document.getElementById('idmymenucrm').append(butopensugestform)
 
@@ -206,7 +204,6 @@ include("https://dimentorexpo.github.io/ModulesCRM/Suggest.js")
 let butsmartroom = document.createElement('div') // smartroom sugest
 butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
-// butsmartroom.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 6px; border-left: 1px solid black; border-right: 1px solid black;"
 
 document.getElementById('idmymenucrm').append(butsmartroom)
 
@@ -216,7 +213,6 @@ include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
 let servDsk = document.createElement('div') //service desk
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🥏ServiceDesk"
-// servDsk.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 6px; border-left: 1px solid black; border-right: 1px solid black;"
 
 document.getElementById('idmymenucrm').append(servDsk)
 
@@ -225,7 +221,6 @@ include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
 butLessonInfo.innerHTML = "🎓 Lesson Info"
-// butLessonInfo.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 6px; border-left: 1px solid black; border-right: 1px solid black;"
 
 document.getElementById('idmymenucrm').append(butLessonInfo)
 
