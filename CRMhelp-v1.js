@@ -213,3 +213,8 @@ servDsk.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid blac
 document.getElementById('idmymenucrm').append(servDsk)
 
 include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
+
+let butLessonInfo = document.createElement('div')
+butLessonInfo.id = "butLessonInfo"
+butLessonInfo.innerHTML = "🎓 Lesson Info"
+butLessonInfo.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 6px; border-left: 1px solid black; border-right: 1px solid black;"
