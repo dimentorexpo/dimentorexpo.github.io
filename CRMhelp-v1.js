@@ -71,6 +71,11 @@ function mystyles() {
 		color: SteelBlue;
 		font-weight: 600;
 	}
+	#smartroomform:hover {
+		background:DeepSkyBlue;
+		color:white;
+		font-weight:700;
+	}	
 	.catsmartroom {
 		margin-left: 5px;
 		color: bisque;
