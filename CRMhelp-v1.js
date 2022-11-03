@@ -60,6 +60,12 @@ function mystyles() {
 		transform: scale(1.5);
 		font-weight: 600;
 	}
+	.sdcustfieldformlines {
+        width: 420px;
+    }
+    .sdexpecactual {
+        width: 420px;
+    }
 	.widthofsd {
 		width:420px;
 	}

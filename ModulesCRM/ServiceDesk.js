@@ -31,7 +31,7 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px;">🧮CRM2</button>
                     <button class="sdbtn" id="optionAuth" style="margin-left:2px; width:80px;">🔐Auth</button>
                     <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">📆Schedul</button>
-                    <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">💲Billing-QA</button>
+                    <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:90px;">💲Billing-QA</button>
                     <button class="sdbtn" id="optionOnboarding" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
                     <button class="sdbtn" id="optionBilling" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>
                     <button class="sdbtn" id="optionVimbugs" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
@@ -41,12 +41,12 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionTripwire" style="margin-left:2px; margin-top:2px; width:80px;">🗣Tripwire</button>
                     <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px;">📊KPI T</button>
                     <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">💼Corp</button>
-                    <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">📟Landing</button>
+                    <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:90px;">📟Landing</button>
                     <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓EM-QA</button>
-					<button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
-                    <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
-					<button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
+                    <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:90px;">👨‍🎓📱Bugs</button>
                     <button class="sdbtn" id="optionAcademymobbugs" style="margin-left:2px; margin-top:2px; width:80px;">🅰📱🐞</button>
+					<button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:90px;">📱Mobil bug</button>
+					<button class="sdbtn" id="optionMrktprojbugs" style="margin-left:2px; margin-top:2px; width:90px;">👨‍💻mproject</button>
                     <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px; display:none">🛠Infra</button>
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
