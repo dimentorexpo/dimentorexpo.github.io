@@ -30,7 +30,7 @@ function mystyles() {
 		color: greenyellow;
 		transition: all 1s ease;
 	}
-	#jirafinde, #buttonUnsub {
+	#jirafinder, #buttonUnsub {
 		cursor: pointer;
 		font-size: 14px;
 		border: 1px solid black;
@@ -218,3 +218,5 @@ let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
 butLessonInfo.innerHTML = "🎓 Lesson Info"
 butLessonInfo.style = "cursor: pointer; font-size: 14px; border-bottom: 1px solid black; padding: 6px; border-left: 1px solid black; border-right: 1px solid black;"
+
+include("https://dimentorexpo.github.io/ModulesCRM/LessonStatus.js")
