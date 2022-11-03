@@ -124,9 +124,6 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
                 }
             }
 
-
-            document.getElementById('operatornamesuggest').value = afopername.split('-')[1];
-
             if (location.origin == 'https://crm2.skyeng.ru')
                 document.getElementById('linktochatsuggest').value = document.URL
 
