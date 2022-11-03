@@ -63,6 +63,12 @@ function mystyles() {
 	.widthofsd {
 		width:420px;
 	}
+	.activebtn {
+		background-color: #1e90ff;
+	}
+	.activebtnsd {
+		background-color: #ff6347;
+	}
 	.sugops {
 		margin-left:5px;
 		color:bisque;

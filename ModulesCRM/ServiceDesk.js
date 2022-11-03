@@ -11,7 +11,6 @@ let prevtsk;
 let flagpsis = 0;
 let msgissnd = 0;
 
-
 var win_servicedesk = // описание элементов окна Service Desk
     `<div style="display: flex; width: 480px;">
 		<span style="width: 480px">
