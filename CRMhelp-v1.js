@@ -115,6 +115,7 @@ function include(url) {
     document.getElementsByTagName('head')[0].appendChild(script);
 }	
 
+include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
 include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
 // include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 //Объявление кнопки в верхней панели CRM
