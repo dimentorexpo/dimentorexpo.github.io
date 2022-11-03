@@ -12,15 +12,7 @@ document.getElementById('testUsers').style.display = 'none'; // скрываю �
 function mystyles() {
     let mstl = document.createElement('style');
     document.body.append(mstl);
-    var style = `.win_btn {
-		background-color: #768d87;
-		border-radius: 10px;
-		border: 1px solid #566963;
-		color: #ffffff;
-		font-size: 12px;
-		padding: 3px 2px;
-		margin: -2px 1px;
-	}
+    var style = `
 	button {
 		background-color:#768d87;
 		border-radius:5px;
@@ -2079,35 +2071,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
-    }
-
-    document.getElementById('butLessonInfo').onclick = function () {
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
-
-        if (document.getElementById('AF_LessonStatus').style.display == '') {
-            document.getElementById('AF_LessonStatus').style.display = 'none'
-            document.getElementById('idmymenu').style.display = 'none'
-        } else {
-            document.getElementById('AF_LessonStatus').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
-        }
     }
 	
     document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
@@ -6136,7 +6099,7 @@ function prepTp() { //функция подготовки расширения �
 		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
-    }, 2000)
+    }, 2500)
 
     setTimeout(function () {
 
