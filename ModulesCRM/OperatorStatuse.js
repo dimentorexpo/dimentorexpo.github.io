@@ -70,7 +70,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 		else document.getElementById('CRM_OperStat').style.display = 'none'
 		
 	
-	 let socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
+	 var socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
 		var checksocket = setInterval(function() {
 			if (socket.readyState == 1) {
 				clearInterval(checksocket)
