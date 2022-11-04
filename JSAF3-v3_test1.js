@@ -1906,7 +1906,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             let sondsfromdoc;
             let soundsconteiner;
 
-            function addOption(oListbox, text, value)  //функция добавления опции в список
+                function addOption(oListbox, text, value)  //функция добавления опции в список
                 {
                     var oOption = document.createElement("option");
                     oOption.appendChild(document.createTextNode(text));
@@ -1926,16 +1926,16 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                     }
                 }
                 for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
-                    if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
-                        objSoundList.children[i].selected = true;
-                    }
+                if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
+                    objSoundList.children[i].selected = true;
                 }
-                if (objSoundList.children[0].selected) {
-                    objSoundList.children[1].selected = true
-                    document.getElementById('sound_adr').style.display = ''
-                    document.getElementById('sound_save').style.display = ''
-                    document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
-                }
+            }
+            if (objSoundList.children[0].selected) {
+                objSoundList.children[1].selected = true
+                document.getElementById('sound_adr').style.display = ''
+                document.getElementById('sound_save').style.display = ''
+                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
+            }
             }
 
             if (objSoundList.length < 3) {
