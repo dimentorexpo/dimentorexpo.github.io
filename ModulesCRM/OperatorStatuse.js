@@ -78,8 +78,6 @@ document.getElementById('btnOperStatus').onclick = function () {
 				console.log(message)
 				socket.send('3')
 			}
-		}, 5000)
-
-	} 
+		}, 5000) 
 	
 }
