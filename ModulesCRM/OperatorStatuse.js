@@ -83,7 +83,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 					timeoutarr = []
 				document.getElementById('operstatustable').innerHTML = ''
 				var message = event.data;
-					console.log(message)
+					// console.log(message)
 					socket.send('3')
 					
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm) != null) {
