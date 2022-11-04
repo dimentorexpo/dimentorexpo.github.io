@@ -1919,13 +1919,13 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                 sondsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
                 await fetch(sondsfromdoc).then(r => r.json()).then(r => soudsdata = r)
                     soundsconteiner = soudsdata.result;
-                    console.log(soudsdata.result) //получим список проблем
+                    console.log(soudsdata.result) //получим список звуков
                 for (j = 0; j < soundsconteiner.length; j++) {
                     if (soundsconteiner[j][0] != '') {
                         addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
                     }
                 }
-                for (let i = 0; i < objSoundList.length; i++) {
+                for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
                     if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
                         objSoundList.children[i].selected = true;
                     }
