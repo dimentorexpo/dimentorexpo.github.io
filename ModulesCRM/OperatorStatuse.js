@@ -89,39 +89,39 @@ document.getElementById('btnOperStatus').onclick = function () {
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm) != null) {
 						rcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length; i++) {
-							readyarr += '🟢 ' + message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' Ready' + '<br>'
+							readyarr += '🟢 ' + message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' "Ready"' + '<br>'
 						}
 					} 
 
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm) != null) {
 						dndcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm).length; i++) {
-							dndarr += '🔴 🍔' + message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' DND' + '<br>'
+							dndarr += '🔴 🍔' + message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' "DND"' + '<br>'
 						}
 					} 
 					
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm) != null) {
 						inservvcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm).length; i++) {
-							inservicearr += '🟡 📞' +message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' In service' + '<br>'
+							inservicearr += '🟡 📞' +message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' "In service"' + '<br>'
 						}
 					}		
 
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm) != null) {
 						aftscnt = message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm).length; i++) {
-							afterservicearr += '🟠 📵' + message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' After Service' + '<br>'
+							afterservicearr += '🟠 📵' + message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' "After Service"' + '<br>'
 						}
 					}
 
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm) != null) {
 						timeoutcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm).length; i++) {
-							timeoutarr += '⭕ ⏳' + message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' Timeout' + '<br>'
+							timeoutarr += '⭕ ⏳' + message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' "Timeout"' + '<br>'
 						}
 					}
 					
-					document.getElementById('operstatustable').innerHTML = '<div style="background:#768d87; width:97%; padding: 0.3%;">' + 'В статусе Ready : ' +  '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' + rcnt + '</span>' + '</div>' + readyarr + '<div style="background:#768d87; width:97%; padding: 0.3%;">' +  'В статусе InService : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' + inservvcnt + '</span>' + '</div>' + inservicearr + '<div style="background:#768d87; width:97%; padding: 0.3%;">' + 'В статусе DND : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' dndcnt + '</span>' + '<div>' + dndarr  + '<div style="background:#768d87; width:97%; padding: 0.3%;">' + 'В статусе Afterservice : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' + aftscnt + '</span>' '</div>' + afterservicearr + '<div style="background:#768d87; width:97%; padding: 0.3%;">' + 'В статусе Timeout : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' timeoutcnt + '</span>' + '</div>' + timeoutarr
+					document.getElementById('operstatustable').innerHTML = '<div style="background:#768d87; width:97%; padding: 0.3%; color:#37ff85">' + 'В статусе Ready : ' +  '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' + rcnt + '</span>' + '</div>' + readyarr + '<div style="background:#768d87; width:97%; padding: 0.3%; color:#37ff85">' +  'В статусе InService : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' + inservvcnt + '</span>' + '</div>' + inservicearr + '<div style="background:#768d87; width:97%; padding: 0.3%; color:#37ff85">' + 'В статусе DND : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' dndcnt + '</span>' + '<div>' + dndarr  + '<div style="background:#768d87; width:97%; padding: 0.3%; color:#37ff85">' + 'В статусе Afterservice : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' + aftscnt + '</span>' '</div>' + afterservicearr + '<div style="background:#768d87; width:97%; padding: 0.3%; color:#37ff85">' + 'В статусе Timeout : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' timeoutcnt + '</span>' + '</div>' + timeoutarr
 
 				}		
 			}
