@@ -121,7 +121,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 						}
 					}
 					
-					document.getElementById('operstatustable').innerHTML = '<div style="background:#768d87; width:97%">' + 'В статусе Ready : ' +  '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' + rcnt + '</span>' + '</div>' + readyarr +  'В статусе InService : ' + inservvcnt + '<br>' + inservicearr + 'В статусе DND : ' + dndcnt + '<br>' + dndarr  +  'В статусе Afterservice : ' + aftscnt + '<br>' + afterservicearr + 'В статусе Timeout : ' + timeoutcnt + '<br>' + timeoutarr
+					document.getElementById('operstatustable').innerHTML = '<div style="background:#768d87; width:97%; padding: 0.2%;">' + 'В статусе Ready : ' +  '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">' + rcnt + '</span>' + '</div>' + readyarr + '<div style="background:#768d87; width:97%; padding: 0.2%;">' +  'В статусе InService : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right;">'+ inservvcnt + '</span>' + '</div>' + inservicearr + 'В статусе DND : ' + dndcnt + '<br>' + dndarr  +  'В статусе Afterservice : ' + aftscnt + '<br>' + afterservicearr + 'В статусе Timeout : ' + timeoutcnt + '<br>' + timeoutarr
 
 				}		
 			}
