@@ -51,14 +51,7 @@ wintOperStatus.onmouseup = function () { document.removeEventListener('mousemove
 	document.getElementById('CRM_OperStat').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
 		if (checkelementtype(a)) { document.getElementById('CRM_OperStat').style.display = 'none'; }
 	}
-	
-	document.getElementById('hideMeOpSt').onclick = function () { // скрытие окна поиска оценок от пользователя
-		if (document.getElementById('CRM_OperStat').style.display == '')
-			document.getElementById('CRM_OperStat').style.display = 'none'
-			socket.send('2')
-	}
-	
-	
+		
 	document.getElementById('clearopersinfo').onclick = function () { // кнопка очистки поля
 		document.getElementById('operstatustable').innerHTML = "";
 	}
@@ -81,6 +74,9 @@ document.getElementById('btnOperStatus').onclick = function () {
 				clearInterval(checksocket)
 				socket.send('40/group-413,')
 				socket.onmessage = function(event) {
+					readyarr = [];
+					dndarr = [];
+					inservicearr = [];
 				document.getElementById('operstatustable').innerHTML = ''
 				var message = event.data;
 					console.log(message)
@@ -112,6 +108,12 @@ document.getElementById('btnOperStatus').onclick = function () {
 				}		
 			}
 		}, 1000 )
+		
+	document.getElementById('hideMeOpSt').onclick = function () { // скрытие окна поиска оценок от пользователя
+		if (document.getElementById('CRM_OperStat').style.display == '')
+			document.getElementById('CRM_OperStat').style.display = 'none'
+			socket.send('2')
+	}
 
 		// setTimeout(function() {
 			// socket.send('40/group-413,')
