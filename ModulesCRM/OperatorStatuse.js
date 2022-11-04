@@ -133,6 +133,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 		if (document.getElementById('CRM_OperStat').style.display == '')
 			document.getElementById('CRM_OperStat').style.display = 'none'
 			socket.send('2')
+			document.getElementById('operstatustable').innerHTML = ''
 	}
 
 	
