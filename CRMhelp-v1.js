@@ -36,12 +36,12 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #butAlarmclock:hover  {
+	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnAlarmclock:hover  {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
 	}
-	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #butAlarmclock {
+	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnAlarmclock {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
