@@ -36,12 +36,12 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDsk:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover  {
+	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover  {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
 	}
-	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDsk, #butLessonInfoCRM {
+	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -192,11 +192,11 @@ document.getElementById('idmymenucrm').append(butsmartroomCRM)
 include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
 
 
-let servDsk = document.createElement('div') //service desk
-servDsk.id = "servDsk"
-servDsk.innerHTML = "🥏ServiceDesk"
+let servDskCRM = document.createElement('div') //service desk
+servDskCRM.id = "servDskCRM"
+servDskCRM.innerHTML = "🥏ServiceDesk"
 
-document.getElementById('idmymenucrm').append(servDsk)
+document.getElementById('idmymenucrm').append(servDskCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
 

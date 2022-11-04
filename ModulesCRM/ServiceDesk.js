@@ -705,7 +705,7 @@ wintServDsk.onmousedown = function (a) { // изменение позиции о
 wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', listenerServDsk); } // прекращение изменения позиции окна ServiceDesk
 
 
-document.getElementById('servDsk').onclick = function () { // функция открытия главного окна SD +
+document.getElementById('servDskCRM').onclick = function () { // функция открытия главного окна SD +
 	if (document.getElementById('AF_ServDsk').style.display == '')
 		document.getElementById('AF_ServDsk').style.display = 'none'
 	else
