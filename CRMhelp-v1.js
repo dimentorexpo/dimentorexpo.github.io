@@ -36,12 +36,12 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDsk:hover, #smartroomform:hover, #butLessonInfoCRM:hover  {
+	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDsk:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover  {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
 	}
-	#buttonUnsub, #butopensugestformCRM, #smartroomform, #servDsk, #butLessonInfoCRM {
+	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDsk, #butLessonInfoCRM {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -183,11 +183,11 @@ document.getElementById('idmymenucrm').append(butopensugestformCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/Suggest.js")
 
-let butsmartroom = document.createElement('div') // smartroom sugest
-butsmartroom.id = "smartroomform"
-butsmartroom.innerHTML = "🦐Smartroom"
+let butsmartroomCRM = document.createElement('div') // smartroom sugest
+butsmartroomCRM.id = "smartroomformCRM"
+butsmartroomCRM.innerHTML = "🦐Smartroom"
 
-document.getElementById('idmymenucrm').append(butsmartroom)
+document.getElementById('idmymenucrm').append(butsmartroomCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
 

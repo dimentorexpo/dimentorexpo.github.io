@@ -85,7 +85,7 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
     if (checkelementtype(a)) { document.getElementById('AF_Smartroomform').style.display = 'none'; }
 }
 
-    document.getElementById('smartroomform').onclick = function () {
+    document.getElementById('smartroomformCRM').onclick = function () {
         if (document.getElementById('AF_Smartroomform').style.display == '') {
             document.getElementById('AF_Smartroomform').style.display = 'none'
             document.getElementById('idmymenucrm').style.display = 'none'
