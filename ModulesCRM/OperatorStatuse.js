@@ -121,7 +121,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 						}
 					}
 					
-					document.getElementById('operstatustable').innerHTML = 'В статусе Ready : ' + rcnt + '<br>' + readyarr +  'В статусе InService : ' + inservvcnt + '<br>' + inservicearr + 'В статусе DND : ' + dndcnt + '<br>' + dndarr  +  'В статусе Afterservice : ' + aftscnt + '<br>' + afterservicearr + 'В статусе Timeout : ' + timeoutcnt + '<br>' + timeoutarr
+					document.getElementById('operstatustable').innerHTML = '<div style="background:#768d87">' + 'В статусе Ready : ' +  '<span style="background:orange; color:white;">' + rcnt + '</span>' + '</div>' + readyarr +  'В статусе InService : ' + inservvcnt + '<br>' + inservicearr + 'В статусе DND : ' + dndcnt + '<br>' + dndarr  +  'В статусе Afterservice : ' + aftscnt + '<br>' + afterservicearr + 'В статусе Timeout : ' + timeoutcnt + '<br>' + timeoutarr
 
 				}		
 			}
