@@ -64,7 +64,12 @@ wintOperStatus.onmouseup = function () { document.removeEventListener('mousemove
 	}
 
 document.getElementById('btnOperStatus').onclick = function () {
-	let dataoscont = [];
+	let readyarr = [];
+	let rcnt = 0;
+	let dndarr = [];
+	let dndcnt = 0;
+	let inservicearr = [];
+	let inservvcnt = 0;
 		if (document.getElementById('CRM_OperStat').style.display == 'none')
 			document.getElementById('CRM_OperStat').style.display = ''
 		else document.getElementById('CRM_OperStat').style.display = 'none'
@@ -76,25 +81,33 @@ document.getElementById('btnOperStatus').onclick = function () {
 				clearInterval(checksocket)
 				socket.send('40/group-413,')
 				socket.onmessage = function(event) {
+				document.getElementById('operstatustable').innerHTML = ''
 				var message = event.data;
 					console.log(message)
 					socket.send('3')
 					
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm) != null) {
+						rcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length; i++) {
-							dataoscont += message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟢 Ready' + '<br>'
+							readyarr += message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟢 Ready' + '<br>'
 						}
-					} else if (message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm) != null) {
+					} 
+
+					if (message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm) != null) {
+						dndcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm).length; i++) {
-							dataoscont += message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🔴 DND🍔' + '<br>'
+							dndarr += message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🔴 DND🍔' + '<br>'
 						}
-					} else if (message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm) != null) {
+					} 
+					
+					if (message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm) != null) {
+						inservvcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm).length; i++) {
-							dataoscont += message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟡 📞' + '<br>'
+							inservicearr += message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟡 📞' + '<br>'
 						}
 					}
 					
-					document.getElementById('operstatustable').innerHTML = dataoscont
+					document.getElementById('operstatustable').innerHTML = 'В статусе Ready : ' + rcnt + '<br>' + readyarr +  'В статусе DND : ' + dndcnt + '<br>' + dndarr  +  'В статусе InService : ' + inservvcnt + '<br>' + inservicearr
 
 				}		
 			}
