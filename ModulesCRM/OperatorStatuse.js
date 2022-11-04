@@ -1,9 +1,9 @@
     
 var win_OperStatus =  // описание элементов окна оценок от пользователя
-    `<div style="display: flex; width: 320px;">
-        <span style="width: 320px">
+    `<div style="display: flex; width: 500px;">
+        <span style="width: 500px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 320px;" id="OpSt_header">
+                        <div style="margin: 5px; width: 500px;" id="OpSt_header">
                                 <button title="скрывает меню" id="hideMeOpSt" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearopersinfo">🧹</button>
                         </div>
@@ -12,7 +12,7 @@ var win_OperStatus =  // описание элементов окна оцено
 							<button id="getopersinfo">🔎</button>
 						</div>
 			    </span>
-                        <div style="margin: 5px; width: 300px" id="opers_box">
+                        <div style="margin: 5px; width: 500px" id="opers_box">
                                 <p id="operstatustable" style="max-height:400px; margin-left:5px; font-size:16px; color:bisque; overflow:auto;"></p>
                         </div>
         </span>
@@ -55,6 +55,7 @@ wintOperStatus.onmouseup = function () { document.removeEventListener('mousemove
 	document.getElementById('hideMeOpSt').onclick = function () { // скрытие окна поиска оценок от пользователя
 		if (document.getElementById('CRM_OperStat').style.display == '')
 			document.getElementById('CRM_OperStat').style.display = 'none'
+			socket.send('2')
 	}
 	
 	
@@ -63,6 +64,7 @@ wintOperStatus.onmouseup = function () { document.removeEventListener('mousemove
 	}
 
 document.getElementById('btnOperStatus').onclick = function () {
+	let dataoscont = [];
 		if (document.getElementById('CRM_OperStat').style.display == 'none')
 			document.getElementById('CRM_OperStat').style.display = ''
 		else document.getElementById('CRM_OperStat').style.display = 'none'
@@ -74,9 +76,18 @@ document.getElementById('btnOperStatus').onclick = function () {
 				clearInterval(checksocket)
 				socket.send('40/group-413,')
 				socket.onmessage = function(event) {
-				let message = event.data;
+				var message = event.data;
 					console.log(message)
 					socket.send('3')
+					
+					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm) != null) {
+						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length) {
+							dataoscont.push(message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' Ready' + '<br>')
+						}
+					}
+					
+					document.getElementById('operstatustable').innerHTML = dataoscont
+
 				}		
 			}
 		}, 1000 )
