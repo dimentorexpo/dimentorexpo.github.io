@@ -79,6 +79,8 @@ document.getElementById('btnOperStatus').onclick = function () {
 					readyarr = [];
 					dndarr = [];
 					inservicearr = [];
+					afterservicearr = []
+					timeoutarr = []
 				document.getElementById('operstatustable').innerHTML = ''
 				var message = event.data;
 					console.log(message)
