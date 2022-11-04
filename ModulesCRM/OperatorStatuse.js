@@ -70,7 +70,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 		else document.getElementById('CRM_OperStat').style.display = 'none'
 		
 	
-	 let socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
+	 var socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
 		var checksocket = setInterval(function() {
 			if (socket.readyState == 1) {
 				clearInterval(checksocket)
@@ -81,7 +81,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 					socket.send('3')
 					
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm) != null) {
-						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length) {
+						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length; i++) {
 							dataoscont.push(message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' Ready' + '<br>')
 						}
 					}
