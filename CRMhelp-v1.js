@@ -221,3 +221,5 @@ butOperStatus.id = "btnOperStatus"
 butOperStatus.innerHTML = "🕵️‍♀️ OperStatus"
 
 document.getElementById('idmymenucrm').append(butOperStatus)
+
+include("https://dimentorexpo.github.io/ModulesCRM/OperatorStatuse.js")
