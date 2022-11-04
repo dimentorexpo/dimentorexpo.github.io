@@ -1925,24 +1925,22 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                         addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
                     }
                 }
+                for (let i = 0; i < objSoundList.length; i++) {
+                    if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
+                        objSoundList.children[i].selected = true;
+                    }
+                }
+                if (objSoundList.children[0].selected) {
+                    objSoundList.children[1].selected = true
+                    document.getElementById('sound_adr').style.display = ''
+                    document.getElementById('sound_save').style.display = ''
+                    document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
+                }
             }
 
             if (objSoundList.length < 3) {
                 getsoundsfromdoc()
             }            
-
-            for (let i = 0; i < objSoundList.length; i++) {
-                if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
-                    objSoundList.children[i].selected = true;
-                }
-            }
-
-            if (objSoundList.children[0].selected) {
-                objSoundList.children[1].selected = true
-                document.getElementById('sound_adr').style.display = ''
-                document.getElementById('sound_save').style.display = ''
-                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
-            }
 
             if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
                 document.getElementById('test_std').value = localStorage.getItem('test_stud');
