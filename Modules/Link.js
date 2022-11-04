@@ -396,7 +396,7 @@ document.getElementById('getlgsinfo').onclick = function () { // открыти�
 let versionsfromdoc;
 let versionscontainer;
 
-async function getversionsapp() {
+async function getversionsapp() { // получаем из файла список версий моб. приложений
 
         versionsfromdoc = 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec'
         await fetch(versionsfromdoc).then(r => r.json()).then(r => versionsdata = r)
