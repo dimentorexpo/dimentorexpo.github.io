@@ -118,13 +118,5 @@ document.getElementById('btnOperStatus').onclick = function () {
 			socket.send('2')
 	}
 
-		// setTimeout(function() {
-			// socket.send('40/group-413,')
-			// socket.onmessage = function(event) {
-			// let message = event.data;
-				// console.log(message)
-				// socket.send('3')
-			// }
-		// }, 5000) 
 	
 }
