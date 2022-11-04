@@ -57,7 +57,7 @@ document.getElementById('hideAlarmclock').onclick = function () { // скрыт�
         document.getElementById('winAlarmclock').style.display = 'none'
 }
 
-document.getElementById('butAlarmclock').onclick = function () { // открытие окна будильника
+document.getElementById('btnAlarmclock').onclick = function () { // открытие окна будильника
     if (document.getElementById('winAlarmclock').style.display == 'none') {
         document.getElementById('winAlarmclock').style.display = ''
         document.getElementById('idmymenucrm').style.display = 'none'
