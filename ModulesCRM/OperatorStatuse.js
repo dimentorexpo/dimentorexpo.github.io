@@ -82,7 +82,15 @@ document.getElementById('btnOperStatus').onclick = function () {
 					
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm) != null) {
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length; i++) {
-							dataoscont += message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' Ready' + '<br>'
+							dataoscont += message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟢 Ready' + '<br>'
+						}
+					} else if (message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm) != null) {
+						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm).length; i++) {
+							dataoscont += message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🔴 DND🍔' + '<br>'
+						}
+					} else if (message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm) != null) {
+						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm).length; i++) {
+							dataoscont += message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟡 📞' + '<br>'
 						}
 					}
 					
