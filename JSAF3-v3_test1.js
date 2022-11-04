@@ -1903,9 +1903,10 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('addTmp').style.display = 'none'
 
             let objSoundList = document.getElementById('soundlistaddr')
-            let flagsound;
-            if (objSoundList.length < 3) {
-                function addOption(oListbox, text, value)  //функция добавления опции в список
+            let sondsfromdoc;
+            let soundsconteiner;
+
+            function addOption(oListbox, text, value)  //функция добавления опции в список
                 {
                     var oOption = document.createElement("option");
                     oOption.appendChild(document.createTextNode(text));
@@ -1913,18 +1914,22 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
                     oListbox.appendChild(oOption);
                 }
-            }
 
-            for (let i = 0; i < table.length; i++) {
-                if (table[i][2] == "Название звука" && table[i][3] == "Ссылка")
-                    flagsound = [i + 1]
-            }
-
-            for (j = flagsound[0]; j < table.length; j++) {
-                if (table[j][2] != '') {
-                    addOption(objSoundList, `${table[j][2]}`, `${table[j][3]}`)
+            async function getsoundsfromdoc() { // загрузка списка звуков из файла
+                sondsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
+                await fetch(sondsfromdoc).then(r => r.json()).then(r => soudsdata = r)
+                    soundsconteiner = soudsdata.result;
+                    console.log(soudsdata.result) //получим список проблем
+                for (j = 0; j < soundsconteiner.length; j++) {
+                    if (soundsconteiner[j][0] != '') {
+                        addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
+                    }
                 }
             }
+
+            if (objSoundList.length < 3) {
+                getsoundsfromdoc()
+            }            
 
             for (let i = 0; i < objSoundList.length; i++) {
                 if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
