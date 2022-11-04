@@ -77,6 +77,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 			let message = event.data;
 				console.log(message)
 				socket.send('3')
+			}
 		}, 5000)
 
 	} 
