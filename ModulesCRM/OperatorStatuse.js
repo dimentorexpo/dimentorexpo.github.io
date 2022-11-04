@@ -56,13 +56,16 @@ wintOperStatus.onmouseup = function () { document.removeEventListener('mousemove
 		document.getElementById('operstatustable').innerHTML = "";
 	}
 
-document.getElementById('btnOperStatus').onclick = function () {
+
 	let readyarr = [];
 	let rcnt = 0;
 	let dndarr = [];
 	let dndcnt = 0;
 	let inservicearr = [];
 	let inservvcnt = 0;
+	
+document.getElementById('btnOperStatus').onclick = function () {
+
 		if (document.getElementById('CRM_OperStat').style.display == 'none')
 			document.getElementById('CRM_OperStat').style.display = ''
 		else document.getElementById('CRM_OperStat').style.display = 'none'
