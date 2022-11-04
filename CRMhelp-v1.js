@@ -36,12 +36,12 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #suggestform:hover, #servDsk:hover, #smartroomform:hover, #butLessonInfo:hover  {
+	#jirafinder:hover, #buttonUnsub:hover, #suggestform:hover, #servDsk:hover, #smartroomform:hover, #butLessonInfoCRM:hover  {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
 	}
-	#buttonUnsub, #suggestform, #smartroomform, #servDsk, #butLessonInfo {
+	#buttonUnsub, #suggestform, #smartroomform, #servDsk, #butLessonInfoCRM {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -200,10 +200,10 @@ document.getElementById('idmymenucrm').append(servDsk)
 
 include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
 
-let butLessonInfo = document.createElement('div')
-butLessonInfo.id = "butLessonInfo"
-butLessonInfo.innerHTML = "🎓 Lesson Info"
+let butLessonInfoCRM = document.createElement('div')
+butLessonInfoCRM.id = "butLessonInfoCRM"
+butLessonInfoCRM.innerHTML = "🎓 Lesson Info"
 
-document.getElementById('idmymenucrm').append(butLessonInfo)
+document.getElementById('idmymenucrm').append(butLessonInfoCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/LessonStatus.js")

@@ -89,7 +89,7 @@ document.getElementById('clearlessonstatus').onclick = function () { // очис
     }
 }
 
-    document.getElementById('butLessonInfo').onclick = function () {
+    document.getElementById('butLessonInfoCRM').onclick = function () {
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
