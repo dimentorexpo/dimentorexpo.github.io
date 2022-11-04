@@ -1,14 +1,14 @@
     
 var win_OperStatus =  // описание элементов окна оценок от пользователя
-    `<div style="display: flex; width: 500px;">
-        <span style="width: 500px">
+    `<div style="display: flex; width: 400px;">
+        <span style="width: 400px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 500px;" id="OpSt_header">
+                        <div style="margin: 5px; width: 400px;" id="OpSt_header">
                                 <button title="скрывает меню" id="hideMeOpSt" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearopersinfo">🧹</button>
                         </div>
 		    </span>
-                        <div style="margin: 5px; width: 500px" id="opers_box">
+                        <div style="margin: 5px; width: 400px" id="opers_box">
                                 <p id="operstatustable" style="max-height:400px; margin-left:5px; font-size:16px; color:bisque; overflow:auto;"></p>
                         </div>
         </span>
