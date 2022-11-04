@@ -36,12 +36,12 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #suggestform:hover, #servDsk:hover, #smartroomform:hover, #butLessonInfoCRM:hover  {
+	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDsk:hover, #smartroomform:hover, #butLessonInfoCRM:hover  {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
 	}
-	#buttonUnsub, #suggestform, #smartroomform, #servDsk, #butLessonInfoCRM {
+	#buttonUnsub, #butopensugestformCRM, #smartroomform, #servDsk, #butLessonInfoCRM {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -175,11 +175,11 @@ document.getElementById('idmymenucrm').append(buttonOpenForm)
 
 include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 
-let butopensugestform = document.createElement('div') //suggest common
-butopensugestform.id = "suggestform"
-butopensugestform.innerHTML = "📝Предложения"
+let butopensugestformCRM = document.createElement('div') //suggest common
+butopensugestformCRM.id = "butopensugestformCRM"
+butopensugestformCRM.innerHTML = "📝Предложения"
 
-document.getElementById('idmymenucrm').append(butopensugestform)
+document.getElementById('idmymenucrm').append(butopensugestformCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/Suggest.js")
 

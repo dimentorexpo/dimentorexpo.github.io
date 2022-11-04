@@ -98,7 +98,7 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
             document.getElementById('AF_Sugform').style.display = 'none'
     }
 
-    document.getElementById('suggestform').onclick = () => { // открыть форму для предложения и пожеланий
+    document.getElementById('butopensugestformCRM').onclick = () => { // открыть форму для предложения и пожеланий
         if (document.getElementById('AF_Sugform').style.display == '') {
             document.getElementById('AF_Sugform').style.display = 'none'
             document.getElementById('idmymenucrm').style.display = 'none'
