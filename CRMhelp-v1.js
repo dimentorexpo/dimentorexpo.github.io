@@ -36,12 +36,12 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover  {
+	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #butAlarmclock:hover  {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
 	}
-	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus {
+	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #butAlarmclock {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -111,6 +111,16 @@ function checkelementtype(a) { // проверка на какой элемен�
         return true;
     }
     return false;
+}
+
+function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
+{
+    if (object.value.length > object.maxLength)
+        object.value = object.value.slice(0, object.maxLength)
+}
+
+function onlyNumbers(object) { // функция для разрешения ввода только цифр
+    object.value = object.value.replace(/[^0-9]/g, '');
 }
 
 function include(url) {
@@ -223,3 +233,11 @@ butOperStatus.innerHTML = "🕵️‍♀️ OperStatus"
 document.getElementById('idmymenucrm').append(butOperStatus)
 
 include("https://dimentorexpo.github.io/ModulesCRM/OperatorStatuse.js")
+
+let butAlarmclock = document.createElement('div')
+butAlarmclock.id = "btnAlarmclock"
+butAlarmclock.innerHTML = "🔕 Будильник"
+
+document.getElementById('idmymenucrm').append(butAlarmclock)
+
+include("https://dimentorexpo.github.io/ModulesCRM/AlarmClock.js")
