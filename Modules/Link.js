@@ -111,14 +111,7 @@ document.getElementById('links').onclick = function () { //открывает о
         document.getElementById('AF_Links').style.display = 'none'
     else {
         document.getElementById('AF_Links').style.display = ''
-
-        for (let i = 0; i < table.length; i++) {
-            if (table[i][3] == "iOS Version")
-                document.getElementById('curVeriOS').innerText = "iOS: " + table[i][4];
-
-            if (table[i][3] == "Android Version")
-                document.getElementById('curVerAndroid').innerText = "Android: " + table[i][4]
-        }
+        getversionsapp()
     }
 }
 	
@@ -399,4 +392,22 @@ document.getElementById('getlgsinfo').onclick = function () { // открыти�
         window.open(lgslink + lgssearch.value + '?cp=(section:participants)');
     };
     lgssearch.value = "";
+}
+let versionsfromdoc;
+let versionscontainer;
+
+async function getversionsapp() {
+
+        versionsfromdoc = 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec'
+        await fetch(versionsfromdoc).then(r => r.json()).then(r => versionsdata = r)
+        versionscontainer = versionsdata.result;
+        console.log(versionsdata.result) //получим список версий
+
+        for (let i = 0; i < versionscontainer.length; i++) {
+            if (versionscontainer[i][0] == "iOS Version")
+                document.getElementById('curVeriOS').innerText = "iOS: " + versionscontainer[i][1];
+
+            if (versionscontainer[i][0] == "Android Version")
+                document.getElementById('curVerAndroid').innerText = "Android: " + versionscontainer[i][1]
+        }
 }
