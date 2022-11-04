@@ -69,15 +69,25 @@ document.getElementById('btnOperStatus').onclick = function () {
 		
 	
 	 let socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
-
-
-		setTimeout(function() {
-			socket.send('40/group-413,')
-			socket.onmessage = function(event) {
-			let message = event.data;
-				console.log(message)
-				socket.send('3')
+		var checksocket = setInterval(function() {
+			if (socket.readyState == 1) {
+				clearInterval(checksocket)
+				socket.send('40/group-413,')
+				socket.onmessage = function(event) {
+				let message = event.data;
+					console.log(message)
+					socket.send('3')
+				}		
 			}
-		}, 5000) 
+		}, 1000 )
+
+		// setTimeout(function() {
+			// socket.send('40/group-413,')
+			// socket.onmessage = function(event) {
+			// let message = event.data;
+				// console.log(message)
+				// socket.send('3')
+			// }
+		// }, 5000) 
 	
 }
