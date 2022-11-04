@@ -7,11 +7,7 @@ var win_OperStatus =  // описание элементов окна оцено
                                 <button title="скрывает меню" id="hideMeOpSt" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearopersinfo">🧹</button>
                         </div>
-
-						<div>
-							<button id="getopersinfo">🔎</button>
-						</div>
-			    </span>
+		    </span>
                         <div style="margin: 5px; width: 500px" id="opers_box">
                                 <p id="operstatustable" style="max-height:400px; margin-left:5px; font-size:16px; color:bisque; overflow:auto;"></p>
                         </div>
@@ -123,7 +119,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 						}
 					}
 					
-					document.getElementById('operstatustable').innerHTML = 'В статусе Ready : ' + rcnt + '<br>' + readyarr +  'В статусе InService : ' + inservvcnt + '<br>' + inservicearr + 'В статусе DND : ' + dndcnt + '<br>' + dndarr  + +  'В статусе Afterservice : ' + aftscnt + '<br>' + afterservicearr + 'В статусе Timeout : ' + timeoutcnt + '<br>' + timeoutarr
+					document.getElementById('operstatustable').innerHTML = 'В статусе Ready : ' + rcnt + '<br>' + readyarr +  'В статусе InService : ' + inservvcnt + '<br>' + inservicearr + 'В статусе DND : ' + dndcnt + '<br>' + dndarr  +  'В статусе Afterservice : ' + aftscnt + '<br>' + afterservicearr + 'В статусе Timeout : ' + timeoutcnt + '<br>' + timeoutarr
 
 				}		
 			}
