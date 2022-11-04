@@ -215,3 +215,9 @@ butdiagtoolsCRM.innerHTML = "🛠 Diagnostic tools"
 document.getElementById('idmymenucrm').append(butdiagtoolsCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/Linksdostup.js")
+
+let butOperStatus = document.createElement('div')
+butOperStatus.id = "btnOperStatus"
+butOperStatus.innerHTML = "🕵️‍♀️ OperStatus"
+
+document.getElementById('idmymenucrm').append(butOperStatus)
