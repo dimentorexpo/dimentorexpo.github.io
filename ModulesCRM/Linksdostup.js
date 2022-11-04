@@ -67,14 +67,16 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
     if (checkelementtype(a)) { document.getElementById('AF_Linksd').style.display = 'none'; }
 }
 
-    document.getElementById('addsrc').onclick = function () { //открывает окно доступов
-        if (document.getElementById('AF_Linksd').style.display == '')
+    document.getElementById('butdiagtoolsCRM').onclick = function () { //открывает окно доступов
+        if (document.getElementById('AF_Linksd').style.display == ''){
             document.getElementById('AF_Linksd').style.display = 'none'
-        else
+            document.getElementById('idmymenucrm').style.display = 'none'
+        } else{
             document.getElementById('AF_Linksd').style.display = ''
+            document.getElementById('idmymenucrm').style.display = 'none'
+        }            
     }
-	
-	    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна доступов
+    document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна доступов
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }

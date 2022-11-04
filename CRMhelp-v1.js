@@ -207,3 +207,11 @@ butLessonInfoCRM.innerHTML = "🎓 Lesson Info"
 document.getElementById('idmymenucrm').append(butLessonInfoCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/LessonStatus.js")
+
+let butdiagtoolsCRM = document.createElement('div')
+butdiagtoolsCRM.id = "butdiagtoolsCRM"
+butdiagtoolsCRM.innerHTML = "🛠 Diagnostic tools"
+
+document.getElementById('idmymenucrm').append(butdiagtoolsCRM)
+
+include("https://dimentorexpo.github.io/ModulesCRM/Linksdostup.js")
