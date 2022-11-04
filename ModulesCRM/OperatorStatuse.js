@@ -55,16 +55,19 @@ wintOperStatus.onmouseup = function () { document.removeEventListener('mousemove
 	document.getElementById('clearopersinfo').onclick = function () { // кнопка очистки поля
 		document.getElementById('operstatustable').innerHTML = "";
 	}
-
-
+	
+document.getElementById('btnOperStatus').onclick = function () {
+	
 	let readyarr = [];
 	let rcnt = 0;
 	let dndarr = [];
 	let dndcnt = 0;
 	let inservicearr = [];
 	let inservvcnt = 0;
-	
-document.getElementById('btnOperStatus').onclick = function () {
+	let afterservicearr = []
+	let aftscnt = 0;
+	let timeoutarr = []
+	let timeoutcnt = 0;
 
 		if (document.getElementById('CRM_OperStat').style.display == 'none')
 			document.getElementById('CRM_OperStat').style.display = ''
@@ -104,9 +107,23 @@ document.getElementById('btnOperStatus').onclick = function () {
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm).length; i++) {
 							inservicearr += message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟡 📞' + '<br>'
 						}
+					}		
+
+					if (message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm) != null) {
+						aftscnt = message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm).length;
+						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm).length; i++) {
+							afterservicearr += message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟡 📞' + '<br>'
+						}
+					}
+
+					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm) != null) {
+						timeoutcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm).length;
+						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm).length; i++) {
+							timeoutarr += message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' 🟡 📞' + '<br>'
+						}
 					}
 					
-					document.getElementById('operstatustable').innerHTML = 'В статусе Ready : ' + rcnt + '<br>' + readyarr +  'В статусе DND : ' + dndcnt + '<br>' + dndarr  +  'В статусе InService : ' + inservvcnt + '<br>' + inservicearr
+					document.getElementById('operstatustable').innerHTML = 'В статусе Ready : ' + rcnt + '<br>' + readyarr +  'В статусе InService : ' + inservvcnt + '<br>' + inservicearr + 'В статусе DND : ' + dndcnt + '<br>' + dndarr  + +  'В статусе Afterservice : ' + aftscnt + '<br>' + afterservicearr + 'В статусе Timeout : ' + timeoutcnt + '<br>' + timeoutarr
 
 				}		
 			}
