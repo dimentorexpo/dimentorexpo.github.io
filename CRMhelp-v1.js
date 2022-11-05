@@ -430,7 +430,7 @@ document.getElementById('idmymenucrm').append(teststudent)
 
 teststudent.onclick = function () {
 	document.getElementById('testuchenik').style.background = 'coral'
-        setTimeout(function () { document.getElementById('testuchenik').style.background = '#3CB371' }, 1000)
+        setTimeout(function () { document.getElementById('testuchenik').style.background = '#547354' }, 1000)
 }
 
 let testteacher = document.createElement('span')
@@ -440,5 +440,5 @@ document.getElementById('idmymenucrm').append(testteacher)
 
 testteacher.onclick = function () {
 	document.getElementById('testprepod').style.background = 'coral'
-        setTimeout(function () { document.getElementById('testprepod').style.background = '#3CB371' }, 1000)
+        setTimeout(function () { document.getElementById('testprepod').style.background = '#547354' }, 1000)
 }
