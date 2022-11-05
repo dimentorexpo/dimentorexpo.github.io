@@ -1,5 +1,5 @@
 var win_Alarmclock =  // описание элементов окна будильника
-    `<div style="border: 2px double black; display: none; background-color: #464451" id="AlarmclockCRM">
+    `<div style="border: 2px double black;; background-color: #464451" id="AlarmclockCRM">
         <div style="margin: 5px; width: 350px;" id="Alarmclock_1str">
             <button title="скрывает меню" id="hideAlarmclock" style="width:50px; background: #228B22;">hide</button>
         </div>
