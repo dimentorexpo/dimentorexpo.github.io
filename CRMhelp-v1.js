@@ -234,11 +234,11 @@ function logginerfortests(polzovatel) {
     document.getElementById('sendResponse').click()
 
     document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-        if (logginerinfo != null) {
-            logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-            logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
-            copyToClipboardCRM(logginerinfo[1])
+        logginerinfoCRMCRM = document.getElementById('responseTextarea1').getAttribute('senddata1');
+        if (logginerinfoCRM != null) {
+            logginerinfoCRM = logginerinfoCRM.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+            logginerinfoCRM = logginerinfoCRM[logginerinfoCRM.length - 1].split("\"");
+            copyToClipboardCRM(logginerinfoCRM[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
         }
     })
