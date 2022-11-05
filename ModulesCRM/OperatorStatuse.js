@@ -117,7 +117,7 @@ document.getElementById('btnOperStatus').onclick = function () {
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm) != null) {
 						timeoutcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm).length; i++) {
-							timeoutarr += '⭕ ⏳' + message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' "Timeout"' + '<br>'
+							timeoutarr += '⭕ ⏳' + message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + '<br>'
 						}
 					} else timeoutcnt = 0
 					
