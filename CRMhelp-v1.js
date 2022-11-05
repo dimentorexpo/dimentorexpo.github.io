@@ -162,6 +162,7 @@ function mystyles() {
 
 mystyles()
 
+let audioCRM
 
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
