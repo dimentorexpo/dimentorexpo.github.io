@@ -267,7 +267,6 @@ taskBut.onclick = function () { // функция открытия окна дл
             let prioritystate;
             let csstate;
             let usluga;
-            let bodytask;
 
             let taskflagempty = 0;
             let idflagempty = 0;
