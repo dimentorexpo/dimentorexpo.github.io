@@ -19,7 +19,7 @@ function mystyles() {
 		padding:5px 5px;
 		font-family:sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
 	}
-	.btnCRM:hover {
+	.btnCRM:hover, #testuchenik:hover, #testprepod:hover {
 		background: #6A5ACD;
 	}
 	.active-query {
@@ -156,6 +156,41 @@ function mystyles() {
 	.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
 		content: '🔊';
 		transform:translateX(28px);
+	}
+
+	#testuchenik {
+		writing-mode: vertical-lr;
+		text-orientation: upright;
+		position: absolute;
+		top: 0;
+		Left: -34px;
+		font-size: 20px;
+		padding: 5px;
+		color: bisque;
+		background: #547354;
+		height: 309px;
+		text-align: center;
+		border: 1px solid black;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+	}
+
+	#testprepod {
+		writing-mode: vertical-lr;
+		text-orientation: upright;
+		position: absolute;
+		top: 0;
+		right: -34px;
+		font-size: 20px;
+		padding: 5px;
+		color: bisque;
+		background: #547354;
+		height: 309px;
+		text-align: center;
+		border: 1px solid black;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+	}	
 `
     mstl.innerHTML = style;
 }
@@ -341,3 +376,12 @@ document.getElementById('idmymenucrm').append(butSettingsApp)
 include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
 
 
+let teststudent = document.createElement('span')
+teststudent.textContent = "Тест У"
+teststudent.id = "testuchenik"
+document.getElementById('idmymenucrm').append(teststudent)
+
+let testteacher = document.createElement('span')
+testteacher.textContent = "Тест П"
+testteacher.id = "testprepod"
+document.getElementById('idmymenucrm').append(testteacher)
