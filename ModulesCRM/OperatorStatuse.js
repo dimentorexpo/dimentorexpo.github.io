@@ -71,7 +71,9 @@ document.getElementById('btnOperStatus').onclick = function () {
 		
 	
 	 var socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
-	 socket.onreadystatechange = function () {
+		var checksocket = setInterval(function() {
+			if (socket.readyState == 1) {
+				clearInterval(checksocket)
 				socket.send('40/group-413,')
 				socket.onmessage = function(event) {
 					readyarr = [];
@@ -124,9 +126,10 @@ document.getElementById('btnOperStatus').onclick = function () {
 					'<div style="background:#768d87; width:96%; padding: 0.3%; padding-bottom: 2px; color:#37ff85; font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border:1px solid black; padding-left:5px; border-top:0px; border-radius:10px; text-align:center;">' + 'Afterservice' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right; height: 17px; border-radius: 17px;">' + aftscnt + '</span>' + '</div>' + afterservicearr +
 					'<div style="background:#768d87; width:96%; padding: 0.3%; padding-bottom: 2px; color:#37ff85; font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border:1px solid black; padding-left:5px; border-top:0px; border-radius:10px; text-align:center;">' + 'Timeout' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right; height: 17px; border-radius: 17px;">' + timeoutcnt + '</span>' + '</div>' + timeoutarr +
 					'<div style="background:#768d87; width:96%; padding: 0.3%; padding-bottom: 2px; color:#37ff85; font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border:1px solid black; padding-left:5px; border-top:0px; border-radius:10px; text-align:center;">' + 'DND' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right; height: 17px; border-radius: 17px;">' + dndcnt + '</span>' + '</div>' + dndarr
-				}
-		}
-	 
+
+				}		
+			}
+		}, 1000 )
 		
 	document.getElementById('hideMeOpSt').onclick = function () { // скрытие окна поиска оценок от пользователя
 		if (document.getElementById('CRM_OperStat').style.display == '')
