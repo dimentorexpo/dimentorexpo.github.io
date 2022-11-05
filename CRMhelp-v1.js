@@ -38,8 +38,11 @@ function mystyles() {
 	}
 	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
 		background:DeepSkyBlue;
-		color:white;
-		font-weight:700;
+		color:#d74646;
+		font-weight:600;
+		font-size:16px;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 	}
 	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnAlarmclock, #btnSettingsApp {
 		cursor: pointer;
