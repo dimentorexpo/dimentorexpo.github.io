@@ -201,8 +201,6 @@ function mystyles() {
 
 mystyles()
 
-let audioCRM
-
 // start
 const copyToClipboard = str => { // функция копирования в буфер обмена
     const el = document.createElement('textarea');
