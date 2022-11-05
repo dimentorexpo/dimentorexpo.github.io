@@ -74,9 +74,13 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
     document.getElementById('butdiagtoolsCRM').onclick = function () { //открывает окно доступов
         if (document.getElementById('AF_Linksd').style.display == ''){
             document.getElementById('AF_Linksd').style.display = 'none'
+            document.getElementById('idmymenucrm').style.display = 'none'	
+	}
+        } else{
+            document.getElementById('AF_Linksd').style.display = ''
             document.getElementById('idmymenucrm').style.display = 'none'
-		
-	if (JSON.parse(localStorage.getItem('tableres')) !=null)  {
+			
+		if (JSON.parse(localStorage.getItem('tableres')) !=null)  {
 		let versarray = JSON.parse(localStorage.getItem('tableres'))
 			document.getElementById('curVeriOSCRM').textContent  = versarray[1][0] + ':' + versarray[1][1]
 			document.getElementById('curVeriOSCRM').addEventListener('click', function () { // открываем актуальную версию приложения iOS
@@ -87,11 +91,6 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
 		document.getElementById('curVerAndroidCRM').addEventListener('click', function () { // открываем актуальную версию приложения Android
 			window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")
 		})
-	
-	}
-        } else{
-            document.getElementById('AF_Linksd').style.display = ''
-            document.getElementById('idmymenucrm').style.display = 'none'
         }            
     }
     document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна доступов
