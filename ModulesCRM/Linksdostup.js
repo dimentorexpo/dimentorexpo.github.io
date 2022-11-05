@@ -75,6 +75,19 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
         if (document.getElementById('AF_Linksd').style.display == ''){
             document.getElementById('AF_Linksd').style.display = 'none'
             document.getElementById('idmymenucrm').style.display = 'none'
+			
+		if (tableres != null || tableres !=undefined)  {
+			document.getElementById('curVeriOSCRM').textContent  = tableres[1][0] + ':' + tableres[1][1]
+			document.getElementById('curVeriOSCRM').addEventListener('click', function () { // открываем актуальную версию приложения iOS
+			window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")
+		})
+
+		document.getElementById('curVerAndroidCRM').textContent  = tableres[0][0] + ':' + tableres[0][1]
+		document.getElementById('curVerAndroidCRM').addEventListener('click', function () { // открываем актуальную версию приложения Android
+			window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")
+		})
+	
+	}
         } else{
             document.getElementById('AF_Linksd').style.display = ''
             document.getElementById('idmymenucrm').style.display = 'none'
@@ -95,19 +108,6 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
         kibsvid.value = "";
     }
 	
-	if (tableres != null || tableres !=undefined)  {
-		document.getElementById('curVeriOSCRM').textContent  = tableres[1][0] + ':' + tableres[1][1]
-		document.getElementById('curVeriOSCRM').addEventListener('click', function () { // открываем актуальную версию приложения iOS
-		window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")
-		})
-
-		document.getElementById('curVerAndroidCRM').textContent  = tableres[0][0] + ':' + tableres[0][1]
-		document.getElementById('curVerAndroidCRM').addEventListener('click', function () { // открываем актуальную версию приложения Android
-			window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")
-		})
-	
-	}
-
     document.getElementById('kibsvheshbut').onclick = function () { // kibana Tech Summary - хэш
         if (kibsvhesh.value == "") {
             console.log('Введите ХЭШ в поле')
