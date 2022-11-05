@@ -213,8 +213,7 @@ const copyToClipboardCRM = strznach => { // функция копировани�
 // end
 
 // start logginer func
-let lginfo;
-let tokenlog;
+let tokenlogCRM;
 function logginerfortests(polzovatel) {
     document.getElementById('responseTextarea1').value = `{
 			  "headers": {
@@ -225,7 +224,7 @@ function logginerfortests(polzovatel) {
 			  },
 			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
 			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
+			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlogCRM}",
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
