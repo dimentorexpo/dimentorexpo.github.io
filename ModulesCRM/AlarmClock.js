@@ -2,6 +2,7 @@ var win_Alarmclock =  // описание элементов окна будил
     `<div style="border: 2px double black;; background-color: #464451" id="AlarmclockCRM">
         <div style="margin: 5px; width: 380px;" id="Alarmclock_1str">
             <button title="скрывает меню" id="hideAlarmclock" style="width:50px; background: #228B22;">hide</button>
+            <button title="Отображение текущего времени" id="clock_jsCRM" style="color: white; margin-top: 5px; float: right;"></button>
         </div>
 		<div style="margin: 5px; width: 380px">
 			<label style="margin-left: 15px; color:bisque">__Будильник №1</label> <label style="color:bisque">........................... Будильник №2__</label>
@@ -13,9 +14,8 @@ var win_Alarmclock =  // описание элементов окна будил
 			<input title="Ввод минут от 0 до 59 для будильника" id="setminutaCRM1" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
 			<button title="Запуск будильника при устаноовленном времени" id="setreminderCRM1" style="margin-top: 5px">SET🔔</button>
 			<br>
-			<button title="Отображение текущего времени" id="clock_jsCRM" style="color: white; margin-top: 5px"></button>
 			<button id="clock_reminCRM" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
-			<button id="clock_reminCRM1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
+			<button id="clock_reminCRM1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:110px; margin-top: 5px">00 : 00 : 00</button>
 		</div>
 </div>`;
 
@@ -248,7 +248,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
     CRMrefreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
     function setRemindCRM() { //функция  при наступлении времени перевода в статус занят Будильник №1
-        alert("Скоро перерыв! :D");
+        alert("Скоро перерыв! 😉");
         localStorage.removeItem('chronostamp');
 
         if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
@@ -266,7 +266,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
 
     function setRemindCRM1() { //функция  при наступлении времени перевода в статус занят Будильник №2
 
-        alert("Скоро перерыв! :D");
+        alert("Скоро перерыв! 😉");
         localStorage.removeItem('chronostamp1');
 
         if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
