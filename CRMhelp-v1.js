@@ -157,6 +157,7 @@ function getText() { // обьявление функции получающей
 
                 tableres = appverresult;
                 console.log('Обновили шаблоны')
+				localStorage.setItem('tableres', JSON.stringify(tableres))
 
             } catch (e) { console.log(e) }
         }
@@ -199,9 +200,6 @@ catch (e) { console.error(e, e.stack); }
 }
 
 var init = setInterval(initialize, 3000) //заносим в переменную чтобы ее потом в функции можно было удалить интервал
-
-
-getText() //вызов функции получающей текст из гугл таблицы страницы Версии приложений
 
 let menubarcrm = document.createElement('div')
 menubarcrm.style = `background: white; position:absolute; left: 950px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:170px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09); z-index:999;`
@@ -287,3 +285,6 @@ butSettingsApp.innerHTML = "⚙ Settings"
 document.getElementById('idmymenucrm').append(butSettingsApp)
 
 include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
+
+
+getText() //вызов функции получающей текст из гугл таблицы страницы Версии приложений

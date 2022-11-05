@@ -5,6 +5,10 @@ var win_linksd =  // описание элементов окна доступо
                         <div style="margin: 5px; width: 409px;" id="linksd_1str">
                             <button title="скрывает меню" id="hideMeLinksd" style="width:50px; background: #228B22;">hide</button>
                         </div>
+						<div>
+							<button id="curVeriOSCRM"></button>
+							<button id="curVerAndroidCRM"></button>
+						<div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="linksd_kib_box">
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Kibana</p>
                             <input id="kibsvid" placeholder="ID Summary" title="Вводим id пользователя для открытия Video | Tech Summary" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -71,6 +75,20 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
         if (document.getElementById('AF_Linksd').style.display == ''){
             document.getElementById('AF_Linksd').style.display = 'none'
             document.getElementById('idmymenucrm').style.display = 'none'
+		
+	if (JSON.parse(localStorage.getItem('tableres')) !=null)  {
+		let versarray = JSON.parse(localStorage.getItem('tableres'))
+			document.getElementById('curVeriOSCRM').textContent  = versarray[1][0] + ':' + versarray[1][1]
+			document.getElementById('curVeriOSCRM').addEventListener('click', function () { // открываем актуальную версию приложения iOS
+			window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")
+		})
+
+		document.getElementById('curVerAndroidCRM').textContent  = versarray[0][0] + ':' + versarray[0][1]
+		document.getElementById('curVerAndroidCRM').addEventListener('click', function () { // открываем актуальную версию приложения Android
+			window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")
+		})
+	
+	}
         } else{
             document.getElementById('AF_Linksd').style.display = ''
             document.getElementById('idmymenucrm').style.display = 'none'
@@ -90,7 +108,7 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
         };
         kibsvid.value = "";
     }
-
+	
     document.getElementById('kibsvheshbut').onclick = function () { // kibana Tech Summary - хэш
         if (kibsvhesh.value == "") {
             console.log('Введите ХЭШ в поле')
