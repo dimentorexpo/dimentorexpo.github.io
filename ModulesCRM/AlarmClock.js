@@ -1,21 +1,21 @@
 var win_Alarmclock =  // описание элементов окна будильника
     `<div style="border: 2px double black;; background-color: #464451" id="AlarmclockCRM">
         <div style="margin: 5px; width: 380px;" id="Alarmclock_1str">
-            <button class="btnCRM" title="скрывает меню" id="hideAlarmclock" style="width:50px; background: #228B22;">hide</button>
-            <button class="btnCRM" title="Отображение текущего времени" id="clock_jsCRM" style="color: white; margin-top: 5px; float: right;"></button>
+            <button title="скрывает меню" id="hideAlarmclock" style="width:50px; background: #228B22;">hide</button>
+            <button title="Отображение текущего времени" id="clock_jsCRM" style="color: white; margin-top: 5px; float: right;"></button>
         </div>
 		<div style="margin: 5px; width: 380px">
 			<label style="margin-left: 15px; color:bisque">__Будильник №1</label> <label style="color:bisque">........................... Будильник №2__</label>
 			<br>
 			<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchasCRM" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 			<input title="Ввод минут от 0 до 59 для будильника" id="setminutaCRM" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-			<button title="Запуск будильника при устаноовленном времени" id="setreminderCRM" class="btnCRM" style="margin-top: 5px">SET🔔</button>
+			<button title="Запуск будильника при устаноовленном времени" id="setreminderCRM" style="margin-top: 5px">SET🔔</button>
 			<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchasCRM1" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
 			<input title="Ввод минут от 0 до 59 для будильника" id="setminutaCRM1" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-			<button title="Запуск будильника при устаноовленном времени" id="setreminderCRM1" class="btnCRM" style="margin-top: 5px">SET🔔</button>
+			<button title="Запуск будильника при устаноовленном времени" id="setreminderCRM1" style="margin-top: 5px">SET🔔</button>
 			<br>
-			<button class="btnCRM" id="clock_reminCRM" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
-			<button class="btnCRM" id="clock_reminCRM1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:110px; margin-top: 5px">00 : 00 : 00</button>
+			<button id="clock_reminCRM" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
+			<button id="clock_reminCRM1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:110px; margin-top: 5px">00 : 00 : 00</button>
 		</div>
 </div>`;
 
