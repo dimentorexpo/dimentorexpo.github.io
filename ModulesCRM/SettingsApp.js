@@ -37,7 +37,7 @@ var win_SettingsApp =  // описание элементов главного �
 			</div>
 		</div>
     </div>`;
-
+    let audio
     let objSoundList = document.getElementById('soundlistaddr')
     let sondsfromdoc;
     let soundsconteiner;
