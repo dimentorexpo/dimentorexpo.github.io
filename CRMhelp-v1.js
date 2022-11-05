@@ -104,6 +104,58 @@ function mystyles() {
 		color: SteelBlue;
 		font-weight: 600;
 	}
+	.checkbox-audio {
+		display: inline-block;
+		height: 28px;
+		line-height: 28px;
+		margin-right: 10px;
+		position: relative;
+		vertical-align: middle;
+		font-size: 14px;
+		user-select: none;
+	}
+	.checkbox-audio .checkbox-audio-switch {
+		position: relative;
+		display: inline-block;
+		box-sizing: border-box;
+		width: 56px;
+		height: 28px;
+		border: 1px solid rgba(0, 0, 0, .1);
+		border-radius: 25%/50%;
+		vertical-align: top;
+		background: #eee;
+		transition: .2s;
+	}
+	.checkbox-audio .checkbox-audio-switch:before {
+		content: '🔈';
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		background: white;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+		transition: .15s;
+	}
+	.checkbox-audio input[type=checkbox] {
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+	}
+	.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before {
+		box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
+	}
+	.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch {
+		background: limegreen;
+	}
+	.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
+		content: '🔊';
+		transform:translateX(28px);
 `
     mstl.innerHTML = style;
 }
