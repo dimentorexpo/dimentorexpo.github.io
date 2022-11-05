@@ -428,7 +428,17 @@ teststudent.textContent = "Тест У"
 teststudent.id = "testuchenik"
 document.getElementById('idmymenucrm').append(teststudent)
 
+teststudent.onclick = function () {
+	document.getElementById('testuchenik').style.background = 'coral'
+        setTimeout(function () { document.getElementById('testuchenik').style.background = '#3CB371' }, 1000)
+}
+
 let testteacher = document.createElement('span')
 testteacher.textContent = "Тест П"
 testteacher.id = "testprepod"
 document.getElementById('idmymenucrm').append(testteacher)
+
+testteacher.onclick = function () {
+	document.getElementById('testprepod').style.background = 'coral'
+        setTimeout(function () { document.getElementById('testprepod').style.background = '#3CB371' }, 1000)
+}
