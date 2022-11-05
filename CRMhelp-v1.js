@@ -49,6 +49,10 @@ function mystyles() {
 		border-left: 1px solid black;
 		border-right: 1px solid black;
 	}	
+	
+	#btnSettingsApp, #butdiagtoolsCRM {
+		font-family:sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
+	}
 
 	.radio {
 		width:15px;
