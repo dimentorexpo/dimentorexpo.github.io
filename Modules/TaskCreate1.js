@@ -321,32 +321,37 @@ taskBut.onclick = function () { // функция открытия окна дл
             } else { document.getElementById('taskcomment').style.background = ''; }
 
             if (taskflagempty == 0) {
-                
+                if (document.getElementById('taskserviceid').value == '')
+                    usluga = document.getElementById('taskserviceid').value = null;
+                else usluga = document.getElementById('taskserviceid').value
+
                 for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                     if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
                         idflagempty = 1;
                     }
                 }
+
                 if (idflagempty == 1){
-                    bodytask = `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n", "\\n")}\"}]}`
+                    fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+                        "headers": {
+                            "content-type": "application/json",
+                        },
+                        "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n", "\\n")}\"}]}`,
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
                 } else {
-                    bodytask = `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"initiatorId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n", "\\n")}\"}]}`
+                    fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+                        "headers": {
+                            "content-type": "application/json",
+                        },
+                        "body": `{\"conversationId\":\"${conversid}",\"elements\":[{\"name\":\"priority\",\"value\":\"${prioritystate}\"},{\"name\":\"category\",\"value\":\"${csstate}\"},{\"name\":\"educationServiceIdInput\",\"value\":${usluga}},{\"name\":\"userId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"initiatorId\",\"value\":${document.getElementById('taskuserid').value.trim()}},{\"name\":\"comment\",\"value\":\"${document.getElementById('taskcomment').value.replaceAll("\n", "\\n")}\"}]}`,
+                        "method": "POST",
+                        "mode": "cors",
+                        "credentials": "include"
+                    });
                 }
-
-
-                if (document.getElementById('taskserviceid').value == '')
-                    usluga = document.getElementById('taskserviceid').value = null;
-                else usluga = document.getElementById('taskserviceid').value
-
-                fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
-                    "headers": {
-                        "content-type": "application/json",
-                    },
-                    "body": bodytask,
-                    "method": "POST",
-                    "mode": "cors",
-                    "credentials": "include"
-                });
 
                 document.getElementById('taskcomment').value = '';
                 document.getElementById('taskserviceid').value = '';
