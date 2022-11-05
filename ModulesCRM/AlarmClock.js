@@ -62,7 +62,7 @@ document.getElementById('btnAlarmclock').onclick = function () { // открыт
         document.getElementById('winAlarmclock').style.display = ''
         document.getElementById('idmymenucrm').style.display = 'none'
     } else {
-        document.getElementById('winAlarmclock').style.display == 'none'
+        document.getElementById('winAlarmclock').style.display = 'none'
         document.getElementById('idmymenucrm').style.display = 'none'
     }
 }
