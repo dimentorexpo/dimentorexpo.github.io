@@ -133,6 +133,8 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
             document.getElementById('refreshchathash').onclick = () => {
 				if (location.origin == 'https://crm2.skyeng.ru')
 					document.getElementById('linktochatsuggest').value = document.URL
+				if (location.pathname.split('/')[4] == 'task')
+				document.getElementById('textsuggest').value = document.getElementsByTagName('crm-grid')[8].children[0].innerText.replace('Комментарий\n','')
             }
 
             document.getElementById('getdocsuggestions').onclick = () => {
