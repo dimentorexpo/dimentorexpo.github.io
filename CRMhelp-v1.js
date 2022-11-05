@@ -38,7 +38,7 @@ function mystyles() {
 	}
 	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
 		background:DeepSkyBlue;
-		color:#d74646;
+		color:#ffffffe6;
 		font-weight:600;
 		font-size:16px;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
