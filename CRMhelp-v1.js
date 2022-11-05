@@ -11,6 +11,17 @@ function mystyles() {
 	span {
 		font-family:sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
 	}
+	.btnCRM {
+		background-color:#768d87;
+		border-radius:5px;
+		border:1px solid #566963;
+		color:#ffffff;
+		padding:5px 5px;
+		font-family:sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
+	}
+	.btnCRM:hover {
+		background: #6A5ACD;
+	}
 	button {
 		background-color:#768d87;
 		border-radius:5px;
