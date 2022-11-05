@@ -202,13 +202,13 @@ function mystyles() {
 mystyles()
 
 // start
-const copyToClipboard = str => { // функция копирования в буфер обмена
-    const el = document.createElement('textarea');
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
+const copyToClipboardCRM = strznach => { // функция копирования в буфер обмена
+    const elik = document.createElement('textarea');
+    elik.value = strznach;
+    document.body.appendChild(elik);
+    elik.select();
     document.execCommand('copy');
-    document.body.removeChild(el);
+    document.body.removeChild(elik);
 };
 // end
 
@@ -239,7 +239,7 @@ function logginerfortests(polzovatel) {
         if (logginerinfo != null) {
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
-            copyToClipboard(logginerinfo[1])
+            copyToClipboardCRM(logginerinfo[1])
             document.getElementById('responseTextarea1').removeAttribute('senddata1')
         }
     })
