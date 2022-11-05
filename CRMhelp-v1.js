@@ -208,7 +208,7 @@ function getText() { // обьявление функции получающей
                     appverresult = r["result"];
 
                 tableres = appverresult;
-                console.log('Обновили шаблоны')
+                console.log('Версии приложений получены')
 
             } catch (e) { console.log(e) }
         }
