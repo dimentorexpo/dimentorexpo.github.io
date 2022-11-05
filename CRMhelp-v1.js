@@ -141,6 +141,29 @@ if (localStorage.getItem('scriptAdrAppVers') == null) {
     localStorage.setItem('scriptAdrAppVers', 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec');
 }
 
+let appverresult;
+let tableres;
+function getText() { // обьявление функции получающей текст из гугл таблицы страницы Версии приложений
+    var app = localStorage.getItem('scriptAdrAppVers'),
+        xhr = new XMLHttpRequest();
+    xhr.open('GET', app);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+
+        if (xhr.status == 200) {
+            try {
+                var r = JSON.parse(xhr.responseText),
+                    appverresult = r["result"];
+
+                tableres = appverresult;
+                console.log('Обновили шаблоны')
+
+            } catch (e) { console.log(e) }
+        }
+    }
+    xhr.send()
+}
+
 
 include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
 include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
@@ -176,6 +199,9 @@ catch (e) { console.error(e, e.stack); }
 }
 
 var init = setInterval(initialize, 3000) //заносим в переменную чтобы ее потом в функции можно было удалить интервал
+
+
+getText() //вызов функции получающей текст из гугл таблицы страницы Версии приложений
 
 let menubarcrm = document.createElement('div')
 menubarcrm.style = `background: white; position:absolute; left: 950px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:150px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09); z-index:999;`
