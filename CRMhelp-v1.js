@@ -36,12 +36,12 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnAlarmclock:hover  {
+	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
 		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
 	}
-	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnAlarmclock {
+	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnAlarmclock, #btnSettingsApp {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -151,6 +151,8 @@ try {
 			document.getElementById('MenubarCRM').onclick = function() {
 				if (document.getElementById('idmymenucrm').style.display == 'none')  {
 					document.getElementById('idmymenucrm').style.display =''
+					let xvarmenu = parseInt(document.getElementById('MenubarCRM').getBoundingClientRect().x - 21)
+					menubarcrm.style.left = xvarmenu + 'px';
 				} else {
 					document.getElementById('idmymenucrm').style.display ='none'
 
@@ -241,3 +243,11 @@ butAlarmclock.innerHTML = "🔕 Будильник"
 document.getElementById('idmymenucrm').append(butAlarmclock)
 
 include("https://dimentorexpo.github.io/ModulesCRM/AlarmClock.js")
+
+let butSettingsApp = document.createElement('div')
+butSettingsApp.id = "btnSettingsApp"
+butSettingsApp.innerHTML = "⚙ Settings"
+
+document.getElementById('idmymenucrm').append(butSettingsApp)
+
+include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
