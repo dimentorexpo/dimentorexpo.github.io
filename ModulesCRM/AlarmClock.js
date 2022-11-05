@@ -75,11 +75,15 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
+        console.log(hours);
         minutes = data.getMinutes();
         if (minutes < 10) { minutes = "0" + minutes; }
+        console.log(minutes);
         seconds = data.getSeconds();
         if (seconds < 10) { seconds = "0" + seconds; }
+        console.log(seconds);
         time = hours + " : " + minutes + " : " + seconds;
+        console.log(time);
         document.getElementById("clock_js").innerHTML = time;
 }
 
