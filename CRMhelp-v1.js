@@ -176,7 +176,7 @@ function mystyles() {
 		user-select: none;
 		cursor: pointer;
 	}
-	#testuchenik.active, testprepod.active  {
+	#testuchenik.active, #testprepod.active  {
 		background: coral;
 	}
 	
