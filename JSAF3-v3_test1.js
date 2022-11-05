@@ -6091,7 +6091,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
         include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
         // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи
-        include("https://dimentorexpo.github.io/Modules/TaskCreate1.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
+        include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
