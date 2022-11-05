@@ -123,7 +123,10 @@ document.getElementById('AF_Sugform').ondblclick = function (a) { // скрыт�
                     }
                 }
             }
-
+			
+			if (location.pathname.split('/')[4] == 'task')
+				document.getElementById('textsuggest').value = document.getElementsByTagName('crm-grid')[8].children[0].innerText.replace('Комментарий\n','')
+			
             if (location.origin == 'https://crm2.skyeng.ru')
                 document.getElementById('linktochatsuggest').value = document.URL
 
