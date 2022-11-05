@@ -151,7 +151,7 @@ try {
 			document.getElementById('MenubarCRM').onclick = function() {
 				if (document.getElementById('idmymenucrm').style.display == 'none')  {
 					document.getElementById('idmymenucrm').style.display =''
-					let xvarmenu = parseInt(document.getElementById('MenubarCRM').getBoundingClientRect().x - 231)
+					let xvarmenu = parseInt(document.getElementById('MenubarCRM').getBoundingClientRect().x - 21)
 					menubarcrm.style.left = xvarmenu + 'px';
 				} else {
 					document.getElementById('idmymenucrm').style.display ='none'
