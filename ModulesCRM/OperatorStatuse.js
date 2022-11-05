@@ -91,35 +91,35 @@ document.getElementById('btnOperStatus').onclick = function () {
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm).length; i++) {
 							readyarr += '🟢 ' + message.match(/(:")(\D+)(",)(?="lastStatus":"Ready")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + '<br>'
 						}
-					} 
+					} else rcnt = 0
 
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm) != null) {
 						dndcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm).length; i++) {
 							dndarr += '🔴 🍔' + message.match(/(:")(\D+)(",)(?="lastStatus":"DND")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + '<br>'
 						}
-					} 
+					} else dndcnt = 0
 					
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm) != null) {
 						inservvcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm).length; i++) {
 							inservicearr += '🟡 📞' +message.match(/(:")(\D+)(",)(?="lastStatus":"InServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + '<br>'
 						}
-					}		
+					} else inservvcnt = 0		
 
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm) != null) {
 						aftscnt = message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm).length; i++) {
 							afterservicearr += '🟠 📵' + message.match(/(:")(\D+)(",)(?="lastStatus":"AfterServiceOut")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + '<br>'
 						}
-					}
+					} else aftscnt = 0
 
 					if (message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm) != null) {
 						timeoutcnt = message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm).length;
 						for (let i = 0; i < message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm).length; i++) {
 							timeoutarr += '⭕ ⏳' + message.match(/(:")(\D+)(",)(?="lastStatus":"Timeout")/gm)[i].replaceAll(":", '').replace(",",'').replaceAll('"','') + ' "Timeout"' + '<br>'
 						}
-					}
+					} else timeoutcnt = 0
 					
 					document.getElementById('operstatustable').innerHTML = '<div style="background:#768d87; width:97%; padding: 0.3%; padding-bottom: 2px; color:#37ff85; font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border:1px solid black;">' + 'В статусе Ready : ' +  '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right; height: 17px;">' + rcnt + '</span>' + '</div>' + readyarr +
 					'<div style="background:#768d87; width:97%; padding: 0.3%; padding-bottom: 2px; color:#37ff85; font-weight: 700; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border:1px solid black; border-top:0px;">' +  'В статусе InService : ' + '<span style="background: orange; color: #00365d; padding-left: 20px; padding-right: 20px; border: 1px solid transparent; float:right; height: 17px;">' + inservvcnt + '</span>' + '</div>' + inservicearr  +
