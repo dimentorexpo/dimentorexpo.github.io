@@ -398,16 +398,11 @@ let versionscontainer;
 
 async function getversionsapp() { // получаем из файла список версий моб. приложений
 
-        versionsfromdoc = 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec'
-        await fetch(versionsfromdoc).then(r => r.json()).then(r => versionsdata = r)
-        versionscontainer = versionsdata.result;
-        console.log(versionsdata.result) //получим список версий
+	versionsfromdoc = 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec'
+	await fetch(versionsfromdoc).then(r => r.json()).then(r => versionsdata = r)
+	versionscontainer = versionsdata.result;
+	console.log(versionsdata.result) //получим список версий
+	document.getElementById('curVeriOS').textContent  = versionscontainer[1][0] + ':' + versionscontainer[1][1]
+	document.getElementById('curVerAndroid').innerText = versionscontainer[0][0] + ':' + versionscontainer[0][1]
 
-        for (let i = 0; i < versionscontainer.length; i++) {
-            if (versionscontainer[i][0] == "iOS Version")
-                document.getElementById('curVeriOS').innerText = "iOS: " + versionscontainer[i][1];
-
-            if (versionscontainer[i][0] == "Android Version")
-                document.getElementById('curVerAndroid').innerText = "Android: " + versionscontainer[i][1]
-        }
 }
