@@ -103,6 +103,9 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
             }
         }
 		
+		if (location.pathname.split('/')[4] == 'task')
+			document.getElementById('fullcomentsmartroom').value = document.getElementsByTagName('crm-grid')[8].children[0].innerText.replace('Комментарий\n','')
+		
 		if (document.URL.split('/')[3] == 'persons')
 			document.getElementById('clientid').value = document.URL.split('/')[4]
 
@@ -254,5 +257,8 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
         document.getElementById('refreshhashsmartform').onclick = function () {
 			if (document.URL.split('/')[3] == 'persons')
 				document.getElementById('clientid').value = document.URL.split('/')[4]
+			if (location.pathname.split('/')[4] == 'task')
+			document.getElementById('fullcomentsmartroom').value = document.getElementsByTagName('crm-grid')[8].children[0].innerText.replace('Комментарий\n','')
+			
         }
     }
