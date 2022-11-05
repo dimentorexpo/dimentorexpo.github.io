@@ -157,7 +157,6 @@ function getText() { // обьявление функции получающей
 
                 tableres = appverresult;
                 console.log('Обновили шаблоны')
-				// localStorage.setItem('tableres', JSON.stringify(tableres))
 
             } catch (e) { console.log(e) }
         }
