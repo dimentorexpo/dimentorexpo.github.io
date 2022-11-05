@@ -72,7 +72,6 @@ document.getElementById('btnOperStatus').onclick = function () {
 	
 	 var socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
 	 socket.onreadystatechange = function () {
-		 clearInterval(checksocket)
 				socket.send('40/group-413,')
 				socket.onmessage = function(event) {
 					readyarr = [];
