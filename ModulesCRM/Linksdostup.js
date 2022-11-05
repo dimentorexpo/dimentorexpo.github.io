@@ -91,7 +91,7 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
 				window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")
 			})
 			}	
-        }            
+        // }            
     }
     document.getElementById('hideMeLinksd').onclick = function () { // скрытие окна доступов
         if (document.getElementById('AF_Linksd').style.display == '')
