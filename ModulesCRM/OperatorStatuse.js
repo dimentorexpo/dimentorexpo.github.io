@@ -136,5 +136,3 @@ document.getElementById('btnOperStatus').onclick = function () {
 
 	
 }
-		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
-		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
