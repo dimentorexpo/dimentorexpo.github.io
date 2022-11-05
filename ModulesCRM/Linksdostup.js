@@ -76,14 +76,14 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
             document.getElementById('AF_Linksd').style.display = 'none'
             document.getElementById('idmymenucrm').style.display = 'none'
 		
-	getText()		
-	if (tableres != null || tableres !=undefined)  {
-			document.getElementById('curVeriOSCRM').textContent  = tableres[1][0] + ':' + tableres[1][1]
+	if (JSON.parse(localStorage.getItem('tableres')) !=null)  {
+		let versarray = JSON.parse(localStorage.getItem('tableres'))
+			document.getElementById('curVeriOSCRM').textContent  = versarray[1][0] + ':' + versarray[1][1]
 			document.getElementById('curVeriOSCRM').addEventListener('click', function () { // открываем актуальную версию приложения iOS
 			window.open("https://apps.apple.com/ru/app/skyeng-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9-%D1%8F%D0%B7%D1%8B%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1065290732")
 		})
 
-		document.getElementById('curVerAndroidCRM').textContent  = tableres[0][0] + ':' + tableres[0][1]
+		document.getElementById('curVerAndroidCRM').textContent  = versarray[0][0] + ':' + versarray[0][1]
 		document.getElementById('curVerAndroidCRM').addEventListener('click', function () { // открываем актуальную версию приложения Android
 			window.open("https://play.google.com/store/apps/details?id=skyeng.words.prod")
 		})
