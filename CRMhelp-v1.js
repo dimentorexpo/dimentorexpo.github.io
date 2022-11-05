@@ -176,7 +176,10 @@ function mystyles() {
 		user-select: none;
 		cursor: pointer;
 	}
-
+	#testuchenik.active, testprepod.active  {
+		background: coral;
+	}
+	
 	#testprepod {
 		writing-mode: vertical-lr;
 		text-orientation: upright;
@@ -429,8 +432,8 @@ teststudent.id = "testuchenik"
 document.getElementById('idmymenucrm').append(teststudent)
 
 teststudent.onclick = function () {
-	document.getElementById('testuchenik').style.background = 'coral'
-        setTimeout(function () { document.getElementById('testuchenik').style.background = '#547354' }, 1000)
+	document.getElementById('testuchenik').classList.add('active')
+        setTimeout(function () { document.getElementById('testuchenik').classList.remove('active') }, 1000)
 }
 
 let testteacher = document.createElement('span')
@@ -439,6 +442,6 @@ testteacher.id = "testprepod"
 document.getElementById('idmymenucrm').append(testteacher)
 
 testteacher.onclick = function () {
-	document.getElementById('testprepod').style.background = 'coral'
-        setTimeout(function () { document.getElementById('testprepod').style.background = '#547354' }, 1000)
+	document.getElementById('testprepod').classList.add('active')
+        setTimeout(function () { document.getElementById('testprepod').classList.remove('active') }, 1000)
 }
