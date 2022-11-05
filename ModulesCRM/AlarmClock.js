@@ -18,7 +18,6 @@ var win_Alarmclock =  // описание элементов окна будил
 			<button id="clock_reminCRM1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
 		</div>
 </div>`;
-//<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
 
 if (localStorage.getItem('winTopAlarmclock') == null) { // началоное положение окна будильника (если не задано ранее)
     localStorage.setItem('winTopAlarmclock', '120');
@@ -67,11 +66,11 @@ document.getElementById('btnAlarmclock').onclick = function () { // открыт
     }
 }
 
-setInterval(clock_on_javascript_1, 1000);
-setInterval(clock_on_javascript_2, 1000);
-setInterval(clock_on_javascript_3, 1000);
+setInterval(CRM_clock_on_javascript_1, 1000);
+setInterval(CRM_clock_on_javascript_2, 1000);
+setInterval(CRM_clock_on_javascript_3, 1000);
 
-function clock_on_javascript_1() { //таймер обычного отсчета текущего времени
+function CRM_clock_on_javascript_1() { //таймер обычного отсчета текущего времени
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
@@ -83,7 +82,7 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
         document.getElementById("clock_jsCRM").innerHTML = time;
 }
 
-    function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
+    function CRM_clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
         var data = new Date();
         hours = data.getHours();
         if (hours < 10) { hours = "0" + hours; }
@@ -116,7 +115,7 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
         }
     }
 
-    function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
+    function CRM_clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
         var data1 = new Date();
         hours1 = data1.getHours();
         if (hours1 < 10) { hours1 = "0" + hours1; }
@@ -149,8 +148,8 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
         }
     }
 
-    var abortTimeOut = ''								// перменная для отмены будильника
-    var abortTimeOut1 = ''								// перменная для отмены будильника
+    var CRMabortTimeOut = ''								// перменная для отмены будильника
+    var CRMabortTimeOut1 = ''								// перменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp1') == null) {
         document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
     }
@@ -168,7 +167,7 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
         //		setchasCRM.value = "";
         //		setminutaCRM.value = "";
         alert("Будильник установлен на " + setchasCRM.value + ":" + setminutaCRM.value + ":" + "00");
-        abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+        CRMabortTimeOut = setTimeout(setRemindCRM, localStorage.getItem('chronostamp'));
     }
 
     document.getElementById('setreminderCRM1').onclick = function () {  // выставляем будильник
@@ -184,10 +183,10 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
         //		setchasCRM.value = "";
         //		setminutaCRM.value = "";
         alert("Будильник установлен на " + setchasCRM1.value + ":" + setminutaCRM1.value + ":" + "00");
-        abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp1'));
+        CRMabortTimeOut1 = setTimeout(setRemindCRM1, localStorage.getItem('chronostamp1'));
     }
 
-    function refreshTimerReminder() { // обновляет оставшееся время будильника №1
+    function CRMrefreshTimerReminder() { // обновляет оставшееся время будильника №1
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
             document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
             setchasCRM.value = localStorage.getItem('setchasCRM');
@@ -195,16 +194,16 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
             var timearr = new Date()
             var chronostamp2 = (((localStorage.getItem('setchasCRM') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminutaCRM') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
             localStorage.setItem('chronostamp2', chronostamp2);
-            abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
+            CRMabortTimeOut = setTimeout(setRemindCRM, localStorage.getItem('chronostamp2'));
         } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
-            clearTimeout(abortTimeOut);
+            clearTimeout(CRMabortTimeOut);
             document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
         } else if (localStorage.getItem('chronostamp1') !== null) {
             document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
         }
     }
 
-    function refreshTimerReminder1() { // обновляет оставшееся время будильника №2
+    function CRMrefreshTimerReminder1() { // обновляет оставшееся время будильника №2
         if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
             document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
             setchasCRM1.value = localStorage.getItem('setchasCRM1');
@@ -212,9 +211,9 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
             var timearr1 = new Date()
             var chronostamp22 = (((localStorage.getItem('setchasCRM1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminutaCRM1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
             localStorage.setItem('chronostamp22', chronostamp22);
-            abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp22'));
+            CRMabortTimeOut1 = setTimeout(setRemindCRM1, localStorage.getItem('chronostamp22'));
         } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
-            clearTimeout(abortTimeOut1);
+            clearTimeout(CRMabortTimeOut1);
             document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
         } else if (localStorage.getItem('chronostamp') !== null) {
             document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
@@ -223,7 +222,7 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
 
     document.getElementById('clock_reminCRM').ondblclick = function () {		// Удаление будильника
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-            clearTimeout(abortTimeOut)
+            clearTimeout(CRMabortTimeOut)
             localStorage.removeItem('chronostamp')
             localStorage.removeItem('chronostamp2')
             setchasCRM.value = ""
@@ -235,7 +234,7 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
 
     document.getElementById('clock_reminCRM1').ondblclick = function () {		// Удаление будильника
         if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
-            clearTimeout(abortTimeOut1)
+            clearTimeout(CRMabortTimeOut1)
             localStorage.removeItem('chronostamp1')
             localStorage.removeItem('chronostamp22')
             setchasCRM1.value = ""
@@ -245,10 +244,10 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
         }
     }
 
-    refreshTimerReminder(); //обновляет оставшееся время до будильника №1
-    refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
+    CRMrefreshTimerReminder(); //обновляет оставшееся время до будильника №1
+    CRMrefreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
-    function setRemindAf() { //функция  при наступлении времени перевода в статус занят Будильник №1
+    function setRemindCRM() { //функция  при наступлении времени перевода в статус занят Будильник №1
         alert("Скоро перерыв! :D");
         localStorage.removeItem('chronostamp');
 
@@ -265,7 +264,7 @@ function clock_on_javascript_1() { //таймер обычного отсчет�
         setminutaCRM.value = "";
     }
 
-    function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
+    function setRemindCRM1() { //функция  при наступлении времени перевода в статус занят Будильник №2
 
         alert("Скоро перерыв! :D");
         localStorage.removeItem('chronostamp1');
