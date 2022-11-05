@@ -180,15 +180,18 @@ for(let i = 0; i < blocks.length; i++) {
 	let button = document.createElement('button')
 	button.textContent = "Отправить"
 	button.id = 'formToSlackSend'
+	button.classList.add = "btnCRM"
 	let button2 = document.createElement('button')
 	button2.textContent = "Скрыть"
 	button2.style.marginLeft = '5px'
+	button2.classList.add = "btnCRM"
 	button2.onclick = function() {
 		this.parentElement.parentElement.style.display = 'none'
 		document.getElementById('buttonUnsub').style.display = ''
 	}
 	let button3 = document.createElement('button')
 	button3.textContent = "Закрыть"
+	button3.classList.add = "btnCRM"
 	button3.style.marginLeft = '5px'
 	button3.onclick = function() {
 		socket.close()
