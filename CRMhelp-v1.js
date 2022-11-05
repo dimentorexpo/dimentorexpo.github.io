@@ -137,6 +137,11 @@ function include(url) {
     document.getElementsByTagName('head')[0].appendChild(script);
 }	
 
+if (localStorage.getItem('scriptAdrAppVers') == null) {
+    localStorage.setItem('scriptAdrAppVers', 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec');
+}
+
+
 include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
 include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
 // include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
@@ -152,9 +157,7 @@ try {
 	if (location.origin == 'https://crm2.skyeng.ru')
 		if (document.getElementsByClassName('mat-toolbar-row')[0] != undefined && document.getElementById('MenubarCRM') == null) {
 			document.getElementsByClassName('mat-toolbar-row')[0].children[1].children[0].append(upmenubtn)
-			
-			
-			
+
 			document.getElementById('MenubarCRM').onclick = function() {
 				if (document.getElementById('idmymenucrm').style.display == 'none')  {
 					document.getElementById('idmymenucrm').style.display =''
