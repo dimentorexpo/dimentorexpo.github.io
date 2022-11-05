@@ -38,6 +38,10 @@ var win_SettingsApp =  // описание элементов главного �
 		</div>
     </div>`;
 
+    let objSoundList = document.getElementById('soundlistaddr')
+    let sondsfromdoc;
+    let soundsconteiner;
+
     if (localStorage.getItem('winTopSettingsApp') == null) { // началоное положение окна настроек (если не задано ранее)
         localStorage.setItem('winTopSettingsApp', '120');
         localStorage.setItem('winLeftSettingsApp', '295');
@@ -107,9 +111,6 @@ var win_SettingsApp =  // описание элементов главного �
                 document.getElementById('audioswitcher').checked = true;
         }
     }
-let objSoundList = document.getElementById('soundlistaddr')
-let sondsfromdoc;
-let soundsconteiner;
 
 async function getsoundsfromdoc() { // загрузка списка звуков из файла
     sondsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
