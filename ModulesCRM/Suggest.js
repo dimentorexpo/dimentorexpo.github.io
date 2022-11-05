@@ -3,10 +3,10 @@ var win_suggest =  // описание элементов окна предло�
         <span style="width: 414px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 409px;" id="sug_form_main">
-                            <button title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
-                            <button title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathash" style="width:30px;">♻</button>
-							<button title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestions" style="width:30px;">🗑</button>
-							<button id="suggestinstr" style="float:right; margin-right: 5px;" title="Инструкция по этой форме">❓</button>
+                            <button class="btnCRM" title="скрывает меню" id="hideMeSugForm" style="width:50px; background: #228B22;">hide</button>
+                            <button class="btnCRM" title="По нажатию обновляет хеш чата в соответствующем поле, на случай, если при открытии формы вы открыли не тот чат, в котором обратился пользователь" id="refreshchathash" style="width:30px;">♻</button>
+							<button class="btnCRM" title="По нажатию открывает общий док с переданными предложениями" id="getdocsuggestions" style="width:30px;">🗑</button>
+							<button class="btnCRM" id="suggestinstr" style="float:right; margin-right: 5px;" title="Инструкция по этой форме">❓</button>
                         </div>
                         <div style="margin: 5px; margin-top: 0px; width: 409px" id="sug_form_box">
                             <input id="operatornamesuggest" placeholder="Представься, пожалуйста" title="Вводим свою фамилию и имя" autocomplete="off" type="text" style="text-align: center; width: 400px; color: black; margin-top: 5px">
@@ -52,7 +52,7 @@ var win_suggest =  // описание элементов окна предло�
 						<div>
                             <textarea id="textsuggest" placeholder="Текст предложения" title="Вводим текст предложения" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px"></textarea>
 							<br>
-							<button title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
+							<button class="btnCRM" title="Отправляет заполненные поля формы в док" id="sendtosuggestdoc" style="width:105px; position: relative; left: 50%; transform: translate(-50%, 0);">Отправить</button>
                         </div>
         </span>
 </div>`;
