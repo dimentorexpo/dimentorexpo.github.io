@@ -346,6 +346,13 @@ menubarcrm.id = 'idmymenucrm'
 
 document.body.append(menubarcrm)
 
+if (document.querySelector('crm-container') != null) {
+	document.querySelector('crm-container').addEventListener('click', function (event) {
+		var e = document.getElementById('idmymenucrm');
+		if (!e.contains(event.target)) e.style.display = 'none';
+	});
+}
+
 //Обьявление кнопки открытия меню поиска по Jira
 let jirasearchbtn = document.createElement('div')
 jirasearchbtn.innerText = "🔎Jira search"
