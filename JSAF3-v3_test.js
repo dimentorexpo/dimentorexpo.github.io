@@ -404,7 +404,7 @@ function mystyles() {
 		background: #118c4e;
 	}
 	.inithide {
-		display:none;
+		display:none !important;
 	}
 	`
     mstl.innerHTML = style;
