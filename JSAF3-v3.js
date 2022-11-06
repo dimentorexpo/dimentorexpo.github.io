@@ -266,56 +266,15 @@ function mystyles() {
 			cursor:pointer;
 			font-weight:700;
 		}
-		#servDsk:hover {
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
 			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
+			color:#ffffffe6;
+			font-weight:600;
+			font-size:16px;
+			box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 		}
-		#buttonOpenForm:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#butMarks:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#suggestform:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#otkaz:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#butChatHistory:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#butLessonInfo:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#JiraOpenForm:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#smartroomform:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}	
-		#butFrozeChat:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
+	
 		.hyperlnk {
 			height:0px;
 			opacity:0;
