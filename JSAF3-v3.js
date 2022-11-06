@@ -266,6 +266,28 @@ function mystyles() {
 			cursor:pointer;
 			font-weight:700;
 		}
+		
+		#servDsk {
+			display:flex;
+			align-items:center;
+			font-size: 14px;
+			border: 1px solid black;
+			height: 40px;
+			min-width: 100px;
+		}
+		
+		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
+			display:flex;
+			align-items:center;
+			cursor: pointer;
+			font-size: 14px;
+			min-width: 100px;
+			border-bottom: 1px solid black;
+			border-left: 1px solid black;
+			border-right: 1px solid black;
+			height: 40px;
+		}
+		
 		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
@@ -909,54 +931,45 @@ taskBut.classList.add('ant-btn','onlyfortp');
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
-butServ.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butServ.classList.add('onlyfortp');
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
 butMarks.innerHTML = "📊Оценки"
-butMarks.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butChatHistory.classList.add('onlyfortp');
 
 let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
 butFrozeChat.innerHTML = "❄ Auto Respond"
-butFrozeChat.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butFrozeChat.classList.add('onlyfortp');
 
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
 butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
 butLessonInfo.innerHTML = "🎓 Lesson Info"
-butLessonInfo.style = 'margin-right:15px; height:50px; cursor:pointer;';
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;'
 servDsk.classList.add('onlyfortp');
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butopensugestform.classList.add('onlyfortp');
 
 let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
-butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butrefuse.classList.add('onlyfortp');
 
 let butsmartroom = document.createElement('div')
 butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
-butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butsmartroom.classList.add('onlyfortp');
 
 let butThemes = document.createElement('div')
@@ -968,7 +981,6 @@ butThemes.classList.add('ant-btn','onlyfortp')
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
-butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;'
 butJiraOpenForm.classList.add('onlyfortp');
 
 let butmenu = document.createElement('button')
@@ -978,7 +990,7 @@ butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
 
 let menubar = document.createElement('div')
-menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
 menubar.id = 'idmymenu'
 
 butmenu.onclick = () => { // кнопка открытия Меню
