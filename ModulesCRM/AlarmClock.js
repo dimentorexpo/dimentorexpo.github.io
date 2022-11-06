@@ -151,11 +151,11 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
     var CRMabortTimeOut = ''								// перменная для отмены будильника
     var CRMabortTimeOut1 = ''								// перменная для отмены будильника
     if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp1') == null) {
-        document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
+        document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
     }
 
     document.getElementById('setreminderCRM').onclick = function () {  // выставляем будильник
-        document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+        document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
         localStorage.setItem('setchasCRM', setchasCRM.value);
         if (setminutaCRM.value == "00") {
             setminutaCRM.value = 0;
@@ -171,7 +171,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
     }
 
     document.getElementById('setreminderCRM1').onclick = function () {  // выставляем будильник
-        document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+        document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
         localStorage.setItem('setchasCRM1', setchasCRM1.value);
         if (setminutaCRM1.value == "00") {
             setminutaCRM1.value = 0;
@@ -188,7 +188,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
 
     function CRMrefreshTimerReminder() { // обновляет оставшееся время будильника №1
         if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
             setchasCRM.value = localStorage.getItem('setchasCRM');
             setminutaCRM.value = localStorage.getItem('setminutaCRM');
             var timearr = new Date()
@@ -197,15 +197,15 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
             CRMabortTimeOut = setTimeout(setRemindCRM, localStorage.getItem('chronostamp2'));
         } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
             clearTimeout(CRMabortTimeOut);
-            document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
         } else if (localStorage.getItem('chronostamp1') !== null) {
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
         }
     }
 
     function CRMrefreshTimerReminder1() { // обновляет оставшееся время будильника №2
         if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
             setchasCRM1.value = localStorage.getItem('setchasCRM1');
             setminutaCRM1.value = localStorage.getItem('setminutaCRM1');
             var timearr1 = new Date()
@@ -214,9 +214,9 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
             CRMabortTimeOut1 = setTimeout(setRemindCRM1, localStorage.getItem('chronostamp22'));
         } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
             clearTimeout(CRMabortTimeOut1);
-            document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
         } else if (localStorage.getItem('chronostamp') !== null) {
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
         }
     }
 
@@ -228,7 +228,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
             setchasCRM.value = ""
             setminutaCRM.value = ""
             alert("Будильник удален")
-            document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
         }
     }
 
@@ -270,13 +270,13 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
         localStorage.removeItem('chronostamp1');
 
         if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
-            document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
         else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
         else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
         else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
 
         setchasCRM1.value = "";
         setminutaCRM1.value = "";

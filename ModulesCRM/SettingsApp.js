@@ -42,6 +42,14 @@ var win_SettingsApp =  // описание элементов главного �
     let sondsfromdoc;
     let soundsconteiner;
 
+    if (localStorage.getItem('splinter') == null) { //Задаем интервал воспроизведения если не задан
+        localStorage.setItem('splinter', 3);
+    }
+
+    if (localStorage.getItem('audiovol') != null) { //Задаем громкость если не задана
+        audio.volume = localStorage.getItem('audiovol');
+    } else localStorage.setItem('audiovol', 1);
+
     if (localStorage.getItem('winTopSettingsApp') == null) { // началоное положение окна настроек (если не задано ранее)
         localStorage.setItem('winTopSettingsApp', '120');
         localStorage.setItem('winLeftSettingsApp', '295');
@@ -119,7 +127,7 @@ async function getsoundsfromdoc() { // загрузка списка звуко�
     console.log(soudsdata.result) //получим список звуков
     for (j = 0; j < soundsconteiner.length; j++) {
         if (soundsconteiner[j][0] != '') {
-            addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
+            addOptionCRM(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
         }
     }
     for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
@@ -133,12 +141,6 @@ async function getsoundsfromdoc() { // загрузка списка звуко�
         document.getElementById('sound_save').style.display = ''
         document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
     }
-}
-function addOption(oListbox, text, value) {  //функция добавления опции в список
-    var oOption = document.createElement("option");
-    oOption.appendChild(document.createTextNode(text));
-    oOption.setAttribute("value", value);
-    oListbox.appendChild(oOption);
 }
     
 function changesoundaddr() { // сохранение измнений адресса звука    
@@ -193,4 +195,8 @@ function changesoundaddr() { // сохранение измнений адрес
                 localStorage.setItem('audio', '0');
             }
         }
+    }
+
+    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
+        audio.play()
     }
