@@ -6168,9 +6168,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             let menubutarea = document.createElement('div')
             menubutarea.style = 'margin-right:20px;'
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[15])
+            headmenulist.insertBefore(menubutarea, headmenulist.children[5])
             menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[15])
+            headmenulist.insertBefore(menubar, headmenulist.children[5])
             menubar.append(document.getElementById('servDsk'))
             menubar.append(document.getElementById('JiraOpenForm'))
             menubar.append(document.getElementById('buttonOpenForm'))
