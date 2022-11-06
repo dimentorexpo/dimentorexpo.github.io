@@ -268,6 +268,7 @@ function mystyles() {
 		}
 		
 		#servDsk {
+			cursor: pointer;
 			display:flex;
 			align-items:center;
 			font-size: 14px;
