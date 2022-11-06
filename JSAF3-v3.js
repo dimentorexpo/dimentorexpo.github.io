@@ -402,7 +402,11 @@ function mystyles() {
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
-	}`
+	}
+	.inithide {
+		display:none !important;
+	}
+	`
     mstl.innerHTML = style;
 }
 
@@ -938,41 +942,44 @@ butServ.classList.add('onlyfortp');
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
 butMarks.innerHTML = "📊Оценки"
+butMarks.classList.add('inithide');
 
 let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.classList.add('onlyfortp');
+butChatHistory.classList.add('onlyfortp', 'inithide');
 
 let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
 butFrozeChat.innerHTML = "❄ Auto Respond"
-butFrozeChat.classList.add('onlyfortp');
+butFrozeChat.classList.add('onlyfortp', 'inithide');
 
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
 butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
 butLessonInfo.innerHTML = "🎓 Lesson Info"
+butLessonInfo.classList.add('inithide');
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
 servDsk.classList.add('onlyfortp');
+servDsk.classList.add('inithide');
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.classList.add('onlyfortp');
+butopensugestform.classList.add('onlyfortp','inithide');
 
 let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
-butrefuse.classList.add('onlyfortp');
+butrefuse.classList.add('onlyfortp','inithide');
 
 let butsmartroom = document.createElement('div')
 butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
-butsmartroom.classList.add('onlyfortp');
+butsmartroom.classList.add('onlyfortp','inithide');
 
 let butThemes = document.createElement('div')
 butThemes.id = "themes"
@@ -983,7 +990,7 @@ butThemes.classList.add('ant-btn','onlyfortp')
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
-butJiraOpenForm.classList.add('onlyfortp');
+butJiraOpenForm.classList.add('onlyfortp', 'inithide');
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -6182,6 +6189,16 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('butLessonInfo'))
             menubar.append(document.getElementById('butChatHistory'))
             menubar.append(document.getElementById('butFrozeChat'))
+			servDsk.classList.remove('inithide')
+			JiraOpenForm.classList.remove('inithide')
+			butopensugestform.classList.remove('inithide')
+			butrefuse.classList.remove('inithide')
+			butsmartroom.classList.remove('inithide')
+			butLessonInfo.classList.remove('inithide')
+			butChatHistory.classList.remove('inithide')
+			butFrozeChat.classList.remove('inithide')
+			butMarks.classList.remove('inithide')
+			buttonOpenForm.classList.remove('inithide')
         }, 8000)
 
         setInterval(startTimer, 1000)
