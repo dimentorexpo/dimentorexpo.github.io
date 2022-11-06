@@ -932,6 +932,7 @@ taskBut.classList.add('ant-btn','onlyfortp');
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
+butServ.style = "margin-right:15px; cursor:pointer;"
 butServ.classList.add('onlyfortp');
 
 let butMarks = document.createElement('div')
