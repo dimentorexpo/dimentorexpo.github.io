@@ -270,7 +270,6 @@ function mystyles() {
 		#servDsk {
 			font-size: 14px;
 			border: 1px solid black;
-			padding-bottom: 60px;
 			height: 40px;
 			min-width: 100px;
 		}
