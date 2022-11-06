@@ -249,6 +249,13 @@ function logginerfortests(polzovatel) {
 
 //end
 
+function addOptionCRM(oListbox, text, value) {  //функция добавления опции в список
+    var oOption = document.createElement("option");
+    oOption.appendChild(document.createTextNode(text));
+    oOption.setAttribute("value", value);
+    oListbox.appendChild(oOption);
+}
+
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
@@ -369,7 +376,7 @@ include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 
 let butopensugestformCRM = document.createElement('div') //suggest common
 butopensugestformCRM.id = "butopensugestformCRM"
-butopensugestformCRM.innerHTML = "📝Предложения"
+butopensugestformCRM.innerHTML = "📝Suggestions"
 
 document.getElementById('idmymenucrm').append(butopensugestformCRM)
 
@@ -418,7 +425,7 @@ include("https://dimentorexpo.github.io/ModulesCRM/OperatorStatuse.js")
 
 let butAlarmclock = document.createElement('div')
 butAlarmclock.id = "btnAlarmclock"
-butAlarmclock.innerHTML = "🔕 Будильник"
+butAlarmclock.innerHTML = "🔕Reminder"
 
 document.getElementById('idmymenucrm').append(butAlarmclock)
 
