@@ -6060,6 +6060,7 @@ function prepTp() { //функция подготовки расширения �
 
 		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
+		// include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
 		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
@@ -6067,7 +6068,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
         include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
         include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
-        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи
+        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи, отключен функционал в JSAF-v3
         include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
