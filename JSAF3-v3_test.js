@@ -268,6 +268,8 @@ function mystyles() {
 		}
 		
 		#servDsk {
+			display:flex;
+			align-items:center;
 			font-size: 14px;
 			border: 1px solid black;
 			height: 40px;
@@ -275,6 +277,8 @@ function mystyles() {
 		}
 		
 		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
+			display:flex;
+			align-items:center;
 			cursor: pointer;
 			font-size: 14px;
 			min-width: 100px;
