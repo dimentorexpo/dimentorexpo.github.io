@@ -275,6 +275,7 @@ function mystyles() {
 			border: 1px solid black;
 			height: 40px;
 			min-width: 100px;
+			padding-left:5px;
 		}
 		
 		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
@@ -287,6 +288,7 @@ function mystyles() {
 			border-left: 1px solid black;
 			border-right: 1px solid black;
 			height: 40px;
+			padding-left:5px;
 		}
 		
 		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
