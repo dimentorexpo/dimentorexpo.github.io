@@ -270,14 +270,15 @@ function mystyles() {
 		#servDsk {
 			font-size: 14px;
 			border: 1px solid black;
-			padding: 6px;
+			padding-bottom: 60px;
 			height: 50px;
+			min-width: 100px;
 		}
 		
 		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
 			cursor: pointer;
 			font-size: 14px;
-			padding: 6px;
+			min-width: 100px;
 			border-bottom: 1px solid black;
 			border-left: 1px solid black;
 			border-right: 1px solid black;
