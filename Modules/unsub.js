@@ -237,6 +237,7 @@ for(let i = 0; i < blocks.length; i++) {
 let buttonOpenForm = document.createElement('div');
 buttonOpenForm.id = 'buttonOpenForm';
 buttonOpenForm.textContent = "📧Unsub";
+buttonOpenForm.classList.add('inithide');
 buttonOpenForm.onclick = function() {
 	document.getElementById('idmymenu').style.display = 'none'
 	if(socketOpened == 0) {
