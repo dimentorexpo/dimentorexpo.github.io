@@ -1158,6 +1158,14 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
+function addOption(oListbox, text, value)  //функция добавления опции в список
+{
+	var oOption = document.createElement("option");
+	oOption.appendChild(document.createTextNode(text));
+	oOption.setAttribute("value", value);
+	oListbox.appendChild(oOption);
+}
+
 var flagLangBut = 0
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
@@ -1172,13 +1180,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             let objSelIssue = document.getElementById("userissue");
             let objSelSolution = document.getElementById("howissuesolverd");
 
-            function addOption(oListbox, text, value)  //функция добавления опции в список
-            {
-                var oOption = document.createElement("option");
-                oOption.appendChild(document.createTextNode(text));
-                oOption.setAttribute("value", value);
-                oListbox.appendChild(oOption);
-            }
+
 
             let issuefromdoc;
             let issuecontainer;
@@ -1888,15 +1890,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             let objSoundList = document.getElementById('soundlistaddr')
             let sondsfromdoc;
             let soundsconteiner;
-
-                function addOption(oListbox, text, value)  //функция добавления опции в список
-                {
-                    var oOption = document.createElement("option");
-                    oOption.appendChild(document.createTextNode(text));
-                    oOption.setAttribute("value", value);
-
-                    oListbox.appendChild(oOption);
-                }
 
             async function getsoundsfromdoc() { // загрузка списка звуков из файла
                 sondsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
