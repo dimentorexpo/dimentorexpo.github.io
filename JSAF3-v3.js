@@ -298,6 +298,7 @@ function mystyles() {
 			font-size:16px;
 			box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+			height:45px;
 		}
 	
 		.hyperlnk {
