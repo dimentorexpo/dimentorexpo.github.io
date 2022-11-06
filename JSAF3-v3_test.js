@@ -6217,26 +6217,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
 }
 firstLoadPage()
 
-if (localStorage.getItem('hesoyam') == 1) {
-    let newDiv = document.createElement('div')
-    newDiv.style.margin = '5px'
-    let button = document.createElement('button')
-    button.textContent = 'Закрыть чат'
-    button.id = 'easyCloseChat'
-    button.onclick = function () {
-        var chatId = document.location.pathname.split('/')[3]
-        fetch("https://skyeng.autofaq.ai/api/conversation/status", {
-            "headers": {
-                "content-type": "application/json",
-            },
-            "body": "{\"command\":\"DO_SET_CONVERSATION_STATUS\",\"conversationId\":\"" + chatId + "\",\"status\":\"ClosedByOperator\",\"autofaqServiceId\":120181,\"assignToOperatorId\":\"" + operatorId + "\"}",
-            "method": "POST",
-        });
-    }
-    newDiv.append(button)
-    document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
-}
-
 let lginfo;
 let tokenlog;
 
@@ -6303,32 +6283,6 @@ btntid.onclick = function () { // копирует в буфер логинне�
         setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
-}
-
-function hesoyam() {
-    if (localStorage.getItem('hesoyam') == 1) {
-        localStorage.setItem('hesoyam', '0')
-        document.getElementById('easyCloseChat').remove()
-        return
-    }
-    localStorage.setItem('hesoyam', '1')
-    let newDiv = document.createElement('div')
-    newDiv.style.margin = '5px'
-    let button = document.createElement('button')
-    button.textContent = 'Закрыть чат'
-    button.id = 'easyCloseChat'
-    button.onclick = function () {
-        chatId = document.location.pathname.split('/')[3]
-        fetch("https://skyeng.autofaq.ai/api/conversation/status", {
-            "headers": {
-                "content-type": "application/json",
-            },
-            "body": "{\"command\":\"DO_SET_CONVERSATION_STATUS\",\"conversationId\":\"" + chatId + "\",\"status\":\"ClosedByOperator\",\"autofaqServiceId\":120181,\"assignToOperatorId\":\"" + operatorId + "\"}",
-            "method": "POST",
-        });
-    }
-    newDiv.append(button)
-    document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
 }
 
 function ShowMustGoOn() {
