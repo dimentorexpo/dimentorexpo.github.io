@@ -273,7 +273,7 @@ function mystyles() {
 			align-items:center;
 			font-size: 14px;
 			border: 1px solid black;
-			height: 40px;
+			height: 30px;
 			min-width: 100px;
 			padding-left:5px;
 		}
@@ -287,7 +287,7 @@ function mystyles() {
 			border-bottom: 1px solid black;
 			border-left: 1px solid black;
 			border-right: 1px solid black;
-			height: 40px;
+			height: 30px;
 			padding-left:5px;
 		}
 		
