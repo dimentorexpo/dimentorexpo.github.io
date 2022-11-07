@@ -1158,6 +1158,14 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
+function addOption(oListbox, text, value)  //функция добавления опции в список
+{
+	var oOption = document.createElement("option");
+	oOption.appendChild(document.createTextNode(text));
+	oOption.setAttribute("value", value);
+	oListbox.appendChild(oOption);
+}
+
 var flagLangBut = 0
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
@@ -1172,13 +1180,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             let objSelIssue = document.getElementById("userissue");
             let objSelSolution = document.getElementById("howissuesolverd");
 
-            function addOption(oListbox, text, value)  //функция добавления опции в список
-            {
-                var oOption = document.createElement("option");
-                oOption.appendChild(document.createTextNode(text));
-                oOption.setAttribute("value", value);
-                oListbox.appendChild(oOption);
-            }
+
 
             let issuefromdoc;
             let issuecontainer;
@@ -1888,15 +1890,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             let objSoundList = document.getElementById('soundlistaddr')
             let sondsfromdoc;
             let soundsconteiner;
-
-                function addOption(oListbox, text, value)  //функция добавления опции в список
-                {
-                    var oOption = document.createElement("option");
-                    oOption.appendChild(document.createTextNode(text));
-                    oOption.setAttribute("value", value);
-
-                    oListbox.appendChild(oOption);
-                }
 
             async function getsoundsfromdoc() { // загрузка списка звуков из файла
                 sondsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
@@ -5882,7 +5875,7 @@ async function checkCSAT() {             // функция проверки CSAT
                     count[5] = 0;
 
                 if (flagvbad == "" && flagbad == "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5890,7 +5883,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad == "" && flagbad == "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5898,7 +5891,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad == "" && flagbad != "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5906,7 +5899,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad != "" && flagbad == "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5914,7 +5907,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad != "" && flagbad != "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5922,7 +5915,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad != "" && flagbad == "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5930,7 +5923,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad == "" && flagbad != "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5938,7 +5931,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad != "" && flagbad != "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -6067,22 +6060,22 @@ function prepTp() { //функция подготовки расширения �
 
 		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
+		// include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
+		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
         include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
         include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
         include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
-        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи
+        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи, отключен функционал в JSAF-v3
         include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
 		include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
-		include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика
 		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
 		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
-		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2500)
