@@ -402,7 +402,7 @@ async function getversionsapp() { // получаем из файла списо
 	await fetch(versionsfromdoc).then(r => r.json()).then(r => versionsdata = r)
 	versionscontainer = versionsdata.result;
 	console.log(versionsdata.result) //получим список версий
-	document.getElementById('curVeriOS').textContent  = versionscontainer[1][0] + ':' + versionscontainer[1][1]
-	document.getElementById('curVerAndroid').innerText = versionscontainer[0][0] + ':' + versionscontainer[0][1]
+	document.getElementById('curVeriOS').textContent  = versionscontainer[1][0] + ' : ' + versionscontainer[1][1]
+	document.getElementById('curVerAndroid').innerText = versionscontainer[0][0] + ' : ' + versionscontainer[0][1]
 
 }
