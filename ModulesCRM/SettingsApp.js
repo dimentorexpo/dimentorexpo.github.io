@@ -67,7 +67,7 @@ wintSettingsApp.innerHTML = win_SettingsApp;
 
 let objSoundListCRM = document.getElementById('soundlistaddrCRM')
 if (objSoundListCRM.length.length < 3) { // если не загружен спискок звуков - загружаем
-    getsoundsfromdocCRM()
+    setTimeout(getsoundsfromdocCRM,3000)
 }
     
 var listenerSettingsApp = function (e, a) { // сохранение позиции окна настроек
