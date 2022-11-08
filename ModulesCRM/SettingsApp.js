@@ -29,7 +29,7 @@ var win_SettingsApp =  // описание элементов главного �
                     <input id="test_teachCRM" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
                     <button class="btnCRM" id="settestteachCRM" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
                 </div>
-				<button class="btnCRM" id="savesettingstofileCRM" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
+				<button class="btnCRM" id="savesettingstofileCRM" onclick="getLocalstorageToFileCRM('settings-af')" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
 				<input type="file" id="fileinputCRM" title="Загружает все настройки в localstorage из ранее сохраненного файла настроек в формте .json" style="display:none;">
 				<label style="color: #e5ece6; background: #768d87; padding: 5px; border-radius: 5px; border: 1px solid #566963;" for="fileinputCRM">⤵ Загрузить настройки</label>
 			</div>
@@ -150,13 +150,6 @@ async function getsoundsfromdocCRM() { // загрузка списка звук
         document.getElementById('sound_adrCRM').value = localStorage.getItem('sound_strCRM')
     }
 }
-
-function addOptionCRM(oListboxCRM, text, value) {  //функция добавления опции в список
-    var oOptionCRM = document.createElement("option");
-    oOptionCRM.appendChild(document.createTextNode(text));
-    oOptionCRM.setAttribute("value", value);
-    oListboxCRM.appendChild(oOptionCRM);
-}
     
 function changesoundaddrCRM() { // сохранение измнений адресса звука    
     if (objSoundListCRM.length > 1) {
@@ -206,4 +199,79 @@ document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function (
 
 document.getElementById('sound_testCRM').onclick = function () { // кнопка тест звука
     audioCRM.play()
+}
+
+document.getElementById('setteststdCRM').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
+    if (document.getElementById('test_stdCRM').value != '') {
+        localStorage.setItem('test_studCRM', document.getElementById('test_stdCRM').value);
+    } else console.log("Ведите ID тестового ученика")
+}
+
+document.getElementById('settestteachCRM').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
+    if (document.getElementById('test_teachCRM').value != '') {
+        localStorage.setItem('test_teachCRM', document.getElementById('test_teachCRM').value);
+    } else console.log("Ведите ID тестового преподавателя")
+}
+
+function getLocalstorageToFileCRM(fileName) { //функция сохранения содержимого localstorage в файл на компьютере
+
+    /* dump local storage to string */
+
+    var a = {};
+    for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        var v = localStorage.getItem(k);
+        a[k] = v;
+    }
+
+    /* save as blob */
+
+    var textToSave = JSON.stringify(a)
+    var textToSaveAsBlob = new Blob([textToSave], {
+        type: "application/json"
+    });
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+
+    /* download without button hack */
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileName;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = function () {
+        document.body.removeChild(event.target);
+    };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+
+}
+
+document.getElementById('fileinputCRM').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
+    let fileinputCRM = document.getElementById('fileinputCRM');
+    let jsonparsed;
+
+    fileinputCRM.addEventListener('change', function (e) {
+        let file = fileinputCRM.files[0];
+        let textType = /.json/;
+
+        if (file.type.match(textType)) {
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                console.log(reader.result)
+                jsonparsed = JSON.parse(reader.result)
+                console.log(jsonparsed)
+                console.log(Object.keys(jsonparsed).length)
+                for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
+                    localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
+                }
+                alert("Настройки расширения в localstorage загружены успешно!")
+            }
+
+            reader.readAsText(file);
+        } else {
+            console.log("File not supported!")
+        }
+    });
 }
