@@ -157,7 +157,6 @@ function addOptionCRM(oListboxCRM, text, value) {  //функция добавл
     oOptionCRM.setAttribute("value", value);
     oListboxCRM.appendChild(oOptionCRM);
 }
-
     
 function changesoundaddrCRM() { // сохранение измнений адресса звука    
     if (objSoundListCRM.length > 1) {
