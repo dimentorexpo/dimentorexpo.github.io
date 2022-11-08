@@ -37,7 +37,6 @@ var win_SettingsApp =  // описание элементов главного �
     </div>`;
 
 let audioCRM
-let objSoundListCRM = document.getElementById('soundlistaddrCRM')
 let sondsfromdocCRM;
 let soundsconteinerCRM;
 
@@ -65,6 +64,8 @@ wintSettingsApp.style = 'min-height: 25px; min-width: 65px; background: #464451;
 wintSettingsApp.style.display = 'none';
 wintSettingsApp.setAttribute('id', 'winSettingsApp');
 wintSettingsApp.innerHTML = win_SettingsApp;
+
+let objSoundListCRM = document.getElementById('soundlistaddrCRM')
     
 var listenerSettingsApp = function (e, a) { // сохранение позиции окна настроек
     wintSettingsApp.style.left = Number(e.clientX - myX5) + "px";
@@ -99,7 +100,7 @@ var listenerSettingsApp = function (e, a) { // сохранение позици
             document.getElementById('winSettingsApp').style.display = ''
             document.getElementById('idmymenucrm').style.display = 'none'
 
-            if (document.getElementById('soundlistaddrCRM').length.length < 3) { // если не загружен спискок звуков - загружаем
+            if (objSoundListCRM.length.length < 3) { // если не загружен спискок звуков - загружаем
                 getsoundsfromdocCRM()
             }
 
