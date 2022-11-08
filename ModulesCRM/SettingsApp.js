@@ -3,7 +3,7 @@ var win_SettingsApp =  // описание элементов главного �
         <div style="margin: 5px; width: 380px;" id="SettingsApp_1str">
             <button class="btnCRM" title="скрывает меню" id="hideSettingsApp" style="width:50px; background: #228B22;">hide</button>
         </div>
-		<div style="margin: 5px; width: 350px">settestteach
+		<div style="margin: 5px; width: 350px">
                 <select style="height:28px; width:210px; text-align:center" id="soundlistaddrCRM" onchange="changesoundaddrCRM()">
                     <option selected="" disabled="">Звук нового сообщения</option>
                     <option value="othersound">Выбрать свой звук</option>
@@ -37,7 +37,7 @@ var win_SettingsApp =  // описание элементов главного �
     </div>`;
 
 let audioCRM
-let objSoundList = document.getElementById('soundlistaddrCRM')
+let objSoundListCRM = document.getElementById('soundlistaddrCRM')
 let sondsfromdocCRM;
 let soundsconteinerCRM;
 
@@ -131,16 +131,16 @@ async function getsoundsfromdocCRM() { // загрузка списка звук
     console.log(soudsdata.result) //получим список звуков
     for (j = 0; j < soundsconteinerCRM.length; j++) {
         if (soundsconteinerCRM[j][0] != '') {
-            addOptionCRM(objSoundList, `${soundsconteinerCRM[j][0]}`, `${soundsconteinerCRM[j][1]}`)
+            addOptionCRM(objSoundListCRM, `${soundsconteinerCRM[j][0]}`, `${soundsconteinerCRM[j][1]}`)
         }
     }
-    for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
-        if (objSoundList.children[i].value == localStorage.getItem('sound_strCRM')) {
-            objSoundList.children[i].selected = true;
+    for (let i = 0; i < objSoundListCRM.length; i++) { // проверяем какой звук выбран
+        if (objSoundListCRM.children[i].value == localStorage.getItem('sound_strCRM')) {
+            objSoundListCRM.children[i].selected = true;
         }
     }
-    if (objSoundList.children[0].selected) {
-        objSoundList.children[1].selected = true
+    if (objSoundListCRM.children[0].selected) {
+        objSoundListCRM.children[1].selected = true
         document.getElementById('sound_adrCRM').style.display = ''
         document.getElementById('sound_saveCRM').style.display = ''
         document.getElementById('sound_adrCRM').value = localStorage.getItem('sound_strCRM')
@@ -148,18 +148,18 @@ async function getsoundsfromdocCRM() { // загрузка списка звук
 }
     
 function changesoundaddrCRM() { // сохранение измнений адресса звука    
-    if (objSoundList.length > 1) {
-        for (let i = 1; i < objSoundList.length; i++) {
-            if (objSoundList[i].selected == true) {
-                if (objSoundList[i].value == "othersound") {
+    if (objSoundListCRM.length > 1) {
+        for (let i = 1; i < objSoundListCRM.length; i++) {
+            if (objSoundListCRM[i].selected == true) {
+                if (objSoundListCRM[i].value == "othersound") {
                     document.getElementById('sound_adrCRM').style.display = ''
                     document.getElementById('sound_saveCRM').style.display = ''
                 } else {
                     document.getElementById('sound_adrCRM').style.display = 'none'
                     document.getElementById('sound_saveCRM').style.display = 'none'
                     document.getElementById('sound_adrCRM').value = ""
-                    console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
-                    localStorage.setItem('sound_strCRM', objSoundList[i].value)
+                    console.log(objSoundListCRM[i].innerText + ' ' + objSoundListCRM[i].value)
+                    localStorage.setItem('sound_strCRM', objSoundListCRM[i].value)
                     audioCRM = new Audio(localStorage.getItem('sound_strCRM'))
                 }
             }
@@ -171,7 +171,7 @@ function changesoundaddrCRM() { // сохранение измнений адр�
         audioCRM.volume = localStorage.getItem('audioCRMvol');
     } else localStorage.setItem('audioCRMvol', 1);
 
-    if (objSoundList.length < 3) { // если не загружен спискок звуков - загружаем
+    if (objSoundListCRM.length < 3) { // если не загружен спискок звуков - загружаем
         getsoundsfromdocCRM()
     }
 
