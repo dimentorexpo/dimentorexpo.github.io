@@ -99,6 +99,10 @@ var listenerSettingsApp = function (e, a) { // сохранение позици
             document.getElementById('winSettingsApp').style.display = ''
             document.getElementById('idmymenucrm').style.display = 'none'
 
+            if (objSoundListCRM.length < 3) { // если не загружен спискок звуков - загружаем
+                getsoundsfromdocCRM()
+            }
+
             if (localStorage.getItem('test_studCRM') != "" || localStorage.getItem('test_studCRM') != null) { // если в localStorage записан тестовый У отобразить
                 document.getElementById('test_stdCRM').value = localStorage.getItem('test_studCRM');
             } else document.getElementById('test_stdCRM').value = "";
@@ -170,10 +174,6 @@ function changesoundaddrCRM() { // сохранение измнений адр�
     if (localStorage.getItem('audioCRMvol') != null) { // задаем громкость звука 100 (если не задана)
         audioCRM.volume = localStorage.getItem('audioCRMvol');
     } else localStorage.setItem('audioCRMvol', 1);
-
-    if (objSoundListCRM.length < 3) { // если не загружен спискок звуков - загружаем
-        getsoundsfromdocCRM()
-    }
 
     document.getElementById('setsoundplayintervalCRM').onclick = function () { // сохранение изменения интервала воспроизведения звука
         if (document.getElementById('soundplayintervalCRM').value != '') {
