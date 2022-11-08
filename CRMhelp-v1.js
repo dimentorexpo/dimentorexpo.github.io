@@ -437,7 +437,7 @@ butSettingsApp.innerHTML = "⚙ Settings"
 
 document.getElementById('idmymenucrm').append(butSettingsApp)
 
-//include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
+include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
 
 
 let teststudent = document.createElement('span')
