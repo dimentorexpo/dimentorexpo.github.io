@@ -409,6 +409,10 @@ function mystyles() {
 	.inithide {
 		display:none !important;
 	}
+	#buttonGetStat:hover {
+		background:DeepSkyBlue;
+	}
+	
 	`
     mstl.innerHTML = style;
 }
