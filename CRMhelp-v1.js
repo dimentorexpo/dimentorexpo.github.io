@@ -249,13 +249,6 @@ function logginerfortests(polzovatel) {
 
 //end
 
-function addOptionCRM(oListbox, text, value) {  //функция добавления опции в список
-    var oOption = document.createElement("option");
-    oOption.appendChild(document.createTextNode(text));
-    oOption.setAttribute("value", value);
-    oListbox.appendChild(oOption);
-}
-
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
@@ -437,7 +430,7 @@ butSettingsApp.innerHTML = "⚙ Settings"
 
 document.getElementById('idmymenucrm').append(butSettingsApp)
 
-//include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
+include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
 
 
 let teststudent = document.createElement('span')
