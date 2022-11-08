@@ -77,56 +77,56 @@ var listenerSettingsApp = function (e, a) { // сохранение позици
     localStorage.setItem('winLeftSettingsApp', String(Number(e.clientX - myX5)));
 };
     
-    wintSettingsApp.onmousedown = function (a) { // изменение позиции окна настроек
-        if (checkelementtype(a)) {
-            window.myX5 = a.layerX;
-            window.myY5 = a.layerY;
-            document.addEventListener('mousemove', listenerSettingsApp);
-        }
+wintSettingsApp.onmousedown = function (a) { // изменение позиции окна настроек
+    if (checkelementtype(a)) {
+        window.myX5 = a.layerX;
+        window.myY5 = a.layerY;
+        document.addEventListener('mousemove', listenerSettingsApp);
     }
-    wintSettingsApp.onmouseup = function () { document.removeEventListener('mousemove', listenerSettingsApp); } // прекращение изменения позиции окна настроек
+}
+wintSettingsApp.onmouseup = function () { document.removeEventListener('mousemove', listenerSettingsApp); } // прекращение изменения позиции окна настроек
     
-    document.getElementById('winSettingsApp').ondblclick = function (a) { // скрытие окна настроек по двойному клику
-        if (checkelementtype(a)) { document.getElementById('winSettingsApp').style.display = 'none'; }
-    }
+document.getElementById('winSettingsApp').ondblclick = function (a) { // скрытие окна настроек по двойному клику
+    if (checkelementtype(a)) { document.getElementById('winSettingsApp').style.display = 'none'; }
+}
     
-    document.getElementById('hideSettingsApp').onclick = function () { // скрытие окна настроек
-        if (document.getElementById('winSettingsApp').style.display == '')
-            document.getElementById('winSettingsApp').style.display = 'none'
-    }
+document.getElementById('hideSettingsApp').onclick = function () { // скрытие окна настроек
+    if (document.getElementById('winSettingsApp').style.display == '')
+        document.getElementById('winSettingsApp').style.display = 'none'
+}
     
-    document.getElementById('btnSettingsApp').onclick = function () { // открытие окна настроек
-        if (document.getElementById('winSettingsApp').style.display == '') {
-            document.getElementById('winSettingsApp').style.display = 'none'
-            document.getElementById('idmymenucrm').style.display = 'none'
-        } else {
-            document.getElementById('winSettingsApp').style.display = ''
-            document.getElementById('idmymenucrm').style.display = 'none'
+document.getElementById('btnSettingsApp').onclick = function () { // открытие окна настроек
+    if (document.getElementById('winSettingsApp').style.display == '') {
+        document.getElementById('winSettingsApp').style.display = 'none'
+        document.getElementById('idmymenucrm').style.display = 'none'
+    } else {
+        document.getElementById('winSettingsApp').style.display = ''
+        document.getElementById('idmymenucrm').style.display = 'none'
 
-            if (localStorage.getItem('test_studCRM') != "" || localStorage.getItem('test_studCRM') != null) { // если в localStorage записан тестовый У отобразить
-                document.getElementById('test_stdCRM').value = localStorage.getItem('test_studCRM');
-            } else document.getElementById('test_stdCRM').value = "";
+        if (localStorage.getItem('test_studCRM') != "" || localStorage.getItem('test_studCRM') != null) { // если в localStorage записан тестовый У отобразить
+            document.getElementById('test_stdCRM').value = localStorage.getItem('test_studCRM');
+        } else document.getElementById('test_stdCRM').value = "";
         
-            if (localStorage.getItem('test_teachCRM') != "" || localStorage.getItem('test_teachCRM') != null) { // если в localStorage записан тестовый У отобразить
-                document.getElementById('test_teachCRM').value = localStorage.getItem('test_teachCRM');
-            } else document.getElementById('test_teachCRM').value = "";   
+        if (localStorage.getItem('test_teachCRM') != "" || localStorage.getItem('test_teachCRM') != null) { // если в localStorage записан тестовый У отобразить
+            document.getElementById('test_teachCRM').value = localStorage.getItem('test_teachCRM');
+        } else document.getElementById('test_teachCRM').value = "";   
 
-            if (localStorage.getItem('splinterCRM') != null || localStorage.getItem('splinterCRM') != "") { //Загружаем интервал между воспроизведением звука
-                document.getElementById('soundplayintervalCRM').value = localStorage.getItem('splinterCRM');
-            } else {
-                localStorage.setItem('splinterCRM', 3);
-                document.getElementById('soundplayintervalCRM').value = localStorage.getItem('splinterCRM');
-            }
-
-            let rangeCRM = document.getElementById('rangeCRM'); // Загружаем громкость
-            rangeCRM.value = localStorage.getItem('audioCRMvol');
-
-            if (localStorage.getItem('audioCRM') == '0') // загружаем ВКЛ/ВЫКЛ звук
-                document.getElementById('audioCRMswitcher').checked = false;
-            else
-                document.getElementById('audioCRMswitcher').checked = true;
+        if (localStorage.getItem('splinterCRM') != null || localStorage.getItem('splinterCRM') != "") { //Загружаем интервал между воспроизведением звука
+            document.getElementById('soundplayintervalCRM').value = localStorage.getItem('splinterCRM');
+        } else {
+            localStorage.setItem('splinterCRM', 3);
+            document.getElementById('soundplayintervalCRM').value = localStorage.getItem('splinterCRM');
         }
+
+        let rangeCRM = document.getElementById('rangeCRM'); // Загружаем громкость
+        rangeCRM.value = localStorage.getItem('audioCRMvol');
+
+        if (localStorage.getItem('audioCRM') == '0') // загружаем ВКЛ/ВЫКЛ звук
+            document.getElementById('audioCRMswitcher').checked = false;
+        else
+            document.getElementById('audioCRMswitcher').checked = true;
     }
+}
 
 async function getsoundsfromdocCRM() { // загрузка списка звуков из файла
     sondsfromdocCRM = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
@@ -178,36 +178,32 @@ function changesoundaddrCRM() { // сохранение измнений адр�
     }
 }
 
-    if (localStorage.getItem('audioCRMvol') != null) { // задаем громкость звука 100 (если не задана)
-        audioCRM.volume = localStorage.getItem('audioCRMvol');
-    } else localStorage.setItem('audioCRMvol', 1);
+document.getElementById('setsoundplayintervalCRM').onclick = function () { // сохранение изменения интервала воспроизведения звука
+    if (document.getElementById('soundplayintervalCRM').value != '') {
+        localStorage.setItem('splinterCRM', document.getElementById('soundplayintervalCRM').value);
+    } else console.log("Базовое значение равно 3 секунды")
+}
 
-    document.getElementById('setsoundplayintervalCRM').onclick = function () { // сохранение изменения интервала воспроизведения звука
-        if (document.getElementById('soundplayintervalCRM').value != '') {
-            localStorage.setItem('splinterCRM', document.getElementById('soundplayintervalCRM').value);
-        } else console.log("Базовое значение равно 3 секунды")
-    }
+rangeCRM.onchange = function () { // сохранение изменения громкости
+    if (localStorage.getItem('audioCRMvol') != null) {
+        audioCRM.volume = this.value;
+        localStorage.setItem('audioCRMvol', audioCRM.volume);
+    } else localStorage.setItem('audioCRMvol', this.value);
+}
 
-    rangeCRM.onchange = function () { // сохранение изменения громкости
-        if (localStorage.getItem('audioCRMvol') != null) {
-            audioCRM.volume = this.value;
-            localStorage.setItem('audioCRMvol', audioCRM.volume);
-        } else localStorage.setItem('audioCRMvol', this.value);
-    }
+document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
 
-    document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
-
-        if (localStorage.getItem('audioCRM') != null) {
-            if (localStorage.getItem('audioCRM') == '0') {
-                document.getElementById('audioCRMswitcher').checked = false;
-                localStorage.setItem('audioCRM', '1');
-            } else if (localStorage.getItem('audioCRM') == '1') {
-                document.getElementById('audioCRMswitcher').checked = true;
-                localStorage.setItem('audioCRM', '0');
-            }
+    if (localStorage.getItem('audioCRM') != null) {
+        if (localStorage.getItem('audioCRM') == '0') {
+            document.getElementById('audioCRMswitcher').checked = false;
+            localStorage.setItem('audioCRM', '1');
+        } else if (localStorage.getItem('audioCRM') == '1') {
+            document.getElementById('audioCRMswitcher').checked = true;
+            localStorage.setItem('audioCRM', '0');
         }
     }
+}
 
-    document.getElementById('sound_testCRM').onclick = function () { // кнопка тест звука
-        audioCRM.play()
-    }
+document.getElementById('sound_testCRM').onclick = function () { // кнопка тест звука
+    audioCRM.play()
+}
