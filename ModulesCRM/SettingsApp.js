@@ -10,7 +10,7 @@ var win_SettingsApp =  // описание элементов главного �
                     </select>
 				<button class="btnCRM" title="Проверка звука при добавленной ссылке" id="sound_test">▶</button>
 				<label title="Включение и отключение звука входящих запросов" class="checkbox-audio">
-					<input id="audioswitcher" type="checkbox" checked="">
+					<input id="audioCRMswitcher" type="checkbox" checked="">
 						<span class="checkbox-audio-switch"></span>
 				</label>
                 <input id="sound_adr" placeholder="Введи адрес звука" autocomplete="off" type="text" style="display: none; text-align: center; width: 210px; color: black;">
@@ -38,23 +38,23 @@ var win_SettingsApp =  // описание элементов главного �
 		</div>
     </div>`;
 
-let audio
+let audioCRM
 let objSoundList = document.getElementById('soundlistaddr')
 let sondsfromdoc;
 let soundsconteiner;
 
 if (localStorage.getItem('sound_str') !== null && localStorage.getItem('sound_str') !== "")
-    audio = new Audio(localStorage.getItem('sound_str'));
+    audioCRM = new Audio(localStorage.getItem('sound_str'));
 else
-    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
+    audioCRM = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
 if (localStorage.getItem('splinter') == null) { //Задаем интервал воспроизведения если не задан
     localStorage.setItem('splinter', 3);
 }
 
-if (localStorage.getItem('audiovol') != null) { //Задаем громкость если не задана
-    audio.volume = localStorage.getItem('audiovol');
-} else localStorage.setItem('audiovol', 1);
+if (localStorage.getItem('audioCRMvol') != null) { //Задаем громкость если не задана
+    audioCRM.volume = localStorage.getItem('audioCRMvol');
+} else localStorage.setItem('audioCRMvol', 1);
 
 if (localStorage.getItem('winTopSettingsApp') == null) { // началоное положение окна настроек (если не задано ранее)
     localStorage.setItem('winTopSettingsApp', '120');
@@ -117,12 +117,12 @@ var listenerSettingsApp = function (e, a) { // сохранение позици
             }
 
             let range = document.getElementById('range'); // Загружаем громкость
-            range.value = localStorage.getItem('audiovol');
+            range.value = localStorage.getItem('audioCRMvol');
 
-            if (localStorage.getItem('audio') == '0') // загружаем ВКЛ/ВЫКЛ звук
-                document.getElementById('audioswitcher').checked = false;
+            if (localStorage.getItem('audioCRM') == '0') // загружаем ВКЛ/ВЫКЛ звук
+                document.getElementById('audioCRMswitcher').checked = false;
             else
-                document.getElementById('audioswitcher').checked = true;
+                document.getElementById('audioCRMswitcher').checked = true;
         }
     }
 
@@ -162,16 +162,16 @@ function changesoundaddr() { // сохранение измнений адрес
                     document.getElementById('sound_adr').value = ""
                     console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
                     localStorage.setItem('sound_str', objSoundList[i].value)
-                    audio = new Audio(localStorage.getItem('sound_str'))
+                    audioCRM = new Audio(localStorage.getItem('sound_str'))
                 }
             }
         }
     }
 }
 
-    if (localStorage.getItem('audiovol') != null) { // задаем громкость звука 100 (если не задана)
-        audio.volume = localStorage.getItem('audiovol');
-    } else localStorage.setItem('audiovol', 1);
+    if (localStorage.getItem('audioCRMvol') != null) { // задаем громкость звука 100 (если не задана)
+        audioCRM.volume = localStorage.getItem('audioCRMvol');
+    } else localStorage.setItem('audioCRMvol', 1);
 
     if (objSoundList.length < 3) { // если не загружен спискок звуков - загружаем
         getsoundsfromdoc()
@@ -184,25 +184,25 @@ function changesoundaddr() { // сохранение измнений адрес
     }
 
     range.onchange = function () { // сохранение изменения громкости
-        if (localStorage.getItem('audiovol') != null) {
-            audio.volume = this.value;
-            localStorage.setItem('audiovol', audio.volume);
-        } else localStorage.setItem('audiovol', this.value);
+        if (localStorage.getItem('audioCRMvol') != null) {
+            audioCRM.volume = this.value;
+            localStorage.setItem('audioCRMvol', audioCRM.volume);
+        } else localStorage.setItem('audioCRMvol', this.value);
     }
 
     document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
 
-        if (localStorage.getItem('audio') != null) {
-            if (localStorage.getItem('audio') == '0') {
-                document.getElementById('audioswitcher').checked = false;
-                localStorage.setItem('audio', '1');
-            } else if (localStorage.getItem('audio') == '1') {
-                document.getElementById('audioswitcher').checked = true;
-                localStorage.setItem('audio', '0');
+        if (localStorage.getItem('audioCRM') != null) {
+            if (localStorage.getItem('audioCRM') == '0') {
+                document.getElementById('audioCRMswitcher').checked = false;
+                localStorage.setItem('audioCRM', '1');
+            } else if (localStorage.getItem('audioCRM') == '1') {
+                document.getElementById('audioCRMswitcher').checked = true;
+                localStorage.setItem('audioCRM', '0');
             }
         }
     }
 
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
-        audio.play()
+        audioCRM.play()
     }
