@@ -37,37 +37,43 @@ var win_SettingsApp =  // описание элементов главного �
 			</div>
 		</div>
     </div>`;
-    let audio
-    let objSoundList = document.getElementById('soundlistaddr')
-    let sondsfromdoc;
-    let soundsconteiner;
 
-    if (localStorage.getItem('splinter') == null) { //Задаем интервал воспроизведения если не задан
-        localStorage.setItem('splinter', 3);
-    }
+let audio
+let objSoundList = document.getElementById('soundlistaddr')
+let sondsfromdoc;
+let soundsconteiner;
 
-    if (localStorage.getItem('audiovol') != null) { //Задаем громкость если не задана
-        audio.volume = localStorage.getItem('audiovol');
-    } else localStorage.setItem('audiovol', 1);
+if (localStorage.getItem('sound_str') !== null && localStorage.getItem('sound_str') !== "")
+    audio = new Audio(localStorage.getItem('sound_str'));
+else
+    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
-    if (localStorage.getItem('winTopSettingsApp') == null) { // началоное положение окна настроек (если не задано ранее)
-        localStorage.setItem('winTopSettingsApp', '120');
-        localStorage.setItem('winLeftSettingsApp', '295');
-    }
+if (localStorage.getItem('splinter') == null) { //Задаем интервал воспроизведения если не задан
+    localStorage.setItem('splinter', 3);
+}
+
+if (localStorage.getItem('audiovol') != null) { //Задаем громкость если не задана
+    audio.volume = localStorage.getItem('audiovol');
+} else localStorage.setItem('audiovol', 1);
+
+if (localStorage.getItem('winTopSettingsApp') == null) { // началоное положение окна настроек (если не задано ранее)
+    localStorage.setItem('winTopSettingsApp', '120');
+    localStorage.setItem('winLeftSettingsApp', '295');
+}
     
-    let wintSettingsApp = document.createElement('div'); // создание окна настроек
-    document.body.append(wintSettingsApp);
-    wintSettingsApp.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSettingsApp') + 'px; left: ' + localStorage.getItem('winLeftSettingsApp') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-    wintSettingsApp.style.display = 'none';
-    wintSettingsApp.setAttribute('id', 'winSettingsApp');
-    wintSettingsApp.innerHTML = win_SettingsApp;
+let wintSettingsApp = document.createElement('div'); // создание окна настроек
+document.body.append(wintSettingsApp);
+wintSettingsApp.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSettingsApp') + 'px; left: ' + localStorage.getItem('winLeftSettingsApp') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintSettingsApp.style.display = 'none';
+wintSettingsApp.setAttribute('id', 'winSettingsApp');
+wintSettingsApp.innerHTML = win_SettingsApp;
     
-    var listenerSettingsApp = function (e, a) { // сохранение позиции окна настроек
-        wintSettingsApp.style.left = Number(e.clientX - myX5) + "px";
-        wintSettingsApp.style.top = Number(e.clientY - myY5) + "px";
-        localStorage.setItem('winTopSettingsApp', String(Number(e.clientY - myY5)));
-        localStorage.setItem('winLeftSettingsApp', String(Number(e.clientX - myX5)));
-    };
+var listenerSettingsApp = function (e, a) { // сохранение позиции окна настроек
+    wintSettingsApp.style.left = Number(e.clientX - myX5) + "px";
+    wintSettingsApp.style.top = Number(e.clientY - myY5) + "px";
+    localStorage.setItem('winTopSettingsApp', String(Number(e.clientY - myY5)));
+    localStorage.setItem('winLeftSettingsApp', String(Number(e.clientX - myX5)));
+};
     
     wintSettingsApp.onmousedown = function (a) { // изменение позиции окна настроек
         if (checkelementtype(a)) {
