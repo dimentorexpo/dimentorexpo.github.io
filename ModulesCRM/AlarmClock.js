@@ -235,7 +235,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
             setchasCRM.value = ""
             setminutaCRM.value = ""
             remindertextCRM.value = ""
-            alert("Будильник удален")
+            alert("Напоминание удалено")
             document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
         }
     }
@@ -249,7 +249,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
             setchasCRM1.value = ""
             setminutaCRM1.value = ""
             remindertextCRM1.value = ""
-            alert("Будильник удален")
+            alert("Напоминание удалено")
             // document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
         }
     }
@@ -263,13 +263,13 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
         localStorage.removeItem('remindertextCRM');
 
         if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
-            document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
         else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
         else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
         else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
-            document.getElementById('btnAlarmclock').textContent = "🔔 Будильник";
+            document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
 
         setchasCRM.value = "";
         setminutaCRM.value = "";
