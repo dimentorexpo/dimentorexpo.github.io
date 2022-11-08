@@ -8,18 +8,18 @@ var win_Alarmclock =  // описание элементов окна будил
 			<label style="margin-left: 5px; color:bisque">Напоминание №1</label>
 			<br>
             <input title="Ввод текста напоминания" id="remindertextCRM"  placeholder="Текст напоминания" autocomplete="off" style="text-align: center; margin-top: 5px; width: 260px; color: black;">
-			<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchasCRM" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-			<input title="Ввод минут от 0 до 59 для будильника" id="setminutaCRM" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-			<button class="btnCRM" title="Запуск будильника при устаноовленном времени" id="setreminderCRM" style="margin-top: 5px">SET🔔</button>
+			<input title="Ввод часа от 0 до 23 для напоминания" "="" id="setchasCRM" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+			<input title="Ввод минут от 0 до 59 для напоминания" id="setminutaCRM" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+			<button class="btnCRM" title="Запуск напоминания при устаноовленном времени" id="setreminderCRM" style="margin-top: 5px">SET🔔</button>
             <button class="btnCRM" id="clock_reminCRM" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
             <br>
             <label style="margin-left: 5px; color:bisque">Напоминание №2</label>
-			<input title="Ввод часа от 0 до 23 для будильника" "="" id="setchasCRM1" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
-			<input title="Ввод минут от 0 до 59 для будильника" id="setminutaCRM1" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
-			<button class="btnCRM" title="Запуск будильника при устаноовленном времени" id="setreminderCRM1" style="margin-top: 5px">SET🔔</button>
-			<br>
-			
-			<button class="btnCRM" id="clock_reminCRM1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:110px; margin-top: 5px">00 : 00 : 00</button>
+            <br>
+			<input title="Ввод текста напоминания" id="remindertextCRM1"  placeholder="Текст напоминания" autocomplete="off" style="text-align: center; margin-top: 5px; width: 260px; color: black;">
+			<input title="Ввод часа от 0 до 23 для напоминания" "="" id="setchasCRM1" placeholder="HH" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="23" style="text-align: center; margin-top: 5px; width: 50px; color: black;"> <span style="color: white; margin-top: 5px;">:</span>
+			<input title="Ввод минут от 0 до 59 для напоминания" id="setminutaCRM1" placeholder="MM" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px;  width: 50px; color: black;">
+			<button class="btnCRM" title="Запуск напоминания при устаноовленном времени" id="setreminderCRM1" style="margin-top: 5px">SET🔔</button>
+            <button class="btnCRM" id="clock_reminCRM1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: lightgreen; margin-top: 5px">00 : 00 : 00</button>
 		</div>
 </div>`;
 
@@ -170,7 +170,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
         localStorage.setItem('chronostamp', chronostamp);
         //		setchasCRM.value = "";
         //		setminutaCRM.value = "";
-        alert("Будильник установлен на " + setchasCRM.value + ":" + setminutaCRM.value + ":" + "00");
+        alert("Напоминание установлено на " + setchasCRM.value + ":" + setminutaCRM.value + ":" + "00");
         CRMabortTimeOut = setTimeout(setRemindCRM, localStorage.getItem('chronostamp'));
     }
 
@@ -186,7 +186,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
         localStorage.setItem('chronostamp1', chronostamp1);
         //		setchasCRM.value = "";
         //		setminutaCRM.value = "";
-        alert("Будильник установлен на " + setchasCRM1.value + ":" + setminutaCRM1.value + ":" + "00");
+        alert("Напоминание установлено на " + setchasCRM1.value + ":" + setminutaCRM1.value + ":" + "00");
         CRMabortTimeOut1 = setTimeout(setRemindCRM1, localStorage.getItem('chronostamp1'));
     }
 
@@ -269,7 +269,6 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
     }
 
     function setRemindCRM1() { //функция  при наступлении времени перевода в статус занят Будильник №2
-
         alert("Скоро перерыв! 😉");
         localStorage.removeItem('chronostamp1');
 
