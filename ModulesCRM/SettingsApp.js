@@ -66,6 +66,9 @@ wintSettingsApp.setAttribute('id', 'winSettingsApp');
 wintSettingsApp.innerHTML = win_SettingsApp;
 
 let objSoundListCRM = document.getElementById('soundlistaddrCRM')
+if (objSoundListCRM.length.length < 3) { // если не загружен спискок звуков - загружаем
+    getsoundsfromdocCRM()
+}
     
 var listenerSettingsApp = function (e, a) { // сохранение позиции окна настроек
     wintSettingsApp.style.left = Number(e.clientX - myX5) + "px";
@@ -99,10 +102,6 @@ var listenerSettingsApp = function (e, a) { // сохранение позици
         } else {
             document.getElementById('winSettingsApp').style.display = ''
             document.getElementById('idmymenucrm').style.display = 'none'
-
-            if (objSoundListCRM.length.length < 3) { // если не загружен спискок звуков - загружаем
-                getsoundsfromdocCRM()
-            }
 
             if (localStorage.getItem('test_studCRM') != "" || localStorage.getItem('test_studCRM') != null) { // если в localStorage записан тестовый У отобразить
                 document.getElementById('test_stdCRM').value = localStorage.getItem('test_studCRM');
