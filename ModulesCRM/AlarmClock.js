@@ -160,6 +160,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
 
     document.getElementById('setreminderCRM').onclick = function () {  // выставляем будильник
         document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
+        localStorage.setItem('remindertextCRM', remindertextCRM.value);
         localStorage.setItem('setchasCRM', setchasCRM.value);
         if (setminutaCRM.value == "00") {
             setminutaCRM.value = 0;
@@ -176,6 +177,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
 
     document.getElementById('setreminderCRM1').onclick = function () {  // выставляем будильник
         document.getElementById('btnAlarmclock').textContent = "🔔Reminder";
+        localStorage.setItem('remindertextCRM1', remindertextCRM1.value);
         localStorage.setItem('setchasCRM1', setchasCRM1.value);
         if (setminutaCRM1.value == "00") {
             setminutaCRM1.value = 0;
@@ -229,8 +231,10 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
             clearTimeout(CRMabortTimeOut)
             localStorage.removeItem('chronostamp')
             localStorage.removeItem('chronostamp2')
+            localStorage.removeItem('remindertextCRM')
             setchasCRM.value = ""
             setminutaCRM.value = ""
+            remindertextCRM.value = ""
             alert("Будильник удален")
             document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
         }
@@ -241,8 +245,10 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
             clearTimeout(CRMabortTimeOut1)
             localStorage.removeItem('chronostamp1')
             localStorage.removeItem('chronostamp22')
+            localStorage.removeItem('remindertextCRM1')
             setchasCRM1.value = ""
             setminutaCRM1.value = ""
+            remindertextCRM1.value = ""
             alert("Будильник удален")
             // document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
         }
@@ -252,8 +258,9 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
     CRMrefreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
     function setRemindCRM() { //функция  при наступлении времени перевода в статус занят Будильник №1
-        alert("Скоро перерыв! 😉");
+        alert(ocalStorage.getItem('remindertextCRM'));
         localStorage.removeItem('chronostamp');
+        localStorage.removeItem('remindertextCRM');
 
         if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
             document.getElementById('btnAlarmclock').textContent = "🔕 Будильник";
@@ -266,11 +273,13 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
 
         setchasCRM.value = "";
         setminutaCRM.value = "";
+        remindertextCRM.value = "";
     }
 
     function setRemindCRM1() { //функция  при наступлении времени перевода в статус занят Будильник №2
-        alert("Скоро перерыв! 😉");
+        alert(ocalStorage.getItem('remindertextCRM1'));
         localStorage.removeItem('chronostamp1');
+        localStorage.removeItem('remindertextCRM1');
 
         if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
             document.getElementById('btnAlarmclock').textContent = "🔕Reminder";
@@ -283,4 +292,5 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
 
         setchasCRM1.value = "";
         setminutaCRM1.value = "";
+        remindertextCRM1.value = ""
     }
