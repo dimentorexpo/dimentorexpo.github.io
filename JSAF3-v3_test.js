@@ -291,7 +291,7 @@ function mystyles() {
 			padding-left:5px;
 		}
 		
-		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat:hover {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
 			font-weight:600;
@@ -408,9 +408,6 @@ function mystyles() {
 	}
 	.inithide {
 		display:none !important;
-	}
-	#buttonGetStat:hover {
-		background:DeepSkyBlue;
 	}
 	
 	`
