@@ -150,6 +150,14 @@ async function getsoundsfromdocCRM() { // загрузка списка звук
         document.getElementById('sound_adrCRM').value = localStorage.getItem('sound_strCRM')
     }
 }
+
+function addOptionCRM(oListboxCRM, text, value) {  //функция добавления опции в список
+    var oOptionCRM = document.createElement("option");
+    oOptionCRM.appendChild(document.createTextNode(text));
+    oOptionCRM.setAttribute("value", value);
+    oListboxCRM.appendChild(oOptionCRM);
+}
+
     
 function changesoundaddrCRM() { // сохранение измнений адресса звука    
     if (objSoundListCRM.length > 1) {

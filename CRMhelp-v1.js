@@ -249,13 +249,6 @@ function logginerfortests(polzovatel) {
 
 //end
 
-function addOptionCRM(oListboxCRM, text, value) {  //функция добавления опции в список
-    var oOptionCRM = document.createElement("option");
-    oOptionCRM.appendChild(document.createTextNode(text));
-    oOptionCRM.setAttribute("value", value);
-    oListboxCRM.appendChild(oOptionCRM);
-}
-
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
