@@ -204,6 +204,13 @@ function mystyles() {
 
 mystyles()
 
+function addOptionCRM(oListboxCRM, text, value) {  //функция добавления опции в список
+    var oOptionCRM = document.createElement("option");
+    oOptionCRM.appendChild(document.createTextNode(text));
+    oOptionCRM.setAttribute("value", value);
+    oListboxCRM.appendChild(oOptionCRM);
+}
+
 // start
 const copyToClipboardCRM = strznach => { // функция копирования в буфер обмена
     const elik = document.createElement('textarea');
