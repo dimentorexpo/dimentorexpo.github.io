@@ -99,7 +99,7 @@ var listenerSettingsApp = function (e, a) { // сохранение позици
             document.getElementById('winSettingsApp').style.display = ''
             document.getElementById('idmymenucrm').style.display = 'none'
 
-            if (objSoundListCRM.length < 3) { // если не загружен спискок звуков - загружаем
+            if (document.getElementById('soundlistaddrCRM').length < 3) { // если не загружен спискок звуков - загружаем
                 getsoundsfromdocCRM()
             }
 
