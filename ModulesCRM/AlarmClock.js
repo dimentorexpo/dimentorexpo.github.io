@@ -258,7 +258,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
     CRMrefreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
     function setRemindCRM() { //функция  при наступлении времени перевода в статус занят Будильник №1
-        alert(ocalStorage.getItem('remindertextCRM'));
+        alert(localStorage.getItem('remindertextCRM'));
         localStorage.removeItem('chronostamp');
         localStorage.removeItem('remindertextCRM');
 
@@ -277,7 +277,7 @@ function CRM_clock_on_javascript_1() { //таймер обычного отсч�
     }
 
     function setRemindCRM1() { //функция  при наступлении времени перевода в статус занят Будильник №2
-        alert(ocalStorage.getItem('remindertextCRM1'));
+        alert(localStorage.getItem('remindertextCRM1'));
         localStorage.removeItem('chronostamp1');
         localStorage.removeItem('remindertextCRM1');
 
