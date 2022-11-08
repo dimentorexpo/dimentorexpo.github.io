@@ -409,6 +409,10 @@ function mystyles() {
 	.inithide {
 		display:none !important;
 	}
+	#buttonGetStat:hover {
+		background:DeepSkyBlue;
+	}
+	
 	`
     mstl.innerHTML = style;
 }
@@ -6013,7 +6017,7 @@ function prepTp() { //функция подготовки расширения �
     let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
     buttonGetStat.id = 'buttonGetStat';
     buttonGetStat.innerHTML = "Статистика";
-    buttonGetStat.style.marginLeft = "15px";
+    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid grey; padding: 8px; cursor:pointer";
     buttonGetStat.onclick = function () {
         if (this.textContent == 'Скрыть стату') {
             if (this.getAttribute('disabled') != null)
