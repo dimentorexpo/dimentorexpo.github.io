@@ -249,11 +249,11 @@ function logginerfortests(polzovatel) {
 
 //end
 
-function addOptionCRM(oListbox, text, value) {  //функция добавления опции в список
-    var oOption = document.createElement("option");
-    oOption.appendChild(document.createTextNode(text));
-    oOption.setAttribute("value", value);
-    oListbox.appendChild(oOption);
+function addOptionCRM(oListboxCRM, text, value) {  //функция добавления опции в список
+    var oOptionCRM = document.createElement("option");
+    oOptionCRM.appendChild(document.createTextNode(text));
+    oOptionCRM.setAttribute("value", value);
+    oListboxCRM.appendChild(oOptionCRM);
 }
 
 function checkelementtype(a) { // проверка на какой элемент нажали
