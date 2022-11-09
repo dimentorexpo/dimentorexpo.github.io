@@ -461,3 +461,10 @@ testteacher.onclick = function () {
 	logginerfortests(localStorage.getItem('test_teachCRM'))
         setTimeout(function () { document.getElementById('testprepod').classList.remove('active') }, 1000)
 }
+
+let lboxstyles = document.createElement('link')
+lboxstyles.rel = 'stylesheet'
+lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+document.querySelector('header').append(lboxstyles)
+include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
+
