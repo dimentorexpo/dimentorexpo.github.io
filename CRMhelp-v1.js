@@ -463,11 +463,19 @@ testteacher.onclick = function () {
         setTimeout(function () { document.getElementById('testprepod').classList.remove('active') }, 1000)
 }
 
-let lboxstyles = document.createElement('link')
-lboxstyles.rel = 'stylesheet'
-lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-document.querySelector('head').append(lboxstyles)
-include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
+ document.addEventListener("DOMContentLoaded", () => {
+    let lboxstyles = document.createElement('link')
+	lboxstyles.rel = 'stylesheet'
+	lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+	document.querySelector('head').append(lboxstyles)
+
+	include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js")
+  });
+
+// setTimeout(function() {
+	// include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js")
+// }, 3000)
+// include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
     function screenshotsCRM() { //просмотр и трансформация скриншотов в активном чате
 	if (document.getElementsByTagName('crm-row').length != 0 || document.getElementsByTagName('crm-row') != null || document.getElementsByTagName('crm-row').length != undefined) {
