@@ -204,7 +204,8 @@ function mystyles() {
 
 mystyles()
 
-include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+include("https://dimentorexpo.github.io/jquery-3.6.0.js");// подключаем модуль обработки JQuery
+// include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
 include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
 // include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 
