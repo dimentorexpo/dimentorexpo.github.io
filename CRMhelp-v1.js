@@ -224,6 +224,7 @@ const copyToClipboardCRM = strznach => { // функция копировани�
 
 // start logginer func
 let tokenlogCRM;
+let logginerinfoCRM;
 function logginerfortests(polzovatel) {
     document.getElementById('responseTextarea1').value = `{
 			  "headers": {
