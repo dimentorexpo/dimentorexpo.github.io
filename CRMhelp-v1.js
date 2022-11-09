@@ -469,30 +469,6 @@ document.querySelector('head').append(lboxstyles)
 include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
     function screenshots() { //просмотр и трансформация скриншотов в активном чате
-        if (document.getElementsByTagName('crm-row') != undefined) {
-            for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
-                    var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
-                    for (let j = 0; j < div.querySelectorAll('a').length; j++) {
-                        if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
-                            var img = document.createElement('img')
-                            img.style.width = '100px'
-                            var alink = document.createElement('a')
-                            alink.setAttribute('data-lightbox', 'imgs');
-                            alink.append(img)
-                            img.src = div.querySelectorAll('a')[j].href
-                            img.alt = 'Изображение'
-                            alink.href = img.src;
-                            div.querySelectorAll('a')[j].replaceWith(alink)
-                        }
-                    }
-                }
-            }
-        }
-    }
-	
-	
-	
 	for (let i =0; i < document.getElementsByTagName('crm-row')[i].length; i++) {
     if (document.getElementsByTagName('crm-row')[i].children.length != 0 && document.getElementsByTagName('crm-row')[i].children[0].innerText == 'Комментарий') {
 		var divimg = document.getElementsByTagName('crm-row')[i].innerHTML
