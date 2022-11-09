@@ -465,6 +465,6 @@ testteacher.onclick = function () {
 let lboxstyles = document.createElement('link')
 lboxstyles.rel = 'stylesheet'
 lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-document.querySelector('header').append(lboxstyles)
+document.querySelector('head').append(lboxstyles)
 include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
