@@ -204,11 +204,6 @@ function mystyles() {
 
 mystyles()
 
-include("https://dimentorexpo.github.io/jquery-3.6.0.js");// подключаем модуль обработки JQuery
-// include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
-// include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
-
 function addOptionCRM(oListboxCRM, text, value) {  //функция добавления опции в список
     var oOptionCRM = document.createElement("option");
     oOptionCRM.appendChild(document.createTextNode(text));
@@ -315,6 +310,10 @@ function getText() { // обьявление функции получающей
     xhr.send()
 }
 
+
+include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
+// include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 //Объявление кнопки в верхней панели CRM
 let upmenubtn = document.createElement('span')
 upmenubtn.innerText = "Меню"
@@ -464,21 +463,12 @@ testteacher.onclick = function () {
         setTimeout(function () { document.getElementById('testprepod').classList.remove('active') }, 1000)
 }
 
- document.addEventListener("DOMContentLoaded", () => {
-    let lboxstyles = document.createElement('link')
-	lboxstyles.rel = 'stylesheet'
-	lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-	document.querySelector('head').append(lboxstyles)
+let lboxstyles = document.createElement('link')
+lboxstyles.rel = 'stylesheet'
+lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+document.querySelector('head').append(lboxstyles)
 
-	 setTimeout(function() {
-		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js")
-	 }, 3000)
-  });
-
-// setTimeout(function() {
-	// include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js")
-// }, 3000)
-// include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
+include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
     function screenshotsCRM() { //просмотр и трансформация скриншотов в активном чате
 	if (document.getElementsByTagName('crm-row').length != 0 || document.getElementsByTagName('crm-row') != null || document.getElementsByTagName('crm-row').length != undefined) {
