@@ -204,6 +204,10 @@ function mystyles() {
 
 mystyles()
 
+include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
+// include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
+
 function addOptionCRM(oListboxCRM, text, value) {  //функция добавления опции в список
     var oOptionCRM = document.createElement("option");
     oOptionCRM.appendChild(document.createTextNode(text));
@@ -310,10 +314,6 @@ function getText() { // обьявление функции получающей
     xhr.send()
 }
 
-
-include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
-// include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
 //Объявление кнопки в верхней панели CRM
 let upmenubtn = document.createElement('span')
 upmenubtn.innerText = "Меню"
