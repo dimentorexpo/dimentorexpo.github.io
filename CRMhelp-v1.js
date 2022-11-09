@@ -485,9 +485,10 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 				img.alt = 'Изображение'
 				alink.href = img.src;
 				imagelink[j].replaceWith(alink)
+				}
 			}
 		}
-    }
+	}
 }
 
     screenshotsCRM()
