@@ -281,7 +281,7 @@ document.getElementById('fileinputCRM').onclick = function () { // по клик
 if (document.getElementById('audioCRMswitcher').checked == true){
     if (window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
         if (document.getElementsByClassName('mat-button-disabled')[0] == undefined) {
-            if (document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {
+//            if (document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {
                 if (soudflagCRM == 0) {
                     audioCRM.play()
                     soudintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
@@ -290,7 +290,7 @@ if (document.getElementById('audioCRMswitcher').checked == true){
             } else {
                 soudflagCRM = 0
                 clearInterval(soudintervalsetCRM)
-            }
+//            }
         }
     }
 }
