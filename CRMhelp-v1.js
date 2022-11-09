@@ -470,7 +470,7 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 
     function screenshotsCRM() { //просмотр и трансформация скриншотов в активном чате
 	if (document.getElementsByTagName('crm-row').length != 0 || document.getElementsByTagName('crm-row') != null || document.getElementsByTagName('crm-row').length != undefined) {
-		for (let i =0; i < document.getElementsByTagName('crm-row')[i].length; i++) {
+		for (let i =0; i < document.getElementsByTagName('crm-row').length; i++) {
 		if (document.getElementsByTagName('crm-row')[i].children.length != 0 && document.getElementsByTagName('crm-row')[i].children[0].innerText == 'Комментарий') {
 			var divimg = document.getElementsByTagName('crm-row')[i].innerHTML
 			let domParse = new DOMParser()
