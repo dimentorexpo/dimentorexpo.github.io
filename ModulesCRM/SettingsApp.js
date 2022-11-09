@@ -277,6 +277,7 @@ document.getElementById('fileinputCRM').onclick = function () { // по клик
         }
     });
 }
+/*
 function checkforsoundplay() {
     if (document.getElementById('audioCRMswitcher').checked == true){
         if (window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
@@ -297,3 +298,4 @@ function checkforsoundplay() {
 }
 
 setInterval(checkforsoundplay, 1000);
+*/
