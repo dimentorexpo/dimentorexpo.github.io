@@ -39,6 +39,8 @@ var win_SettingsApp =  // описание элементов главного �
 let audioCRM
 let sondsfromdocCRM;
 let soundsconteinerCRM;
+let soudintervalsetCRM
+let soudflagCRM = 0
 
 if (localStorage.getItem('sound_strCRM') !== null && localStorage.getItem('sound_strCRM') !== "")
     audioCRM = new Audio(localStorage.getItem('sound_strCRM'));
@@ -274,4 +276,21 @@ document.getElementById('fileinputCRM').onclick = function () { // по клик
             console.log("File not supported!")
         }
     });
+}
+
+if (document.getElementById('audioCRMswitcher').checked == true){
+    if (window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
+        if (document.getElementsByClassName('mat-button-disabled')[0] == undefined) {
+            if (document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {
+                if (soudflagCRM == 0) {
+                    audioCRM.play()
+                    soudintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
+                    soudflagCRM = 1
+                }
+            } else {
+                soudflagCRM = 0
+                clearInterval(soudintervalsetCRM)
+            }
+        }
+    }
 }
