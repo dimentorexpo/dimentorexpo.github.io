@@ -475,7 +475,7 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 		let domParse = new DOMParser()
 		let imagelink = domParse.parseFromString(divimg, `text/html`).querySelectorAll('a')
 		for (let j = 0; j < imagelink.length; j++) {
-			if (divimg.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
+			if (imagelink.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
 				var img = document.createElement('img')
 				img.style.width = '100px'
 				var alink = document.createElement('a')
@@ -484,7 +484,7 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 				img.src = div.querySelectorAll('a')[j].href
 				img.alt = 'Изображение'
 				alink.href = img.src;
-				div.querySelectorAll('a')[j].replaceWith(alink)
+				imagelink[j].replaceWith(alink)
 			}
 		}
     }
