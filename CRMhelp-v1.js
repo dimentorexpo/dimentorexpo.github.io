@@ -469,7 +469,9 @@ testteacher.onclick = function () {
 	lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
 	document.querySelector('head').append(lboxstyles)
 
-	include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js")
+	 setTimeout(function() {
+		include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js")
+	 }, 3000)
   });
 
 // setTimeout(function() {
