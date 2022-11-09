@@ -468,3 +468,27 @@ lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min
 document.querySelector('head').append(lboxstyles)
 include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
+    function screenshots() { //просмотр и трансформация скриншотов в активном чате
+	for (let i =0; i < document.getElementsByTagName('crm-row')[i].length; i++) {
+    if (document.getElementsByTagName('crm-row')[i].children.length != 0 && document.getElementsByTagName('crm-row')[i].children[0].innerText == 'Комментарий') {
+		var divimg = document.getElementsByTagName('crm-row')[i].innerHTML
+		let domParse = new DOMParser()
+		let imagelink = domParse.parseFromString(divimg, `text/html`).querySelectorAll('a')
+		for (let j = 0; j < imagelink.length; j++) {
+			if (imagelink.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
+				var img = document.createElement('img')
+				img.style.width = '100px'
+				var alink = document.createElement('a')
+				alink.setAttribute('data-lightbox', 'imgs');
+				alink.append(img)
+				img.src = div.querySelectorAll('a')[j].href
+				img.alt = 'Изображение'
+				alink.href = img.src;
+				imagelink[j].replaceWith(alink)
+			}
+		}
+    }
+}
+
+    screenshots()
+    setInterval(screenshots, 5000)
