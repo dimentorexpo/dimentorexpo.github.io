@@ -480,7 +480,7 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 					var alink = document.createElement('a')
 					alink.setAttribute('data-lightbox', 'imgs');
 					alink.append(img)
-					img.src = imagelink[j].href
+					img.src = divimg.querySelectorAll('a')[j].href
 					img.alt = 'Изображение'
 					alink.href = img.src;
 					divimg.querySelectorAll('a')[j].replaceWith(alink)
