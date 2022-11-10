@@ -1,6 +1,6 @@
 var win_FrozeChat =  // описание формы чтобы не давала чату закрыться
     `<div style="display: flex; width: 400px;">
-        <span style="width: 400px">
+        <span style="width: 410px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 395px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidefrozechat" style="width:50px; background: #228B22;">hide</button>
@@ -27,7 +27,7 @@ if (localStorage.getItem('winTopFrozeChat') == null) { //начальное по
 
 let wintFrozeChat = document.createElement('div'); // создание окна для заморозки чата
 document.body.append(wintFrozeChat);
-wintFrozeChat.style = 'min-height: 25px; width: 500px; background: #464451; top: ' + localStorage.getItem('winTopFrozeChat') + 'px; left: ' + localStorage.getItem('winLeftFrozeChat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintFrozeChat.style = 'min-height: 25px; width: 410px; background: #464451; top: ' + localStorage.getItem('winTopFrozeChat') + 'px; left: ' + localStorage.getItem('winLeftFrozeChat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintFrozeChat.style.display = 'none';
 wintFrozeChat.setAttribute('id', 'AF_FrozeChat');
 wintFrozeChat.innerHTML = win_FrozeChat;
