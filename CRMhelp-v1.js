@@ -225,7 +225,7 @@ const copyToClipboardCRM = strznach => { // функция копировани�
 // start logginer func
 let tokenlogCRM;
 let logginerinfoCRM;
-function logginerfortests(polzovatel) {
+function logginerfortestsCRM(polzovatel) {
     document.getElementById('responseTextarea1').value = `{
 			  "headers": {
 				"content-type": "application/x-www-form-urlencoded",
@@ -448,7 +448,7 @@ document.getElementById('idmymenucrm').append(teststudent)
 
 teststudent.onclick = function () {
 	document.getElementById('testuchenik').classList.add('active')
-	logginerfortests(localStorage.getItem('test_studCRM'))
+	logginerfortestsCRM(localStorage.getItem('test_studCRM'))
         setTimeout(function () { document.getElementById('testuchenik').classList.remove('active') }, 1000)
 }
 
@@ -459,7 +459,7 @@ document.getElementById('idmymenucrm').append(testteacher)
 
 testteacher.onclick = function () {
 	document.getElementById('testprepod').classList.add('active')
-	logginerfortests(localStorage.getItem('test_teachCRM'))
+	logginerfortestsCRM(localStorage.getItem('test_teachCRM'))
         setTimeout(function () { document.getElementById('testprepod').classList.remove('active') }, 1000)
 }
 
