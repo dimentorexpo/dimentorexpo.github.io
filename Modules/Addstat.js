@@ -225,6 +225,10 @@ document.getElementById('clearall').onclick = function () {
             today = "0" + getcurdate.getDate();
             document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
             document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
+        } else if (getcurdate.getDate() == 10) {
+			today = getcurdate.getDate();
+            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
+            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
         } else {
             today = getcurdate.getDate();
             document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
