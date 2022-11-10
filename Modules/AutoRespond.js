@@ -1,8 +1,8 @@
 var win_FrozeChat =  // описание формы чтобы не давала чату закрыться
-    `<div style="display: flex; width: 500px;">
-        <span style="width: 500px">
+    `<div style="display: flex; width: 400px;">
+        <span style="width: 400px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 300px;" id="froze_chat_header">
+                        <div style="margin: 5px; width: 395px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidefrozechat" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearallchathash">🧹</button>
 								<button id="arinfo" style="float:right" title="При добавлении хеша чата и выборе времени, по умолчанию 6 минут, по истечению которого в этот чат автоматически будет отправлен ответ по умолчанию Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏">❓</button>
@@ -14,7 +14,7 @@ var win_FrozeChat =  // описание формы чтобы не давала
 							<button id="freezechat" title="Задать таймер автоответа">❄</button>
 						</div>
 			    </span>
-                        <div style="margin: 5px; width: 500px" id="chats_hash_box">
+                        <div style="margin: 5px; width: 400px" id="chats_hash_box">
                                 <p id="chathastable" style="max-height:400px; margin-left:5px; font-size:16px; color:bisque; overflow:auto;"></p>
                         </div>
         </span>
