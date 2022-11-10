@@ -245,7 +245,7 @@ function logginerfortestsCRM(polzovatel) {
     document.getElementById('sendResponse').click()
 
     document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        logginerinfoCRMCRM = document.getElementById('responseTextarea1').getAttribute('senddata1');
+        logginerinfoCRM = document.getElementById('responseTextarea1').getAttribute('senddata1');
         if (logginerinfoCRM != null) {
             logginerinfoCRM = logginerinfoCRM.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfoCRM = logginerinfoCRM[logginerinfoCRM.length - 1].split("\"");
