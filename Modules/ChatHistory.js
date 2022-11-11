@@ -301,7 +301,7 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
             todayLS = "0" + getdateset.getDate();
             document.getElementById('dateFromChHis').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-		} else  if  (getdateset.getDate() == 10 && getcurmonthLS > 10) {
+		} else  if  ( (getdateset.getDate() == 10 && getcurmonthLS > 10) || (getdateset.getDate() > 10 && (getcurmonthLS-1 == 10)) ) {
             todayLS = getdateset.getDate();
             document.getElementById('dateFromChHis').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + Number(todayLS);
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
