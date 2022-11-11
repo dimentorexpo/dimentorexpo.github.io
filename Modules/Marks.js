@@ -68,9 +68,13 @@ function getDate() {
             todayLS = "0" + getdateset.getDate();
             document.getElementById('dateFromMarks').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
             document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else  if  (getdateset.getDate() < 10 && getcurmonthLS > 10) {
+        } else  if (getdateset.getDate() < 10 && getcurmonthLS > 10) {
             todayLS = "0" + getdateset.getDate();
             document.getElementById('dateFromMarks').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+            document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+		} else  if  ( (getdateset.getDate() == 10 && getcurmonthLS > 10) || (getdateset.getDate() > 10 && (getcurmonthLS-1 == 10)) ) {
+            todayLS = getdateset.getDate();
+            document.getElementById('dateFromMarks').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + Number(todayLS);
             document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
 		} else {
             todayLS = getdateset.getDate();
