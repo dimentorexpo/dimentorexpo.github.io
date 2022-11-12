@@ -1,4 +1,4 @@
-﻿﻿let pldata;
+﻿let pldata;
 let drevo;
 let afopername;
 let foundarr;
@@ -1125,7 +1125,7 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' && elem.className != 'checkbox-audio') {
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT') {
         return true;
     }
     return false;
@@ -1516,7 +1516,21 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
 
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
-        audio.play()
+        if (document.getElementById('sound_test').innerHTML == '▶'){
+            document.getElementById('sound_test').innerHTML = '⏹'
+            document.getElementById('sound_test').title = 'Остановить воспроизведение'
+            audio.play()
+            setTimeout(() => {
+                document.getElementById('sound_test').innerHTML = '▶'
+                document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
+            }, Number(audio.duration * 1000 + 1).toFixed(0));
+        } else {
+            document.getElementById('sound_test').innerHTML = '▶'
+            document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
+            audio.pause()
+            audio.currentTime = 0
+        }
+        
     }
 
     document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
@@ -1897,14 +1911,14 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('addTmp').style.display = 'none'
 
             let objSoundList = document.getElementById('soundlistaddr')
-            let sondsfromdoc;
+            let soundsfromdoc;
             let soundsconteiner;
 
             async function getsoundsfromdoc() { // загрузка списка звуков из файла
-                sondsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
-                await fetch(sondsfromdoc).then(r => r.json()).then(r => soudsdata = r)
-                    soundsconteiner = soudsdata.result;
-                    console.log(soudsdata.result) //получим список звуков
+                soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
+                await fetch(soundsfromdoc).then(r => r.json()).then(r => soundsdata = r)
+                    soundsconteiner = soundsdata.result;
+                    console.log(soundsdata.result) //получим список звуков
                 for (j = 0; j < soundsconteiner.length; j++) {
                     if (soundsconteiner[j][0] != '') {
                         addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
@@ -2038,9 +2052,9 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                     } else if (localStorage.getItem('audio') == '1') {
                         document.getElementById('audioswitcher').checked = true;
                         localStorage.setItem('audio', '0');
-                        if (soudintervalset != null) {
-                            clearInterval(soudintervalset)
-                            soudintervalset = null
+                        if (soundintervalset != null) {
+                            clearInterval(soundintervalset)
+                            soundintervalset = null
                         }
                     }
                 }
@@ -3039,7 +3053,7 @@ else
 var timeStart = new Date()
 var studentIdSearch2 = 0
 var studentIdSearch = 0
-let soudintervalset
+let soundintervalset
 function startTimer() {
     var timeNow = new Date()
     if (timeNow - timeStart > 60 * 60 * 1000) {
@@ -3092,13 +3106,13 @@ function startTimer() {
 			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
 				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
 				if (txt[14] > 0) {
-					if (!soudintervalset) {
+					if (!soundintervalset) {
 						audio.play()
-						soudintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
+						soundintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
 					}
 				} else {
-					clearInterval(soudintervalset)
-                    soudintervalset = null
+					clearInterval(soundintervalset)
+                    soundintervalset = null
 				}
 			}
         }
