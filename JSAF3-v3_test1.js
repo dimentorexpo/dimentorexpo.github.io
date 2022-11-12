@@ -3050,7 +3050,6 @@ else
 var timeStart = new Date()
 var studentIdSearch2 = 0
 var studentIdSearch = 0
-let soudflag = 0
 let soudintervalset
 function startTimer() {
     var timeNow = new Date()
@@ -3104,14 +3103,13 @@ function startTimer() {
 			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
 				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
 				if (txt[14] > 0) {
-					if (soudflag == 0) {
+					if (soudintervalset == null) {
 						audio.play()
 						soudintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
-						soudflag = 1
 					}
 				} else {
-					soudflag = 0
 					clearInterval(soudintervalset)
+                    soudintervalset = null
 				}
 			}
         }
