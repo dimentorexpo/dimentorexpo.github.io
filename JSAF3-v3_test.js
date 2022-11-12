@@ -1516,7 +1516,21 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
 
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
-        audio.play()
+        if (document.getElementById('sound_test').innerHTML == '▶'){
+            document.getElementById('sound_test').innerHTML = '⏹'
+            document.getElementById('sound_test').title = 'Остановить воспроизведение'
+            audio.play()
+            setTimeout(() => {
+                document.getElementById('sound_test').innerHTML = '▶'
+                document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
+            }, Number(audio.duration * 1000 + 1).toFixed(0));
+        } else {
+            document.getElementById('sound_test').innerHTML = '▶'
+            document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
+            audio.pause()
+            audio.currentTime = 0
+        }
+        
     }
 
     document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
