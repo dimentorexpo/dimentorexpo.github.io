@@ -556,7 +556,8 @@ function getslacklnk() { // получаем ссылку на обращени�
 }
 
 function checkjiraauth() { // функция проверки авторизации в Jira 
-i
+getprsuplasttask()
+
 		document.getElementById('responseTextarea1').value = '{}'
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
 		document.getElementById('responseTextarea3').value = 'getjiratoken'
