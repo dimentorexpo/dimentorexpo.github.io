@@ -114,7 +114,7 @@ function mystyles() {
 		font-size: 14px;
 		user-select: none;
 	}
-	.checkbox-audio .checkbox-audio-switch {
+	.checkbox-audio .checkbox-audio-switch-CRM {
 		position: relative;
 		display: inline-block;
 		box-sizing: border-box;
@@ -126,7 +126,7 @@ function mystyles() {
 		background: #eee;
 		transition: .2s;
 	}
-	.checkbox-audio .checkbox-audio-switch:before {
+	.checkbox-audio .checkbox-audio-switch-CRM:before {
 		content: '🔈';
 		position: absolute;
 		top: 1px;
@@ -147,13 +147,13 @@ function mystyles() {
 		z-index: -1;
 		opacity: 0;
 	}
-	.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before {
+	.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch-CRM:before {
 		box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
 	}
-	.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch {
+	.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch-CRM {
 		background: limegreen;
 	}
-	.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
+	.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch-CRM:before {
 		content: '🔊';
 		transform:translateX(28px);
 	}

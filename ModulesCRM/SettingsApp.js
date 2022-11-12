@@ -11,7 +11,7 @@ var win_SettingsApp =  // описание элементов главного �
 				<button class="btnCRM" title="Проверка звука при добавленной ссылке" id="sound_testCRM">▶</button>
 				<label title="Включение и отключение звука входящих запросов" class="checkbox-audio">
 					<input id="audioCRMswitcher" type="checkbox" checked="">
-						<span class="checkbox-audio-switch"></span>
+						<span class="checkbox-audio-switch-CRM"></span>
 				</label>
                 <input id="sound_adrCRM" placeholder="Введи адрес звука" autocomplete="off" type="text" style="display: none; text-align: center; width: 210px; color: black;">
 				<button class="btnCRM" title="Сохраняет ссылки на новый источник звука для входящего запроса" id="sound_saveCRM" style="display: none">💾</button>
@@ -218,7 +218,7 @@ rangeCRM.onchange = function () { // сохранение изменения г�
     } else localStorage.setItem('audioCRMvol', this.value);
 }
 
-document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+document.getElementsByClassName('checkbox-audio-switch-CRM')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
 
     if (localStorage.getItem('audioCRM') != null) {
         if (localStorage.getItem('audioCRM') == '0') {
@@ -227,10 +227,6 @@ document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function (
         } else if (localStorage.getItem('audioCRM') == '1') {
             document.getElementById('audioCRMswitcher').checked = true;
             localStorage.setItem('audioCRM', '0');
-            if (soundintervalsetCRM != null) {
-                clearInterval(soundintervalsetCRM)
-                soundintervalsetCRM = null
-            }
         }
     }
 }
@@ -328,7 +324,7 @@ document.getElementById('fileinputCRM').onclick = function () { // по клик
 }
 
 function checkforsoundplay() {
-    if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
+    if (localStorage.getItem('audioCRM') === 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
         if (document.getElementsByClassName('mat-button-disabled')[0] == undefined && document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {    
             if (localStorage.getItem('repeatsound') == 0){
                 if (!soundintervalsetCRM) {
