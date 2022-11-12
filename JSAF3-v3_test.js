@@ -647,7 +647,7 @@ if (localStorage.getItem('splinter') == null) {
     localStorage.setItem('splinter', 3);
 }
 
-// Для переключателя вкл/вікл звук
+// Для переключателя вкл/выкл звук
 if (localStorage.getItem('audio') == null){
     localStorage.setItem('audio', 1);
 }
@@ -1478,7 +1478,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    if (window.location.href.indexOf('autofaq') === -1) {
+    if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
     }
 
@@ -6143,7 +6143,7 @@ function prepKC() { //функция подготовки расширения �
 }
 
 function firstLoadPage() { //первичаня загрузка страницы
-    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1) {
+    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
         // document.getElementById('AF_Links').style.display = 'none';
