@@ -1,4 +1,4 @@
-﻿﻿let pldata;
+﻿let pldata;
 let drevo;
 let afopername;
 let foundarr;
@@ -1911,14 +1911,14 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('addTmp').style.display = 'none'
 
             let objSoundList = document.getElementById('soundlistaddr')
-            let sondsfromdoc;
+            let soundsfromdoc;
             let soundsconteiner;
 
             async function getsoundsfromdoc() { // загрузка списка звуков из файла
-                sondsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
-                await fetch(sondsfromdoc).then(r => r.json()).then(r => soudsdata = r)
-                    soundsconteiner = soudsdata.result;
-                    console.log(soudsdata.result) //получим список звуков
+                soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
+                await fetch(soundsfromdoc).then(r => r.json()).then(r => soundsdata = r)
+                    soundsconteiner = soundsdata.result;
+                    console.log(soundsdata.result) //получим список звуков
                 for (j = 0; j < soundsconteiner.length; j++) {
                     if (soundsconteiner[j][0] != '') {
                         addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
@@ -2052,9 +2052,9 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                     } else if (localStorage.getItem('audio') == '1') {
                         document.getElementById('audioswitcher').checked = true;
                         localStorage.setItem('audio', '0');
-                        if (soudintervalset != null) {
-                            clearInterval(soudintervalset)
-                            soudintervalset = null
+                        if (soundintervalset != null) {
+                            clearInterval(soundintervalset)
+                            soundintervalset = null
                         }
                     }
                 }
@@ -3053,7 +3053,7 @@ else
 var timeStart = new Date()
 var studentIdSearch2 = 0
 var studentIdSearch = 0
-let soudintervalset
+let soundintervalset
 function startTimer() {
     var timeNow = new Date()
     if (timeNow - timeStart > 60 * 60 * 1000) {
@@ -3106,13 +3106,13 @@ function startTimer() {
 			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
 				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
 				if (txt[14] > 0) {
-					if (!soudintervalset) {
+					if (!soundintervalset) {
 						audio.play()
-						soudintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
+						soundintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
 					}
 				} else {
-					clearInterval(soudintervalset)
-                    soudintervalset = null
+					clearInterval(soundintervalset)
+                    soundintervalset = null
 				}
 			}
         }

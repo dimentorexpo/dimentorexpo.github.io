@@ -41,8 +41,8 @@ var win_SettingsApp =  // описание элементов главного �
 let audioCRM
 let soundsfromdocCRM;
 let soundsconteinerCRM;
-let soudintervalsetCRM = null
-let soudflagCRM = 0
+let soundintervalsetCRM = null
+let soundflagCRM = 0
 
 if (localStorage.getItem('sound_strCRM') !== null && localStorage.getItem('sound_strCRM') !== "")
     audioCRM = new Audio(localStorage.getItem('sound_strCRM'));
@@ -150,9 +150,9 @@ document.getElementById('btnSettingsApp').onclick = function () { // откры�
 
 async function getsoundsfromdocCRM() { // загрузка списка звуков из файла
     soundsfromdocCRM = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
-    await fetch(soundsfromdocCRM).then(r => r.json()).then(r => soudsdata = r)
-    soundsconteinerCRM = soudsdata.result;
-    console.log(soudsdata.result) //получим список звуков
+    await fetch(soundsfromdocCRM).then(r => r.json()).then(r => soundsdata = r)
+    soundsconteinerCRM = soundsdata.result;
+    console.log(soundsdata.result) //получим список звуков
     for (j = 0; j < soundsconteinerCRM.length; j++) {
         if (soundsconteinerCRM[j][0] != '') {
             addOptionCRM(objSoundListCRM, `${soundsconteinerCRM[j][0]}`, `${soundsconteinerCRM[j][1]}`)
@@ -227,12 +227,29 @@ document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function (
         } else if (localStorage.getItem('audioCRM') == '1') {
             document.getElementById('audioCRMswitcher').checked = true;
             localStorage.setItem('audioCRM', '0');
+            if (soundintervalsetCRM != null) {
+                clearInterval(soundintervalsetCRM)
+                soundintervalsetCRM = null
+            }
         }
     }
 }
 
 document.getElementById('sound_testCRM').onclick = function () { // кнопка тест звука
-    audioCRM.play()
+    if (document.getElementById('sound_testCRM').innerHTML == '▶'){
+        document.getElementById('sound_testCRM').innerHTML = '⏹'
+        document.getElementById('sound_testCRM').title = 'Остановить воспроизведение'
+        audioCRM.play()
+        setTimeout(() => {
+            document.getElementById('sound_testCRM').innerHTML = '▶'
+            document.getElementById('sound_testCRM').title = 'Проверка звука при добавленной ссылке'
+        }, Number(audioCRM.duration * 1000 + 1).toFixed(0));
+    } else {
+        document.getElementById('sound_testCRM').innerHTML = '▶'
+        document.getElementById('sound_testCRM').title = 'Проверка звука при добавленной ссылке'
+        audioCRM.pause()
+        audioCRM.currentTime = 0
+    }
 }
 
 document.getElementById('setteststdCRM').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
@@ -314,29 +331,29 @@ function checkforsoundplay() {
     if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
         if (document.getElementsByClassName('mat-button-disabled')[0] == undefined && document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {    
             if (localStorage.getItem('repeatsound') == 0){
-                if (!soudintervalsetCRM) {
+                if (!soundintervalsetCRM) {
                     audioCRM.play()
-                    soudintervalsetCRM = true
+                    soundintervalsetCRM = true
                 }
             } else {
-                if (!soudintervalsetCRM) {
+                if (!soundintervalsetCRM) {
                     audioCRM.play()
-                    soudintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
+                    soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
                 }    
             }       
         } else {
-            if (soudintervalsetCRM != null || soudintervalsetCRM != true) {
-                clearInterval(soudintervalsetCRM)
-                soudintervalsetCRM = null
+            if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
+                clearInterval(soundintervalsetCRM)
+                soundintervalsetCRM = null
             }
-            if (soudintervalsetCRM == true) {soudintervalsetCRM = null}
+            if (soundintervalsetCRM == true) {soundintervalsetCRM = null}
         }
     } else {
-        if (soudintervalsetCRM != null || soudintervalsetCRM != true) {
-            clearInterval(soudintervalsetCRM)
-            soudintervalsetCRM = null
+        if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
+            clearInterval(soundintervalsetCRM)
+            soundintervalsetCRM = null
         }
-        if (soudintervalsetCRM == true) {soudintervalsetCRM = null}
+        if (soundintervalsetCRM == true) {soundintervalsetCRM = null}
     }
 }
 
