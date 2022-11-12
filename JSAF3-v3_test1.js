@@ -2053,15 +2053,15 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
                 if (localStorage.getItem('audio') != null) {
                     if (localStorage.getItem('audio') == '0') {
-                        document.getElementById('audioswitcher').checked = true;
-                        localStorage.setItem('audio', '1');
-                    } else if (localStorage.getItem('audio') == '1') {
                         document.getElementById('audioswitcher').checked = false;
-                        localStorage.setItem('audio', '0');
+                        localStorage.setItem('audio', '1');
                         if (soudintervalset != null) {
                             clearInterval(soudintervalset)
                             soudintervalset = null
                         }
+                    } else if (localStorage.getItem('audio') == '1') {
+                        document.getElementById('audioswitcher').checked = true;
+                        localStorage.setItem('audio', '0');
                     }
                 }
             }
