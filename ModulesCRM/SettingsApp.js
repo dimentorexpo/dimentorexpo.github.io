@@ -331,7 +331,13 @@ function checkforsoundplay() {
             }
             if (soudintervalsetCRM == true) {soudintervalsetCRM = null}
         }
-    } 
+    } else {
+        if (soudintervalsetCRM != null || soudintervalsetCRM != true) {
+            clearInterval(soudintervalsetCRM)
+            soudintervalsetCRM = null
+        }
+        if (soudintervalsetCRM == true) {soudintervalsetCRM = null}
+    }
 }
 
 setInterval(checkforsoundplay, 1000);
