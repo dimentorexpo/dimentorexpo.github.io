@@ -19,6 +19,8 @@ var win_SettingsApp =  // описание элементов главного �
 				<span style="color:bisque">Громкость звука</span>
 				<input id="rangeCRM" min="0" max="1" value="1.0" step="0.1" type="range">
                     <br>
+				<label style="color:bisque"><input type="checkbox" id="repeatsoundselectCRM">Повторять звук новой задачи</label>
+                    <br>
 				<span style="color:bisque">Интервал воспроизведения звука:</span>
 				<input title="Ввод интервала в секундах между повторами звука нового чата" id="soundplayintervalCRM" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;">
 				<button class="btnCRM" title="Внести изменения в интервал между повторами звука нового чата" id="setsoundplayintervalCRM" style="margin-top: 5px">SET⌚</button>
@@ -37,11 +39,10 @@ var win_SettingsApp =  // описание элементов главного �
     </div>`;
 
 let audioCRM
-let sondsfromdocCRM;
+let soundsfromdocCRM;
 let soundsconteinerCRM;
 let soudintervalsetCRM
 let soudflagCRM = 0
-let checkloadpage
 
 if (localStorage.getItem('sound_strCRM') !== null && localStorage.getItem('sound_strCRM') !== "")
     audioCRM = new Audio(localStorage.getItem('sound_strCRM'));
@@ -58,6 +59,10 @@ if (localStorage.getItem('audioCRMvol') != null) { //Задаем громкос
 
 if (localStorage.getItem('audioCRM') == null){ // Задаем переключатель вкл/выкл звук
     localStorage.setItem('audioCRM', 1);
+}
+
+if (localStorage.getItem('repeatsound') == null){ // Задаем переключатель повторять/не повторять звук
+    localStorage.setItem('repeatsound', 0);
 }
 
 if (localStorage.getItem('winTopSettingsApp') == null) { // началоное положение окна настроек (если не задано ранее)
@@ -132,12 +137,18 @@ document.getElementById('btnSettingsApp').onclick = function () { // откры�
             document.getElementById('audioCRMswitcher').checked = false;
         else
             document.getElementById('audioCRMswitcher').checked = true;
+
+        if (localStorage.getItem('repeatsound') == 1) {
+            document.getElementById("repeatsoundselectCRM").checked = true;
+        } else {
+            document.getElementById("repeatsoundselectCRM").checked = false;
+        }
     }
 }
 
 async function getsoundsfromdocCRM() { // загрузка списка звуков из файла
-    sondsfromdocCRM = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
-    await fetch(sondsfromdocCRM).then(r => r.json()).then(r => soudsdata = r)
+    soundsfromdocCRM = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
+    await fetch(soundsfromdocCRM).then(r => r.json()).then(r => soudsdata = r)
     soundsconteinerCRM = soudsdata.result;
     console.log(soudsdata.result) //получим список звуков
     for (j = 0; j < soundsconteinerCRM.length; j++) {
@@ -175,6 +186,16 @@ function changesoundaddrCRM() { // сохранение измнений адр�
                 }
             }
         }
+    }
+}
+
+function changerepeatsoundCRM() {
+    if (localStorage.getItem('repeatsound') == 1) {
+        document.getElementById("repeatsoundselectCRM").checked = false;
+        localStorage.setItem('repeatsound', 0)
+    } else {
+        document.getElementById("repeatsoundselectCRM").checked = true;
+        localStorage.setItem('repeatsound', 1)
     }
 }
 
@@ -284,8 +305,7 @@ document.getElementById('fileinputCRM').onclick = function () { // по клик
 }
 /*
 function checkforsoundplay() {
-    if (document.getElementById('audioCRMswitcher').checked == true){
-        if (window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
+    if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
             if (document.getElementsByClassName('mat-button-disabled')[0] == undefined) {
                if (document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {
                     if (soudflagCRM == 0) {
