@@ -1478,7 +1478,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    if (window.location.href.indexOf('autofaq') === -1) {
+    if (window.location.href.indexOf('autofaq') === -1 && window.location.href.indexOf('https://skyeng.autofaq.ai/login') === -1) {
         document.getElementById('AF_helper').style.display = 'none';
     }
 
