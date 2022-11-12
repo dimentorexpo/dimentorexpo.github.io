@@ -41,6 +41,7 @@ let sondsfromdocCRM;
 let soundsconteinerCRM;
 let soudintervalsetCRM
 let soudflagCRM = 0
+let checkloadpage
 
 if (localStorage.getItem('sound_strCRM') !== null && localStorage.getItem('sound_strCRM') !== "")
     audioCRM = new Audio(localStorage.getItem('sound_strCRM'));
@@ -311,4 +312,9 @@ function checkforsoundplay() {
         }
     });
 }
-setTimeout(checkforsoundplay(), 1000)
+checkloadpage = setInterval(() => {
+    if(document.getElementById("MenubarCRM") !== null){
+        checkforsoundplay()
+        clearInterval(checkloadpage)
+    }
+}, 250);
