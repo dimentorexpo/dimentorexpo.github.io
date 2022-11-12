@@ -2050,6 +2050,10 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                     if (localStorage.getItem('audio') == '0') {
                         document.getElementById('audioswitcher').checked = false;
                         localStorage.setItem('audio', '1');
+                        if (soudintervalset != null) {
+                            clearInterval(soudintervalset)
+                            soudintervalset = null
+                        }
                     } else if (localStorage.getItem('audio') == '1') {
                         document.getElementById('audioswitcher').checked = true;
                         localStorage.setItem('audio', '0');
@@ -3103,7 +3107,7 @@ function startTimer() {
 			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
 				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
 				if (txt[14] > 0) {
-					if (soudintervalset == null) {
+					if (!soudintervalset) {
 						audio.play()
 						soudintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
 					}
