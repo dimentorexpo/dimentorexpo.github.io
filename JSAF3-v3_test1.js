@@ -2055,13 +2055,13 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                     if (localStorage.getItem('audio') == '0') {
                         document.getElementById('audioswitcher').checked = false;
                         localStorage.setItem('audio', '1');
+                    } else if (localStorage.getItem('audio') == '1') {
+                        document.getElementById('audioswitcher').checked = true;
+                        localStorage.setItem('audio', '0');
                         if (soudintervalset != null) {
                             clearInterval(soudintervalset)
                             soudintervalset = null
                         }
-                    } else if (localStorage.getItem('audio') == '1') {
-                        document.getElementById('audioswitcher').checked = true;
-                        localStorage.setItem('audio', '0');
                     }
                 }
             }
@@ -3107,7 +3107,7 @@ function startTimer() {
 
     }
 
-    if (document.getElementById('audioswitcher').checked == true)
+    if (localStorage.getItem('audio') == '1')
         if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
 			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
 				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
