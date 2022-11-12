@@ -1527,7 +1527,8 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         } else {
             document.getElementById('sound_test').innerHTML = '▶'
             document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
-            audio.stop()
+            sound.pause()
+            sound.currentTime = 0
         }
         
     }
