@@ -303,8 +303,12 @@ function checkforsoundplay() {
 
 setInterval(checkforsoundplay, 1000);
 */
-document.getElementById("MenubarCRM").addEventListener('DOMSubtreeModified', function () {
-    if (window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
-        console.log('Типа того')
-    }
-});
+
+function checkforsoundplay() {
+    document.getElementById("MenubarCRM").addEventListener('DOMSubtreeModified', function () {
+        if (window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
+            console.log('Типа того')
+        }
+    });
+}
+setTimeout(checkforsoundplay(), 1000)
