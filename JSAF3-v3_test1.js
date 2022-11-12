@@ -654,6 +654,11 @@ if (localStorage.getItem('splinter') == null) {
     localStorage.setItem('splinter', 3);
 }
 
+// Для переключателя вкл/вікл звук
+if (localStorage.getItem('audio') == null){
+    localStorage.setItem('audio', 1);
+}
+
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
@@ -2048,15 +2053,15 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
                 if (localStorage.getItem('audio') != null) {
                     if (localStorage.getItem('audio') == '0') {
-                        document.getElementById('audioswitcher').checked = false;
+                        document.getElementById('audioswitcher').checked = true;
                         localStorage.setItem('audio', '1');
+                    } else if (localStorage.getItem('audio') == '1') {
+                        document.getElementById('audioswitcher').checked = false;
+                        localStorage.setItem('audio', '0');
                         if (soudintervalset != null) {
                             clearInterval(soudintervalset)
                             soudintervalset = null
                         }
-                    } else if (localStorage.getItem('audio') == '1') {
-                        document.getElementById('audioswitcher').checked = true;
-                        localStorage.setItem('audio', '0');
                     }
                 }
             }
