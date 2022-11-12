@@ -41,7 +41,7 @@ var win_SettingsApp =  // описание элементов главного �
 let audioCRM
 let soundsfromdocCRM;
 let soundsconteinerCRM;
-let soudintervalsetCRM
+let soudintervalsetCRM = null
 let soudflagCRM = 0
 
 if (localStorage.getItem('sound_strCRM') !== null && localStorage.getItem('sound_strCRM') !== "")
@@ -309,24 +309,30 @@ document.getElementById('fileinputCRM').onclick = function () { // по клик
         }
     });
 }
-/*
+
 function checkforsoundplay() {
     if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
-            if (document.getElementsByClassName('mat-button-disabled')[0] == undefined) {
-               if (document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {
-                    if (soudflagCRM == 0) {
-                        audioCRM.play()
-                        soudintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
-                        soudflagCRM = 1
-                    }
-                } else {
-                    soudflagCRM = 0
-                    clearInterval(soudintervalsetCRM)
+        if (document.getElementsByClassName('mat-button-disabled')[0] == undefined && document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {    
+            if (localStorage.getItem('repeatsound') == 0){
+                if (!soudintervalsetCRM) {
+                    audioCRM.play()
+                    soudintervalsetCRM = true
                 }
+            } else {
+                if (!soudintervalsetCRM) {
+                    audioCRM.play()
+                    soudintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
+                }    
+            }       
+        } else {
+            if (soudintervalsetCRM != null || soudintervalsetCRM != true) {
+                clearInterval(soudintervalsetCRM)
+                soudintervalsetCRM = null
             }
+            if (soudintervalsetCRM == true) {soudintervalsetCRM = null}
         }
-    }
+    } 
 }
 
 setInterval(checkforsoundplay, 1000);
-*/
+
