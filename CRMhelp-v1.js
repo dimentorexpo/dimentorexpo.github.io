@@ -476,7 +476,7 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 		if (document.getElementsByTagName('crm-row')[i].children.length != 0 && document.getElementsByTagName('crm-row')[i].children[0].innerText == 'Комментарий') {
 			var divimg = document.getElementsByTagName('crm-row')[i]
 			for (let j = 0; j < divimg.querySelectorAll('a').length; j++) {
-				if (divimg.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
+				if (divimg.querySelectorAll('a')[j].host == 'vimbox-resource-chat-prod.imgix.net' && divimg.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
 					var img = document.createElement('img')
 					img.style.width = '100px'
 					var alink = document.createElement('a')
@@ -488,6 +488,8 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 					divimg.querySelectorAll('a')[j].replaceWith(alink)
 					}
 				}
+				
+				
 			}
 		}
 	}
