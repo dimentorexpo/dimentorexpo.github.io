@@ -304,5 +304,3 @@ function checkforsoundplay() {
 
 setInterval(checkforsoundplay, 1000);
 */
-
-document.addEventListener('onchange', function() {console.log('Ля ля тополя')});
