@@ -2053,6 +2053,10 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                     } else if (localStorage.getItem('audio') == '1') {
                         document.getElementById('audioswitcher').checked = true;
                         localStorage.setItem('audio', '0');
+                        if (soudintervalset != null) {
+                            clearInterval(soudintervalset)
+                        }
+                            
                     }
                 }
             }
