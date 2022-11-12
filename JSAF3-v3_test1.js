@@ -1150,7 +1150,7 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
-wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; display: none;';
+wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 var chatsArray = []
@@ -1478,7 +1478,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    if (window.location.href.indexOf('autofaq') === -1 && window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+    if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
     }
 
@@ -6143,7 +6143,7 @@ function prepKC() { //функция подготовки расширения �
 }
 
 function firstLoadPage() { //первичаня загрузка страницы
-    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 && window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
         // document.getElementById('AF_Links').style.display = 'none';
