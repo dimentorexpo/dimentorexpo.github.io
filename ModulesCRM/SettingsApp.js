@@ -324,7 +324,7 @@ document.getElementById('fileinputCRM').onclick = function () { // по клик
 }
 
 function checkforsoundplay() {
-    if (localStorage.getItem('audioCRM') === 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
+    if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
         if (document.getElementsByClassName('mat-button-disabled')[0] == undefined && document.getElementsByClassName('mat-focus-indicator mat-flat-button mat-button-base mat-primary')[0].innerText == 'Взять новую задачу') {    
             if (localStorage.getItem('repeatsound') == 0){
                 if (!soundintervalsetCRM) {
