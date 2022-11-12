@@ -266,56 +266,41 @@ function mystyles() {
 			cursor:pointer;
 			font-weight:700;
 		}
-		#servDsk:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
+		
+		#servDsk {
+			cursor: pointer;
+			display:flex;
+			align-items:center;
+			font-size: 14px;
+			border: 1px solid black;
+			height: 36px;
+			min-width: 100px;
+			padding-left:5px;
 		}
-		#buttonOpenForm:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
+		
+		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
+			display:flex;
+			align-items:center;
+			cursor: pointer;
+			font-size: 14px;
+			min-width: 100px;
+			border-bottom: 1px solid black;
+			border-left: 1px solid black;
+			border-right: 1px solid black;
+			height: 36px;
+			padding-left:5px;
 		}
-		#butMarks:hover {
+		
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
 			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
+			color:#ffffffe6;
+			font-weight:600;
+			font-size:16px;
+			box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+			height:45px;
 		}
-		#suggestform:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#otkaz:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#butChatHistory:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#butLessonInfo:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#JiraOpenForm:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
-		#smartroomform:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}	
-		#butFrozeChat:hover {
-			background:DeepSkyBlue;
-			color:white;
-			font-weight:700;
-		}
+	
 		.hyperlnk {
 			height:0px;
 			opacity:0;
@@ -420,7 +405,15 @@ function mystyles() {
 	.switch-on::after {
 		left: 30px;
 		background: #118c4e;
-	}`
+	}
+	.inithide {
+		display:none !important;
+	}
+	#buttonGetStat:hover {
+		background:DeepSkyBlue;
+	}
+	
+	`
     mstl.innerHTML = style;
 }
 
@@ -654,7 +647,7 @@ if (localStorage.getItem('splinter') == null) {
     localStorage.setItem('splinter', 3);
 }
 
-// Для переключателя вкл/вікл звук
+// Для переключателя вкл/выкл звук
 if (localStorage.getItem('audio') == null){
     localStorage.setItem('audio', 1);
 }
@@ -955,55 +948,50 @@ taskBut.classList.add('ant-btn','onlyfortp');
 let butServ = document.createElement('div')
 butServ.id = "butServ"
 butServ.innerHTML = "⚜UserInfo"
-butServ.style = 'margin-right:15px; height:50px; cursor:pointer;'
+butServ.style = "margin-right:15px; cursor:pointer;"
 butServ.classList.add('onlyfortp');
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
 butMarks.innerHTML = "📊Оценки"
-butMarks.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butMarks.classList.add('inithide');
 
 let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.style = 'margin-right:15px; height:50px; cursor:pointer;'
-butChatHistory.classList.add('onlyfortp');
+butChatHistory.classList.add('onlyfortp', 'inithide');
 
 let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
 butFrozeChat.innerHTML = "❄ Auto Respond"
-butFrozeChat.style = 'margin-right:15px; height:50px; cursor:pointer;'
-butFrozeChat.classList.add('onlyfortp');
+butFrozeChat.classList.add('onlyfortp', 'inithide');
 
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
 butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
 butLessonInfo.innerHTML = "🎓 Lesson Info"
-butLessonInfo.style = 'margin-right:15px; height:50px; cursor:pointer;';
+butLessonInfo.classList.add('inithide');
 
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.style = 'margin-right:15px; height:50px; cursor:pointer;'
 servDsk.classList.add('onlyfortp');
+servDsk.classList.add('inithide');
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.style = 'margin-right:15px; height:50px; cursor:pointer;'
-butopensugestform.classList.add('onlyfortp');
+butopensugestform.classList.add('onlyfortp','inithide');
 
 let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
-butrefuse.style = 'margin-right:15px; height:50px; cursor:pointer;'
-butrefuse.classList.add('onlyfortp');
+butrefuse.classList.add('onlyfortp','inithide');
 
 let butsmartroom = document.createElement('div')
 butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
-butsmartroom.style = 'margin-right:15px; height:50px; cursor:pointer;'
-butsmartroom.classList.add('onlyfortp');
+butsmartroom.classList.add('onlyfortp','inithide');
 
 let butThemes = document.createElement('div')
 butThemes.id = "themes"
@@ -1014,8 +1002,7 @@ butThemes.classList.add('ant-btn','onlyfortp')
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
-butJiraOpenForm.style = 'margin-right:15px; height:50px; cursor:pointer;'
-butJiraOpenForm.classList.add('onlyfortp');
+butJiraOpenForm.classList.add('onlyfortp', 'inithide');
 
 let butmenu = document.createElement('button')
 butmenu.innerText = 'Меню'
@@ -1024,7 +1011,7 @@ butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
 
 let menubar = document.createElement('div')
-menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:110px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
 menubar.id = 'idmymenu'
 
 butmenu.onclick = () => { // кнопка открытия Меню
@@ -1180,6 +1167,14 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
+function addOption(oListbox, text, value)  //функция добавления опции в список
+{
+	var oOption = document.createElement("option");
+	oOption.appendChild(document.createTextNode(text));
+	oOption.setAttribute("value", value);
+	oListbox.appendChild(oOption);
+}
+
 var flagLangBut = 0
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
@@ -1194,13 +1189,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             let objSelIssue = document.getElementById("userissue");
             let objSelSolution = document.getElementById("howissuesolverd");
 
-            function addOption(oListbox, text, value)  //функция добавления опции в список
-            {
-                var oOption = document.createElement("option");
-                oOption.appendChild(document.createTextNode(text));
-                oOption.setAttribute("value", value);
-                oListbox.appendChild(oOption);
-            }
+
 
             let issuefromdoc;
             let issuecontainer;
@@ -1910,15 +1899,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             let objSoundList = document.getElementById('soundlistaddr')
             let sondsfromdoc;
             let soundsconteiner;
-
-                function addOption(oListbox, text, value)  //функция добавления опции в список
-                {
-                    var oOption = document.createElement("option");
-                    oOption.appendChild(document.createTextNode(text));
-                    oOption.setAttribute("value", value);
-
-                    oListbox.appendChild(oOption);
-                }
 
             async function getsoundsfromdoc() { // загрузка списка звуков из файла
                 sondsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
@@ -5906,7 +5886,7 @@ async function checkCSAT() {             // функция проверки CSAT
                     count[5] = 0;
 
                 if (flagvbad == "" && flagbad == "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5914,7 +5894,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad == "" && flagbad == "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5922,7 +5902,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad == "" && flagbad != "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5930,7 +5910,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad != "" && flagbad == "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5938,7 +5918,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad != "" && flagbad != "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5946,7 +5926,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad != "" && flagbad == "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5954,7 +5934,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad == "" && flagbad != "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -5962,7 +5942,7 @@ async function checkCSAT() {             // функция проверки CSAT
                         (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
                         '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
                 else if (flagvbad != "" && flagbad != "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (открывайте в инкогнито, чтобы не вылететь с текущей сессии): <br>' +
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
                         "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
                         'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
                         'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
@@ -6044,7 +6024,7 @@ function prepTp() { //функция подготовки расширения �
     let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
     buttonGetStat.id = 'buttonGetStat';
     buttonGetStat.innerHTML = "Статистика";
-    buttonGetStat.style.marginLeft = "15px";
+    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
     buttonGetStat.onclick = function () {
         if (this.textContent == 'Скрыть стату') {
             if (this.getAttribute('disabled') != null)
@@ -6091,22 +6071,22 @@ function prepTp() { //функция подготовки расширения �
 
 		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
+		// include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
+		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
         include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
         include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
         include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
-        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи
+        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи, отключен функционал в JSAF-v3
         include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
 		include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
-		include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика
 		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
 		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
-		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2500)
@@ -6146,7 +6126,7 @@ function prepKC() { //функция подготовки расширения �
         let lboxstyles = document.createElement('link')
         lboxstyles.rel = 'stylesheet'
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-        document.querySelector('header').append(lboxstyles)
+        document.querySelector('head').append(lboxstyles)
         include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
@@ -6216,6 +6196,16 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('butLessonInfo'))
             menubar.append(document.getElementById('butChatHistory'))
             menubar.append(document.getElementById('butFrozeChat'))
+			servDsk.classList.remove('inithide')
+			JiraOpenForm.classList.remove('inithide')
+			butopensugestform.classList.remove('inithide')
+			butrefuse.classList.remove('inithide')
+			butsmartroom.classList.remove('inithide')
+			butLessonInfo.classList.remove('inithide')
+			butChatHistory.classList.remove('inithide')
+			butFrozeChat.classList.remove('inithide')
+			butMarks.classList.remove('inithide')
+			buttonOpenForm.classList.remove('inithide')
         }, 8000)
 
         setInterval(startTimer, 1000)
@@ -6223,26 +6213,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
     setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
 }
 firstLoadPage()
-
-if (localStorage.getItem('hesoyam') == 1) {
-    let newDiv = document.createElement('div')
-    newDiv.style.margin = '5px'
-    let button = document.createElement('button')
-    button.textContent = 'Закрыть чат'
-    button.id = 'easyCloseChat'
-    button.onclick = function () {
-        var chatId = document.location.pathname.split('/')[3]
-        fetch("https://skyeng.autofaq.ai/api/conversation/status", {
-            "headers": {
-                "content-type": "application/json",
-            },
-            "body": "{\"command\":\"DO_SET_CONVERSATION_STATUS\",\"conversationId\":\"" + chatId + "\",\"status\":\"ClosedByOperator\",\"autofaqServiceId\":120181,\"assignToOperatorId\":\"" + operatorId + "\"}",
-            "method": "POST",
-        });
-    }
-    newDiv.append(button)
-    document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
-}
 
 let lginfo;
 let tokenlog;
@@ -6310,32 +6280,6 @@ btntid.onclick = function () { // копирует в буфер логинне�
         setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
-}
-
-function hesoyam() {
-    if (localStorage.getItem('hesoyam') == 1) {
-        localStorage.setItem('hesoyam', '0')
-        document.getElementById('easyCloseChat').remove()
-        return
-    }
-    localStorage.setItem('hesoyam', '1')
-    let newDiv = document.createElement('div')
-    newDiv.style.margin = '5px'
-    let button = document.createElement('button')
-    button.textContent = 'Закрыть чат'
-    button.id = 'easyCloseChat'
-    button.onclick = function () {
-        chatId = document.location.pathname.split('/')[3]
-        fetch("https://skyeng.autofaq.ai/api/conversation/status", {
-            "headers": {
-                "content-type": "application/json",
-            },
-            "body": "{\"command\":\"DO_SET_CONVERSATION_STATUS\",\"conversationId\":\"" + chatId + "\",\"status\":\"ClosedByOperator\",\"autofaqServiceId\":120181,\"assignToOperatorId\":\"" + operatorId + "\"}",
-            "method": "POST",
-        });
-    }
-    newDiv.append(button)
-    document.getElementById('AF_helper').lastElementChild.lastElementChild.lastElementChild.append(newDiv)
 }
 
 function ShowMustGoOn() {

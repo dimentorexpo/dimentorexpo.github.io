@@ -647,7 +647,7 @@ if (localStorage.getItem('splinter') == null) {
     localStorage.setItem('splinter', 3);
 }
 
-// Для переключателя вкл/вікл звук
+// Для переключателя вкл/выкл звук
 if (localStorage.getItem('audio') == null){
     localStorage.setItem('audio', 1);
 }
