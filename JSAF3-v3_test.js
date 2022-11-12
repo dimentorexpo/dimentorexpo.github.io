@@ -3236,15 +3236,19 @@ function startTimer() {
                     let copyCrmFromName = document.createElement('span')
                     copyCrmFromName.textContent = ' 💾'
                     copyCrmFromName.style.cursor = "pointer"
-                    document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
-                    copyCrmFromName.onclick = function () {
-                        for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-                            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-                                let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-                                copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
-                            }
-                        }
-                    }
+					copyCrmFromName.id = 'diskettocopy'
+					if (document.getElementById('diskettocopy') == null ) {
+						document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
+						copyCrmFromName.onclick = function () {
+							for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+									let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+									copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
+								}
+							}
+						}
+					}
+
 
                     let userTypeName = document.createElement('span')
                     userTypeName.id = "userTypeId"
