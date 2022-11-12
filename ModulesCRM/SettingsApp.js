@@ -19,7 +19,7 @@ var win_SettingsApp =  // описание элементов главного �
 				<span style="color:bisque">Громкость звука</span>
 				<input id="rangeCRM" min="0" max="1" value="1.0" step="0.1" type="range">
                     <br>
-				<label style="color:bisque"><input type="checkbox" id="repeatsoundselectCRM">Повторять звук новой задачи</label>
+				<label style="color:bisque"><input type="checkbox" onchange="changerepeatsoundCRM()" id="repeatsoundselectCRM">Повторять звук новой задачи</label>
                     <br>
 				<span style="color:bisque">Интервал воспроизведения звука:</span>
 				<input title="Ввод интервала в секундах между повторами звука нового чата" id="soundplayintervalCRM" placeholder="N" autocomplete="off" oninput="maxLengthCheck(this)" type="number" maxlength="2" min="0" max="59" style="text-align: center; margin-top: 5px; width: 50px; color: black;">
@@ -142,6 +142,8 @@ document.getElementById('btnSettingsApp').onclick = function () { // откры�
             document.getElementById("repeatsoundselectCRM").checked = true;
         } else {
             document.getElementById("repeatsoundselectCRM").checked = false;
+            document.getElementById('setsoundplayintervalCRM').setAttribute('disabled', 'disabled')
+            document.getElementById('soundplayintervalCRM').setAttribute('disabled', 'disabled')
         }
     }
 }
@@ -193,9 +195,13 @@ function changerepeatsoundCRM() {
     if (localStorage.getItem('repeatsound') == 1) {
         document.getElementById("repeatsoundselectCRM").checked = false;
         localStorage.setItem('repeatsound', 0)
+        document.getElementById('setsoundplayintervalCRM').setAttribute('disabled', 'disabled')
+        document.getElementById('soundplayintervalCRM').setAttribute('disabled', 'disabled')
     } else {
         document.getElementById("repeatsoundselectCRM").checked = true;
         localStorage.setItem('repeatsound', 1)
+        document.getElementById('setsoundplayintervalCRM').removeAttribute('disabled')
+        document.getElementById('soundplayintervalCRM').removeAttribute('disabled')
     }
 }
 
