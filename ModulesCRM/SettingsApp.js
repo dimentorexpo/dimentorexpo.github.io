@@ -305,16 +305,4 @@ function checkforsoundplay() {
 setInterval(checkforsoundplay, 1000);
 */
 
-function checkforsoundplay() {
-    document.getElementById("MenubarCRM").addEventListener('DOMSubtreeModified', function () {
-        if (window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
-            console.log('Типа того')
-        }
-    });
-}
-checkloadpage = setInterval(() => {
-    if(document.getElementById("MenubarCRM") !== null){
-        checkforsoundplay()
-        clearInterval(checkloadpage)
-    }
-}, 250);
+document.addEventListener('onchange', function() {console.log('Ля ля тополя')});
