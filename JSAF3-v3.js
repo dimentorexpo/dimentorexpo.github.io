@@ -3193,36 +3193,7 @@ function startTimer() {
         }
 
         addInfoUser.innerHTML = vertical + " + " + user
-        if (document.getElementById('NS') != undefined) {
-            if (vertical == "Math" || "math_flow") {
-                //document.getElementById('math').style.backgroundColor = "green"
-                document.getElementById('NS').style.backgroundColor = "#768d87"
-            } else {
-                document.getElementById('NS').style.backgroundColor = "green"
-                //document.getElementById('math').style.backgroundColor = "#768d87"
-            }
-        }
 
-        if (document.getElementById('NS') != undefined) {
-            if (user == "student") {
-                //document.getElementById('math').style.display =
-                document.getElementById('NS').style.display = "none"
-            } else {
-                //document.getElementById('math').style.display =
-                document.getElementById('NS').style.display = ""
-            }
-        }
-        if (user == "teacher") {
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.indexOf("%") === -1) {
-                        id = Number.parseInt(document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText)
-                        document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText += " % 11 = " + (id % 11)
-                    }
-                    break;
-                }
-            }
-        }
     }
 
     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
