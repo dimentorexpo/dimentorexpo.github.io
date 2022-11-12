@@ -55,6 +55,10 @@ if (localStorage.getItem('audioCRMvol') != null) { //Задаем громкос
     audioCRM.volume = localStorage.getItem('audioCRMvol');
 } else localStorage.setItem('audioCRMvol', 1);
 
+if (localStorage.getItem('audioCRM') == null){ // Задаем переключатель вкл/выкл звук
+    localStorage.setItem('audioCRM', 1);
+}
+
 if (localStorage.getItem('winTopSettingsApp') == null) { // началоное положение окна настроек (если не задано ранее)
     localStorage.setItem('winTopSettingsApp', '120');
     localStorage.setItem('winLeftSettingsApp', '295');
@@ -299,3 +303,8 @@ function checkforsoundplay() {
 
 setInterval(checkforsoundplay, 1000);
 */
+document.getElementById("MenubarCRM").addEventListener("DOMSubtreeModified", function () {
+    if (window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
+        console.log('Типа того')
+    }
+});
