@@ -26,7 +26,7 @@ var win_servicedesk = // описание элементов окна Service De
 						<span style="color:cyan">Last task</span>
 						<button class="btnCRM" id="newtask" style="width: 80px" title="Последняя задача"></button>
                 </div>
-                <div id="servicedeskinfo" style="margin-left:20px;">
+                <div id="servicedeskinfo" style="margin-left:10px;">
                     <button class="btnCRM sdbtn" id="optionTeacher">👽Teacher</button>
                     <button class="btnCRM sdbtn" id="optionCRM2">🧮CRM2</button>
                     <button class="btnCRM sdbtn" id="optionAuth">🔐Auth</button>
