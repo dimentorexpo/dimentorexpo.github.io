@@ -72,6 +72,10 @@ function mystyles() {
 	.sdcustfieldformlines {
         width: 420px;
     }
+	.sdbtn{
+		width: 90px;
+		margin-left:2px;
+	}
     .sdexpecactual {
         width: 420px;
     }
