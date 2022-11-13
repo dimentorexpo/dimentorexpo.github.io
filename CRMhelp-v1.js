@@ -171,7 +171,7 @@ function mystyles() {
 		padding: 5px;
 		color: bisque;
 		background: #547354;
-		height: 309px;
+		min-height: 60px;
 		text-align: center;
 		border: 1px solid black;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
@@ -193,7 +193,7 @@ function mystyles() {
 		padding: 5px;
 		color: bisque;
 		background: #547354;
-		height: 309px;
+		min-height: 60px;
 		text-align: center;
 		border: 1px solid black;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
@@ -443,12 +443,10 @@ document.getElementById('idmymenucrm').append(butSettingsApp)
 
 include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
 
-
-
-
 let teststudent = document.createElement('span')
 teststudent.textContent = "Тест У"
 teststudent.id = "testuchenik"
+
 document.getElementById('idmymenucrm').append(teststudent)
 
 teststudent.onclick = function () {
@@ -468,6 +466,18 @@ testteacher.onclick = function () {
 	logginerfortestsCRM(localStorage.getItem('test_teachCRM'))
         setTimeout(function () { document.getElementById('testprepod').classList.remove('active') }, 1000)
 }
+
+let chkhghtbnt = setInterval(() => {
+	console.log (выполняем)
+	if (document.getElementById("idmymenucrm") && document.getElementById("idmymenucrm").offsetHeight > 60){
+		let hghtelem = document.getElementById("idmymenucrm").offsetHeight
+		console.log (document.getElementById("testuchenik").offsetHeight)
+		console.log (document.getElementById("testprepod").offsetHeight)
+		document.getElementById("testuchenik").style = "height:" + hghtelem + "px";
+		document.getElementById("testprepod").style = "height:" + hghtelem + "px";
+		clearInterval(chkhghtbnt)
+	}
+}, 1000);
 
 let lboxstyles = document.createElement('link')
 lboxstyles.rel = 'stylesheet'
