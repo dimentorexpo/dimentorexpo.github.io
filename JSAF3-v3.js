@@ -3147,50 +3147,6 @@ function startTimer() {
             if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
                 nextClassstudentId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
         }
-        if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) { // поиск группы, с которой  сейчас идет занятие
-            if (nextClassMode == 'group') {
-                nextClassstudentId = nextClassstudentId.split(',')[0]
-                document.getElementsByClassName('expert-user_details-list')[1].childNodes[nextClassModeId].childNodes[1].textContent = 'group '
-                function checkForLink() {
-                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[nextClassModeId].childNodes[1].textContent == 'group ')
-                        document.getElementsByClassName('expert-user_details-list')[1].childNodes[nextClassModeId].childNodes[1].textContent = 'group'
-                }
-                setTimeout(checkForLink, 5000)
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://grouplessons-api.skyeng.ru/admin/student?studentListFilter%5Bid%5D=" + nextClassstudentId
-                document.getElementById('responseTextarea3').value = 'groupLessons1'
-                document.getElementById('sendResponse').click()
-                studentIdSearch2 = 0
-                setTimeout(generateGroupLink, 1000)
-
-                function generateGroupLink() {
-                    let res = document.getElementById('responseTextarea1').getAttribute('groupLessons1')
-                    if (res.split('/admin/student/view/')[1].split('<td>')[3].split('</td')[0] == 'Нет') {
-                        studentIdSearch2++
-                        document.getElementById('responseTextarea1').removeAttribute('groupLessons1')
-                        for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-                            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId") {
-                                document.getElementById('responseTextarea1').value = '{}'
-                                document.getElementById('responseTextarea2').value = "https://grouplessons-api.skyeng.ru/admin/student?studentListFilter%5Bid%5D=" + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(',')[studentIdSearch2]
-                                document.getElementById('responseTextarea3').value = 'groupLessons1'
-                                document.getElementById('sendResponse').click()
-                                setTimeout(generateGroupLink, 1000)
-                                return
-                            }
-                        }
-                    }
-                    groupId = res.split('/admin/student/view/')[1].split('<td>')[3].split('</td')[0]
-                    let button = document.createElement('a')
-                    button.href = 'https://learning-groups-storage.skyeng.ru/group/' + groupId + '?cp=(section:participants)'
-                    button.target = '_blank'
-                    button.textContent = groupId
-                    button.style.marginRight = '15px'
-
-                    document.getElementsByClassName('expert-user_details-list')[1].children[0].children[0].replaceWith(button)
-                    document.getElementsByClassName('expert-user_details-list')[1].children[0].children[1].remove()
-                }
-            }
-        }
 
         addInfoUser.innerHTML = vertical + " + " + user
 
