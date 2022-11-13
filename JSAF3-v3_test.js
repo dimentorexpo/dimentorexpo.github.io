@@ -6010,7 +6010,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
-		include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
+		// include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
 		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
 		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
