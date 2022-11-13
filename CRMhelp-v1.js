@@ -62,6 +62,7 @@ function mystyles() {
 	.radio {
 		width:15px;
 		height:15px;
+		font-size:14px;
 		transition: all 0.5s ease;
 	}
 	.radio:hover {
@@ -446,6 +447,7 @@ include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
 let teststudent = document.createElement('span')
 teststudent.textContent = "Тест У"
 teststudent.id = "testuchenik"
+teststudent.style = "height: " + document.getElementById("idmymenucrm").offsetHeight  + "px"
 document.getElementById('idmymenucrm').append(teststudent)
 
 teststudent.onclick = function () {
@@ -457,6 +459,7 @@ teststudent.onclick = function () {
 let testteacher = document.createElement('span')
 testteacher.textContent = "Тест П"
 testteacher.id = "testprepod"
+
 document.getElementById('idmymenucrm').append(testteacher)
 
 testteacher.onclick = function () {
