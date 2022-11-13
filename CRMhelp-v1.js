@@ -468,7 +468,7 @@ testteacher.onclick = function () {
 }
 
 let chkhghtbnt = setInterval(() => {
-	console.log (выполняем)
+	console.log ("выполняем")
 	if (document.getElementById("idmymenucrm") && document.getElementById("idmymenucrm").offsetHeight > 60){
 		let hghtelem = document.getElementById("idmymenucrm").offsetHeight
 		console.log (document.getElementById("testuchenik").offsetHeight)
