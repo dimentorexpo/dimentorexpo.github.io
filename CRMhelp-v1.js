@@ -444,11 +444,16 @@ document.getElementById('idmymenucrm').append(butSettingsApp)
 include("https://dimentorexpo.github.io/ModulesCRM/SettingsApp.js")
 
 
+
+
 let teststudent = document.createElement('span')
 teststudent.textContent = "Тест У"
 teststudent.id = "testuchenik"
-teststudent.style = "height: " + document.getElementById("idmymenucrm").offsetHeight  + "px"
+
+setTimeout(() => {
+	teststudent.style = "height: " + document.getElementById("idmymenucrm").offsetHeight  + "px"
 document.getElementById('idmymenucrm').append(teststudent)
+}, 1000);
 
 teststudent.onclick = function () {
 	document.getElementById('testuchenik').classList.add('active')
