@@ -335,7 +335,7 @@ try {
 					document.getElementById('idmymenucrm').style.display =''
 					let xvarmenu = parseInt(document.getElementById('MenubarCRM').getBoundingClientRect().x - 21)
 					menubarcrm.style.left = xvarmenu + 'px';
-					let hghtelem = document.getElementById("idmymenucrm").offsetHeight
+					let hghtelem = document.getElementById("idmymenucrm").offsetHeight - 12
 					document.getElementById("testuchenik").style = "height:" + hghtelem + "px";
 					document.getElementById("testprepod").style = "height:" + hghtelem + "px";
 				} else {
