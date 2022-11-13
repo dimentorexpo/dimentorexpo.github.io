@@ -556,7 +556,6 @@ function getslacklnk() { // получаем ссылку на обращени�
 }
 
 function checkjiraauth() { // функция проверки авторизации в Jira 
-getprsuplasttask()
 
 		document.getElementById('responseTextarea1').value = '{}'
 		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
@@ -577,7 +576,7 @@ getprsuplasttask()
 					console.log("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
 					document.getElementById('jiratknstatus').innerText = "🔴"
 				}
-					}
+			}
 			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 		});
 		
