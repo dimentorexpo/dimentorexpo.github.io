@@ -74,6 +74,7 @@ function mystyles() {
     }
 	.sdbtn{
 		width: 90px;
+		margin-top:2px;
 		margin-left:2px;
 	}
     .sdexpecactual {
