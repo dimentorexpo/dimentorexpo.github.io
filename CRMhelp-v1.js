@@ -18,7 +18,8 @@ function mystyles() {
 		color:#ffffff;
 		padding:5px 5px;
 		font-family:sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
-		font-size:12px;
+		font-size:14px;
+		min-height: 30px;
 	}
 	.btnCRM:hover, #testuchenik:hover, #testprepod:hover {
 		background: #6A5ACD;
