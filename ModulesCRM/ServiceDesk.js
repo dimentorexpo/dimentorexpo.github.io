@@ -15,7 +15,7 @@ var win_servicedesk = // описание элементов окна Service De
     `<div style="display: flex; width: 500px;">
 		<span style="width: 500px">
         <span style="cursor: -webkit-grab;">
-                <div style="display:flex; align-items:center; margin: 5px; width: 490px;" id="SrvDskSummary">
+                <div style="display:flex; align-items:center; justify-content: space-between; margin: 5px; width: 490px;" id="SrvDskSummary">
                         <button class="btnCRM" id="hideMeSrvDsk" style="width:40px; background: #228B22;">hide</button>
 						<button class="btnCRM" id="refreshjiraauth" title="Перепроверить авторизацию в Jira">🔄</button>
 						<button class="btnCRM" id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
