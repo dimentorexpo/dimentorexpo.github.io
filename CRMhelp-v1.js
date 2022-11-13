@@ -335,6 +335,8 @@ try {
 					document.getElementById('idmymenucrm').style.display =''
 					let xvarmenu = parseInt(document.getElementById('MenubarCRM').getBoundingClientRect().x - 21)
 					menubarcrm.style.left = xvarmenu + 'px';
+					document.getElementById("testuchenik").style = "height:" + hghtelem + "px";
+					document.getElementById("testprepod").style = "height:" + hghtelem + "px";
 				} else {
 					document.getElementById('idmymenucrm').style.display ='none'
 
@@ -466,7 +468,7 @@ testteacher.onclick = function () {
 	logginerfortestsCRM(localStorage.getItem('test_teachCRM'))
         setTimeout(function () { document.getElementById('testprepod').classList.remove('active') }, 1000)
 }
-
+/*
 let chkhghtbnt = setInterval(() => {
 	console.log ("выполняем")
 	if (document.getElementById("idmymenucrm") && document.getElementById("idmymenucrm").offsetHeight > 60){
@@ -478,6 +480,7 @@ let chkhghtbnt = setInterval(() => {
 		clearInterval(chkhghtbnt)
 	}
 }, 1000);
+*/
 
 let lboxstyles = document.createElement('link')
 lboxstyles.rel = 'stylesheet'
