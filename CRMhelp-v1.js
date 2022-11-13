@@ -469,19 +469,6 @@ testteacher.onclick = function () {
 	logginerfortestsCRM(localStorage.getItem('test_teachCRM'))
         setTimeout(function () { document.getElementById('testprepod').classList.remove('active') }, 1000)
 }
-/*
-let chkhghtbnt = setInterval(() => {
-	console.log ("выполняем")
-	if (document.getElementById("idmymenucrm") && document.getElementById("idmymenucrm").offsetHeight > 60){
-		let hghtelem = document.getElementById("idmymenucrm").offsetHeight
-		console.log (document.getElementById("testuchenik").offsetHeight)
-		console.log (document.getElementById("testprepod").offsetHeight)
-		document.getElementById("testuchenik").style = "height:" + hghtelem + "px";
-		document.getElementById("testprepod").style = "height:" + hghtelem + "px";
-		clearInterval(chkhghtbnt)
-	}
-}, 1000);
-*/
 
 let lboxstyles = document.createElement('link')
 lboxstyles.rel = 'stylesheet'
