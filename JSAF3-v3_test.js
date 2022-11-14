@@ -427,6 +427,17 @@ function mystyles() {
 		background: coral;
 	}
 	
+	.msgtype {
+		border: 8px solid #4ce479;
+		width: 80px;
+		margin-left: 20px;
+		transition: all 0.5s ease;
+	}
+	.msgtype.notes {
+		border: 8px solid #4ce479;
+		transition: all 0.5s ease;
+	}
+	
 	`
     mstl.innerHTML = style;
 }
@@ -460,7 +471,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;" title="Открывает форму для прикрепления ссылки в текст">🔗</button>
                 <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
 				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width: 80px; margin-left: 20px;">Чат</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" class="msgtype" id="msg">Чат</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
@@ -3154,9 +3165,11 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
     document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
         if (this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
+			this.classList.toggle('notes')
             localStorage.setItem('msg', 'Заметки')
         } else {
             this.innerHTML = "Чат";
+			this.classList.toggle('notes')
             localStorage.setItem('msg', 'Чат')
         }
     }
