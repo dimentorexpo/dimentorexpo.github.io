@@ -661,13 +661,9 @@ let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
 infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
 
-let nextstuduserbut = document.createElement('p');
-nextstuduserbut.id = 'nextStudentIdScript';
-nextstuduserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
-
-let nextteachuserbut = document.createElement('p');
-nextteachuserbut.id = 'nextTeacherIdScript';
-nextteachuserbut.innerHTML = '<a style="color: black; cursor: pointer;"> Info </a>';
+let nextuserinfo = document.createElement('p');
+nextuserinfo.id = 'nextUserInfoScript';
+nextuserinfo.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
 
 let buttonhistory = document.createElement('span');
 buttonhistory.id = 'lookForHistory';
@@ -681,43 +677,30 @@ let trshootnextuser = document.createElement('span');
 trshootnextuser.id = 'nextusertrshooter'
 trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
 
-let buttonserv = document.createElement('span');
-buttonserv.id = 'nextStudentServiceInfo';
-buttonserv.innerHTML = " ⚜ ";
-buttonserv.style = "width:20px; cursor:pointer";
-
 let buttonservstud = document.createElement('span');
 buttonservstud.id = 'nextStudentServiceInfo1';
 buttonservstud.innerHTML = " ⚜ ";
 buttonservstud.style = "width:20px; cursor:pointer";
 
-let buttonservteach = document.createElement('span');
-buttonservteach.id = 'nextTeacherServiceInfo1';
-buttonservteach.innerHTML = " ⚜ ";
-buttonservteach.style.width = "20px";
-buttonservteach.style.cursor = "pointer";
+let buttonservivceuser = document.createElement('span');
+buttonservivceuser.id = 'nextUserServiceInfo';
+buttonservivceuser.innerHTML = " ⚜ ";
+buttonservivceuser.style = "width:20px; cursor:pointer";
 
-let buttonnextstudentid = document.createElement('span');
-buttonnextstudentid.id = 'nextStudentIdChatHistory';
-buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
-
-let buttonnextteacherid = document.createElement('span');
-buttonnextteacherid.id = 'nextTeacherIdChatHistory';
-buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+let btnNextUserChatHistory = document.createElement('span');
+btnNextUserChatHistory.id = 'btnNextUserChatHis';
+btnNextUserChatHistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
 
 let butteachid = document.createElement('button');
 butteachid.id = 'teacheridtofield';
 butteachid.innerHTML = "👽 (ID П) П обратился ";
-butteachid.style.width = "160px";
-butteachid.style.cursor = "pointer";
-butteachid.style.border = "1px solid black";
-butteachid.style.borderRadius = "10px";
+butteachid.style = "width:160px; cursor:pointer; border: 1px solid black; border-radius:10px";
 
 let butstdid = document.createElement('button');
 butstdid.id = 'studentidtofield';
 butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
 butstdid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
-
+ 
 let butteachidfstd = document.createElement('button');
 butteachidfstd.id = 'teacheridfromstudent';
 butteachidfstd.innerHTML = "👽 (ID П) У обратился";
@@ -772,22 +755,14 @@ buttonhistory.onclick = function () { //функция приска пр ист�
     }
 }
 
-buttonnextstudentid.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
+btnNextUserChatHistory.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
     document.getElementById('butChatHistory').click();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
             document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
             btn_search_history.click()
-        }
-    }
-}
-
-buttonnextteacherid.onclick = function () { //искать историю чатов по преподавателю с которым след урок при обращении У
-    document.getElementById('butChatHistory').click();
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
             document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
             btn_search_history.click()
         }
@@ -862,24 +837,15 @@ infouserbut.onclick = function () { //функция Info по нажатию н
     }
 }
 
-buttonserv.onclick = function () { //открывает окно вензель user info
-    if (document.getElementById('AF_Service').style.display == 'none')
-        document.getElementById('AF_Service').style.display = '';
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
-            getidstudent.click();
-        }
-    }
-}
-
-buttonservteach.onclick = function () { //открывает окно вензель user info
+buttonservivceuser.onclick = function () { //открывает окно вензель user info
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+            getidstudent.click();
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
             document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
             getidstudent.click();
         }
@@ -898,7 +864,7 @@ buttonservstud.onclick = function () { //открывает окно вензе�
     }
 }
 
-nextstuduserbut.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
+nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
             const editorExtensionId = localStorage.getItem('ext_id');
@@ -911,13 +877,7 @@ nextstuduserbut.onclick = function () { // открывает просмотр �
                     }
                 }
             )
-        }
-    }
-}
-
-nextteachuserbut.onclick = function () { // открывает просмотр инфо о пользователе преподе при обращении У  взаимодействуя
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
             const editorExtensionId = localStorage.getItem('ext_id');
             chrome.runtime.sendMessage(
                 editorExtensionId,
@@ -3166,22 +3126,14 @@ function startTimer() {
                         btn.appendChild(buttonmobpas)
                 }
 
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                     btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                    btn.appendChild(nextstuduserbut)
-                    btn.appendChild(buttonserv)
-                    btn.appendChild(buttonnextstudentid)
+                    btn.appendChild(nextuserinfo)
+                    btn.appendChild(buttonservivceuser)
+                    btn.appendChild(btnNextUserChatHistory)
                     btn.appendChild(trshootnextuser)
-                }
-
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                    btn.appendChild(nextteachuserbut)
-                    btn.appendChild(buttonservteach)
-                    btn.appendChild(buttonnextteacherid)
-                    btn.appendChild(trshootnextuser)
-                }
-
+					
+                } 
             }
         }
 
@@ -3234,7 +3186,6 @@ function startTimer() {
                                     document.getElementsByTagName('p')[i].style.background = "#FF0000";
                             }
                         }
-
                     }
                 }
             }

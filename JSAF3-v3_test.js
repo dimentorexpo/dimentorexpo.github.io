@@ -3134,13 +3134,6 @@ function startTimer() {
                     btn.appendChild(trshootnextuser)
 					
                 } 
-				// else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-					// btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                    // btn.appendChild(nextuserinfo)
-                    // btn.appendChild(buttonservivceuser)
-                    // btn.appendChild(btnNextUserChatHistory)
-                    // btn.appendChild(trshootnextuser)
-				// }
             }
         }
 
