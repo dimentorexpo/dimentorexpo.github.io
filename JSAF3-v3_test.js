@@ -661,13 +661,9 @@ let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
 infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
 
-let nextstuduserbut = document.createElement('p');
-nextstuduserbut.id = 'nextStudentIdScript';
-nextstuduserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
-
-let nextteachuserbut = document.createElement('p');
-nextteachuserbut.id = 'nextTeacherIdScript';
-nextteachuserbut.innerHTML = '<a style="color: black; cursor: pointer;"> Info </a>';
+let nextuserinfo = document.createElement('p');
+nextuserinfo.id = 'nextUserInfoScript';
+nextuserinfo.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
 
 let buttonhistory = document.createElement('span');
 buttonhistory.id = 'lookForHistory';
@@ -898,7 +894,7 @@ buttonservstud.onclick = function () { //открывает окно вензе�
     }
 }
 
-nextstuduserbut.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
+nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
             const editorExtensionId = localStorage.getItem('ext_id');
@@ -911,13 +907,7 @@ nextstuduserbut.onclick = function () { // открывает просмотр �
                     }
                 }
             )
-        }
-    }
-}
-
-nextteachuserbut.onclick = function () { // открывает просмотр инфо о пользователе преподе при обращении У  взаимодействуя
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
             const editorExtensionId = localStorage.getItem('ext_id');
             chrome.runtime.sendMessage(
                 editorExtensionId,
@@ -3168,20 +3158,18 @@ function startTimer() {
 
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                     btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                    btn.appendChild(nextstuduserbut)
+                    btn.appendChild(nextuserinfo)
                     btn.appendChild(buttonserv)
                     btn.appendChild(buttonnextstudentid)
                     btn.appendChild(trshootnextuser)
-                }
-
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                    btn.appendChild(nextteachuserbut)
+					
+                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                    btn.appendChild(nextuserinfo)
                     btn.appendChild(buttonservteach)
                     btn.appendChild(buttonnextteacherid)
                     btn.appendChild(trshootnextuser)
-                }
-
+				}
             }
         }
 
@@ -3234,7 +3222,6 @@ function startTimer() {
                                     document.getElementsByTagName('p')[i].style.background = "#FF0000";
                             }
                         }
-
                     }
                 }
             }
