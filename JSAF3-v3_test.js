@@ -414,11 +414,14 @@ function mystyles() {
 		background:DeepSkyBlue;
 	}
 	.teststudteach {
-		background-color: #3CB371;
+		background: #3CB371;
 		margin-left: 5px;
-		margin-top:5px;
-		margin-bottom: 5px;
+		margin:5px;
 		cursor: pointer;
+		width: 24px;
+	}
+	.teststudteach.active {
+		background: coral;
 	}
 	
 	`
@@ -6100,8 +6103,8 @@ btnsid.onclick = function () { // копирует в буфер логинне�
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
         logginerfortests(teststudid)
-        document.getElementById('sidcode').style.background = 'coral'
-        setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
+		document.getElementById('sidcode').classList.add('active')
+        setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000)
 
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
@@ -6111,8 +6114,8 @@ btntid.onclick = function () { // копирует в буфер логинне�
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         logginerfortests(testteachid)
-        document.getElementById('tidcode').style.background = 'coral'
-        setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
+		document.getElementById('tidcode').classList.add('active')
+        setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000)
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
