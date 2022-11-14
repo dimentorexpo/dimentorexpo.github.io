@@ -428,13 +428,13 @@ function mystyles() {
 	}
 	
 	.msgtype {
-		border: 8px solid #4ce479;
+		border-left: 8px solid #4ce479;
 		width: 80px;
 		margin-left: 20px;
 		transition: all 0.5s ease;
 	}
 	.msgtype.notes {
-		border: 8px solid #4ce479;
+		border-left: 8px solid #4ce479;
 		transition: all 0.5s ease;
 	}
 	
