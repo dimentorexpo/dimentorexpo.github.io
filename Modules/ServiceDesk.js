@@ -17,7 +17,7 @@ var win_servicedesk = // описание элементов окна Service De
 		<span style="width: 480px">
         <span style="cursor: -webkit-grab;">
                 <div style="margin: 5px; width: 480px;" id="SrvDskSummary">
-                        <button id="hideMeSrvDsk" style="width:30px; background: #228B22;">hide</button>
+                        <button id="hideMeSrvDsk" style="width:35px; background: #228B22;">hide</button>
 						<button id="refreshjiraauth" title="Перепроверить авторизацию в Jira">🔄</button>
 						<button id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
 						<span style="color:bisque">Jira Status:</span>
