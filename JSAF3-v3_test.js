@@ -566,13 +566,6 @@ var win_refusefrom =  // описание элементов окна отказ
 		</span>
         </span>
 </div>`;
-
-function include(url) { // функция подключения дополнительных скриптов/модулей
-    var script = document.createElement('script');
-    script.src = url;
-	script.setAttribute('defer', '')
-    document.getElementsByTagName('head')[0].appendChild(script);
-}		
  
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
@@ -612,6 +605,13 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
 }
 
 // Конец блока горячих клавиш
+
+function include(url) { // функция подключения дополнительных скриптов/модулей
+    var script = document.createElement('script');
+    script.src = url;
+	script.setAttribute('defer', '')
+    document.getElementsByTagName('head')[0].appendChild(script);
+}	
 
 function maxLengthCheck(object) { // функция ограничения кол-ва символов в полях
     if (object.value.length > object.maxLength)
