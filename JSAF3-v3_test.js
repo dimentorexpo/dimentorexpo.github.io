@@ -3631,6 +3631,10 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
     if (localStorage.getItem('msg') != null) {
         document.getElementById('msg').innerHTML = localStorage.getItem('msg')
+		if (localStorage.getItem('msg') == 'Чат')
+			document.getElementById('msg').classList.remove('notes')
+		else if (localStorage.getItem('msg') == 'Заметки')
+			document.getElementById('msg').classList.add('notes')
     }
     if (localStorage.getItem('msg1') != null) {
         document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
