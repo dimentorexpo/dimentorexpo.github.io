@@ -75,6 +75,10 @@ if (localStorage.getItem('winTopChatHis') == null) { //начальное пол
     localStorage.setItem('winLeftChatHis', '80.6');
 }
 
+//заносим переменную для переключения окна
+if (localStorage.getItem('theme') == null) {
+    localStorage.setItem('theme', 'dark');
+}
 
 let wintChatHis = document.createElement('div'); // создание окна работы с историей чата
 document.body.append(wintChatHis);

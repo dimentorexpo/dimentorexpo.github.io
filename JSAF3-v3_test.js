@@ -661,11 +661,6 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
     localStorage.setItem('winLeftRefuseNew', '295');
 }
 
-//заносим переменную для переключения окна
-if (localStorage.getItem('theme') == null) {
-    localStorage.setItem('theme', 'dark');
-}
-
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
     localStorage.setItem('aclstime', 12);
