@@ -7,6 +7,7 @@ let operchatsdata;
 let isChatOnOperator = false;
 let flagusertype;
 let flaggetlogginer;
+let tokenlog; // пустая переменная для функции logginerfortests подставляемая в body
 let audio // переменнай для проигрывания звука при поступлении нового чата
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
@@ -605,6 +606,78 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
 }
 
 // Конец блока горячих клавиш
+
+function firstLoadPage() { //первичаня загрузка страницы
+    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+        document.getElementById('AF_helper').style.display = 'none';
+        document.getElementById('testUsers').style.display = 'none';
+        // document.getElementById('AF_Links').style.display = 'none';
+    } else {
+        mystyles()
+
+        if (localStorage.getItem('disablelpmwindow') == 1)
+            document.getElementById('testUsers').style.display = "none";
+
+        if (localStorage.getItem('Hidetestid') == 0) {
+            document.getElementById('testid').style.display = 'none';
+            document.getElementById('idlogin').style.display = 'none';
+        }
+
+        setTimeout(move_again_AF, 3500)
+
+        setTimeout(function () {
+            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
+            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
+        }, 2000)
+
+        setTimeout(() => {
+            let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            let menubutarea = document.createElement('div')
+            menubutarea.style = 'margin-right:20px;'
+
+            headmenulist.insertBefore(menubutarea, headmenulist.children[15])
+            menubutarea.append(butmenu)
+            headmenulist.insertBefore(menubar, headmenulist.children[15])
+            menubar.append(document.getElementById('servDsk'))
+            menubar.append(document.getElementById('JiraOpenForm'))
+            menubar.append(document.getElementById('buttonOpenForm'))
+            menubar.append(document.getElementById('butMarks'))
+            menubar.append(document.getElementById('suggestform'))
+            menubar.append(document.getElementById('otkaz'))
+            menubar.append(document.getElementById('smartroomform'))
+            menubar.append(document.getElementById('butLessonInfo'))
+            menubar.append(document.getElementById('butChatHistory'))
+            menubar.append(document.getElementById('butFrozeChat'))
+			servDsk.classList.remove('inithide')
+			JiraOpenForm.classList.remove('inithide')
+			butopensugestform.classList.remove('inithide')
+			butrefuse.classList.remove('inithide')
+			butsmartroom.classList.remove('inithide')
+			butLessonInfo.classList.remove('inithide')
+			butChatHistory.classList.remove('inithide')
+			butFrozeChat.classList.remove('inithide')
+			butMarks.classList.remove('inithide')
+			buttonOpenForm.classList.remove('inithide')
+        }, 8000)
+
+        setInterval(startTimer, 1000)
+    }
+    setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
+}
+
 
 const copyToClipboard1 = str => { // функция копирования в буфер обмена
     const el = document.createElement('textarea');
@@ -5972,7 +6045,6 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
-		// include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
 		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
 		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
@@ -6030,80 +6102,7 @@ function prepKC() { //функция подготовки расширения �
 
 }
 
-function firstLoadPage() { //первичаня загрузка страницы
-    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
-        document.getElementById('AF_helper').style.display = 'none';
-        document.getElementById('testUsers').style.display = 'none';
-        // document.getElementById('AF_Links').style.display = 'none';
-    } else {
-        mystyles()
-
-        if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
-
-        if (localStorage.getItem('Hidetestid') == 0) {
-            document.getElementById('testid').style.display = 'none';
-            document.getElementById('idlogin').style.display = 'none';
-        }
-
-        setTimeout(move_again_AF, 3500)
-
-        setTimeout(function () {
-            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
-            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
-            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
-            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
-            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
-        }, 2000)
-
-        setTimeout(() => {
-            let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            let menubutarea = document.createElement('div')
-            menubutarea.style = 'margin-right:20px;'
-
-            headmenulist.insertBefore(menubutarea, headmenulist.children[15])
-            menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[15])
-            menubar.append(document.getElementById('servDsk'))
-            menubar.append(document.getElementById('JiraOpenForm'))
-            menubar.append(document.getElementById('buttonOpenForm'))
-            menubar.append(document.getElementById('butMarks'))
-            menubar.append(document.getElementById('suggestform'))
-            menubar.append(document.getElementById('otkaz'))
-            menubar.append(document.getElementById('smartroomform'))
-            menubar.append(document.getElementById('butLessonInfo'))
-            menubar.append(document.getElementById('butChatHistory'))
-            menubar.append(document.getElementById('butFrozeChat'))
-			servDsk.classList.remove('inithide')
-			JiraOpenForm.classList.remove('inithide')
-			butopensugestform.classList.remove('inithide')
-			butrefuse.classList.remove('inithide')
-			butsmartroom.classList.remove('inithide')
-			butLessonInfo.classList.remove('inithide')
-			butChatHistory.classList.remove('inithide')
-			butFrozeChat.classList.remove('inithide')
-			butMarks.classList.remove('inithide')
-			buttonOpenForm.classList.remove('inithide')
-        }, 8000)
-
-        setInterval(startTimer, 1000)
-    }
-    setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
-}
-firstLoadPage()
-
-let lginfo;
-let tokenlog;
+firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
