@@ -431,11 +431,11 @@ function mystyles() {
 		border-left: 8px solid #4ce479;
 		width: 80px;
 		margin-left: 20px;
-		transition: all 0.5s ease;
+		transition: all 1s ease;
 	}
 	.msgtype.notes {
-		border-left: 8px solid #4ce479;
-		transition: all 0.5s ease;
+		border-left: 8px solid #b4b4b4;
+		transition: all 1s ease;
 	}
 	
 	`
