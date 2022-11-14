@@ -687,27 +687,20 @@ buttonservivceuser.id = 'nextUserServiceInfo';
 buttonservivceuser.innerHTML = " ⚜ ";
 buttonservivceuser.style = "width:20px; cursor:pointer";
 
-let buttonnextstudentid = document.createElement('span');
-buttonnextstudentid.id = 'nextStudentIdChatHistory';
-buttonnextstudentid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
-
-let buttonnextteacherid = document.createElement('span');
-buttonnextteacherid.id = 'nextTeacherIdChatHistory';
-buttonnextteacherid.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+let btnNextUserChatHistory = document.createElement('span');
+btnNextUserChatHistory.id = 'btnNextUserChatHis';
+btnNextUserChatHistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
 
 let butteachid = document.createElement('button');
 butteachid.id = 'teacheridtofield';
 butteachid.innerHTML = "👽 (ID П) П обратился ";
-butteachid.style.width = "160px";
-butteachid.style.cursor = "pointer";
-butteachid.style.border = "1px solid black";
-butteachid.style.borderRadius = "10px";
+butteachid.style = "width:160px; cursor:pointer; border: 1px solid black; border-radius:10px";
 
 let butstdid = document.createElement('button');
 butstdid.id = 'studentidtofield';
 butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
 butstdid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
-
+ 
 let butteachidfstd = document.createElement('button');
 butteachidfstd.id = 'teacheridfromstudent';
 butteachidfstd.innerHTML = "👽 (ID П) У обратился";
@@ -762,22 +755,14 @@ buttonhistory.onclick = function () { //функция приска пр ист�
     }
 }
 
-buttonnextstudentid.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
+btnNextUserChatHistory.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
     document.getElementById('butChatHistory').click();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
             document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
             btn_search_history.click()
-        }
-    }
-}
-
-buttonnextteacherid.onclick = function () { //искать историю чатов по преподавателю с которым след урок при обращении У
-    document.getElementById('butChatHistory').click();
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
             document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
             btn_search_history.click()
         }
@@ -3141,20 +3126,21 @@ function startTimer() {
                         btn.appendChild(buttonmobpas)
                 }
 
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
                     btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                     btn.appendChild(nextuserinfo)
                     btn.appendChild(buttonservivceuser)
-                    btn.appendChild(buttonnextstudentid)
+                    btn.appendChild(btnNextUserChatHistory)
                     btn.appendChild(trshootnextuser)
 					
-                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                    btn.appendChild(nextuserinfo)
-                    btn.appendChild(buttonservivceuser)
-                    btn.appendChild(buttonnextteacherid)
-                    btn.appendChild(trshootnextuser)
-				}
+                } 
+				// else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+					// btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                    // btn.appendChild(nextuserinfo)
+                    // btn.appendChild(buttonservivceuser)
+                    // btn.appendChild(btnNextUserChatHistory)
+                    // btn.appendChild(trshootnextuser)
+				// }
             }
         }
 
