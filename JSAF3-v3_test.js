@@ -661,6 +661,26 @@ function changesoundaddr() { //функция изменения адреса з
     }
 }
 
+function ShowMustGoOn() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ
+    localStorage.setItem('scriptAdr', KC_addr)
+    location.reload()
+}
+
+function WeAreTheChempions() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП
+    localStorage.setItem('scriptAdr', TP_addr)
+    location.reload()
+}
+
+function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
+    localStorage.setItem('scriptAdr', TP_addrRzrv)
+    location.reload()
+}
+
+function AFthePieceofShitKC() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ резервных тестовых
+    localStorage.setItem('scriptAdr', KC_addrRzrv)
+    location.reload()
+}
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -6120,22 +6140,3 @@ btntid.onclick = function () { // копирует в буфер логинне�
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
-function ShowMustGoOn() {
-    localStorage.setItem('scriptAdr', KC_addr)
-    location.reload()
-}
-
-function WeAreTheChempions() {
-    localStorage.setItem('scriptAdr', TP_addr)
-    location.reload()
-}
-
-function AFthePieceofShit() {
-    localStorage.setItem('scriptAdr', TP_addrRzrv)
-    location.reload()
-}
-
-function AFthePieceofShitKC() {
-    localStorage.setItem('scriptAdr', KC_addrRzrv)
-    location.reload()
-}
