@@ -21,7 +21,7 @@ function mystyles() {
 		color:#ffffff;
 		padding:2px 2px;
 	}
-	button:hover, #sidcode:hover, #tidcode#hover {
+	button:hover {
 		background: #6A5ACD;
 	}
 	.activebtn {
@@ -412,6 +412,13 @@ function mystyles() {
 	}
 	#buttonGetStat:hover {
 		background:DeepSkyBlue;
+	}
+	.teststudteach {
+		background-color: #3CB371;
+		margin-left: 5px;
+		margin-top:5px;
+		margin-bottom: 5px;
+		cursor: pointer;
 	}
 	
 	`
@@ -6048,12 +6055,12 @@ let tokenlog;
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
 btnsid.id = "sidcode";
-btnsid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; cursor: pointer;";
+btnsid.classList = 'teststudteach'
 
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; cursor: pointer; margin-right: 5px;";
+btntid.classList = 'teststudteach'
 
 document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
