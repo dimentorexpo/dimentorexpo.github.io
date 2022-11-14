@@ -678,6 +678,152 @@ function firstLoadPage() { //первичаня загрузка страниц�
     setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
 }
 
+function prepTp() { //функция подготовки расширения ТП
+    document.getElementById('msg1').style.display = ''
+    document.getElementById('snd').style.marginLeft = '10px'
+
+
+    if (localStorage.getItem('disablelpmwindow') == 1)
+        document.getElementById('testUsers').style.display = "none";
+    else document.getElementById('testUsers').style.display = ''
+
+    if (localStorage.getItem('disablelngpmwindow') == 1)
+        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+
+    let openchhis = document.createElement('button')
+    openchhis.innerHTML = '☢'
+    openchhis.style = 'position:fixed;top:45px;right:0px;z-index:5;'
+    openchhis.id = 'opennewcat'
+    document.getElementsByTagName('section')[1].append(openchhis)
+	
+	openchhis.onclick = () => {
+        if (document.getElementById('AF_ChatHis').style.display == 'none')
+            document.getElementById('butChatHistory').click()
+    }
+
+    flagLangBut = 1
+    customTemplates()
+    setTimeout(whoAmI, 2000)
+
+    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
+    buttonGetStat.id = 'buttonGetStat';
+    buttonGetStat.innerHTML = "Статистика";
+    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
+    buttonGetStat.onclick = function () {
+        if (this.textContent == 'Скрыть стату') {
+            if (this.getAttribute('disabled') != null)
+                return
+            if (document.getElementById('tableStats') != undefined) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
+            }
+            this.textContent = 'Статистика'
+
+            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
+
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
+            }
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
+            }
+        } else {
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
+            } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
+            } else {
+                this.textContent = 'Неверная страница'
+                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
+                return
+            }
+            getStats()
+            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
+            this.textContent = 'Загрузка'
+        }
+    }
+    document.getElementById('app-header').append(buttonGetStat)
+
+    setInterval(timerHideButtons, 300)
+	
+		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+        let lboxstyles = document.createElement('link')
+        lboxstyles.rel = 'stylesheet'
+        lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+        document.querySelector('head').append(lboxstyles)
+
+    setTimeout(function () {
+
+		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
+		// include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
+		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
+        include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
+        include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
+        include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
+        include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
+        include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
+        include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
+        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи, отключен функционал в JSAF-v3
+        include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
+        include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
+        include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
+        include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
+		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
+		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
+		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
+        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
+    }, 2500)
+
+    setTimeout(function () {
+
+        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
+
+    }, 4000)
+
+}
+
+function prepKC() { //функция подготовки расширения КЦ
+    document.getElementById('msg1').style.display = ''
+    document.getElementById('snd').style.marginLeft = '10px'
+    document.getElementById('testUsers').style.display = 'none'
+
+    if (localStorage.getItem('disablelngpmwindow') == 1)
+        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+
+    let needtohide = document.getElementsByClassName('onlyfortp')
+    for (i = 0; i < needtohide.length; i++) {
+        needtohide[i].style.display = 'none'
+    }
+
+    let needtoopen = document.getElementsByClassName('onlyforkc')
+    for (i = 0; i < needtoopen.length; i++){
+        needtoopen[i].style.display = ''
+    }
+
+    flagLangBut = 1
+    customTemplates()
+    setTimeout(whoAmI, 2000)
+
+    setTimeout(function () {
+        let lboxstyles = document.createElement('link')
+        lboxstyles.rel = 'stylesheet'
+        lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+        document.querySelector('head').append(lboxstyles)
+        include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
+        include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
+        include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
+        include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
+    }, 2000)
+
+    setTimeout(function () {
+
+        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
+
+    }, 4000)
+}
 
 const copyToClipboard1 = str => { // функция копирования в буфер обмена
     const el = document.createElement('textarea');
@@ -741,6 +887,266 @@ function changesoundaddr() { //функция изменения адреса з
             }
         }
     }
+}
+
+async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
+    let str = document.createElement('p')
+    str.style.paddingLeft = '50px'
+    if (document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+    document.getElementById('buttonCheckStats').textContent = 'Загрузка'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+
+    var date = new Date()
+    day = month = ""
+    if (date.getMonth() < 9)
+        month = "0" + (date.getMonth() + 1)
+    else
+        month = (date.getMonth() + 1)
+    if (date.getDate() < 10)
+        day = "0" + date.getDate()
+    else
+        day = date.getDate()
+
+    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
+    date = date - 24 * 60 * 60 * 1000
+    var date2 = new Date()
+    date2.setTime(date)
+
+    if (date2.getMonth() < 9)
+        month2 = "0" + (date2.getMonth() + 1)
+    else
+        month2 = (date2.getMonth() + 1)
+    if (date2.getDate() < 10)
+        day2 = "0" + date2.getDate()
+    else
+        day2 = date2.getDate()
+
+    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
+
+    try {
+        page = 1
+        let stringChatsWithoutTopic = ""
+        csatScore = 0
+        csatCount = 0
+        let flagok = [];
+        let tagsarr = []; //обьявляем пустой массив для хранения тегов чатов
+        let count = {};
+        let flagvbad = [];
+        let flagbad = [];
+        let flagmid = [];
+        let clschatarr = [];
+        let abovecloseslaarr = []
+        let aboveart = [];
+        let slacount = 0;
+        let artcount = 0;
+        while (true) {
+            test = ''
+            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "method": "POST",
+            }).then(r => r.json()).then(r => test = r)
+            for (let i = 0; i < test.items.length; i++) {
+                let flagCsat = 0
+                let flagTopic = 0
+
+
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                    .then(r => r.json())
+                    .then(r => {
+                        if (r.operatorId == operatorId) {
+                            clschatarr.push(test.items[i].conversationId)
+                            if (r.payload == undefined || r.payload.tags == undefined || r.payload.tags.value == '')
+                                tagsarr.push('Нет тега!')
+                            else if (r.payload.tags.value == '[\n  \"queue\"\n]')
+                                tagsarr.push('Тег: Очередь КЦ') //добавляет что тег очередь КЦ выставлен
+                            else if (r.payload.tags.value == '[\n  \"request_forwarded_to_2l_tp\"\n]')
+                                tagsarr.push('Тег: 2ЛТП') //добавляет что тег очередь КЦ выставлен
+                            else tagsarr.push(r.payload.tags.value) //формирует массив тегов чатов
+                            flagCsat = 1
+                            if (r.payload != undefined)
+                                if (r.payload.topicId != undefined)
+                                    if (r.payload.topicId.value == "")
+                                        flagTopic = 1
+
+                        }
+                    })
+
+                for (let k = 0; k < clschatarr.length; k++) {
+                    if (test.items[i].conversationId == clschatarr[k]) {
+                        if ((test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) > 25) {
+
+                            let tmestmp = new Date((test.items[i].ts.split('[GMT]'))[0]);
+                            let tshrs;
+                            let tsmin
+                            if ((tmestmp.getUTCHours() + 3) < 10)
+                                tshrs = "0" + (tmestmp.getUTCHours() + 3);
+                            else tshrs = (tmestmp.getUTCHours() + 3);
+
+                            if (tmestmp.getMinutes() < 10)
+                                tsmin = "0" + tmestmp.getMinutes();
+                            else tsmin = tmestmp.getMinutes();
+
+                            slacount++;
+                            abovecloseslaarr += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
+                                '<a href="https://skyeng.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "slaclchatids">' +
+                                clschatarr[k] + '</a>' + ' Время чата: ' + (test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) +
+                                '<span class = "lookchat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + ' Создан чат в: ' + tshrs + ":" + tsmin + ' МСК ' + tagsarr[k] + '<br>')
+                        }
+
+                        if (test.items[i].stats.averageOperatorAnswerTime !== undefined && ((test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
+                            artcount++;
+                            aboveart += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
+                                '<a href="https://skyeng.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "artchatids">' +
+                                clschatarr[k] + '</a>' + ' Ср.время ответа: ' + (test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2) +
+                                '<span class = "lookchatart" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '<br>')
+                        }
+                    }
+                }
+
+                if (flagCsat == 1)
+                    if (test.items[i].stats.rate != undefined)
+                        if (test.items[i].stats.rate.rate != undefined) {
+                            csatScore += test.items[i].stats.rate.rate
+                            csatCount++
+                            flagok.push(test.items[i].stats.rate.rate)
+                            if (test.items[i].stats.rate.rate == 1)
+                                flagvbad += '• ' + test.items[i].stats.conversationId + '<br>'
+                            if (test.items[i].stats.rate.rate == 2)
+                                flagbad += '• ' + test.items[i].stats.conversationId + '<br>'
+                            if (test.items[i].stats.rate.rate == 3)
+                                flagmid += '• ' + test.items[i].stats.conversationId + '<br>'
+                        }
+                if (flagTopic == 1)
+                    stringChatsWithoutTopic += '<a href="https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="">https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '</a></br>'
+            }
+
+            if (test.total / 100 >= page) {
+                page++
+            } else {
+                if (stringChatsWithoutTopic == "")
+                    stringChatsWithoutTopic = ' нет чатов без тематики'
+                flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+                if (count[1] == undefined)
+                    count[1] = 0;
+                if (count[2] == undefined)
+                    count[2] = 0;
+                if (count[3] == undefined)
+                    count[3] = 0;
+                if (count[4] == undefined)
+                    count[4] = 0;
+                if (count[5] == undefined)
+                    count[5] = 0;
+
+                if (flagvbad == "" && flagbad == "" && flagmid == "")
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
+                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
+                        'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
+                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
+                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
+                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                else if (flagvbad == "" && flagbad == "" && flagmid != "")
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
+                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
+                        'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
+                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
+                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
+                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                else if (flagvbad == "" && flagbad != "" && flagmid != "")
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
+                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
+                        'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
+                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
+                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
+                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                else if (flagvbad != "" && flagbad == "" && flagmid != "")
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
+                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
+                        'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
+                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
+                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
+                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                else if (flagvbad != "" && flagbad != "" && flagmid == "")
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
+                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
+                        'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
+                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
+                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
+                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                else if (flagvbad != "" && flagbad == "" && flagmid == "")
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
+                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
+                        'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
+                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
+                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
+                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                else if (flagvbad == "" && flagbad != "" && flagmid == "")
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
+                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
+                        'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
+                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
+                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
+                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                else if (flagvbad != "" && flagbad != "" && flagmid != "")
+                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
+                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
+                        'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
+                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
+                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
+                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
+                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
+                console.log(tagsarr) //выводит список полученных тегов с чатов
+                break
+            }
+        }
+    } catch (e) {
+        console.error(e, e.stack);
+    }
+
+    let slaclchatcontainer = document.querySelectorAll('.lookchat');
+    let slaclchattids = document.querySelectorAll('.slaclchatids');
+    for (let j = 0; j < slaclchatcontainer.length; j++) {
+        slaclchatcontainer[j].onclick = function () {
+
+            if (document.getElementById('AF_ChatHis').style.display == 'none') {
+                document.getElementById('butChatHistory').click();
+
+                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
+                btn_search_history.click()
+
+            } else {
+                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
+                btn_search_history.click()
+            }
+        }
+    }
+
+    let artchatcontainer = document.querySelectorAll('.lookchatart');
+    let artchattids = document.querySelectorAll('.artchatids');
+    for (let j = 0; j < artchatcontainer.length; j++) {
+        artchatcontainer[j].onclick = () => {
+            if (document.getElementById('AF_ChatHis').style.display == 'none') {
+                document.getElementById('butChatHistory').click();
+                document.getElementById('hashchathis').value = artchattids[j].innerText;
+                btn_search_history.click()
+            } else {
+                document.getElementById('hashchathis').value = artchattids[j].innerText;
+                btn_search_history.click()
+            }
+        }
+    }
+
+    document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
 }
 
 function ShowMustGoOn() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ
@@ -5694,414 +6100,6 @@ async function checkChatCountQue() { // функция проверки коли
     document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
-async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
-    let str = document.createElement('p')
-    str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-    document.getElementById('buttonCheckStats').textContent = 'Загрузка'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-
-    var date = new Date()
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
-
-    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
-    date = date - 24 * 60 * 60 * 1000
-    var date2 = new Date()
-    date2.setTime(date)
-
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
-
-    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
-
-    try {
-        page = 1
-        let stringChatsWithoutTopic = ""
-        csatScore = 0
-        csatCount = 0
-        let flagok = [];
-        let tagsarr = []; //обьявляем пустой массив для хранения тегов чатов
-        let count = {};
-        let flagvbad = [];
-        let flagbad = [];
-        let flagmid = [];
-        let clschatarr = [];
-        let abovecloseslaarr = []
-        let aboveart = [];
-        let slacount = 0;
-        let artcount = 0;
-        while (true) {
-            test = ''
-            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
-                "headers": {
-                    "content-type": "application/json",
-                },
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
-                "method": "POST",
-            }).then(r => r.json()).then(r => test = r)
-            for (let i = 0; i < test.items.length; i++) {
-                let flagCsat = 0
-                let flagTopic = 0
-
-
-                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
-                    .then(r => r.json())
-                    .then(r => {
-                        if (r.operatorId == operatorId) {
-                            clschatarr.push(test.items[i].conversationId)
-                            if (r.payload == undefined || r.payload.tags == undefined || r.payload.tags.value == '')
-                                tagsarr.push('Нет тега!')
-                            else if (r.payload.tags.value == '[\n  \"queue\"\n]')
-                                tagsarr.push('Тег: Очередь КЦ') //добавляет что тег очередь КЦ выставлен
-                            else if (r.payload.tags.value == '[\n  \"request_forwarded_to_2l_tp\"\n]')
-                                tagsarr.push('Тег: 2ЛТП') //добавляет что тег очередь КЦ выставлен
-                            else tagsarr.push(r.payload.tags.value) //формирует массив тегов чатов
-                            flagCsat = 1
-                            if (r.payload != undefined)
-                                if (r.payload.topicId != undefined)
-                                    if (r.payload.topicId.value == "")
-                                        flagTopic = 1
-
-                        }
-                    })
-
-                for (let k = 0; k < clschatarr.length; k++) {
-                    if (test.items[i].conversationId == clschatarr[k]) {
-                        if ((test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) > 25) {
-
-                            let tmestmp = new Date((test.items[i].ts.split('[GMT]'))[0]);
-                            let tshrs;
-                            let tsmin
-                            if ((tmestmp.getUTCHours() + 3) < 10)
-                                tshrs = "0" + (tmestmp.getUTCHours() + 3);
-                            else tshrs = (tmestmp.getUTCHours() + 3);
-
-                            if (tmestmp.getMinutes() < 10)
-                                tsmin = "0" + tmestmp.getMinutes();
-                            else tsmin = tmestmp.getMinutes();
-
-                            slacount++;
-                            abovecloseslaarr += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
-                                '<a href="https://skyeng.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "slaclchatids">' +
-                                clschatarr[k] + '</a>' + ' Время чата: ' + (test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) +
-                                '<span class = "lookchat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + ' Создан чат в: ' + tshrs + ":" + tsmin + ' МСК ' + tagsarr[k] + '<br>')
-                        }
-
-                        if (test.items[i].stats.averageOperatorAnswerTime !== undefined && ((test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
-                            artcount++;
-                            aboveart += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
-                                '<a href="https://skyeng.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "artchatids">' +
-                                clschatarr[k] + '</a>' + ' Ср.время ответа: ' + (test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2) +
-                                '<span class = "lookchatart" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '<br>')
-                        }
-                    }
-                }
-
-                if (flagCsat == 1)
-                    if (test.items[i].stats.rate != undefined)
-                        if (test.items[i].stats.rate.rate != undefined) {
-                            csatScore += test.items[i].stats.rate.rate
-                            csatCount++
-                            flagok.push(test.items[i].stats.rate.rate)
-                            if (test.items[i].stats.rate.rate == 1)
-                                flagvbad += '• ' + test.items[i].stats.conversationId + '<br>'
-                            if (test.items[i].stats.rate.rate == 2)
-                                flagbad += '• ' + test.items[i].stats.conversationId + '<br>'
-                            if (test.items[i].stats.rate.rate == 3)
-                                flagmid += '• ' + test.items[i].stats.conversationId + '<br>'
-                        }
-                if (flagTopic == 1)
-                    stringChatsWithoutTopic += '<a href="https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="">https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '</a></br>'
-            }
-
-            if (test.total / 100 >= page) {
-                page++
-            } else {
-                if (stringChatsWithoutTopic == "")
-                    stringChatsWithoutTopic = ' нет чатов без тематики'
-                flagok.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
-                if (count[1] == undefined)
-                    count[1] = 0;
-                if (count[2] == undefined)
-                    count[2] = 0;
-                if (count[3] == undefined)
-                    count[3] = 0;
-                if (count[4] == undefined)
-                    count[4] = 0;
-                if (count[5] == undefined)
-                    count[5] = 0;
-
-                if (flagvbad == "" && flagbad == "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
-                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
-                        'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
-                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
-                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
-                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
-                else if (flagvbad == "" && flagbad == "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
-                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
-                        'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
-                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
-                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
-                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
-                else if (flagvbad == "" && flagbad != "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
-                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
-                        'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
-                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
-                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
-                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
-                else if (flagvbad != "" && flagbad == "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
-                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
-                        'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
-                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
-                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
-                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
-                else if (flagvbad != "" && flagbad != "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
-                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
-                        'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
-                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
-                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
-                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
-                else if (flagvbad != "" && flagbad == "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
-                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
-                        'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
-                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
-                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
-                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
-                else if (flagvbad == "" && flagbad != "" && flagmid == "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
-                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' +
-                        'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
-                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
-                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
-                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
-                else if (flagvbad != "" && flagbad != "" && flagmid != "")
-                    str.innerHTML = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' +
-                        "Количество оценок: " + csatCount + ' из них: ' + '<br>' + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' +
-                        'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' +
-                        'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + stringChatsWithoutTopic + '<br>' +
-                        "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " +
-                        (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart +
-                        '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%';
-                console.log(tagsarr) //выводит список полученных тегов с чатов
-                break
-            }
-        }
-    } catch (e) {
-        console.error(e, e.stack);
-    }
-
-    let slaclchatcontainer = document.querySelectorAll('.lookchat');
-    let slaclchattids = document.querySelectorAll('.slaclchatids');
-    for (let j = 0; j < slaclchatcontainer.length; j++) {
-        slaclchatcontainer[j].onclick = function () {
-
-            if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                document.getElementById('butChatHistory').click();
-
-                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
-                btn_search_history.click()
-
-            } else {
-                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
-                btn_search_history.click()
-            }
-        }
-    }
-
-    let artchatcontainer = document.querySelectorAll('.lookchatart');
-    let artchattids = document.querySelectorAll('.artchatids');
-    for (let j = 0; j < artchatcontainer.length; j++) {
-        artchatcontainer[j].onclick = () => {
-            if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                document.getElementById('butChatHistory').click();
-                document.getElementById('hashchathis').value = artchattids[j].innerText;
-                btn_search_history.click()
-            } else {
-                document.getElementById('hashchathis').value = artchattids[j].innerText;
-                btn_search_history.click()
-            }
-        }
-    }
-
-    document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
-}
-
-function prepTp() { //функция подготовки расширения ТП
-    document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '10px'
-
-
-    if (localStorage.getItem('disablelpmwindow') == 1)
-        document.getElementById('testUsers').style.display = "none";
-    else document.getElementById('testUsers').style.display = ''
-
-    if (localStorage.getItem('disablelngpmwindow') == 1)
-        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
-
-    let openchhis = document.createElement('button')
-    openchhis.innerHTML = '☢'
-    openchhis.style = 'position:fixed;top:45px;right:0px;z-index:5;'
-    openchhis.id = 'opennewcat'
-    document.getElementsByTagName('section')[1].append(openchhis)
-	
-	openchhis.onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == 'none')
-            document.getElementById('butChatHistory').click()
-    }
-
-    flagLangBut = 1
-    customTemplates()
-    setTimeout(whoAmI, 2000)
-
-    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
-    buttonGetStat.id = 'buttonGetStat';
-    buttonGetStat.innerHTML = "Статистика";
-    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
-    buttonGetStat.onclick = function () {
-        if (this.textContent == 'Скрыть стату') {
-            if (this.getAttribute('disabled') != null)
-                return
-            if (document.getElementById('tableStats') != undefined) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
-            }
-            this.textContent = 'Статистика'
-
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
-            }
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
-            }
-        } else {
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
-            } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
-            } else {
-                this.textContent = 'Неверная страница'
-                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
-                return
-            }
-            getStats()
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-            this.textContent = 'Загрузка'
-        }
-    }
-    document.getElementById('app-header').append(buttonGetStat)
-
-    setInterval(timerHideButtons, 300)
-	
-		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        let lboxstyles = document.createElement('link')
-        lboxstyles.rel = 'stylesheet'
-        lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-        document.querySelector('head').append(lboxstyles)
-
-    setTimeout(function () {
-
-		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
-		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
-		// include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
-		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
-        include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
-        include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
-        include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
-        include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
-        include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
-        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи, отключен функционал в JSAF-v3
-        include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
-        include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
-        include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
-        include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
-		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
-		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
-		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
-        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
-    }, 2500)
-
-    setTimeout(function () {
-
-        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
-
-    }, 4000)
-
-}
-
-function prepKC() { //функция подготовки расширения КЦ
-    document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '10px'
-    document.getElementById('testUsers').style.display = 'none'
-
-    if (localStorage.getItem('disablelngpmwindow') == 1)
-        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
-
-    let needtohide = document.getElementsByClassName('onlyfortp')
-    for (i = 0; i < needtohide.length; i++) {
-        needtohide[i].style.display = 'none'
-    }
-
-    let needtoopen = document.getElementsByClassName('onlyforkc')
-    for (i = 0; i < needtoopen.length; i++){
-        needtoopen[i].style.display = ''
-    }
-
-    flagLangBut = 1
-    customTemplates()
-    setTimeout(whoAmI, 2000)
-
-    setTimeout(function () {
-        let lboxstyles = document.createElement('link')
-        lboxstyles.rel = 'stylesheet'
-        lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-        document.querySelector('head').append(lboxstyles)
-        include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
-        include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
-        include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
-        include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
-    }, 2000)
-
-    setTimeout(function () {
-
-        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
-
-    }, 4000)
-
-}
-
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
 let btnsid = document.createElement('button')
@@ -6128,8 +6126,7 @@ btnsid.onclick = function () { // копирует в буфер логинне�
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
 
-
-btntid.onclick = function () { // копирует в буфер логиннер для У
+btntid.onclick = function () { // копирует в буфер логиннер для П
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         logginerfortests(testteachid)
