@@ -677,21 +677,15 @@ let trshootnextuser = document.createElement('span');
 trshootnextuser.id = 'nextusertrshooter'
 trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
 
-let buttonserv = document.createElement('span');
-buttonserv.id = 'nextStudentServiceInfo';
-buttonserv.innerHTML = " ⚜ ";
-buttonserv.style = "width:20px; cursor:pointer";
-
 let buttonservstud = document.createElement('span');
 buttonservstud.id = 'nextStudentServiceInfo1';
 buttonservstud.innerHTML = " ⚜ ";
 buttonservstud.style = "width:20px; cursor:pointer";
 
-let buttonservteach = document.createElement('span');
-buttonservteach.id = 'nextTeacherServiceInfo1';
-buttonservteach.innerHTML = " ⚜ ";
-buttonservteach.style.width = "20px";
-buttonservteach.style.cursor = "pointer";
+let buttonservivceuser = document.createElement('span');
+buttonservivceuser.id = 'nextUserServiceInfo';
+buttonservivceuser.innerHTML = " ⚜ ";
+buttonservivceuser.style = "width:20px; cursor:pointer";
 
 let buttonnextstudentid = document.createElement('span');
 buttonnextstudentid.id = 'nextStudentIdChatHistory';
@@ -858,24 +852,15 @@ infouserbut.onclick = function () { //функция Info по нажатию н
     }
 }
 
-buttonserv.onclick = function () { //открывает окно вензель user info
-    if (document.getElementById('AF_Service').style.display == 'none')
-        document.getElementById('AF_Service').style.display = '';
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
-            getidstudent.click();
-        }
-    }
-}
-
-buttonservteach.onclick = function () { //открывает окно вензель user info
+buttonservivceuser.onclick = function () { //открывает окно вензель user info
     if (document.getElementById('AF_Service').style.display == 'none')
         document.getElementById('AF_Service').style.display = '';
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+            getidstudent.click();
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
             document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
             getidstudent.click();
         }
@@ -3159,14 +3144,14 @@ function startTimer() {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                     btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                     btn.appendChild(nextuserinfo)
-                    btn.appendChild(buttonserv)
+                    btn.appendChild(buttonservivceuser)
                     btn.appendChild(buttonnextstudentid)
                     btn.appendChild(trshootnextuser)
 					
                 } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
 					btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                     btn.appendChild(nextuserinfo)
-                    btn.appendChild(buttonservteach)
+                    btn.appendChild(buttonservivceuser)
                     btn.appendChild(buttonnextteacherid)
                     btn.appendChild(trshootnextuser)
 				}
