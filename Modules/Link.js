@@ -56,8 +56,6 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getmobpasscode" style="width: 25.23px;">🚀</button>
 					<input id="trshooterhash" placeholder="hash trshooter" title="Вводим хеш комнаты чтобы посмотреть сразу инфу в трабл шутере" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="gettrshinfo" style="width: 25.23px;">🚀</button>
-					<input id="lookhash" placeholder="roomhash" title="вставляем хэш, копируем в буфер код, со стороны П в консоли выполняем, и в Network смотрим roomhash для какого ученика была создана комната" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
-					<button id="gethash" style="width: 25.23px;">💾</button>
 					<input id="enablerAP" placeholder="ID услуги(АП)" title="копируем услуги, где нужно активировать АП и сохраняем в буфер, в ЛКУ переходим по ссылке для активации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="getenablerAP" style="width: 25.23px;">💾</button>
 					<input id="skipAP" placeholder="ID ус(skipАП)" title="копируем услуги, где нужно пропустить АП и сохраняем в буфер, в ЛКУ переходим по ссылке для деактивации" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -289,18 +287,6 @@ document.getElementById('gettrshinfo').onclick = function () {               // 
     trshooterhash.value = "";
 }
 	
-document.getElementById('gethash').onclick = function () {                  // добавляем хеш комнаты, и со стороны П в консоле выполняем, чтобы проверить для какого ученика она была создана
-    let hashlnk = 'fetch("https://rooms.vimbox.skyeng.ru/rooms/api/v1/workbooks/last?roomHash=';
-    if (lookhash.value == "")
-        console.log('Введите hash комнаты в поле')
-    else {
-        copyToClipboard1(hashlnk + lookhash.value + "\", \{ \"method\":\"GET\",   \"credentials\":\"include\" \} ) \;");
-    };
-    document.getElementById('gethash').innerHTML = "✅";
-    setTimeout(function () { document.getElementById('gethash').innerHTML = "💾" }, 2000);
-    lookhash.value = "";
-}
-
 document.getElementById('getenablerAP').onclick = function () {               // сохранение в буфере ссылки для активации АП
     let enableAPlnk = 'https://pcs.skyeng.ru/cabinet/teacher-selection?educationServiceId=';
     if (enablerAP.value == "")
