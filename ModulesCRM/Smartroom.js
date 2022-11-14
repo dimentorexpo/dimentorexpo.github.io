@@ -148,7 +148,7 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
             } else {
                 document.getElementById('clientid').style.backgroundColor = '';
             }
-
+/*
             if (!document.getElementsByName('whatobratform')[0].checked && !document.getElementsByName('whatobratform')[1].checked) {
                 document.getElementById('smartroomquestion').style.backgroundColor = 'Coral';
                 document.getElementById('smartroomquestion').style.color = 'black';
@@ -164,13 +164,13 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
             } else {
                 document.getElementById('fullcomentsmartroom').style.backgroundColor = '';
             }
-
+*/
             if (flagemptysmart == 0) {
                 for (let i = 0; i < document.getElementsByName('typetoform').length; i++) {
                     if (document.getElementsByName('typetoform')[i].checked == true)
                         checkedclienttype = document.getElementsByName('typetoform')[i].value;
                 }
-                checkedquestion = document.getElementsByName('whatobratform')[0].value;
+                checkedquestion = "Пожелание по мультирум"
 
                 alloptions = document.getElementsByName('catsmartroom')
 
