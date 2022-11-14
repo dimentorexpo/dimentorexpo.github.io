@@ -1232,7 +1232,7 @@ async function checkChatCountQue() { // функция проверки коли
     document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
-async function checkload(department, flag) {
+async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
 	let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
