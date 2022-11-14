@@ -18,11 +18,13 @@ function mystyles() {
     document.body.append(mstl);
     var style = `
 	button {
-		background-color:#768d87;
+		background:#768d87;
 		border-radius:5px;
 		border:1px solid #566963;
 		color:#ffffff;
 		padding:2px 2px;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 20%);
 	}
 	button:hover {
 		background: #6A5ACD;
