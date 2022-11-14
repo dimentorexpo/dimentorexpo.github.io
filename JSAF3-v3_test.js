@@ -21,7 +21,7 @@ function mystyles() {
 		color:#ffffff;
 		padding:2px 2px;
 	}
-	button:hover {
+	button:hover, #sidcode:hover, #tidcode#hover {
 		background: #6A5ACD;
 	}
 	.activebtn {
