@@ -18,11 +18,13 @@ function mystyles() {
     document.body.append(mstl);
     var style = `
 	button {
-		background-color:#768d87;
+		background:#768d87;
 		border-radius:5px;
 		border:1px solid #566963;
 		color:#ffffff;
 		padding:2px 2px;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 20%);
 	}
 	button:hover {
 		background: #6A5ACD;
@@ -427,6 +429,17 @@ function mystyles() {
 		background: coral;
 	}
 	
+	.msgtype {
+		border-left: 8px solid #4ce479;
+		width: 80px;
+		margin-left: 20px;
+		transition: all 1s ease;
+	}
+	.msgtype.notes {
+		border-left: 8px solid #b4b4b4;
+		transition: all 1s ease;
+	}
+	
 	`
     mstl.innerHTML = style;
 }
@@ -460,7 +473,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;" title="Открывает форму для прикрепления ссылки в текст">🔗</button>
                 <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
 				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
-				<button title="Переключает между отправкой текста в заметки или в чат пользователю" id="msg" style="width: 80px; margin-left: 20px;">Чат</button>
+				<button title="Переключает между отправкой текста в заметки или в чат пользователю" class="msgtype" id="msg">Чат</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
 			<div style="margin: 5px; width: 350px">
@@ -1837,6 +1850,160 @@ function resetFlags() { //функция обнуления флагов
     template_flag2 = 0
 }
 
+//блок для работы с шаблонами из гугл таблиц
+
+async function sendAnswerTemplate2(word, flag = 0) { //функция отправки шаблона 2
+    var tmpTxt = ""
+    var adr = `https://skyeng.autofaq.ai/tickets/assigned/`
+    if (word.length < 50)
+        try {
+            a = await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
+                "headers": {
+                    "content-type": "application/json",
+                },
+                "referrer": adr,
+                "referrerPolicy": "no-referrer-when-downgrade",
+                "body": "{\"query\":\"" + word + "\",\"answersLimit\":25,\"autoFaqServiceIds\":[121388, 121384]}",
+                "method": "POST",
+                "mode": "cors",
+                "credentials": "include"
+            }).then(a => b = a.json()).then(result => result.forEach(k => {
+                if (k.title == word)
+                    tmpTxt = k.text
+            }))
+            tmpTxt = tmpTxt.split("<br>↵").join('\n')
+            tmpTxt = tmpTxt.split("&nbsp;").join(' ')
+            tmpTxt = tmpTxt.split("<br />").join('\n')
+            tmpTxt = tmpTxt.split('<a').join('TMPaTMP').split('</a').join('TMPENDaTMEPEND')
+            tmpTxt = tmpTxt.replace(/<\/?[^>]+>/g, '')
+            tmpTxt = tmpTxt.split('TMPaTMP').join('<a').split('TMPENDaTMEPEND').join('</a')
+        } catch (e) { }
+    if (tmpTxt == "")
+        tmpTxt = word
+    if (document.getElementById('msg1').innerHTML == "Доработать" && flag == 0) {
+        document.getElementById('inp').value = tmpTxt
+        template_flag = 1
+        template_flag2 = 1
+    } else {
+        tmpTxt = tmpTxt.split("\"").join("\\\"")
+        tmpTxt2 = tmpTxt.split('\n')
+        tmpTxt3 = ""
+        tmpTxt2.forEach(el => tmpTxt3 += "<p>" + el + "</p>\\n")
+        tmpTxt = tmpTxt3
+        tmpTxt = tmpTxt.split('<p></p>').join("<p><br></p>")
+        tmpTxt = tmpTxt.substr(0, tmpTxt.length - 2)
+        var values = await getInfo(0)
+        refCurTimer(localStorage.getItem('aclstime') + ":00")
+        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                "cache-control": "max-age=0",
+                "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": adr,
+            "referrerPolicy": "no-referrer-when-downgrade",
+            "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + tmpTxt + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        resetFlags()
+        flagggg = 0
+    }
+}
+
+async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 = 0) { // функция отправки шаблона
+    var curTemplate
+    if (flag == 1) {
+        template = template_text
+        word = word_text
+    }
+    for (let i = 0; i < templatesAF.length; i++) {
+        if (template == templatesAF[i][0]) {
+            curTemplate = templatesAF[i]
+            break
+        }
+    }
+    if (curTemplate == undefined)
+        curTemplate = await loadTemplates(template, word)
+    //addTimer()
+    time = localStorage.getItem('aclstime') + ":00"
+    var documentId = curTemplate[1]
+    var serviceId = curTemplate[2]
+    var queryId = curTemplate[3]
+    var AFsessionId = curTemplate[4]
+    var tmpText = transfPageButtons(curTemplate[5])
+    var title = curTemplate[6]
+    var accuracy = curTemplate[7]
+    var values = await getInfo(0)
+    var adr = values[0]; var adr1 = values[1]; var uid = values[2]
+    if (document.getElementById('msg1').innerHTML == "Доработать" && flag2 == 0) {
+        document.getElementById('inp').value = tmpText
+        template_text = template
+        word_text = word
+        template_flag = 1
+    }
+    else if (tmpText == "")
+        console.log('Шаблон не найден')
+    else {
+        if (flag == 1) {
+            tmpText = newText
+        }
+        tmpText = tmpText.split("\"").join("\\\"")
+        txt2 = tmpText.split('\n')
+        txt3 = ""
+        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
+        tmpText = txt3
+        tmpText = tmpText.split('<p></p>').join("<p><br></p>")
+        tmpText = tmpText.substr(0, tmpText.length - 2)
+
+        resetFlags()
+        refCurTimer(time)
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+            "headers": {
+                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryZ3ivsA3aU80QEBST",
+            },
+            "body": "------WebKitFormBoundaryZ3ivsA3aU80QEBST\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + tmpText + "\",\"ext\":null,\"files\":[],\"suggestedAnswerDocId\":" + documentId + ",\"autoFaqServiceId\":" + serviceId + ",\"autoFaqSessionId\":\"" + AFsessionId + "\",\"autoFaqQueryId\":\"" + queryId + "\",\"autoFaqTitle\":\"" + title + "\",\"autoFaqQuery\":\"" + word + "\",\"autoFaqAccuracy\":" + accuracy + "}\r\n------WebKitFormBoundaryZ3ivsA3aU80QEBST--\r\n",
+            "method": "POST",
+            "credentials": "include"
+        });
+    }
+}
+
+async function sendAnswer(txt, flag = 1, time = localStorage.getItem('aclstime') + ":00") { //функция отправки ответа
+    //addTimer()
+    var values = await getInfo(flag)
+    var adr = values[0]; var adr1 = values[1]; var uid = values[2]
+    var txt2 = txt.split('\n')
+    var txt3 = ""
+    txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
+    txt3 = txt3.split("\"").join("\\\"")
+    txt3 = txt3.split('<p></p>').join("<p><br></p>")
+    txt3 = txt3.substr(0, txt3.length - 2)
+    if (document.getElementById('msg1').innerHTML == "Доработать" && flag) {
+        resetFlags()
+        document.getElementById('inp').value = txt
+    }
+    else {
+        refCurTimer(time)
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+            "headers": {
+                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
+            },
+            "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
+            "method": "POST",
+            "credentials": "include"
+        });
+        resetFlags()
+    }
+}
+
+// конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
@@ -3000,9 +3167,11 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
     document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
         if (this.innerHTML == "Чат") {
             this.innerHTML = "Заметки";
+			this.classList.toggle('notes')
             localStorage.setItem('msg', 'Заметки')
         } else {
             this.innerHTML = "Чат";
+			this.classList.toggle('notes')
             localStorage.setItem('msg', 'Чат')
         }
     }
@@ -3464,6 +3633,10 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
     if (localStorage.getItem('msg') != null) {
         document.getElementById('msg').innerHTML = localStorage.getItem('msg')
+		if (localStorage.getItem('msg') == 'Чат')
+			document.getElementById('msg').classList.remove('notes')
+		else if (localStorage.getItem('msg') == 'Заметки')
+			document.getElementById('msg').classList.add('notes')
     }
     if (localStorage.getItem('msg1') != null) {
         document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
@@ -3951,92 +4124,6 @@ async function loadTemplates(template, word) { //загрузка шаблоно
                 }
             }
         })
-}
-
-async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 = 0) { // функция отправки шаблона
-    var curTemplate
-    if (flag == 1) {
-        template = template_text
-        word = word_text
-    }
-    for (let i = 0; i < templatesAF.length; i++) {
-        if (template == templatesAF[i][0]) {
-            curTemplate = templatesAF[i]
-            break
-        }
-    }
-    if (curTemplate == undefined)
-        curTemplate = await loadTemplates(template, word)
-    //addTimer()
-    time = localStorage.getItem('aclstime') + ":00"
-    var documentId = curTemplate[1]
-    var serviceId = curTemplate[2]
-    var queryId = curTemplate[3]
-    var AFsessionId = curTemplate[4]
-    var tmpText = transfPageButtons(curTemplate[5])
-    var title = curTemplate[6]
-    var accuracy = curTemplate[7]
-    var values = await getInfo(0)
-    var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-    if (document.getElementById('msg1').innerHTML == "Доработать" && flag2 == 0) {
-        document.getElementById('inp').value = tmpText
-        template_text = template
-        word_text = word
-        template_flag = 1
-    }
-    else if (tmpText == "")
-        console.log('Шаблон не найден')
-    else {
-        if (flag == 1) {
-            tmpText = newText
-        }
-        tmpText = tmpText.split("\"").join("\\\"")
-        txt2 = tmpText.split('\n')
-        txt3 = ""
-        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
-        tmpText = txt3
-        tmpText = tmpText.split('<p></p>').join("<p><br></p>")
-        tmpText = tmpText.substr(0, tmpText.length - 2)
-
-        resetFlags()
-        refCurTimer(time)
-        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-            "headers": {
-                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryZ3ivsA3aU80QEBST",
-            },
-            "body": "------WebKitFormBoundaryZ3ivsA3aU80QEBST\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + tmpText + "\",\"ext\":null,\"files\":[],\"suggestedAnswerDocId\":" + documentId + ",\"autoFaqServiceId\":" + serviceId + ",\"autoFaqSessionId\":\"" + AFsessionId + "\",\"autoFaqQueryId\":\"" + queryId + "\",\"autoFaqTitle\":\"" + title + "\",\"autoFaqQuery\":\"" + word + "\",\"autoFaqAccuracy\":" + accuracy + "}\r\n------WebKitFormBoundaryZ3ivsA3aU80QEBST--\r\n",
-            "method": "POST",
-            "credentials": "include"
-        });
-    }
-}
-
-async function sendAnswer(txt, flag = 1, time = localStorage.getItem('aclstime') + ":00") { //функция отправки ответа
-    //addTimer()
-    var values = await getInfo(flag)
-    var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-    var txt2 = txt.split('\n')
-    var txt3 = ""
-    txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
-    txt3 = txt3.split("\"").join("\\\"")
-    txt3 = txt3.split('<p></p>').join("<p><br></p>")
-    txt3 = txt3.substr(0, txt3.length - 2)
-    if (document.getElementById('msg1').innerHTML == "Доработать" && flag) {
-        resetFlags()
-        document.getElementById('inp').value = txt
-    }
-    else {
-        refCurTimer(time)
-        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-            "headers": {
-                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
-            },
-            "body": "------WebKitFormBoundaryFeIiMdHaxAteNUHd\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\"}\r\n------WebKitFormBoundaryFeIiMdHaxAteNUHd--\r\n",
-            "method": "POST",
-            "credentials": "include"
-        });
-        resetFlags()
-    }
 }
 
 async function getInfo(flag1 = 1) { //функция получения инфо о чате и сервис айди
@@ -5986,71 +6073,6 @@ async function whoAmI() { // функция получения айди опер
             }
         })
     })
-}
-
-async function sendAnswerTemplate2(word, flag = 0) { //функция отправки шаблона 2
-    var tmpTxt = ""
-    var adr = `https://skyeng.autofaq.ai/tickets/assigned/`
-    if (word.length < 50)
-        try {
-            a = await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
-                "headers": {
-                    "content-type": "application/json",
-                },
-                "referrer": adr,
-                "referrerPolicy": "no-referrer-when-downgrade",
-                "body": "{\"query\":\"" + word + "\",\"answersLimit\":25,\"autoFaqServiceIds\":[121388, 121384]}",
-                "method": "POST",
-                "mode": "cors",
-                "credentials": "include"
-            }).then(a => b = a.json()).then(result => result.forEach(k => {
-                if (k.title == word)
-                    tmpTxt = k.text
-            }))
-            tmpTxt = tmpTxt.split("<br>↵").join('\n')
-            tmpTxt = tmpTxt.split("&nbsp;").join(' ')
-            tmpTxt = tmpTxt.split("<br />").join('\n')
-            tmpTxt = tmpTxt.split('<a').join('TMPaTMP').split('</a').join('TMPENDaTMEPEND')
-            tmpTxt = tmpTxt.replace(/<\/?[^>]+>/g, '')
-            tmpTxt = tmpTxt.split('TMPaTMP').join('<a').split('TMPENDaTMEPEND').join('</a')
-        } catch (e) { }
-    if (tmpTxt == "")
-        tmpTxt = word
-    if (document.getElementById('msg1').innerHTML == "Доработать" && flag == 0) {
-        document.getElementById('inp').value = tmpTxt
-        template_flag = 1
-        template_flag2 = 1
-    } else {
-        tmpTxt = tmpTxt.split("\"").join("\\\"")
-        tmpTxt2 = tmpTxt.split('\n')
-        tmpTxt3 = ""
-        tmpTxt2.forEach(el => tmpTxt3 += "<p>" + el + "</p>\\n")
-        tmpTxt = tmpTxt3
-        tmpTxt = tmpTxt.split('<p></p>').join("<p><br></p>")
-        tmpTxt = tmpTxt.substr(0, tmpTxt.length - 2)
-        var values = await getInfo(0)
-        refCurTimer(localStorage.getItem('aclstime') + ":00")
-        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-            "headers": {
-                "accept": "*/*",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                "cache-control": "max-age=0",
-                "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            "referrer": adr,
-            "referrerPolicy": "no-referrer-when-downgrade",
-            "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + tmpTxt + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        });
-        resetFlags()
-        flagggg = 0
-    }
 }
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
