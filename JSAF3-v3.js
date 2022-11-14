@@ -413,6 +413,16 @@ function mystyles() {
 	#buttonGetStat:hover {
 		background:DeepSkyBlue;
 	}
+	.teststudteach {
+		background: #3CB371;
+		margin-left: 5px;
+		margin:5px;
+		cursor: pointer;
+		width: 24px;
+	}
+	.teststudteach.active {
+		background: coral;
+	}
 	
 	`
     mstl.innerHTML = style;
@@ -6048,12 +6058,12 @@ let tokenlog;
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
 btnsid.id = "sidcode";
-btnsid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; cursor: pointer;";
+btnsid.classList = 'teststudteach'
 
 let btntid = document.createElement('button')
 btntid.innerText = "П";
 btntid.id = "tidcode";
-btntid.style = "background-color: #3CB371; margin-left: 5px; margin-top:5px; margin-bottom: 5px; cursor: pointer; margin-right: 5px;";
+btntid.classList = 'teststudteach'
 
 document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
@@ -6093,8 +6103,8 @@ btnsid.onclick = function () { // копирует в буфер логинне�
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
         logginerfortests(teststudid)
-        document.getElementById('sidcode').style.background = 'coral'
-        setTimeout(function () { document.getElementById('sidcode').style.background = '#3CB371' }, 1000)
+		document.getElementById('sidcode').classList.add('active')
+        setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000)
 
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
@@ -6104,8 +6114,8 @@ btntid.onclick = function () { // копирует в буфер логинне�
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         logginerfortests(testteachid)
-        document.getElementById('tidcode').style.background = 'coral'
-        setTimeout(function () { document.getElementById('tidcode').style.background = '#3CB371' }, 1000)
+		document.getElementById('tidcode').classList.add('active')
+        setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000)
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
