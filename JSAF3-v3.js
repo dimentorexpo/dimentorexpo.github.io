@@ -1232,6 +1232,113 @@ async function checkChatCountQue() { // функция проверки коли
     document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
+async function checkkcpower() { //проверить нагрузку на КЦ
+    let cntc = 0;
+    let busycnt = 0;
+    let pausecnt = 0;
+    let allcntc = 0;
+    let found = [];
+    let str = document.createElement('p')
+    str.style.paddingLeft = '50px'
+    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+
+    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+        "credentials": "include"
+    }).then(r => r.json()).then(result => {
+        setTimeout(function () {
+            for (let i = 0; i < result.rows.length; i++) {
+                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
+                    cntc++;
+                    if (result.rows[i].operator.status == "Busy")
+                        busycnt++;
+                    else if (result.rows[i].operator.status == "Pause")
+                        pausecnt++;
+                    if (result.rows[i].aCnt == null)
+                        result.rows[i].aCnt = 0;
+                    allcntc += result.rows[i].aCnt;
+                    if (result.rows[i].operator.status == "Online")
+                        result.rows[i].operator.status = "🟢 Онлайн"
+                    else if (result.rows[i].operator.status == "Busy")
+                        result.rows[i].operator.status = "🟡 Занят"
+                    else if (result.rows[i].operator.status == "Pause")
+                        result.rows[i].operator.status = "🔴 Перерыв"
+                    found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
+                }
+            }
+            if (allcntc / (cntc - pausecnt - busycnt) <= 2.2)
+                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
+            else if (allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
+                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
+            else if (allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
+                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
+            else if (allcntc / (cntc - pausecnt - busycnt) >= 4.5)
+                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
+        }, 1000)
+
+        setTimeout(function () {
+            document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+            str.innerHTML = '<br>' + found;
+        }, 1000)
+
+        document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
+    })
+}
+
+async function checktppower() { //проверить нагрузку на ТП
+    let cntc = 0;
+    let busycnt = 0;
+    let pausecnt = 0;
+    let allcntc = 0;
+    let found = [];
+    let str = document.createElement('p')
+    str.style.paddingLeft = '50px'
+    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
+        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+
+    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+        "credentials": "include"
+    }).then(r => r.json()).then(result => {
+        setTimeout(function () {
+            for (let i = 0; i < result.rows.length; i++) {
+                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
+                    cntc++;
+                    if (result.rows[i].operator.status == "Busy")
+                        busycnt++;
+                    else if (result.rows[i].operator.status == "Pause")
+                        pausecnt++;
+                    if (result.rows[i].aCnt == null)
+                        result.rows[i].aCnt = 0;
+                    allcntc += result.rows[i].aCnt;
+                    if (result.rows[i].operator.status == "Online")
+                        result.rows[i].operator.status = "🟢 Онлайн"
+                    else if (result.rows[i].operator.status == "Busy")
+                        result.rows[i].operator.status = "🟡 Занят"
+                    else if (result.rows[i].operator.status == "Pause")
+                        result.rows[i].operator.status = "🔴 Перерыв"
+                    found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
+                }
+            }
+
+            if (allcntc / (cntc - pausecnt - busycnt) <= 2.2)
+                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
+            else if (allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
+                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
+            else if (allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
+                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
+            else if (allcntc / (cntc - pausecnt - busycnt) >= 4.5)
+                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
+        }, 1000)
+
+        setTimeout(function () {
+            document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+            str.innerHTML = '<br>' + found;
+        }, 1000)
+
+        document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
+    })
+}
+
 function ShowMustGoOn() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ
     localStorage.setItem('scriptAdr', KC_addr)
     location.reload()
@@ -5991,115 +6098,6 @@ async function getStats() { // функция получения статист�
     document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
-
-async function checkkcpower() { //проверить нагрузку на КЦ
-    let cntc = 0;
-    let busycnt = 0;
-    let pausecnt = 0;
-    let allcntc = 0;
-    let found = [];
-    let str = document.createElement('p')
-    str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-
-    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-        "credentials": "include"
-    }).then(r => r.json()).then(result => {
-        setTimeout(function () {
-            for (let i = 0; i < result.rows.length; i++) {
-                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
-                    cntc++;
-                    if (result.rows[i].operator.status == "Busy")
-                        busycnt++;
-                    else if (result.rows[i].operator.status == "Pause")
-                        pausecnt++;
-                    if (result.rows[i].aCnt == null)
-                        result.rows[i].aCnt = 0;
-                    allcntc += result.rows[i].aCnt;
-                    if (result.rows[i].operator.status == "Online")
-                        result.rows[i].operator.status = "🟢 Онлайн"
-                    else if (result.rows[i].operator.status == "Busy")
-                        result.rows[i].operator.status = "🟡 Занят"
-                    else if (result.rows[i].operator.status == "Pause")
-                        result.rows[i].operator.status = "🔴 Перерыв"
-                    found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
-                }
-            }
-            if (allcntc / (cntc - pausecnt - busycnt) <= 2.2)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) >= 4.5)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
-        }, 1000)
-
-        setTimeout(function () {
-            document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-            str.innerHTML = '<br>' + found;
-        }, 1000)
-
-        document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
-    })
-}
-
-async function checktppower() { //проверить нагрузку на ТП
-    let cntc = 0;
-    let busycnt = 0;
-    let pausecnt = 0;
-    let allcntc = 0;
-    let found = [];
-    let str = document.createElement('p')
-    str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-
-    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-        "credentials": "include"
-    }).then(r => r.json()).then(result => {
-        setTimeout(function () {
-            for (let i = 0; i < result.rows.length; i++) {
-                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
-                    cntc++;
-                    if (result.rows[i].operator.status == "Busy")
-                        busycnt++;
-                    else if (result.rows[i].operator.status == "Pause")
-                        pausecnt++;
-                    if (result.rows[i].aCnt == null)
-                        result.rows[i].aCnt = 0;
-                    allcntc += result.rows[i].aCnt;
-                    if (result.rows[i].operator.status == "Online")
-                        result.rows[i].operator.status = "🟢 Онлайн"
-                    else if (result.rows[i].operator.status == "Busy")
-                        result.rows[i].operator.status = "🟡 Занят"
-                    else if (result.rows[i].operator.status == "Pause")
-                        result.rows[i].operator.status = "🔴 Перерыв"
-                    found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
-                }
-            }
-
-            if (allcntc / (cntc - pausecnt - busycnt) <= 2.2)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) >= 4.5)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "занят: " + busycnt + " перерыв: " + pausecnt + " онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
-        }, 1000)
-
-        setTimeout(function () {
-            document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-            str.innerHTML = '<br>' + found;
-        }, 1000)
-
-        document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
-    })
-}
-
-
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
