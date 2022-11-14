@@ -1766,6 +1766,22 @@ function customTemplates(language = '') { //собственные шаблон�
     }
 }
 
+async function sendComment(txt) { // функция отправки комментария
+    var values = await getInfo(0)
+    adr = values[0]; adr1 = values[1]; uid = values[2]
+    var txt2 = txt.split('\n').join('\\n')
+    var txt2 = txt2.split("\"").join("\\\"")
+    resetFlags()
+    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+        "headers": {
+            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
+        },
+        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt2 + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+        "method": "POST",
+        "credentials": "include"
+    });
+}
+
 function ShowMustGoOn() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ
     localStorage.setItem('scriptAdr', KC_addr)
     location.reload()
@@ -4043,22 +4059,6 @@ async function getInfo(flag1 = 1) { //функция получения инфо
             .then(result => { sessionId = result.sessionId; chatsArray.push(result); localStorage.setItem('serviceIdGlob', result.serviceId) });
     }
     return [adr, adr1, sessionId]
-}
-
-async function sendComment(txt) { // функция отправки комментария
-    var values = await getInfo(0)
-    adr = values[0]; adr1 = values[1]; uid = values[2]
-    var txt2 = txt.split('\n').join('\\n')
-    var txt2 = txt2.split("\"").join("\\\"")
-    resetFlags()
-    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-        "headers": {
-            "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-        },
-        "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt2 + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-        "method": "POST",
-        "credentials": "include"
-    });
 }
 
 idk = 0
