@@ -891,6 +891,216 @@ function changesoundaddr() { //функция изменения адреса з
     }
 }
 
+async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
+    let table = document.createElement('table')
+    table.style = 'table-layout: auto; width:750px;'
+    table.style.textAlign = 'center'
+    table.id = 'tableStats'
+    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "Среднее время ожидания", "Среднее время работы"]
+    let trHead = document.createElement('tr')
+    for (let i = 0; i < columnNames.length; i++) {
+        var th = document.createElement('th')
+        trHead.append(th)
+        th.textContent = columnNames[i]
+    }
+
+    var time = new Date()
+    var time2 = new Date()
+    time2.setTime(time - 24 * 60 * 60 * 1000)
+    var date1 = time.getDate() < 10 ? '0' + time.getDate() : time.getDate()
+    var date2 = time2.getDate() < 10 ? '0' + time2.getDate() : time2.getDate()
+    var month1 = Number(time.getMonth() + 1) < 10 ? '0' + Number(time.getMonth() + 1) : Number(time.getMonth() + 1)
+    var month2 = Number(time2.getMonth() + 1) < 10 ? '0' + Number(time2.getMonth() + 1) : Number(time2.getMonth() + 1)
+    var str1 = time.getFullYear() + "-" + month1 + "-" + date1 + "T21%3A00%3A00Z"
+    var str2 = time2.getFullYear() + "-" + month2 + "-" + date2 + "T21%3A00%3A00Z"
+    var array = []
+    let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+    console.log("Подразделение - " + opsection);
+    await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
+        if (k.operator.indexOf(opsection) != -1) {
+            array.push(k)
+        }
+    })))
+    array.sort(function (a, b) {
+        return b.conversationClosed - a.conversationClosed;
+    });
+
+    var operatorId = []
+    var operatorNames = []
+    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+        "credentials": "include"
+    }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
+        if (k.operator != null)
+            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
+                operatorId.push(k.operator.id)
+                operatorNames.push(k.operator.fullName)
+            }
+    }))
+
+    var date = new Date()
+    day = month = ""
+    if (date.getMonth() < 9)
+        month = "0" + (date.getMonth() + 1)
+    else
+        month = (date.getMonth() + 1)
+    if (date.getDate() < 10)
+        day = "0" + date.getDate()
+    else
+        day = date.getDate()
+
+    var secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
+    date = date - 24 * 60 * 60 * 1000
+    var date2 = new Date()
+    date2.setTime(date)
+
+    if (date2.getMonth() < 9)
+        month2 = "0" + (date2.getMonth() + 1)
+    else
+        month2 = (date2.getMonth() + 1)
+    if (date2.getDate() < 10)
+        day2 = "0" + date2.getDate()
+    else
+        day2 = date2.getDate()
+
+    var firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
+
+    var operatorChatCount = []
+    for (var l = 0; l < operatorId.length; l++) {
+        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+                "cache-control": "max-age=0",
+                "content-type": "application/json",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            "referrer": "https://skyeng.autofaq.ai/logs",
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId[l] + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        }).then(a => a.json()).then(b => operatorChatCount[l] = b.total)
+    }
+
+    let tbody = document.createElement('tbody')
+    for (let i = 0; i < array.length; i++) {
+        var tr = document.createElement('tr')
+        for (let j = 0; j < 5; j++) {
+            var td = document.createElement('td')
+            switch (j) {
+                case 0:
+                    td.textContent = array[i].operator;
+					if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == array[i].operator) {
+						td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
+					} else 
+                    td.style = 'text-align: left; padding-left: 5px'
+                    break;
+                case 2:
+                    for (let j = 0; j < operatorNames.length; j++)
+                        if (array[i].operator == operatorNames[j]) {
+                            td.textContent = operatorChatCount[j]
+                            td.classList.add("chtcnt");
+                            break
+                        }
+                    break;
+                case 1:
+                    td.textContent = array[i].conversationClosed;
+                    td.classList.add("chtclosed");
+                    break;
+                case 3:
+                    var averageAnswerTime = Math.floor(array[i].averageAnswerTime / 1000)
+                    averageAnswerTime = averageAnswerTime < 60 ? '00:' + averageAnswerTime : Math.floor(averageAnswerTime / 60) + ':' + ((averageAnswerTime % 60) < 10 ? '0' + (averageAnswerTime % 60) : (averageAnswerTime % 60))
+                    td.textContent = averageAnswerTime;
+                    break;
+                case 4:
+                    var averageHandlingTime = Math.floor(array[i].averageHandlingTime / 1000)
+                    averageHandlingTime = averageHandlingTime < 60 ? averageHandlingTime : Math.floor(averageHandlingTime / 60) + ':' + ((averageHandlingTime % 60) < 10 ? '0' + (averageHandlingTime % 60) : (averageHandlingTime % 60))
+                    td.textContent = averageHandlingTime;
+                    break;
+            }
+            tr.append(td)
+        }
+        tbody.append(tr)
+    }
+
+
+    for (let i = 0; i < tbody.childElementCount; i++) {
+        for (let j = 0; j < operatorNames.length; j++)
+            if (tbody.children[0].children[0] == operatorNames.length) {
+                let tr = document.createElement('tr')
+                tr.textContent = operatorChatCount[j]
+                tbody.children[0].insertBefore(tbody.children[0].children[2])
+            }
+    }
+
+    table.append(trHead)
+    table.append(tbody)
+
+    let newDivForStats = document.createElement('div')
+    newDivForStats.append(table)
+    document.getElementById('root').children[0].children[1].children[0].children[1].append(newDivForStats)
+
+    let str = document.createElement('button') // кнопка для запуска проверки КСАТ и тематики чатов
+    str.textContent = 'Проверить CSAT + тематики чатов'
+    str.id = 'buttonCheckStats'
+    str.style.marginLeft = '50px'
+    str.onclick = checkCSAT
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+
+    let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
+    quechatscount.textContent = 'Узнать кол-во чатов в очереди'
+    quechatscount.id = 'buttonQueChatsCount'
+    quechatscount.style.marginLeft = '10px'
+    quechatscount.onclick = checkChatCountQue
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
+
+    let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    kcpower.textContent = 'Нагрузка КЦ'
+    kcpower.id = 'buttonKCpower'
+    kcpower.style.marginLeft = '10px'
+    kcpower.onclick = function() {
+		checkload(/КЦ/ , 'КЦ')
+	}
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
+
+    let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    tppower.textContent = 'Нагрузка ТП'
+    tppower.id = 'buttonTPpower'
+    tppower.style.marginLeft = '10px'
+    tppower.onclick = function () {
+		checkload(/ТП/ , 'ТП')
+	}
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
+
+    let dcc = document.getElementsByClassName('chtcnt')
+    let summcnt = 0;
+    for (i = 0; i < dcc.length; i++) {
+        summcnt = summcnt + Number(dcc[i].textContent)
+    }
+
+    let dc = document.getElementsByClassName('chtclosed')
+    let summclsd = 0;
+    for (i = 0; i < dc.length; i++) {
+        summclsd = summclsd + Number(dc[i].textContent)
+    }
+
+    let sumchatclosed = document.createElement('div') // сумма закрытых чатов за сутки
+    sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
+    sumchatclosed.style.marginLeft = '50px'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
+
+    let sumchatcount = document.createElement('div') // сумма пощупанных чатов за сутки
+    sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
+    sumchatcount.style.marginLeft = '50px'
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
+
+    document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
+    document.getElementById('buttonGetStat').removeAttribute('disabled')
+}
+
 async function checkCSAT() { // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
@@ -5840,216 +6050,6 @@ function customTemplates(language = '') { //собственные шаблон�
             customTemplates()
         }
     }
-}
-
-async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
-    let table = document.createElement('table')
-    table.style = 'table-layout: auto; width:750px;'
-    table.style.textAlign = 'center'
-    table.id = 'tableStats'
-    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "Среднее время ожидания", "Среднее время работы"]
-    let trHead = document.createElement('tr')
-    for (let i = 0; i < columnNames.length; i++) {
-        var th = document.createElement('th')
-        trHead.append(th)
-        th.textContent = columnNames[i]
-    }
-
-    var time = new Date()
-    var time2 = new Date()
-    time2.setTime(time - 24 * 60 * 60 * 1000)
-    var date1 = time.getDate() < 10 ? '0' + time.getDate() : time.getDate()
-    var date2 = time2.getDate() < 10 ? '0' + time2.getDate() : time2.getDate()
-    var month1 = Number(time.getMonth() + 1) < 10 ? '0' + Number(time.getMonth() + 1) : Number(time.getMonth() + 1)
-    var month2 = Number(time2.getMonth() + 1) < 10 ? '0' + Number(time2.getMonth() + 1) : Number(time2.getMonth() + 1)
-    var str1 = time.getFullYear() + "-" + month1 + "-" + date1 + "T21%3A00%3A00Z"
-    var str2 = time2.getFullYear() + "-" + month2 + "-" + date2 + "T21%3A00%3A00Z"
-    var array = []
-    let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
-    console.log("Подразделение - " + opsection);
-    await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
-        if (k.operator.indexOf(opsection) != -1) {
-            array.push(k)
-        }
-    })))
-    array.sort(function (a, b) {
-        return b.conversationClosed - a.conversationClosed;
-    });
-
-    var operatorId = []
-    var operatorNames = []
-    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-        "credentials": "include"
-    }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
-        if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
-                operatorId.push(k.operator.id)
-                operatorNames.push(k.operator.fullName)
-            }
-    }))
-
-    var date = new Date()
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
-
-    var secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
-    date = date - 24 * 60 * 60 * 1000
-    var date2 = new Date()
-    date2.setTime(date)
-
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
-
-    var firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
-
-    var operatorChatCount = []
-    for (var l = 0; l < operatorId.length; l++) {
-        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-            "headers": {
-                "accept": "*/*",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                "cache-control": "max-age=0",
-                "content-type": "application/json",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            "referrer": "https://skyeng.autofaq.ai/logs",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId[l] + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        }).then(a => a.json()).then(b => operatorChatCount[l] = b.total)
-    }
-
-    let tbody = document.createElement('tbody')
-    for (let i = 0; i < array.length; i++) {
-        var tr = document.createElement('tr')
-        for (let j = 0; j < 5; j++) {
-            var td = document.createElement('td')
-            switch (j) {
-                case 0:
-                    td.textContent = array[i].operator;
-					if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == array[i].operator) {
-						td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
-					} else 
-                    td.style = 'text-align: left; padding-left: 5px'
-                    break;
-                case 2:
-                    for (let j = 0; j < operatorNames.length; j++)
-                        if (array[i].operator == operatorNames[j]) {
-                            td.textContent = operatorChatCount[j]
-                            td.classList.add("chtcnt");
-                            break
-                        }
-                    break;
-                case 1:
-                    td.textContent = array[i].conversationClosed;
-                    td.classList.add("chtclosed");
-                    break;
-                case 3:
-                    var averageAnswerTime = Math.floor(array[i].averageAnswerTime / 1000)
-                    averageAnswerTime = averageAnswerTime < 60 ? '00:' + averageAnswerTime : Math.floor(averageAnswerTime / 60) + ':' + ((averageAnswerTime % 60) < 10 ? '0' + (averageAnswerTime % 60) : (averageAnswerTime % 60))
-                    td.textContent = averageAnswerTime;
-                    break;
-                case 4:
-                    var averageHandlingTime = Math.floor(array[i].averageHandlingTime / 1000)
-                    averageHandlingTime = averageHandlingTime < 60 ? averageHandlingTime : Math.floor(averageHandlingTime / 60) + ':' + ((averageHandlingTime % 60) < 10 ? '0' + (averageHandlingTime % 60) : (averageHandlingTime % 60))
-                    td.textContent = averageHandlingTime;
-                    break;
-            }
-            tr.append(td)
-        }
-        tbody.append(tr)
-    }
-
-
-    for (let i = 0; i < tbody.childElementCount; i++) {
-        for (let j = 0; j < operatorNames.length; j++)
-            if (tbody.children[0].children[0] == operatorNames.length) {
-                let tr = document.createElement('tr')
-                tr.textContent = operatorChatCount[j]
-                tbody.children[0].insertBefore(tbody.children[0].children[2])
-            }
-    }
-
-    table.append(trHead)
-    table.append(tbody)
-
-    let newDivForStats = document.createElement('div')
-    newDivForStats.append(table)
-    document.getElementById('root').children[0].children[1].children[0].children[1].append(newDivForStats)
-
-    let str = document.createElement('button') // кнопка для запуска проверки КСАТ и тематики чатов
-    str.textContent = 'Проверить CSAT + тематики чатов'
-    str.id = 'buttonCheckStats'
-    str.style.marginLeft = '50px'
-    str.onclick = checkCSAT
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-
-    let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
-    quechatscount.textContent = 'Узнать кол-во чатов в очереди'
-    quechatscount.id = 'buttonQueChatsCount'
-    quechatscount.style.marginLeft = '10px'
-    quechatscount.onclick = checkChatCountQue
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
-
-    let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
-    kcpower.textContent = 'Нагрузка КЦ'
-    kcpower.id = 'buttonKCpower'
-    kcpower.style.marginLeft = '10px'
-    kcpower.onclick = function() {
-		checkload(/КЦ/ , 'КЦ')
-	}
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
-
-    let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
-    tppower.textContent = 'Нагрузка ТП'
-    tppower.id = 'buttonTPpower'
-    tppower.style.marginLeft = '10px'
-    tppower.onclick = function () {
-		checkload(/ТП/ , 'ТП')
-	}
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
-
-    let dcc = document.getElementsByClassName('chtcnt')
-    let summcnt = 0;
-    for (i = 0; i < dcc.length; i++) {
-        summcnt = summcnt + Number(dcc[i].textContent)
-    }
-
-    let dc = document.getElementsByClassName('chtclosed')
-    let summclsd = 0;
-    for (i = 0; i < dc.length; i++) {
-        summclsd = summclsd + Number(dc[i].textContent)
-    }
-
-    let sumchatclosed = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
-    sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
-    sumchatclosed.style.marginLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
-
-    let sumchatcount = document.createElement('div') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
-    sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
-    sumchatcount.style.marginLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
-
-    document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
-    document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
