@@ -891,7 +891,7 @@ function changesoundaddr() { //функция изменения адреса з
     }
 }
 
-async function checkCSAT() {             // функция проверки CSAT и чатов без тематики
+async function checkCSAT() { // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
     if (document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
@@ -1232,8 +1232,8 @@ async function checkChatCountQue() { // функция проверки коли
     document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
 }
 
-async function checkkcpower() { //проверить нагрузку на КЦ
-    let cntc = 0;
+async function checkload(department, flag) {
+	let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
     let allcntc = 0;
@@ -1248,7 +1248,7 @@ async function checkkcpower() { //проверить нагрузку на КЦ
     }).then(r => r.json()).then(result => {
         setTimeout(function () {
             for (let i = 0; i < result.rows.length; i++) {
-                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/КЦ/)) {
+                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(department)) {
                     cntc++;
                     if (result.rows[i].operator.status == "Busy")
                         busycnt++;
@@ -1266,13 +1266,13 @@ async function checkkcpower() { //проверить нагрузку на КЦ
                     found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
                 }
             }
-            if (allcntc / (cntc - pausecnt - busycnt) <= 2.2)
+            if ( (cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) <= 2.2)
                 found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
+            else if ( (cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
                 found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
+            else if ( (cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
                 found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) >= 4.5)
+            else if ( (cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) >= 4.5)
                 found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
         }, 1000)
 
@@ -1280,62 +1280,11 @@ async function checkkcpower() { //проверить нагрузку на КЦ
             document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
             str.innerHTML = '<br>' + found;
         }, 1000)
-
-        document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
-    })
-}
-
-async function checktppower() { //проверить нагрузку на ТП
-    let cntc = 0;
-    let busycnt = 0;
-    let pausecnt = 0;
-    let allcntc = 0;
-    let found = [];
-    let str = document.createElement('p')
-    str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-
-    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-        "credentials": "include"
-    }).then(r => r.json()).then(result => {
-        setTimeout(function () {
-            for (let i = 0; i < result.rows.length; i++) {
-                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
-                    cntc++;
-                    if (result.rows[i].operator.status == "Busy")
-                        busycnt++;
-                    else if (result.rows[i].operator.status == "Pause")
-                        pausecnt++;
-                    if (result.rows[i].aCnt == null)
-                        result.rows[i].aCnt = 0;
-                    allcntc += result.rows[i].aCnt;
-                    if (result.rows[i].operator.status == "Online")
-                        result.rows[i].operator.status = "🟢 Онлайн"
-                    else if (result.rows[i].operator.status == "Busy")
-                        result.rows[i].operator.status = "🟡 Занят"
-                    else if (result.rows[i].operator.status == "Pause")
-                        result.rows[i].operator.status = "🔴 Перерыв"
-                    found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
-                }
-            }
-
-            if (allcntc / (cntc - pausecnt - busycnt) <= 2.2)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
-            else if (allcntc / (cntc - pausecnt - busycnt) >= 4.5)
-                found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
-        }, 1000)
-
-        setTimeout(function () {
-            document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-            str.innerHTML = '<br>' + found;
-        }, 1000)
-
-        document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
+		
+		if (flag == 'КЦ')
+			document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
+		else if (flag == 'ТП')
+			document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
     })
 }
 
@@ -6063,14 +6012,18 @@ async function getStats() { // функция получения статист�
     kcpower.textContent = 'Нагрузка КЦ'
     kcpower.id = 'buttonKCpower'
     kcpower.style.marginLeft = '10px'
-    kcpower.onclick = checkkcpower
+    kcpower.onclick = function() {
+		checkload(/КЦ/ , 'КЦ')
+	}
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
 
     let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     tppower.textContent = 'Нагрузка ТП'
     tppower.id = 'buttonTPpower'
     tppower.style.marginLeft = '10px'
-    tppower.onclick = checktppower
+    tppower.onclick = function () {
+		checkload(/ТП/ , 'ТП')
+	}
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
 
     let dcc = document.getElementsByClassName('chtcnt')
