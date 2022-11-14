@@ -7,6 +7,7 @@ let operchatsdata;
 let isChatOnOperator = false;
 let flagusertype;
 let flaggetlogginer;
+let tokenlog; // пустая переменная для функции logginerfortests подставляемая в body
 let audio // переменнай для проигрывания звука при поступлении нового чата
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
@@ -566,13 +567,6 @@ var win_refusefrom =  // описание элементов окна отказ
 		</span>
         </span>
 </div>`;
-
-function include(url) { // функция подключения дополнительных скриптов/модулей
-    var script = document.createElement('script');
-    script.src = url;
-	script.setAttribute('defer', '')
-    document.getElementsByTagName('head')[0].appendChild(script);
-}		
  
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
@@ -612,6 +606,94 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
 }
 
 // Конец блока горячих клавиш
+
+function firstLoadPage() { //первичаня загрузка страницы
+    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+        document.getElementById('AF_helper').style.display = 'none';
+        document.getElementById('testUsers').style.display = 'none';
+        // document.getElementById('AF_Links').style.display = 'none';
+    } else {
+        mystyles()
+
+        if (localStorage.getItem('disablelpmwindow') == 1)
+            document.getElementById('testUsers').style.display = "none";
+
+        if (localStorage.getItem('Hidetestid') == 0) {
+            document.getElementById('testid').style.display = 'none';
+            document.getElementById('idlogin').style.display = 'none';
+        }
+
+        setTimeout(move_again_AF, 3500)
+
+        setTimeout(function () {
+            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
+            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
+        }, 2000)
+
+        setTimeout(() => {
+            let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            let menubutarea = document.createElement('div')
+            menubutarea.style = 'margin-right:20px;'
+
+            headmenulist.insertBefore(menubutarea, headmenulist.children[15])
+            menubutarea.append(butmenu)
+            headmenulist.insertBefore(menubar, headmenulist.children[15])
+            menubar.append(document.getElementById('servDsk'))
+            menubar.append(document.getElementById('JiraOpenForm'))
+            menubar.append(document.getElementById('buttonOpenForm'))
+            menubar.append(document.getElementById('butMarks'))
+            menubar.append(document.getElementById('suggestform'))
+            menubar.append(document.getElementById('otkaz'))
+            menubar.append(document.getElementById('smartroomform'))
+            menubar.append(document.getElementById('butLessonInfo'))
+            menubar.append(document.getElementById('butChatHistory'))
+            menubar.append(document.getElementById('butFrozeChat'))
+			servDsk.classList.remove('inithide')
+			JiraOpenForm.classList.remove('inithide')
+			butopensugestform.classList.remove('inithide')
+			butrefuse.classList.remove('inithide')
+			butsmartroom.classList.remove('inithide')
+			butLessonInfo.classList.remove('inithide')
+			butChatHistory.classList.remove('inithide')
+			butFrozeChat.classList.remove('inithide')
+			butMarks.classList.remove('inithide')
+			buttonOpenForm.classList.remove('inithide')
+        }, 8000)
+
+        setInterval(startTimer, 1000)
+    }
+    setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
+}
+
+
+const copyToClipboard1 = str => { // функция копирования в буфер обмена
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
+
+function include(url) { // функция подключения дополнительных скриптов/модулей
+    var script = document.createElement('script');
+    script.src = url;
+	script.setAttribute('defer', '')
+    document.getElementsByTagName('head')[0].appendChild(script);
+}	
 
 function maxLengthCheck(object) { // функция ограничения кол-ва символов в полях
     if (object.value.length > object.maxLength)
@@ -659,6 +741,56 @@ function changesoundaddr() { //функция изменения адреса з
             }
         }
     }
+}
+
+function ShowMustGoOn() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ
+    localStorage.setItem('scriptAdr', KC_addr)
+    location.reload()
+}
+
+function WeAreTheChempions() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП
+    localStorage.setItem('scriptAdr', TP_addr)
+    location.reload()
+}
+
+function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
+    localStorage.setItem('scriptAdr', TP_addrRzrv)
+    location.reload()
+}
+
+function AFthePieceofShitKC() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ резервных тестовых
+    localStorage.setItem('scriptAdr', KC_addrRzrv)
+    location.reload()
+}
+
+function logginerfortests(polzovatel) { //функция создания логиннера с последующим копированием в буфер обмена
+    document.getElementById('responseTextarea1').value = `{
+			  "headers": {
+				"content-type": "application/x-www-form-urlencoded",
+				"sec-fetch-site": "same-origin",
+				"sec-fetch-user": "?1",
+				"upgrade-insecure-requests": "1"
+			  },
+			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			}`
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
+    document.getElementById('responseTextarea3').value = 'senddata1'
+    document.getElementById('sendResponse').click()
+
+    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+        logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
+        if (logginerinfo != null) {
+            logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+            logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
+            copyToClipboard1(logginerinfo[1])
+            document.getElementById('responseTextarea1').removeAttribute('senddata1')
+        }
+    })
 }
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
@@ -4809,15 +4941,6 @@ function requestsRed() { //функция окрашивает в красный
     }
 }
 
-const copyToClipboard1 = str => { // функция копирования в буфер обмена
-    const el = document.createElement('textarea');
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-};
-
 var operatorId = ""
 var operatorsarray = [];
 async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
@@ -5922,7 +6045,6 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
-		// include("https://dimentorexpo.github.io/Modules/MobilePass.js") // модуль генерации одноразового пароля для моб приложения
 		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
 		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
 		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
@@ -5980,80 +6102,7 @@ function prepKC() { //функция подготовки расширения �
 
 }
 
-function firstLoadPage() { //первичаня загрузка страницы
-    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
-        document.getElementById('AF_helper').style.display = 'none';
-        document.getElementById('testUsers').style.display = 'none';
-        // document.getElementById('AF_Links').style.display = 'none';
-    } else {
-        mystyles()
-
-        if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
-
-        if (localStorage.getItem('Hidetestid') == 0) {
-            document.getElementById('testid').style.display = 'none';
-            document.getElementById('idlogin').style.display = 'none';
-        }
-
-        setTimeout(move_again_AF, 3500)
-
-        setTimeout(function () {
-            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
-            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
-            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
-            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
-            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
-        }, 2000)
-
-        setTimeout(() => {
-            let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            let menubutarea = document.createElement('div')
-            menubutarea.style = 'margin-right:20px;'
-
-            headmenulist.insertBefore(menubutarea, headmenulist.children[15])
-            menubutarea.append(butmenu)
-            headmenulist.insertBefore(menubar, headmenulist.children[15])
-            menubar.append(document.getElementById('servDsk'))
-            menubar.append(document.getElementById('JiraOpenForm'))
-            menubar.append(document.getElementById('buttonOpenForm'))
-            menubar.append(document.getElementById('butMarks'))
-            menubar.append(document.getElementById('suggestform'))
-            menubar.append(document.getElementById('otkaz'))
-            menubar.append(document.getElementById('smartroomform'))
-            menubar.append(document.getElementById('butLessonInfo'))
-            menubar.append(document.getElementById('butChatHistory'))
-            menubar.append(document.getElementById('butFrozeChat'))
-			servDsk.classList.remove('inithide')
-			JiraOpenForm.classList.remove('inithide')
-			butopensugestform.classList.remove('inithide')
-			butrefuse.classList.remove('inithide')
-			butsmartroom.classList.remove('inithide')
-			butLessonInfo.classList.remove('inithide')
-			butChatHistory.classList.remove('inithide')
-			butFrozeChat.classList.remove('inithide')
-			butMarks.classList.remove('inithide')
-			buttonOpenForm.classList.remove('inithide')
-        }, 8000)
-
-        setInterval(startTimer, 1000)
-    }
-    setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
-}
-firstLoadPage()
-
-let lginfo;
-let tokenlog;
+firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
 let btnsid = document.createElement('button')
 btnsid.innerText = "У";
@@ -6068,36 +6117,6 @@ btntid.classList = 'teststudteach'
 document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
-
-function logginerfortests(polzovatel) {
-    document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-site": "same-origin",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			  },
-			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			}`
-    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-    document.getElementById('responseTextarea3').value = 'senddata1'
-    document.getElementById('sendResponse').click()
-
-    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-        if (logginerinfo != null) {
-            logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-            logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
-            copyToClipboard1(logginerinfo[1])
-            document.getElementById('responseTextarea1').removeAttribute('senddata1')
-        }
-    })
-}
 
 btnsid.onclick = function () { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
@@ -6120,22 +6139,3 @@ btntid.onclick = function () { // копирует в буфер логинне�
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
-function ShowMustGoOn() {
-    localStorage.setItem('scriptAdr', KC_addr)
-    location.reload()
-}
-
-function WeAreTheChempions() {
-    localStorage.setItem('scriptAdr', TP_addr)
-    location.reload()
-}
-
-function AFthePieceofShit() {
-    localStorage.setItem('scriptAdr', TP_addrRzrv)
-    location.reload()
-}
-
-function AFthePieceofShitKC() {
-    localStorage.setItem('scriptAdr', KC_addrRzrv)
-    location.reload()
-}
