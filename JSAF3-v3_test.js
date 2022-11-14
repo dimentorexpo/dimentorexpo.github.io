@@ -7,6 +7,7 @@ let operchatsdata;
 let isChatOnOperator = false;
 let flagusertype;
 let flaggetlogginer;
+let audio // переменнай для проигрывания звука при поступлении нового чата
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -556,9 +557,7 @@ var win_refusefrom =  // описание элементов окна отказ
         </span>
 </div>`;
 
-let audio
-
-function include(url) {
+function include(url) { // функция подключения дополнительных скриптов/модулей
     var script = document.createElement('script');
     script.src = url;
 	script.setAttribute('defer', '')
@@ -604,8 +603,7 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
 
 // Конец блока горячих клавиш
 
-function maxLengthCheck(object) // функция ограничения кол-ва символов в полях
-{
+function maxLengthCheck(object) { // функция ограничения кол-ва символов в полях
     if (object.value.length > object.maxLength)
         object.value = object.value.slice(0, object.maxLength)
 }
@@ -629,6 +627,28 @@ function checkelementtype(a) { // проверка на какой элемен�
         return true;
     }
     return false;
+}
+
+function changesoundaddr() { //функция изменения адреса звука
+    let objSoundList = document.getElementById('soundlistaddr')
+
+    if (objSoundList.length > 1) {
+        for (let i = 1; i < objSoundList.length; i++) {
+            if (objSoundList[i].selected == true) {
+                if (objSoundList[i].value == "othersound") {
+                    document.getElementById('sound_adr').style.display = ''
+                    document.getElementById('sound_save').style.display = ''
+                } else {
+                    document.getElementById('sound_adr').style.display = 'none'
+                    document.getElementById('sound_save').style.display = 'none'
+                    document.getElementById('sound_adr').value = ""
+                    console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
+                    localStorage.setItem('sound_str', objSoundList[i].value)
+                    audio = new Audio(localStorage.getItem('sound_str'))
+                }
+            }
+        }
+    }
 }
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
@@ -723,28 +743,6 @@ buttonservid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
-
-function changesoundaddr() {
-    let objSoundList = document.getElementById('soundlistaddr')
-
-    if (objSoundList.length > 1) {
-        for (let i = 1; i < objSoundList.length; i++) {
-            if (objSoundList[i].selected == true) {
-                if (objSoundList[i].value == "othersound") {
-                    document.getElementById('sound_adr').style.display = ''
-                    document.getElementById('sound_save').style.display = ''
-                } else {
-                    document.getElementById('sound_adr').style.display = 'none'
-                    document.getElementById('sound_save').style.display = 'none'
-                    document.getElementById('sound_adr').value = ""
-                    console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
-                    localStorage.setItem('sound_str', objSoundList[i].value)
-                    audio = new Audio(localStorage.getItem('sound_str'))
-                }
-            }
-        }
-    }
-}
 
 let template_flag = 0
 let template_flag2 = 0
