@@ -622,6 +622,15 @@ function noDoubts(object) { // функция для разрешения вво
     object.value = object.value.replace(/["'\\]/gi, '');
 }
 
+function checkelementtype(a) { // проверка на какой элемент нажали
+    let elem = document.elementFromPoint(a.clientX, a.clientY)
+
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' && elem.className != "checkbox-audio-switch") {
+        return true;
+    }
+    return false;
+}
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -1082,14 +1091,7 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
 
 }
 
-function checkelementtype(a) { // проверка на какой элемент нажали
-    let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' && elem.className != "checkbox-audio-switch") {
-        return true;
-    }
-    return false;
-}
 
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)) {
