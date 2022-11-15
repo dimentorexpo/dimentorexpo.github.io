@@ -3382,29 +3382,6 @@ function screenshots() { //просмотр и трансформация скр
     }
 }
 
-    // function screenshots2() { //просмотр и трансформация скриншотов в архиве
-        // if (document.getElementsByClassName('chat-messages')[0] != undefined) {
-            // for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
-                // if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
-                    // var div = document.getElementsByClassName('chat-messages')[0].children[i]
-                    // for (let j = 0; j < div.querySelectorAll('a').length; j++) {
-                        // if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
-                            // var img = document.createElement('img')
-                            // img.style.width = '100px'
-                            // var alink = document.createElement('a')
-                            // alink.setAttribute('data-lightbox', 'imgs');
-                            // alink.append(img)
-                            // img.src = div.querySelectorAll('a')[j].href
-                            // img.alt = 'Изображение'
-                            // alink.href = img.src;
-                            // div.querySelectorAll('a')[j].replaceWith(alink)
-                        // }
-                    // }
-                // }
-            // }
-        // }
-    // }
-
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -4957,8 +4934,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
     btnAdd.insertBefore(button1, btnAdd.children[0])
 
     setInterval(screenshots, 5000)
-
-    // setInterval(screenshots2, 5000)
 
     addInfoUser.style.textAlign = "center"
     addInfoUser.style.color = "white"
