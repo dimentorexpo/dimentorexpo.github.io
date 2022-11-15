@@ -2805,6 +2805,34 @@ function paintstatus() { //функция перекрашивания стат�
 
 }
 
+function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
+            let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
+            //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachid)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butstdid)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachidfstd)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonservid)
+            for (let i = 0; i < categorylist.length; i++) {
+                if (categorylist[i].innerText == "Техподдержка исход crm2") {
+                    categorylist[i].style.color = "red";
+                    categorylist[i].style.fontWeight = 600;
+                    categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em red";
+                } else if (categorylist[i].innerText == "Техподдержка 2-я линия crm2") {
+                    categorylist[i].style.color = "green";
+                    categorylist[i].style.fontWeight = 600;
+                    categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em green";
+                } else {
+                    categorylist[i].style.color = "black";
+                    categorylist[i].style.fontWeight = 400;
+                    categorylist[i].style.textShadow = "0px 0px 0px black, 0 0 1em grey";
+                }
+            }
+        }
+    }
+}
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -5302,34 +5330,6 @@ function startTimer() {
 }
 
 setInterval(setactivechatstyle, 1000)
-
-function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
-        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
-            let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
-            //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachid)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butstdid)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachidfstd)
-            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonservid)
-            for (let i = 0; i < categorylist.length; i++) {
-                if (categorylist[i].innerText == "Техподдержка исход crm2") {
-                    categorylist[i].style.color = "red";
-                    categorylist[i].style.fontWeight = 600;
-                    categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em red";
-                } else if (categorylist[i].innerText == "Техподдержка 2-я линия crm2") {
-                    categorylist[i].style.color = "green";
-                    categorylist[i].style.fontWeight = 600;
-                    categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em green";
-                } else {
-                    categorylist[i].style.color = "black";
-                    categorylist[i].style.fontWeight = 400;
-                    categorylist[i].style.textShadow = "0px 0px 0px black, 0 0 1em grey";
-                }
-            }
-        }
-    }
-}
 
 setInterval(addbuttonsintegration, 1000)
 
