@@ -2005,6 +2005,18 @@ async function sendAnswer(txt, flag = 1, time = localStorage.getItem('aclstime')
 
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
 
+function requestsRed() { //функция окрашивает в красный цвет, кнопка взять запрос не будет (0) иметь, а любое другое значение
+    if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
+        document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
+            txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
+            if (txt != "Взять запрос (0)")
+                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
+            else
+                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
+        });
+    }
+}
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -6042,18 +6054,6 @@ function timerHideButtons() { //функция добавления скрыти
                 }
             }
         }
-    }
-}
-
-function requestsRed() { //функция окрашивает в красный цвет, кнопка взять запрос не будет (0) иметь, а любое другое значение
-    if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
-        document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
-            txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-            if (txt != "Взять запрос (0)")
-                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
-            else
-                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
-        });
     }
 }
 
