@@ -4117,18 +4117,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     user = "student"
 
-    if (localStorage.getItem('msg') != null) {
-        document.getElementById('msg').innerHTML = localStorage.getItem('msg')
-		if (localStorage.getItem('msg') == 'Чат')
-			document.getElementById('msg').classList.remove('notes')
-		else if (localStorage.getItem('msg') == 'Заметки')
-			document.getElementById('msg').classList.add('notes')
-    }
-	
-    if (localStorage.getItem('msg1') != null) {
-        document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
-    }
-
     getText()
 }
 
@@ -4972,6 +4960,18 @@ btntid.onclick = function () { // копирует в буфер логинне�
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
+
+    if (localStorage.getItem('msg') != null) {
+        document.getElementById('msg').innerHTML = localStorage.getItem('msg')
+		if (localStorage.getItem('msg') == 'Чат')
+			document.getElementById('msg').classList.remove('notes')
+		else if (localStorage.getItem('msg') == 'Заметки')
+			document.getElementById('msg').classList.add('notes')
+    }
+	
+    if (localStorage.getItem('msg1') != null) {
+        document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
+    }
 
 document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
 	if (this.innerHTML == "Чат") {
