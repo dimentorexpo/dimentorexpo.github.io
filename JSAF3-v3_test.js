@@ -11,6 +11,9 @@ let tokenlog; // пустая переменная для функции loggine
 let audio // переменнай для проигрывания звука при поступлении нового чата
 let chatneraspcount; // переменная для получения колчества нераспределенных чатов в очереди
 let chattpquecount; // переменная для получения колчества нераспределенных чатов в очереди тематики ТП v1
+var templatesAF = []
+var bool = 0;
+var table
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -1998,9 +2001,6 @@ function servFromDoc(butName) { // отправка комента и сообщ
         sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
 }
 
-var bool = 0;
-var table
-
 function getText() { //получить текст
     var app = localStorage.getItem('scriptAdr'),
         xhr = new XMLHttpRequest();
@@ -2310,8 +2310,6 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
         }
     }
 }
-
-var templatesAF = []
 
 async function loadTemplates(template, word) { //загрузка шаблонов с дока
     return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
