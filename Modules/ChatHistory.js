@@ -432,31 +432,31 @@ async function findchatsoper() { // ищет активные чаты на вы
     }
 }
 
-    document.getElementById('hideMeChHis').onclick = () => { //форма hide
-        if (document.getElementById('AF_ChatHis').style.display == '') {
-            document.getElementById('AF_ChatHis').style.display = 'none'
+document.getElementById('hideMeChHis').onclick = () => { //форма hide
+	if (document.getElementById('AF_ChatHis').style.display == '') {
+		document.getElementById('AF_ChatHis').style.display = 'none'
 
-            document.getElementById('infofield').innerText = ''
-            document.getElementById('placeusid').innerText = ''
-            document.getElementById('placechatid').innerText = ''
-            document.getElementById('somechatinfo').style.display = 'none';
-            document.getElementById('bottommenuchhis').style.display = 'none';
-            document.getElementById('comentsbar').style.display = 'none';
-            document.getElementById('chatuserhis').value = ''
-            document.getElementById('hashchathis').value = ''
-        }
-    }
+		document.getElementById('infofield').innerText = ''
+		document.getElementById('placeusid').innerText = ''
+		document.getElementById('placechatid').innerText = ''
+		document.getElementById('somechatinfo').style.display = 'none';
+		document.getElementById('bottommenuchhis').style.display = 'none';
+		document.getElementById('comentsbar').style.display = 'none';
+		document.getElementById('chatuserhis').value = ''
+		document.getElementById('hashchathis').value = ''
+	}
+}
 	
-	document.getElementById('clearallinfo').onclick = () => { //кнопка очистки
-        document.getElementById('infofield').innerText = ''
-        document.getElementById('placeusid').innerText = ''
-        document.getElementById('placechatid').innerText = ''
-        document.getElementById('somechatinfo').style.display = 'none';
-        document.getElementById('bottommenuchhis').style.display = 'none';
-        document.getElementById('comentsbar').style.display = 'none';
-        document.getElementById('chatuserhis').value = ''
-        document.getElementById('hashchathis').value = ''
-    }
+document.getElementById('clearallinfo').onclick = () => { //кнопка очистки
+	document.getElementById('infofield').innerText = ''
+	document.getElementById('placeusid').innerText = ''
+	document.getElementById('placechatid').innerText = ''
+	document.getElementById('somechatinfo').style.display = 'none';
+	document.getElementById('bottommenuchhis').style.display = 'none';
+	document.getElementById('comentsbar').style.display = 'none';
+	document.getElementById('chatuserhis').value = ''
+	document.getElementById('hashchathis').value = ''
+}
 	
 	document.getElementById('chid').onclick = () => { // копирует в буфер айди чата
         copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
