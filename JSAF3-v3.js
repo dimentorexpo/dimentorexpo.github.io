@@ -3772,6 +3772,7 @@ function screenshots() { //просмотр и трансформация скр
     }
 }
 
+function getLocalstorageToFile(fileName) { //функция сохранения содержимого localstorage в файл на компьютере
 
 	/* dump local storage to string */
 
