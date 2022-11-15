@@ -5297,7 +5297,6 @@ setInterval(addbuttonsintegration, 1000)
             break;
     }
 
-}
 
 let getidusrteachreq;
 
