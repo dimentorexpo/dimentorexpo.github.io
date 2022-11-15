@@ -4033,18 +4033,6 @@ function setRemindAf1() { //функция  при наступлении вре
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
-    document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
-        if (this.innerHTML == "Чат") {
-            this.innerHTML = "Заметки";
-			this.classList.toggle('notes')
-            localStorage.setItem('msg', 'Заметки')
-        } else {
-            this.innerHTML = "Чат";
-			this.classList.toggle('notes')
-            localStorage.setItem('msg', 'Чат')
-        }
-    }
-
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
         prepKC()
     } else {
@@ -5067,6 +5055,18 @@ btntid.onclick = function () { // копирует в буфер логинне�
         setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000)
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
+}
+
+document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
+	if (this.innerHTML == "Чат") {
+		this.innerHTML = "Заметки";
+		this.classList.toggle('notes')
+		localStorage.setItem('msg', 'Заметки')
+	} else {
+		this.innerHTML = "Чат";
+		this.classList.toggle('notes')
+		localStorage.setItem('msg', 'Чат')
+	}
 }
 
 let intervalotak = setInterval( function () {
