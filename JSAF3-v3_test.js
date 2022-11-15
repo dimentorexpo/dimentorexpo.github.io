@@ -16,6 +16,8 @@ var bool = 0;
 var table;
 var operatorId = ""; //глобальная переменная после получения ID operator , который использует расширение и авторизован в свой профиль
 var operatorsarray = []; //массив операторов , который потом пригодится для других функций
+idk = 0
+var tmrs = []
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -2063,8 +2065,6 @@ async function getInfo(flag1 = 1) { //функция получения инфо
     return [adr, adr1, sessionId]
 }
 
-idk = 0
-var tmrs = []
 function addTimer() { //функция добавления таймера при ответе оператора
     tm = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
     if (tm.childNodes[0].childNodes[2] === undefined) {
