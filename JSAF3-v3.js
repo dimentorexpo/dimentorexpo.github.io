@@ -11,9 +11,11 @@ let tokenlog; // пустая переменная для функции loggine
 let audio // переменнай для проигрывания звука при поступлении нового чата
 let chatneraspcount; // переменная для получения колчества нераспределенных чатов в очереди
 let chattpquecount; // переменная для получения колчества нераспределенных чатов в очереди тематики ТП v1
-var templatesAF = []
+var templatesAF = [];
 var bool = 0;
-var table
+var table;
+var operatorId = ""; //глобальная переменная после получения ID operator , который использует расширение и авторизован в свой профиль
+var operatorsarray = []; //массив операторов , который потом пригодится для других функций
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -624,6 +626,22 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
 }
 
 // Конец блока горячих клавиш
+
+async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
+    a = await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+        "credentials": "include"
+    }).then(a => b = a.json()).then(b => {
+        let me = document.querySelector('.user_menu-dropdown-user_name');
+        operatorsarray = b.rows;
+        b.rows.forEach(s => {
+            if (s.operator != null && me && s.operator.fullName === me.innerText) {
+                operatorId = s.operator.id
+                afopername = s.operator.fullName
+                console.log("Мой ID: " + operatorId)
+            }
+        })
+    })
+}
 
 function firstLoadPage() { //первичаня загрузка страницы
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
@@ -5408,24 +5426,6 @@ setInterval(checJiraF, 1000);
 setInterval(checkthemestatus, 3000);
 
 setInterval(paintstatus, 5000);
-
-var operatorId = ""
-var operatorsarray = [];
-async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
-    a = await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-        "credentials": "include"
-    }).then(a => b = a.json()).then(b => {
-        let me = document.querySelector('.user_menu-dropdown-user_name');
-        operatorsarray = b.rows;
-        b.rows.forEach(s => {
-            if (s.operator != null && me && s.operator.fullName === me.innerText) {
-                operatorId = s.operator.id
-                afopername = s.operator.fullName
-                console.log("Мой ID: " + operatorId)
-            }
-        })
-    })
-}
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
