@@ -2522,6 +2522,22 @@ async function sendAnswer(txt, flag = 1, time = localStorage.getItem('aclstime')
     }
 }
 
+function refCurTimer(time) { //функция обновления текущего таймера на чате
+    btns = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0]
+
+    name = btns.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
+    for (i = 0; i < idk; i++) {
+        if (tmrs[i][1] == name) {
+            tmrs[i][0] = time
+            if (time == "1:00")
+                tmrs[i][2] = 0
+            else
+                tmrs[i][2] = 1
+            tmrs[i][3] = Number(new Date())
+        }
+    }
+}
+
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
 
 function requestsRed() { //функция окрашивает в красный цвет, кнопка взять запрос не будет (0) иметь, а любое другое значение
@@ -5107,22 +5123,6 @@ function refreshTimer() { //функция обновления таймера
         j++
     }
 	} catch (e) { console.error(e, e.stack); }
-}
-
-function refCurTimer(time) { //функция обновления текущего таймера на чате
-    btns = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0]
-
-    name = btns.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
-    for (i = 0; i < idk; i++) {
-        if (tmrs[i][1] == name) {
-            tmrs[i][0] = time
-            if (time == "1:00")
-                tmrs[i][2] = 0
-            else
-                tmrs[i][2] = 1
-            tmrs[i][3] = Number(new Date())
-        }
-    }
 }
 
 flag = 0
