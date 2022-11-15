@@ -4965,9 +4965,9 @@ async function remandressl() { // функция удаления и сброс�
             }
         }
 
-        // аналогично для сброса прогресса слайдов
+        
 
-        async function resetslide() {
+        async function resetslide() { // аналогично для сброса прогресса слайдов
 
             let d = document.cookie;
             d = d.match(/token_global=(.*)/);
