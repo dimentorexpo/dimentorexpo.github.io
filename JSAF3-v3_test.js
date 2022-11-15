@@ -2041,6 +2041,120 @@ function getText() { //получить текст
     xhr.send()
 }
 
+async function getInfo(flag1 = 1) { //функция получения инфо о чате и сервис айди
+    var adr = document.location.href
+    var adr1 = document.location.pathname
+    adr1 = adr1.split('/')
+    adr1 = adr1[3]
+    var sessionId = ""
+    for (let i = 0; i < chatsArray.length; i++) {
+        if (chatsArray[i].id == adr1) {
+            sessionId = chatsArray[i].sessionId
+            return [adr, adr1, sessionId]
+        }
+    }
+    if (adr1 == undefined)
+        adr1 = ""
+    if (document.getElementById('msg1').innerHTML != "Доработать" || flag1 == 0) {
+        await fetch("https://skyeng.autofaq.ai/api/conversations/" + adr1)
+            .then(response => response.json())
+            .then(result => { sessionId = result.sessionId; chatsArray.push(result); localStorage.setItem('serviceIdGlob', result.serviceId) });
+    }
+    return [adr, adr1, sessionId]
+}
+
+idk = 0
+var tmrs = []
+function addTimer() { //функция добавления таймера при ответе оператора
+    tm = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+    if (tm.childNodes[0].childNodes[2] === undefined) {
+        let serv = document.createElement('div')
+        let serv2 = document.createElement('div')
+        tm.childNodes[0].appendChild(serv)
+        tm.childNodes[1].appendChild(serv2)
+        tm.childNodes[0].childNodes[2].innerHTML = localStorage.getItem('aclstime') + ":00"
+        let d = new Date()
+        tmrs[idk] = [localStorage.getItem('aclstime') + ":00", tm.childNodes[1].childNodes[0].innerText, 1, number(d), ""]
+        idk++
+    }
+}
+
+function addTimers() { // еще функция тоже добавления таймеров
+    k = 0
+    btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
+    let d = new Date()
+    while (true) {
+        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k] == undefined)
+            break;
+        btns.childNodes[k]
+        nm = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
+        flag = 0
+        for (i = 0; i < idk; i++) {
+            name = tmrs[i][1]
+            if (nm == name) {
+                flag = 1
+                break
+            }
+        }
+        if (flag == 0)
+            tmrs[idk++] = [localStorage.getItem('aclstime') + ":00", nm, 1, Number(d), ""]
+
+        k++
+    }
+
+    k = 0
+    btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
+    while (true) {
+        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k] == undefined)
+            break;
+        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined) {
+            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[0].appendChild(document.createElement('div'))
+            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].appendChild(document.createElement('div'))
+            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.backgroundColor = 'red'
+            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.color = 'white'
+            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.textAlign = 'center'
+            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.fontWeight = 'bold'
+        }
+        k++
+    }
+}
+
+function refreshTimer() { //функция обновления таймера
+    btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
+    j = 0
+	try {
+    while (true) {
+        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
+            break;
+        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
+            break;
+        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
+            addTimers()
+        name = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
+        for (i = 0; i < idk; i++) {
+            if (tmrs[i][1] == name) {
+                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
+                if (tmrs[i][0] == "00:00")
+                    if (tmrs[i][2] == 1)
+                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
+                    else
+                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
+                else
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
+                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
+                var cT = new Date();
+                var curT1 = tmrs[i][3]
+                var curT2 = Number(cT);
+                var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
+                if (curT3 < 0)
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA" // цвет окрашивания автозакрытия  сейчас сиреневый
+            }
+        }
+        j++
+    }
+	} catch (e) { console.error(e, e.stack); }
+}
+
 function refreshTemplates() { // функция обновляет шаблоны которые загружены были с гугл таблицы и сформированы их в table
     setInterval(function () {
         if (document.getElementsByClassName('expert-user_details-list')[0] != undefined) {
@@ -5011,120 +5125,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('AF_Refuseformnew').style.display = 'none'
     }
 	
-async function getInfo(flag1 = 1) { //функция получения инфо о чате и сервис айди
-    var adr = document.location.href
-    var adr1 = document.location.pathname
-    adr1 = adr1.split('/')
-    adr1 = adr1[3]
-    var sessionId = ""
-    for (let i = 0; i < chatsArray.length; i++) {
-        if (chatsArray[i].id == adr1) {
-            sessionId = chatsArray[i].sessionId
-            return [adr, adr1, sessionId]
-        }
-    }
-    if (adr1 == undefined)
-        adr1 = ""
-    if (document.getElementById('msg1').innerHTML != "Доработать" || flag1 == 0) {
-        await fetch("https://skyeng.autofaq.ai/api/conversations/" + adr1)
-            .then(response => response.json())
-            .then(result => { sessionId = result.sessionId; chatsArray.push(result); localStorage.setItem('serviceIdGlob', result.serviceId) });
-    }
-    return [adr, adr1, sessionId]
-}
-
-idk = 0
-var tmrs = []
-function addTimer() { //функция добавления таймера при ответе оператора
-    tm = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-    if (tm.childNodes[0].childNodes[2] === undefined) {
-        let serv = document.createElement('div')
-        let serv2 = document.createElement('div')
-        tm.childNodes[0].appendChild(serv)
-        tm.childNodes[1].appendChild(serv2)
-        tm.childNodes[0].childNodes[2].innerHTML = localStorage.getItem('aclstime') + ":00"
-        let d = new Date()
-        tmrs[idk] = [localStorage.getItem('aclstime') + ":00", tm.childNodes[1].childNodes[0].innerText, 1, number(d), ""]
-        idk++
-    }
-}
-
-function addTimers() { // еще функция тоже добавления таймеров
-    k = 0
-    btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
-    let d = new Date()
-    while (true) {
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k] == undefined)
-            break;
-        btns.childNodes[k]
-        nm = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
-        flag = 0
-        for (i = 0; i < idk; i++) {
-            name = tmrs[i][1]
-            if (nm == name) {
-                flag = 1
-                break
-            }
-        }
-        if (flag == 0)
-            tmrs[idk++] = [localStorage.getItem('aclstime') + ":00", nm, 1, Number(d), ""]
-
-        k++
-    }
-
-    k = 0
-    btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
-    while (true) {
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k] == undefined)
-            break;
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined) {
-            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[0].appendChild(document.createElement('div'))
-            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].appendChild(document.createElement('div'))
-            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.backgroundColor = 'red'
-            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.color = 'white'
-            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.textAlign = 'center'
-            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[k].childNodes[0].childNodes[0].childNodes[1].childNodes[3].style.fontWeight = 'bold'
-        }
-        k++
-    }
-}
-
-function refreshTimer() { //функция обновления таймера
-    btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
-    j = 0
-	try {
-    while (true) {
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
-            break;
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
-            break;
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
-            addTimers()
-        name = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
-        for (i = 0; i < idk; i++) {
-            if (tmrs[i][1] == name) {
-                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
-                if (tmrs[i][0] == "00:00")
-                    if (tmrs[i][2] == 1)
-                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
-                    else
-                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
-                else
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
-                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
-                var cT = new Date();
-                var curT1 = tmrs[i][3]
-                var curT2 = Number(cT);
-                var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                if (curT3 < 0)
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA" // цвет окрашивания автозакрытия  сейчас сиреневый
-            }
-        }
-        j++
-    }
-	} catch (e) { console.error(e, e.stack); }
-}
-
 flag = 0
 str = localStorage.getItem('sound_str');
 if (str !== null && str !== "")
