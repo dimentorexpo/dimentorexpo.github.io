@@ -3668,29 +3668,6 @@ async function getwordsets(studentId) { // функция получения и�
     }
 }
 
-intOldShow = setInterval(addOldShowcaseBtn, 3000) // переменная которая хранит интервал и если условие выполняется прекращает его выполнение
-
-function addOldShowcaseBtn() { //функция добавляющая в левое меню Showcase *
-    if (location.host == 'new-teachers.skyeng.ru' || location.href.split('/')[6] == "multi-classroom" || location.host == 'teachers.skyeng.ru') {
-
-        let clearterms = document.querySelectorAll('.terms-popup-accept-button')
-        for (let i = 0; i < clearterms.length; i++) {
-            clearterms[i].click()
-        }
-
-        if (document.getElementById('oldShowcase') == null) {
-            let oldshowcase = document.createElement('div')
-            oldshowcase.innerText = "🎓 Showcase*"
-            oldshowcase.id = 'oldShowcase'
-            oldshowcase.style = 'cursor:pointer;color;#04121B7A; margin-left: 12px; font-size:18px;'
-            oldshowcase.onclick = function () {
-                window.open('https://vimbox.skyeng.ru/start?noredirect=1')
-            }
-            document.getElementsByClassName('category')[0].insertBefore(oldshowcase, document.getElementsByClassName('category')[0].children[2])
-        } else clearInterval(intOldShow)
-    }
-}
-
 function addOption(oListbox, text, value) {  //функция добавления опции в список
     var oOption = document.createElement("option");
     oOption.appendChild(document.createTextNode(text));
