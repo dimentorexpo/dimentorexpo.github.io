@@ -5385,7 +5385,9 @@ document.getElementById('setreminder').onclick = function () {  // выстав�
 	//		setchas.value = "";
 	//		setminuta.value = "";
 	alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
-	abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+	abortTimeOut = setTimeout(function() {
+		setRemindAf('chronostamp')
+	}, localStorage.getItem('chronostamp'));
 }
 
 document.getElementById('setreminder1').onclick = function () {  // выставляем будильник 2
@@ -5401,7 +5403,9 @@ document.getElementById('setreminder1').onclick = function () {  // выстав
 	//		setchas.value = "";
 	//		setminuta.value = "";
 	alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
-	abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp1'));
+	abortTimeOut1 = setTimeout(function() {
+		setRemindAf('chronostamp1')
+	}, localStorage.getItem('chronostamp1'));
 }
 
 document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника 1
