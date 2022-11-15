@@ -24,7 +24,8 @@ let template_flag = 0
 let template_flag2 = 0
 let word_text = ""
 let template_text = ""
-let flagggg = 0
+let flagggg = 0;
+let addInfoUser = document.createElement('div')
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -5318,7 +5319,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
     setInterval(screenshots, 5000)
 
-	let addInfoUser = document.createElement('div')
+
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
     loginer = document.getElementById('testUsers')
     loginer.appendChild(addInfoUser)
