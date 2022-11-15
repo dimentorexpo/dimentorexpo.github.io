@@ -25,7 +25,8 @@ let template_flag2 = 0
 let word_text = ""
 let template_text = ""
 let flagggg = 0;
-let addInfoUser = document.createElement('div')
+var flagLangBut = 0;
+let addInfoUser = document.createElement('div');
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -3835,477 +3836,13 @@ function change_str(s) { // вспомогательная функция для
 	return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">` + s + "</a>";
 }
 
-if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
-    localStorage.setItem('winTopAF', '120');
-    localStorage.setItem('winLeftAF', '295');
-}
-
-if (localStorage.getItem('winTopRefuseNew') == null) { //начальное положение окна Отказ от помощи
-    localStorage.setItem('winTopRefuseNew', '295');
-    localStorage.setItem('winLeftRefuseNew', '295');
-}
-
-//Для таймера автозакрытия
-if (localStorage.getItem('aclstime') == null) {
-    localStorage.setItem('aclstime', 12);
-}
-
-//Для интервала воспроизведения звука
-if (localStorage.getItem('splinter') == null) {
-    localStorage.setItem('splinter', 3);
-}
-
-// Для переключателя вкл/выкл звук
-if (localStorage.getItem('audio') == null){
-    localStorage.setItem('audio', 1);
-}
-
-//Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
-if (localStorage.getItem('scriptAdr') == null) {
-    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
-}
-
-let infouserbut = document.createElement('p');
-infouserbut.id = 'userIdScript';
-infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
-
-let nextuserinfo = document.createElement('p');
-nextuserinfo.id = 'nextUserInfoScript';
-nextuserinfo.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
-
-let buttonhistory = document.createElement('span');
-buttonhistory.id = 'lookForHistory';
-buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
-
-let trshotmain = document.createElement('span');
-trshotmain.id = 'originalusertrshooter'
-trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
-
-let trshootnextuser = document.createElement('span');
-trshootnextuser.id = 'nextusertrshooter'
-trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
-
-let buttonservstud = document.createElement('span');
-buttonservstud.id = 'nextStudentServiceInfo1';
-buttonservstud.innerHTML = " ⚜ ";
-buttonservstud.style = "width:20px; cursor:pointer";
-
-let buttonservivceuser = document.createElement('span');
-buttonservivceuser.id = 'nextUserServiceInfo';
-buttonservivceuser.innerHTML = " ⚜ ";
-buttonservivceuser.style = "width:20px; cursor:pointer";
-
-let btnNextUserChatHistory = document.createElement('span');
-btnNextUserChatHistory.id = 'btnNextUserChatHis';
-btnNextUserChatHistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
-
-let butteachid = document.createElement('button');
-butteachid.id = 'teacheridtofield';
-butteachid.innerHTML = "👽 (ID П) П обратился ";
-butteachid.style = "width:160px; cursor:pointer; border: 1px solid black; border-radius:10px";
-
-let butstdid = document.createElement('button');
-butstdid.id = 'studentidtofield';
-butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
-butstdid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
- 
-let butteachidfstd = document.createElement('button');
-butteachidfstd.id = 'teacheridfromstudent';
-butteachidfstd.innerHTML = "👽 (ID П) У обратился";
-butteachidfstd.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
-
-let buttonservid = document.createElement('button');
-buttonservid.id = 'servidstudento';
-buttonservid.innerHTML = "ID услуги У (крит)";
-buttonservid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
-
-let marksstata = document.createElement('span');
-marksstata.id = 'marksstata';
-marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
-
-buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
-    document.getElementById('butChatHistory').click();
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-            btn_search_history.click()
-        }
-    }
-}
-
-btnNextUserChatHistory.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
-    document.getElementById('butChatHistory').click();
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-            btn_search_history.click()
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-            btn_search_history.click()
-        }
-    }
-}
-
-trshotmain.onclick = function () {
-    let curtime = new Date();
-    let mesjac;
-    let denj;
-
-    if (curtime.getDate() < 10) {
-        denj = "0" + curtime.getDate();
-    } else {
-        denj = curtime.getDate();
-    }
-    if (curtime.getMonth() + 1 < 10) {
-        mesjac = "0" + (curtime.getMonth() + 1);
-    } else {
-        mesjac = curtime.getMonth() + 1;
-    }
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
-                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
-        }
-    }
-}
-
-trshootnextuser.onclick = function () {
-    let curtime = new Date();
-    let mesjac;
-    let denj;
-
-    if (curtime.getDate() < 10) {
-        denj = "0" + curtime.getDate();
-    } else {
-        denj = curtime.getDate();
-    }
-    if (curtime.getMonth() + 1 < 10) {
-        mesjac = "0" + (curtime.getMonth() + 1);
-    } else {
-        mesjac = curtime.getMonth() + 1;
-    }
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
-                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
-                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
-        }
-    }
-}
-
-infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            const editorExtensionId = localStorage.getItem('ext_id');
-            chrome.runtime.sendMessage(
-                editorExtensionId,
-                {
-                    name: "chm_message", question: 'send_event', messageValue: {
-                        message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]}`,
-                    }
-                }
-            )
-        }
-    }
-}
-
-buttonservivceuser.onclick = function () { //открывает окно вензель user info
-    if (document.getElementById('AF_Service').style.display == 'none')
-        document.getElementById('AF_Service').style.display = '';
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
-            getidstudent.click();
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
-            getidstudent.click();
-        }
-    }
-}
-
-buttonservstud.onclick = function () { //открывает окно вензель user info
-    if (document.getElementById('AF_Service').style.display == 'none')
-        document.getElementById('AF_Service').style.display = '';
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-            getidstudent.click();
-        }
-    }
-}
-
-nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            const editorExtensionId = localStorage.getItem('ext_id');
-            chrome.runtime.sendMessage(
-                editorExtensionId,
-                {
-                    name: "chm_message", question: 'send_event', messageValue: {
-                        message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
-                    }
-                }
-            )
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            const editorExtensionId = localStorage.getItem('ext_id');
-            chrome.runtime.sendMessage(
-                editorExtensionId,
-                {
-                    name: "chm_message", question: 'send_event', messageValue: {
-                        message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
-                    }
-                }
-            )
-        }
-    }
-}
-
-let hashBut = document.createElement('div')
-hashBut.id = "hashBut"
-hashBut.innerHTML = "Хэш"
-hashBut.style.marginRight = "15px";
-
-let taskBut = document.createElement('div')
-taskBut.id = "taskBut"
-taskBut.innerHTML = "🛠 Task"
-taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
-taskBut.classList.add('ant-btn','onlyfortp');
-
-let butServ = document.createElement('div')
-butServ.id = "butServ"
-butServ.innerHTML = "⚜UserInfo"
-butServ.style = "margin-right:15px; cursor:pointer;"
-butServ.classList.add('onlyfortp');
-
-let butMarks = document.createElement('div')
-butMarks.id = "butMarks"
-butMarks.innerHTML = "📊Оценки"
-butMarks.classList.add('inithide');
-
-let butChatHistory = document.createElement('div')
-butChatHistory.id = "butChatHistory"
-butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.classList.add('onlyfortp', 'inithide');
-
-let butFrozeChat = document.createElement('div')
-butFrozeChat.id = "butFrozeChat"
-butFrozeChat.innerHTML = "❄ Auto Respond"
-butFrozeChat.classList.add('onlyfortp', 'inithide');
-
-let butLessonInfo = document.createElement('div')
-butLessonInfo.id = "butLessonInfo"
-butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
-butLessonInfo.innerHTML = "🎓 Lesson Info"
-butLessonInfo.classList.add('inithide');
-
-let servDsk = document.createElement('div')
-servDsk.id = "servDsk"
-servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.classList.add('onlyfortp');
-servDsk.classList.add('inithide');
-
-let butopensugestform = document.createElement('div')
-butopensugestform.id = "suggestform"
-butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.classList.add('onlyfortp','inithide');
-
-let butrefuse = document.createElement('div')
-butrefuse.id = "otkaz"
-butrefuse.innerHTML = "❌Отказ от помощи"
-butrefuse.classList.add('onlyfortp','inithide');
-
-let butsmartroom = document.createElement('div')
-butsmartroom.id = "smartroomform"
-butsmartroom.innerHTML = "🦐Smartroom"
-butsmartroom.classList.add('onlyfortp','inithide');
-
-let butThemes = document.createElement('div')
-butThemes.id = "themes"
-butThemes.innerHTML = "Темы"
-butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn','onlyfortp')
-
-let butJiraOpenForm = document.createElement('div')
-butJiraOpenForm.id = "JiraOpenForm"
-butJiraOpenForm.innerHTML = "🔎Jira Search"
-butJiraOpenForm.classList.add('onlyfortp', 'inithide');
-
-let butmenu = document.createElement('button')
-butmenu.innerText = 'Меню'
-butmenu.id = 'headmymenu'
-butmenu.style = 'height:32px;'
-butmenu.classList.add('ant-btn')
-
-let menubar = document.createElement('div')
-menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
-menubar.id = 'idmymenu'
-
-butmenu.onclick = () => { // кнопка открытия Меню
-    if (menubar.style.display == 'none') {
-        menubar.style.display = ''
-        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
-        menubar.style.left = xvarmenu + 'px';
-        if (document.querySelector('.ant-layout-content .expert-chat_content') != null) {
-            document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function (event) {
-                var e = document.getElementById('idmymenu');
-                if (!e.contains(event.target)) e.style.display = 'none';
-            });
-        } else if (document.querySelector('.ant-layout-content .app-body-content-inner-right') != null) {
-            document.querySelector('.ant-layout-content .app-body-content-inner-right').addEventListener('click', function (event) {
-                var e = document.getElementById('idmymenu');
-                if (!e.contains(event.target)) e.style.display = 'none';
-            });
-        }
-    } else menubar.style.display = 'none'
-}
-
-let maskBack = document.createElement('div')
-maskBack.id = "maskBack"
-maskBack.innerHTML = "Вернуть"
-maskBack.style.marginRight = "15px";
-maskBack.style.display = "none";
-
-maskBack.onclick = function () { // кнопка свернуть
-    name = document.getElementById('maskBack').getAttribute('name')
-    email = document.getElementById('maskBack').getAttribute('email')
-    phone = document.getElementById('maskBack').getAttribute('phone')
-    mask = document.getElementById('maskBack').getAttribute('mask')
-    if (document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText == name &&
-        document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText == email &&
-        document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText == phone) {
-        document.getElementsByClassName('ant-modal-wrap')[mask].style.display = ''
-        document.getElementsByClassName('ant-modal-mask')[mask].style.display = ''
-        document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = '' // кнопки сверху
-        document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = '' // кнопка заметок
-        document.getElementById('maskBack').style.display = 'none'
-    } else {
-        document.getElementById('maskBack').innerHTML = "Открыт неверный чат"
-        setTimeout(function () { document.getElementById('maskBack').innerHTML = "Вернуть" }, 3000)
-    }
-}
-
-let maskBackHide = document.createElement('span')
-maskBackHide.id = "maskBackHide"
-maskBackHide.innerHTML = "Скрыть"
-maskBackHide.style.marginRight = "15px";
-maskBackHide.style.marginLeft = "15px";
-maskBackHide.style.display = "";
-
-maskBackHide.onclick = function () { // кнопка скрыть
-    if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.innerText == "Добавить комментарий к диалогу") {
-        document.getElementsByClassName('ant-modal-wrap')[0].style.display = 'none'
-        document.getElementsByClassName('ant-modal-mask')[0].style.display = 'none'
-        document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
-        document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
-        document.getElementById('maskBack').style.display = ''
-
-        document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText)
-        document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText)
-        document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText)
-        document.getElementById('maskBack').setAttribute('mask', 0)
-    } else
-        for (i = 0; ; i++) {
-            if (document.getElementsByClassName('ant-modal-wrap')[i] == undefined) {
-                document.getElementsByClassName('ant-modal-wrap')[i - 1].style.display = 'none'
-                document.getElementsByClassName('ant-modal-mask')[i - 1].style.display = 'none'
-                document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
-                document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
-                document.getElementById('maskBack').style.display = ''
-
-
-                document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText)
-                document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText)
-                document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText)
-                document.getElementById('maskBack').setAttribute('mask', i - 1)
-                break;
-            }
-        }
-}
-
-hashBut.onclick = function () { // кнопка копирующая хеш чата
-    adr = document.location.href
-    adr1 = document.location.pathname
-    adr1 = adr1.split('/')
-    adr1 = adr1[3]
-    if ((adr1 == undefined || adr1 == "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
-        if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
-            document.getElementById('hashBut').innerHTML = "Ошибка"
-            setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
-        } else {
-            adr1 = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
-            document.getElementById('hashBut').innerHTML = "Скопировано"
-            setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
-        }
-    } else {
-        if (localStorage.getItem('scriptAdr') == TS_addr)
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-18/' + adr1)
-        else
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
-        document.getElementById('hashBut').innerHTML = "Скопировано"
-        setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
-    }
-
-}
-
-
-
-document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
-    if (checkelementtype(a)) {
-        // if ( document.getElementById('testid') != null && document.getElementById('idlogin')!=null &&
-        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
-            document.getElementById('testid').style.display = 'none';
-            document.getElementById('idlogin').style.display = 'none';
-            localStorage.setItem('Hidetestid', '0');
-
-        }
-        else {
-            document.getElementById('testid').style.display = '';
-            document.getElementById('idlogin').style.display = '';
-            localStorage.setItem('Hidetestid', '1');
-        }
-    }
-}
-
-let wintAF = document.createElement('div'); // создание главного окна
-document.body.append(wintAF);
-wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintAF.setAttribute('id', 'AF_helper');
-wintAF.innerHTML = win_AFhelper;
-var chatsArray = []
-var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
-var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec'
-var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
-var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
-var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
-
-let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
-document.body.append(wintRefuseFormNew);
-wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintRefuseFormNew.style.display = 'none';
-wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
-wintRefuseFormNew.innerHTML = win_refusefrom;
-
-function addOption(oListbox, text, value)  //функция добавления опции в список
-{
+function addOption(oListbox, text, value) {  //функция добавления опции в список
 	var oOption = document.createElement("option");
 	oOption.appendChild(document.createTextNode(text));
 	oOption.setAttribute("value", value);
 	oListbox.appendChild(oOption);
 }
 
-var flagLangBut = 0
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
 	    document.getElementById('otkaz').onclick = function() { // открыть форму Отказ от помощи
@@ -5356,6 +4893,466 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
     getText()
 }
+
+if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
+    localStorage.setItem('winTopAF', '120');
+    localStorage.setItem('winLeftAF', '295');
+}
+
+if (localStorage.getItem('winTopRefuseNew') == null) { //начальное положение окна Отказ от помощи
+    localStorage.setItem('winTopRefuseNew', '295');
+    localStorage.setItem('winLeftRefuseNew', '295');
+}
+
+//Для таймера автозакрытия
+if (localStorage.getItem('aclstime') == null) {
+    localStorage.setItem('aclstime', 12);
+}
+
+//Для интервала воспроизведения звука
+if (localStorage.getItem('splinter') == null) {
+    localStorage.setItem('splinter', 3);
+}
+
+// Для переключателя вкл/выкл звук
+if (localStorage.getItem('audio') == null){
+    localStorage.setItem('audio', 1);
+}
+
+//Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
+if (localStorage.getItem('scriptAdr') == null) {
+    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
+}
+
+let infouserbut = document.createElement('p');
+infouserbut.id = 'userIdScript';
+infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+
+let nextuserinfo = document.createElement('p');
+nextuserinfo.id = 'nextUserInfoScript';
+nextuserinfo.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
+
+let buttonhistory = document.createElement('span');
+buttonhistory.id = 'lookForHistory';
+buttonhistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History </a>';
+
+let trshotmain = document.createElement('span');
+trshotmain.id = 'originalusertrshooter'
+trshotmain.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+
+let trshootnextuser = document.createElement('span');
+trshootnextuser.id = 'nextusertrshooter'
+trshootnextuser.innerHTML = '<a style="color: black; cursor: pointer;"> 🕵️‍♀️TroubleShoot </a>';
+
+let buttonservstud = document.createElement('span');
+buttonservstud.id = 'nextStudentServiceInfo1';
+buttonservstud.innerHTML = " ⚜ ";
+buttonservstud.style = "width:20px; cursor:pointer";
+
+let buttonservivceuser = document.createElement('span');
+buttonservivceuser.id = 'nextUserServiceInfo';
+buttonservivceuser.innerHTML = " ⚜ ";
+buttonservivceuser.style = "width:20px; cursor:pointer";
+
+let btnNextUserChatHistory = document.createElement('span');
+btnNextUserChatHistory.id = 'btnNextUserChatHis';
+btnNextUserChatHistory.innerHTML = '<a style="color: black; cursor: pointer;"> Chat History</a>';
+
+let butteachid = document.createElement('button');
+butteachid.id = 'teacheridtofield';
+butteachid.innerHTML = "👽 (ID П) П обратился ";
+butteachid.style = "width:160px; cursor:pointer; border: 1px solid black; border-radius:10px";
+
+let butstdid = document.createElement('button');
+butstdid.id = 'studentidtofield';
+butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
+butstdid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
+ 
+let butteachidfstd = document.createElement('button');
+butteachidfstd.id = 'teacheridfromstudent';
+butteachidfstd.innerHTML = "👽 (ID П) У обратился";
+butteachidfstd.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
+
+let buttonservid = document.createElement('button');
+buttonservid.id = 'servidstudento';
+buttonservid.innerHTML = "ID услуги У (крит)";
+buttonservid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let marksstata = document.createElement('span');
+marksstata.id = 'marksstata';
+marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
+
+buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
+    document.getElementById('butChatHistory').click();
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            btn_search_history.click()
+        }
+    }
+}
+
+btnNextUserChatHistory.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
+    document.getElementById('butChatHistory').click();
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            btn_search_history.click()
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            btn_search_history.click()
+        }
+    }
+}
+
+trshotmain.onclick = function () {
+    let curtime = new Date();
+    let mesjac;
+    let denj;
+
+    if (curtime.getDate() < 10) {
+        denj = "0" + curtime.getDate();
+    } else {
+        denj = curtime.getDate();
+    }
+    if (curtime.getMonth() + 1 < 10) {
+        mesjac = "0" + (curtime.getMonth() + 1);
+    } else {
+        mesjac = curtime.getMonth() + 1;
+    }
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+        }
+    }
+}
+
+trshootnextuser.onclick = function () {
+    let curtime = new Date();
+    let mesjac;
+    let denj;
+
+    if (curtime.getDate() < 10) {
+        denj = "0" + curtime.getDate();
+    } else {
+        denj = curtime.getDate();
+    }
+    if (curtime.getMonth() + 1 < 10) {
+        mesjac = "0" + (curtime.getMonth() + 1);
+    } else {
+        mesjac = curtime.getMonth() + 1;
+    }
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+                '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
+        }
+    }
+}
+
+infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]}`,
+                    }
+                }
+            )
+        }
+    }
+}
+
+buttonservivceuser.onclick = function () { //открывает окно вензель user info
+    if (document.getElementById('AF_Service').style.display == 'none')
+        document.getElementById('AF_Service').style.display = '';
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+            getidstudent.click();
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+            getidstudent.click();
+        }
+    }
+}
+
+buttonservstud.onclick = function () { //открывает окно вензель user info
+    if (document.getElementById('AF_Service').style.display == 'none')
+        document.getElementById('AF_Service').style.display = '';
+
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+            getidstudent.click();
+        }
+    }
+}
+
+nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+                    }
+                }
+            )
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: "chm_message", question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+                    }
+                }
+            )
+        }
+    }
+}
+
+let hashBut = document.createElement('div')
+hashBut.id = "hashBut"
+hashBut.innerHTML = "Хэш"
+hashBut.style.marginRight = "15px";
+
+let taskBut = document.createElement('div')
+taskBut.id = "taskBut"
+taskBut.innerHTML = "🛠 Task"
+taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
+taskBut.classList.add('ant-btn','onlyfortp');
+
+let butServ = document.createElement('div')
+butServ.id = "butServ"
+butServ.innerHTML = "⚜UserInfo"
+butServ.style = "margin-right:15px; cursor:pointer;"
+butServ.classList.add('onlyfortp');
+
+let butMarks = document.createElement('div')
+butMarks.id = "butMarks"
+butMarks.innerHTML = "📊Оценки"
+butMarks.classList.add('inithide');
+
+let butChatHistory = document.createElement('div')
+butChatHistory.id = "butChatHistory"
+butChatHistory.innerHTML = "💬Chat History"
+butChatHistory.classList.add('onlyfortp', 'inithide');
+
+let butFrozeChat = document.createElement('div')
+butFrozeChat.id = "butFrozeChat"
+butFrozeChat.innerHTML = "❄ Auto Respond"
+butFrozeChat.classList.add('onlyfortp', 'inithide');
+
+let butLessonInfo = document.createElement('div')
+butLessonInfo.id = "butLessonInfo"
+butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
+butLessonInfo.innerHTML = "🎓 Lesson Info"
+butLessonInfo.classList.add('inithide');
+
+let servDsk = document.createElement('div')
+servDsk.id = "servDsk"
+servDsk.innerHTML = "🛠ServiceDesk"
+servDsk.classList.add('onlyfortp');
+servDsk.classList.add('inithide');
+
+let butopensugestform = document.createElement('div')
+butopensugestform.id = "suggestform"
+butopensugestform.innerHTML = "📝Предложения"
+butopensugestform.classList.add('onlyfortp','inithide');
+
+let butrefuse = document.createElement('div')
+butrefuse.id = "otkaz"
+butrefuse.innerHTML = "❌Отказ от помощи"
+butrefuse.classList.add('onlyfortp','inithide');
+
+let butsmartroom = document.createElement('div')
+butsmartroom.id = "smartroomform"
+butsmartroom.innerHTML = "🦐Smartroom"
+butsmartroom.classList.add('onlyfortp','inithide');
+
+let butThemes = document.createElement('div')
+butThemes.id = "themes"
+butThemes.innerHTML = "Темы"
+butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
+butThemes.classList.add('ant-btn','onlyfortp')
+
+let butJiraOpenForm = document.createElement('div')
+butJiraOpenForm.id = "JiraOpenForm"
+butJiraOpenForm.innerHTML = "🔎Jira Search"
+butJiraOpenForm.classList.add('onlyfortp', 'inithide');
+
+let butmenu = document.createElement('button')
+butmenu.innerText = 'Меню'
+butmenu.id = 'headmymenu'
+butmenu.style = 'height:32px;'
+butmenu.classList.add('ant-btn')
+
+let menubar = document.createElement('div')
+menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+menubar.id = 'idmymenu'
+
+butmenu.onclick = () => { // кнопка открытия Меню
+    if (menubar.style.display == 'none') {
+        menubar.style.display = ''
+        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
+        menubar.style.left = xvarmenu + 'px';
+        if (document.querySelector('.ant-layout-content .expert-chat_content') != null) {
+            document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function (event) {
+                var e = document.getElementById('idmymenu');
+                if (!e.contains(event.target)) e.style.display = 'none';
+            });
+        } else if (document.querySelector('.ant-layout-content .app-body-content-inner-right') != null) {
+            document.querySelector('.ant-layout-content .app-body-content-inner-right').addEventListener('click', function (event) {
+                var e = document.getElementById('idmymenu');
+                if (!e.contains(event.target)) e.style.display = 'none';
+            });
+        }
+    } else menubar.style.display = 'none'
+}
+
+let maskBack = document.createElement('div')
+maskBack.id = "maskBack"
+maskBack.innerHTML = "Вернуть"
+maskBack.style.marginRight = "15px";
+maskBack.style.display = "none";
+
+maskBack.onclick = function () { // кнопка свернуть
+    name = document.getElementById('maskBack').getAttribute('name')
+    email = document.getElementById('maskBack').getAttribute('email')
+    phone = document.getElementById('maskBack').getAttribute('phone')
+    mask = document.getElementById('maskBack').getAttribute('mask')
+    if (document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText == name &&
+        document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText == email &&
+        document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText == phone) {
+        document.getElementsByClassName('ant-modal-wrap')[mask].style.display = ''
+        document.getElementsByClassName('ant-modal-mask')[mask].style.display = ''
+        document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = '' // кнопки сверху
+        document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = '' // кнопка заметок
+        document.getElementById('maskBack').style.display = 'none'
+    } else {
+        document.getElementById('maskBack').innerHTML = "Открыт неверный чат"
+        setTimeout(function () { document.getElementById('maskBack').innerHTML = "Вернуть" }, 3000)
+    }
+}
+
+let maskBackHide = document.createElement('span')
+maskBackHide.id = "maskBackHide"
+maskBackHide.innerHTML = "Скрыть"
+maskBackHide.style.marginRight = "15px";
+maskBackHide.style.marginLeft = "15px";
+maskBackHide.style.display = "";
+
+maskBackHide.onclick = function () { // кнопка скрыть
+    if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.innerText == "Добавить комментарий к диалогу") {
+        document.getElementsByClassName('ant-modal-wrap')[0].style.display = 'none'
+        document.getElementsByClassName('ant-modal-mask')[0].style.display = 'none'
+        document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
+        document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
+        document.getElementById('maskBack').style.display = ''
+
+        document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText)
+        document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText)
+        document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText)
+        document.getElementById('maskBack').setAttribute('mask', 0)
+    } else
+        for (i = 0; ; i++) {
+            if (document.getElementsByClassName('ant-modal-wrap')[i] == undefined) {
+                document.getElementsByClassName('ant-modal-wrap')[i - 1].style.display = 'none'
+                document.getElementsByClassName('ant-modal-mask')[i - 1].style.display = 'none'
+                document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
+                document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
+                document.getElementById('maskBack').style.display = ''
+
+
+                document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText)
+                document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText)
+                document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText)
+                document.getElementById('maskBack').setAttribute('mask', i - 1)
+                break;
+            }
+        }
+}
+
+hashBut.onclick = function () { // кнопка копирующая хеш чата
+    adr = document.location.href
+    adr1 = document.location.pathname
+    adr1 = adr1.split('/')
+    adr1 = adr1[3]
+    if ((adr1 == undefined || adr1 == "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
+        if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
+            document.getElementById('hashBut').innerHTML = "Ошибка"
+            setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
+        } else {
+            adr1 = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
+            document.getElementById('hashBut').innerHTML = "Скопировано"
+            setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
+        }
+    } else {
+        if (localStorage.getItem('scriptAdr') == TS_addr)
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-18/' + adr1)
+        else
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
+        document.getElementById('hashBut').innerHTML = "Скопировано"
+        setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
+    }
+
+}
+
+document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
+    if (checkelementtype(a)) {
+        // if ( document.getElementById('testid') != null && document.getElementById('idlogin')!=null &&
+        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
+            document.getElementById('testid').style.display = 'none';
+            document.getElementById('idlogin').style.display = 'none';
+            localStorage.setItem('Hidetestid', '0');
+
+        }
+        else {
+            document.getElementById('testid').style.display = '';
+            document.getElementById('idlogin').style.display = '';
+            localStorage.setItem('Hidetestid', '1');
+        }
+    }
+}
+
+let wintAF = document.createElement('div'); // создание главного окна
+document.body.append(wintAF);
+wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintAF.setAttribute('id', 'AF_helper');
+wintAF.innerHTML = win_AFhelper;
+var chatsArray = []
+var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
+var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec'
+var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
+var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
+var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
+
+let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
+document.body.append(wintRefuseFormNew);
+wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRefuseFormNew.style.display = 'none';
+wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
+wintRefuseFormNew.innerHTML = win_refusefrom;
 	
 flag = 0
 str = localStorage.getItem('sound_str');
