@@ -3862,71 +3862,6 @@ function addOption(oListbox, text, value) {  //функция добавлени
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
-	// Блок настроек и взаимодействия с ними
-
-    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
-        if (document.getElementById('sound_test').innerHTML == '▶'){
-            document.getElementById('sound_test').innerHTML = '⏹'
-            document.getElementById('sound_test').title = 'Остановить воспроизведение'
-            audio.play()
-            setTimeout(() => {
-                document.getElementById('sound_test').innerHTML = '▶'
-                document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
-            }, Number(audio.duration * 1000 + 1).toFixed(0));
-        } else {
-            document.getElementById('sound_test').innerHTML = '▶'
-            document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
-            audio.pause()
-            audio.currentTime = 0
-        }
-        
-    }
-
-    document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
-        if (document.getElementById('test_std').value != '') {
-            localStorage.setItem('test_stud', document.getElementById('test_std').value);
-        } else console.log("Ведите ID тестового ученика")
-    }
-
-    document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
-        if (document.getElementById('test_teach').value != '') {
-            localStorage.setItem('test_teach', document.getElementById('test_teach').value);
-        } else console.log("Ведите ID тестового преподавателя")
-    }
-
-    document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
-        getLocalstorageToFile('settings-af')
-    }
-	
-    document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
-        let fileInput = document.getElementById('fileinput');
-        let jsonparsed;
-
-        fileInput.addEventListener('change', function (e) {
-            let file = fileInput.files[0];
-            let textType = /.json/;
-
-            if (file.type.match(textType)) {
-                let reader = new FileReader();
-
-                reader.onload = function (e) {
-                    console.log(reader.result)
-                    jsonparsed = JSON.parse(reader.result)
-                    console.log(jsonparsed)
-                    console.log(Object.keys(jsonparsed).length)
-                    for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
-                        localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
-                    }
-                    alert("Настройки расширения в localstorage загружены успешно!")
-                }
-
-                reader.readAsText(file);
-            } else {
-                console.log("File not supported!")
-            }
-        });
-    }
-
     setInterval(clock_on_javascript_1, 1000);
     setInterval(clock_on_javascript_2, 1000);
     setInterval(clock_on_javascript_3, 1000);
@@ -4650,6 +4585,73 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 }
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
+
+	// Блок настроек и взаимодействия с ними
+
+    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
+        if (document.getElementById('sound_test').innerHTML == '▶'){
+            document.getElementById('sound_test').innerHTML = '⏹'
+            document.getElementById('sound_test').title = 'Остановить воспроизведение'
+            audio.play()
+            setTimeout(() => {
+                document.getElementById('sound_test').innerHTML = '▶'
+                document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
+            }, Number(audio.duration * 1000 + 1).toFixed(0));
+        } else {
+            document.getElementById('sound_test').innerHTML = '▶'
+            document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
+            audio.pause()
+            audio.currentTime = 0
+        }
+        
+    }
+
+    document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
+        if (document.getElementById('test_std').value != '') {
+            localStorage.setItem('test_stud', document.getElementById('test_std').value);
+        } else console.log("Ведите ID тестового ученика")
+    }
+
+    document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
+        if (document.getElementById('test_teach').value != '') {
+            localStorage.setItem('test_teach', document.getElementById('test_teach').value);
+        } else console.log("Ведите ID тестового преподавателя")
+    }
+
+    document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
+        getLocalstorageToFile('settings-af')
+    }
+	
+    document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
+        let fileInput = document.getElementById('fileinput');
+        let jsonparsed;
+
+        fileInput.addEventListener('change', function (e) {
+            let file = fileInput.files[0];
+            let textType = /.json/;
+
+            if (file.type.match(textType)) {
+                let reader = new FileReader();
+
+                reader.onload = function (e) {
+                    console.log(reader.result)
+                    jsonparsed = JSON.parse(reader.result)
+                    console.log(jsonparsed)
+                    console.log(Object.keys(jsonparsed).length)
+                    for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
+                        localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
+                    }
+                    alert("Настройки расширения в localstorage загружены успешно!")
+                }
+
+                reader.readAsText(file);
+            } else {
+                console.log("File not supported!")
+            }
+        });
+    }
+	
+	// конец блока настроек
 
 let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
