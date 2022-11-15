@@ -4091,9 +4091,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0])
 
-    setInterval(screenshots, 5000)
-
-
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
     loginer = document.getElementById('testUsers')
     loginer.appendChild(addInfoUser)
@@ -4872,6 +4869,8 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
         }
     }
 }
+
+setInterval(screenshots, 5000)
 	
 setInterval(setactivechatstyle, 1000)
 
