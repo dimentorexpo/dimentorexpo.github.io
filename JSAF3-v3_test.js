@@ -4752,6 +4752,8 @@ function addbuttonsintegration() { // добавляет подсветку пр
 
 setInterval(addbuttonsintegration, 1000)
 
+async function remandressl() { // функция удаления и сброса слайдов но с добавлением также функций просмотра ID методиста которому была отправлена работае, информации об уроке в контенте
+
     // Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
     let achatb = document.createElement('span')
     achatb.id = "achatbtn"
@@ -5297,6 +5299,9 @@ setInterval(addbuttonsintegration, 1000)
             break;
     }
 
+}
+
+setInterval(remandressl, 3000);
 
 let getidusrteachreq;
 
