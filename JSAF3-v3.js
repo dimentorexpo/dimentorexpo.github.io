@@ -20,6 +20,12 @@ idk = 0
 var tmrs = []
 var timeStart = new Date()
 let soundintervalset; //интервал между проигрыванием звука
+let template_flag = 0
+let template_flag2 = 0
+let word_text = ""
+let template_text = ""
+let flagggg = 0;
+let addInfoUser = document.createElement('div')
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -3767,6 +3773,67 @@ function screenshots() { //просмотр и трансформация скр
 }
 
 
+	/* dump local storage to string */
+
+	var a = {};
+	for (var i = 0; i < localStorage.length; i++) {
+		var k = localStorage.key(i);
+		var v = localStorage.getItem(k);
+		a[k] = v;
+	}
+
+	/* save as blob */
+
+	var textToSave = JSON.stringify(a)
+	var textToSaveAsBlob = new Blob([textToSave], {
+		type: "application/json"
+	});
+	var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+
+	/* download without button hack */
+
+	var downloadLink = document.createElement("a");
+	downloadLink.download = fileName;
+	downloadLink.innerHTML = "Download File";
+	downloadLink.href = textToSaveAsURL;
+	downloadLink.onclick = function () {
+		document.body.removeChild(event.target);
+	};
+	downloadLink.style.display = "none";
+	document.body.appendChild(downloadLink);
+	downloadLink.click();
+
+}
+
+function replaceSelectedText(elem, str) { //функция замены выделенного текста, для формирования гиперссылки
+	elem.focus();
+
+	if (document.selection) {
+		var s = document.selection.createRange();
+		if (s.text) {
+			eval("s.text=" + str + "(s.text);");
+			s.select();
+			return true;
+		}
+	}
+	else if (typeof (elem.selectionStart) == "number") {
+		if (elem.selectionStart != elem.selectionEnd) {
+			var start = elem.selectionStart;
+			var end = elem.selectionEnd;
+
+			eval("var rs = " + str + "(elem.value.substr(start,end-start));");
+			elem.value = elem.value.substr(0, start) + rs + elem.value.substr(end);
+			elem.setSelectionRange(end, end);
+		}
+		return true;
+	}
+	return false;
+}
+
+function change_str(s) { // вспомогательная функция для подстановки вместо текста гиперссылку и сохраняя выделенный сам текст
+	return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">` + s + "</a>";
+}
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -3854,13 +3921,6 @@ buttonservid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
-
-let template_flag = 0
-let template_flag2 = 0
-let word_text = ""
-let template_text = ""
-let flagggg = 0
-
 
 buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
     document.getElementById('butChatHistory').click();
@@ -4009,8 +4069,6 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
         }
     }
 }
-
-let addInfoUser = document.createElement('div')
 
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
@@ -4616,40 +4674,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         } else console.log("Ведите ID тестового преподавателя")
     }
 
-    function getLocalstorageToFile(fileName) { //функция сохранения содержимого localstorage в файл на компьютере
-
-        /* dump local storage to string */
-
-        var a = {};
-        for (var i = 0; i < localStorage.length; i++) {
-            var k = localStorage.key(i);
-            var v = localStorage.getItem(k);
-            a[k] = v;
-        }
-
-        /* save as blob */
-
-        var textToSave = JSON.stringify(a)
-        var textToSaveAsBlob = new Blob([textToSave], {
-            type: "application/json"
-        });
-        var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-
-        /* download without button hack */
-
-        var downloadLink = document.createElement("a");
-        downloadLink.download = fileName;
-        downloadLink.innerHTML = "Download File";
-        downloadLink.href = textToSaveAsURL;
-        downloadLink.onclick = function () {
-            document.body.removeChild(event.target);
-        };
-        downloadLink.style.display = "none";
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-
-    }
-
     document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
         getLocalstorageToFile('settings-af')
     }
@@ -4970,6 +4994,11 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
+	
+	 document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
+        if (document.getElementById('AF_Refuseformnew').style.display == '')
+            document.getElementById('AF_Refuseformnew').style.display = 'none'
+    }
 
     if (localStorage.getItem('audiovol') != null) {
         audio.volume = localStorage.getItem('audiovol');
@@ -5195,37 +5224,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('hyperlnk').classList.remove('hyper-active')
             document.getElementById('hyperlnk').classList.add('hyperlnk')
         }
-        // if (document.getElementById('hyperlnk').style.display == 'none')
-        // document.getElementById('hyperlnk').style.display = ''
-        // else document.getElementById('hyperlnk').style.display = 'none'
     }
-
-    function replaceSelectedText(elem, str) {
-        elem.focus();
-
-        if (document.selection) {
-            var s = document.selection.createRange();
-            if (s.text) {
-                eval("s.text=" + str + "(s.text);");
-                s.select();
-                return true;
-            }
-        }
-        else if (typeof (elem.selectionStart) == "number") {
-            if (elem.selectionStart != elem.selectionEnd) {
-                var start = elem.selectionStart;
-                var end = elem.selectionEnd;
-
-                eval("var rs = " + str + "(elem.value.substr(start,end-start));");
-                elem.value = elem.value.substr(0, start) + rs + elem.value.substr(end);
-                elem.setSelectionRange(end, end);
-            }
-            return true;
-        }
-        return false;
-    }
-
-    function change_str(s) { return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">` + s + "</a>" }
 
     document.getElementById('insertlinktotext').onclick = function () {
         replaceSelectedText(document.getElementById('inp'), 'change_str');
@@ -5298,8 +5297,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
     button1.innerHTML = "Скрипт";
-    button1.style.marginRight = "15px";
-    button1.style.display = 'none'
+    button1.style = "margin-right:15px; display:none";
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
@@ -5320,8 +5318,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
     setInterval(screenshots, 5000)
 
-    addInfoUser.style.textAlign = "center"
-    addInfoUser.style.color = "white"
+
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
     loginer = document.getElementById('testUsers')
     loginer.appendChild(addInfoUser)
@@ -5332,6 +5329,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         localStorage.setItem('winTop3', String(Number(e.clientY - myY3)));
         localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
     };
+	
     loginer.onmousedown = function (a) {
         if (checkelementtype(a)) {
             window.myX3 = a.layerX;
@@ -5339,6 +5337,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.addEventListener('mousemove', listenerloginer);
         }
     }
+	
     loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); }
 
     user = "student"
@@ -5356,11 +5355,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
     getText()
 }
-
- document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
-        if (document.getElementById('AF_Refuseformnew').style.display == '')
-            document.getElementById('AF_Refuseformnew').style.display = 'none'
-    }
 	
 flag = 0
 str = localStorage.getItem('sound_str');
