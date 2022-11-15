@@ -3862,6 +3862,8 @@ function addOption(oListbox, text, value) {  //функция добавлени
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
+	// Блок настроек и взаимодействия с ними
+
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
         if (document.getElementById('sound_test').innerHTML == '▶'){
             document.getElementById('sound_test').innerHTML = '⏹'
@@ -3896,12 +3898,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         getLocalstorageToFile('settings-af')
     }
 	
-	document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
-    if (checkelementtype(a)) { document.getElementById('AF_Refuseformnew').style.display = 'none'; }
-}
-
-
-
     document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
         let fileInput = document.getElementById('fileinput');
         let jsonparsed;
@@ -5256,6 +5252,12 @@ let intervalotak = setInterval( function () {
 			document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
 				if (document.getElementById('AF_Refuseformnew').style.display == '')
 					document.getElementById('AF_Refuseformnew').style.display = 'none'
+			}
+			
+			document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
+				if (checkelementtype(a)) {
+					document.getElementById('AF_Refuseformnew').style.display = 'none';
+				}
 			}
 
             document.getElementById('refuseforminstr').onclick = function () {
