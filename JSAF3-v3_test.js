@@ -2176,6 +2176,53 @@ function dosetclasswork(subject) {     // функция перезапуска 
 	setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 }
 	
+function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
+    let chatId = ''
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+        chatId = document.location.pathname.split('/')[3]
+    else
+        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        "headers": {
+            "content-type": "application/json",
+        },
+        "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName + "\"]}]}",
+        "method": "POST",
+        "credentials": "include"
+    });
+}
+
+function newTags(tagName) { //функция добавления нескольких тегов в чат, которые тянутся из дока в комплекте так сказать
+    let chatId = ''
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+        chatId = document.location.pathname.split('/')[3]
+    else
+        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+    if (tagName.split(',').length < 2)
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName + "\"]}]}",
+            "method": "POST",
+            "credentials": "include"
+        });
+    else if (tagName.split(',').length == 2)
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+            "headers": {
+                "content-type": "application/json",
+            },
+            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName.split(',')[0] + "\" ,\"" + tagName.split(',')[1] + "\"]}]}",
+            "method": "POST",
+            "credentials": "include"
+        });
+}
+
+function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
+    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
+        document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
+}	
+	
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
@@ -4671,53 +4718,6 @@ function startTimer() {
         btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
         btn8.setAttribute('onClick', 'newTaggg("queue");')
     }
-}
-
-function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
-    let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
-        chatId = document.location.pathname.split('/')[3]
-    else
-        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
-        "headers": {
-            "content-type": "application/json",
-        },
-        "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName + "\"]}]}",
-        "method": "POST",
-        "credentials": "include"
-    });
-}
-
-function newTags(tagName) { //функция добавления нескольких тегов в чат, которые тянутся из дока в комплекте так сказать
-    let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
-        chatId = document.location.pathname.split('/')[3]
-    else
-        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    if (tagName.split(',').length < 2)
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
-            "headers": {
-                "content-type": "application/json",
-            },
-            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName + "\"]}]}",
-            "method": "POST",
-            "credentials": "include"
-        });
-    else if (tagName.split(',').length == 2)
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
-            "headers": {
-                "content-type": "application/json",
-            },
-            "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"tags\",\"value\":[\"" + tagName.split(',')[0] + "\" ,\"" + tagName.split(',')[1] + "\"]}]}",
-            "method": "POST",
-            "credentials": "include"
-        });
-}
-
-function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
-    if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
-        document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
 }
 
 setInterval(setactivechatstyle, 1000)
