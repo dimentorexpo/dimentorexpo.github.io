@@ -3805,6 +3805,34 @@ function getLocalstorageToFile(fileName) { //функция сохранения
 
 }
 
+function replaceSelectedText(elem, str) { //функция замены выделенного текста, для формирования гиперссылки
+	elem.focus();
+
+	if (document.selection) {
+		var s = document.selection.createRange();
+		if (s.text) {
+			eval("s.text=" + str + "(s.text);");
+			s.select();
+			return true;
+		}
+	}
+	else if (typeof (elem.selectionStart) == "number") {
+		if (elem.selectionStart != elem.selectionEnd) {
+			var start = elem.selectionStart;
+			var end = elem.selectionEnd;
+
+			eval("var rs = " + str + "(elem.value.substr(start,end-start));");
+			elem.value = elem.value.substr(0, start) + rs + elem.value.substr(end);
+			elem.setSelectionRange(end, end);
+		}
+		return true;
+	}
+	return false;
+}
+
+function change_str(s) { // вспомогательная функция для подстановки вместо текста гиперссылку и сохраняя выделенный сам текст
+	return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">` + s + "</a>";
+}
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
@@ -5197,33 +5225,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('hyperlnk').classList.add('hyperlnk')
         }
     }
-
-    function replaceSelectedText(elem, str) {
-        elem.focus();
-
-        if (document.selection) {
-            var s = document.selection.createRange();
-            if (s.text) {
-                eval("s.text=" + str + "(s.text);");
-                s.select();
-                return true;
-            }
-        }
-        else if (typeof (elem.selectionStart) == "number") {
-            if (elem.selectionStart != elem.selectionEnd) {
-                var start = elem.selectionStart;
-                var end = elem.selectionEnd;
-
-                eval("var rs = " + str + "(elem.value.substr(start,end-start));");
-                elem.value = elem.value.substr(0, start) + rs + elem.value.substr(end);
-                elem.setSelectionRange(end, end);
-            }
-            return true;
-        }
-        return false;
-    }
-
-    function change_str(s) { return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">` + s + "</a>" }
 
     document.getElementById('insertlinktotext').onclick = function () {
         replaceSelectedText(document.getElementById('inp'), 'change_str');
