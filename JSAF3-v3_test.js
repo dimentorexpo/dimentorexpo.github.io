@@ -4049,16 +4049,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         })
     }
 	
-    document.getElementById('reminderstatus').onclick = function () { // открывает настройки будильника
-        if (document.getElementById('reminder_bar').style.display == '')
-            document.getElementById('reminder_bar').style.display = 'none'
-        else {
-            document.getElementById('reminder_bar').style.display = ''
-            document.getElementById('set_bar').style.display = 'none'
-            document.getElementById('addTmp').style.display = 'none'
-        }
-    }
-
     document.getElementById('butServ').onclick = function () { //открывает вензель user info
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
@@ -4066,31 +4056,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Service').style.display = ''
     }
 	
-    document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
-        localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
-        if (document.getElementById('sound_adr').value == "")
-            audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
-        else {
-            audio = new Audio(document.getElementById('sound_adr').value);
-            document.getElementById('sound_save').innerText = "✅";
-            setTimeout(function () {
-                document.getElementById('sound_save').innerText = "💾";
-            }, 3000);
-        }
-    }
-
-    if (flagLangBut == 0) {
-        document.getElementById('languageAF').onclick = function () {
-            if (this.innerHTML == "Русский") {
-                this.innerHTML = "Английский";
-                document.getElementById('AF_helper').style.background = "#EBC7DF"
-            } else {
-                this.innerHTML = "Русский";
-                document.getElementById('AF_helper').style.background = "#464451"
-            }
-        }
-    }
-
     document.getElementById('msg1').onclick = function () {
         if (this.innerHTML == "Отправить") {
             this.innerHTML = "Доработать";
@@ -4427,6 +4392,31 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                     localStorage.setItem('splinter', document.getElementById('soundplayinterval').value);
                 } else console.log("Базовое значение равно 3 секунды")
             }
+			
+			    document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
+				localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
+				if (document.getElementById('sound_adr').value == "")
+					audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
+				else {
+					audio = new Audio(document.getElementById('sound_adr').value);
+					document.getElementById('sound_save').innerText = "✅";
+					setTimeout(function () {
+						document.getElementById('sound_save').innerText = "💾";
+					}, 3000);
+				}
+			}
+
+			if (flagLangBut == 0) {
+				document.getElementById('languageAF').onclick = function () {
+					if (this.innerHTML == "Русский") {
+						this.innerHTML = "Английский";
+						document.getElementById('AF_helper').style.background = "#EBC7DF"
+					} else {
+						this.innerHTML = "Русский";
+						document.getElementById('AF_helper').style.background = "#464451"
+					}
+				}
+			}
 
             //
 
@@ -5387,6 +5377,17 @@ let intervalotak = setInterval( function () {
 }, 1000)
 
 // блок работы с будильником
+document.getElementById('reminderstatus').onclick = function () { // открывает настройки будильника
+	if (document.getElementById('reminder_bar').style.display == '')
+		document.getElementById('reminder_bar').style.display = 'none'
+	else {
+		document.getElementById('reminder_bar').style.display = ''
+		document.getElementById('set_bar').style.display = 'none'
+		document.getElementById('addTmp').style.display = 'none'
+	}
+}
+	
+
 if (localStorage.getItem('chronostamp') == null  && localStorage.getItem('chronostamp1') == null) { // если будильники не заданы статус отмечать такой
 	document.getElementById('reminderstatus').textContent = "🔕";
 }
