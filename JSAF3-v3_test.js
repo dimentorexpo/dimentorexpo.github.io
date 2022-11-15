@@ -610,11 +610,11 @@ if (str !== null && str !== "")
 else
     audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
-	   Object.keys(localStorage).forEach(function(key){ // чистка localstorage от мусора , когда АФ на каждый лог добавляет запись вида SMART_TABLE... или при работе с архивом
-           if (/^(SMART_TABLE.)/.test(key)) {
-                localStorage.removeItem(key);
-           }
-       });  
+Object.keys(localStorage).forEach(function(key){ // чистка localstorage от мусора , когда АФ на каждый лог добавляет запись вида SMART_TABLE... или при работе с архивом
+   if (/^(SMART_TABLE.)/.test(key)) {
+		localStorage.removeItem(key);
+   }
+});  
  
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
