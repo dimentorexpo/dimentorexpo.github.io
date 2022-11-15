@@ -4049,6 +4049,28 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             bool = 0;
         }
     }
+	
+	let button1 = document.createElement('div');
+    button1.id = 'scriptBut';
+    button1.innerHTML = "Скрипт";
+    button1.style = "margin-right:15px; display:none";
+    button1.onclick = function () {
+        document.getElementById('AF_helper').style.display = 'flex'
+        this.style.display = 'none'
+        //скрывает окна при выбранно опции скрытия КОД
+        if (localStorage.getItem('disablelpmwindow') == 1)
+            document.getElementById('testUsers').style.display = "none";
+
+        if (localStorage.getItem('disablelngpmwindow') == 1)
+            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+
+        if (localStorage.getItem('disableomelchenkowindow') == 1)
+            document.getElementById('main_easy_win').style.display = "none";
+
+    }
+
+    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+    btnAdd.insertBefore(button1, btnAdd.children[0])
 
     user = "student"
 
@@ -4141,27 +4163,7 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
 
-    let button1 = document.createElement('div');
-    button1.id = 'scriptBut';
-    button1.innerHTML = "Скрипт";
-    button1.style = "margin-right:15px; display:none";
-    button1.onclick = function () {
-        document.getElementById('AF_helper').style.display = 'flex'
-        this.style.display = 'none'
-        //скрывает окна при выбранно опции скрытия КОД
-        if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
 
-        if (localStorage.getItem('disablelngpmwindow') == 1)
-            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-
-        if (localStorage.getItem('disableomelchenkowindow') == 1)
-            document.getElementById('main_easy_win').style.display = "none";
-
-    }
-
-    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-    btnAdd.insertBefore(button1, btnAdd.children[0])
 
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
     loginer = document.getElementById('testUsers')
