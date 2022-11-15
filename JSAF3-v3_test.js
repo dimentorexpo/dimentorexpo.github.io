@@ -602,6 +602,13 @@ var win_refusefrom =  // описание элементов окна отказ
 		</span>
         </span>
 </div>`;
+
+flag = 0
+str = localStorage.getItem('sound_str');
+if (str !== null && str !== "")
+    audio = new Audio(str);
+else
+    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
  
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
@@ -5358,13 +5365,6 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 	
-flag = 0
-str = localStorage.getItem('sound_str');
-if (str !== null && str !== "")
-    audio = new Audio(str);
-else
-    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
-
 setInterval(setactivechatstyle, 1000)
 
 setInterval(addbuttonsintegration, 1000)
