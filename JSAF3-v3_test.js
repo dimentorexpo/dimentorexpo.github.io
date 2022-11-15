@@ -647,6 +647,240 @@ async function whoAmI() { // функция получения айди опер
     })
 }
 
+function startTimer() { // большая функция по таймеру автозакрытия, работой с аудио, добавлением доп кнопок справа в панель информации о пользователе и кнопок быстрого выставления тегов
+    var timeNow = new Date()
+    if (timeNow - timeStart > 60 * 60 * 1000) {
+        getText()
+        timeStart = timeNow
+    }
+    for (i = 0; i < idk; i++) {
+        var cT = new Date();
+        var curTime1 = tmrs[i][3]
+        var curTime2 = Number(cT);
+        t = 0
+        if (tmrs[i][2] == 0)
+            t = 1
+        else
+            t = localStorage.getItem('aclstime') // таймер отсчета автозакрытия
+        var curTime3 = (t * 60) - Math.floor((curTime2 - curTime1) / 1000);
+        if (curTime3 < 0)
+            continue
+        var m = Math.floor(curTime3 / 60);
+        var s = Math.floor(curTime3 % 60);
+        var curTime4 = "";
+        if (Number(m) < 10) {
+            curTime4 = "0";
+        }
+        curTime4 = curTime4 + String(m) + ":";
+        if (Number(s) < 10) {
+            curTime4 = curTime4 + "0";
+        }
+        curTime4 = curTime4 + String(s);
+        tmrs[i][0] = curTime4
+    }
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && flag == 0) {
+        requestsRed()
+        flag = 1
+    }
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1 && flag == 1)
+        flag = 0
+
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
+        if (document.getElementsByClassName('ant-btn ant-btn-primary')[0] !== undefined)
+            document.getElementsByClassName('ant-btn ant-btn-primary')[0].onclick = function () {
+                refCurTimer(localStorage.getItem('aclstime') + ":00")
+            }
+        refreshTimer()
+
+    }
+
+    if (localStorage.getItem('audio') == '1')
+        if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
+			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
+				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
+				if (txt[14] > 0) {
+					if (!soundintervalset) {
+						audio.play()
+						soundintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
+					}
+				} else {
+					clearInterval(soundintervalset)
+                    soundintervalset = null
+				}
+			}
+        }
+
+
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
+        vertical = user = ""
+        nextClassMode = nextClassstudentId = ""
+        nextClassModeId = ""
+        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "supportVertical" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "teacherVertical")
+                vertical = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType")
+                user = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+
+            btns = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0]
+
+            name = btns.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML")
+                for (k = 0; k < idk; k++) {
+                    if (tmrs[k][1] == name) {
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок")
+                            tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                        else
+                            tmrs[k][4] = ""
+                    }
+                }
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-mode") {
+                nextClassMode = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
+                nextClassModeId = i
+            }
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+                nextClassstudentId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
+        }
+
+        addInfoUser.innerHTML = vertical + " + " + user
+
+    }
+
+    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
+        if (document.getElementsByClassName('expert-user_details-list').length != 0) {
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                    btn.appendChild(infouserbut)
+                    btn.appendChild(buttonservstud)
+                    btn.appendChild(buttonhistory)
+                    btn.appendChild(marksstata)
+                    btn.appendChild(trshotmain)
+                    if (typeof buttonmobpas == 'object')
+                        btn.appendChild(buttonmobpas)
+                }
+
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
+                    btn.appendChild(nextuserinfo)
+                    btn.appendChild(buttonservivceuser)
+                    btn.appendChild(btnNextUserChatHistory)
+                    btn.appendChild(trshootnextuser)
+					
+                } 
+            }
+        }
+
+        if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
+            if (document.getElementsByClassName('expert-user_details-list')[1].children[0] != undefined) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].children[0].classList != "") {
+
+                    let copyCrmFromName = document.createElement('span')
+                    copyCrmFromName.textContent = ' 💾'
+                    copyCrmFromName.style.cursor = "pointer"
+					copyCrmFromName.id = 'diskettocopy'
+					if (document.getElementById('diskettocopy') == null ) {
+						document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
+						copyCrmFromName.onclick = function () {
+							for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+									let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+									copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
+								}
+							}
+						}
+					}
+
+
+                    let userTypeName = document.createElement('span')
+                    userTypeName.id = "userTypeId"
+                    document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
+                    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
+                            document.getElementById('userTypeId').innerText = "(П)"
+                            document.getElementById('userTypeId').style.color = "#1E90FF"
+                        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student") {
+                            document.getElementById('userTypeId').innerText = "(У)"
+                            document.getElementById('userTypeId').style.color = "#DC143C"
+                        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent") {
+                            document.getElementById('userTypeId').innerText = "(РУ)"
+                            document.getElementById('userTypeId').style.color = "#DC143C"
+                        }
+                    }
+
+                    //добавил окраску бренда skyeng
+                    for (let i = 0; i < document.getElementsByClassName('expert-user_details-dt').length; i++) {
+                        if (document.getElementsByClassName('expert-user_details-dt')[i].innerText == "brand") {
+                            for (let i = 0; i < document.getElementsByTagName('p').length; i++) {
+                                if (document.getElementsByTagName('p')[i].innerText == "skyeng")
+                                    document.getElementsByTagName('p')[i].style.background = "#00AEFA";
+                                else if (document.getElementsByTagName('p')[i].innerText == "skysmart")
+                                    document.getElementsByTagName('p')[i].style.background = "#2E8B57";
+                                else if (document.getElementsByTagName('p')[i].innerText == 'идёт урок')
+                                    document.getElementsByTagName('p')[i].style.background = "#FF0000";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+        let btn1 = document.createElement('span');
+        btn1.id = 'continue_chat_button'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
+        btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Дубль</a>';
+        btn1.setAttribute('onClick', 'newTaggg("double");')
+
+        let btn2 = document.createElement('span');
+        btn2.id = 'refuse'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
+        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
+        btn2.setAttribute('onClick', 'newTaggg("refusal_of_help");')
+        btn2.addEventListener('click', function () {
+            if (document.getElementById('AF_Refuseformnew').style.display == 'none') {
+                document.getElementById('otkaz').click();
+            }
+        })
+
+        let btn3 = document.createElement('span');
+        btn3.id = 'TPcallsend'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
+        btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
+        btn3.setAttribute('onClick', 'newTaggg("request_forwarded_to_outgoing_tp_crm2");')
+
+        let btn4 = document.createElement('span');
+        btn4.id = 'recgiv'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
+        btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Даны реком</a>';
+        btn4.setAttribute('onClick', 'newTaggg("recommendations_given ");')
+
+        let btn5 = document.createElement('span');
+        btn5.id = 'solvd'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
+        btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Решен</a>';
+        btn5.setAttribute('onClick', 'newTaggg("request_solved");')
+
+        let btn6 = document.createElement('span');
+        btn6.id = 'servis'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
+        btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Серверные</a>';
+        btn6.setAttribute('onClick', 'newTaggg("server_issues");')
+
+        let btn7 = document.createElement('span');
+        btn7.id = 'untargeted'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
+        btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
+        btn7.setAttribute('onClick', 'newTaggg("untargeted");')
+
+        let btn8 = document.createElement('span');
+        btn8.id = 'ochered'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
+        btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
+        btn8.setAttribute('onClick', 'newTaggg("queue");')
+    }
+}
+
 function firstLoadPage() { //первичаня загрузка страницы
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
@@ -3532,239 +3766,6 @@ function screenshots() { //просмотр и трансформация скр
     }
 }
 
-function startTimer() { // большая функция по таймеру автозакрытия, работой с аудио, добавлением доп кнопок справа в панель информации о пользователе и кнопок быстрого выставления тегов
-    var timeNow = new Date()
-    if (timeNow - timeStart > 60 * 60 * 1000) {
-        getText()
-        timeStart = timeNow
-    }
-    for (i = 0; i < idk; i++) {
-        var cT = new Date();
-        var curTime1 = tmrs[i][3]
-        var curTime2 = Number(cT);
-        t = 0
-        if (tmrs[i][2] == 0)
-            t = 1
-        else
-            t = localStorage.getItem('aclstime') // таймер отсчета автозакрытия
-        var curTime3 = (t * 60) - Math.floor((curTime2 - curTime1) / 1000);
-        if (curTime3 < 0)
-            continue
-        var m = Math.floor(curTime3 / 60);
-        var s = Math.floor(curTime3 % 60);
-        var curTime4 = "";
-        if (Number(m) < 10) {
-            curTime4 = "0";
-        }
-        curTime4 = curTime4 + String(m) + ":";
-        if (Number(s) < 10) {
-            curTime4 = curTime4 + "0";
-        }
-        curTime4 = curTime4 + String(s);
-        tmrs[i][0] = curTime4
-    }
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && flag == 0) {
-        requestsRed()
-        flag = 1
-    }
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1 && flag == 1)
-        flag = 0
-
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
-        if (document.getElementsByClassName('ant-btn ant-btn-primary')[0] !== undefined)
-            document.getElementsByClassName('ant-btn ant-btn-primary')[0].onclick = function () {
-                refCurTimer(localStorage.getItem('aclstime') + ":00")
-            }
-        refreshTimer()
-
-    }
-
-    if (localStorage.getItem('audio') == '1')
-        if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
-			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
-				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-				if (txt[14] > 0) {
-					if (!soundintervalset) {
-						audio.play()
-						soundintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
-					}
-				} else {
-					clearInterval(soundintervalset)
-                    soundintervalset = null
-				}
-			}
-        }
-
-
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
-        vertical = user = ""
-        nextClassMode = nextClassstudentId = ""
-        nextClassModeId = ""
-        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "supportVertical" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "teacherVertical")
-                vertical = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType")
-                user = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-
-            btns = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0]
-
-            name = btns.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML")
-                for (k = 0; k < idk; k++) {
-                    if (tmrs[k][1] == name) {
-                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок")
-                            tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-                        else
-                            tmrs[k][4] = ""
-                    }
-                }
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-mode") {
-                nextClassMode = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
-                nextClassModeId = i
-            }
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-                nextClassstudentId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
-        }
-
-        addInfoUser.innerHTML = vertical + " + " + user
-
-    }
-
-    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
-        if (document.getElementsByClassName('expert-user_details-list').length != 0) {
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                    btn.appendChild(infouserbut)
-                    btn.appendChild(buttonservstud)
-                    btn.appendChild(buttonhistory)
-                    btn.appendChild(marksstata)
-                    btn.appendChild(trshotmain)
-                    if (typeof buttonmobpas == 'object')
-                        btn.appendChild(buttonmobpas)
-                }
-
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-                    btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
-                    btn.appendChild(nextuserinfo)
-                    btn.appendChild(buttonservivceuser)
-                    btn.appendChild(btnNextUserChatHistory)
-                    btn.appendChild(trshootnextuser)
-					
-                } 
-            }
-        }
-
-        if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].children[0] != undefined) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].children[0].classList != "") {
-
-                    let copyCrmFromName = document.createElement('span')
-                    copyCrmFromName.textContent = ' 💾'
-                    copyCrmFromName.style.cursor = "pointer"
-					copyCrmFromName.id = 'diskettocopy'
-					if (document.getElementById('diskettocopy') == null ) {
-						document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
-						copyCrmFromName.onclick = function () {
-							for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-									let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-									copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
-								}
-							}
-						}
-					}
-
-
-                    let userTypeName = document.createElement('span')
-                    userTypeName.id = "userTypeId"
-                    document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
-                    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
-                            document.getElementById('userTypeId').innerText = "(П)"
-                            document.getElementById('userTypeId').style.color = "#1E90FF"
-                        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student") {
-                            document.getElementById('userTypeId').innerText = "(У)"
-                            document.getElementById('userTypeId').style.color = "#DC143C"
-                        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent") {
-                            document.getElementById('userTypeId').innerText = "(РУ)"
-                            document.getElementById('userTypeId').style.color = "#DC143C"
-                        }
-                    }
-
-                    //добавил окраску бренда skyeng
-                    for (let i = 0; i < document.getElementsByClassName('expert-user_details-dt').length; i++) {
-                        if (document.getElementsByClassName('expert-user_details-dt')[i].innerText == "brand") {
-                            for (let i = 0; i < document.getElementsByTagName('p').length; i++) {
-                                if (document.getElementsByTagName('p')[i].innerText == "skyeng")
-                                    document.getElementsByTagName('p')[i].style.background = "#00AEFA";
-                                else if (document.getElementsByTagName('p')[i].innerText == "skysmart")
-                                    document.getElementsByTagName('p')[i].style.background = "#2E8B57";
-                                else if (document.getElementsByTagName('p')[i].innerText == 'идёт урок')
-                                    document.getElementsByTagName('p')[i].style.background = "#FF0000";
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
-        let btn1 = document.createElement('span');
-        btn1.id = 'continue_chat_button'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
-        btn1.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Дубль</a>';
-        btn1.setAttribute('onClick', 'newTaggg("double");')
-
-        let btn2 = document.createElement('span');
-        btn2.id = 'refuse'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn2)
-        btn2.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Отказ</a>';
-        btn2.setAttribute('onClick', 'newTaggg("refusal_of_help");')
-        btn2.addEventListener('click', function () {
-            if (document.getElementById('AF_Refuseformnew').style.display == 'none') {
-                document.getElementById('otkaz').click();
-            }
-        })
-
-        let btn3 = document.createElement('span');
-        btn3.id = 'TPcallsend'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn3)
-        btn3.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Исход</a>';
-        btn3.setAttribute('onClick', 'newTaggg("request_forwarded_to_outgoing_tp_crm2");')
-
-        let btn4 = document.createElement('span');
-        btn4.id = 'recgiv'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn4)
-        btn4.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Даны реком</a>';
-        btn4.setAttribute('onClick', 'newTaggg("recommendations_given ");')
-
-        let btn5 = document.createElement('span');
-        btn5.id = 'solvd'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn5)
-        btn5.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Решен</a>';
-        btn5.setAttribute('onClick', 'newTaggg("request_solved");')
-
-        let btn6 = document.createElement('span');
-        btn6.id = 'servis'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn6)
-        btn6.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Серверные</a>';
-        btn6.setAttribute('onClick', 'newTaggg("server_issues");')
-
-        let btn7 = document.createElement('span');
-        btn7.id = 'untargeted'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn7)
-        btn7.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Нецелевой</a>';
-        btn7.setAttribute('onClick', 'newTaggg("untargeted");')
-
-        let btn8 = document.createElement('span');
-        btn8.id = 'ochered'
-        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
-        btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
-        btn8.setAttribute('onClick', 'newTaggg("queue");')
-    }
-}
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
