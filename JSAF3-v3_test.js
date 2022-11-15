@@ -4055,29 +4055,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Service').style.display = ''
     }
 	
-    document.getElementById('snd').onclick = function () { //функция отправки сообщений в чат или заметки
-        document.getElementById('snd').setAttribute('disabled', 'disabled')
-        setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
-        if (document.getElementById('msg').innerHTML == "Чат") {
-            if (template_flag == 1) {
-                if (template_flag2 == 1)
-                    sendAnswerTemplate2(document.getElementById('inp').value, 1)
-                else
-                    sendAnswerTemplate("", "", 1, document.getElementById('inp').value, 1)
-            } else {
-                sendAnswer(document.getElementById('inp').value, 0)
-            }
-        }
-        else
-            sendComment(document.getElementById('inp').value)
-        document.getElementById('inp').value = ""
-
-        if (document.getElementById('phone_tr') != undefined)
-            document.getElementById('phone_tr').value = ""
-        if (document.getElementById('email_tr') != undefined)
-            document.getElementById('email_tr').value = ""
-    }
-
     window.onkeydown = function (e) {
         if (e.key == 'Control') {
             bool = 1;
@@ -4147,6 +4124,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		else if (localStorage.getItem('msg') == 'Заметки')
 			document.getElementById('msg').classList.add('notes')
     }
+	
     if (localStorage.getItem('msg1') != null) {
         document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
     }
@@ -5015,6 +4993,29 @@ document.getElementById('msg1').onclick = function () { //  переключат
 		this.innerHTML = "Отправить";
 		localStorage.setItem('msg1', 'Отправить')
 	}
+}
+
+document.getElementById('snd').onclick = function () { //функция отправки сообщений в чат или заметки
+	document.getElementById('snd').setAttribute('disabled', 'disabled')
+	setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
+	if (document.getElementById('msg').innerHTML == "Чат") {
+		if (template_flag == 1) {
+			if (template_flag2 == 1)
+				sendAnswerTemplate2(document.getElementById('inp').value, 1)
+			else
+				sendAnswerTemplate("", "", 1, document.getElementById('inp').value, 1)
+		} else {
+			sendAnswer(document.getElementById('inp').value, 0)
+		}
+	}
+	else
+		sendComment(document.getElementById('inp').value)
+	document.getElementById('inp').value = ""
+
+	if (document.getElementById('phone_tr') != undefined)
+		document.getElementById('phone_tr').value = ""
+	if (document.getElementById('email_tr') != undefined)
+		document.getElementById('email_tr').value = ""
 }
 	
     document.getElementById('opandclsbarhyper').onclick = function () { // функция открытия формы для добавления гиперссылки
