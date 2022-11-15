@@ -4076,23 +4076,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     loginer = document.getElementById('testUsers')
     loginer.appendChild(addInfoUser)
 
-    var listenerloginer = function (e, a) {
-        loginer.style.left = Number(e.clientX - myX3) + "px";
-        loginer.style.top = Number(e.clientY - myY3) + "px";
-        localStorage.setItem('winTop3', String(Number(e.clientY - myY3)));
-        localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
-    };
-	
-    loginer.onmousedown = function (a) {
-        if (checkelementtype(a)) {
-            window.myX3 = a.layerX;
-            window.myY3 = a.layerY;
-            document.addEventListener('mousemove', listenerloginer);
-        }
-    }
-	
-    loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); }
-
     user = "student"
 
     getText()
@@ -4151,12 +4134,12 @@ wintRefuseFormNew.innerHTML = win_refusefrom;
         document.getElementById('AF_helper').style.display = 'none';
     }
 
-    var listenerAF = function (e, a) { // сохранение позиции главного окна
+var listenerAF = function (e, a) { // сохранение позиции главного окна
         wintAF.style.left = Number(e.clientX - myX2) + "px";
         wintAF.style.top = Number(e.clientY - myY2) + "px";
         localStorage.setItem('winTopAF', String(Number(e.clientY - myY2)));
         localStorage.setItem('winLeftAF', String(Number(e.clientX - myX2)));
-    };
+};
 
     wintAF.onmousedown = function (a) { // изменение позиции главного окна
         if (checkelementtype(a)) {
@@ -4167,7 +4150,7 @@ wintRefuseFormNew.innerHTML = win_refusefrom;
     }
     wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
 	
-	var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
+var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
     wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
     wintRefuseFormNew.style.top = Number(e.clientY - myY16) + "px";
     localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY16)));
@@ -4183,6 +4166,23 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 }
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
+
+var listenerloginer = function (e, a) { // сохранение позиции окна с У П логиннеров в тестового У или П
+	loginer.style.left = Number(e.clientX - myXloginer) + "px";
+	loginer.style.top = Number(e.clientY - myYloginer) + "px";
+	localStorage.setItem('winTop3', String(Number(e.clientY - myXloginer)));
+	localStorage.setItem('winLeft3', String(Number(e.clientX - myYloginer)));
+};
+
+loginer.onmousedown = function (a) {
+	if (checkelementtype(a)) {
+		window.myXloginer = a.layerX;
+		window.myYloginer = a.layerY;
+		document.addEventListener('mousemove', listenerloginer);
+	}
+}
+
+loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); } // прекращение изменения позиции окна логгинера с У П
 
 	// Блок настроек и взаимодействия с ними
 
