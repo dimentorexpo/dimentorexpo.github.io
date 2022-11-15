@@ -294,7 +294,7 @@ function mystyles() {
 			cursor:pointer;
 			font-weight:700;
 		}
-		
+
 		#servDsk {
 			cursor: pointer;
 			display:flex;
@@ -305,7 +305,7 @@ function mystyles() {
 			min-width: 100px;
 			padding-left:5px;
 		}
-		
+
 		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
 			display:flex;
 			align-items:center;
@@ -318,7 +318,7 @@ function mystyles() {
 			height: 36px;
 			padding-left:5px;
 		}
-		
+
 		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
@@ -328,7 +328,7 @@ function mystyles() {
 			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 			height:45px;
 		}
-	
+
 		.hyperlnk {
 			height:0px;
 			opacity:0;
@@ -450,7 +450,7 @@ function mystyles() {
 	.teststudteach.active {
 		background: coral;
 	}
-	
+
 	.msgtype {
 		border-left: 8px solid #4ce479;
 		width: 80px;
@@ -461,7 +461,7 @@ function mystyles() {
 		border-left: 8px solid #b4b4b4;
 		transition: all 1s ease;
 	}
-	
+
 	`
     mstl.innerHTML = style;
 }
@@ -612,12 +612,12 @@ if (str !== null && str !== "")
 else
     audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
-Object.keys(localStorage).forEach(function(key){ // чистка localstorage от мусора , когда АФ на каждый лог добавляет запись вида SMART_TABLE... или при работе с архивом
-   if (/^(SMART_TABLE.)/.test(key)) {
-		localStorage.removeItem(key);
-   }
-});  
- 
+Object.keys(localStorage).forEach(function (key) { // чистка localstorage от мусора , когда АФ на каждый лог добавляет запись вида SMART_TABLE... или при работе с архивом
+    if (/^(SMART_TABLE.)/.test(key)) {
+        localStorage.removeItem(key);
+    }
+});
+
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
     document.onkeydown = function (event) {
@@ -722,18 +722,18 @@ function startTimer() { // большая функция по таймеру а�
 
     if (localStorage.getItem('audio') == '1')
         if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
-			if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
-				txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-				if (txt[14] > 0) {
-					if (!soundintervalset) {
-						audio.play()
-						soundintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
-					}
-				} else {
-					clearInterval(soundintervalset)
+            if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
+                txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
+                if (txt[14] > 0) {
+                    if (!soundintervalset) {
+                        audio.play()
+                        soundintervalset = setInterval(() => { audio.play() }, localStorage.getItem('splinter') * 1000)
+                    }
+                } else {
+                    clearInterval(soundintervalset)
                     soundintervalset = null
-				}
-			}
+                }
+            }
         }
 
 
@@ -791,8 +791,8 @@ function startTimer() { // большая функция по таймеру а�
                     btn.appendChild(buttonservivceuser)
                     btn.appendChild(btnNextUserChatHistory)
                     btn.appendChild(trshootnextuser)
-					
-                } 
+
+                }
             }
         }
 
@@ -803,18 +803,18 @@ function startTimer() { // большая функция по таймеру а�
                     let copyCrmFromName = document.createElement('span')
                     copyCrmFromName.textContent = ' 💾'
                     copyCrmFromName.style.cursor = "pointer"
-					copyCrmFromName.id = 'diskettocopy'
-					if (document.getElementById('diskettocopy') == null ) {
-						document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
-						copyCrmFromName.onclick = function () {
-							for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
-								if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-									let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-									copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
-								}
-							}
-						}
-					}
+                    copyCrmFromName.id = 'diskettocopy'
+                    if (document.getElementById('diskettocopy') == null) {
+                        document.getElementsByClassName('expert-user_details-name')[0].append(copyCrmFromName)
+                        copyCrmFromName.onclick = function () {
+                            for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
+                                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+                                    let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                                    copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
+                                }
+                            }
+                        }
+                    }
 
 
                     let userTypeName = document.createElement('span')
@@ -961,16 +961,16 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubar.append(document.getElementById('butLessonInfo'))
             menubar.append(document.getElementById('butChatHistory'))
             menubar.append(document.getElementById('butFrozeChat'))
-			servDsk.classList.remove('inithide')
-			JiraOpenForm.classList.remove('inithide')
-			butopensugestform.classList.remove('inithide')
-			butrefuse.classList.remove('inithide')
-			butsmartroom.classList.remove('inithide')
-			butLessonInfo.classList.remove('inithide')
-			butChatHistory.classList.remove('inithide')
-			butFrozeChat.classList.remove('inithide')
-			butMarks.classList.remove('inithide')
-			buttonOpenForm.classList.remove('inithide')
+            servDsk.classList.remove('inithide')
+            JiraOpenForm.classList.remove('inithide')
+            butopensugestform.classList.remove('inithide')
+            butrefuse.classList.remove('inithide')
+            butsmartroom.classList.remove('inithide')
+            butLessonInfo.classList.remove('inithide')
+            butChatHistory.classList.remove('inithide')
+            butFrozeChat.classList.remove('inithide')
+            butMarks.classList.remove('inithide')
+            buttonOpenForm.classList.remove('inithide')
         }, 8000)
 
         setInterval(startTimer, 1000)
@@ -1024,8 +1024,8 @@ function prepTp() { //функция подготовки расширения �
     openchhis.style = 'position:fixed;top:45px;right:0px;z-index:5;'
     openchhis.id = 'opennewcat'
     document.getElementsByTagName('section')[1].append(openchhis)
-	
-	openchhis.onclick = () => {
+
+    openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
             document.getElementById('butChatHistory').click()
     }
@@ -1073,19 +1073,19 @@ function prepTp() { //функция подготовки расширения �
     document.getElementById('app-header').append(buttonGetStat)
 
     setInterval(timerHideButtons, 300)
-	
-		include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        let lboxstyles = document.createElement('link')
-        lboxstyles.rel = 'stylesheet'
-        lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-        document.querySelector('head').append(lboxstyles)
+
+    include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+    let lboxstyles = document.createElement('link')
+    lboxstyles.rel = 'stylesheet'
+    lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+    document.querySelector('head').append(lboxstyles)
 
     setTimeout(function () {
 
-		include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
-		include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам 
-		// include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
-		include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
+        include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+        include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
+        // include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
+        include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
         include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
@@ -1097,9 +1097,9 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
-		include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
-		include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
-		include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
+        include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
+        include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
+        include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2500)
 
@@ -1126,7 +1126,7 @@ function prepKC() { //функция подготовки расширения �
     }
 
     let needtoopen = document.getElementsByClassName('onlyforkc')
-    for (i = 0; i < needtoopen.length; i++){
+    for (i = 0; i < needtoopen.length; i++) {
         needtoopen[i].style.display = ''
     }
 
@@ -1165,9 +1165,9 @@ const copyToClipboard1 = str => { // функция копирования в б
 function include(url) { // функция подключения дополнительных скриптов/модулей
     var script = document.createElement('script');
     script.src = url;
-	script.setAttribute('defer', '')
+    script.setAttribute('defer', '')
     document.getElementsByTagName('head')[0].appendChild(script);
-}	
+}
 
 function maxLengthCheck(object) { // функция ограничения кол-ва символов в полях
     if (object.value.length > object.maxLength)
@@ -1319,10 +1319,10 @@ async function getStats() { // функция получения статист�
             switch (j) {
                 case 0:
                     td.textContent = array[i].operator;
-					if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == array[i].operator) {
-						td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
-					} else 
-                    td.style = 'text-align: left; padding-left: 5px'
+                    if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == array[i].operator) {
+                        td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
+                    } else
+                        td.style = 'text-align: left; padding-left: 5px'
                     break;
                 case 2:
                     for (let j = 0; j < operatorNames.length; j++)
@@ -1387,9 +1387,9 @@ async function getStats() { // функция получения статист�
     kcpower.textContent = 'Нагрузка КЦ'
     kcpower.id = 'buttonKCpower'
     kcpower.style.marginLeft = '10px'
-    kcpower.onclick = function() {
-		checkload(/КЦ/ , 'КЦ')
-	}
+    kcpower.onclick = function () {
+        checkload(/КЦ/, 'КЦ')
+    }
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
 
     let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
@@ -1397,8 +1397,8 @@ async function getStats() { // функция получения статист�
     tppower.id = 'buttonTPpower'
     tppower.style.marginLeft = '10px'
     tppower.onclick = function () {
-		checkload(/ТП/ , 'ТП')
-	}
+        checkload(/ТП/, 'ТП')
+    }
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
 
     let dcc = document.getElementsByClassName('chtcnt')
@@ -1769,7 +1769,7 @@ async function checkChatCountQue() { // функция проверки коли
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
-	let cntc = 0;
+    let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
     let allcntc = 0;
@@ -1802,13 +1802,13 @@ async function checkload(department, flag) { // функция проверки 
                     found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
                 }
             }
-            if ( (cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) <= 2.2)
+            if ((cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) <= 2.2)
                 found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Низкая нагрузка";
-            else if ( (cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
+            else if ((cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) > 2.2 && allcntc / (cntc - pausecnt - busycnt) <= 3.2)
                 found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Средняя нагрузка";
-            else if ( (cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
+            else if ((cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) > 3.2 && allcntc / (cntc - pausecnt - busycnt) <= 4.4)
                 found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Высокая нагрузка";
-            else if ( (cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) >= 4.5)
+            else if ((cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) >= 4.5)
                 found += '<br>' + "Сотрудников на линии: " + cntc + " из них: " + "🟡занят: " + busycnt + " 🔴перерыв: " + pausecnt + " 🟢онлайн: " + (cntc - busycnt - pausecnt) + '<br>' + "Всего чатов в работе: " + allcntc + '<br>' + " Критическая нагрузка";
         }, 1000)
 
@@ -1816,11 +1816,11 @@ async function checkload(department, flag) { // функция проверки 
             document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
             str.innerHTML = '<br>' + found;
         }, 1000)
-		
-		if (flag == 'КЦ')
-			document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
-		else if (flag == 'ТП')
-			document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
+
+        if (flag == 'КЦ')
+            document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
+        else if (flag == 'ТП')
+            document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
     })
 }
 
@@ -2060,7 +2060,7 @@ function customTemplates(language = '') { //собственные шаблон�
     if (countOfTemplates > 0)
         for (i = 1; i <= countOfTemplates; i++)
             addNewString(i)
-		refreshHotTmps()
+    refreshHotTmps()
 
     var listenercstmTmp = function (e, a) {
         cstmTmp.style.left = Number(e.clientX - myXcstmTmp) + "px";
@@ -2384,37 +2384,37 @@ function addTimers() { // еще функция тоже добавления т
 function refreshTimer() { //функция обновления таймера
     btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
     j = 0
-	try {
-    while (true) {
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
-            break;
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
-            break;
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
-            addTimers()
-        name = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
-        for (i = 0; i < idk; i++) {
-            if (tmrs[i][1] == name) {
-                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
-                if (tmrs[i][0] == "00:00")
-                    if (tmrs[i][2] == 1)
-                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
+    try {
+        while (true) {
+            if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
+                break;
+            if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
+                break;
+            if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
+                addTimers()
+            name = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
+            for (i = 0; i < idk; i++) {
+                if (tmrs[i][1] == name) {
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
+                    if (tmrs[i][0] == "00:00")
+                        if (tmrs[i][2] == 1)
+                            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
+                        else
+                            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
                     else
-                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
-                else
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
-                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
-                var cT = new Date();
-                var curT1 = tmrs[i][3]
-                var curT2 = Number(cT);
-                var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                if (curT3 < 0)
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA" // цвет окрашивания автозакрытия  сейчас сиреневый
+                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
+                    var cT = new Date();
+                    var curT1 = tmrs[i][3]
+                    var curT2 = Number(cT);
+                    var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
+                    if (curT3 < 0)
+                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA" // цвет окрашивания автозакрытия  сейчас сиреневый
+                }
             }
+            j++
         }
-        j++
-    }
-	} catch (e) { console.error(e, e.stack); }
+    } catch (e) { console.error(e, e.stack); }
 }
 
 function refreshTemplates() { // функция обновляет шаблоны которые загружены были с гугл таблицы и сформированы их в table
@@ -2930,7 +2930,7 @@ function requestsRed() { //функция окрашивает в красный
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
-        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] !='') {
+        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
             drevo = '';
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
@@ -3043,22 +3043,22 @@ async function checkthemestatus() { //функция проверки выста
 }
 
 function dosetclasswork(subject) {     // функция перезапуска урока в зависимости от предмета так как разные API
-	fetch(subject + document.URL.split('/')[6], {
-		"headers": {
-			"accept": "application/json",
-			"content-type": "application/json",
-		},
-		"body": "{\"status\":\"classwork\",\"name\":\"\"}",
-		"method": "PATCH",
-		"mode": "cors",
-		"credentials": "include"
-	});
+    fetch(subject + document.URL.split('/')[6], {
+        "headers": {
+            "accept": "application/json",
+            "content-type": "application/json",
+        },
+        "body": "{\"status\":\"classwork\",\"name\":\"\"}",
+        "method": "PATCH",
+        "mode": "cors",
+        "credentials": "include"
+    });
 
-	document.getElementById('clwbtn').innerText = "Done!"
+    document.getElementById('clwbtn').innerText = "Done!"
 
-	setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+    setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
 }
-	
+
 function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
     let chatId = ''
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
@@ -3104,25 +3104,25 @@ function newTags(tagName) { //функция добавления несколь
 function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
     if (document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.length > 43 && document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined && !document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.contains("selchatact"))
         document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].classList.toggle('selchatact')
-}	
+}
 
 function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
-	fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-		"headers": {
-			"content-type": "application/json",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		},
-		"referrer": "https://vimbox.skyeng.ru/",
-		"referrerPolicy": "strict-origin-when-cross-origin",
-		"body": `{\"userId1\":${userid1},\"userId2\":${userid2}}`,
-		"method": "POST",
-		"mode": "cors",
-		"credentials": "include"
-	});
+    fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+        "headers": {
+            "content-type": "application/json",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site"
+        },
+        "referrer": "https://vimbox.skyeng.ru/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": `{\"userId1\":${userid1},\"userId2\":${userid2}}`,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    });
 }
-	
-async function remandressl() { // функция добавляения массово чатов в  мультиклассруме также и отдельно для каждого предмета 
+
+async function remandressl() { // функция добавляения массово чатов в  мультиклассруме также и отдельно для каждого предмета
 
     // Добавляем кнопку для Skysmart добавлять чаты со всеми У в один клик
     let achatb = document.createElement('span')
@@ -3751,264 +3751,264 @@ function checJiraF() { //Функция добавления коммента в
 }
 
 function screenshots() { //просмотр и трансформация скриншотов в активном чате
-	if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined) {
-		for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
-			if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
-				var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
-				for (let j = 0; j < div.querySelectorAll('a').length; j++) {
-					if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
-						var img = document.createElement('img')
-						img.style.width = '100px'
-						var alink = document.createElement('a')
-						alink.setAttribute('data-lightbox', 'imgs');
-						alink.append(img)
-						img.src = div.querySelectorAll('a')[j].href
-						img.alt = 'Изображение'
-						alink.href = img.src;
-						div.querySelectorAll('a')[j].replaceWith(alink)
-					}
-				}
-			}
-		}
-	} else if (document.getElementsByClassName('chat-messages')[0] != undefined) {
-            for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
-                if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
-                    var div = document.getElementsByClassName('chat-messages')[0].children[i]
-                    for (let j = 0; j < div.querySelectorAll('a').length; j++) {
-                        if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
-                            var img = document.createElement('img')
-                            img.style.width = '100px'
-                            var alink = document.createElement('a')
-                            alink.setAttribute('data-lightbox', 'imgs');
-                            alink.append(img)
-                            img.src = div.querySelectorAll('a')[j].href
-                            img.alt = 'Изображение'
-                            alink.href = img.src;
-                            div.querySelectorAll('a')[j].replaceWith(alink)
-                        }
+    if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined) {
+        for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
+            if (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
+                var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
+                for (let j = 0; j < div.querySelectorAll('a').length; j++) {
+                    if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
+                        var img = document.createElement('img')
+                        img.style.width = '100px'
+                        var alink = document.createElement('a')
+                        alink.setAttribute('data-lightbox', 'imgs');
+                        alink.append(img)
+                        img.src = div.querySelectorAll('a')[j].href
+                        img.alt = 'Изображение'
+                        alink.href = img.src;
+                        div.querySelectorAll('a')[j].replaceWith(alink)
                     }
                 }
             }
+        }
+    } else if (document.getElementsByClassName('chat-messages')[0] != undefined) {
+        for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
+            if (document.getElementsByClassName('chat-messages')[0].children[i].textContent.indexOf('vimbox-resource') != -1) {
+                var div = document.getElementsByClassName('chat-messages')[0].children[i]
+                for (let j = 0; j < div.querySelectorAll('a').length; j++) {
+                    if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
+                        var img = document.createElement('img')
+                        img.style.width = '100px'
+                        var alink = document.createElement('a')
+                        alink.setAttribute('data-lightbox', 'imgs');
+                        alink.append(img)
+                        img.src = div.querySelectorAll('a')[j].href
+                        img.alt = 'Изображение'
+                        alink.href = img.src;
+                        div.querySelectorAll('a')[j].replaceWith(alink)
+                    }
+                }
+            }
+        }
     }
 }
 
 function getLocalstorageToFile(fileName) { //функция сохранения содержимого localstorage в файл на компьютере
 
-	/* dump local storage to string */
+    /* dump local storage to string */
 
-	var a = {};
-	for (var i = 0; i < localStorage.length; i++) {
-		var k = localStorage.key(i);
-		var v = localStorage.getItem(k);
-		a[k] = v;
-	}
+    var a = {};
+    for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        var v = localStorage.getItem(k);
+        a[k] = v;
+    }
 
-	/* save as blob */
+    /* save as blob */
 
-	var textToSave = JSON.stringify(a)
-	var textToSaveAsBlob = new Blob([textToSave], {
-		type: "application/json"
-	});
-	var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var textToSave = JSON.stringify(a)
+    var textToSaveAsBlob = new Blob([textToSave], {
+        type: "application/json"
+    });
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
 
-	/* download without button hack */
+    /* download without button hack */
 
-	var downloadLink = document.createElement("a");
-	downloadLink.download = fileName;
-	downloadLink.innerHTML = "Download File";
-	downloadLink.href = textToSaveAsURL;
-	downloadLink.onclick = function () {
-		document.body.removeChild(event.target);
-	};
-	downloadLink.style.display = "none";
-	document.body.appendChild(downloadLink);
-	downloadLink.click();
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileName;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = function () {
+        document.body.removeChild(event.target);
+    };
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
 
 }
 
 function replaceSelectedText(elem, str) { //функция замены выделенного текста, для формирования гиперссылки
-	elem.focus();
+    elem.focus();
 
-	if (document.selection) {
-		var s = document.selection.createRange();
-		if (s.text) {
-			eval("s.text=" + str + "(s.text);");
-			s.select();
-			return true;
-		}
-	}
-	else if (typeof (elem.selectionStart) == "number") {
-		if (elem.selectionStart != elem.selectionEnd) {
-			var start = elem.selectionStart;
-			var end = elem.selectionEnd;
+    if (document.selection) {
+        var s = document.selection.createRange();
+        if (s.text) {
+            eval("s.text=" + str + "(s.text);");
+            s.select();
+            return true;
+        }
+    }
+    else if (typeof (elem.selectionStart) == "number") {
+        if (elem.selectionStart != elem.selectionEnd) {
+            var start = elem.selectionStart;
+            var end = elem.selectionEnd;
 
-			eval("var rs = " + str + "(elem.value.substr(start,end-start));");
-			elem.value = elem.value.substr(0, start) + rs + elem.value.substr(end);
-			elem.setSelectionRange(end, end);
-		}
-		return true;
-	}
-	return false;
+            eval("var rs = " + str + "(elem.value.substr(start,end-start));");
+            elem.value = elem.value.substr(0, start) + rs + elem.value.substr(end);
+            elem.setSelectionRange(end, end);
+        }
+        return true;
+    }
+    return false;
 }
 
 function change_str(s) { // вспомогательная функция для подстановки вместо текста гиперссылку и сохраняя выделенный сам текст
-	return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">` + s + "</a>";
+    return `<a href="${document.getElementById('bindlinktotext').value}" target="_blank" rel="noopener">` + s + "</a>";
 }
 
 function addOption(oListbox, text, value) {  //функция добавления опции в список
-	var oOption = document.createElement("option");
-	oOption.appendChild(document.createTextNode(text));
-	oOption.setAttribute("value", value);
-	oListbox.appendChild(oOption);
+    var oOption = document.createElement("option");
+    oOption.appendChild(document.createTextNode(text));
+    oOption.setAttribute("value", value);
+    oListbox.appendChild(oOption);
 }
 
 function clock_on_javascript_1() { //таймер обычного отсчета текущего времени
-	var data = new Date();
-	hours = data.getHours();
-	if (hours < 10) { hours = "0" + hours; }
-	minutes = data.getMinutes();
-	if (minutes < 10) { minutes = "0" + minutes; }
-	seconds = data.getSeconds();
-	if (seconds < 10) { seconds = "0" + seconds; }
-	time = hours + " : " + minutes + " : " + seconds;
-	document.getElementById("clock_js").innerHTML = time;
+    var data = new Date();
+    hours = data.getHours();
+    if (hours < 10) { hours = "0" + hours; }
+    minutes = data.getMinutes();
+    if (minutes < 10) { minutes = "0" + minutes; }
+    seconds = data.getSeconds();
+    if (seconds < 10) { seconds = "0" + seconds; }
+    time = hours + " : " + minutes + " : " + seconds;
+    document.getElementById("clock_js").innerHTML = time;
 }
 
 function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
-	var data = new Date();
-	hours = data.getHours();
-	if (hours < 10) { hours = "0" + hours; }
-	minutes = data.getMinutes();
-	if (minutes < 10) { minutes = "0" + minutes; }
-	seconds = data.getSeconds();
-	if (seconds < 10) { seconds = "0" + seconds; }
-	var summin = JSON.parse(localStorage.getItem('setminuta')) + 60;
-	if (localStorage.getItem('chronostamp') === null) {
-		time = "00" + " : " + "00" + " : " + "00";
-		document.getElementById("clock_remin").innerHTML = time;
-	} else if (((localStorage.getItem('setchas') - hours) == 0) && ((localStorage.getItem('setminuta') > minutes))) {
-		time = "00" + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
-		document.getElementById("clock_remin").innerHTML = time;
-	} else if (((localStorage.getItem('setchas') - hours) > 1) && ((localStorage.getItem('setminuta') - minutes) == 0)) {
-		time = (localStorage.getItem('setchas') - hours) + " : " + "00" + " : " + (60 - seconds);
-		document.getElementById("clock_remin").innerHTML = time;
-	} else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') < minutes) {
-		time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
-		document.getElementById("clock_remin").innerHTML = time;
-	} else if (((localStorage.getItem('setchas') - hours) > 0) && localStorage.getItem('setminuta') > minutes) {
-		time = localStorage.getItem('setchas') - hours + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
-		document.getElementById("clock_remin").innerHTML = time;
-	} else if (((localStorage.getItem('setchas') - hours) == 1) && (localStorage.getItem('setminuta') - minutes) == 0) {
-		time = localStorage.getItem('setchas') - hours + " : " + "00" + " : " + (60 - seconds);
-		document.getElementById("clock_remin").innerHTML = time;
-	} else {
-		time = "00" + " : " + "00" + " : " + "00";
-		document.getElementById("clock_remin").innerHTML = time;
-	}
+    var data = new Date();
+    hours = data.getHours();
+    if (hours < 10) { hours = "0" + hours; }
+    minutes = data.getMinutes();
+    if (minutes < 10) { minutes = "0" + minutes; }
+    seconds = data.getSeconds();
+    if (seconds < 10) { seconds = "0" + seconds; }
+    var summin = JSON.parse(localStorage.getItem('setminuta')) + 60;
+    if (localStorage.getItem('chronostamp') === null) {
+        time = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin").innerHTML = time;
+    } else if (((localStorage.getItem('setchas') - hours) == 0) && ((localStorage.getItem('setminuta') > minutes))) {
+        time = "00" + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
+        document.getElementById("clock_remin").innerHTML = time;
+    } else if (((localStorage.getItem('setchas') - hours) > 1) && ((localStorage.getItem('setminuta') - minutes) == 0)) {
+        time = (localStorage.getItem('setchas') - hours) + " : " + "00" + " : " + (60 - seconds);
+        document.getElementById("clock_remin").innerHTML = time;
+    } else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') < minutes) {
+        time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
+        document.getElementById("clock_remin").innerHTML = time;
+    } else if (((localStorage.getItem('setchas') - hours) > 0) && localStorage.getItem('setminuta') > minutes) {
+        time = localStorage.getItem('setchas') - hours + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
+        document.getElementById("clock_remin").innerHTML = time;
+    } else if (((localStorage.getItem('setchas') - hours) == 1) && (localStorage.getItem('setminuta') - minutes) == 0) {
+        time = localStorage.getItem('setchas') - hours + " : " + "00" + " : " + (60 - seconds);
+        document.getElementById("clock_remin").innerHTML = time;
+    } else {
+        time = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin").innerHTML = time;
+    }
 }
 
 function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
-	var data1 = new Date();
-	hours1 = data1.getHours();
-	if (hours1 < 10) { hours1 = "0" + hours1; }
-	minutes1 = data1.getMinutes();
-	if (minutes1 < 10) { minutes1 = "0" + minutes1; }
-	seconds1 = data1.getSeconds();
-	if (seconds1 < 10) { seconds1 = "0" + seconds1; }
-	var summin1 = JSON.parse(localStorage.getItem('setminuta1')) + 60;
-	if (localStorage.getItem('chronostamp1') === null) {
-		time1 = "00" + " : " + "00" + " : " + "00";
-		document.getElementById("clock_remin1").innerHTML = time1;
-	} else if (((localStorage.getItem('setchas1') - hours1) == 0) && ((localStorage.getItem('setminuta1') > minutes1))) {
-		time1 = "00" + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
-		document.getElementById("clock_remin1").innerHTML = time1;
-	} else if (((localStorage.getItem('setchas1') - hours1) > 1) && ((localStorage.getItem('setminuta1') - minutes1) == 0)) {
-		time1 = (localStorage.getItem('setchas1') - hours1) + " : " + "00" + " : " + (60 - seconds1);
-		document.getElementById("clock_remin1").innerHTML = time1;
-	} else if (((localStorage.getItem('setchas1') - hours1) >= 1) && localStorage.getItem('setminuta1') < minutes1) {
-		time1 = ((localStorage.getItem('setchas1') - hours1) - 1) + " : " + (summin1 - minutes1) + " : " + (60 - seconds1);
-		document.getElementById("clock_remin1").innerHTML = time1;
-	} else if (((localStorage.getItem('setchas1') - hours1) > 0) && localStorage.getItem('setminuta1') > minutes1) {
-		time1 = localStorage.getItem('setchas1') - hours1 + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
-		document.getElementById("clock_remin1").innerHTML = time1;
-	} else if (((localStorage.getItem('setchas1') - hours1) == 1) && (localStorage.getItem('setminuta1') - minutes1) == 0) {
-		time1 = localStorage.getItem('setchas1') - hours1 + " : " + "00" + " : " + (60 - seconds1);
-		document.getElementById("clock_remin1").innerHTML = time1;
-	} else {
-		time1 = "00" + " : " + "00" + " : " + "00";
-		document.getElementById("clock_remin1").innerHTML = time1;
-	}
+    var data1 = new Date();
+    hours1 = data1.getHours();
+    if (hours1 < 10) { hours1 = "0" + hours1; }
+    minutes1 = data1.getMinutes();
+    if (minutes1 < 10) { minutes1 = "0" + minutes1; }
+    seconds1 = data1.getSeconds();
+    if (seconds1 < 10) { seconds1 = "0" + seconds1; }
+    var summin1 = JSON.parse(localStorage.getItem('setminuta1')) + 60;
+    if (localStorage.getItem('chronostamp1') === null) {
+        time1 = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin1").innerHTML = time1;
+    } else if (((localStorage.getItem('setchas1') - hours1) == 0) && ((localStorage.getItem('setminuta1') > minutes1))) {
+        time1 = "00" + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
+        document.getElementById("clock_remin1").innerHTML = time1;
+    } else if (((localStorage.getItem('setchas1') - hours1) > 1) && ((localStorage.getItem('setminuta1') - minutes1) == 0)) {
+        time1 = (localStorage.getItem('setchas1') - hours1) + " : " + "00" + " : " + (60 - seconds1);
+        document.getElementById("clock_remin1").innerHTML = time1;
+    } else if (((localStorage.getItem('setchas1') - hours1) >= 1) && localStorage.getItem('setminuta1') < minutes1) {
+        time1 = ((localStorage.getItem('setchas1') - hours1) - 1) + " : " + (summin1 - minutes1) + " : " + (60 - seconds1);
+        document.getElementById("clock_remin1").innerHTML = time1;
+    } else if (((localStorage.getItem('setchas1') - hours1) > 0) && localStorage.getItem('setminuta1') > minutes1) {
+        time1 = localStorage.getItem('setchas1') - hours1 + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
+        document.getElementById("clock_remin1").innerHTML = time1;
+    } else if (((localStorage.getItem('setchas1') - hours1) == 1) && (localStorage.getItem('setminuta1') - minutes1) == 0) {
+        time1 = localStorage.getItem('setchas1') - hours1 + " : " + "00" + " : " + (60 - seconds1);
+        document.getElementById("clock_remin1").innerHTML = time1;
+    } else {
+        time1 = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin1").innerHTML = time1;
+    }
 }
 
 function refreshTimerReminder() { // обновляет оставшееся время будильника №1
-	if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-		document.getElementById('reminderstatus').textContent = "🔔";
-		setchas.value = localStorage.getItem('setchas');
-		setminuta.value = localStorage.getItem('setminuta');
-		var timearr = new Date()
-		var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
-		localStorage.setItem('chronostamp2', chronostamp2);
-		abortTimeOut = setTimeout(function() {
-			setRemindAf('chronostamp')
-		}, localStorage.getItem('chronostamp2'));
-	} else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
-		clearTimeout(abortTimeOut);
-		document.getElementById('reminderstatus').textContent = "🔕";
-	} else if (localStorage.getItem('chronostamp1') !== null) {
-		document.getElementById('reminderstatus').textContent = "🔔";
-	}
+    if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+        setchas.value = localStorage.getItem('setchas');
+        setminuta.value = localStorage.getItem('setminuta');
+        var timearr = new Date()
+        var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp2', chronostamp2);
+        abortTimeOut = setTimeout(function () {
+            setRemindAf('chronostamp')
+        }, localStorage.getItem('chronostamp2'));
+    } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
+        clearTimeout(abortTimeOut);
+        document.getElementById('reminderstatus').textContent = "🔕";
+    } else if (localStorage.getItem('chronostamp1') !== null) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+    }
 }
 
 function refreshTimerReminder1() { // обновляет оставшееся время будильника №2
-	if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
-		document.getElementById('reminderstatus').textContent = "🔔";
-		setchas1.value = localStorage.getItem('setchas1');
-		setminuta1.value = localStorage.getItem('setminuta1');
-		var timearr1 = new Date()
-		var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
-		localStorage.setItem('chronostamp22', chronostamp22);
-		abortTimeOut1 = setTimeout(function() {
-			setRemindAf('chronostamp1')
-		}, localStorage.getItem('chronostamp22'));
-	} else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
-		clearTimeout(abortTimeOut1);
-		document.getElementById('reminderstatus').textContent = "🔕";
-	} else if (localStorage.getItem('chronostamp') !== null) {
-		document.getElementById('reminderstatus').textContent = "🔔";
-	}
+    if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+        setchas1.value = localStorage.getItem('setchas1');
+        setminuta1.value = localStorage.getItem('setminuta1');
+        var timearr1 = new Date()
+        var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp22', chronostamp22);
+        abortTimeOut1 = setTimeout(function () {
+            setRemindAf('chronostamp1')
+        }, localStorage.getItem('chronostamp22'));
+    } else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
+        clearTimeout(abortTimeOut1);
+        document.getElementById('reminderstatus').textContent = "🔕";
+    } else if (localStorage.getItem('chronostamp') !== null) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+    }
 }
 
 function setRemindAf(tsname) { //функция  при наступлении времени перевода в статус занят Будильник №1
-	fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
-		"headers": {
-			"content-type": "application/json",
-		},
-		"referrer": "https://skyeng.autofaq.ai/tickets/archive",
-		"referrerPolicy": "strict-origin-when-cross-origin",
-		"body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
-		"method": "POST",
-		"mode": "cors",
-		"credentials": "include"
-	});
-	alert("Время ставить занят! :D");
-	localStorage.removeItem(tsname);
+    fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+        "headers": {
+            "content-type": "application/json",
+        },
+        "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    });
+    alert("Время ставить занят! :D");
+    localStorage.removeItem(tsname);
 
-	if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
-		document.getElementById('reminderstatus').textContent = "🔕";
-	else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
-		document.getElementById('reminderstatus').textContent = "🔔";
-	else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
-		document.getElementById('reminderstatus').textContent = "🔔";
-	else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
-		document.getElementById('reminderstatus').textContent = "🔔";
+    if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
+        document.getElementById('reminderstatus').textContent = "🔕";
+    else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+        document.getElementById('reminderstatus').textContent = "🔔";
+    else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+        document.getElementById('reminderstatus').textContent = "🔔";
+    else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+        document.getElementById('reminderstatus').textContent = "🔔";
 
-	if (tsname == 'chronostamp') {
-		setchas.value = "";
-		setminuta.value = "";
-	} else if  (tsname == 'chronostamp1') {
-		setchas1.value = "";
-		setminuta1.value = "";
-	}
+    if (tsname == 'chronostamp') {
+        setchas.value = "";
+        setminuta.value = "";
+    } else if (tsname == 'chronostamp1') {
+        setchas1.value = "";
+        setminuta1.value = "";
+    }
 }
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
@@ -4028,14 +4028,14 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             }
         })
     }
-	
+
     document.getElementById('butServ').onclick = function () { //открывает вензель user info
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
     }
-	
+
     window.onkeydown = function (e) {
         if (e.key == 'Control') {
             bool = 1;
@@ -4049,9 +4049,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             bool = 0;
         }
     }
-	
-	// создание кнопки скрипт + начало тандема
-	let button1 = document.createElement('div');
+
+    // создание кнопки скрипт + начало тандема
+    let button1 = document.createElement('div');
     button1.id = 'scriptBut';
     button1.innerHTML = "Скрипт";
     button1.style = "margin-right:15px; display:none";
@@ -4070,9 +4070,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     }
 
-    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0] 
+    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(button1, btnAdd.children[0]) // добавление кнопки скрипт на строку с основными кнопками в верхней части экрана
-	// конец тандема
+    // конец тандема
 
     user = "student"
 
@@ -4100,7 +4100,7 @@ if (localStorage.getItem('splinter') == null) {
 }
 
 // Для переключателя вкл/выкл звук
-if (localStorage.getItem('audio') == null){
+if (localStorage.getItem('audio') == null) {
     localStorage.setItem('audio', 1);
 }
 
@@ -4128,27 +4128,27 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
-    if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
-        document.getElementById('AF_helper').style.display = 'none';
-    }
+if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+    document.getElementById('AF_helper').style.display = 'none';
+}
 
-    var listenerAF = function (e, a) { // сохранение позиции главного окна
-        wintAF.style.left = Number(e.clientX - myX2) + "px";
-        wintAF.style.top = Number(e.clientY - myY2) + "px";
-        localStorage.setItem('winTopAF', String(Number(e.clientY - myY2)));
-        localStorage.setItem('winLeftAF', String(Number(e.clientX - myX2)));
-    };
+var listenerAF = function (e, a) { // сохранение позиции главного окна
+    wintAF.style.left = Number(e.clientX - myX2) + "px";
+    wintAF.style.top = Number(e.clientY - myY2) + "px";
+    localStorage.setItem('winTopAF', String(Number(e.clientY - myY2)));
+    localStorage.setItem('winLeftAF', String(Number(e.clientX - myX2)));
+};
 
-    wintAF.onmousedown = function (a) { // изменение позиции главного окна
-        if (checkelementtype(a)) {
-            window.myX2 = a.layerX;
-            window.myY2 = a.layerY;
-            document.addEventListener('mousemove', listenerAF);
-        }
+wintAF.onmousedown = function (a) { // изменение позиции главного окна
+    if (checkelementtype(a)) {
+        window.myX2 = a.layerX;
+        window.myY2 = a.layerY;
+        document.addEventListener('mousemove', listenerAF);
     }
-    wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
-	
-	var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
+}
+wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
+
+var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
     wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
     wintRefuseFormNew.style.top = Number(e.clientY - myY16) + "px";
     localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY16)));
@@ -4167,74 +4167,74 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
 
 
-    addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
-    loginer = document.getElementById('testUsers')
-    loginer.appendChild(addInfoUser)
+addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
+loginer = document.getElementById('testUsers')
+loginer.appendChild(addInfoUser)
 
-    var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
-        loginer.style.left = Number(e.clientX - myXloginer) + "px";
-        loginer.style.top = Number(e.clientY - myYloginer) + "px";
-        localStorage.setItem('winTop3', String(Number(e.clientY - myYloginer)));
-        localStorage.setItem('winLeft3', String(Number(e.clientX - myXloginer)));
-    };
-	
-    loginer.onmousedown = function (a) {
-        if (checkelementtype(a)) {
-            window.myXloginer = a.layerX;
-            window.myYloginer = a.layerY;
-            document.addEventListener('mousemove', listenerloginer);
-        }
+var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
+    loginer.style.left = Number(e.clientX - myXloginer) + "px";
+    loginer.style.top = Number(e.clientY - myYloginer) + "px";
+    localStorage.setItem('winTop3', String(Number(e.clientY - myYloginer)));
+    localStorage.setItem('winLeft3', String(Number(e.clientX - myXloginer)));
+};
+
+loginer.onmousedown = function (a) {
+    if (checkelementtype(a)) {
+        window.myXloginer = a.layerX;
+        window.myYloginer = a.layerY;
+        document.addEventListener('mousemove', listenerloginer);
     }
-	
-    loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); } // прекращение изменения позиции окна с логинером для У П
+}
 
-	// Блок настроек и взаимодействия с ними
+loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); } // прекращение изменения позиции окна с логинером для У П
 
-    document.getElementById('sound_test').onclick = function () { // кнопка тест звука
-        if (document.getElementById('sound_test').innerHTML == '▶'){
-            document.getElementById('sound_test').innerHTML = '⏹'
-            document.getElementById('sound_test').title = 'Остановить воспроизведение'
-            audio.play()
-            setTimeout(() => {
-                document.getElementById('sound_test').innerHTML = '▶'
-                document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
-            }, Number(audio.duration * 1000 + 1).toFixed(0));
-        } else {
+// Блок настроек и взаимодействия с ними
+
+document.getElementById('sound_test').onclick = function () { // кнопка тест звука
+    if (document.getElementById('sound_test').innerHTML == '▶') {
+        document.getElementById('sound_test').innerHTML = '⏹'
+        document.getElementById('sound_test').title = 'Остановить воспроизведение'
+        audio.play()
+        setTimeout(() => {
             document.getElementById('sound_test').innerHTML = '▶'
             document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
-            audio.pause()
-            audio.currentTime = 0
-        }
-        
+        }, Number(audio.duration * 1000 + 1).toFixed(0));
+    } else {
+        document.getElementById('sound_test').innerHTML = '▶'
+        document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
+        audio.pause()
+        audio.currentTime = 0
     }
-	
-	    if (localStorage.getItem('audiovol') != null) {
-        audio.volume = localStorage.getItem('audiovol');
-    } else localStorage.setItem('audiovol', 1);
 
-    document.getElementById('setting').onclick = function () { // открывает параметры
-        if (document.getElementById('set_bar').style.display == '')
-            document.getElementById('set_bar').style.display = 'none'
-        else {
-            document.getElementById('set_bar').style.display = ''
-            document.getElementById('reminder_bar').style.display = 'none'
-            document.getElementById('addTmp').style.display = 'none'
+}
 
-            let objSoundList = document.getElementById('soundlistaddr')
-            let soundsfromdoc;
-            let soundsconteiner;
+if (localStorage.getItem('audiovol') != null) {
+    audio.volume = localStorage.getItem('audiovol');
+} else localStorage.setItem('audiovol', 1);
 
-            async function getsoundsfromdoc() { // загрузка списка звуков из файла
-                soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
-                await fetch(soundsfromdoc).then(r => r.json()).then(r => soundsdata = r)
-                    soundsconteiner = soundsdata.result;
-                    console.log(soundsdata.result) //получим список звуков
-                for (j = 0; j < soundsconteiner.length; j++) {
-                    if (soundsconteiner[j][0] != '') {
-                        addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
-                    }
+document.getElementById('setting').onclick = function () { // открывает параметры
+    if (document.getElementById('set_bar').style.display == '')
+        document.getElementById('set_bar').style.display = 'none'
+    else {
+        document.getElementById('set_bar').style.display = ''
+        document.getElementById('reminder_bar').style.display = 'none'
+        document.getElementById('addTmp').style.display = 'none'
+
+        let objSoundList = document.getElementById('soundlistaddr')
+        let soundsfromdoc;
+        let soundsconteiner;
+
+        async function getsoundsfromdoc() { // загрузка списка звуков из файла
+            soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
+            await fetch(soundsfromdoc).then(r => r.json()).then(r => soundsdata = r)
+            soundsconteiner = soundsdata.result;
+            console.log(soundsdata.result) //получим список звуков
+            for (j = 0; j < soundsconteiner.length; j++) {
+                if (soundsconteiner[j][0] != '') {
+                    addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
                 }
-                for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
+            }
+            for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
                 if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
                     objSoundList.children[i].selected = true;
                 }
@@ -4245,204 +4245,204 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
                 document.getElementById('sound_save').style.display = ''
                 document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
             }
+        }
+
+        if (objSoundList.length < 3) {
+            getsoundsfromdoc()
+        }
+
+        if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
+            document.getElementById('test_std').value = localStorage.getItem('test_stud');
+        } else document.getElementById('test_std').value = "";
+
+        if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
+            document.getElementById('test_teach').value = localStorage.getItem('test_teach');
+        } else document.getElementById('test_teach').value = "";
+
+        //Для таймера автозакрытия
+        if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
+            document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+        } else {
+            localStorage.setItem('aclstime', 12);
+            document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+        }
+
+        //для таймера autoclose
+
+        document.getElementById('setautoclosetime').onclick = function () {
+            if (document.getElementById('autoclosetime').value != '') {
+                localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
+            } else console.log("Базовое значение равно 12 минут")
+        }
+
+        //Для интервала между воспроизведением звука
+        if (localStorage.getItem('splinter') != null || localStorage.getItem('splinter') != "") {
+            document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
+        } else {
+            localStorage.setItem('splinter', 3);
+            document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
+        }
+
+        document.getElementById('setsoundplayinterval').onclick = function () {
+            if (document.getElementById('soundplayinterval').value != '') {
+                localStorage.setItem('splinter', document.getElementById('soundplayinterval').value);
+            } else console.log("Базовое значение равно 3 секунды")
+        }
+
+        document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
+            localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
+            if (document.getElementById('sound_adr').value == "")
+                audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
+            else {
+                audio = new Audio(document.getElementById('sound_adr').value);
+                document.getElementById('sound_save').innerText = "✅";
+                setTimeout(function () {
+                    document.getElementById('sound_save').innerText = "💾";
+                }, 3000);
             }
+        }
 
-            if (objSoundList.length < 3) {
-                getsoundsfromdoc()
-            }            
-
-            if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
-                document.getElementById('test_std').value = localStorage.getItem('test_stud');
-            } else document.getElementById('test_std').value = "";
-
-            if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
-                document.getElementById('test_teach').value = localStorage.getItem('test_teach');
-            } else document.getElementById('test_teach').value = "";
-
-            //Для таймера автозакрытия
-            if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
-                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-            } else {
-                localStorage.setItem('aclstime', 12);
-                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-            }
-
-            //для таймера autoclose
-
-            document.getElementById('setautoclosetime').onclick = function () {
-                if (document.getElementById('autoclosetime').value != '') {
-                    localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
-                } else console.log("Базовое значение равно 12 минут")
-            }
-
-            //Для интервала между воспроизведением звука
-            if (localStorage.getItem('splinter') != null || localStorage.getItem('splinter') != "") {
-                document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
-            } else {
-                localStorage.setItem('splinter', 3);
-                document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
-            }
-
-            document.getElementById('setsoundplayinterval').onclick = function () {
-                if (document.getElementById('soundplayinterval').value != '') {
-                    localStorage.setItem('splinter', document.getElementById('soundplayinterval').value);
-                } else console.log("Базовое значение равно 3 секунды")
-            }
-			
-			    document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
-				localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
-				if (document.getElementById('sound_adr').value == "")
-					audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
-				else {
-					audio = new Audio(document.getElementById('sound_adr').value);
-					document.getElementById('sound_save').innerText = "✅";
-					setTimeout(function () {
-						document.getElementById('sound_save').innerText = "💾";
-					}, 3000);
-				}
-			}
-
-			if (flagLangBut == 0) {
-				document.getElementById('languageAF').onclick = function () {
-					if (this.innerHTML == "Русский") {
-						this.innerHTML = "Английский";
-						document.getElementById('AF_helper').style.background = "#EBC7DF"
-					} else {
-						this.innerHTML = "Русский";
-						document.getElementById('AF_helper').style.background = "#464451"
-					}
-				}
-			}
-
-            //
-
-            let range = document.getElementById('range');
-            range.value = localStorage.getItem('audiovol');
-
-
-            range.onchange = function () {
-                if (localStorage.getItem('audiovol') != null) {
-                    audio.volume = this.value;
-                    localStorage.setItem('audiovol', audio.volume);
-                } else localStorage.setItem('audiovol', this.value);
-            }
-
-            //Скрыть окно Л П МВУ
-            let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
-            var lpmboxstatus = document.getElementById('hidelpmwindow');
-            lpmboxstatus.onclick = function () {
-
-                if (!lpmboxstatus.checked) {
-                    document.getElementById('testUsers').style.display = "";
-                    flaglpm = 0;
-                    localStorage.setItem('disablelpmwindow', flaglpm)
-                } else {   // поставить checked, если он не установлен
-                    document.getElementById('testUsers').style.display = "none";
-                    flaglpm = 1;
-                    localStorage.setItem('disablelpmwindow', flaglpm)
+        if (flagLangBut == 0) {
+            document.getElementById('languageAF').onclick = function () {
+                if (this.innerHTML == "Русский") {
+                    this.innerHTML = "Английский";
+                    document.getElementById('AF_helper').style.background = "#EBC7DF"
+                } else {
+                    this.innerHTML = "Русский";
+                    document.getElementById('AF_helper').style.background = "#464451"
                 }
             }
+        }
 
-            if (localStorage.getItem('disablelpmwindow') == 1) {
+        //
+
+        let range = document.getElementById('range');
+        range.value = localStorage.getItem('audiovol');
+
+
+        range.onchange = function () {
+            if (localStorage.getItem('audiovol') != null) {
+                audio.volume = this.value;
+                localStorage.setItem('audiovol', audio.volume);
+            } else localStorage.setItem('audiovol', this.value);
+        }
+
+        //Скрыть окно Л П МВУ
+        let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
+        var lpmboxstatus = document.getElementById('hidelpmwindow');
+        lpmboxstatus.onclick = function () {
+
+            if (!lpmboxstatus.checked) {
+                document.getElementById('testUsers').style.display = "";
+                flaglpm = 0;
+                localStorage.setItem('disablelpmwindow', flaglpm)
+            } else {   // поставить checked, если он не установлен
                 document.getElementById('testUsers').style.display = "none";
-                lpmboxstatus.checked = true;
-            } else {
-                lpmboxstatus.checked = false;
+                flaglpm = 1;
+                localStorage.setItem('disablelpmwindow', flaglpm)
             }
-			
-			document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
-				if (document.getElementById('test_std').value != '') {
-					localStorage.setItem('test_stud', document.getElementById('test_std').value);
-				} else console.log("Ведите ID тестового ученика")
-			}
+        }
 
-			document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
-				if (document.getElementById('test_teach').value != '') {
-					localStorage.setItem('test_teach', document.getElementById('test_teach').value);
-				} else console.log("Ведите ID тестового преподавателя")
-			}
+        if (localStorage.getItem('disablelpmwindow') == 1) {
+            document.getElementById('testUsers').style.display = "none";
+            lpmboxstatus.checked = true;
+        } else {
+            lpmboxstatus.checked = false;
+        }
 
-			document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
-				getLocalstorageToFile('settings-af')
-			}
-			
-			document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
-				let fileInput = document.getElementById('fileinput');
-				let jsonparsed;
+        document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
+            if (document.getElementById('test_std').value != '') {
+                localStorage.setItem('test_stud', document.getElementById('test_std').value);
+            } else console.log("Ведите ID тестового ученика")
+        }
 
-				fileInput.addEventListener('change', function (e) {
-					let file = fileInput.files[0];
-					let textType = /.json/;
+        document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
+            if (document.getElementById('test_teach').value != '') {
+                localStorage.setItem('test_teach', document.getElementById('test_teach').value);
+            } else console.log("Ведите ID тестового преподавателя")
+        }
 
-					if (file.type.match(textType)) {
-						let reader = new FileReader();
+        document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
+            getLocalstorageToFile('settings-af')
+        }
 
-						reader.onload = function (e) {
-							console.log(reader.result)
-							jsonparsed = JSON.parse(reader.result)
-							console.log(jsonparsed)
-							console.log(Object.keys(jsonparsed).length)
-							for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
-								localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
-							}
-							alert("Настройки расширения в localstorage загружены успешно!")
-						}
+        document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
+            let fileInput = document.getElementById('fileinput');
+            let jsonparsed;
 
-						reader.readAsText(file);
-					} else {
-						console.log("File not supported!")
-					}
-				});
-			}
+            fileInput.addEventListener('change', function (e) {
+                let file = fileInput.files[0];
+                let textType = /.json/;
 
-            //Скрыть окно выбора языка
-            let flaglng = 0;   // функция чекбокса вкл и откл  информационного окна
-            var lngbtnonoff = document.getElementById('hidelngselector');
-            lngbtnonoff.onclick = function () {
+                if (file.type.match(textType)) {
+                    let reader = new FileReader();
 
-                if (!lngbtnonoff.checked) {
-                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
-                    flaglng = 0;
-                    localStorage.setItem('disablelngpmwindow', flaglng)
-                } else {   // поставить checked, если он не установлен
-                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-                    flaglng = 1;
-                    localStorage.setItem('disablelngpmwindow', flaglng)
-                }
-            }
-
-            if (localStorage.getItem('disablelngpmwindow') == 1) {
-                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-                lngbtnonoff.checked = true;
-            } else {
-                lngbtnonoff.checked = false;
-            }
-
-            if (localStorage.getItem('audio') == '0')
-                document.getElementById('audioswitcher').checked = false;
-            else
-                document.getElementById('audioswitcher').checked = true;
-
-            document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
-
-                if (localStorage.getItem('audio') != null) {
-                    if (localStorage.getItem('audio') == '0') {
-                        document.getElementById('audioswitcher').checked = false;
-                        localStorage.setItem('audio', '1');
-                    } else if (localStorage.getItem('audio') == '1') {
-                        document.getElementById('audioswitcher').checked = true;
-                        localStorage.setItem('audio', '0');
-                        if (soundintervalset != null) {
-                            clearInterval(soundintervalset)
-                            soundintervalset = null
+                    reader.onload = function (e) {
+                        console.log(reader.result)
+                        jsonparsed = JSON.parse(reader.result)
+                        console.log(jsonparsed)
+                        console.log(Object.keys(jsonparsed).length)
+                        for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
+                            localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
                         }
+                        alert("Настройки расширения в localstorage загружены успешно!")
+                    }
+
+                    reader.readAsText(file);
+                } else {
+                    console.log("File not supported!")
+                }
+            });
+        }
+
+        //Скрыть окно выбора языка
+        let flaglng = 0;   // функция чекбокса вкл и откл  информационного окна
+        var lngbtnonoff = document.getElementById('hidelngselector');
+        lngbtnonoff.onclick = function () {
+
+            if (!lngbtnonoff.checked) {
+                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+                flaglng = 0;
+                localStorage.setItem('disablelngpmwindow', flaglng)
+            } else {   // поставить checked, если он не установлен
+                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                flaglng = 1;
+                localStorage.setItem('disablelngpmwindow', flaglng)
+            }
+        }
+
+        if (localStorage.getItem('disablelngpmwindow') == 1) {
+            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+            lngbtnonoff.checked = true;
+        } else {
+            lngbtnonoff.checked = false;
+        }
+
+        if (localStorage.getItem('audio') == '0')
+            document.getElementById('audioswitcher').checked = false;
+        else
+            document.getElementById('audioswitcher').checked = true;
+
+        document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+
+            if (localStorage.getItem('audio') != null) {
+                if (localStorage.getItem('audio') == '0') {
+                    document.getElementById('audioswitcher').checked = false;
+                    localStorage.setItem('audio', '1');
+                } else if (localStorage.getItem('audio') == '1') {
+                    document.getElementById('audioswitcher').checked = true;
+                    localStorage.setItem('audio', '0');
+                    if (soundintervalset != null) {
+                        clearInterval(soundintervalset)
+                        soundintervalset = null
                     }
                 }
             }
         }
     }
-	
-	// конец блока настроек
+}
+
+// конец блока настроек
 
 let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
@@ -4487,7 +4487,7 @@ let butstdid = document.createElement('button');
 butstdid.id = 'studentidtofield';
 butstdid.innerHTML = "👨‍🎓 (ID У) П обратился";
 butstdid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px'
- 
+
 let butteachidfstd = document.createElement('button');
 butteachidfstd.id = 'teacheridfromstudent';
 butteachidfstd.innerHTML = "👽 (ID П) У обратился";
@@ -4659,7 +4659,7 @@ let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
 taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
-taskBut.classList.add('ant-btn','onlyfortp');
+taskBut.classList.add('ant-btn', 'onlyfortp');
 
 let butServ = document.createElement('div')
 butServ.id = "butServ"
@@ -4697,23 +4697,23 @@ servDsk.classList.add('inithide');
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.classList.add('onlyfortp','inithide');
+butopensugestform.classList.add('onlyfortp', 'inithide');
 
 let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
 butrefuse.innerHTML = "❌Отказ от помощи"
-butrefuse.classList.add('onlyfortp','inithide');
+butrefuse.classList.add('onlyfortp', 'inithide');
 
 let butsmartroom = document.createElement('div')
 butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
-butsmartroom.classList.add('onlyfortp','inithide');
+butsmartroom.classList.add('onlyfortp', 'inithide');
 
 let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn','onlyfortp')
+butThemes.classList.add('ant-btn', 'onlyfortp')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
@@ -4856,7 +4856,7 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
 }
 
 setInterval(screenshots, 5000)
-	
+
 setInterval(setactivechatstyle, 1000)
 
 setInterval(addbuttonsintegration, 1000)
@@ -4929,7 +4929,7 @@ btnsid.onclick = function () { // копирует в буфер логинне�
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
         logginerfortests(teststudid)
-		document.getElementById('sidcode').classList.add('active')
+        document.getElementById('sidcode').classList.add('active')
         setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000)
 
     } else alert("Введите ID тестового ученика в настройках ⚙");
@@ -4939,133 +4939,228 @@ btntid.onclick = function () { // копирует в буфер логинне�
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         logginerfortests(testteachid)
-		document.getElementById('tidcode').classList.add('active')
+        document.getElementById('tidcode').classList.add('active')
         setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000)
 
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
-    if (localStorage.getItem('msg') != null) {
-        document.getElementById('msg').innerHTML = localStorage.getItem('msg')
-		if (localStorage.getItem('msg') == 'Чат')
-			document.getElementById('msg').classList.remove('notes')
-		else if (localStorage.getItem('msg') == 'Заметки')
-			document.getElementById('msg').classList.add('notes')
-    }
-	
-    if (localStorage.getItem('msg1') != null) {
-        document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
-    }
-
-document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
-	if (this.innerHTML == "Чат") {
-		this.innerHTML = "Заметки";
-		this.classList.toggle('notes')
-		localStorage.setItem('msg', 'Заметки')
-	} else {
-		this.innerHTML = "Чат";
-		this.classList.toggle('notes')
-		localStorage.setItem('msg', 'Чат')
-	}
+if (localStorage.getItem('msg') != null) {
+    document.getElementById('msg').innerHTML = localStorage.getItem('msg')
+    if (localStorage.getItem('msg') == 'Чат')
+        document.getElementById('msg').classList.remove('notes')
+    else if (localStorage.getItem('msg') == 'Заметки')
+        document.getElementById('msg').classList.add('notes')
 }
 
-document.getElementById('msg1').onclick = function () { //  переключатель Доработать или отправить сообщение 
-	if (this.innerHTML == "Отправить") {
-		this.innerHTML = "Доработать";
-		localStorage.setItem('msg1', 'Доработать')
-	} else {
-		this.innerHTML = "Отправить";
-		localStorage.setItem('msg1', 'Отправить')
-	}
+if (localStorage.getItem('msg1') != null) {
+    document.getElementById('msg1').innerHTML = localStorage.getItem('msg1')
+}
+
+document.getElementById('msg').onclick = function () { //  переключатель отправить сообщение в чат или заметки
+    if (this.innerHTML == "Чат") {
+        this.innerHTML = "Заметки";
+        this.classList.toggle('notes')
+        localStorage.setItem('msg', 'Заметки')
+    } else {
+        this.innerHTML = "Чат";
+        this.classList.toggle('notes')
+        localStorage.setItem('msg', 'Чат')
+    }
+}
+
+document.getElementById('msg1').onclick = function () { //  переключатель Доработать или отправить сообщение
+    if (this.innerHTML == "Отправить") {
+        this.innerHTML = "Доработать";
+        localStorage.setItem('msg1', 'Доработать')
+    } else {
+        this.innerHTML = "Отправить";
+        localStorage.setItem('msg1', 'Отправить')
+    }
 }
 
 document.getElementById('snd').onclick = function () { //функция отправки сообщений в чат или заметки
-	document.getElementById('snd').setAttribute('disabled', 'disabled')
-	setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
-	if (document.getElementById('msg').innerHTML == "Чат") {
-		if (template_flag == 1) {
-			if (template_flag2 == 1)
-				sendAnswerTemplate2(document.getElementById('inp').value, 1)
-			else
-				sendAnswerTemplate("", "", 1, document.getElementById('inp').value, 1)
-		} else {
-			sendAnswer(document.getElementById('inp').value, 0)
-		}
-	}
-	else
-		sendComment(document.getElementById('inp').value)
-	document.getElementById('inp').value = ""
-
-	if (document.getElementById('phone_tr') != undefined)
-		document.getElementById('phone_tr').value = ""
-	if (document.getElementById('email_tr') != undefined)
-		document.getElementById('email_tr').value = ""
-}
-	
-    document.getElementById('opandclsbarhyper').onclick = function () { // функция открытия формы для добавления гиперссылки
-        if (document.getElementById('hyperlnk').classList.contains('hyper-active') == false) {
-            document.getElementById('hyperlnk').classList.add('hyper-active')
-            document.getElementById('hyperlnk').classList.remove('hyperlnk')
+    document.getElementById('snd').setAttribute('disabled', 'disabled')
+    setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
+    if (document.getElementById('msg').innerHTML == "Чат") {
+        if (template_flag == 1) {
+            if (template_flag2 == 1)
+                sendAnswerTemplate2(document.getElementById('inp').value, 1)
+            else
+                sendAnswerTemplate("", "", 1, document.getElementById('inp').value, 1)
         } else {
-            document.getElementById('hyperlnk').classList.remove('hyper-active')
-            document.getElementById('hyperlnk').classList.add('hyperlnk')
+            sendAnswer(document.getElementById('inp').value, 0)
         }
     }
+    else
+        sendComment(document.getElementById('inp').value)
+    document.getElementById('inp').value = ""
 
-    document.getElementById('insertlinktotext').onclick = function () { // функция замены текста на гиперссылку
-        replaceSelectedText(document.getElementById('inp'), 'change_str');
-        document.getElementById('bindlinktotext').value = ''
+    if (document.getElementById('phone_tr') != undefined)
+        document.getElementById('phone_tr').value = ""
+    if (document.getElementById('email_tr') != undefined)
+        document.getElementById('email_tr').value = ""
+}
+
+document.getElementById('opandclsbarhyper').onclick = function () { // функция открытия формы для добавления гиперссылки
+    if (document.getElementById('hyperlnk').classList.contains('hyper-active') == false) {
+        document.getElementById('hyperlnk').classList.add('hyper-active')
+        document.getElementById('hyperlnk').classList.remove('hyperlnk')
+    } else {
         document.getElementById('hyperlnk').classList.remove('hyper-active')
         document.getElementById('hyperlnk').classList.add('hyperlnk')
     }
+}
 
-    document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
-        let txt = document.getElementById('inp').value;
-        var values = await getInfo(flag)
-        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-        var txt2 = txt.split('\n')
-        var txt3 = ""
-        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
-        txt3 = txt3.split("\"").join("\\\"")
-        txt3 = txt3.split('<p></p>').join("<p><br></p>")
-        txt3 = txt3.substr(0, txt3.length - 2)
+document.getElementById('insertlinktotext').onclick = function () { // функция замены текста на гиперссылку
+    replaceSelectedText(document.getElementById('inp'), 'change_str');
+    document.getElementById('bindlinktotext').value = ''
+    document.getElementById('hyperlnk').classList.remove('hyper-active')
+    document.getElementById('hyperlnk').classList.add('hyperlnk')
+}
 
-        if (document.getElementById('msg').innerHTML == "Чат")
-            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                "headers": {
-                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
-                },
-                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
-                "method": "POST",
-                "credentials": "include"
-            });
-        document.getElementById('inp').value = "";
-        refCurTimer(time)
-    }
+document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
+    let txt = document.getElementById('inp').value;
+    var values = await getInfo(flag)
+    var adr = values[0]; var adr1 = values[1]; var uid = values[2]
+    var txt2 = txt.split('\n')
+    var txt3 = ""
+    txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
+    txt3 = txt3.split("\"").join("\\\"")
+    txt3 = txt3.split('<p></p>').join("<p><br></p>")
+    txt3 = txt3.substr(0, txt3.length - 2)
 
-let intervalotak = setInterval( function () {
-	if (document.getElementById('otkaz') != null || document.getElementById('otkaz') != undefined) {
-	clearInterval(intervalotak)
-	document.getElementById('otkaz').onclick = function() { // открыть форму Отказ от помощи
-        if (document.getElementById('AF_Refuseformnew').style.display == '') {
-            document.getElementById('AF_Refuseformnew').style.display = 'none'
-            document.getElementById('idmymenu').style.display = 'none'
-        } else {
-            document.getElementById('AF_Refuseformnew').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
+    if (document.getElementById('msg').innerHTML == "Чат")
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+            "headers": {
+                "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
+            },
+            "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
+            "method": "POST",
+            "credentials": "include"
+        });
+    document.getElementById('inp').value = "";
+    refCurTimer(time)
+}
 
-            let objSelIssue = document.getElementById("userissue");
-            let objSelSolution = document.getElementById("howissuesolverd");
+let intervalotak = setInterval(function () {
+    if (document.getElementById('otkaz') != null || document.getElementById('otkaz') != undefined) {
+        clearInterval(intervalotak)
+        document.getElementById('otkaz').onclick = function () { // открыть форму Отказ от помощи
+            if (document.getElementById('AF_Refuseformnew').style.display == '') {
+                document.getElementById('AF_Refuseformnew').style.display = 'none'
+                document.getElementById('idmymenu').style.display = 'none'
+            } else {
+                document.getElementById('AF_Refuseformnew').style.display = ''
+                document.getElementById('idmymenu').style.display = 'none'
+
+                let objSelIssue = document.getElementById("userissue");
+                let objSelSolution = document.getElementById("howissuesolverd");
 
 
 
-            let issuefromdoc;
-            let issuecontainer;
-            let solutionfromdoc;
-            let solutioncontainer;
+                let issuefromdoc;
+                let issuecontainer;
+                let solutionfromdoc;
+                let solutioncontainer;
 
-            async function getissueandsolution() {
-                if (objSelIssue.children.length == 1 && objSelSolution.children.length == 1) {
+                async function getissueandsolution() {
+                    if (objSelIssue.children.length == 1 && objSelSolution.children.length == 1) {
+                        document.getElementById('send2doc').innerText = 'Загрузка'
+
+                        issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
+                        await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
+                        issuecontainer = issuedata.result;
+                        console.log(issuedata.result) //получим список проблем
+
+                        for (let i = 0; i < issuecontainer.length; i++) {
+                            addOption(objSelIssue, `${issuecontainer[i][0]}`, `${issuecontainer[i][0]}`)
+                        }
+
+                        solutionfromdoc = 'https://script.google.com/macros/s/AKfycbxut3AuCkPNsK_sR7zxxF8B7xFelbTPnR_iEywL1qo0BXbKbLiBRilGuKFm2XnPcCNdHQ/exec'
+                        await fetch(solutionfromdoc).then(r => r.json()).then(r => solutiondata = r)
+                        solutioncontainer = solutiondata.result;
+                        console.log(solutiondata.result) //получим список как решилось
+
+                        for (let i = 0; i < solutioncontainer.length; i++) {
+                            addOption(objSelSolution, `${solutioncontainer[i][0]}`, `${solutioncontainer[i][0]}`)
+                        }
+
+                        document.getElementById('send2doc').innerText = 'Отправить'
+                    } else {
+                        document.getElementById('send2doc').innerText = 'Отправить'
+                    }
+
+                }
+
+                getissueandsolution();
+
+                //unhide fields when choose 'other'
+                let flagotherproblem = 0;
+                let problemlist = document.getElementById('userissue')
+
+                problemlist.onchange = () => {
+
+                    for (let i = 0; i < problemlist.children.length; i++) {
+
+                        if (problemlist.children[i].selected == true && problemlist.children[i].value == 'Другое') {
+
+                            document.getElementById('otherproblem').classList.remove('otherfieldoff')
+                            document.getElementById('otherproblem').classList.add('otherfieldon')
+                            document.getElementById('otherproblem').removeAttribute('disabled')
+                            flagotherproblem = 1;
+
+                        } else {
+                            document.getElementById('otherproblem').classList.add('otherfieldoff')
+                            document.getElementById('otherproblem').classList.remove('otherfieldon')
+                            document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
+                            flagotherproblem = 0;
+                        }
+                    }
+                }
+
+                let flagothersolved = 0;
+                let solvedlist = document.getElementById('howissuesolverd')
+
+                solvedlist.onchange = () => {
+
+                    for (let i = 0; i < solvedlist.children.length; i++) {
+
+                        if (solvedlist.children[i].selected == true && solvedlist.children[i].value == 'Другое') {
+
+                            document.getElementById('othersolved').classList.remove('otherfieldoff')
+                            document.getElementById('othersolved').classList.add('otherfieldon')
+                            document.getElementById('othersolved').removeAttribute('disabled')
+                            flagothersolved = 1;
+
+                        } else {
+                            document.getElementById('othersolved').classList.add('otherfieldoff')
+                            document.getElementById('othersolved').classList.remove('otherfieldon')
+                            document.getElementById('othersolved').setAttribute('disabled', 'disabled')
+                            flagothersolved = 0;
+                        }
+                    }
+                }
+
+                document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
+                    if (document.getElementById('AF_Refuseformnew').style.display == '')
+                        document.getElementById('AF_Refuseformnew').style.display = 'none'
+                }
+
+                document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
+                    if (checkelementtype(a)) {
+                        document.getElementById('AF_Refuseformnew').style.display = 'none';
+                    }
+                }
+
+                document.getElementById('refuseforminstr').onclick = function () {
+                    window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-otkazotpom%E2%9D%8C%D0%9E%D1%82%D0%BA%D0%B0%D0%B7%D0%BE%D1%82%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%B8')
+                }
+
+                document.getElementById('refreshoptions').onclick = async function () {
+                    objSelIssue.length = 1;
+                    objSelSolution.length = 1;
+
                     document.getElementById('send2doc').innerText = 'Загрузка'
 
                     issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
@@ -5087,377 +5182,282 @@ let intervalotak = setInterval( function () {
                     }
 
                     document.getElementById('send2doc').innerText = 'Отправить'
-                } else {
-                    document.getElementById('send2doc').innerText = 'Отправить'
+
                 }
 
-            }
+                // end of it
 
-            getissueandsolution();
 
-            //unhide fields when choose 'other'
-            let flagotherproblem = 0;
-            let problemlist = document.getElementById('userissue')
+                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                    document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
 
-            problemlist.onchange = () => {
+                document.getElementById('refreshhashrefuseform').onclick = () => {
+                    if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
+                        document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                    else document.getElementById('chatlnk').value = ''
+                }
 
-                for (let i = 0; i < problemlist.children.length; i++) {
+                document.getElementById('clearrefuseform').onclick = () => {
+                    document.getElementById('chatlnk').style.background = '';
+                    document.getElementById('chatlnk').value = '';
+                    document.getElementById('userissue').style.background = '';
+                    document.getElementById('userissue').children[0].selected = true
+                    document.getElementById('otherproblem').style.background = '';
+                    document.getElementById('otherproblem').value = '';
+                    document.getElementById('otherproblem').removeAttribute('class');
+                    document.getElementById('otherproblem').classList.add('otherfieldoff')
+                    document.getElementById('howissuesolverd').style.background = '';
+                    document.getElementById('howissuesolverd').children[0].selected = true
+                    document.getElementById('othersolved').style.background = '';
+                    document.getElementById('othersolved').value = '';
+                    document.getElementById('othersolved').removeAttribute('class');
+                    document.getElementById('othersolved').classList.add('otherfieldoff')
+                }
 
-                    if (problemlist.children[i].selected == true && problemlist.children[i].value == 'Другое') {
-
-                        document.getElementById('otherproblem').classList.remove('otherfieldoff')
-                        document.getElementById('otherproblem').classList.add('otherfieldon')
-                        document.getElementById('otherproblem').removeAttribute('disabled')
-                        flagotherproblem = 1;
-
-                    } else {
-                        document.getElementById('otherproblem').classList.add('otherfieldoff')
-                        document.getElementById('otherproblem').classList.remove('otherfieldon')
-                        document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
-                        flagotherproblem = 0;
+                let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
+                sendrefuseformbyenter.addEventListener('keydown', event => {
+                    if (event.key === "Enter") {
+                        document.querySelector('#send2doc').click()
                     }
-                }
-            }
+                })
 
-            let flagothersolved = 0;
-            let solvedlist = document.getElementById('howissuesolverd')
+                let textrefuseformsolutionbyenter = document.querySelector('#howissuesolverd'); //по Enter отправляет в форму отказа но еще тестится
+                textrefuseformsolutionbyenter.addEventListener('keydown', event => {
+                    if (event.key === "Enter") {
+                        document.querySelector('#send2doc').click()
+                    }
+                })
 
-            solvedlist.onchange = () => {
+                document.getElementById('send2doc').onclick = () => {
 
-                for (let i = 0; i < solvedlist.children.length; i++) {
+                    let textclientsolution;
+                    let textaskclient;
+                    let otherproblemtext;
+                    let othersolvedtext;
+                    let body2;
 
-                    if (solvedlist.children[i].selected == true && solvedlist.children[i].value == 'Другое') {
+                    let flagempty = 0;
 
-                        document.getElementById('othersolved').classList.remove('otherfieldoff')
-                        document.getElementById('othersolved').classList.add('otherfieldon')
-                        document.getElementById('othersolved').removeAttribute('disabled')
-                        flagothersolved = 1;
-
+                    if (document.getElementById('chatlnk').value.length < 3) {
+                        document.getElementById('chatlnk').style.backgroundColor = 'Coral';
+                        flagempty = 1;
                     } else {
+                        document.getElementById('chatlnk').style.backgroundColor = '';
+                    }
+
+                    if (document.getElementById('userissue').children[0].selected == true) {
+                        document.getElementById('userissue').style.backgroundColor = 'Coral';
+                        flagempty = 1;
+                    } else {
+                        document.getElementById('userissue').style.backgroundColor = '';
+                    }
+
+                    if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3) {
+                        document.getElementById('otherproblem').style.backgroundColor = 'Coral';
+                        flagempty = 1;
+                    } else {
+                        document.getElementById('otherproblem').style.backgroundColor = '';
+                    }
+
+                    if (document.getElementById('howissuesolverd').children[0].selected == true) {
+                        document.getElementById('howissuesolverd').style.backgroundColor = 'Coral';
+                        flagempty = 1;
+                    } else {
+                        document.getElementById('howissuesolverd').style.backgroundColor = '';
+                    }
+
+                    if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3) {
+                        document.getElementById('othersolved').style.backgroundColor = 'Coral';
+                        flagempty = 1;
+                    } else {
+                        document.getElementById('othersolved').style.backgroundColor = '';
+                    }
+
+                    if (flagempty == 0) {
+                        let chatlink = document.getElementById('chatlnk').value
+
+                        for (let i = 0; i < document.getElementById('userissue').children.length; i++) {
+                            if (document.getElementById('userissue').children[i].selected == true)
+                                textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
+                        }
+
+                        for (let i = 0; i < document.getElementById('howissuesolverd').children.length; i++) {
+                            if (document.getElementById('howissuesolverd').children[i].selected == true)
+                                textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
+                        }
+
+                        if (flagotherproblem == 0 && flagothersolved == 0) {
+
+                            body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
+
+
+                        } else if (flagotherproblem == 1 && flagothersolved == 0) {
+
+                            otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
+
+                            body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.8206738=' + otherproblemtext
+                            console.log(body2)
+
+                            console.log('other problem =1  othersolve = 0')
+
+                        } else if (flagotherproblem == 0 && flagothersolved == 1) {
+
+                            othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
+
+                            body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext
+                            console.log(body2)
+
+                            console.log('other problem =0  othersolve = 1')
+
+                        } else if (flagotherproblem == 1 && flagothersolved == 1) {
+
+                            otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
+                            othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
+
+                            body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext + '&entry.8206738=' + otherproblemtext
+                            console.log(body2)
+
+                        }
+
+                        let options2 = {
+                            "headers": {
+                                "content-type": "application/x-www-form-urlencoded",
+                            },
+                            "body": body2,
+                            "method": "POST",
+                        }
+
+                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
+                        if (document.getElementById('responseTextarea3') != null)
+                            document.getElementById('responseTextarea3').value = ''
+                        document.getElementById('sendResponse').click()
+
+                        sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
+                        document.getElementById('send2doc').innerText = "Отправлено✅"
+
+                        setTimeout(() => {
+                            document.getElementById('send2doc').innerText = "Отправить"
+                            document.getElementById('AF_Refuseformnew').style.display = 'none'
+                        }, 3000)
+
+                        document.getElementById('chatlnk').value = ''
+                        document.getElementById('userissue').children[0].selected = true
+                        document.getElementById('howissuesolverd').children[0].selected = true
                         document.getElementById('othersolved').classList.add('otherfieldoff')
                         document.getElementById('othersolved').classList.remove('otherfieldon')
                         document.getElementById('othersolved').setAttribute('disabled', 'disabled')
-                        flagothersolved = 0;
+                        document.getElementById('otherproblem').classList.add('otherfieldoff')
+                        document.getElementById('otherproblem').classList.remove('otherfieldon')
+                        document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
+                        document.getElementById('otherproblem').value = ''
+                        document.getElementById('othersolved').value = ''
                     }
-                }
-            }
-			
-			document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
-				if (document.getElementById('AF_Refuseformnew').style.display == '')
-					document.getElementById('AF_Refuseformnew').style.display = 'none'
-			}
-			
-			document.getElementById('AF_Refuseformnew').ondblclick = function (a) { // скрытие окна отказа от помощи по двойному клику
-				if (checkelementtype(a)) {
-					document.getElementById('AF_Refuseformnew').style.display = 'none';
-				}
-			}
-
-            document.getElementById('refuseforminstr').onclick = function () {
-                window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-otkazotpom%E2%9D%8C%D0%9E%D1%82%D0%BA%D0%B0%D0%B7%D0%BE%D1%82%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%B8')
-            }
-
-            document.getElementById('refreshoptions').onclick = async function () {
-                objSelIssue.length = 1;
-                objSelSolution.length = 1;
-
-                document.getElementById('send2doc').innerText = 'Загрузка'
-
-                issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
-                await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
-                issuecontainer = issuedata.result;
-                console.log(issuedata.result) //получим список проблем
-
-                for (let i = 0; i < issuecontainer.length; i++) {
-                    addOption(objSelIssue, `${issuecontainer[i][0]}`, `${issuecontainer[i][0]}`)
-                }
-
-                solutionfromdoc = 'https://script.google.com/macros/s/AKfycbxut3AuCkPNsK_sR7zxxF8B7xFelbTPnR_iEywL1qo0BXbKbLiBRilGuKFm2XnPcCNdHQ/exec'
-                await fetch(solutionfromdoc).then(r => r.json()).then(r => solutiondata = r)
-                solutioncontainer = solutiondata.result;
-                console.log(solutiondata.result) //получим список как решилось
-
-                for (let i = 0; i < solutioncontainer.length; i++) {
-                    addOption(objSelSolution, `${solutioncontainer[i][0]}`, `${solutioncontainer[i][0]}`)
-                }
-
-                document.getElementById('send2doc').innerText = 'Отправить'
-
-            }
-
-            // end of it
-
-
-            if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
-
-            document.getElementById('refreshhashrefuseform').onclick = () => {
-                if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
-                else document.getElementById('chatlnk').value = ''
-            }
-
-            document.getElementById('clearrefuseform').onclick = () => {
-                document.getElementById('chatlnk').style.background = '';
-                document.getElementById('chatlnk').value = '';
-                document.getElementById('userissue').style.background = '';
-                document.getElementById('userissue').children[0].selected = true
-                document.getElementById('otherproblem').style.background = '';
-                document.getElementById('otherproblem').value = '';
-                document.getElementById('otherproblem').removeAttribute('class');
-                document.getElementById('otherproblem').classList.add('otherfieldoff')
-                document.getElementById('howissuesolverd').style.background = '';
-                document.getElementById('howissuesolverd').children[0].selected = true
-                document.getElementById('othersolved').style.background = '';
-                document.getElementById('othersolved').value = '';
-                document.getElementById('othersolved').removeAttribute('class');
-                document.getElementById('othersolved').classList.add('otherfieldoff')
-            }
-
-            let sendrefuseformbyenter = document.querySelector('#userissue'); //по Enter отправляет в форму отказа но еще тестится
-            sendrefuseformbyenter.addEventListener('keydown', event => {
-                if (event.key === "Enter") {
-                    document.querySelector('#send2doc').click()
-                }
-            })
-
-            let textrefuseformsolutionbyenter = document.querySelector('#howissuesolverd'); //по Enter отправляет в форму отказа но еще тестится
-            textrefuseformsolutionbyenter.addEventListener('keydown', event => {
-                if (event.key === "Enter") {
-                    document.querySelector('#send2doc').click()
-                }
-            })
-
-            document.getElementById('send2doc').onclick = () => {
-
-                let textclientsolution;
-                let textaskclient;
-                let otherproblemtext;
-                let othersolvedtext;
-                let body2;
-
-                let flagempty = 0;
-
-                if (document.getElementById('chatlnk').value.length < 3) {
-                    document.getElementById('chatlnk').style.backgroundColor = 'Coral';
-                    flagempty = 1;
-                } else {
-                    document.getElementById('chatlnk').style.backgroundColor = '';
-                }
-
-                if (document.getElementById('userissue').children[0].selected == true) {
-                    document.getElementById('userissue').style.backgroundColor = 'Coral';
-                    flagempty = 1;
-                } else {
-                    document.getElementById('userissue').style.backgroundColor = '';
-                }
-
-                if (!document.getElementById('otherproblem').disabled && document.getElementById('otherproblem').value.length < 3) {
-                    document.getElementById('otherproblem').style.backgroundColor = 'Coral';
-                    flagempty = 1;
-                } else {
-                    document.getElementById('otherproblem').style.backgroundColor = '';
-                }
-
-                if (document.getElementById('howissuesolverd').children[0].selected == true) {
-                    document.getElementById('howissuesolverd').style.backgroundColor = 'Coral';
-                    flagempty = 1;
-                } else {
-                    document.getElementById('howissuesolverd').style.backgroundColor = '';
-                }
-
-                if (!document.getElementById('othersolved').disabled && document.getElementById('othersolved').value.length < 3) {
-                    document.getElementById('othersolved').style.backgroundColor = 'Coral';
-                    flagempty = 1;
-                } else {
-                    document.getElementById('othersolved').style.backgroundColor = '';
-                }
-
-                if (flagempty == 0) {
-                    let chatlink = document.getElementById('chatlnk').value
-
-                    for (let i = 0; i < document.getElementById('userissue').children.length; i++) {
-                        if (document.getElementById('userissue').children[i].selected == true)
-                            textaskclient = encodeURIComponent(document.getElementById('userissue').children[i].value)
-                    }
-
-                    for (let i = 0; i < document.getElementById('howissuesolverd').children.length; i++) {
-                        if (document.getElementById('howissuesolverd').children[i].selected == true)
-                            textclientsolution = encodeURIComponent(document.getElementById('howissuesolverd').children[i].value)
-                    }
-
-                    if (flagotherproblem == 0 && flagothersolved == 0) {
-
-                        body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution
-
-
-                    } else if (flagotherproblem == 1 && flagothersolved == 0) {
-
-                        otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
-
-                        body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.8206738=' + otherproblemtext
-                        console.log(body2)
-
-                        console.log('other problem =1  othersolve = 0')
-
-                    } else if (flagotherproblem == 0 && flagothersolved == 1) {
-
-                        othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
-
-                        body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext
-                        console.log(body2)
-
-                        console.log('other problem =0  othersolve = 1')
-
-                    } else if (flagotherproblem == 1 && flagothersolved == 1) {
-
-                        otherproblemtext = encodeURIComponent(document.getElementById('otherproblem').value)
-                        othersolvedtext = encodeURIComponent(document.getElementById('othersolved').value)
-
-                        body2 = 'entry.1040202788=' + chatlink + '&entry.763930179=' + textaskclient + '&entry.870072493=' + textclientsolution + '&entry.917004094=' + othersolvedtext + '&entry.8206738=' + otherproblemtext
-                        console.log(body2)
-
-                    }
-
-                    let options2 = {
-                        "headers": {
-                            "content-type": "application/x-www-form-urlencoded",
-                        },
-                        "body": body2,
-                        "method": "POST",
-                    }
-
-                    document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                    document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/d/e/1FAIpQLScXLf0uRuESjzpu0gR-kE7T5LcCblOQtqzadtcwnTUb4_vpnQ/formResponse'
-                    if (document.getElementById('responseTextarea3') != null)
-                        document.getElementById('responseTextarea3').value = ''
-                    document.getElementById('sendResponse').click()
-
-                    sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                    document.getElementById('send2doc').innerText = "Отправлено✅"
-
-                    setTimeout(() => {
-                        document.getElementById('send2doc').innerText = "Отправить"
-                        document.getElementById('AF_Refuseformnew').style.display = 'none'
-                    }, 3000)
-
-                    document.getElementById('chatlnk').value = ''
-                    document.getElementById('userissue').children[0].selected = true
-                    document.getElementById('howissuesolverd').children[0].selected = true
-                    document.getElementById('othersolved').classList.add('otherfieldoff')
-                    document.getElementById('othersolved').classList.remove('otherfieldon')
-                    document.getElementById('othersolved').setAttribute('disabled', 'disabled')
-                    document.getElementById('otherproblem').classList.add('otherfieldoff')
-                    document.getElementById('otherproblem').classList.remove('otherfieldon')
-                    document.getElementById('otherproblem').setAttribute('disabled', 'disabled')
-                    document.getElementById('otherproblem').value = ''
-                    document.getElementById('othersolved').value = ''
                 }
             }
         }
     }
-}
-	
+
 }, 1000)
 
 // блок работы с будильником
 document.getElementById('reminderstatus').onclick = function () { // открывает настройки будильника
-	if (document.getElementById('reminder_bar').style.display == '')
-		document.getElementById('reminder_bar').style.display = 'none'
-	else {
-		document.getElementById('reminder_bar').style.display = ''
-		document.getElementById('set_bar').style.display = 'none'
-		document.getElementById('addTmp').style.display = 'none'
-	}
+    if (document.getElementById('reminder_bar').style.display == '')
+        document.getElementById('reminder_bar').style.display = 'none'
+    else {
+        document.getElementById('reminder_bar').style.display = ''
+        document.getElementById('set_bar').style.display = 'none'
+        document.getElementById('addTmp').style.display = 'none'
+    }
 }
-	
 
-if (localStorage.getItem('chronostamp') == null  && localStorage.getItem('chronostamp1') == null) { // если будильники не заданы статус отмечать такой
-	document.getElementById('reminderstatus').textContent = "🔕";
+
+if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp1') == null) { // если будильники не заданы статус отмечать такой
+    document.getElementById('reminderstatus').textContent = "🔕";
 }
 
 document.getElementById('setreminder').onclick = function () {  // выставляем будильник 1
-	document.getElementById('reminderstatus').textContent = "🔔";
-	localStorage.setItem('setchas', setchas.value);
-	if (setminuta.value == "00") {
-		setminuta.value = 0;
-	}
-	localStorage.setItem('setminuta', setminuta.value);
-	var timearr = new Date()
-	var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
-	localStorage.setItem('chronostamp', chronostamp);
-	//		setchas.value = "";
-	//		setminuta.value = "";
-	alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
-	abortTimeOut = setTimeout(function() {
-		setRemindAf('chronostamp')
-	}, localStorage.getItem('chronostamp'));
+    document.getElementById('reminderstatus').textContent = "🔔";
+    localStorage.setItem('setchas', setchas.value);
+    if (setminuta.value == "00") {
+        setminuta.value = 0;
+    }
+    localStorage.setItem('setminuta', setminuta.value);
+    var timearr = new Date()
+    var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+    localStorage.setItem('chronostamp', chronostamp);
+    //		setchas.value = "";
+    //		setminuta.value = "";
+    alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
+    abortTimeOut = setTimeout(function () {
+        setRemindAf('chronostamp')
+    }, localStorage.getItem('chronostamp'));
 }
 
 document.getElementById('setreminder1').onclick = function () {  // выставляем будильник 2
-	document.getElementById('reminderstatus').textContent = "🔔";
-	localStorage.setItem('setchas1', setchas1.value);
-	if (setminuta1.value == "00") {
-		setminuta1.value = 0;
-	}
-	localStorage.setItem('setminuta1', setminuta1.value);
-	var timearr1 = new Date()
-	var chronostamp1 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
-	localStorage.setItem('chronostamp1', chronostamp1);
-	//		setchas.value = "";
-	//		setminuta.value = "";
-	alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
-	abortTimeOut1 = setTimeout(function() {
-		setRemindAf('chronostamp1')
-	}, localStorage.getItem('chronostamp1'));
+    document.getElementById('reminderstatus').textContent = "🔔";
+    localStorage.setItem('setchas1', setchas1.value);
+    if (setminuta1.value == "00") {
+        setminuta1.value = 0;
+    }
+    localStorage.setItem('setminuta1', setminuta1.value);
+    var timearr1 = new Date()
+    var chronostamp1 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+    localStorage.setItem('chronostamp1', chronostamp1);
+    //		setchas.value = "";
+    //		setminuta.value = "";
+    alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
+    abortTimeOut1 = setTimeout(function () {
+        setRemindAf('chronostamp1')
+    }, localStorage.getItem('chronostamp1'));
 }
 
 document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника 1
-	if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-		clearTimeout(abortTimeOut)
-		localStorage.removeItem('chronostamp')
-		localStorage.removeItem('chronostamp2')
-		setchas.value = ""
-		setminuta.value = ""
-		alert("Будильник удален")
-		document.getElementById('reminderstatus').textContent = "🔕";
-	}
+    if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+        clearTimeout(abortTimeOut)
+        localStorage.removeItem('chronostamp')
+        localStorage.removeItem('chronostamp2')
+        setchas.value = ""
+        setminuta.value = ""
+        alert("Будильник удален")
+        document.getElementById('reminderstatus').textContent = "🔕";
+    }
 }
 
 document.getElementById('clock_remin1').ondblclick = function () {		// Удаление будильника 2
-	if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
-		clearTimeout(abortTimeOut1)
-		localStorage.removeItem('chronostamp1')
-		localStorage.removeItem('chronostamp22')
-		setchas1.value = ""
-		setminuta1.value = ""
-		alert("Будильник удален")
-		// document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
-	}
+    if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+        clearTimeout(abortTimeOut1)
+        localStorage.removeItem('chronostamp1')
+        localStorage.removeItem('chronostamp22')
+        setchas1.value = ""
+        setminuta1.value = ""
+        alert("Будильник удален")
+        // document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
+    }
 }
 
-    refreshTimerReminder(); //обновляет оставшееся время до будильника №1
-    refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
+refreshTimerReminder(); //обновляет оставшееся время до будильника №1
+refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
-    setInterval(clock_on_javascript_1, 1000);
-    setInterval(clock_on_javascript_2, 1000);
-    setInterval(clock_on_javascript_3, 1000);
-	
+setInterval(clock_on_javascript_1, 1000);
+setInterval(clock_on_javascript_2, 1000);
+setInterval(clock_on_javascript_3, 1000);
+
 // конец блока работы с будильником
 
 document.getElementById('hideMenu').onclick = function () { //форма hide
-	document.getElementById('AF_helper').style.display = 'none'
-	document.getElementById('scriptBut').style.display = ''
-	if (document.getElementById('cstmTmplates').style.display == '')
-		document.getElementById('cstmTmplates').style.display = 'none'
-	if (document.getElementById('AF_Links').style.display == '')
-		document.getElementById('AF_Links').style.display = 'none'
-	if (document.getElementById('reminder_bar').style.display == '')
-		document.getElementById('reminder_bar').style.display = 'none'
-	if (document.getElementById('AF_Stat').style.display == '')
-		document.getElementById('AF_Stat').style.display = 'none'
-	if (document.getElementById('AF_LessonStatus').style.display == '')
-		document.getElementById('AF_LessonStatus').style.display = 'none'
-	if (document.getElementById('AF_Linksd').style.display == '')
-		document.getElementById('AF_Linksd').style.display = 'none'
+    document.getElementById('AF_helper').style.display = 'none'
+    document.getElementById('scriptBut').style.display = ''
+    if (document.getElementById('cstmTmplates').style.display == '')
+        document.getElementById('cstmTmplates').style.display = 'none'
+    if (document.getElementById('AF_Links').style.display == '')
+        document.getElementById('AF_Links').style.display = 'none'
+    if (document.getElementById('reminder_bar').style.display == '')
+        document.getElementById('reminder_bar').style.display = 'none'
+    if (document.getElementById('AF_Stat').style.display == '')
+        document.getElementById('AF_Stat').style.display = 'none'
+    if (document.getElementById('AF_LessonStatus').style.display == '')
+        document.getElementById('AF_LessonStatus').style.display = 'none'
+    if (document.getElementById('AF_Linksd').style.display == '')
+        document.getElementById('AF_Linksd').style.display = 'none'
 }
