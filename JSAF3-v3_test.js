@@ -3948,7 +3948,9 @@ function refreshTimerReminder() { // обновляет оставшееся в�
 		var timearr = new Date()
 		var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
 		localStorage.setItem('chronostamp2', chronostamp2);
-		abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp2'));
+		abortTimeOut = setTimeout(function() {
+			setRemindAf('chronostamp')
+		}, localStorage.getItem('chronostamp2'));
 	} else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
 		clearTimeout(abortTimeOut);
 		document.getElementById('reminderstatus').textContent = "🔕";
@@ -3965,7 +3967,9 @@ function refreshTimerReminder1() { // обновляет оставшееся в
 		var timearr1 = new Date()
 		var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
 		localStorage.setItem('chronostamp22', chronostamp22);
-		abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp22'));
+		abortTimeOut1 = setTimeout(function() {
+			setRemindAf('chronostamp1')
+		}, localStorage.getItem('chronostamp22'));
 	} else if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp') == null) {
 		clearTimeout(abortTimeOut1);
 		document.getElementById('reminderstatus').textContent = "🔕";
@@ -3974,7 +3978,7 @@ function refreshTimerReminder1() { // обновляет оставшееся в
 	}
 }
 
-function setRemindAf() { //функция  при наступлении времени перевода в статус занят Будильник №1
+function setRemindAf(tsname) { //функция  при наступлении времени перевода в статус занят Будильник №1
 	fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
 		"headers": {
 			"content-type": "application/json",
@@ -3987,7 +3991,7 @@ function setRemindAf() { //функция  при наступлении вре�
 		"credentials": "include"
 	});
 	alert("Время ставить занят! :D");
-	localStorage.removeItem('chronostamp');
+	localStorage.removeItem(tsname);
 
 	if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
 		document.getElementById('reminderstatus').textContent = "🔕";
@@ -3998,37 +4002,42 @@ function setRemindAf() { //функция  при наступлении вре�
 	else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
 		document.getElementById('reminderstatus').textContent = "🔔";
 
-	setchas.value = "";
-	setminuta.value = "";
+	if (tsname == 'chronostamp') {
+		setchas.value = "";
+		setminuta.value = "";
+	} else if  (tsname == 'chronostamp1') {
+		setchas1.value = "";
+		setminuta1.value = "";
+	}
 }
 
-function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
-	fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
-		"headers": {
-			"content-type": "application/json",
-		},
-		"referrer": "https://skyeng.autofaq.ai/tickets/archive",
-		"referrerPolicy": "strict-origin-when-cross-origin",
-		"body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
-		"method": "POST",
-		"mode": "cors",
-		"credentials": "include"
-	});
-	alert("Время ставить занят! :D");
-	localStorage.removeItem('chronostamp1');
+// function setRemindAf1() { //функция  при наступлении времени перевода в статус занят Будильник №2
+	// fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+		// "headers": {
+			// "content-type": "application/json",
+		// },
+		// "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+		// "referrerPolicy": "strict-origin-when-cross-origin",
+		// "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+		// "method": "POST",
+		// "mode": "cors",
+		// "credentials": "include"
+	// });
+	// alert("Время ставить занят! :D");
+	// localStorage.removeItem('chronostamp1');
 
-	if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
-		document.getElementById('reminderstatus').textContent = "🔕";
-	else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
-		document.getElementById('reminderstatus').textContent = "🔔";
-	else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
-		document.getElementById('reminderstatus').textContent = "🔔";
-	else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
-		document.getElementById('reminderstatus').textContent = "🔔";
+	// if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
+		// document.getElementById('reminderstatus').textContent = "🔕";
+	// else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+		// document.getElementById('reminderstatus').textContent = "🔔";
+	// else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+		// document.getElementById('reminderstatus').textContent = "🔔";
+	// else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+		// document.getElementById('reminderstatus').textContent = "🔔";
 
-	setchas1.value = "";
-	setminuta1.value = "";
-}
+	// setchas1.value = "";
+	// setminuta1.value = "";
+// }
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
