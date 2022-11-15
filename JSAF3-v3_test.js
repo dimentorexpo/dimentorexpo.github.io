@@ -5148,7 +5148,9 @@ btntid.onclick = function () { // копирует в буфер логинне�
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
-if (document.getElementById('otkaz') != null || document.getElementById('otkaz') != undefined) {
+let intervalotak = setInterval( function () {
+	if (document.getElementById('otkaz') != null || document.getElementById('otkaz') != undefined) {
+	clearInterval(intervalotak)
 	document.getElementById('otkaz').onclick = function() { // открыть форму Отказ от помощи
         if (document.getElementById('AF_Refuseformnew').style.display == '') {
             document.getElementById('AF_Refuseformnew').style.display = 'none'
@@ -5454,3 +5456,8 @@ if (document.getElementById('otkaz') != null || document.getElementById('otkaz')
         }
     }
 }
+	
+}, 1000)
+
+
+
