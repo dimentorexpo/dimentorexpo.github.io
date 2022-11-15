@@ -2159,6 +2159,24 @@ async function checkthemestatus() { //функция проверки выста
     } catch (e) { }
 }
 
+function dosetclasswork(subject) {     // функция перезапуска урока в зависимости от предмета так как разные API
+	fetch(subject + document.URL.split('/')[6], {
+		"headers": {
+			"accept": "application/json",
+			"content-type": "application/json",
+		},
+		"body": "{\"status\":\"classwork\",\"name\":\"\"}",
+		"method": "PATCH",
+		"mode": "cors",
+		"credentials": "include"
+	});
+
+	document.getElementById('clwbtn').innerText = "Done!"
+
+	setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+}
+	
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -5763,24 +5781,6 @@ async function remandressl() { // функция удаления и сброс�
         } else alert("Выбран не верный предмет или нет учеников в разделе 'Английский язык'")
     }
 
-    // Добавляем в комнату кнопку Classwork для перезапуска урока
-
-    function dosetclasswork(subject) {
-        fetch(subject + document.URL.split('/')[6], {
-            "headers": {
-                "accept": "application/json",
-                "content-type": "application/json",
-            },
-            "body": "{\"status\":\"classwork\",\"name\":\"\"}",
-            "method": "PATCH",
-            "mode": "cors",
-            "credentials": "include"
-        });
-
-        document.getElementById('clwbtn').innerText = "Done!"
-
-        setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
-    }
 
     let classworkbtn = document.createElement('div')
     classworkbtn.id = "clwbtn"
