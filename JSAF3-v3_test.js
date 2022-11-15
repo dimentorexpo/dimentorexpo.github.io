@@ -609,6 +609,13 @@ if (str !== null && str !== "")
     audio = new Audio(str);
 else
     audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
+
+	   Object.keys(localStorage) // чистка localstorage от мусора на каждый лог добавляет запись вида SMART_TABLE...
+      .forEach(function(key){
+           if (/^(SMART_TABLE.)/.test(key)) {
+                localStorage.removeItem(key);
+           }
+       });  
  
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
