@@ -47,6 +47,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button id="getlgsinfo">🔎</button>
 					<input id="cmsstepid" placeholder="CMS stepUUID" title="вводим stepUUID, чтобы сразу попасть в ЦМС на нужный урок и найти на нем наш слайд и проверить" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="cmsid">🔎</button>
+					<input id="schemesteacher" placeholder="ID П схем возн" title="Вводим ID П, чтобы открытть ресурс с подключенными схемами вознаграждения П" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+					<button id="getschemes">🔎</button>
 					<input id="idforservicelocaleru" placeholder="ID У обсл RU" title="вводим ID У и по нажатию изменяем сразу ему язык обслуживания на русский" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
 					<button id="setservicelocaleru">🚀</button>
 					<input id="setidformobpass" placeholder="ID У/П МП" title="введите ID У/П для генерации разового пароля он будет отображен в поле ввода ID и скопирован в  буфер обмена" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
@@ -240,14 +242,22 @@ document.getElementById('benchmark').onclick = function () {                  //
     cpuname.value = "";
 }
 	
-	document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
-    let lnkstep = 'https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/';
+document.getElementById('cmsid').onclick = function () {                     // переход на степID в CMSке
     if (cmsstepid.value == "")
         console.log('Введите STEPUUID в поле')
     else {
-        window.open(lnkstep + cmsstepid.value);
+        window.open('https://content.vimbox.skyeng.ru/cms/stepStore/update/stepId/' + cmsstepid.value);
     };
     cmsstepid.value = "";
+}
+
+document.getElementById('getschemes').onclick = function() { // переход на просмотра подключенных схем вознаграждения преподавателей
+	    if (schemesteacher.value == "")
+        console.log('Введите ID П в поле')
+    else {
+        window.open('https://teacher-incentive.skyeng.ru/incentive/teacher/' + schemesteacher.value);
+    };
+    schemesteacher.value = "";
 }
 		
 document.getElementById('credits').onclick = function () {                  // проверка рассрочки у ученика она же поэтапная оплата (ПО)
