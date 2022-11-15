@@ -610,7 +610,7 @@ if (str !== null && str !== "")
 else
     audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
-	   Object.keys(localStorage) // чистка localstorage от мусора на каждый лог добавляет запись вида SMART_TABLE...
+	   Object.keys(localStorage) // чистка localstorage от мусора , когда АФ на каждый лог добавляет запись вида SMART_TABLE... или при работе с архивом
       .forEach(function(key){
            if (/^(SMART_TABLE.)/.test(key)) {
                 localStorage.removeItem(key);
