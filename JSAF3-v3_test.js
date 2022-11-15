@@ -4050,49 +4050,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    let button1 = document.createElement('div');
-    button1.id = 'scriptBut';
-    button1.innerHTML = "Скрипт";
-    button1.style = "margin-right:15px; display:none";
-    button1.onclick = function () {
-        document.getElementById('AF_helper').style.display = 'flex'
-        this.style.display = 'none'
-        //скрывает окна при выбранно опции скрытия КОД
-        if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
-
-        if (localStorage.getItem('disablelngpmwindow') == 1)
-            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-
-        if (localStorage.getItem('disableomelchenkowindow') == 1)
-            document.getElementById('main_easy_win').style.display = "none";
-
-    }
-
-    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-    btnAdd.insertBefore(button1, btnAdd.children[0])
-
-    addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
-    loginer = document.getElementById('testUsers')
-    loginer.appendChild(addInfoUser)
-
-    var listenerloginer = function (e, a) {
-        loginer.style.left = Number(e.clientX - myX3) + "px";
-        loginer.style.top = Number(e.clientY - myY3) + "px";
-        localStorage.setItem('winTop3', String(Number(e.clientY - myY3)));
-        localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
-    };
-	
-    loginer.onmousedown = function (a) {
-        if (checkelementtype(a)) {
-            window.myX3 = a.layerX;
-            window.myY3 = a.layerY;
-            document.addEventListener('mousemove', listenerloginer);
-        }
-    }
-	
-    loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); }
-
     user = "student"
 
     getText()
@@ -4183,6 +4140,49 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 }
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
+
+    let button1 = document.createElement('div');
+    button1.id = 'scriptBut';
+    button1.innerHTML = "Скрипт";
+    button1.style = "margin-right:15px; display:none";
+    button1.onclick = function () {
+        document.getElementById('AF_helper').style.display = 'flex'
+        this.style.display = 'none'
+        //скрывает окна при выбранно опции скрытия КОД
+        if (localStorage.getItem('disablelpmwindow') == 1)
+            document.getElementById('testUsers').style.display = "none";
+
+        if (localStorage.getItem('disablelngpmwindow') == 1)
+            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+
+        if (localStorage.getItem('disableomelchenkowindow') == 1)
+            document.getElementById('main_easy_win').style.display = "none";
+
+    }
+
+    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+    btnAdd.insertBefore(button1, btnAdd.children[0])
+
+    addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
+    loginer = document.getElementById('testUsers')
+    loginer.appendChild(addInfoUser)
+
+    var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
+        loginer.style.left = Number(e.clientX - myXloginer) + "px";
+        loginer.style.top = Number(e.clientY - myYloginer) + "px";
+        localStorage.setItem('winTop3', String(Number(e.clientY - myYloginer)));
+        localStorage.setItem('winLeft3', String(Number(e.clientX - myXloginer)));
+    };
+	
+    loginer.onmousedown = function (a) {
+        if (checkelementtype(a)) {
+            window.myXloginer = a.layerX;
+            window.myYloginer = a.layerY;
+            document.addEventListener('mousemove', listenerloginer);
+        }
+    }
+	
+    loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); } // прекращение изменения позиции окна с логинером для У П
 
 	// Блок настроек и взаимодействия с ними
 
