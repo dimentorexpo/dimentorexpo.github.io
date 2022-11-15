@@ -693,6 +693,34 @@ function firstLoadPage() { //первичаня загрузка страниц�
     setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
 }
 
+function timerHideButtons() { //функция добавления скрытия полей плюс также перекрашивает при выборе тп исход срм2 в красный, тп2л в зеленый
+    if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+        document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
+
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
+            for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)")
+                    document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
+            for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)")
+                    document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+
+        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
+            let selectorList = document.querySelectorAll('.sc-fznZeY');
+            if (selectorList.length > 5) {
+                for (let i = 0; i < selectorList.length; i++) {
+                    if (selectorList[i].innerText == "Техподдержка исход crm2")
+                        selectorList[i].style.backgroundColor = 'red'
+                    if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
+                        selectorList[i].style.backgroundColor = 'green'
+                }
+            }
+        }
+    }
+}
+
 function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '10px'
@@ -6028,34 +6056,6 @@ function paintstatus() { //функция перекрашивания стат�
 }
 
 setInterval(paintstatus, 5000);
-
-function timerHideButtons() { //функция добавления скрытия полей плюс также перекрашивает при выборе тп исход срм2 в красный, тп2л в зеленый
-    if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
-        document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
-
-        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
-            for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)")
-                    document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
-
-        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
-            for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)")
-                    document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
-
-        if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
-            let selectorList = document.querySelectorAll('.sc-fznZeY');
-            if (selectorList.length > 5) {
-                for (let i = 0; i < selectorList.length; i++) {
-                    if (selectorList[i].innerText == "Техподдержка исход crm2")
-                        selectorList[i].style.backgroundColor = 'red'
-                    if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
-                        selectorList[i].style.backgroundColor = 'green'
-                }
-            }
-        }
-    }
-}
 
 var operatorId = ""
 var operatorsarray = [];
