@@ -1880,6 +1880,481 @@ function resetFlags() { //функция обнуления флагов
 
 //блок для работы с шаблонами из гугл таблиц
 
+function pageClick(pageId) { // по клику переключает страницы с шаблонами
+    b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
+    for (i = 0; i < b.childElementCount; i++) {
+        try {
+            b.children[1].children[i].style.backgroundColor = '#768d87'
+            b.children[1].children[i].style.borderTop = "0px";
+            document.getElementById(i + "page").style.display = 'none'
+        } catch (e) { }
+    }
+    document.getElementById(pageId).style.backgroundColor = 'green'
+    document.getElementById(pageId).style.borderTop = "4px solid orange";
+    document.getElementById(pageId[0] + "page").style.display = ''
+}
+
+function bagPageButtons(butId) {  //с шаблонами тоже фукнкция связана
+    txt = document.getElementById(butId).parentElement.childNodes[0].textContent
+    for (l = 0; l < table.length; l++)
+        if (table[l][0] == txt) {
+            resetFlags()
+            document.getElementById('inp').value = table[l][Number(butId[4]) + 1]
+            break
+        }
+}
+
+function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
+    //resetFlags()
+    phone = ""
+    textFromTable = textFromTable.split('(phone)')
+    if (textFromTable.length > 1) {
+        if (document.getElementById('phone_tr').value == "")
+            phone = document.getElementById('phone_tr').placeholder
+        else
+            phone = document.getElementById('phone_tr').value
+        if (phone == "Телефон") {
+            document.getElementById('inp').value = "Введите номер телефона"
+            return
+        }
+    }
+    textFromTable = textFromTable.join(phone)
+
+    email = ""
+    textFromTable = textFromTable.split('(email)')
+    if (textFromTable.length > 1) {
+        if (document.getElementById('email_tr').value == "")
+            email = document.getElementById('email_tr').placeholder
+        else
+            email = document.getElementById('email_tr').value
+        if (email == "Почта") {
+            document.getElementById('inp').value = "Введите почту"
+            return
+        }
+    }
+    textFromTable = textFromTable.join(email)
+
+    name = ""
+    textFromTable = textFromTable.split('(name)')
+    if (document.getElementsByClassName('expert-user_details-name').length != 0) {
+        a = document.getElementsByClassName('expert-user_details-name')[0].innerText
+        a = a.split(' ')
+        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+        if (textFromTable.length > 1 && cyrillicPattern.test(a[0])) {
+            name = a[0]
+        }
+        else
+            name = a[0]
+    }
+    else
+        name = a[0]
+    textFromTable = textFromTable.join(name)
+
+    return textFromTable
+}
+
+async function buttonsFromDoc(butName) { // функция отправки шаблона в зависимости от нажатой кнопки и также взаимодействут с другими функциями
+    if (butName == "ус+брауз")
+        if (user == 'student')
+            butName = "ус+брауз (У)"
+        else
+            butName = "ус+брауз (П)"
+
+    if (butName == 'Привет') {
+        a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+        a = a.split(' ')
+        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+
+        if (document.getElementById('languageAF').innerHTML == "Русский") {
+            if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Я виртуальный помощник Skyeng' && document.getElementById('msg1').innerHTML == "Доработать") {
+                console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
+                txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+            } else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
+                txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+            else
+                txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
+        } else
+            txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
+
+        if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
+            sendAnswerTemplate2(txt)
+        else
+            sendAnswerTemplate2(txt)
+        return
+    }
+
+    if (butName == '🖕Отказ' && document.getElementById('AF_Refuseformnew').style.display == 'none') // если кнопка отказ открывает форму отказа и если повторно нажали не закрываем форму
+        document.getElementById('otkaz').click();
+
+    msgFromTable(butName)
+
+    // start of counter of pressed key script то есть при нажатии на кнопку с шаблоном передает в гугл таблицу ин6формацию какая кнопка была нажата и там уже др скрипты считают сколько  раз и сортируют
+}
+
+function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
+    but = butName
+    msgFromTable(but) // вызов функции отправки сообщения
+    if (document.getElementById('avariyalink').value !== null) // проверка есть ли значение в поле ссылки
+        sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
+}
+
+var bool = 0;
+var table
+
+function getText() { //получить текст
+    var app = localStorage.getItem('scriptAdr'),
+        xhr = new XMLHttpRequest();
+    xhr.open('GET', app);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+
+        if (xhr.status == 200) {
+            try {
+                var r = JSON.parse(xhr.responseText),
+                    result = r["result"];
+
+                table = result;
+                console.log('Обновили шаблоны')
+                refreshTemplates()
+
+            } catch (e) { console.log(e) }
+        }
+    }
+    xhr.send()
+}
+
+function refreshTemplates() { // функция обновляет шаблоны которые загружены были с гугл таблицы и сформированы их в table
+    setInterval(function () {
+        if (document.getElementsByClassName('expert-user_details-list')[0] != undefined) {
+            if (document.getElementById('phone_tr') != undefined) {
+                phone = document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText
+                if (phone == "-") {
+                    phone = ""
+                    document.getElementById('phone_tr').placeholder = "Телефон"
+                } else
+                    document.getElementById('phone_tr').placeholder = phone
+            }
+            if (document.getElementById('email_tr') != undefined) {
+                email = document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText
+                if (email == "-") {
+                    email = ""
+                    document.getElementById('email_tr').placeholder = "Почта"
+                }
+                document.getElementById('email_tr').placeholder = email
+            }
+        } else {
+            if (document.getElementById('email_tr') != undefined)
+                document.getElementById('email_tr').placeholder = "Почта"
+            if (document.getElementById('phone_tr') != undefined)
+                document.getElementById('phone_tr').placeholder = "Телефон"
+        }
+    }, 1000)
+    templatesAF = []
+    while (document.getElementById('pages').children[0] != undefined)
+        document.getElementById('pages').children[0].remove()
+    for (i = 0; document.getElementById(i + 'page') != undefined; i++)
+        document.getElementById(i + 'page').remove()
+    while (document.getElementById('addTmp').children[0].children[0] != undefined)
+        document.getElementById('addTmp').children[0].children[0].remove()
+    countOfStr = 0
+    countOfPages = 0
+    pageName = ""
+    addTmpFlag = 0
+    b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
+    console.log(table)
+    for (i = 0; i < table.length; i++) {
+        c = table[i]
+        switch (c[0]) {
+            case '':
+                addTmpFlag = 0
+                countOfStr++
+                var newStr = document.createElement('div')
+                newStr.style.margin = "5px"
+                newStr.id = countOfPages + "page_" + countOfStr + "str"
+                b.lastElementChild.appendChild(newStr)
+                break
+
+            case 'Additional templates':
+                addTmpFlag = 1
+                break
+            case 'Страница':
+                var newPageBut = document.createElement('button')
+                newPageBut.innerText = c[1]
+                pageType = c[2]
+                newPageBut.style.marginRight = '4px'
+                newPageBut.setAttribute('onclick', 'pageClick(this.id)')
+                newPageBut.id = countOfPages + 'page_button'
+                b.childNodes[3].appendChild(newPageBut)
+
+                var newPage = document.createElement('div')
+                newPage.id = countOfPages + 'page'
+                b.appendChild(newPage)
+
+                countOfPages++
+
+                countOfStr = 1
+
+                if (pageType == "Серверные") { // дорисоква инпута для ссылки на серверные
+                    var newDiv = document.createElement('div')
+                    newDiv.id = countOfPages + "page_" + countOfStr + "str"
+                    newDiv.style.margin = "5px"
+
+                    var newInputAlink = document.createElement('input')
+                    newInputAlink.id = 'avariyalink'
+                    newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
+                    newInputAlink.autocomplete = 'off'
+                    newInputAlink.type = 'text'
+                    newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+
+                    newDiv.appendChild(newInputAlink)
+
+                    b.lastElementChild.appendChild(newDiv)
+                    countOfStr++
+                }
+
+                var newStr = document.createElement('div')
+                newStr.style.margin = "5px"
+                newStr.id = countOfPages + "page_" + countOfStr + "str"
+                b.lastElementChild.appendChild(newStr)
+                break
+            default:
+                switch (pageType) {
+                    case 'Баги':
+                        var newString = document.createElement('p')
+                        newString.style.color = 'white'
+                        newString.style.margin = '0 0 5px 0'
+                        newString.innerText = c[0]
+                        for (j = 0; j < c[1]; j++) {
+                            var newBut = document.createElement('button')
+                            newBut.style.width = '20px'
+                            newBut.style.marginRight = '4px'
+                            newBut.id = countOfStr + 'str' + (j + 1)
+                            newBut.innerText = (j + 1)
+                            newBut.setAttribute('onclick', 'bagPageButtons(this.id)')
+                            newString.appendChild(newBut)
+                        }
+                        countOfStr++
+                        b.lastElementChild.lastElementChild.appendChild(newString)
+                        break
+                    case 'Шаблоны':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'buttonsFromDoc(this.innerText)')
+                        if (newBut.innerText == 'Урок NS')
+                            newBut.id = "NS"
+                        if (newBut.innerText == 'ус+брауз (У)')
+                            newBut.innerText = "ус+брауз"
+                        if (newBut.innerText == 'ус+брауз (П)')
+                            continue
+                        if (addTmpFlag == 0)
+                            b.lastElementChild.lastElementChild.appendChild(newBut)
+                        else {
+                            newBut.style.marginTop = '4px'
+                            document.getElementById('addTmp').children[0].appendChild(newBut)
+                        }
+                        break
+                    case 'Переводы':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
+                    case 'Серверные': // обработка нажатия на кнопку на странице серверные
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
+                    case 'ТемыМоб':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
+                    case 'Темыadd':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
+                    case 'Темы':
+                        var newBut = document.createElement('button')
+                        newBut.innerText = c[0]
+                        newBut.style.marginRight = '4px'
+                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
+                        b.lastElementChild.lastElementChild.appendChild(newBut)
+                        break
+                    default:
+                        break
+                }
+                break
+        }
+    } document.getElementById('0page').ondblclick = function () {
+        if (document.getElementById('addTmp').style.display == 'none') {
+            document.getElementById('addTmp').style.display = '';
+            document.getElementById('set_bar').style.display = 'none'
+            document.getElementById('reminder_bar').style.display = 'none'
+        }
+        else
+            document.getElementById('addTmp').style.display = 'none';
+    }
+    document.getElementById('0page_button').click()
+}
+
+function tagToChat(btnName) { // функция отправляет тематику в чат, список тематик хранится в спец доке где шаблоны
+    for (var l = 0; l < table.length; l++) {
+        if (btnName == table[l][0]) {
+            newTag(table[l][1])
+            return
+        }
+    }
+}
+
+function newTag(valueId) { // функция выставления тега чата
+    let chatId = ''
+    if (window.location.href.indexOf('skyeng.autofaq.ai/logs') !== -1)
+        chatId = document.location.pathname.split('/')[2]
+    else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+        chatId = document.location.pathname.split('/')[3]
+    else
+        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        "headers": {
+            "content-type": "application/json",
+        },
+        "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"topicId\",\"value\":\"" + valueId + "\"}]}",
+        "method": "POST",
+        "credentials": "include"
+    });
+}
+
+function msgFromTable(btnName) { //шаблоны, тематики. теги с таблицы получает и выставляет
+    for (var l = 0; l < table.length; l++) {
+        if (btnName == table[l][0]) {
+            tempindex = [l];
+            if (table[l][8] == undefined || table[l][8] == null || table[l][8] == " " || table[l][8] == "") {
+                console.log("Не значения тематики")
+            } else {
+                newTag(table[l][8])
+            }
+
+            setTimeout(() => {
+                if (table[tempindex][9] == undefined || table[tempindex][9] == null || table[tempindex][9] == " " || table[tempindex][9] == "") {
+                    console.log("Нет значения тегов")
+                } else {
+                    newTags(table[tempindex][9])
+                }
+            }, 1000)
+
+
+            if (document.getElementById('languageAF').innerHTML == "Русский") {
+                if (table[l][1] == "Быстрый шаблон") {
+                    sendAnswerTemplate2(table[l][2])
+                }
+                if (table[l][1] == "Текст") {
+                    sendAnswer(transfPageButtons(table[l][2]))
+                }
+                if (table[l][1] == "Шаблон") {
+                    sendAnswerTemplate(table[l][2], table[l][3])
+                }
+                if (table[l][1].indexOf("Рандом") != -1) {
+                    var counttmpl = table[l][1][7]
+                    var newL = Math.floor(Math.random() * (counttmpl))
+                    let splittedarr = table[l][2 + newL].split('$')
+                    console.log(splittedarr)
+                    if (splittedarr[0] == "Текст")
+                        sendAnswer(transfPageButtons(splittedarr[1]))
+                    else if (splittedarr[0] == "Шаблон") {
+                        sendAnswerTemplate(splittedarr[1], splittedarr[1])
+                    } else {
+                        document.getElementById('inp').value = "Шаблон  указан не верно, повторите попытку еще раз!"
+                    }
+
+                }
+
+                break
+            } else if (table[l][1].indexOf("Рандом") != -1) {
+                var counttmpleng = table[l][1][9]
+                if (counttmpleng > 0) {
+                    var newLeng = Math.floor(Math.random() * (counttmpleng))
+                    let splittedarreng = table[l][5 + newLeng].split('$')
+                    console.log(splittedarreng)
+                    if (splittedarreng[0] == "Текст") {
+                        sendAnswer(splittedarreng[1])
+                    } else if (splittedarreng[0] == "Шаблон") {
+                        sendAnswerTemplate(splittedarreng[1], splittedarreng[1])
+                    } else {
+                        document.getElementById('inp').value = "Шаблон  указан не верно, повторите попытку еще раз!"
+                    }
+                } else {
+                    document.getElementById('inp').value = "Нет английского варианта шаблонов"
+                }
+            } else if (table[l][4] == "") {
+                document.getElementById('inp').value = "Нет английского варианта шаблона"
+            } else {
+                if (table[l][5] == "Быстрый шаблон") {
+                    sendAnswerTemplate2(table[l][6])
+                }
+                if (table[l][5] == "Текст") {
+                    sendAnswer(transfPageButtons(table[l][6]))
+                }
+                if (table[l][5] == "Шаблон") {
+                    sendAnswerTemplate(table[l][6], table[l][7])
+                }
+                break
+            }
+        }
+    }
+}
+
+var templatesAF = []
+
+async function loadTemplates(template, word) { //загрузка шаблонов с дока
+    return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
+        "headers": {
+            "content-type": "application/json",
+        },
+        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286, 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119649, 121381, 119841, 120181, 119646, 121388, 121384, 121387, 119844, 119025]}",
+        "method": "POST",
+    })
+        .then(response => response.json())
+        .then(result => {
+            var documentId = ""
+            var serviceId = ""
+            var queryId = ""
+            var AFsessionId = ""
+            var tmpText = ""
+            var title = ""
+            var accuracy = ""
+            for (let i = 0; i < result.length; i++) {
+                if (result[i].title == template) {
+                    var b = result[i]
+                    documentId = b.documentId
+                    serviceId = b.serviceId
+                    queryId = b.queryId
+                    AFsessionId = b.sessionId
+                    tmpText = b.text
+                    tmpText = tmpText.split("<br>↵").join('\n')
+                    tmpText = tmpText.split("&nbsp;").join(' ')
+                    tmpText = tmpText.split("<br />").join('\n')
+                    tmpText = tmpText.split('<a').join('TMPaTMP').split('</a').join('TMPENDaTMEPEND')
+                    tmpText = tmpText.replace(/<\/?[^>]+>/g, '')
+                    tmpText = tmpText.split('TMPaTMP').join('<a').split('TMPENDaTMEPEND').join('</a')
+                    title = b.title
+                    title = title.split("\"").join("\\\"")
+                    accuracy = b.accuracy
+
+                    templatesAF.push([template, documentId, serviceId, queryId, AFsessionId, tmpText, title, accuracy])
+                    return ([template, documentId, serviceId, queryId, AFsessionId, tmpText, title, accuracy])
+                }
+            }
+        })
+}
+
 async function sendAnswerTemplate2(word, flag = 0) { //функция отправки шаблона 2
     var tmpTxt = ""
     var adr = `https://skyeng.autofaq.ai/tickets/assigned/`
@@ -4512,482 +4987,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('AF_Refuseformnew').style.display = 'none'
     }
 	
-function pageClick(pageId) { // по клику переключает страницы с шаблонами
-    b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
-    for (i = 0; i < b.childElementCount; i++) {
-        try {
-            b.children[1].children[i].style.backgroundColor = '#768d87'
-            b.children[1].children[i].style.borderTop = "0px";
-            document.getElementById(i + "page").style.display = 'none'
-        } catch (e) { }
-    }
-    document.getElementById(pageId).style.backgroundColor = 'green'
-    document.getElementById(pageId).style.borderTop = "4px solid orange";
-    document.getElementById(pageId[0] + "page").style.display = ''
-}
-
-function bagPageButtons(butId) {  //с шаблонами тоже фукнкция связана
-    txt = document.getElementById(butId).parentElement.childNodes[0].textContent
-    for (l = 0; l < table.length; l++)
-        if (table[l][0] == txt) {
-            resetFlags()
-            document.getElementById('inp').value = table[l][Number(butId[4]) + 1]
-            break
-        }
-}
-
-function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
-    //resetFlags()
-    phone = ""
-    textFromTable = textFromTable.split('(phone)')
-    if (textFromTable.length > 1) {
-        if (document.getElementById('phone_tr').value == "")
-            phone = document.getElementById('phone_tr').placeholder
-        else
-            phone = document.getElementById('phone_tr').value
-        if (phone == "Телефон") {
-            document.getElementById('inp').value = "Введите номер телефона"
-            return
-        }
-    }
-    textFromTable = textFromTable.join(phone)
-
-    email = ""
-    textFromTable = textFromTable.split('(email)')
-    if (textFromTable.length > 1) {
-        if (document.getElementById('email_tr').value == "")
-            email = document.getElementById('email_tr').placeholder
-        else
-            email = document.getElementById('email_tr').value
-        if (email == "Почта") {
-            document.getElementById('inp').value = "Введите почту"
-            return
-        }
-    }
-    textFromTable = textFromTable.join(email)
-
-    name = ""
-    textFromTable = textFromTable.split('(name)')
-    if (document.getElementsByClassName('expert-user_details-name').length != 0) {
-        a = document.getElementsByClassName('expert-user_details-name')[0].innerText
-        a = a.split(' ')
-        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
-        if (textFromTable.length > 1 && cyrillicPattern.test(a[0])) {
-            name = a[0]
-        }
-        else
-            name = a[0]
-    }
-    else
-        name = a[0]
-    textFromTable = textFromTable.join(name)
-
-    return textFromTable
-}
-
-async function buttonsFromDoc(butName) { // функция отправки шаблона в зависимости от нажатой кнопки и также взаимодействут с другими функциями
-    if (butName == "ус+брауз")
-        if (user == 'student')
-            butName = "ус+брауз (У)"
-        else
-            butName = "ус+брауз (П)"
-
-    if (butName == 'Привет') {
-        a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
-        a = a.split(' ')
-        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
-
-        if (document.getElementById('languageAF').innerHTML == "Русский") {
-            if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Я виртуальный помощник Skyeng' && document.getElementById('msg1').innerHTML == "Доработать") {
-                console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
-                txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-            } else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
-                txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-            else
-                txt = "Здравствуйте!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-        } else
-            txt = "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes."
-
-        if (txt == "Hello, " + a[0] + "!" + '\r\n' + "Please wait a few minutes.")
-            sendAnswerTemplate2(txt)
-        else
-            sendAnswerTemplate2(txt)
-        return
-    }
-
-    if (butName == '🖕Отказ' && document.getElementById('AF_Refuseformnew').style.display == 'none') // если кнопка отказ открывает форму отказа и если повторно нажали не закрываем форму
-        document.getElementById('otkaz').click();
-
-    msgFromTable(butName)
-
-    // start of counter of pressed key script то есть при нажатии на кнопку с шаблоном передает в гугл таблицу ин6формацию какая кнопка была нажата и там уже др скрипты считают сколько  раз и сортируют
-}
-
-function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
-    but = butName
-    msgFromTable(but) // вызов функции отправки сообщения
-    if (document.getElementById('avariyalink').value !== null) // проверка есть ли значение в поле ссылки
-        sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
-}
-
-var bool = 0;
-var table
-
-function getText() { //получить текст
-    var app = localStorage.getItem('scriptAdr'),
-        xhr = new XMLHttpRequest();
-    xhr.open('GET', app);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState !== 4) return;
-
-        if (xhr.status == 200) {
-            try {
-                var r = JSON.parse(xhr.responseText),
-                    result = r["result"];
-
-                table = result;
-                console.log('Обновили шаблоны')
-                refreshTemplates()
-
-            } catch (e) { console.log(e) }
-        }
-    }
-    xhr.send()
-}
-
-function refreshTemplates() { // функция обновляет шаблоны которые загружены были с гугл таблицы и сформированы их в table
-    setInterval(function () {
-        if (document.getElementsByClassName('expert-user_details-list')[0] != undefined) {
-            if (document.getElementById('phone_tr') != undefined) {
-                phone = document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText
-                if (phone == "-") {
-                    phone = ""
-                    document.getElementById('phone_tr').placeholder = "Телефон"
-                } else
-                    document.getElementById('phone_tr').placeholder = phone
-            }
-            if (document.getElementById('email_tr') != undefined) {
-                email = document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText
-                if (email == "-") {
-                    email = ""
-                    document.getElementById('email_tr').placeholder = "Почта"
-                }
-                document.getElementById('email_tr').placeholder = email
-            }
-        } else {
-            if (document.getElementById('email_tr') != undefined)
-                document.getElementById('email_tr').placeholder = "Почта"
-            if (document.getElementById('phone_tr') != undefined)
-                document.getElementById('phone_tr').placeholder = "Телефон"
-        }
-    }, 1000)
-    templatesAF = []
-    while (document.getElementById('pages').children[0] != undefined)
-        document.getElementById('pages').children[0].remove()
-    for (i = 0; document.getElementById(i + 'page') != undefined; i++)
-        document.getElementById(i + 'page').remove()
-    while (document.getElementById('addTmp').children[0].children[0] != undefined)
-        document.getElementById('addTmp').children[0].children[0].remove()
-    countOfStr = 0
-    countOfPages = 0
-    pageName = ""
-    addTmpFlag = 0
-    b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
-    console.log(table)
-    for (i = 0; i < table.length; i++) {
-        c = table[i]
-        switch (c[0]) {
-            case '':
-                addTmpFlag = 0
-                countOfStr++
-                var newStr = document.createElement('div')
-                newStr.style.margin = "5px"
-                newStr.id = countOfPages + "page_" + countOfStr + "str"
-                b.lastElementChild.appendChild(newStr)
-                break
-
-            case 'Additional templates':
-                addTmpFlag = 1
-                break
-            case 'Страница':
-                var newPageBut = document.createElement('button')
-                newPageBut.innerText = c[1]
-                pageType = c[2]
-                newPageBut.style.marginRight = '4px'
-                newPageBut.setAttribute('onclick', 'pageClick(this.id)')
-                newPageBut.id = countOfPages + 'page_button'
-                b.childNodes[3].appendChild(newPageBut)
-
-                var newPage = document.createElement('div')
-                newPage.id = countOfPages + 'page'
-                b.appendChild(newPage)
-
-                countOfPages++
-
-                countOfStr = 1
-
-                if (pageType == "Серверные") { // дорисоква инпута для ссылки на серверные
-                    var newDiv = document.createElement('div')
-                    newDiv.id = countOfPages + "page_" + countOfStr + "str"
-                    newDiv.style.margin = "5px"
-
-                    var newInputAlink = document.createElement('input')
-                    newInputAlink.id = 'avariyalink'
-                    newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
-                    newInputAlink.autocomplete = 'off'
-                    newInputAlink.type = 'text'
-                    newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
-
-                    newDiv.appendChild(newInputAlink)
-
-                    b.lastElementChild.appendChild(newDiv)
-                    countOfStr++
-                }
-
-                var newStr = document.createElement('div')
-                newStr.style.margin = "5px"
-                newStr.id = countOfPages + "page_" + countOfStr + "str"
-                b.lastElementChild.appendChild(newStr)
-                break
-            default:
-                switch (pageType) {
-                    case 'Баги':
-                        var newString = document.createElement('p')
-                        newString.style.color = 'white'
-                        newString.style.margin = '0 0 5px 0'
-                        newString.innerText = c[0]
-                        for (j = 0; j < c[1]; j++) {
-                            var newBut = document.createElement('button')
-                            newBut.style.width = '20px'
-                            newBut.style.marginRight = '4px'
-                            newBut.id = countOfStr + 'str' + (j + 1)
-                            newBut.innerText = (j + 1)
-                            newBut.setAttribute('onclick', 'bagPageButtons(this.id)')
-                            newString.appendChild(newBut)
-                        }
-                        countOfStr++
-                        b.lastElementChild.lastElementChild.appendChild(newString)
-                        break
-                    case 'Шаблоны':
-                        var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
-                        newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'buttonsFromDoc(this.innerText)')
-                        if (newBut.innerText == 'Урок NS')
-                            newBut.id = "NS"
-                        if (newBut.innerText == 'ус+брауз (У)')
-                            newBut.innerText = "ус+брауз"
-                        if (newBut.innerText == 'ус+брауз (П)')
-                            continue
-                        if (addTmpFlag == 0)
-                            b.lastElementChild.lastElementChild.appendChild(newBut)
-                        else {
-                            newBut.style.marginTop = '4px'
-                            document.getElementById('addTmp').children[0].appendChild(newBut)
-                        }
-                        break
-                    case 'Переводы':
-                        var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
-                        newBut.style.marginRight = '4px'
-                        b.lastElementChild.lastElementChild.appendChild(newBut)
-                        break
-                    case 'Серверные': // обработка нажатия на кнопку на странице серверные
-                        var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
-                        newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
-                        b.lastElementChild.lastElementChild.appendChild(newBut)
-                        break
-                    case 'ТемыМоб':
-                        var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
-                        newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
-                        b.lastElementChild.lastElementChild.appendChild(newBut)
-                        break
-                    case 'Темыadd':
-                        var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
-                        newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
-                        b.lastElementChild.lastElementChild.appendChild(newBut)
-                        break
-                    case 'Темы':
-                        var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
-                        newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
-                        b.lastElementChild.lastElementChild.appendChild(newBut)
-                        break
-                    default:
-                        break
-                }
-                break
-        }
-    } document.getElementById('0page').ondblclick = function () {
-        if (document.getElementById('addTmp').style.display == 'none') {
-            document.getElementById('addTmp').style.display = '';
-            document.getElementById('set_bar').style.display = 'none'
-            document.getElementById('reminder_bar').style.display = 'none'
-        }
-        else
-            document.getElementById('addTmp').style.display = 'none';
-    }
-    document.getElementById('0page_button').click()
-}
-
-function tagToChat(btnName) { // функция отправляет тематику в чат, список тематик хранится в спец доке где шаблоны
-    for (var l = 0; l < table.length; l++) {
-        if (btnName == table[l][0]) {
-            newTag(table[l][1])
-            return
-        }
-    }
-}
-
-function newTag(valueId) { // функция выставления тега чата
-    let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/logs') !== -1)
-        chatId = document.location.pathname.split('/')[2]
-    else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
-        chatId = document.location.pathname.split('/')[3]
-    else
-        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
-        "headers": {
-            "content-type": "application/json",
-        },
-        "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"topicId\",\"value\":\"" + valueId + "\"}]}",
-        "method": "POST",
-        "credentials": "include"
-    });
-}
-
-function msgFromTable(btnName) { //шаблоны, тематики. теги с таблицы получает и выставляет
-    for (var l = 0; l < table.length; l++) {
-        if (btnName == table[l][0]) {
-            tempindex = [l];
-            if (table[l][8] == undefined || table[l][8] == null || table[l][8] == " " || table[l][8] == "") {
-                console.log("Не значения тематики")
-            } else {
-                newTag(table[l][8])
-            }
-
-            setTimeout(() => {
-                if (table[tempindex][9] == undefined || table[tempindex][9] == null || table[tempindex][9] == " " || table[tempindex][9] == "") {
-                    console.log("Нет значения тегов")
-                } else {
-                    newTags(table[tempindex][9])
-                }
-            }, 1000)
-
-
-            if (document.getElementById('languageAF').innerHTML == "Русский") {
-                if (table[l][1] == "Быстрый шаблон") {
-                    sendAnswerTemplate2(table[l][2])
-                }
-                if (table[l][1] == "Текст") {
-                    sendAnswer(transfPageButtons(table[l][2]))
-                }
-                if (table[l][1] == "Шаблон") {
-                    sendAnswerTemplate(table[l][2], table[l][3])
-                }
-                if (table[l][1].indexOf("Рандом") != -1) {
-                    var counttmpl = table[l][1][7]
-                    var newL = Math.floor(Math.random() * (counttmpl))
-                    let splittedarr = table[l][2 + newL].split('$')
-                    console.log(splittedarr)
-                    if (splittedarr[0] == "Текст")
-                        sendAnswer(transfPageButtons(splittedarr[1]))
-                    else if (splittedarr[0] == "Шаблон") {
-                        sendAnswerTemplate(splittedarr[1], splittedarr[1])
-                    } else {
-                        document.getElementById('inp').value = "Шаблон  указан не верно, повторите попытку еще раз!"
-                    }
-
-                }
-
-                break
-            } else if (table[l][1].indexOf("Рандом") != -1) {
-                var counttmpleng = table[l][1][9]
-                if (counttmpleng > 0) {
-                    var newLeng = Math.floor(Math.random() * (counttmpleng))
-                    let splittedarreng = table[l][5 + newLeng].split('$')
-                    console.log(splittedarreng)
-                    if (splittedarreng[0] == "Текст") {
-                        sendAnswer(splittedarreng[1])
-                    } else if (splittedarreng[0] == "Шаблон") {
-                        sendAnswerTemplate(splittedarreng[1], splittedarreng[1])
-                    } else {
-                        document.getElementById('inp').value = "Шаблон  указан не верно, повторите попытку еще раз!"
-                    }
-                } else {
-                    document.getElementById('inp').value = "Нет английского варианта шаблонов"
-                }
-            } else if (table[l][4] == "") {
-                document.getElementById('inp').value = "Нет английского варианта шаблона"
-            } else {
-                if (table[l][5] == "Быстрый шаблон") {
-                    sendAnswerTemplate2(table[l][6])
-                }
-                if (table[l][5] == "Текст") {
-                    sendAnswer(transfPageButtons(table[l][6]))
-                }
-                if (table[l][5] == "Шаблон") {
-                    sendAnswerTemplate(table[l][6], table[l][7])
-                }
-                break
-            }
-        }
-    }
-}
-
-var templatesAF = []
-
-
-async function loadTemplates(template, word) { //загрузка шаблонов с дока
-    return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
-        "headers": {
-            "content-type": "application/json",
-        },
-        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121286, 119638, 121385, 121300, 119843, 118980, 121692, 121386, 119636, 119649, 121381, 119841, 120181, 119646, 121388, 121384, 121387, 119844, 119025]}",
-        "method": "POST",
-    })
-        .then(response => response.json())
-        .then(result => {
-            var documentId = ""
-            var serviceId = ""
-            var queryId = ""
-            var AFsessionId = ""
-            var tmpText = ""
-            var title = ""
-            var accuracy = ""
-            for (let i = 0; i < result.length; i++) {
-                if (result[i].title == template) {
-                    var b = result[i]
-                    documentId = b.documentId
-                    serviceId = b.serviceId
-                    queryId = b.queryId
-                    AFsessionId = b.sessionId
-                    tmpText = b.text
-                    tmpText = tmpText.split("<br>↵").join('\n')
-                    tmpText = tmpText.split("&nbsp;").join(' ')
-                    tmpText = tmpText.split("<br />").join('\n')
-                    tmpText = tmpText.split('<a').join('TMPaTMP').split('</a').join('TMPENDaTMEPEND')
-                    tmpText = tmpText.replace(/<\/?[^>]+>/g, '')
-                    tmpText = tmpText.split('TMPaTMP').join('<a').split('TMPENDaTMEPEND').join('</a')
-                    title = b.title
-                    title = title.split("\"").join("\\\"")
-                    accuracy = b.accuracy
-
-                    templatesAF.push([template, documentId, serviceId, queryId, AFsessionId, tmpText, title, accuracy])
-                    return ([template, documentId, serviceId, queryId, AFsessionId, tmpText, title, accuracy])
-                }
-            }
-        })
-}
-
 async function getInfo(flag1 = 1) { //функция получения инфо о чате и сервис айди
     var adr = document.location.href
     var adr1 = document.location.pathname
