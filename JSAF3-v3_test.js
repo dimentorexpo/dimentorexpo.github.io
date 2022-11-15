@@ -4030,7 +4030,6 @@ function setRemindAf1() { //функция  при наступлении вре
 	setminuta1.value = "";
 }
 
-
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
@@ -4056,57 +4055,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             document.getElementById('AF_Service').style.display = ''
     }
 	
-    document.getElementById('msg1').onclick = function () {
-        if (this.innerHTML == "Отправить") {
-            this.innerHTML = "Доработать";
-            localStorage.setItem('msg1', 'Доработать')
-        } else {
-            this.innerHTML = "Отправить";
-            localStorage.setItem('msg1', 'Отправить')
-        }
-    }
-
-    document.getElementById('opandclsbarhyper').onclick = function () {
-        if (document.getElementById('hyperlnk').classList.contains('hyper-active') == false) {
-            document.getElementById('hyperlnk').classList.add('hyper-active')
-            document.getElementById('hyperlnk').classList.remove('hyperlnk')
-        } else {
-            document.getElementById('hyperlnk').classList.remove('hyper-active')
-            document.getElementById('hyperlnk').classList.add('hyperlnk')
-        }
-    }
-
-    document.getElementById('insertlinktotext').onclick = function () {
-        replaceSelectedText(document.getElementById('inp'), 'change_str');
-        document.getElementById('bindlinktotext').value = ''
-        document.getElementById('hyperlnk').classList.remove('hyper-active')
-        document.getElementById('hyperlnk').classList.add('hyperlnk')
-    }
-
-    document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
-        let txt = document.getElementById('inp').value;
-        var values = await getInfo(flag)
-        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-        var txt2 = txt.split('\n')
-        var txt3 = ""
-        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
-        txt3 = txt3.split("\"").join("\\\"")
-        txt3 = txt3.split('<p></p>').join("<p><br></p>")
-        txt3 = txt3.substr(0, txt3.length - 2)
-
-        if (document.getElementById('msg').innerHTML == "Чат")
-            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-                "headers": {
-                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
-                },
-                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
-                "method": "POST",
-                "credentials": "include"
-            });
-        document.getElementById('inp').value = "";
-        refCurTimer(time)
-    }
-
     document.getElementById('snd').onclick = function () { //функция отправки сообщений в чат или заметки
         document.getElementById('snd').setAttribute('disabled', 'disabled')
         setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
@@ -5058,6 +5006,57 @@ document.getElementById('msg').onclick = function () { //  переключат�
 		localStorage.setItem('msg', 'Чат')
 	}
 }
+
+document.getElementById('msg1').onclick = function () { //  переключатель Доработать или отправить сообщение 
+	if (this.innerHTML == "Отправить") {
+		this.innerHTML = "Доработать";
+		localStorage.setItem('msg1', 'Доработать')
+	} else {
+		this.innerHTML = "Отправить";
+		localStorage.setItem('msg1', 'Отправить')
+	}
+}
+	
+    document.getElementById('opandclsbarhyper').onclick = function () { // функция открытия формы для добавления гиперссылки
+        if (document.getElementById('hyperlnk').classList.contains('hyper-active') == false) {
+            document.getElementById('hyperlnk').classList.add('hyper-active')
+            document.getElementById('hyperlnk').classList.remove('hyperlnk')
+        } else {
+            document.getElementById('hyperlnk').classList.remove('hyper-active')
+            document.getElementById('hyperlnk').classList.add('hyperlnk')
+        }
+    }
+
+    document.getElementById('insertlinktotext').onclick = function () { // функция замены текста на гиперссылку
+        replaceSelectedText(document.getElementById('inp'), 'change_str');
+        document.getElementById('bindlinktotext').value = ''
+        document.getElementById('hyperlnk').classList.remove('hyper-active')
+        document.getElementById('hyperlnk').classList.add('hyperlnk')
+    }
+
+    document.getElementById('sndbot').onclick = async function () { //отправить сообщение от автофак бота
+        let txt = document.getElementById('inp').value;
+        var values = await getInfo(flag)
+        var adr = values[0]; var adr1 = values[1]; var uid = values[2]
+        var txt2 = txt.split('\n')
+        var txt3 = ""
+        txt2.forEach(el => txt3 += "<p>" + el + "</p>\\n")
+        txt3 = txt3.split("\"").join("\\\"")
+        txt3 = txt3.split('<p></p>').join("<p><br></p>")
+        txt3 = txt3.substr(0, txt3.length - 2)
+
+        if (document.getElementById('msg').innerHTML == "Чат")
+            fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                "headers": {
+                    "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
+                },
+                "body": "------WebKitFormBoundarymasjvc4O46a190zh\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt3 + "\",\"suggestedAnswerDocId\":0}\r\n------WebKitFormBoundarymasjvc4O46a190zh--\r\n",
+                "method": "POST",
+                "credentials": "include"
+            });
+        document.getElementById('inp').value = "";
+        refCurTimer(time)
+    }
 
 let intervalotak = setInterval( function () {
 	if (document.getElementById('otkaz') != null || document.getElementById('otkaz') != undefined) {
