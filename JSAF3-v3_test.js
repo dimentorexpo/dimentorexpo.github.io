@@ -4914,7 +4914,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         }
     }
 
-    screenshots()
+    // screenshots()
     setInterval(screenshots, 5000)
 
     function screenshots2() { //просмотр и трансформация скриншотов в архиве
@@ -4940,7 +4940,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         }
     }
 
-    screenshots2()
+    // screenshots2()
     setInterval(screenshots2, 5000)
 
     addInfoUser.style.textAlign = "center"
