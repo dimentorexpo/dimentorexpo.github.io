@@ -2045,6 +2045,120 @@ function requestsRed() { //функция окрашивает в красный
     }
 }
 
+async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
+    try {
+        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] !='') {
+            drevo = '';
+            let temparr = document.location.pathname.split('/')[3];
+            await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
+            }).then(r => r.json()).then(r => pldata = r)
+
+            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
+                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
+
+
+            if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+
+                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
+                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+                    let theme = document.createElement('div')
+                    theme.innerText = "Тема: ❌"
+                    theme.style = 'color:red; font-weight:700'
+                    if (txtbar.childNodes[1].childNodes[4] == undefined)
+                        txtbar.childNodes[1].appendChild(theme)
+                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ✔') {
+                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ❌";
+                        txtbar.childNodes[1].childNodes[4].style.color = 'red';
+                    }
+                }
+
+            } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
+
+                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
+                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+                    let theme = document.createElement('div')
+                    theme.innerText = "Тема: ❌"
+                    theme.style = 'color:red; font-weight:700'
+                    if (txtbar.childNodes[1].childNodes[4] == undefined)
+                        txtbar.childNodes[1].appendChild(theme)
+                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ✔') {
+                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ❌";
+                        txtbar.childNodes[1].childNodes[4].style.color = 'red';
+                    }
+                }
+
+            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
+
+                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
+                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+                    let theme = document.createElement('div')
+                    theme.innerText = "Тема: ✔"
+                    theme.style = 'color:green; font-weight:700'
+                    if (txtbar.childNodes[1].childNodes[4] == undefined)
+                        txtbar.childNodes[1].appendChild(theme)
+
+                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ❌') {
+                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ✔";
+                        txtbar.childNodes[1].childNodes[4].style.color = 'green';
+                    }
+
+                }
+
+            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
+
+                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
+                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+                    let theme = document.createElement('div')
+                    theme.innerText = "Тема: ✔"
+                    theme.style = 'color:green; font-weight:700'
+                    if (txtbar.childNodes[1].childNodes[4] == undefined)
+                        txtbar.childNodes[1].appendChild(theme)
+
+                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ❌') {
+                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ✔";
+                        txtbar.childNodes[1].childNodes[4].style.color = 'green';
+                    }
+                }
+            }
+
+            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор тегов ТП:') {
+                let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+                txtbar.childNodes[1].childNodes[5].innerText = "";
+            }
+
+            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
+                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
+                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+                    let theme = document.createElement('div')
+                    theme.innerText = "Услуга: ❌"
+                    theme.style = 'color:red; font-weight:700'
+                    if (txtbar.childNodes[1].childNodes[5] == undefined)
+                        txtbar.childNodes[1].appendChild(theme)
+
+                    if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ✔') {
+                        txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ❌";
+                        txtbar.childNodes[1].childNodes[5].style.color = 'red';
+                    }
+                }
+            } else if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
+                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
+                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
+                    let theme = document.createElement('div')
+                    theme.innerText = "Услуга: ✔"
+                    theme.style = 'color:green; font-weight:700'
+                    if (txtbar.childNodes[1].childNodes[5] == undefined)
+                        txtbar.childNodes[1].appendChild(theme)
+
+                    if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ❌') {
+                        txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ✔";
+                        txtbar.childNodes[1].childNodes[5].style.color = 'green';
+                    }
+                }
+            }
+        }
+    } catch (e) { }
+}
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -5905,120 +6019,6 @@ function checJiraF() { //Функция добавления коммента в
 }
 
 setInterval(checJiraF, 1000);
-
-async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
-    try {
-        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] !='') {
-            drevo = '';
-            let temparr = document.location.pathname.split('/')[3];
-            await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
-            }).then(r => r.json()).then(r => pldata = r)
-
-            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
-                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
-
-
-            if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
-
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Тема: ❌"
-                    theme.style = 'color:red; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ✔') {
-                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ❌";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'red';
-                    }
-                }
-
-            } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
-
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Тема: ❌"
-                    theme.style = 'color:red; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ✔') {
-                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ❌";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'red';
-                    }
-                }
-
-            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
-
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Тема: ✔"
-                    theme.style = 'color:green; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ❌') {
-                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ✔";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'green';
-                    }
-
-                }
-
-            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
-
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Тема: ✔"
-                    theme.style = 'color:green; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ❌') {
-                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ✔";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'green';
-                    }
-                }
-            }
-
-            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор тегов ТП:') {
-                let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                txtbar.childNodes[1].childNodes[5].innerText = "";
-            }
-
-            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Услуга: ❌"
-                    theme.style = 'color:red; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[5] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ✔') {
-                        txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ❌";
-                        txtbar.childNodes[1].childNodes[5].style.color = 'red';
-                    }
-                }
-            } else if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Услуга: ✔"
-                    theme.style = 'color:green; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[5] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ❌') {
-                        txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ✔";
-                        txtbar.childNodes[1].childNodes[5].style.color = 'green';
-                    }
-                }
-            }
-        }
-    } catch (e) { }
-}
 
 setInterval(checkthemestatus, 3000);
 
