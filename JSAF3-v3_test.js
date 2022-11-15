@@ -11,11 +11,6 @@ let tokenlog; // пустая переменная для функции loggine
 let audio // переменнай для проигрывания звука при поступлении нового чата
 let chatneraspcount; // переменная для получения колчества нераспределенных чатов в очереди
 let chattpquecount; // переменная для получения колчества нераспределенных чатов в очереди тематики ТП v1
-var templatesAF = [];
-var bool = 0;
-var table;
-var operatorId = ""; //глобальная переменная после получения ID operator , который использует расширение и авторизован в свой профиль
-var operatorsarray = []; //массив операторов , который потом пригодится для других функций
 idk = 0
 var tmrs = []
 var timeStart = new Date()
@@ -25,8 +20,17 @@ let template_flag2 = 0
 let word_text = ""
 let template_text = ""
 let flagggg = 0;
-var flagLangBut = 0;
 let addInfoUser = document.createElement('div');
+let getidusrteachreq;
+let getidusrstud;
+let getidusrsteach;
+let getservidst;
+var templatesAF = [];
+var bool = 0;
+var table;
+var operatorId = ""; //глобальная переменная после получения ID operator , который использует расширение и авторизован в свой профиль
+var operatorsarray = []; //массив операторов , который потом пригодится для других функций
+var flagLangBut = 0;
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -5367,8 +5371,6 @@ setInterval(addbuttonsintegration, 1000)
 
 setInterval(remandressl, 3000);
 
-let getidusrteachreq;
-
 butteachid.addEventListener('click', function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
@@ -5382,7 +5384,6 @@ butteachid.addEventListener('click', function () { // копирует в буф
     }
 })
 
-let getidusrstud;
 
 butstdid.addEventListener('click', function () { // копирует в буфер ID У из секции nextclass-StudentId при создании задачи через АФ интеграцию
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -5392,7 +5393,6 @@ butstdid.addEventListener('click', function () { // копирует в буфе
     }
 })
 
-let getidusrsteach;
 
 butteachidfstd.addEventListener('click', function () { // копирует в буфер ID П из секции nextclass-TeacherId при обращении У и создании задачи через АФ интеграцию
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -5402,7 +5402,6 @@ butteachidfstd.addEventListener('click', function () { // копирует в б
     }
 })
 
-let getservidst;
 
 buttonservid.addEventListener('click', function () { //копирует в буфер nextClass-educationServiceId при обращении П во время крита услугу ученика при интеграции в форме АФ
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
