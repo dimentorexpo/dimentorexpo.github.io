@@ -20,6 +20,11 @@ idk = 0
 var tmrs = []
 var timeStart = new Date()
 let soundintervalset; //интервал между проигрыванием звука
+let template_flag = 0
+let template_flag2 = 0
+let word_text = ""
+let template_text = ""
+let flagggg = 0
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 
 function mystyles() {
@@ -3855,13 +3860,6 @@ let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 
-let template_flag = 0
-let template_flag2 = 0
-let word_text = ""
-let template_text = ""
-let flagggg = 0
-
-
 buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
     document.getElementById('butChatHistory').click();
 
@@ -4009,8 +4007,6 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
         }
     }
 }
-
-let addInfoUser = document.createElement('div')
 
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
@@ -5298,8 +5294,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
     button1.innerHTML = "Скрипт";
-    button1.style.marginRight = "15px";
-    button1.style.display = 'none'
+    button1.style = "margin-right:15px; display:none";
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
@@ -5320,8 +5315,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
     setInterval(screenshots, 5000)
 
-    addInfoUser.style.textAlign = "center"
-    addInfoUser.style.color = "white"
+	let addInfoUser = document.createElement('div')
     addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
     loginer = document.getElementById('testUsers')
     loginer.appendChild(addInfoUser)
@@ -5332,6 +5326,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         localStorage.setItem('winTop3', String(Number(e.clientY - myY3)));
         localStorage.setItem('winLeft3', String(Number(e.clientX - myX3)));
     };
+	
     loginer.onmousedown = function (a) {
         if (checkelementtype(a)) {
             window.myX3 = a.layerX;
@@ -5339,6 +5334,7 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.addEventListener('mousemove', listenerloginer);
         }
     }
+	
     loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); }
 
     user = "student"
