@@ -5472,6 +5472,3 @@ document.getElementById('hideMenu').onclick = function () { //форма hide
 	if (document.getElementById('AF_Linksd').style.display == '')
 		document.getElementById('AF_Linksd').style.display = 'none'
 }
-
-
-
