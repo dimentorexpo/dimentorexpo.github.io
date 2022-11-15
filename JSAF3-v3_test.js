@@ -3771,6 +3771,40 @@ function screenshots() { //просмотр и трансформация скр
     }
 }
 
+function getLocalstorageToFile(fileName) { //функция сохранения содержимого localstorage в файл на компьютере
+
+	/* dump local storage to string */
+
+	var a = {};
+	for (var i = 0; i < localStorage.length; i++) {
+		var k = localStorage.key(i);
+		var v = localStorage.getItem(k);
+		a[k] = v;
+	}
+
+	/* save as blob */
+
+	var textToSave = JSON.stringify(a)
+	var textToSaveAsBlob = new Blob([textToSave], {
+		type: "application/json"
+	});
+	var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+
+	/* download without button hack */
+
+	var downloadLink = document.createElement("a");
+	downloadLink.download = fileName;
+	downloadLink.innerHTML = "Download File";
+	downloadLink.href = textToSaveAsURL;
+	downloadLink.onclick = function () {
+		document.body.removeChild(event.target);
+	};
+	downloadLink.style.display = "none";
+	document.body.appendChild(downloadLink);
+	downloadLink.click();
+
+}
+
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
@@ -4612,40 +4646,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         } else console.log("Ведите ID тестового преподавателя")
     }
 
-    function getLocalstorageToFile(fileName) { //функция сохранения содержимого localstorage в файл на компьютере
-
-        /* dump local storage to string */
-
-        var a = {};
-        for (var i = 0; i < localStorage.length; i++) {
-            var k = localStorage.key(i);
-            var v = localStorage.getItem(k);
-            a[k] = v;
-        }
-
-        /* save as blob */
-
-        var textToSave = JSON.stringify(a)
-        var textToSaveAsBlob = new Blob([textToSave], {
-            type: "application/json"
-        });
-        var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
-
-        /* download without button hack */
-
-        var downloadLink = document.createElement("a");
-        downloadLink.download = fileName;
-        downloadLink.innerHTML = "Download File";
-        downloadLink.href = textToSaveAsURL;
-        downloadLink.onclick = function () {
-            document.body.removeChild(event.target);
-        };
-        downloadLink.style.display = "none";
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-
-    }
-
     document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
         getLocalstorageToFile('settings-af')
     }
@@ -4966,6 +4966,11 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         if (document.getElementById('AF_Linksd').style.display == '')
             document.getElementById('AF_Linksd').style.display = 'none'
     }
+	
+	 document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
+        if (document.getElementById('AF_Refuseformnew').style.display == '')
+            document.getElementById('AF_Refuseformnew').style.display = 'none'
+    }
 
     if (localStorage.getItem('audiovol') != null) {
         audio.volume = localStorage.getItem('audiovol');
@@ -5191,9 +5196,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
             document.getElementById('hyperlnk').classList.remove('hyper-active')
             document.getElementById('hyperlnk').classList.add('hyperlnk')
         }
-        // if (document.getElementById('hyperlnk').style.display == 'none')
-        // document.getElementById('hyperlnk').style.display = ''
-        // else document.getElementById('hyperlnk').style.display = 'none'
     }
 
     function replaceSelectedText(elem, str) {
@@ -5352,11 +5354,6 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 
     getText()
 }
-
- document.getElementById('hideMeRefuseFormv2').onclick = () => { //форма hide
-        if (document.getElementById('AF_Refuseformnew').style.display == '')
-            document.getElementById('AF_Refuseformnew').style.display = 'none'
-    }
 	
 flag = 0
 str = localStorage.getItem('sound_str');
