@@ -4156,43 +4156,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         }
     }
 
-    if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
-        document.getElementById('AF_helper').style.display = 'none';
-    }
-
-    var listenerAF = function (e, a) { // сохранение позиции главного окна
-        wintAF.style.left = Number(e.clientX - myX2) + "px";
-        wintAF.style.top = Number(e.clientY - myY2) + "px";
-        localStorage.setItem('winTopAF', String(Number(e.clientY - myY2)));
-        localStorage.setItem('winLeftAF', String(Number(e.clientX - myX2)));
-    };
-
-    wintAF.onmousedown = function (a) { // изменение позиции главного окна
-        if (checkelementtype(a)) {
-            window.myX2 = a.layerX;
-            window.myY2 = a.layerY;
-            document.addEventListener('mousemove', listenerAF);
-        }
-    }
-    wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
-	
-	var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
-    wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
-    wintRefuseFormNew.style.top = Number(e.clientY - myY16) + "px";
-    localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY16)));
-    localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
-};
-
-wintRefuseFormNew.onmousedown = function (a) { // изменение позиции окна отказов
-    if (checkelementtype(a)) {
-        window.myX16 = a.layerX;
-        window.myY16 = a.layerY;
-        document.addEventListener('mousemove', listenerRefuseForm);
-    }
-}
-
-wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
-
     document.getElementById('sound_test').onclick = function () { // кнопка тест звука
         if (document.getElementById('sound_test').innerHTML == '▶'){
             document.getElementById('sound_test').innerHTML = '⏹'
@@ -4935,6 +4898,62 @@ if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
 
+let wintAF = document.createElement('div'); // создание главного окна
+document.body.append(wintAF);
+wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintAF.setAttribute('id', 'AF_helper');
+wintAF.innerHTML = win_AFhelper;
+var chatsArray = []
+var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
+var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec'
+var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
+var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
+var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
+
+let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
+document.body.append(wintRefuseFormNew);
+wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRefuseFormNew.style.display = 'none';
+wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
+wintRefuseFormNew.innerHTML = win_refusefrom;
+
+    if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+        document.getElementById('AF_helper').style.display = 'none';
+    }
+
+    var listenerAF = function (e, a) { // сохранение позиции главного окна
+        wintAF.style.left = Number(e.clientX - myX2) + "px";
+        wintAF.style.top = Number(e.clientY - myY2) + "px";
+        localStorage.setItem('winTopAF', String(Number(e.clientY - myY2)));
+        localStorage.setItem('winLeftAF', String(Number(e.clientX - myX2)));
+    };
+
+    wintAF.onmousedown = function (a) { // изменение позиции главного окна
+        if (checkelementtype(a)) {
+            window.myX2 = a.layerX;
+            window.myY2 = a.layerY;
+            document.addEventListener('mousemove', listenerAF);
+        }
+    }
+    wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
+	
+	var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
+    wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
+    wintRefuseFormNew.style.top = Number(e.clientY - myY16) + "px";
+    localStorage.setItem('winTopRefuseNew', String(Number(e.clientY - myY16)));
+    localStorage.setItem('winLeftRefuseNew', String(Number(e.clientX - myX16)));
+};
+
+wintRefuseFormNew.onmousedown = function (a) { // изменение позиции окна отказов
+    if (checkelementtype(a)) {
+        window.myX16 = a.layerX;
+        window.myY16 = a.layerY;
+        document.addEventListener('mousemove', listenerRefuseForm);
+    }
+}
+
+wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
+
 let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
 infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
@@ -5345,25 +5364,6 @@ document.getElementById('testUsers').ondblclick = function (a) { // скрыти
         }
     }
 }
-
-let wintAF = document.createElement('div'); // создание главного окна
-document.body.append(wintAF);
-wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintAF.setAttribute('id', 'AF_helper');
-wintAF.innerHTML = win_AFhelper;
-var chatsArray = []
-var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
-var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec'
-var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
-var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
-var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
-
-let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
-document.body.append(wintRefuseFormNew);
-wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
-wintRefuseFormNew.style.display = 'none';
-wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
-wintRefuseFormNew.innerHTML = win_refusefrom;
 	
 setInterval(setactivechatstyle, 1000)
 
