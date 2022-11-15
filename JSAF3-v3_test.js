@@ -4049,170 +4049,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         })
     }
 	
-    if (localStorage.getItem('audiovol') != null) {
-        audio.volume = localStorage.getItem('audiovol');
-    } else localStorage.setItem('audiovol', 1);
-
-    document.getElementById('setting').onclick = function () { // открывает параметры
-        if (document.getElementById('set_bar').style.display == '')
-            document.getElementById('set_bar').style.display = 'none'
-        else {
-            document.getElementById('set_bar').style.display = ''
-            document.getElementById('reminder_bar').style.display = 'none'
-            document.getElementById('addTmp').style.display = 'none'
-
-            let objSoundList = document.getElementById('soundlistaddr')
-            let soundsfromdoc;
-            let soundsconteiner;
-
-            async function getsoundsfromdoc() { // загрузка списка звуков из файла
-                soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
-                await fetch(soundsfromdoc).then(r => r.json()).then(r => soundsdata = r)
-                    soundsconteiner = soundsdata.result;
-                    console.log(soundsdata.result) //получим список звуков
-                for (j = 0; j < soundsconteiner.length; j++) {
-                    if (soundsconteiner[j][0] != '') {
-                        addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
-                    }
-                }
-                for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
-                if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
-                    objSoundList.children[i].selected = true;
-                }
-            }
-            if (objSoundList.children[0].selected) {
-                objSoundList.children[1].selected = true
-                document.getElementById('sound_adr').style.display = ''
-                document.getElementById('sound_save').style.display = ''
-                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
-            }
-            }
-
-            if (objSoundList.length < 3) {
-                getsoundsfromdoc()
-            }            
-
-            if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
-                document.getElementById('test_std').value = localStorage.getItem('test_stud');
-            } else document.getElementById('test_std').value = "";
-
-            if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
-                document.getElementById('test_teach').value = localStorage.getItem('test_teach');
-            } else document.getElementById('test_teach').value = "";
-
-            //Для таймера автозакрытия
-            if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
-                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-            } else {
-                localStorage.setItem('aclstime', 12);
-                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-            }
-
-            //для таймера autoclose
-
-            document.getElementById('setautoclosetime').onclick = function () {
-                if (document.getElementById('autoclosetime').value != '') {
-                    localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
-                } else console.log("Базовое значение равно 12 минут")
-            }
-
-            //Для интервала между воспроизведением звука
-            if (localStorage.getItem('splinter') != null || localStorage.getItem('splinter') != "") {
-                document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
-            } else {
-                localStorage.setItem('splinter', 3);
-                document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
-            }
-
-            document.getElementById('setsoundplayinterval').onclick = function () {
-                if (document.getElementById('soundplayinterval').value != '') {
-                    localStorage.setItem('splinter', document.getElementById('soundplayinterval').value);
-                } else console.log("Базовое значение равно 3 секунды")
-            }
-
-            //
-
-            let range = document.getElementById('range');
-            range.value = localStorage.getItem('audiovol');
-
-
-            range.onchange = function () {
-                if (localStorage.getItem('audiovol') != null) {
-                    audio.volume = this.value;
-                    localStorage.setItem('audiovol', audio.volume);
-                } else localStorage.setItem('audiovol', this.value);
-            }
-
-            //Скрыть окно Л П МВУ
-            let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
-            var lpmboxstatus = document.getElementById('hidelpmwindow');
-            lpmboxstatus.onclick = function () {
-
-                if (!lpmboxstatus.checked) {
-                    document.getElementById('testUsers').style.display = "";
-                    flaglpm = 0;
-                    localStorage.setItem('disablelpmwindow', flaglpm)
-                } else {   // поставить checked, если он не установлен
-                    document.getElementById('testUsers').style.display = "none";
-                    flaglpm = 1;
-                    localStorage.setItem('disablelpmwindow', flaglpm)
-                }
-            }
-
-            if (localStorage.getItem('disablelpmwindow') == 1) {
-                document.getElementById('testUsers').style.display = "none";
-                lpmboxstatus.checked = true;
-            } else {
-                lpmboxstatus.checked = false;
-            }
-
-            //Скрыть окно выбора языка
-            let flaglng = 0;   // функция чекбокса вкл и откл  информационного окна
-            var lngbtnonoff = document.getElementById('hidelngselector');
-            lngbtnonoff.onclick = function () {
-
-                if (!lngbtnonoff.checked) {
-                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
-                    flaglng = 0;
-                    localStorage.setItem('disablelngpmwindow', flaglng)
-                } else {   // поставить checked, если он не установлен
-                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-                    flaglng = 1;
-                    localStorage.setItem('disablelngpmwindow', flaglng)
-                }
-            }
-
-            if (localStorage.getItem('disablelngpmwindow') == 1) {
-                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-                lngbtnonoff.checked = true;
-            } else {
-                lngbtnonoff.checked = false;
-            }
-
-            if (localStorage.getItem('audio') == '0')
-                document.getElementById('audioswitcher').checked = false;
-            else
-                document.getElementById('audioswitcher').checked = true;
-
-            document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
-
-                if (localStorage.getItem('audio') != null) {
-                    if (localStorage.getItem('audio') == '0') {
-                        document.getElementById('audioswitcher').checked = false;
-                        localStorage.setItem('audio', '1');
-                    } else if (localStorage.getItem('audio') == '1') {
-                        document.getElementById('audioswitcher').checked = true;
-                        localStorage.setItem('audio', '0');
-                        if (soundintervalset != null) {
-                            clearInterval(soundintervalset)
-                            soundintervalset = null
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     document.getElementById('reminderstatus').onclick = function () { // открывает настройки будильника
         if (document.getElementById('reminder_bar').style.display == '')
             document.getElementById('reminder_bar').style.display = 'none'
@@ -4510,50 +4346,214 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
         }
         
     }
-
-    document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
-        if (document.getElementById('test_std').value != '') {
-            localStorage.setItem('test_stud', document.getElementById('test_std').value);
-        } else console.log("Ведите ID тестового ученика")
-    }
-
-    document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
-        if (document.getElementById('test_teach').value != '') {
-            localStorage.setItem('test_teach', document.getElementById('test_teach').value);
-        } else console.log("Ведите ID тестового преподавателя")
-    }
-
-    document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
-        getLocalstorageToFile('settings-af')
-    }
 	
-    document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
-        let fileInput = document.getElementById('fileinput');
-        let jsonparsed;
+	    if (localStorage.getItem('audiovol') != null) {
+        audio.volume = localStorage.getItem('audiovol');
+    } else localStorage.setItem('audiovol', 1);
 
-        fileInput.addEventListener('change', function (e) {
-            let file = fileInput.files[0];
-            let textType = /.json/;
+    document.getElementById('setting').onclick = function () { // открывает параметры
+        if (document.getElementById('set_bar').style.display == '')
+            document.getElementById('set_bar').style.display = 'none'
+        else {
+            document.getElementById('set_bar').style.display = ''
+            document.getElementById('reminder_bar').style.display = 'none'
+            document.getElementById('addTmp').style.display = 'none'
 
-            if (file.type.match(textType)) {
-                let reader = new FileReader();
+            let objSoundList = document.getElementById('soundlistaddr')
+            let soundsfromdoc;
+            let soundsconteiner;
 
-                reader.onload = function (e) {
-                    console.log(reader.result)
-                    jsonparsed = JSON.parse(reader.result)
-                    console.log(jsonparsed)
-                    console.log(Object.keys(jsonparsed).length)
-                    for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
-                        localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
+            async function getsoundsfromdoc() { // загрузка списка звуков из файла
+                soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
+                await fetch(soundsfromdoc).then(r => r.json()).then(r => soundsdata = r)
+                    soundsconteiner = soundsdata.result;
+                    console.log(soundsdata.result) //получим список звуков
+                for (j = 0; j < soundsconteiner.length; j++) {
+                    if (soundsconteiner[j][0] != '') {
+                        addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
                     }
-                    alert("Настройки расширения в localstorage загружены успешно!")
                 }
-
-                reader.readAsText(file);
-            } else {
-                console.log("File not supported!")
+                for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
+                if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
+                    objSoundList.children[i].selected = true;
+                }
             }
-        });
+            if (objSoundList.children[0].selected) {
+                objSoundList.children[1].selected = true
+                document.getElementById('sound_adr').style.display = ''
+                document.getElementById('sound_save').style.display = ''
+                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
+            }
+            }
+
+            if (objSoundList.length < 3) {
+                getsoundsfromdoc()
+            }            
+
+            if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
+                document.getElementById('test_std').value = localStorage.getItem('test_stud');
+            } else document.getElementById('test_std').value = "";
+
+            if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
+                document.getElementById('test_teach').value = localStorage.getItem('test_teach');
+            } else document.getElementById('test_teach').value = "";
+
+            //Для таймера автозакрытия
+            if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
+                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+            } else {
+                localStorage.setItem('aclstime', 12);
+                document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+            }
+
+            //для таймера autoclose
+
+            document.getElementById('setautoclosetime').onclick = function () {
+                if (document.getElementById('autoclosetime').value != '') {
+                    localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
+                } else console.log("Базовое значение равно 12 минут")
+            }
+
+            //Для интервала между воспроизведением звука
+            if (localStorage.getItem('splinter') != null || localStorage.getItem('splinter') != "") {
+                document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
+            } else {
+                localStorage.setItem('splinter', 3);
+                document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
+            }
+
+            document.getElementById('setsoundplayinterval').onclick = function () {
+                if (document.getElementById('soundplayinterval').value != '') {
+                    localStorage.setItem('splinter', document.getElementById('soundplayinterval').value);
+                } else console.log("Базовое значение равно 3 секунды")
+            }
+
+            //
+
+            let range = document.getElementById('range');
+            range.value = localStorage.getItem('audiovol');
+
+
+            range.onchange = function () {
+                if (localStorage.getItem('audiovol') != null) {
+                    audio.volume = this.value;
+                    localStorage.setItem('audiovol', audio.volume);
+                } else localStorage.setItem('audiovol', this.value);
+            }
+
+            //Скрыть окно Л П МВУ
+            let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
+            var lpmboxstatus = document.getElementById('hidelpmwindow');
+            lpmboxstatus.onclick = function () {
+
+                if (!lpmboxstatus.checked) {
+                    document.getElementById('testUsers').style.display = "";
+                    flaglpm = 0;
+                    localStorage.setItem('disablelpmwindow', flaglpm)
+                } else {   // поставить checked, если он не установлен
+                    document.getElementById('testUsers').style.display = "none";
+                    flaglpm = 1;
+                    localStorage.setItem('disablelpmwindow', flaglpm)
+                }
+            }
+
+            if (localStorage.getItem('disablelpmwindow') == 1) {
+                document.getElementById('testUsers').style.display = "none";
+                lpmboxstatus.checked = true;
+            } else {
+                lpmboxstatus.checked = false;
+            }
+			
+			document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
+				if (document.getElementById('test_std').value != '') {
+					localStorage.setItem('test_stud', document.getElementById('test_std').value);
+				} else console.log("Ведите ID тестового ученика")
+			}
+
+			document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
+				if (document.getElementById('test_teach').value != '') {
+					localStorage.setItem('test_teach', document.getElementById('test_teach').value);
+				} else console.log("Ведите ID тестового преподавателя")
+			}
+
+			document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
+				getLocalstorageToFile('settings-af')
+			}
+			
+			document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
+				let fileInput = document.getElementById('fileinput');
+				let jsonparsed;
+
+				fileInput.addEventListener('change', function (e) {
+					let file = fileInput.files[0];
+					let textType = /.json/;
+
+					if (file.type.match(textType)) {
+						let reader = new FileReader();
+
+						reader.onload = function (e) {
+							console.log(reader.result)
+							jsonparsed = JSON.parse(reader.result)
+							console.log(jsonparsed)
+							console.log(Object.keys(jsonparsed).length)
+							for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
+								localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
+							}
+							alert("Настройки расширения в localstorage загружены успешно!")
+						}
+
+						reader.readAsText(file);
+					} else {
+						console.log("File not supported!")
+					}
+				});
+			}
+
+            //Скрыть окно выбора языка
+            let flaglng = 0;   // функция чекбокса вкл и откл  информационного окна
+            var lngbtnonoff = document.getElementById('hidelngselector');
+            lngbtnonoff.onclick = function () {
+
+                if (!lngbtnonoff.checked) {
+                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+                    flaglng = 0;
+                    localStorage.setItem('disablelngpmwindow', flaglng)
+                } else {   // поставить checked, если он не установлен
+                    document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                    flaglng = 1;
+                    localStorage.setItem('disablelngpmwindow', flaglng)
+                }
+            }
+
+            if (localStorage.getItem('disablelngpmwindow') == 1) {
+                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+                lngbtnonoff.checked = true;
+            } else {
+                lngbtnonoff.checked = false;
+            }
+
+            if (localStorage.getItem('audio') == '0')
+                document.getElementById('audioswitcher').checked = false;
+            else
+                document.getElementById('audioswitcher').checked = true;
+
+            document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+
+                if (localStorage.getItem('audio') != null) {
+                    if (localStorage.getItem('audio') == '0') {
+                        document.getElementById('audioswitcher').checked = false;
+                        localStorage.setItem('audio', '1');
+                    } else if (localStorage.getItem('audio') == '1') {
+                        document.getElementById('audioswitcher').checked = true;
+                        localStorage.setItem('audio', '0');
+                        if (soundintervalset != null) {
+                            clearInterval(soundintervalset)
+                            soundintervalset = null
+                        }
+                    }
+                }
+            }
+        }
     }
 	
 	// конец блока настроек
