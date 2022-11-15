@@ -4427,93 +4427,6 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
     localStorage.setItem('winLeftRefuseNew', '295');
 }
 
-// блок работы с будильником
-if (localStorage.getItem('chronostamp') == null  && localStorage.getItem('chronostamp1') == null) { // если будильники не заданы статус отмечать такой
-	document.getElementById('reminderstatus').textContent = "🔕";
-}
-
-document.getElementById('setreminder').onclick = function () {  // выставляем будильник 1
-	document.getElementById('reminderstatus').textContent = "🔔";
-	localStorage.setItem('setchas', setchas.value);
-	if (setminuta.value == "00") {
-		setminuta.value = 0;
-	}
-	localStorage.setItem('setminuta', setminuta.value);
-	var timearr = new Date()
-	var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
-	localStorage.setItem('chronostamp', chronostamp);
-	//		setchas.value = "";
-	//		setminuta.value = "";
-	alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
-	abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
-}
-
-document.getElementById('setreminder1').onclick = function () {  // выставляем будильник 2
-	document.getElementById('reminderstatus').textContent = "🔔";
-	localStorage.setItem('setchas1', setchas1.value);
-	if (setminuta1.value == "00") {
-		setminuta1.value = 0;
-	}
-	localStorage.setItem('setminuta1', setminuta1.value);
-	var timearr1 = new Date()
-	var chronostamp1 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
-	localStorage.setItem('chronostamp1', chronostamp1);
-	//		setchas.value = "";
-	//		setminuta.value = "";
-	alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
-	abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp1'));
-}
-
-document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника 1
-	if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-		clearTimeout(abortTimeOut)
-		localStorage.removeItem('chronostamp')
-		localStorage.removeItem('chronostamp2')
-		setchas.value = ""
-		setminuta.value = ""
-		alert("Будильник удален")
-		document.getElementById('reminderstatus').textContent = "🔕";
-	}
-}
-
-document.getElementById('clock_remin1').ondblclick = function () {		// Удаление будильника 2
-	if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
-		clearTimeout(abortTimeOut1)
-		localStorage.removeItem('chronostamp1')
-		localStorage.removeItem('chronostamp22')
-		setchas1.value = ""
-		setminuta1.value = ""
-		alert("Будильник удален")
-		// document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
-	}
-}
-
-    refreshTimerReminder(); //обновляет оставшееся время до будильника №1
-    refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
-
-    setInterval(clock_on_javascript_1, 1000);
-    setInterval(clock_on_javascript_2, 1000);
-    setInterval(clock_on_javascript_3, 1000);
-	
-// конец блока работы с будильником
-
-document.getElementById('hideMenu').onclick = function () { //форма hide
-	document.getElementById('AF_helper').style.display = 'none'
-	document.getElementById('scriptBut').style.display = ''
-	if (document.getElementById('cstmTmplates').style.display == '')
-		document.getElementById('cstmTmplates').style.display = 'none'
-	if (document.getElementById('AF_Links').style.display == '')
-		document.getElementById('AF_Links').style.display = 'none'
-	if (document.getElementById('reminder_bar').style.display == '')
-		document.getElementById('reminder_bar').style.display = 'none'
-	if (document.getElementById('AF_Stat').style.display == '')
-		document.getElementById('AF_Stat').style.display = 'none'
-	if (document.getElementById('AF_LessonStatus').style.display == '')
-		document.getElementById('AF_LessonStatus').style.display = 'none'
-	if (document.getElementById('AF_Linksd').style.display == '')
-		document.getElementById('AF_Linksd').style.display = 'none'
-}
-
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
     localStorage.setItem('aclstime', 12);
@@ -5472,6 +5385,93 @@ let intervalotak = setInterval( function () {
 }
 	
 }, 1000)
+
+// блок работы с будильником
+if (localStorage.getItem('chronostamp') == null  && localStorage.getItem('chronostamp1') == null) { // если будильники не заданы статус отмечать такой
+	document.getElementById('reminderstatus').textContent = "🔕";
+}
+
+document.getElementById('setreminder').onclick = function () {  // выставляем будильник 1
+	document.getElementById('reminderstatus').textContent = "🔔";
+	localStorage.setItem('setchas', setchas.value);
+	if (setminuta.value == "00") {
+		setminuta.value = 0;
+	}
+	localStorage.setItem('setminuta', setminuta.value);
+	var timearr = new Date()
+	var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+	localStorage.setItem('chronostamp', chronostamp);
+	//		setchas.value = "";
+	//		setminuta.value = "";
+	alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
+	abortTimeOut = setTimeout(setRemindAf, localStorage.getItem('chronostamp'));
+}
+
+document.getElementById('setreminder1').onclick = function () {  // выставляем будильник 2
+	document.getElementById('reminderstatus').textContent = "🔔";
+	localStorage.setItem('setchas1', setchas1.value);
+	if (setminuta1.value == "00") {
+		setminuta1.value = 0;
+	}
+	localStorage.setItem('setminuta1', setminuta1.value);
+	var timearr1 = new Date()
+	var chronostamp1 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+	localStorage.setItem('chronostamp1', chronostamp1);
+	//		setchas.value = "";
+	//		setminuta.value = "";
+	alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
+	abortTimeOut1 = setTimeout(setRemindAf1, localStorage.getItem('chronostamp1'));
+}
+
+document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника 1
+	if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+		clearTimeout(abortTimeOut)
+		localStorage.removeItem('chronostamp')
+		localStorage.removeItem('chronostamp2')
+		setchas.value = ""
+		setminuta.value = ""
+		alert("Будильник удален")
+		document.getElementById('reminderstatus').textContent = "🔕";
+	}
+}
+
+document.getElementById('clock_remin1').ondblclick = function () {		// Удаление будильника 2
+	if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+		clearTimeout(abortTimeOut1)
+		localStorage.removeItem('chronostamp1')
+		localStorage.removeItem('chronostamp22')
+		setchas1.value = ""
+		setminuta1.value = ""
+		alert("Будильник удален")
+		// document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
+	}
+}
+
+    refreshTimerReminder(); //обновляет оставшееся время до будильника №1
+    refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
+
+    setInterval(clock_on_javascript_1, 1000);
+    setInterval(clock_on_javascript_2, 1000);
+    setInterval(clock_on_javascript_3, 1000);
+	
+// конец блока работы с будильником
+
+document.getElementById('hideMenu').onclick = function () { //форма hide
+	document.getElementById('AF_helper').style.display = 'none'
+	document.getElementById('scriptBut').style.display = ''
+	if (document.getElementById('cstmTmplates').style.display == '')
+		document.getElementById('cstmTmplates').style.display = 'none'
+	if (document.getElementById('AF_Links').style.display == '')
+		document.getElementById('AF_Links').style.display = 'none'
+	if (document.getElementById('reminder_bar').style.display == '')
+		document.getElementById('reminder_bar').style.display = 'none'
+	if (document.getElementById('AF_Stat').style.display == '')
+		document.getElementById('AF_Stat').style.display = 'none'
+	if (document.getElementById('AF_LessonStatus').style.display == '')
+		document.getElementById('AF_LessonStatus').style.display = 'none'
+	if (document.getElementById('AF_Linksd').style.display == '')
+		document.getElementById('AF_Linksd').style.display = 'none'
+}
 
 
 
