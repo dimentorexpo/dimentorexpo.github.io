@@ -2060,19 +2060,19 @@ function customTemplates(language = '') { //собственные шаблон�
     if (countOfTemplates > 0)
         for (i = 1; i <= countOfTemplates; i++)
             addNewString(i)
-    refreshHotTmps()
+		refreshHotTmps()
 
     var listenercstmTmp = function (e, a) {
-        cstmTmp.style.left = Number(e.clientX - myX3) + "px";
-        cstmTmp.style.top = Number(e.clientY - myY3) + "px";
-        localStorage.setItem('winCstmTmpsTop', String(Number(e.clientY - myY3)));
-        localStorage.setItem('winCstmTmpsLeft', String(Number(e.clientX - myX3)));
+        cstmTmp.style.left = Number(e.clientX - myXcstmTmp) + "px";
+        cstmTmp.style.top = Number(e.clientY - myYcstmTmp) + "px";
+        localStorage.setItem('winCstmTmpsTop', String(Number(e.clientY - myYcstmTmp)));
+        localStorage.setItem('winCstmTmpsLeft', String(Number(e.clientX - myXcstmTmp)));
     };
 
     cstmTmp.onmousedown = function (a) {
         if (checkelementtype(a)) {
-            window.myX3 = a.layerX;
-            window.myY3 = a.layerY;
+            window.myXcstmTmp = a.layerX;
+            window.myYcstmTmp = a.layerY;
             document.addEventListener('mousemove', listenercstmTmp);
         }
     }
