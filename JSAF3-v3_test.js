@@ -617,6 +617,8 @@ Object.keys(localStorage).forEach(function (key) { // чистка localstorage 
     }
 });
 
+localStorage.setItem('SMART_TABLE_SORTED_INFO(/tickets/archive)', '{\"columnKey\":\"ts\",\"order\":\"descend\"}')
+
 // Блок горячих клавиш
 if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
     document.onkeydown = function (event) {
