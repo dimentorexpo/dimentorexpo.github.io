@@ -124,6 +124,20 @@ async function setstatuspausetest(i){
 		  "credentials": "include"
 		});
 	}
+	
+		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+		  "headers": {
+			"content-type": "application/json",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin"
+		  },
+		  "referrer": "https://skyeng.autofaq.ai/tickets/assigned",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Pause\",\"source\":\"Operator\"}",
+		  "method": "POST",
+		  "mode": "cors",
+		  "credentials": "include"
+		});
 		
 	}	
 	
