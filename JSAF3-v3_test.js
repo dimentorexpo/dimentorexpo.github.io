@@ -46,7 +46,6 @@ function mystyles() {
 		color:#ffffff;
 		padding:2px 2px;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
-		text-shadow: 1px 2px 5px rgb(0 0 0 / 20%);
 	}
 	button:hover {
 		background: #6A5ACD;
