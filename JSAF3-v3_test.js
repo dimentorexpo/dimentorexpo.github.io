@@ -4082,7 +4082,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
 function closeTerms() { // функция автоподтверждения условий пользования при входе в ЛКП
 	if (document.URL == 'https://new-teachers.skyeng.ru/') {
-		for (let i=0;i<document.getElementsByClassName('terms-popup-accept-button').lenght;i++) {
+		for (let i=0;i<document.getElementsByClassName('terms-popup-accept-button').length;i++) {
 			document.getElementsByClassName('terms-popup-accept-button')[i].click()
 		}
 	}
