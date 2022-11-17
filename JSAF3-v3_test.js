@@ -4086,7 +4086,6 @@ function closeTerms() { // функция автоподтверждения у�
 			document.getElementsByClassName('terms-popup-accept-button')[i].click()
 		}
 	}
-	
 }
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
