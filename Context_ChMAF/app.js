@@ -193,6 +193,21 @@ async function setstatusoffline(i){
 		
 		localStorage.setItem('lastmsgId', 0)
 	}
+	
+		fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+
+			"headers": {
+				"content-type": "application/json",
+			},
+
+			"referrer": "https://skyeng.autofaq.ai/tickets/archive",
+			"referrerPolicy": "strict-origin-when-cross-origin",
+			"body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Offline\",\"source\":\"Operator\"}",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+		});
+		
 	}
 
 chrome.contextMenus.create({"title": "🆘 #dev-disaster", "contexts":["page"], "parentId": "mainoption", "onclick": sendtodisaster}); //опция для копирования ссылки для пропуска АП
