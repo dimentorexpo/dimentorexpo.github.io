@@ -4874,7 +4874,7 @@ setInterval(addbuttonsintegration, 1000)
 
 setInterval(remandressl, 3000);
 
-setInterval(closeTerms, 3000);
+setInterval(closeTerms, 500);
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
