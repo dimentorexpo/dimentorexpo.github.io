@@ -2274,7 +2274,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
     if (butName == '🖕Отказ' && document.getElementById('AF_Refuseformnew').style.display == 'none') // если кнопка отказ открывает форму отказа и если повторно нажали не закрываем форму
         document.getElementById('otkaz').click();
 		
-	if ( ( (butName == '🤬Негатив ОС') || (butName == '🖼Нет изобр в ДЗ ЛК') || (butName == '💨Сброс ответов ДЗ ЛК') || (butName == '🔇Звук ответов ЛК') || (butName == '🖥Размер видео') || butName == ('🖼📱Нет изобр ДЗ в МП') ) && document.getElementById('AF_Smartroomform').style.display == 'none') )
+	if ( ( (butName == '🤬Негатив ОС') || (butName == '🖼Нет изобр в ДЗ ЛК') || (butName == '💨Сброс ответов ДЗ ЛК') || (butName == '🔇Звук ответов ЛК') || (butName == '🖥Размер видео') || butName == ('🖼📱Нет изобр ДЗ в МП') ) && document.getElementById('AF_Smartroomform').style.display == 'none') 
 		document.getElementById('smartroomform').click();
 	
     msgFromTable(butName)
