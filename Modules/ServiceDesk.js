@@ -244,7 +244,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="vimbugsbtn widthofsd" value="933">Взрослый англиский: CMS и контент на взрослой платформе</button>
 					<button class="vimbugsbtn widthofsd" value="932">Взрослый английский: Домашки, уроки, тесты</button>
 					<button class="vimbugsbtn widthofsd" value="931">Шоукейс взрослого П/взрослого У</button>
-					<button class="vimbugsbtn widthofsd" value="936">Любые страницы содержащие vimbox, но при этом не содержащие kids в URL</button>
 
 					<input id="customfield_50" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_52" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
