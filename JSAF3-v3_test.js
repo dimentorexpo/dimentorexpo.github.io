@@ -990,8 +990,10 @@ function timerHideButtons() { //функция добавления скрыти
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)")
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)"  && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Закрыть"){
+                    console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+            }
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
             let selectorList = document.querySelectorAll('.sc-fznZeY');
@@ -4117,8 +4119,6 @@ if (localStorage.getItem('audio') == null) {
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
-
-
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
