@@ -990,10 +990,8 @@ function timerHideButtons() { //функция добавления скрыти
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)"  && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)"){
-                    console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
+                if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)")
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
-            }
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
             let selectorList = document.querySelectorAll('.sc-fznZeY');
@@ -4082,6 +4080,15 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     getText()
 }
 
+function closeTerms() { // функция автоподтверждения условий пользования при входе в ЛКП
+	if (document.URL == 'https://new-teachers.skyeng.ru/') {
+		for (let i=0;i<document.getElementsByClassName('terms-popup-accept-button').length;i++) {
+			document.getElementsByClassName('terms-popup-accept-button')[i].click()
+		}
+	}
+	
+}
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -4111,6 +4118,8 @@ if (localStorage.getItem('audio') == null) {
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
+
+
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
@@ -4865,6 +4874,8 @@ setInterval(setactivechatstyle, 1000)
 setInterval(addbuttonsintegration, 1000)
 
 setInterval(remandressl, 3000);
+
+setInterval(closeTerms, 3000);
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
