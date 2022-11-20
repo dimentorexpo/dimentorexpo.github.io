@@ -2946,7 +2946,7 @@ async function checkthemestatus() { //функция проверки выста
                 drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
 
 
-            if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+            if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznWqX dAkvW')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -2961,7 +2961,7 @@ async function checkthemestatus() { //функция проверки выста
                     }
                 }
 
-            } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
+            } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznWqX dAkvW')[3].innerText == "Выбор темы/подтемы:") {
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -2976,7 +2976,7 @@ async function checkthemestatus() { //функция проверки выста
                     }
                 }
 
-            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[2].innerText == "Выбор темы/подтемы:") {
+            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznWqX dAkvW')[2].innerText == "Выбор темы/подтемы:") {
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -2993,7 +2993,7 @@ async function checkthemestatus() { //функция проверки выста
 
                 }
 
-            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznJRM bTIjTR')[3].innerText == "Выбор темы/подтемы:") {
+            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznWqX dAkvW')[3].innerText == "Выбор темы/подтемы:") {
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -3010,12 +3010,12 @@ async function checkthemestatus() { //функция проверки выста
                 }
             }
 
-            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор тегов ТП:') {
+            if (document.getElementsByClassName('sc-fznWqX dAkvW')[0].innerText != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznWqX dAkvW')[0].innerText == 'Выбор тегов ТП:') {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                 txtbar.childNodes[1].childNodes[5].innerText = "";
             }
 
-            if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
+            if (document.getElementsByClassName('sc-fznWqX dAkvW')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznWqX dAkvW')[0].innerText == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
@@ -3029,7 +3029,7 @@ async function checkthemestatus() { //функция проверки выста
                         txtbar.childNodes[1].childNodes[5].style.color = 'red';
                     }
                 }
-            } else if (document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && document.getElementsByClassName('sc-fznJRM bTIjTR')[0].innerText == 'Выбор услуги:') {
+            } else if (document.getElementsByClassName('sc-fznWqX dAkvW')[0].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && document.getElementsByClassName('sc-fznWqX dAkvW')[0].innerText == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
