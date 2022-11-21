@@ -32,7 +32,7 @@ wintFrozeChat.style.display = 'none';
 wintFrozeChat.setAttribute('id', 'AF_FrozeChat');
 wintFrozeChat.innerHTML = win_FrozeChat;
 
-if (typeof modulesarray1 != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintFrozeChat, чтобы потом проверять подключился этот модуль или нет
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintFrozeChat, чтобы потом проверять подключился этот модуль или нет
 	modulesarray.push(wintFrozeChat) 
 }
 
