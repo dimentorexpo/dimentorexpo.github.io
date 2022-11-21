@@ -4421,7 +4421,7 @@ document.getElementById('setting').onclick = function () { // открывает
 						else if (modulesarray[i].id == 'AF_LessonStatus')
 							modulename = "Модуль Lesson Status"
 						else modulename = "Модуль не обработан в коде"
-						document.getElementById('statusoutput').innerHTML += [i] + '. ' + modulename + '🟢' + '<br>'
+						document.getElementById('statusoutput').innerHTML += [i+1] + '. ' + modulename + '🟢' + '<br>'
 					}
 				}
 				
