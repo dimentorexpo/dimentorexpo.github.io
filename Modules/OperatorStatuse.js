@@ -23,7 +23,7 @@ let wintOperStatus = document.createElement('div'); // создание окна
 document.body.append(wintOperStatus);
 wintOperStatus.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopOpStat') + 'px; left: ' + localStorage.getItem('winTopOpStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintOperStatus.style.display = 'none';
-wintOperStatus.setAttribute('id', 'CRM_OperStat');
+wintOperStatus.setAttribute('id', 'AF_OperStat');
 wintOperStatus.innerHTML = win_OperStatus;
 
 if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintOperStatus, чтобы потом проверять подключился этот модуль или нет
@@ -49,15 +49,15 @@ wintOperStatus.onmouseup = function () { document.removeEventListener('mousemove
 
 
 	
-	document.getElementById('CRM_OperStat').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
-		if (checkelementtype(a)) { document.getElementById('CRM_OperStat').style.display = 'none'; }
+	document.getElementById('AF_OperStat').ondblclick = function (a) { // скрытие окна оценок от пользователя по двойному клику
+		if (checkelementtype(a)) { document.getElementById('AF_OperStat').style.display = 'none'; }
 	}
 		
 	document.getElementById('clearopersinfo').onclick = function () { // кнопка очистки поля
 		document.getElementById('operstatustable').innerHTML = "";
 	}
 	
-document.getElementById('btnOperStatus').onclick = function () {
+document.getElementById('crmopersstatuses').onclick = function () { 
 	
 	let readyarr = [];
 	let rcnt = 0;
@@ -70,9 +70,9 @@ document.getElementById('btnOperStatus').onclick = function () {
 	let timeoutarr = []
 	let timeoutcnt = 0;
 
-		if (document.getElementById('CRM_OperStat').style.display == 'none')
-			document.getElementById('CRM_OperStat').style.display = ''
-		else document.getElementById('CRM_OperStat').style.display = 'none'
+		if (document.getElementById('AF_OperStat').style.display == 'none')
+			document.getElementById('AF_OperStat').style.display = ''
+		else document.getElementById('AF_OperStat').style.display = 'none'
 		
 	
 	 var socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
@@ -137,8 +137,8 @@ document.getElementById('btnOperStatus').onclick = function () {
 		}, 1000 )
 		
 	document.getElementById('hideMeOpSt').onclick = function () { // скрытие окна поиска оценок от пользователя
-		if (document.getElementById('CRM_OperStat').style.display == '')
-			document.getElementById('CRM_OperStat').style.display = 'none'
+		if (document.getElementById('AF_OperStat').style.display == '')
+			document.getElementById('AF_OperStat').style.display = 'none'
 			socket.send('2')
 			document.getElementById('operstatustable').innerHTML = ''
 	}
