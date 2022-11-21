@@ -520,7 +520,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="border: 2px double black; display: none; position: absolute;    top: 476px;    left: -201px;    background-color: rgb(70, 68, 81);    width: 212px;    padding: 5px;" id="modulestatus_bar">
 				<div>
 					<button title="скрывает меню" id="hidemodulestatus" style="width:50px; background: #228B22;">hide</button>
-				<div>
+				</div>
 				<p id="statusoutput" style="color: bisque;"></p>
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
