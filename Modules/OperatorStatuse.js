@@ -9,7 +9,7 @@ var win_OperStatus =  // описание элементов окна оцено
                         </div>
 		    </span>
                         <div style="margin: 5px; width: 400px" id="opers_box">
-                                <p id="operstatustable" style="max-height:400px; margin-left:5px; font-size:16px; color:bisque; overflow:auto;"></p>
+                                <p id="operstatustable" style="max-height:700px; margin-left:5px; font-size:16px; color:bisque; overflow-y:auto;"></p>
                         </div>
         </span>
 </div>`;
