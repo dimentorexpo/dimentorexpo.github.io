@@ -517,7 +517,7 @@ var win_AFhelper =  // описание элементов главного ок
 				</div>
 			</div>
 			
-			<div style="border: 2px double black; display: none; position: absolute;    top: 476px;    left: -201px;    background-color: rgb(70, 68, 81);    width: 212px;    padding: 5px;" id="modulestatus_bar">
+			<div style="border: 2px double black; display: none; position: absolute; top: 0px; left: -201px; background-color: rgb(70, 68, 81); width: 212px;    padding: 5px;" id="modulestatus_bar">
 				<div>
 					<button title="скрывает меню" id="hidemodulestatus" style="width:50px; background: #228B22;">hide</button>
 				</div>
@@ -4379,12 +4379,16 @@ document.getElementById('setting').onclick = function () { // открывает
         }
 		
 		document.getElementById('module_status').onclick = function() {
+			
 			document.getElementById('hidemodulestatus').onclick = function() {
 				document.querySelector('#modulestatus_bar').style.display = 'none'
+				document.getElementById('statusoutput').innerHTML = ''
 			}
+			
 			let modulename;
 			if (document.querySelector('#modulestatus_bar').style.display == 'none') {
 				document.querySelector('#modulestatus_bar').style.display = ''
+				document.getElementById('statusoutput').innerHTML = ''
 				
 				if (modulesarray != undefined && modulesarray.length > 0) {
 					for (let i=0; i < modulesarray.length; i++) {
