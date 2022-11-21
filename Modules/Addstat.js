@@ -171,6 +171,8 @@ wintStat.style.display = 'none';
 wintStat.setAttribute('id', 'AF_Stat');
 wintStat.innerHTML = win_Stat;
 
+modulesarray.push(wintStat)
+
 var listenerStat = function (e, a) { // сохранение позиции окна работы со статистикой
     wintStat.style.left = Number(e.clientX - myX6) + "px";
     wintStat.style.top = Number(e.clientY - myY6) + "px";

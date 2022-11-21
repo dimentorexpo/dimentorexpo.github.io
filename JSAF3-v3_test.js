@@ -34,7 +34,7 @@ var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
 var abortTimeOut1 = ''								// перменная для отмены будильника 2
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
-
+var modulesarray [];
 function mystyles() {
     let mstl = document.createElement('style');
     document.body.append(mstl);
