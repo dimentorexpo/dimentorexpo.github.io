@@ -462,9 +462,12 @@ function mystyles() {
 	}
 	
 	#opennewcat:hover , #crmopersstatuses:hover {
-		opacity: 1;
+		opacity: 1 !important;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+		width:45px !important;
+		height:45px !important;
+		font-size:23px !important;
 	}
 
 	`
