@@ -516,6 +516,10 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
 				</div>
 			</div>
+			
+			<div style="border: 2px double black; display: none; background-color: #464451" id="modulestatus_bar">
+				<p id="statusoutput"></p>
+			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
                 <select style="height:28px; width:210px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
@@ -544,6 +548,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
 				<div class="onlyfortp" style="margin-top: 5px; width: 320px">
                     <label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+					<button id="module_status">Module Status</button>
                     <br>
                     <input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
                     <button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
@@ -4369,6 +4374,21 @@ document.getElementById('setting').onclick = function () { // открывает
                 localStorage.setItem('test_stud', document.getElementById('test_std').value);
             } else console.log("Ведите ID тестового ученика")
         }
+		
+		document.getElementById('module_status').onclick = function() {
+			if (document.querySelector('#modulestatus_bar').style.display == 'none') {
+				document.querySelector('#modulestatus_bar').style.display = ''
+				
+				if (modulesarray != undefined && modulesarray.length > 0) {
+					for (let i=0; i < modulesarray.length; i++) {
+						document.getElementById('statusoutput').innerHTML += modulesarray[i] + '<br>'
+					}
+				}
+				
+			} else {
+				document.querySelector('#modulestatus_bar').style.display = 'none'
+			}
+		}
 
         document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
             if (document.getElementById('test_teach').value != '') {
