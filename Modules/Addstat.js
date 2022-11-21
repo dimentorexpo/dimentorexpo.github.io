@@ -171,7 +171,7 @@ wintStat.style.display = 'none';
 wintStat.setAttribute('id', 'AF_Stat');
 wintStat.innerHTML = win_Stat;
 
-if (typeof modulesarray1 != 'undefined') { // добавляем в исходный массив модулей для проверки переменную winStat, чтобы потом проверять подключился этот модуль или нет
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную winStat, чтобы потом проверять подключился этот модуль или нет
 	modulesarray.push(wintStat) 
 }
 
