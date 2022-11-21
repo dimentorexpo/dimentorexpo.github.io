@@ -97,19 +97,6 @@ function mystylesAFMS() {
 		font-family: sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
 	}
 
-	.wintInitializeAdultsExercisesInfo {
-		min-height: 170px;
-		max-height: 790px;
-		width: 534px;
-		font-size: 14px;
-		z-index: 20;
-		position: fixed;
-		border: 1px solid rgb(56, 56, 56);
-		background: rgb(70, 68, 81);
-		color: black;
-		font-family: sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,NotoEmoji,Twemoji;
-	}
-
 	.wintInitializeVocabulary {
 		min-height: 170px;
 		max-height: 790px;
@@ -658,9 +645,7 @@ var win_addMenu = `<div style="display: flex;">
 						</div>
 
 						<div id="exercisesmenu" style="display:none">
-							<button id="exercisekysmart" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🔞</span> Skysmart</button>
-							<br>
-							<button id="exerciseadult" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🅰</span> Aduls</button>
+							<button id="exercisekysmart" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🎓</span> Smartroom</button>
 							<br>
 							<button id="exercisesttc" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">👽</span> TTC</button>
 							<br>
@@ -797,39 +782,6 @@ var win_kidsExercises = `<div style="display: flex;">
 					</span>
 				   </div>`;
 
-var win_adultsExercises = `<div style="display: flex;">
-					<span style="cursor: -webkit-grab;">
-
-					     <div style="margin: 5px; width:500px;" id="hideExercisesAdultsMenuHeader">
-                            <button class="commonbtn" title="скрывает меню" id="hideExercisesAdultsMenu" style="width:50px; height:30px; background: #228B22;">hide</button>
-							<button class="commonbtn" id="RefreshInfoExerciseAdults" title = "Обновляет информацию по открытой комнате" style="margin: 5px; width: 25px; height: 25px; padding: 0;">♻</button>
-							<button class="commonbtn" id="ClearExercFields" title = "Очищает поля" style="margin: 5px; width: 25px; height: 25px; padding: 0;">🧹</button>
-                        </div>
-
-						<div style="margin:5px;">
-							<input id="roomhashhw" placeholder="homework link" style="width: 440px; margin-left: 15px; text-align: center;">
-							<button class="commonbtn" id="getroomdata">🔎</button>
-						</div>
-
-						<div id="toolsforroom" style="text-align:center; margin-top:5px;">
-							<input readonly id="outidmethodist" placeholder="Methodist ID" style="width: 120px; margin-left: 15px; text-align: center;">
-							<button class="commonbtn" id="getidmethodist" title="Узнать ID методиста, срабатывает только при открытом слайде с работой либо эссе либо рекординг">🆔 Методиста</button>
-							<button class="commonbtn" id="getroominfo">❓ Room Info</button>
-						</div>
-
-						<div id="toolsforslides" style="text-align:center; margin-top:5px;">
-							<button class="commonbtn" id="removeslide" title="Удаляет слайды">❌ Remove</button>
-							<button class="commonbtn" id="resetslide" title="Сбрасывает прогресс в слайдах">⭕ Reset</button>
-							<button class="commonbtn" id="assignslideashw" title="Отправляет выбранный слайд в качестве ДЗ">💼 Assign</button>
-							<button class="commonbtn" id="selectallslides" title="Выделяет все слайды">☑ Select All</button>
-						</div>
-
-						<div id="exercisebaradults" class="adultsexcbar">
-						<div>
-
-					</span>
-				   </div>`;
-
 var win_TTCExercises = `<div style="display: flex;">
 					<span style="cursor: -webkit-grab;">
 
@@ -905,12 +857,8 @@ if (localStorage.getItem('winTopstudentsSkysmart') == null) { //additional skysm
     localStorage.setItem('winLeftstudentsSkysmart', '407');
 }
 
-if (localStorage.getItem('winTopexercisesAdults') == null) { //additional adults students info menu
-    localStorage.setItem('winTopexercisesAdults', '118');
-    localStorage.setItem('winLeftexercisesAdults', '407');
-}
 
-if (localStorage.getItem('winTopexercisesSkysmart') == null) { //additional skysmart students info menu
+if (localStorage.getItem('winTopexercisesSkysmart') == null) { //additional skysmart students exercise menu
     localStorage.setItem('winTopexercisesSkysmart', '118');
     localStorage.setItem('winLeftexercisesSkysmart', '407');
 }
@@ -959,13 +907,6 @@ wintStudSkysmart.className = 'wintInitializeSkysmartStudentsInfo'
 wintStudSkysmart.style = 'display:none;  top: ' + localStorage.getItem('winTopstudentsSkysmart') + 'px; left: ' + localStorage.getItem('winLeftstudentsSkysmart') + 'px;';
 wintStudSkysmart.setAttribute('id', 'AFMS_SkysmartStudInfo');
 wintStudSkysmart.innerHTML = win_studentsSkysmart;
-
-let wintExercAdults = document.createElement('div');
-document.body.append(wintExercAdults);
-wintExercAdults.className = 'wintInitializeAdultsExercisesInfo'
-wintExercAdults.style = 'display:none;  top: ' + localStorage.getItem('winTopexercisesAdults') + 'px; left: ' + localStorage.getItem('winLeftexercisesAdults') + 'px;';
-wintExercAdults.setAttribute('id', 'AFMS_AdultExercInfo');
-wintExercAdults.innerHTML = win_adultsExercises;
 
 let wintExercSkysmart = document.createElement('div');
 document.body.append(wintExercSkysmart);
@@ -1091,25 +1032,6 @@ wintStudSkysmart.onmousedown = function (a) {
 wintStudSkysmart.onmouseup = function () { document.removeEventListener('mousemove', listenerStudSkysmart); }
 
 // end info students kids
-
-// Exercises adult
-
-var listenerExercAdults = function (e, a) {
-    wintExercAdults.style.left = Number(e.clientX - myX9994) + "px";
-    wintExercAdults.style.top = Number(e.clientY - myY9994) + "px";
-    localStorage.setItem('winTopexercisesAdults', String(Number(e.clientY - myY9994)));
-    localStorage.setItem('winLeftexercisesAdults', String(Number(e.clientX - myX9994)));
-};
-wintExercAdults.onmousedown = function (a) {
-    if (checkelementt(a)) {
-        window.myX9994 = a.layerX;
-        window.myY9994 = a.layerY;
-        document.addEventListener('mousemove', listenerExercAdults);
-    }
-}
-wintExercAdults.onmouseup = function () { document.removeEventListener('mousemove', listenerExercAdults); }
-
-// End exercises adult
 
 // Exercises skysmart
 
@@ -2776,7 +2698,6 @@ document.getElementById('exercisesttc').onclick = async function () {
     if (document.getElementById('AFMS_TTCExercInfo').style.display == 'none') {
         document.getElementById('AFMS_TTCExercInfo').style.display = ''
         document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
-        document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
 
         if (location.host == 'ttc.skyeng.ru')
             document.getElementById('roomhashttc').value = document.URL.split('/')[5]
@@ -2842,7 +2763,6 @@ document.getElementById('exercisesttc').onclick = async function () {
 document.getElementById('exercisekysmart').onclick = async function () { // открывает менюшку скайсмарт упражнений
     if (document.getElementById('AFMS_SkysmartExercInfo').style.display == 'none') {
         document.getElementById('AFMS_SkysmartExercInfo').style.display = ''
-        document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
         document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
 
         document.getElementById('RefreshInfoExerciseKids').onclick = function () {
@@ -2853,10 +2773,13 @@ document.getElementById('exercisekysmart').onclick = async function () { // от
         document.getElementById('hideExercisesSkysmartMenu').onclick = function () { // функция скрывает меню
             document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
         }
-
+		
         //document.getElementById('exercisebarskysmart').innerText = "В РАЗРАБОТКЕ"
 
         document.getElementById('roomhashhwkids').value = document.URL
+		setTimeout( function() {
+			getroomdatakids.click()
+		}, 1000)
         document.getElementById('getroomdatakids').onclick = async function () {
             document.getElementById('exercisebarskysmart').innerHTML = '';
             let hashroomkids = document.getElementById('roomhashhwkids').value.split('/')[6].split('?')[0]
@@ -2947,405 +2870,6 @@ document.getElementById('exercisekysmart').onclick = async function () { // от
         document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
     }
 }
-
-document.getElementById('exerciseadult').onclick = async function () { // открывает менюшку Adults упражнений
-    if (document.getElementById('AFMS_AdultExercInfo').style.display == 'none') {
-        document.getElementById('AFMS_AdultExercInfo').style.display = ''
-        document.getElementById('AFMS_SkysmartExercInfo').style.display = 'none'
-        document.getElementById('AFMS_TTCExercInfo').style.display = 'none'
-
-        document.getElementById('hideExercisesAdultsMenu').onclick = function () { // функция скрывает меню
-            document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
-        }
-
-        let workbookid = 0;
-
-        let checkedarray = [];
-        document.getElementById('selectallslides').onclick = function () { //функция выделения всех слов
-            let checkallwords = document.getElementsByName('checkslideforaction')
-            for (let i = 0; i < checkallwords.length; i++) {
-                if (checkallwords[i].checked != true) {
-                    checkallwords[i].checked = true
-                    //	checkedarray.push(getmeanids[i].textContent)
-                    console.log(checkedarray)
-                } else if (checkallwords[i].checked == true) {
-                    checkallwords[i].checked = false
-                    checkedarray = []
-                }
-            }
-        }
-
-        document.getElementById('roomhashhw').value = document.URL
-        let hashroom = document.getElementById('roomhashhw').value.split('/')[4]
-
-        document.getElementById('getroomdata').onclick = async function () { //  функция получения информации об  упражнении
-            let hashroom = document.getElementById('roomhashhw').value.split('/')[4]
-            let temparr = [];
-            document.getElementById('exercisebaradults').innerHTML = ''
-            await joinroom(hashroom)
-
-            workbookid = joinresult.workbooks[0].id
-
-            for (let i = 0; i < Object.keys(joinresult.lessonPlan).length; i++) {
-                let vartodefine = Object.keys(joinresult.lessonPlan)[i]
-
-                switch (vartodefine) {
-                    case "Lesson":
-                        temparr = [];
-                        for (let j = 0; j < Object.values(joinresult.lessonPlan)[i].length; j++) {
-
-                            for (let k = 0; k < joinresult.workbooks[0].workbookSteps.length; k++) {
-                                if (joinresult.workbooks[0].workbookSteps[k].stepRevId == Object.values(joinresult.lessonPlan)[i][j].id) {
-                                    temparr += '<div class="itemexercises">' + [j + 1] + '. ' + Object.values(joinresult.lessonPlan)[i][j].title +
-                                        '<span class="stepuidsl" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].stepUUID + '</span>' +
-                                        '<span class="stepids" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].id + '</span>' +
-                                        '<input type="checkbox" name="checkslideforaction" class="checkslides">' +
-                                        '<span style="display:none" class="sectionforcheck">' + `section${i}` + '</span>' +
-                                        '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
-                                        '<span class="sentashw" style="float:right; margin-right:5px;">' + (joinresult.workbooks[0].workbookSteps[k].homeworkAssigned == true ?
-                                            '<span class="sentyes" style="float:right;margin-right:30px;">✔</span>' :
-                                            '<span class="sentno" style="float:right; margin-right:30px;">❌</span>') + '</span>' +
-                                        '<span class="scoreslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].score.toFixed(1) + '</span>' +
-                                        '<span class="completnesofslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].completeness + '%' + '</span>' +
-                                        '</div>'
-                                }
-                            }
-                        }
-                        document.getElementById('exercisebaradults').innerHTML += '<div class="roomtype">Lesson</div>' +
-                            '<div class="boxwithslides" style="display:none">' +
-                            '<div class="headerexplain">' +
-                            '<span style="margin-left: 60px;">Название слайда</span>' +
-                            '<span style="margin-left: 160px;">%</span>' +
-                            '<span style="margin-left: 24px;">Балл</span>' +
-                            '<span style="margin-left: 20px;">💼</span>' +
-                            '<input type="checkbox" name="checkroomtype" class="checkroom">' +
-                            '</div>' +
-                            temparr + '</div>'
-                        break;
-
-                    case "Homework":
-                        temparr = [];
-                        for (let j = 0; j < Object.values(joinresult.lessonPlan)[i].length; j++) {
-
-                            for (let k = 0; k < joinresult.workbooks[0].workbookSteps.length; k++) {
-                                if (joinresult.workbooks[0].workbookSteps[k].stepRevId == Object.values(joinresult.lessonPlan)[i][j].id) {
-                                    temparr += '<div class="itemexercises">' + [j + 1] + '. ' + Object.values(joinresult.lessonPlan)[i][j].title +
-                                        '<span class="stepuidsl" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].stepUUID + '</span>' +
-                                        '<span class="stepids" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].id + '</span>' +
-                                        '<input type="checkbox" name="checkslideforaction" class="checkslides">' +
-                                        '<span style="display:none" class="sectionforcheck">' + `section${i}` + '</span>' +
-                                        '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
-                                        '<span class="sentashw" style="float:right; margin-right:5px;">' + (joinresult.workbooks[0].workbookSteps[k].homeworkAssigned == true ?
-                                            '<span class="sentyes" style="float:right;margin-right:30px;">✔</span>' :
-                                            '<span class="sentno" style="float:right; margin-right:30px;">❌</span>') + '</span>' +
-                                        '<span class="scoreslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].score.toFixed(1) + '</span>' +
-                                        '<span class="completnesofslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].completeness + '%' + '</span>' +
-                                        '</div>'
-                                }
-                            }
-                        }
-                        document.getElementById('exercisebaradults').innerHTML += '<div class="roomtype">Homework</div>' +
-                            '<div class="boxwithslides" style="display:none">' +
-                            '<div class="headerexplain">' +
-                            '<span style="margin-left: 60px;">Название слайда</span>' +
-                            '<span style="margin-left: 160px;">%</span>' +
-                            '<span style="margin-left: 24px;">Балл</span>' +
-                            '<span style="margin-left: 20px;">💼</span>' +
-                            '<input type="checkbox" name="checkroomtype" class="checkroom">' +
-                            '</div>' +
-                            temparr + '</div>'
-                        break;
-
-                    case "Test":
-                        temparr = [];
-                        for (let j = 0; j < Object.values(joinresult.lessonPlan)[i].length; j++) {
-
-                            for (let k = 0; k < joinresult.workbooks[0].workbookSteps.length; k++) {
-                                if (joinresult.workbooks[0].workbookSteps[k].stepRevId == Object.values(joinresult.lessonPlan)[i][j].id) {
-                                    temparr += '<div class="itemexercises">' + [j + 1] + '. ' + Object.values(joinresult.lessonPlan)[i][j].title +
-                                        '<span class="stepuidsl" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].stepUUID + '</span>' +
-                                        '<span class="stepids" style="display:none">' + Object.values(joinresult.lessonPlan)[i][j].id + '</span>' +
-                                        '<input type="checkbox" name="checkslideforaction" class="checkslides">' +
-                                        '<span style="display:none" class="sectionforcheck">' + `section${i}` + '</span>' +
-                                        '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
-                                        '<span class="sentashw" style="float:right; margin-right:5px;">' + (joinresult.workbooks[0].workbookSteps[k].homeworkAssigned == true ?
-                                            '<span class="sentyes" style="float:right;margin-right:30px;">✔</span>' :
-                                            '<span class="sentno" style="float:right; margin-right:30px;">❌</span>') + '</span>' +
-                                        '<span class="scoreslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].score.toFixed(1) + '</span>' +
-                                        '<span class="completnesofslide" style="float:right; margin-right:30px;">' + joinresult.workbooks[0].workbookSteps[k].completeness + '%' + '</span>' +
-                                        '</div>'
-                                }
-                            }
-                        }
-                        document.getElementById('exercisebaradults').innerHTML += '<div class="roomtype">Test</div>' +
-                            '<div class="boxwithslides" style="display:none">' +
-                            '<div class="headerexplain">' +
-                            '<span style="margin-left: 60px;">Название слайда</span>' +
-                            '<span style="margin-left: 160px;">%</span>' +
-                            '<span style="margin-left: 24px;">Балл</span>' +
-                            '<span style="margin-left: 20px;">💼</span>' +
-                            '<input type="checkbox" name="checkroomtype" class="checkroom">' +
-                            '</div>' +
-                            temparr + '</div>'
-                        break;
-                }
-
-            }
-
-
-            let savelinkarr = document.getElementsByClassName('savelinktocms')
-            for (let z = 0; z < savelinkarr.length; z++) {
-                savelinkarr[z].onclick = function () {
-                    copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('stepuidsl')[z].textContent)
-                }
-            }
-
-            document.getElementById('resetslide').onclick = function () {
-                let steps = document.getElementsByClassName('stepids')
-                let chekeds = document.getElementsByName('checkslideforaction')
-                let massiv = [];
-                let quest4;
-                quest4 = confirm("Вы уверены, что хотите сбросить прогресс выбранных слайдов? Ок - Продолжить, Отмена - покинуть меню")
-                if (quest4) {
-                    for (let i = 0; i < chekeds.length; i++) {
-                        if (chekeds[i].checked == true)
-                            massiv.push(steps[i].textContent)
-                    }
-                    console.log(massiv)
-
-                    for (let j = 0; j < massiv.length; j++) {
-                        fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/workbooks/steps/" + massiv[j] + "/reset", {
-                            "headers": {
-                                "accept": "application/json, text/plain, */*",
-                                "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                                "authorization": "Bearer " + token.token_global,
-                            },
-                            "referrer": "https://vimbox.skyeng.ru/",
-                            "referrerPolicy": "strict-origin-when-cross-origin",
-                            "body": "workbookIds[]=" + workbookid,
-                            "method": "DELETE",
-                            "mode": "cors",
-                            "credentials": "include"
-                        });
-                    }
-
-                    alert("Слайды были успешно сброшены")
-
-                }
-            }
-
-            document.getElementById('removeslide').onclick = function () { // функция отзыва выбранных слайдов
-                let stepuuids = document.getElementsByClassName('stepuidsl')
-                let chekeds = document.getElementsByName('checkslideforaction')
-                let massivuustep = [];
-                let quest5;
-                quest5 = confirm("Вы уверены, что хотите отозвать выбранные слайды? Ок - Продолжить, Отмена - покинуть меню")
-                if (quest5) {
-                    for (let i = 0; i < chekeds.length; i++) {
-                        if (chekeds[i].checked == true)
-                            massivuustep.push(stepuuids[i].textContent)
-                    }
-                    console.log(massivuustep)
-
-                    for (let j = 0; j < massivuustep.length; j++) {
-
-                        sentordeletehw(workbookid, massivuustep[j], "DELETE")
-                    }
-                    alert("Выбранные слайды были успешно отозваны!")
-                }
-            }
-
-            document.getElementById('assignslideashw').onclick = function () { // функция добавления выбранных слайдов
-                let stepuuids = document.getElementsByClassName('stepuidsl')
-                let chekeds = document.getElementsByName('checkslideforaction')
-                let massivuustep = [];
-                let quest6;
-                quest6 = confirm("Вы уверены, что хотите добавить выбранные слайды? Ок - Продолжить, Отмена - покинуть меню")
-                if (quest6) {
-                    for (let i = 0; i < chekeds.length; i++) {
-                        if (chekeds[i].checked == true)
-                            massivuustep.push(stepuuids[i].textContent)
-                    }
-                    console.log(massivuustep)
-
-                    for (let j = 0; j < massivuustep.length; j++) {
-
-                        sentordeletehw(workbookid, massivuustep[j], "POST")
-                    }
-                    alert("Выбранные слайды были успешно добавлены!")
-                }
-            }
-
-            function sentordeletehw(workbook, stepuuid, method) {
-                fetch("https://rooms-vimbox-ams3.skyeng.ru/rooms/api/v1/homeworks/workbook/" + workbook + "/step/" + stepuuid, {
-                    "headers": {
-                        "authorization": "Bearer " + token.token_global,
-                    },
-                    "method": method,
-                    "mode": "cors",
-                    "credentials": "include"
-                });
-            }
-
-            //select type room button Lesson Homework Test
-
-            let selectoneles = document.getElementsByName('checkroomtype')
-            let checkboxesall = document.getElementsByName('checkslideforaction')
-            let flagforfilter = document.getElementsByClassName('sectionforcheck')
-            let massiv = [];
-
-            for (let i = 0; i < selectoneles.length; i++) {
-                selectoneles[i].onclick = function () {
-                    massiv = [];
-                    for (let j = 0; j < flagforfilter.length; j++) {
-                        if (flagforfilter[j].textContent == ('section' + (i + 1))) {
-                            massiv.push(j)
-                        }
-                    }
-                    console.log(massiv)
-
-                    for (let k = massiv[0]; k <= massiv[massiv.length - 1]; k++) {
-                        if (checkboxesall[k].checked != true)
-                            checkboxesall[k].checked = true;
-                        else checkboxesall[k].checked = false;
-                    }
-                }
-            }
-
-            //select all button
-
-            let subjbtnsarr = document.getElementsByClassName('roomtype')
-            let slidesbar = document.getElementsByClassName('boxwithslides')
-            for (let i = 0; i < subjbtnsarr.length; i++) {
-                subjbtnsarr[i].onclick = function () {
-                    if (slidesbar[i].style.display == 'none')
-                        slidesbar[i].style.display = ''
-                    else slidesbar[i].style.display = 'none'
-                }
-            }
-        }
-
-
-        document.getElementById('getroominfo').onclick = async function () { //функция получает инфо о текущем слайде, курсе, уровне, уроке, получает ссылку на CMS, и конкретный открытый степ
-            await joinroom(hashroom)
-
-            if (joinresult.lessonPlan.Homework != undefined) {
-
-                for (let i = 0; i < joinresult.lessonPlan.Homework.length; i++) {
-                    if (joinresult.currentStepRevId == joinresult.lessonPlan.Homework[i].id) {
-                        console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-                        copyToClipboard('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-                        alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Homework[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Homework[i].stepUUID)
-                    }
-                }
-
-                for (let i = 0; i < joinresult.lessonPlan.Lesson.length; i++) {
-                    if (joinresult.currentStepRevId == joinresult.lessonPlan.Lesson[i].id) {
-                        console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-                        copyToClipboard('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-                        alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Lesson[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Lesson[i].stepUUID)
-                    }
-                }
-
-            } else {
-                for (let i = 0; i < joinresult.lessonPlan.Test.length; i++) {
-                    if (joinresult.currentStepRevId == joinresult.lessonPlan.Test[i].id) {
-                        console.log('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
-                        copyToClipboard('Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
-                        alert('Информация успешно скопирована в буфер обмена!\n' + 'Курс: ' + joinresult.lessonInfo.info.program + ' Уровень: ' + joinresult.lessonInfo.info.levelText + ' Урок: ' + joinresult.lessonInfo.info.sortOrder + '. ' + joinresult.lessonInfo.info.title + ' Слайд: ' + joinresult.lessonPlan.Test[i].title + '\n' + 'CMS ссылка на урок: https://content.vimbox.skyeng.ru/cms/lesson/update/id/' + joinresult.lessonId + '\nCMS ссылка на активный слайд: https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/' + joinresult.lessonPlan.Test[i].stepUUID)
-                    }
-                }
-            }
-        }
-
-        document.getElementById('RefreshInfoExerciseAdults').onclick = function () {
-            document.getElementById('roomhashhw').value = document.URL
-        }
-
-        document.getElementById('ClearExercFields').onclick = function () { // функция очищает разные поля
-            document.getElementById('roomhashhw').value = ''
-            document.getElementById('outidmethodist').value = ''
-        }
-
-        document.getElementById('getidmethodist').onclick = async function () { // функция получения ID методиста, Которому отправлено
-            document.getElementById('outidmethodist').value = ''
-            if (document.getElementById('roomhashhw').value.split('/')[6] != 'materials?tool=homework') {
-                await joinroom(hashroom = document.URL.split('/')[4])
-
-                await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
-                    "headers": {
-                        "accept": "application/json, text/plain, */*",
-                        "accept-language": "ru",
-                        "authorization": "Bearer " + token.token_global,
-                        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    },
-                    "body": `studentId=${joinresult.students[0].id}&projectName=vimbox`,
-                    "method": "POST",
-                    "mode": "cors",
-                    "credentials": "include"
-                }).then(r => r.json()).then(r => result = r)
-
-                if (result.record == undefined && result.text != null) {
-                    document.getElementById('outidmethodist').value = "Essay: " + result.methodistId
-
-                } else {
-                    await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
-                        "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "accept-language": "ru",
-                            "authorization": "Bearer " + token.token_global,
-                            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                        },
-                        "body": `studentId=${joinresult.students[0].id}&projectName=vimbox&sourceId=0`,
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    }).then(r => r.json()).then(r => result = r)
-
-                    if (result.record != undefined)
-                        document.getElementById('outidmethodist').value = "Record: " + result.record.methodistId
-                }
-            } else {
-
-                await joinroom(hashroom = document.URL.split('/')[4])
-                await fetch(`https://essay-vimbox.skyeng.ru/api/v1/essay/${joinresult.currentStepRevId}/ensure/0`, {
-                    "headers": {
-                        "accept": "application/json, text/plain, */*",
-                        "accept-language": "ru",
-                        "authorization": "Bearer " + token.token_global,
-                        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    },
-                    "method": "POST",
-                    "mode": "cors",
-                    "credentials": "include"
-                }).then(r => r.json()).then(r => result = r)
-
-                if (result.record == undefined && result.text != null) {
-                    document.getElementById('outidmethodist').value = "Essay: " + result.methodistId
-
-                } else {
-                    await fetch(`https://record-vimbox.skyeng.ru/api/v1/record/${joinresult.currentStepRevId}/ensure/0`, {
-                        "headers": {
-                            "accept": "application/json, text/plain, */*",
-                            "accept-language": "ru",
-                            "authorization": "Bearer " + token.token_global,
-                            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                        },
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    }).then(r => r.json()).then(r => result = r)
-
-                    if (result.record != undefined)
-                        document.getElementById('outidmethodist').value = "Record: " + result.record.methodistId
-                }
-            }
-        }
-
-    } else {
-        document.getElementById('AFMS_AdultExercInfo').style.display = 'none'
-    }
-} // end of exercises menu adults
 
 async function joinroom(item) { //функция сканирования комнаты по запросу на join
     await fetch("https://rooms-vimbox.skyeng.ru/rooms/api/v1/rooms/" + item + "/join", {
