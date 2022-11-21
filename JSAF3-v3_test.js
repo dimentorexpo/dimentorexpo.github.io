@@ -4432,7 +4432,7 @@ document.getElementById('setting').onclick = function () { // открывает
 						else if (modulesarray[i].id == 'AF_LessonStatus')
 							modulename = "Модуль Lesson Status"	
 						else if (modulesarray[i].id == 'AF_OperStat')
-							modulename = "Модуль CRM OperStatus"
+							modulename = "Модуль OperStatus"
 
 						document.getElementById('statusoutput').innerHTML += [i+1] + '. ' + modulename + '<span style="float:right">' + '🟢' + '</span>' + '<br>'
 					}
