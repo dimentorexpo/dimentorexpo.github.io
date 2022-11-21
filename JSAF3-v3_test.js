@@ -517,8 +517,9 @@ var win_AFhelper =  // описание элементов главного ок
 				</div>
 			</div>
 			
-			<div style="border: 2px double black; display: none; background-color: #464451" id="modulestatus_bar">
-				<p id="statusoutput" style="color: bisque;    position: absolute;    top: 476px;    left: -201px;    background-color: rgb(70, 68, 81);    width: 200px;    padding: 5px;"></p>
+			<div style="border: 2px double black; display: none; position: absolute;    top: 476px;    left: -201px;    background-color: rgb(70, 68, 81);    width: 200px;    padding: 5px;" id="modulestatus_bar">
+			
+				<p id="statusoutput" style="color: bisque;"></p>
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
@@ -4414,6 +4415,7 @@ document.getElementById('setting').onclick = function () { // открывает
 							modulename = "Модуль статистики в L"
 						else if (modulesarray[i].id == 'AF_LessonStatus')
 							modulename = "Модуль Lesson Status"
+						else modulename = "Модуль не обработан в коде"
 						document.getElementById('statusoutput').innerHTML += [i] + '. ' + modulename + '🟢' + '<br>'
 					}
 				}
