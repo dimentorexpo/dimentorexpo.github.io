@@ -32,6 +32,10 @@ wintFrozeChat.style.display = 'none';
 wintFrozeChat.setAttribute('id', 'AF_FrozeChat');
 wintFrozeChat.innerHTML = win_FrozeChat;
 
+if (typeof modulesarray1 != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintFrozeChat, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintFrozeChat) 
+}
+
 var listenerFrozeChat = function (e, a) { // сохранение позиции окна заморозки
     wintFrozeChat.style.left = Number(e.clientX - myX20) + "px";
     wintFrozeChat.style.top = Number(e.clientY - myY20) + "px";
