@@ -64,6 +64,10 @@ wintSmartroom.style.display = 'none';
 wintSmartroom.setAttribute('id', 'AF_Smartroomform');
 wintSmartroom.innerHTML = win_smartroomform;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintSmartroom, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintSmartroom) 
+}
+
 var listenerSmartroom = function (e, a) { // сохранение позиции окна Мультирум пожелания/баги
     wintSmartroom.style.left = Number(e.clientX - myX19) + "px";
     wintSmartroom.style.top = Number(e.clientY - myY19) + "px";

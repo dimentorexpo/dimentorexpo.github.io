@@ -37,6 +37,11 @@ wintMarks.style.display = 'none';
 wintMarks.setAttribute('id', 'AF_Marks');
 wintMarks.innerHTML = win_Marks;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintMarks, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintMarks) 
+}
+
+
 var listenerMarks = function (e, a) { // сохранение позиции окна поиска оценок от пользователя
     wintMarks.style.left = Number(e.clientX - myX14) + "px";
     wintMarks.style.top = Number(e.clientY - myY14) + "px";

@@ -87,6 +87,11 @@ wintChatHis.style.display = 'none';
 wintChatHis.setAttribute('id', 'AF_ChatHis');
 wintChatHis.innerHTML = win_Chathis;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintChatHis, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintChatHis) 
+}
+
+
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
 
     document.getElementById('infofield').innerHTML = ''

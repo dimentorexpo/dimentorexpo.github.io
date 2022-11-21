@@ -36,6 +36,10 @@ wintLinks.style.display = 'none';
 wintLinks.setAttribute('id', 'AF_Links');
 wintLinks.innerHTML = win_Links;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintLinks, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintLinks) 
+}
+
 var listenerLinks = function (e, a) { // сохранение позиции окна ссылок
     wintLinks.style.left = Number(e.clientX - myX4) + "px";
     wintLinks.style.top = Number(e.clientY - myY4) + "px";

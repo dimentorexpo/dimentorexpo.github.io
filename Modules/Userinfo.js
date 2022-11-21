@@ -74,6 +74,10 @@ wintServices.style.display = 'none';
 wintServices.setAttribute('id', 'AF_Service');
 wintServices.innerHTML = win_serviceinfo;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintServices, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintServices) 
+}
+
 var listenerServices = function (e, a) { // сохранение позиции окна вензель user info
     wintServices.style.left = Number(e.clientX - myX7) + "px";
     wintServices.style.top = Number(e.clientY - myY7) + "px";

@@ -47,6 +47,10 @@ wintLinksd.style.display = 'none';
 wintLinksd.setAttribute('id', 'AF_Linksd');
 wintLinksd.innerHTML = win_linksd;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintLinksd, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintLinksd) 
+}
+
 var listenerLinksd = function (e, a) { // сохранение позиции окна доступов
     wintLinksd.style.left = Number(e.clientX - myX9) + "px";
     wintLinksd.style.top = Number(e.clientY - myY9) + "px";

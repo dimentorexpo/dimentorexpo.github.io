@@ -237,6 +237,10 @@ wintThemes.style.display = 'none';
 wintThemes.setAttribute('id', 'AF_Themes');
 wintThemes.innerHTML = win_Themes;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintThemes, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintThemes) 
+}
+
 var listenerThemes = function (e, a) { // сохранение позиции окна Тематик
     wintThemes.style.left = Number(e.clientX - myX18) + "px";
     wintThemes.style.top = Number(e.clientY - myY18) + "px";

@@ -48,6 +48,10 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintRefuseFormNew, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintRefuseFormNew) 
+}
+
 var listenerRefuseForm = function (e, a) { // сохранение позиции окна отказов
     wintRefuseFormNew.style.left = Number(e.clientX - myX16) + "px";
     wintRefuseFormNew.style.top = Number(e.clientY - myY16) + "px";

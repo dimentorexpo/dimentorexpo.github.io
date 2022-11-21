@@ -30,6 +30,11 @@ wintGrList.style.display = 'none';
 wintGrList.setAttribute('id', 'AF_GrList');
 wintGrList.innerHTML = win_GrList;
 
+if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintGrList, чтобы потом проверять подключился этот модуль или нет
+	modulesarray.push(wintGrList) 
+}
+
+
 var listenerGrList = function (e, a) { // сохранение позиции окна Список группы
     wintGrList.style.left = Number(e.clientX - myX13) + "px";
     wintGrList.style.top = Number(e.clientY - myY13) + "px";
