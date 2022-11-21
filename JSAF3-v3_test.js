@@ -1032,13 +1032,13 @@ function prepTp() { //функция подготовки расширения �
 
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
-    openchhis.style = 'position:fixed; top:45px; right:0px; z-index:5; width: 40px; height: 40px; font-size: 25px; cursor: pointer;'
+    openchhis.style = '    position: fixed; top: 45px; right: 0px; z-index: 5; width: 50px; height: 50px; font-size: 25px; cursor: pointer; border-radius: 50%;'
     openchhis.id = 'opennewcat'
     document.body.append(openchhis)
 
     let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
-    crmopers.style = 'position:fixed; top:90px; right:0px; z-index:5; width: 40px; height: 40px; font-size: 25px; cursor: pointer;'
+    crmopers.style = 'position: fixed; top: 100px; right: 0px; z-index: 5; width: 50px; height: 50px; font-size: 25px; cursor: pointer; border-radius: 25px;'
     crmopers.id = 'crmopersstatuses'
     crmopers.classList = 'onlyfortp'
     document.body.append(crmopers)
