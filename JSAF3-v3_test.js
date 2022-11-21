@@ -1040,6 +1040,7 @@ function prepTp() { //функция подготовки расширения �
     crmopers.innerHTML = '🧮'
     crmopers.style = 'position:fixed; top:80px; right:0px; z-index:5;'
     crmopers.id = 'crmopersstatuses'
+    crmopers.classList = 'onlyfortp'
     document.body.append(crmopers)
 
     openchhis.onclick = () => {
