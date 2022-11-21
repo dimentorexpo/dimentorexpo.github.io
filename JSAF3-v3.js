@@ -516,6 +516,13 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
 				</div>
 			</div>
+			
+			<div style="border: 2px double black; display: none; position: absolute; top: 0px; left: -213px; background-color: rgb(70, 68, 81); width: 212px;    padding: 5px;" id="modulestatus_bar">
+				<div>
+					<button title="скрывает меню" id="hidemodulestatus" style="width:50px; background: #228B22;">hide</button>
+				</div>
+				<p id="statusoutput" style="color: bisque;"></p>
+			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
                 <select style="height:28px; width:210px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
@@ -544,6 +551,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
 				<div class="onlyfortp" style="margin-top: 5px; width: 320px">
                     <label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+					<button id="module_status">Module Status</button>
                     <br>
                     <input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
                     <button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
@@ -4369,6 +4377,62 @@ document.getElementById('setting').onclick = function () { // открывает
                 localStorage.setItem('test_stud', document.getElementById('test_std').value);
             } else console.log("Ведите ID тестового ученика")
         }
+		
+		document.getElementById('module_status').onclick = function() {
+			
+			document.getElementById('hidemodulestatus').onclick = function() {
+				document.querySelector('#modulestatus_bar').style.display = 'none'
+				document.getElementById('statusoutput').innerHTML = ''
+			}
+			
+			let modulename;
+			if (document.querySelector('#modulestatus_bar').style.display == 'none') {
+				document.querySelector('#modulestatus_bar').style.display = ''
+				document.getElementById('statusoutput').innerHTML = ''
+				
+				if (modulesarray != undefined && modulesarray.length > 0) {
+					for (let i=0; i < modulesarray.length; i++) {
+						if (modulesarray[i].id == 'AF_Links')
+							modulename = "Модуль ссылок L"
+						else if (modulesarray[i].id == 'AF_Linksd')
+							modulename = "Модуль ссылок *"
+						else if (modulesarray[i].id == 'AF_Service')
+							modulename = "Модуль UserInfo"
+						else if (modulesarray[i].id == 'AF_ServDsk')
+							modulename = "Модуль ServiceDesk"
+						else if (modulesarray[i].id == 'AF_Marks')
+							modulename = "Модуль оценок"
+						else if (modulesarray[i].id == 'AF_FrozeChat')
+							modulename = "Модуль Autorespond"
+						else if (modulesarray[i].id == 'AF_Jira')
+							modulename = "Модуль JiraSearch"
+						else if (modulesarray[i].id == 'AF_Sugform')
+							modulename = "Модуль Предложения"
+						else if (modulesarray[i].id == 'AF_Createtask')
+							modulename = "Модуль Task"
+						else if (modulesarray[i].id == 'AF_Smartroomform')
+							modulename = "Модуль Smartroom"
+						else if (modulesarray[i].id == 'AF_Themes')
+							modulename = "Модуль Темы"
+						else if (modulesarray[i].id == 'AF_ChatHis')
+							modulename = "Модуль Chat History"
+						else if (modulesarray[i].id == 'AF_GrList')
+							modulename = "Модуль просмотр групп"
+						else if (modulesarray[i].id == 'AF_TechSummary')
+							modulename = "Модуль TechSummary"
+						else if (modulesarray[i].id == 'AF_Stat')
+							modulename = "Модуль статистики в L"
+						else if (modulesarray[i].id == 'AF_LessonStatus')
+							modulename = "Модуль Lesson Status"
+						else modulename = "Модуль не обработан в коде"
+						document.getElementById('statusoutput').innerHTML += [i+1] + '. ' + modulename + '<span style="float:right">' + '🟢' + '</span>' + '<br>'
+					}
+				}
+				
+			} else {
+				document.querySelector('#modulestatus_bar').style.display = 'none'
+			}
+		}
 
         document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
             if (document.getElementById('test_teach').value != '') {
