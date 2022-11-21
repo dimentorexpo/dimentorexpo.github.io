@@ -518,7 +518,7 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			
 			<div style="border: 2px double black; display: none; background-color: #464451" id="modulestatus_bar">
-				<p id="statusoutput" style="color: bisque;    position: absolute;    top: 450px;    left: -170px;    background-color: rgb(70, 68, 81);    width: 200px;    padding: 5px;"></p>
+				<p id="statusoutput" style="color: bisque;    position: absolute;    top: 476px;    left: -201px;    background-color: rgb(70, 68, 81);    width: 200px;    padding: 5px;"></p>
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
@@ -4376,12 +4376,45 @@ document.getElementById('setting').onclick = function () { // открывает
         }
 		
 		document.getElementById('module_status').onclick = function() {
+			let modulename;
 			if (document.querySelector('#modulestatus_bar').style.display == 'none') {
 				document.querySelector('#modulestatus_bar').style.display = ''
 				
 				if (modulesarray != undefined && modulesarray.length > 0) {
 					for (let i=0; i < modulesarray.length; i++) {
-						document.getElementById('statusoutput').innerHTML += modulesarray[i].id + '<br>'
+						if (modulesarray[i].id == 'AF_Links')
+							modulename = "Модуль ссылок L"
+						else if (modulesarray[i].id == 'AF_Linksd')
+							modulename = "Модуль ссылок *"
+						else if (modulesarray[i].id == 'AF_Service')
+							modulename = "Модуль UserInfo"
+						else if (modulesarray[i].id == 'AF_ServDsk')
+							modulename = "Модуль ServiceDesk"
+						else if (modulesarray[i].id == 'AF_Marks')
+							modulename = "Модуль оценок"
+						else if (modulesarray[i].id == 'AF_FrozeChat')
+							modulename = "Модуль Autorespond"
+						else if (modulesarray[i].id == 'AF_Jira')
+							modulename = "Модуль JiraSearch"
+						else if (modulesarray[i].id == 'AF_Sugform')
+							modulename = "Модуль Предложения"
+						else if (modulesarray[i].id == 'AF_Createtask')
+							modulename = "Модуль Task"
+						else if (modulesarray[i].id == 'AF_Smartroomform')
+							modulename = "Модуль Smartroom"
+						else if (modulesarray[i].id == 'AF_Themes')
+							modulename = "Модуль Темы"
+						else if (modulesarray[i].id == 'AF_ChatHis')
+							modulename = "Модуль Chat History"
+						else if (modulesarray[i].id == 'AF_GrList')
+							modulename = "Модуль просмотр групп"
+						else if (modulesarray[i].id == 'AF_TechSummary')
+							modulename = "Модуль TechSummary"
+						else if (modulesarray[i].id == 'AF_Stat')
+							modulename = "Модуль статистики в L"
+						else if (modulesarray[i].id == 'AF_LessonStatus')
+							modulename = "Модуль Lesson Status"
+						document.getElementById('statusoutput').innerHTML += [i] + '. ' + modulename + '🟢' + '<br>'
 					}
 				}
 				
