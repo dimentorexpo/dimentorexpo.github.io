@@ -518,7 +518,7 @@ var win_AFhelper =  // описание элементов главного ок
 			</div>
 			
 			<div style="border: 2px double black; display: none; background-color: #464451" id="modulestatus_bar">
-				<p id="statusoutput"></p>
+				<p id="statusoutput" style="color: bisque;    position: absolute;    top: 450px;    left: -170px;    background-color: rgb(70, 68, 81);    width: 200px;    padding: 5px;"></p>
 			</div>
 	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
@@ -4381,7 +4381,7 @@ document.getElementById('setting').onclick = function () { // открывает
 				
 				if (modulesarray != undefined && modulesarray.length > 0) {
 					for (let i=0; i < modulesarray.length; i++) {
-						document.getElementById('statusoutput').innerHTML += modulesarray[i] + '<br>'
+						document.getElementById('statusoutput').innerHTML += modulesarray[i].id + '<br>'
 					}
 				}
 				
