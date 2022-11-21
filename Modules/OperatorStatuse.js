@@ -16,12 +16,12 @@ var win_OperStatus =  // описание элементов окна оцено
 
 if (localStorage.getItem('winTopOpStat') == null) { //начальное положение окна оценко
     localStorage.setItem('winTopOpStat', '120');
-    localStorage.setItem('winTopOpStat', '295');
+    localStorage.setItem('winLeftOpStat', '295');
 }
 	
 let wintOperStatus = document.createElement('div'); // создание окна поиска оценок от пользователя
 document.body.append(wintOperStatus);
-wintOperStatus.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopOpStat') + 'px; left: ' + localStorage.getItem('winTopOpStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintOperStatus.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopOpStat') + 'px; left: ' + localStorage.getItem('winLeftOpStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintOperStatus.style.display = 'none';
 wintOperStatus.setAttribute('id', 'AF_OperStat');
 wintOperStatus.innerHTML = win_OperStatus;
@@ -35,7 +35,7 @@ var listenerOpStatus = function (e, a) { // сохранение позиции 
     wintOperStatus.style.left = Number(e.clientX - myXOpSt) + "px";
     wintOperStatus.style.top = Number(e.clientY - myYOpSt) + "px";
     localStorage.setItem('winTopOpStat', String(Number(e.clientY - myYOpSt)));
-    localStorage.setItem('winTopOpStat', String(Number(e.clientX - myXOpSt)));
+    localStorage.setItem('winLeftOpStat', String(Number(e.clientX - myXOpSt)));
 };
 
 wintOperStatus.onmousedown = function (a) { // изменение позиции окна поиска оценок от пользователя
