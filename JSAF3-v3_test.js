@@ -1032,15 +1032,15 @@ function prepTp() { //функция подготовки расширения �
 
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
-    openchhis.style = 'position:fixed;top:45px;right:0px;z-index:5;'
+    openchhis.style = 'position:fixed; top:45px; right:0px; z-index:5;'
     openchhis.id = 'opennewcat'
     document.body.append(openchhis)
 
     let crmopers = document.createElement('button')
-    crmopers.innerHTML = '☢'
+    crmopers.innerHTML = '🧮'
     crmopers.style = 'position:fixed; top:80px; right:0px; z-index:5;'
     crmopers.id = 'crmopersstatuses'
-    document.body.append(openchhis)
+    document.body.append(crmopers)
 
     openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
