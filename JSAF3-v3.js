@@ -34,7 +34,7 @@ var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
 var abortTimeOut1 = ''								// перменная для отмены будильника 2
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
-
+var modulesarray = [];
 function mystyles() {
     let mstl = document.createElement('style');
     document.body.append(mstl);
@@ -991,12 +991,12 @@ function timerHideButtons() { //функция добавления скрыти
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
             for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
                 if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)"  && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Закрыть"){
-                    console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
+                    // console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
                     document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
             }
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
-            let selectorList = document.querySelectorAll('.sc-fznZeY');
+            let selectorList = document.querySelectorAll('.sc-fzokOt');
             if (selectorList.length > 5) {
                 for (let i = 0; i < selectorList.length; i++) {
                     if (selectorList[i].innerText == "Техподдержка исход crm2")
