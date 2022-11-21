@@ -1117,6 +1117,7 @@ function prepTp() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
         include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
+        include("https://dimentorexpo.github.io/Modules/OperatorStatuse.js") // подключаем модуль статусов операторов в CRM2
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2500)
 
@@ -4429,8 +4430,10 @@ document.getElementById('setting').onclick = function () { // открывает
 						else if (modulesarray[i].id == 'AF_Stat')
 							modulename = "Модуль статистики в L"
 						else if (modulesarray[i].id == 'AF_LessonStatus')
-							modulename = "Модуль Lesson Status"
-						else modulename = "Модуль не обработан в коде"
+							modulename = "Модуль Lesson Status"	
+						else if (modulesarray[i].id == 'AF_OperStat')
+							modulename = "Модуль CRM OperStatus"
+
 						document.getElementById('statusoutput').innerHTML += [i+1] + '. ' + modulename + '<span style="float:right">' + '🟢' + '</span>' + '<br>'
 					}
 				}
