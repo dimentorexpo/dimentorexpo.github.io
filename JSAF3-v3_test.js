@@ -1104,7 +1104,7 @@ function prepTp() { //функция подготовки расширения �
 
     setInterval(timerHideButtons, 300)
 
-    include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+    // include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
     let lboxstyles = document.createElement('link')
     lboxstyles.rel = 'stylesheet'
     lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
@@ -1126,7 +1126,8 @@ function prepTp() { //функция подготовки расширения �
             });
         };
 		
-		let gfgScript = ["https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
+		let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js",
+						 "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
                          "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
                          "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
 						 "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
