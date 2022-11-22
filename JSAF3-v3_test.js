@@ -529,6 +529,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<div style="border: 2px double black; display: none; position: absolute; top: -1px; left: -213px; background-color: rgb(70, 68, 81); width: 212px;    padding: 5px;" id="modulestatus_bar">
 				<div>
 					<button title="скрывает меню" id="hidemodulestatus" style="width:50px; background: #228B22;">hide</button>
+					<button title="Реинициализация модулей" id="modulereinit">🔄 Reinitialize</button>
 				</div>
 				<p id="statusoutput" style="color: bisque;"></p>
 			</div>
@@ -4417,6 +4418,28 @@ document.getElementById('setting').onclick = function () { // открывает
         }
 		
 		document.getElementById('module_status').onclick = function() {
+			
+			document.getElementById('modulereinit').onclic = function() {
+				document.getElementById('statusoutput').innerHTML = ''
+				        include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+						include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
+						include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
+						include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
+						include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
+						include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
+						include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
+						include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
+						include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
+						include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
+						include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
+						include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
+						include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
+						include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
+						include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
+						include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
+						include("https://dimentorexpo.github.io/Modules/OperatorStatuse.js") // подключаем модуль статусов операторов в CRM2
+						include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
+			}
 			
 			document.getElementById('hidemodulestatus').onclick = function() {
 				document.querySelector('#modulestatus_bar').style.display = 'none'
