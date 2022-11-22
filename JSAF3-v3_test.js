@@ -1422,7 +1422,7 @@ async function getStats() { // функция получения статист�
     }
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
 
-    let tppower = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
     tppower.textContent = 'Нагрузка ТП'
     tppower.id = 'buttonTPpower'
     tppower.style.marginLeft = '10px'
@@ -1430,6 +1430,15 @@ async function getStats() { // функция получения статист�
         checkload(/ТП/, 'ТП')
     }
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
+
+    let autoclosechats = document.createElement('button') // кнопка для проверки списка автозакрытых чатов
+    autoclosechats.textContent = 'Автозакрытые'
+    autoclosechats.id = 'buttonTPpower'
+    autoclosechats.style.marginLeft = '10px'
+    autoclosechats.onclick = function () {
+        console.log('clicked')
+    }
+    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(autoclosechats)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
