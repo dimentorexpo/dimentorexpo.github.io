@@ -1431,15 +1431,6 @@ async function getStats() { // функция получения статист�
     }
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
 
-    let autoclosechats = document.createElement('button') // кнопка для проверки списка автозакрытых чатов
-    autoclosechats.textContent = 'Автозакрытые'
-    autoclosechats.id = 'buttonTPpower'
-    autoclosechats.style.marginLeft = '10px'
-    autoclosechats.onclick = function () {
-        console.log('clicked')
-    }
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(autoclosechats)
-
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
     for (i = 0; i < dcc.length; i++) {
@@ -1517,6 +1508,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
         let aboveart = [];
         let slacount = 0;
         let artcount = 0;
+		let aclosedchats = [];
         while (true) {
             test = ''
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
@@ -1530,12 +1522,14 @@ async function checkCSAT() { // функция проверки CSAT и чато
                 let flagCsat = 0
                 let flagTopic = 0
 
-
                 await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
                     .then(r => {
                         if (r.operatorId == operatorId) {
                             clschatarr.push(test.items[i].conversationId)
+							if (r.messages[r.messages.length-1].eventTpe == 'CloseConversation')
+								aclosedchats.push(test.items[i].conversationId)
+							console.log(aclosedchats)
                             if (r.payload == undefined || r.payload.tags == undefined || r.payload.tags.value == '')
                                 tagsarr.push('Нет тега!')
                             else if (r.payload.tags.value == '[\n  \"queue\"\n]')
