@@ -525,15 +525,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="clock_remin1" title="Двойной клик = удаление таймера. Кнопка отображения оставшегося времени" style="color: MediumSpringGreen; margin-left:28px; margin-top: 5px">00 : 00 : 00</button>
 				</div>
 			</div>
-			
-			<div style="border: 2px double black; display: none; position: absolute; top: -1px; left: -213px; background-color: rgb(70, 68, 81); width: 212px;    padding: 5px;" id="modulestatus_bar">
-				<div>
-					<button title="скрывает меню" id="hidemodulestatus" style="width:50px; background: #228B22;">hide</button>
-					<button title="Реинициализация модулей" id="modulereinit">🔄 Reinitialize</button>
-				</div>
-				<p id="statusoutput" style="color: bisque;"></p>
-			</div>
-	<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
+				<div style="border: 2px double black; display: none; background-color: #464451" id="set_bar">
 		<div style="margin: 5px; width: 350px">
                 <select style="height:28px; width:210px; text-align:center" id="soundlistaddr" onchange="changesoundaddr()">
                     <option selected="" disabled="">Звук нового сообщения</option>
@@ -1126,7 +1118,7 @@ function prepTp() { //функция подготовки расширения �
             });
         };
 		
-		let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js",
+		let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
 						 "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
                          "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
                          "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
@@ -4441,129 +4433,6 @@ document.getElementById('setting').onclick = function () { // открывает
             } else console.log("Ведите ID тестового ученика")
         }
 		
-		document.getElementById('module_status').onclick = function() {
-			let modulename;
-			
-			document.getElementById('modulereinit').onclick = function() {
-				document.getElementById('statusoutput').innerHTML = ''
-				        include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
-						include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
-						include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
-						include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
-						include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
-						include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
-						include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
-						include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
-						include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
-						include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
-						include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
-						include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
-						include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
-						include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
-						include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
-						include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
-						include("https://dimentorexpo.github.io/Modules/OperatorStatuse.js") // подключаем модуль статусов операторов в CRM2
-						include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
-						
-						
-				if (modulesarray != undefined && modulesarray.length > 0) {
-					for (let i=0; i < modulesarray.length; i++) {
-						if (modulesarray[i].id == 'AF_Links')
-							modulename = "Модуль ссылок L"
-						else if (modulesarray[i].id == 'AF_Linksd')
-							modulename = "Модуль ссылок *"
-						else if (modulesarray[i].id == 'AF_Service')
-							modulename = "Модуль UserInfo"
-						else if (modulesarray[i].id == 'AF_ServDsk')
-							modulename = "Модуль ServiceDesk"
-						else if (modulesarray[i].id == 'AF_Marks')
-							modulename = "Модуль оценок"
-						else if (modulesarray[i].id == 'AF_FrozeChat')
-							modulename = "Модуль Autorespond"
-						else if (modulesarray[i].id == 'AF_Jira')
-							modulename = "Модуль JiraSearch"
-						else if (modulesarray[i].id == 'AF_Sugform')
-							modulename = "Модуль Предложения"
-						else if (modulesarray[i].id == 'AF_Createtask')
-							modulename = "Модуль Task"
-						else if (modulesarray[i].id == 'AF_Smartroomform')
-							modulename = "Модуль Smartroom"
-						else if (modulesarray[i].id == 'AF_Themes')
-							modulename = "Модуль Темы"
-						else if (modulesarray[i].id == 'AF_ChatHis')
-							modulename = "Модуль Chat History"
-						else if (modulesarray[i].id == 'AF_GrList')
-							modulename = "Модуль просмотр групп"
-						else if (modulesarray[i].id == 'AF_TechSummary')
-							modulename = "Модуль TechSummary"
-						else if (modulesarray[i].id == 'AF_Stat')
-							modulename = "Модуль статистики в L"
-						else if (modulesarray[i].id == 'AF_LessonStatus')
-							modulename = "Модуль Lesson Status"	
-						else if (modulesarray[i].id == 'AF_OperStat')
-							modulename = "Модуль OperStatus"
-
-						document.getElementById('statusoutput').innerHTML += [i+1] + '. ' + modulename + '<span style="float:right">' + '🟢' + '</span>' + '<br>'
-					}
-				}
-						
-			}
-			
-			document.getElementById('hidemodulestatus').onclick = function() {
-				document.querySelector('#modulestatus_bar').style.display = 'none'
-				document.getElementById('statusoutput').innerHTML = ''
-			}
-			
-			if (document.querySelector('#modulestatus_bar').style.display == 'none') {
-				document.querySelector('#modulestatus_bar').style.display = ''
-				document.getElementById('statusoutput').innerHTML = ''
-				
-				if (modulesarray != undefined && modulesarray.length > 0) {
-					for (let i=0; i < modulesarray.length; i++) {
-						if (modulesarray[i].id == 'AF_Links')
-							modulename = "Модуль ссылок L"
-						else if (modulesarray[i].id == 'AF_Linksd')
-							modulename = "Модуль ссылок *"
-						else if (modulesarray[i].id == 'AF_Service')
-							modulename = "Модуль UserInfo"
-						else if (modulesarray[i].id == 'AF_ServDsk')
-							modulename = "Модуль ServiceDesk"
-						else if (modulesarray[i].id == 'AF_Marks')
-							modulename = "Модуль оценок"
-						else if (modulesarray[i].id == 'AF_FrozeChat')
-							modulename = "Модуль Autorespond"
-						else if (modulesarray[i].id == 'AF_Jira')
-							modulename = "Модуль JiraSearch"
-						else if (modulesarray[i].id == 'AF_Sugform')
-							modulename = "Модуль Предложения"
-						else if (modulesarray[i].id == 'AF_Createtask')
-							modulename = "Модуль Task"
-						else if (modulesarray[i].id == 'AF_Smartroomform')
-							modulename = "Модуль Smartroom"
-						else if (modulesarray[i].id == 'AF_Themes')
-							modulename = "Модуль Темы"
-						else if (modulesarray[i].id == 'AF_ChatHis')
-							modulename = "Модуль Chat History"
-						else if (modulesarray[i].id == 'AF_GrList')
-							modulename = "Модуль просмотр групп"
-						else if (modulesarray[i].id == 'AF_TechSummary')
-							modulename = "Модуль TechSummary"
-						else if (modulesarray[i].id == 'AF_Stat')
-							modulename = "Модуль статистики в L"
-						else if (modulesarray[i].id == 'AF_LessonStatus')
-							modulename = "Модуль Lesson Status"	
-						else if (modulesarray[i].id == 'AF_OperStat')
-							modulename = "Модуль OperStatus"
-
-						document.getElementById('statusoutput').innerHTML += [i+1] + '. ' + modulename + '<span style="float:right">' + '🟢' + '</span>' + '<br>'
-					}
-				}
-				
-			} else {
-				document.querySelector('#modulestatus_bar').style.display = 'none'
-			}
-		}
-
         document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
             if (document.getElementById('test_teach').value != '') {
                 localStorage.setItem('test_teach', document.getElementById('test_teach').value);
