@@ -4420,7 +4420,7 @@ document.getElementById('setting').onclick = function () { // открывает
 		document.getElementById('module_status').onclick = function() {
 			let modulename;
 			
-			document.getElementById('modulereinit').onclic = function() {
+			document.getElementById('modulereinit').onclick = function() {
 				document.getElementById('statusoutput').innerHTML = ''
 				        include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
 						include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
