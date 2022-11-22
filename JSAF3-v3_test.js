@@ -4418,6 +4418,7 @@ document.getElementById('setting').onclick = function () { // открывает
         }
 		
 		document.getElementById('module_status').onclick = function() {
+			let modulename;
 			
 			document.getElementById('modulereinit').onclic = function() {
 				document.getElementById('statusoutput').innerHTML = ''
@@ -4439,6 +4440,49 @@ document.getElementById('setting').onclick = function () { // открывает
 						include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
 						include("https://dimentorexpo.github.io/Modules/OperatorStatuse.js") // подключаем модуль статусов операторов в CRM2
 						include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
+						
+						
+				if (modulesarray != undefined && modulesarray.length > 0) {
+					for (let i=0; i < modulesarray.length; i++) {
+						if (modulesarray[i].id == 'AF_Links')
+							modulename = "Модуль ссылок L"
+						else if (modulesarray[i].id == 'AF_Linksd')
+							modulename = "Модуль ссылок *"
+						else if (modulesarray[i].id == 'AF_Service')
+							modulename = "Модуль UserInfo"
+						else if (modulesarray[i].id == 'AF_ServDsk')
+							modulename = "Модуль ServiceDesk"
+						else if (modulesarray[i].id == 'AF_Marks')
+							modulename = "Модуль оценок"
+						else if (modulesarray[i].id == 'AF_FrozeChat')
+							modulename = "Модуль Autorespond"
+						else if (modulesarray[i].id == 'AF_Jira')
+							modulename = "Модуль JiraSearch"
+						else if (modulesarray[i].id == 'AF_Sugform')
+							modulename = "Модуль Предложения"
+						else if (modulesarray[i].id == 'AF_Createtask')
+							modulename = "Модуль Task"
+						else if (modulesarray[i].id == 'AF_Smartroomform')
+							modulename = "Модуль Smartroom"
+						else if (modulesarray[i].id == 'AF_Themes')
+							modulename = "Модуль Темы"
+						else if (modulesarray[i].id == 'AF_ChatHis')
+							modulename = "Модуль Chat History"
+						else if (modulesarray[i].id == 'AF_GrList')
+							modulename = "Модуль просмотр групп"
+						else if (modulesarray[i].id == 'AF_TechSummary')
+							modulename = "Модуль TechSummary"
+						else if (modulesarray[i].id == 'AF_Stat')
+							modulename = "Модуль статистики в L"
+						else if (modulesarray[i].id == 'AF_LessonStatus')
+							modulename = "Модуль Lesson Status"	
+						else if (modulesarray[i].id == 'AF_OperStat')
+							modulename = "Модуль OperStatus"
+
+						document.getElementById('statusoutput').innerHTML += [i+1] + '. ' + modulename + '<span style="float:right">' + '🟢' + '</span>' + '<br>'
+					}
+				}
+						
 			}
 			
 			document.getElementById('hidemodulestatus').onclick = function() {
@@ -4446,7 +4490,6 @@ document.getElementById('setting').onclick = function () { // открывает
 				document.getElementById('statusoutput').innerHTML = ''
 			}
 			
-			let modulename;
 			if (document.querySelector('#modulestatus_bar').style.display == 'none') {
 				document.querySelector('#modulestatus_bar').style.display = ''
 				document.getElementById('statusoutput').innerHTML = ''
