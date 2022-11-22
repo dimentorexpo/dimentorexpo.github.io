@@ -1196,7 +1196,8 @@ const copyToClipboard1 = str => { // функция копирования в б
 function include(url) { // функция подключения дополнительных скриптов/модулей
     var script = document.createElement('script');
     script.src = url;
-    script.setAttribute('defer', '')
+	script.async = false;
+    script.defer = true;
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
