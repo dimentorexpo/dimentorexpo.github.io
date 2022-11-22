@@ -1111,27 +1111,72 @@ function prepTp() { //функция подготовки расширения �
     document.querySelector('head').append(lboxstyles)
 
     setTimeout(function () {
+		let create = (info) => {
+            return new Promise(function(resolve, reject) {
+                let gfgData = document.createElement("script");
+                gfgData.src = info;
+                gfgData.async = false;
+                gfgData.onload = () => {
+                    resolve(info);
+                };
+                gfgData.onerror = () => {
+                    reject(info);
+                };
+                document.body.appendChild(gfgData);
+            });
+        };
+		
+		let gfgScript = ["https://dimentorexpo.github.io/Modules/Link.js", 
+                         "https://dimentorexpo.github.io/Modules/Linksdostup.js", 
+                         "https://dimentorexpo.github.io/Modules/Userinfo.js",
+						 "https://dimentorexpo.github.io/Modules/ServiceDesk.js",
+						 "https://dimentorexpo.github.io/Modules/Marks.js",
+						 "https://dimentorexpo.github.io/Modules/AutoRespond.js",
+						 "https://dimentorexpo.github.io/Modules/JiraSearch.js",
+						 "https://dimentorexpo.github.io/Modules/Suggest.js",
+						 "https://dimentorexpo.github.io/Modules/Smartroom.js",
+						 "https://dimentorexpo.github.io/Modules/TaskCreate.js",
+						 "https://dimentorexpo.github.io/Modules/Themes.js",
+						 "https://dimentorexpo.github.io/Modules/ChatHistory.js",
+						 "https://dimentorexpo.github.io/Modules/GrList.js",
+						 "https://dimentorexpo.github.io/Modules/TechSummary.js",
+						 "https://dimentorexpo.github.io/Modules/Addstat.js",
+						 "https://dimentorexpo.github.io/Modules/LessonStatus.js",
+						 "https://dimentorexpo.github.io/Modules/OperatorStatuse.js",
+						 "https://dimentorexpo.github.io/Modules/unsub.js"];
+        let promiseData = [];
+        gfgScript.forEach(function(info) {
+            promiseData.push(create(info));
+        });
+        Promise.all(promiseData).then(function() {
+            console.log("The required scripts are loaded successfully!");
+        }).catch(function(gfgData) {
+            console.log(gfgData + " failed to load!");
+        });
+		
+		
+		
 
-        include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
-        include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
-        // include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
-        include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
-        include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
-        include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
-        include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
-        include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
-        include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
-        // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи, отключен функционал в JSAF-v3
-        include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
-        include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
-        include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
-        include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
-        include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
-        include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
-        include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
-        include("https://dimentorexpo.github.io/Modules/OperatorStatuse.js") // подключаем модуль статусов операторов в CRM2
-        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
+        // include("https://dimentorexpo.github.io/Modules/Link.js") // модуль ссылкера (L)inks
+        // include("https://dimentorexpo.github.io/Modules/Linksdostup.js") // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
+          // include("https://dimentorexpo.github.io/Modules/PastFutureLesson.js") // модуль просмотра в Userinfo предстоящих и прошедших уроков ученика, отключен функционал в Userinfo
+        // include("https://dimentorexpo.github.io/Modules/Userinfo.js") // модуль UserInfo в виде вензеля с разными функциями и возможностями
+        // include("https://dimentorexpo.github.io/Modules/ServiceDesk.js") // модуль сервис деска , с 1  тестовая версия
+        // include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
+        // include("https://dimentorexpo.github.io/Modules/AutoRespond.js") // модуль автоответа по таймеру
+        // include("https://dimentorexpo.github.io/Modules/JiraSearch.js") // модуль поиска по Jira
+        // include("https://dimentorexpo.github.io/Modules/Suggest.js") // модуль формы пожеланий и предложений
+        // include("https://dimentorexpo.github.io/Modules/Smartroom.js") // модуль формы пожеланий Smartroom
+          // include("https://dimentorexpo.github.io/Modules/Refuse.js") // модуль формы отказа от помощи, отключен функционал в JSAF-v3
+        // include("https://dimentorexpo.github.io/Modules/TaskCreate.js") // модуль создания задач в СРМ2 с помощью интеграции АФ
+        // include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
+        // include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
+        // include("https://dimentorexpo.github.io/Modules/GrList.js") // модуль просмотра участников группы
+        // include("https://dimentorexpo.github.io/Modules/TechSummary.js") // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
+        // include("https://dimentorexpo.github.io/Modules/Addstat.js") // модуль дополнительного окна статистики, расположенного в кнопке L
+        // include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
+        // include("https://dimentorexpo.github.io/Modules/OperatorStatuse.js") // подключаем модуль статусов операторов в CRM2
+        // include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
     }, 2500)
 
     setTimeout(function () {
