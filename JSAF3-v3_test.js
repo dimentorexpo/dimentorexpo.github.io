@@ -1101,7 +1101,6 @@ function prepTp() { //функция подготовки расширения �
     lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
     document.querySelector('head').append(lboxstyles)
 
-    // setTimeout(function () {
 		let create = (info) => {
             return new Promise(function(resolve, reject) {
                 let gfgData = document.createElement("script");
@@ -1146,14 +1145,6 @@ function prepTp() { //функция подготовки расширения �
         }).catch(function(gfgData) {
             console.log(gfgData + " failed to load!");
         });
-		
-    // }, 2500)
-
-    // setTimeout(function () {
-
-        // include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
-
-    // }, 4000)
 
 }
 
