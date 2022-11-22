@@ -553,7 +553,6 @@ var win_AFhelper =  // описание элементов главного ок
 					<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
 				<div class="onlyfortp" style="margin-top: 5px; width: 320px">
                     <label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
-					<button id="module_status">Module Status</button>
                     <br>
                     <input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
                     <button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
