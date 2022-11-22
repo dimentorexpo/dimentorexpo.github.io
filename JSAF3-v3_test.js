@@ -1101,7 +1101,7 @@ function prepTp() { //функция подготовки расширения �
     lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
     document.querySelector('head').append(lboxstyles)
 
-    setTimeout(function () {
+    // setTimeout(function () {
 		let create = (info) => {
             return new Promise(function(resolve, reject) {
                 let gfgData = document.createElement("script");
@@ -1135,7 +1135,8 @@ function prepTp() { //функция подготовки расширения �
 						 "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
 						 "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
 						 "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-						 "https://dimentorexpo.github.io/Modules/unsub.js"]; // подключаем модуль unsub 
+						 "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub 
+						 "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
         let promiseData = [];
         gfgScript.forEach(function(info) {
             promiseData.push(create(info));
@@ -1146,13 +1147,13 @@ function prepTp() { //функция подготовки расширения �
             console.log(gfgData + " failed to load!");
         });
 		
-    }, 2500)
+    // }, 2500)
 
-    setTimeout(function () {
+    // setTimeout(function () {
 
-        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
+        // include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 
-    }, 4000)
+    // }, 4000)
 
 }
 
