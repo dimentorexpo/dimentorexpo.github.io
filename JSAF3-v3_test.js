@@ -1043,12 +1043,14 @@ function prepTp() { //функция подготовки расширения �
     openchhis.innerHTML = '☢'
     openchhis.style = '    position: fixed; top: 45px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     openchhis.id = 'opennewcat'
+    openchhis.title = 'Открывает виджет просмотра истории чатов'
     document.body.append(openchhis)
 
     let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
     crmopers.style = 'position: fixed; top: 90px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     crmopers.id = 'crmopersstatuses'
+    crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
     crmopers.classList = 'onlyfortp'
     document.body.append(crmopers)
 
