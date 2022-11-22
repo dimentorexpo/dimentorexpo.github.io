@@ -1142,7 +1142,7 @@ function prepTp() { //функция подготовки расширения �
             promiseData.push(create(info));
         });
         Promise.all(promiseData).then(function() {
-            console.log("The required scripts are loaded successfully!");
+            console.log('%cThe required scripts are loaded successfully!', 'color:#37ff85; font-weight:700');
         }).catch(function(gfgData) {
             console.log(gfgData + " failed to load!");
         });
