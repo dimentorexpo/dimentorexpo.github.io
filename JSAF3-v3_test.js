@@ -4148,6 +4148,7 @@ function closeTerms() { // функция автоподтверждения у�
 }
 
 let peoplestatus = document.createElement('div')
+peoplestatus.style="display:flex;"
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
 			
             let opstats = []
@@ -5551,7 +5552,7 @@ setInterval(clock_on_javascript_1, 1000);
 setInterval(clock_on_javascript_2, 1000);
 setInterval(clock_on_javascript_3, 1000);
 
-setInterval(operstatusleftbar, 3000);
+// setInterval(operstatusleftbar, 3000);
 
 // конец блока работы с будильником
 
