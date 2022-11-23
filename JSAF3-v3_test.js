@@ -4148,7 +4148,6 @@ function closeTerms() { // функция автоподтверждения у�
 }
 
 let peoplestatus = document.createElement('div')
-peoplestatus.style="display:flex;"
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
 			
             let opstats = []
@@ -4170,11 +4169,11 @@ async function operstatusleftbar() { // функция замены Script Packa
                     if (opstats[i].aCnt == null)
                         opstats[i].aCnt = 0;
                     if (opstats[i].operator.status == "Online") {
-                        peoplestatus.innerHTML += '<div>' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 6px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+                        peoplestatus.innerHTML += '<div style="display:flex;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 					} else if (opstats[i].operator.status == "Busy") {
-                        peoplestatus.innerHTML += '<div>' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 6px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+                        peoplestatus.innerHTML += '<div style="display:flex;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
                     } else if (opstats[i].operator.status == "Pause") {
-                        peoplestatus.innerHTML += '<div>' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 6px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+                        peoplestatus.innerHTML += '<div style="display:flex;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 					}
 				}	
 			}
