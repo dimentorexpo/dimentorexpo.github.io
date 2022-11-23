@@ -4170,12 +4170,13 @@ async function operstatusleftbar() { // функция замены Script Packa
                         opstats[i].aCnt = 0;
                     if (opstats[i].operator.status == "Online") {
                         peoplestatus.innerHTML += '<span>🟢 </span> ' + '<span>' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '<br>'
-						} else if (opstats[i].operator.status == "Busy") {
+					} else if (opstats[i].operator.status == "Busy") {
                         peoplestatus.innerHTML += '<span>🟡 </span>' + '<span>' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '<br>'
                     } else if (opstats[i].operator.status == "Pause") {
                         peoplestatus.innerHTML += '<span>🔴 </span>' +  '<span>' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '<br>'
-                }
-            }
+					}
+				}	
+			}
 
 
 	for (let i = 0 ; document.getElementsByClassName('app-content')[1].children[i] != undefined; i++) {
