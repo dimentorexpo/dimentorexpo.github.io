@@ -4170,11 +4170,11 @@ async function operstatusleftbar() { // функция замены Script Packa
                     if (opstats[i].aCnt == null)
                         opstats[i].aCnt = 0;
                     if (opstats[i].operator.status == "Online") {
-                        peoplestatus.innerHTML += '<span>🟢 </span> ' + '<span>' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '<br>'
+                        peoplestatus.innerHTML += '<div>' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 6px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 					} else if (opstats[i].operator.status == "Busy") {
-                        peoplestatus.innerHTML += '<span>🟡 </span>' + '<span>' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '<br>'
+                        peoplestatus.innerHTML += '<div>' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 6px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
                     } else if (opstats[i].operator.status == "Pause") {
-                        peoplestatus.innerHTML += '<span>🔴 </span>' +  '<span>' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '<br>'
+                        peoplestatus.innerHTML += '<div>' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 6px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 					}
 				}	
 			}
