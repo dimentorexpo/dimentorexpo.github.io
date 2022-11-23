@@ -4147,6 +4147,13 @@ function closeTerms() { // функция автоподтверждения у�
 	}
 }
 
+function operstatusleftbar() { // функция замены Script Package вывода списка операторов
+	for (let i = 0 ; document.getElementsByClassName('app-content')[1].children[i] != undefined; i++) {
+		if (document.getElementsByClassName('app-content')[1].children[i].id == 'people_head')
+			document.getElementsByClassName('app-content')[1].children[i].remove()
+	}
+}
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -5512,6 +5519,8 @@ refreshTimerReminder1(); //обновляет оставшееся время д
 setInterval(clock_on_javascript_1, 1000);
 setInterval(clock_on_javascript_2, 1000);
 setInterval(clock_on_javascript_3, 1000);
+
+setInterval(operstatusleftbar, 5000);
 
 // конец блока работы с будильником
 
