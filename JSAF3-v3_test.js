@@ -4161,19 +4161,19 @@ async function operstatusleftbar() { // функция замены Script Packa
                     } // end of if state
                 } // end of for
             })
+			
+			peoplestatus.innerHTML = ''
 
             if (opstats.length != 0) {
                 for (let i = 0; i < opstats.length; i++) {
                     if (opstats[i].aCnt == null)
                         opstats[i].aCnt = 0;
-					peoplestatus.innerHTML = ''
                     if (opstats[i].operator.status == "Online") {
-                        peoplestatus.innerHTML += `🟢 ${opstats[i].operator.fullName} (${opstats[i].aCnt})` + '<br>'
+                        peoplestatus.innerHTML += '<span>🟢 </span> ' + '<span>' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '<br>'
 						} else if (opstats[i].operator.status == "Busy") {
-                        peoplestatus.innerHTML += `🟡 ${opstats[i].operator.fullName} (${opstats[i].aCnt})` + '<br>'
+                        peoplestatus.innerHTML += '<span>🟡 </span>' + '<span>' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '<br>'
                     } else if (opstats[i].operator.status == "Pause") {
-                        peoplestatus.innerHTML += `🔴 ${opstats[i].operator.fullName} (${opstats[i].aCnt})` + '<br>'
-                    }
+                        peoplestatus.innerHTML += '<span>🔴 </span>' +  '<span>' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '<br>'
                 }
             }
 
@@ -5550,7 +5550,7 @@ setInterval(clock_on_javascript_1, 1000);
 setInterval(clock_on_javascript_2, 1000);
 setInterval(clock_on_javascript_3, 1000);
 
-setInterval(operstatusleftbar, 5000);
+setInterval(operstatusleftbar, 3000);
 
 // конец блока работы с будильником
 
