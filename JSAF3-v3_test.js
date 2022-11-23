@@ -4149,7 +4149,7 @@ function closeTerms() { // функция автоподтверждения у�
 
 let peoplestatus = document.createElement('div')
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
-			
+			peoplestatus.innerHTML = ''
             let opstats = []
             await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
                 "credentials": "include"
@@ -4162,8 +4162,6 @@ async function operstatusleftbar() { // функция замены Script Packa
                 } // end of for
             })
 			
-			peoplestatus.innerHTML = ''
-
             if (opstats.length != 0) {
                 for (let i = 0; i < opstats.length; i++) {
                     if (opstats[i].aCnt == null)
