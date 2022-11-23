@@ -665,8 +665,6 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
     }
 }
 
-testo.onOperator[0].operator
-
 // Конец блока горячих клавиш
 
 async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
