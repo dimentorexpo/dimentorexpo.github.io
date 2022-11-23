@@ -688,9 +688,9 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
                 "credentials": "include"
             }).then(r => r.json()).then(result => {
 
-                for (let i = 0; i < result.rows.length; i++) {
-                    if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(/ТП\D/)) {
-                        activetechopers.push(result.rows[i])
+                for (let i = 0; i < result.onOperator.length; i++) {
+                    if (result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
+                        activetechopers.push(result.onOperator[i])
                     } // end of if state
                 } // end of for
             })
