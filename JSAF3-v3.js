@@ -1293,7 +1293,7 @@ async function getStats() { // функция получения статист�
     var operatorNames = []
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
-    }).then(result => b = result.json()).then(b => b.rows.forEach(k => {
+    }).then(result => b = result.json()).then(b => b.onOperator.forEach(k => {
         if (k.operator != null)
             if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
                 operatorId.push(k.operator.id)
@@ -1840,23 +1840,23 @@ async function checkload(department, flag) { // функция проверки 
         "credentials": "include"
     }).then(r => r.json()).then(result => {
         setTimeout(function () {
-            for (let i = 0; i < result.rows.length; i++) {
-                if (result.rows[i].operator != null && result.rows[i].operator.status != "Offline" && result.rows[i].operator.fullName.match(department)) {
+            for (let i = 0; i < result.onOperator.length; i++) {
+                if (result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(department)) {
                     cntc++;
-                    if (result.rows[i].operator.status == "Busy")
+                    if (result.onOperator[i].operator.status == "Busy")
                         busycnt++;
-                    else if (result.rows[i].operator.status == "Pause")
+                    else if (result.onOperator[i].operator.status == "Pause")
                         pausecnt++;
-                    if (result.rows[i].aCnt == null)
-                        result.rows[i].aCnt = 0;
-                    allcntc += result.rows[i].aCnt;
-                    if (result.rows[i].operator.status == "Online")
-                        result.rows[i].operator.status = "🟢 Онлайн"
-                    else if (result.rows[i].operator.status == "Busy")
-                        result.rows[i].operator.status = "🟡 Занят"
-                    else if (result.rows[i].operator.status == "Pause")
-                        result.rows[i].operator.status = "🔴 Перерыв"
-                    found += result.rows[i].operator.fullName + " | Чатов: " + result.rows[i].aCnt + " | Статус: " + result.rows[i].operator.status + '<br>';
+                    if (result.onOperator[i].aCnt == null)
+                        result.onOperator[i].aCnt = 0;
+                    allcntc += result.onOperator[i].aCnt;
+                    if (result.onOperator[i].operator.status == "Online")
+                        result.onOperator[i].operator.status = "🟢 Онлайн"
+                    else if (result.onOperator[i].operator.status == "Busy")
+                        result.onOperator[i].operator.status = "🟡 Занят"
+                    else if (result.onOperator[i].operator.status == "Pause")
+                        result.onOperator[i].operator.status = "🔴 Перерыв"
+                    found += result.onOperator[i].operator.fullName + " | Чатов: " + result.onOperator[i].aCnt + " | Статус: " + result.onOperator[i].operator.status + '<br>';
                 }
             }
             if ((cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) <= 2.2)
