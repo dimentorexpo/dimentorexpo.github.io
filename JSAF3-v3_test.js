@@ -4148,7 +4148,7 @@ function closeTerms() { // функция автоподтверждения у�
 }
 
 let peoplestatus = document.createElement('div')
-function operstatusleftbar() { // функция замены Script Package вывода списка операторов
+async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
 			
             let opstats = []
             await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
