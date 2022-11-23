@@ -4147,41 +4147,44 @@ function closeTerms() { // функция автоподтверждения у�
 	}
 }
 
-let peoplestatus = document.createElement('div')
-async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
-			peoplestatus.innerHTML = ''
-            let opstats = []
-            await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-                "credentials": "include"
-            }).then(r => r.json()).then(result => {
+// let peoplestatus = document.createElement('div')
+// peoplestatus.id = 'idforpeopstatus'
+// async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
+            // let opstats = []
+			// let moderresult;
+            // await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+                // "credentials": "include"
+            // }).then(r => r.json()).then(result => {
 
-                for (let i = 0; i < result.onOperator.length; i++) {
-                    if (result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
-                        opstats.push(result.onOperator[i])
-                    } // end of if state
-                } // end of for
-            })
+                // for (let i = 0; i < result.onOperator.length; i++) {
+                    // if (result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
+                        // opstats.push(result.onOperator[i])
+                    // } // end of if state
+                // } // end of for
+            // })
+			// peoplestatus.innerHTML = ''
 			
-            if (opstats.length != 0) {
-                for (let i = 0; i < opstats.length; i++) {
-                    if (opstats[i].aCnt == null)
-                        opstats[i].aCnt = 0;
-                    if (opstats[i].operator.status == "Online") {
-                        peoplestatus.innerHTML += '<div style="display:flex;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
-					} else if (opstats[i].operator.status == "Busy") {
-                        peoplestatus.innerHTML += '<div style="display:flex;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
-                    } else if (opstats[i].operator.status == "Pause") {
-                        peoplestatus.innerHTML += '<div style="display:flex;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
-					}
-				}	
-			}
+            // if (opstats.length != 0) {
+                // for (let i = 0; i < opstats.length; i++) {
+                    // if (opstats[i].aCnt == null)
+                        // opstats[i].aCnt = 0;
+                    // if (opstats[i].operator.status == "Online") {
+                        // moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					// } else if (opstats[i].operator.status == "Busy") {
+                        // moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+                    // } else if (opstats[i].operator.status == "Pause") {
+                        // moderresult+= '<div style="display:flex;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					// }
+				// }
+				// peoplestatus.innerHTML = 	moderresult			
+			// }
 
 
-	for (let i = 0 ; document.getElementsByClassName('app-content')[1].children[i] != undefined; i++) {
-		if (document.getElementsByClassName('app-content')[1].children[i].id == 'people_head')
-			document.getElementsByClassName('app-content')[1].children[i].replaceWith(peoplestatus)
-	}
-}
+	// for (let i = 0 ; document.getElementsByClassName('app-content')[1].children[i] != undefined; i++) {
+		// if (document.getElementsByClassName('app-content')[1].children[i].id == 'people_head')
+			// document.getElementsByClassName('app-content')[1].children[i].replaceWith(peoplestatus)
+	// }
+// }
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
