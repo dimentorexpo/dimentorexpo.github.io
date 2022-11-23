@@ -672,8 +672,8 @@ async function whoAmI() { // функция получения айди опер
         "credentials": "include"
     }).then(a => b = a.json()).then(b => {
         let me = document.querySelector('.user_menu-dropdown-user_name');
-        operatorsarray = b.rows;
-        b.rows.forEach(s => {
+        operatorsarray = b.onOperator;
+        b.onOperator.forEach(s => {
             if (s.operator != null && me && s.operator.fullName === me.innerText) {
                 operatorId = s.operator.id
                 afopername = s.operator.fullName
