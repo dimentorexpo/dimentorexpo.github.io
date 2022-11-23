@@ -4147,10 +4147,40 @@ function closeTerms() { // функция автоподтверждения у�
 	}
 }
 
+let peoplestatus = document.createElement('div')
 function operstatusleftbar() { // функция замены Script Package вывода списка операторов
+			
+            let opstats = []
+            await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+                "credentials": "include"
+            }).then(r => r.json()).then(result => {
+
+                for (let i = 0; i < result.onOperator.length; i++) {
+                    if (result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
+                        opstats.push(result.onOperator[i])
+                    } // end of if state
+                } // end of for
+            })
+
+            if (opstats.length != 0) {
+                for (let i = 0; i < opstats.length; i++) {
+                    if (opstats[i].aCnt == null)
+                        opstats[i].aCnt = 0;
+
+                    if (opstats[i].operator.status == "Online") {
+                        peoplestatus.innerHTML += `🟢 ${opstats[i].operator.fullName} (${opstats[i].aCnt})`
+						} else if (opstats[i].operator.status == "Busy") {
+                        peoplestatus.innerHTML += `🟡 ${opstats[i].operator.fullName} (${opstats[i].aCnt})`
+                    } else if (opstats[i].operator.status == "Pause") {
+                        peoplestatus.innerHTML += `🔴 ${opstats[i].operator.fullName} (${opstats[i].aCnt})`
+                    }
+                }
+            }
+
+
 	for (let i = 0 ; document.getElementsByClassName('app-content')[1].children[i] != undefined; i++) {
 		if (document.getElementsByClassName('app-content')[1].children[i].id == 'people_head')
-			document.getElementsByClassName('app-content')[1].children[i].remove()
+			document.getElementsByClassName('app-content')[1].children[i].replaceWith(peoplestatus)
 	}
 }
 
