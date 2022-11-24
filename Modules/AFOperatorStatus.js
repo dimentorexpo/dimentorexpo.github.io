@@ -52,3 +52,5 @@ async function operstatusleftbar() { // функция замены Script Packa
 	}
 			
 }
+
+setInterval(operstatusleftbar, 3000)
