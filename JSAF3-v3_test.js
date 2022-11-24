@@ -477,10 +477,10 @@ function mystyles() {
 		cursor:pointer;
 	}
 	.leftbaropers:hover {
-		background: DeepSkyBlue;
+		background: MediumSeaGreen;
 		color:white;
 		font-weight:700;
-		font-size:16px;
+		font-size:15px;
 	}
 
 	`
