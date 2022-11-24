@@ -469,6 +469,18 @@ function mystyles() {
 		height:45px !important;
 		font-size:23px !important;
 	}
+	
+	.leftbaropers {
+		display:flex;
+		align-items:center;
+		font-size: 13.5px;
+		cursor:pointer;
+	}
+	.leftbaropers:hover {
+		background: DeepSkyBlue;
+		color:white;
+		font-weight:700
+	}
 
 	`
     mstl.innerHTML = style;
@@ -1135,6 +1147,7 @@ function prepTp() { //функция подготовки расширения �
 						 "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
 						 "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
 						 "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub 
+						  // "https://dimentorexpo.github.io/Modules/TestStatus.js", // testoviy подключаем модуль статусов операторов и количества чатов на них
 						  "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
 						 "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
         let promiseData = [];
