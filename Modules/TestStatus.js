@@ -1,7 +1,7 @@
 let peoplestatus = document.createElement('div')
 peoplestatus.id = 'idforpeopstatus'
-peoplestatus.style = 'position: absolute; top: 310px; left: 0px; width: 205px; color: bisque;'
-document.body.append(peoplestatus)
+peoplestatus.style = 'width: 205px; color: bisque;'
+document.getElementsByClassName('ant-layout-sider-children')[0].append(peoplestatus)
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
 	let opstats = []
 	let moderresult =  '';
