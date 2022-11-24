@@ -37,7 +37,7 @@ async function operstatusleftbar() { // функция замены Script Packa
     secondDate = dateopst.getFullYear() + "-" + month + "-" + day + "T20:59:59.059Z"
     dateopst = dateopst - 24 * 60 * 60 * 1000
     var dateopst2 = new Date()
-    dateopst2.setTime(date)
+    dateopst2.setTime(dateopst)
 
     if (dateopst2.getMonth() < 9)
         month2 = "0" + (dateopst2.getMonth() + 1)
