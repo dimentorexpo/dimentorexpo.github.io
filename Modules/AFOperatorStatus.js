@@ -54,7 +54,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 					pausecnt +=1;
 				}
 			}
-			peoplestatus.innerHTML = moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайне: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
+			peoplestatus.innerHTML = moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
 			
 			let arofpers = document.getElementsByName('operrow')
 			for (let i =0; i < arofpers.length; i++) {
