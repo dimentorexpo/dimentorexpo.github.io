@@ -1,4 +1,3 @@
-var convdata = '';
 var win_Chathis =  // описание элементов окна Истории чатов
     `<div style="display: flex; width: 410px;">
         <span style="width: 410px">
