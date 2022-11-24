@@ -480,6 +480,7 @@ function mystyles() {
 		background: DeepSkyBlue;
 		color:white;
 		font-weight:700
+		font-size:16px;
 	}
 
 	`
