@@ -479,7 +479,7 @@ function mystyles() {
 	.leftbaropers:hover {
 		background: DeepSkyBlue;
 		color:white;
-		font-weight:700
+		font-weight:700;
 		font-size:16px;
 	}
 
