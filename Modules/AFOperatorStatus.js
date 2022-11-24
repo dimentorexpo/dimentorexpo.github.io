@@ -6,6 +6,9 @@ async function operstatusleftbar() { // функция замены Script Packa
 	let opstats = []
 	let moderresult =  '';
 	let flagtpkc;
+	let operonlinecnt = 0;
+	let busycnt = 0;
+	let pausecnt = 0;
 
 	let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
 	if (operdep  == 'ТП')
@@ -42,13 +45,17 @@ async function operstatusleftbar() { // функция замены Script Packa
 					opstats[i].aCnt = 0;
 				if (opstats[i].operator.status == "Online") {
 					moderresult += `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🟢 </span> ' + '<span style="position: absolute;left: 12px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					operonlinecnt +=1;
 				} else if (opstats[i].operator.status == "Busy") {
 					moderresult += `<div class="leftbaropers" style="opacity:0.8; color:Gold" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🟡 </span>' + '<span style="position: absolute;left: 11px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+					busycnt +=1;
 				} else if (opstats[i].operator.status == "Pause") {
 					moderresult+= `<div class="leftbaropers" style="opacity:0.8; color:Salmon" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🔴 </span>' +  '<span style="position: absolute;left: 11px; padding-top:1px; color:white; font-size:13px; text-shadow: rgb(255 255 255) 1px 0px 1px, rgb(255 255 255) 0px 1px 1px, rgb(255 255 255) -1px 0px 1px, rgb(255 255 255) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					pausecnt +=1;
 				}
 			}
-			peoplestatus.innerHTML = moderresult	
+			peoplestatus.innerHTML = moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайне: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
+			
 			let arofpers = document.getElementsByName('operrow')
 			for (let i =0; i < arofpers.length; i++) {
 				arofpers[i].onclick = function() {
@@ -64,8 +71,6 @@ async function operstatusleftbar() { // функция замены Script Packa
 							}
 							}
 						},1000)
-
-
 				}
 			}
 		}
@@ -77,6 +82,6 @@ async function operstatusleftbar() { // функция замены Script Packa
 			
 }
 
-setInterval(operstatusleftbar, 6000)
+var testint = setInterval(operstatusleftbar, 6000)
 // setTimeout(operstatusleftbar, 10000)
 
