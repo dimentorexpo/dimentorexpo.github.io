@@ -52,8 +52,8 @@ async function operstatusleftbar() { // функция замены Script Packa
 							document.getElementById('butChatHistory').click()
 							let massivvidapspiskaoperatorov = document.getElementById('operatorstp')
 
-							if (this.value == massivvidapspiskaoperatorov.children[i].value) {
-								pizdamassivvidapspiskaoperatorovchildren[i].selected = true
+							if (arofpers[i].value == massivvidapspiskaoperatorov.children[i+1].value) {
+								pizdamassivvidapspiskaoperatorovchildren[i+1].selected = true
 								findchatsoper()
 							}
 				}
