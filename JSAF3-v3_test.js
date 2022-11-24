@@ -1042,7 +1042,7 @@ function prepTp() { //функция подготовки расширения �
     crmopers.innerHTML = '🧮'
     crmopers.style = 'position: fixed; top: 90px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     crmopers.id = 'crmopersstatuses'
-    crmopers.title = 'Открывает виджет просмотра статусов операторов в AutoFAQ'
+    crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
     crmopers.classList = 'onlyfortp'
     document.body.append(crmopers)
 
@@ -1050,8 +1050,7 @@ function prepTp() { //функция подготовки расширения �
     afopers.innerHTML = '⛑'
     afopers.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     afopers.id = 'afpersstatuses'
-    afopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
-    afopers.classList = 'onlyfortp'
+    afopers.title = 'Открывает виджет просмотра статусов операторов в AutoFAQ'
     document.body.append(afopers)
 
     openchhis.onclick = () => {
