@@ -112,6 +112,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 	
 		peoplestatus.innerHTML = ''
 		
+		opstats.sort((prev, next) => {
+			if ( prev.status < next.operator.status ) return -1;
+			if ( prev.status < next.operator.status ) return 1;
+		});
+		
 		if (opstats.length != 0) {
 			for (let i = 0; i < opstats.length; i++) {
 				if (opstats[i].aCnt == null)
