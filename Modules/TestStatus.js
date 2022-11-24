@@ -45,12 +45,12 @@ async function operstatusleftbar() { // функция замены Script Packa
 				}
 			}
 			peoplestatus.innerHTML = moderresult	
-			let massivvidapspiskaoperatorov = document.getElementById('operatorstp')
 			let arofpers = document.getElementsByName('operrow')
 			for (let i =0; i < arofpers.length; i++) {
 				arofpers[i].onclick = function() {
 						if (document.getElementById('AF_ChatHis').style.display =='none')
 							document.getElementById('butChatHistory').click()
+							let massivvidapspiskaoperatorov = document.getElementById('operatorstp')
 
 							if (this.value == massivvidapspiskaoperatorov.children[i].value) {
 								pizdamassivvidapspiskaoperatorovchildren[i].selected = true
