@@ -676,6 +676,18 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
         }
 
         async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
+		let opsflag = '';
+			let operdepchist = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
+			if (operdepchist  == 'ТП')
+				opsflag = 'ТП'
+			else if (operdepchist == 'КЦ')
+				opsflag = 'КЦ'
+			else if (operdepchist == 'КМ')
+				opsflag = 'КМ'
+			else if (operdepchist == 'ТС')
+				opsflag = 'ТС'
+			console.log("Подразделение для Chat history" + opsflag)
+			
             activetechopers = []
             objSel.length = 1
             objSel[0].selected = true;
@@ -684,7 +696,13 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
             }).then(r => r.json()).then(result => {
 
                 for (let i = 0; i < result.onOperator.length; i++) {
-                    if (result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
+                    if (opsflag == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
+                        activetechopers.push(result.onOperator[i])
+                    } else if (opsflag == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
+                        activetechopers.push(result.onOperator[i])
+                    } else if (opsflag == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
+                        activetechopers.push(result.onOperator[i])
+                    } else if (opsflag == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
                         activetechopers.push(result.onOperator[i])
                     } // end of if state
                 } // end of for
