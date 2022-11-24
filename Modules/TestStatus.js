@@ -37,11 +37,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 				if (opstats[i].aCnt == null)
 					opstats[i].aCnt = 0;
 				if (opstats[i].operator.status == "Online") {
-					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(f f f) 0px 1px 1px, rgb(f f f) -1px 0px 1px, rgb(f f f) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Busy") {
-					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(f f f) 0px 1px 1px, rgb(f f f) -1px 0px 1px, rgb(f f f) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(f f f) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Pause") {
-					moderresult+= '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(f f f) 0px 1px 1px, rgb(f f f) -1px 0px 1px, rgb(f f f) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					moderresult+= '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				}
 			}
 			peoplestatus.innerHTML = moderresult			
