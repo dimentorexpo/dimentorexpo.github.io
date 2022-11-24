@@ -4,7 +4,7 @@ peoplestatus.style = 'position: absolute; top: 310px; left: 0px; width: 205px; c
 document.body.append(peoplestatus)
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
 	let opstats = []
-	let moderresult;
+	let moderresult =  '';
 	let flagtpkc;
 
 	let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
@@ -34,13 +34,13 @@ async function operstatusleftbar() { // функция замены Script Packa
 					opstats[i].aCnt = 0;
 				if (opstats[i].operator.status == "Online") {
 					console.log(opstats[i].operator)
-					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px; padding-top:5px; color:green">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px; padding-top:5px; color:black">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Busy") {
 					console.log(opstats[i].operator)
-					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px; padding-top:5px; color:green"">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px; padding-top:5px; color:black"">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Pause") {
 					console.log(opstats[i].operator)
-					moderresult+= '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px; padding-top:5px; color:green"">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					moderresult+= '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px; padding-top:5px; color:black"">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				}
 			}
 			peoplestatus.innerHTML = moderresult			
