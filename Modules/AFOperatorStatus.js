@@ -14,6 +14,8 @@ async function operstatusleftbar() { // функция замены Script Packa
 		flagtpkc = 'КЦ'
 	else if (operdep == 'КМ')
 		flagtpkc = 'КМ'
+	else if (operdep == 'ТС')
+		flagtpkc = 'ТС'
 	
 	await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 		"credentials": "include"
@@ -25,6 +27,8 @@ async function operstatusleftbar() { // функция замены Script Packa
 			} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
 				opstats.push(result.onOperator[i])
 			} else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
+				opstats.push(result.onOperator[i])
+			} else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
 				opstats.push(result.onOperator[i])
 			} // end of if state
 		} // end of for			
