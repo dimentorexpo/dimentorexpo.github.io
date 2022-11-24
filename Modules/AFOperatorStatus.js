@@ -54,4 +54,4 @@ async function operstatusleftbar() { // функция замены Script Packa
 			
 }
 
-setInterval(operstatusleftbar, 6000)
+setInterval(operstatusleftbar, 10000)
