@@ -54,7 +54,8 @@ async function operstatusleftbar() { // функция замены Script Packa
 					pausecnt +=1;
 				}
 			}
-			peoplestatus.innerHTML = moderresult + '<br>' + '<div>' + 'На Перерыве: ' + pausecnt + '</div>' +  '<div>' + 'В Занят: ' + busycnt + '</div>' +  '<div>' + 'В Онлайне: ' + operonlinecnt + '</div>' +  
+			peoplestatus.innerHTML = moderresult + '<br>' + '<div>' + 'На Перерыве: ' + pausecnt + '</div>' +  '<div>' + 'В Занят: ' + busycnt + '</div>' +  '<div>' + 'В Онлайне: ' + operonlinecnt + '</div>'
+			
 			let arofpers = document.getElementsByName('operrow')
 			for (let i =0; i < arofpers.length; i++) {
 				arofpers[i].onclick = function() {
