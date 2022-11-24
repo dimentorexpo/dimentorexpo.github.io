@@ -54,7 +54,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 							let massivvidapspiskaoperatorov = document.getElementById('operatorstp')
 							for (let k =0; k<massivvidapspiskaoperatorov.length; k++) {
 								if (massivvidapspiskaoperatorov.children[k+1].value == this.getAttribute('value')) {
-								pizdamassivvidapspiskaoperatorovchildren[k+1].selected = true
+								massivvidapspiskaoperatorovchildren[k+1].selected = true
 								findchatsoper()
 							}
 							}
