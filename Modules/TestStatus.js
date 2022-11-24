@@ -4,9 +4,6 @@ peoplestatus.style = 'width: 200px; color: bisque;'
 document.getElementsByClassName('ant-layout-sider-children')[0].append(peoplestatus)
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
 	let opstats = []
-	let greenstats = []
-	let yellowstats =[]
-	let redstats = []
 	let moderresult =  '';
 	let flagtpkc;
 
@@ -31,38 +28,26 @@ async function operstatusleftbar() { // функция замены Script Packa
 				opstats.push(result.onOperator[i])
 			} else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
 				opstats.push(result.onOperator[i])
-			} else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
+			}else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
 				opstats.push(result.onOperator[i])
-			} else if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Online" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
-				greenstats.push(result.onOperator[i])
-			} else if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Busy" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
-				yellowstats.push(result.onOperator[i])
-			} else if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Pause" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
-				redstats.push(result.onOperator[i])
 			} // end of if state
 		} // end of for			
 	})
 	
 		peoplestatus.innerHTML = ''
 		
-		if (greenstats.length != 0)  {
-			for (let i = 0; i < greenstats.length; i++) {
-					moderresult += `<div class="leftbaropers" name="operrow" value="${greenstats[i].operator.id}">` + '<span style="font-size:22px;">🟢 </span> ' + '<span style="position: absolute;left: 12px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + greenstats[i].aCnt + '</span>' + `${greenstats[i].operator.fullName}` + '</div>'
+		if (opstats.length != 0) {
+			for (let i = 0; i < opstats.length; i++) {
+				if (opstats[i].aCnt == null)
+					opstats[i].aCnt = 0;
+				if (opstats[i].operator.status == "Online") {
+					moderresult += `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🟢 </span> ' + '<span style="position: absolute;left: 12px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+				} else if (opstats[i].operator.status == "Busy") {
+					moderresult += `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🟡 </span>' + '<span style="position: absolute;left: 11px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+				} else if (opstats[i].operator.status == "Pause") {
+					moderresult+= `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🔴 </span>' +  '<span style="position: absolute;left: 11px; padding-top:1px; color:white; font-size:13px; text-shadow: rgb(255 255 255) 1px 0px 1px, rgb(255 255 255) 0px 1px 1px, rgb(255 255 255) -1px 0px 1px, rgb(255 255 255) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+				}
 			}
-		}		
-		
-		if (yellowstats.length != 0)  {
-			for (let i = 0; i < yellowstats.length; i++) {
-					moderresult += `<div class="leftbaropers" style="opacity:0.8; color:Gold" name="operrow" value="${yellowstats[i].operator.id}">` + '<span style="font-size:22px;">🟡 </span>' + '<span style="position: absolute;left: 11px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + yellowstats[i].aCnt + '</span>' +  `${yellowstats[i].operator.fullName}` + '</div>'
-			}
-		}
-
-		if (redstats.length != 0)  {
-			for (let i = 0; i < redstats.length; i++) {
-					moderresult+= `<div class="leftbaropers" style="opacity:0.8; color:Salmon" name="operrow" value="${redstats[i].operator.id}">` + '<span style="font-size:22px;">🔴 </span>' +  '<span style="position: absolute;left: 11px; padding-top:1px; color:white; font-size:13px; text-shadow: rgb(255 255 255) 1px 0px 1px, rgb(255 255 255) 0px 1px 1px, rgb(255 255 255) -1px 0px 1px, rgb(255 255 255) 0px -1px 1px;">' + redstats[i].aCnt + '</span>' + `${redstats[i].operator.fullName}` + '</div>'
-			}
-		}
-		
 			peoplestatus.innerHTML = moderresult	
 			let arofpers = document.getElementsByName('operrow')
 			for (let i =0; i < arofpers.length; i++) {
@@ -83,7 +68,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 
 				}
 			}
-		
+		}
 		
 	for (let i = 0 ; document.getElementsByClassName('app-content')[1].children[i] != undefined; i++) {
 		if (document.getElementsByClassName('app-content')[1].children[i].id == 'people_head')
