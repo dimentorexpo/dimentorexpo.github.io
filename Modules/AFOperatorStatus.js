@@ -8,11 +8,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 	let flagtpkc;
 
 	let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
-	if operdep  == 'ТП'
+	if (operdep  == 'ТП')
 		flagtpkc = 'ТП'
-	else if operdep == 'КЦ'
+	else if (operdep == 'КЦ')
 		flagtpkc = 'КЦ'
-	else if operdep == 'КМ'
+	else if (operdep == 'КМ')
 		flagtpkc = 'КМ'
 	
 	await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
