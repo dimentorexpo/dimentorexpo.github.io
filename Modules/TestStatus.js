@@ -6,6 +6,9 @@ async function operstatusleftbar() { // функция замены Script Packa
 	let opstats = []
 	let moderresult =  '';
 	let flagtpkc;
+	let operonlinecnt = 0;
+	let busycnt = 0;
+	let pausecnt = 0;
 
 	let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
 	if (operdep  == 'ТП')
@@ -42,13 +45,16 @@ async function operstatusleftbar() { // функция замены Script Packa
 					opstats[i].aCnt = 0;
 				if (opstats[i].operator.status == "Online") {
 					moderresult += `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🟢 </span> ' + '<span style="position: absolute;left: 12px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					operonlinecnt +=1;
 				} else if (opstats[i].operator.status == "Busy") {
 					moderresult += `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🟡 </span>' + '<span style="position: absolute;left: 11px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+					busycnt +=1;
 				} else if (opstats[i].operator.status == "Pause") {
 					moderresult+= `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="font-size:22px;">🔴 </span>' +  '<span style="position: absolute;left: 11px; padding-top:1px; color:white; font-size:13px; text-shadow: rgb(255 255 255) 1px 0px 1px, rgb(255 255 255) 0px 1px 1px, rgb(255 255 255) -1px 0px 1px, rgb(255 255 255) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					pausecnt +=1;
 				}
 			}
-			peoplestatus.innerHTML = moderresult	
+			peoplestatus.innerHTML = moderresult + '<br>' + '<div>' + 'На Перерыве: ' + pausecnt + '</div>' +  '<div>' + 'В Занят: ' + busycnt + '</div>' +  '<div>' + 'В Онлайне: ' + operonlinecnt + '</div>' +  
 			let arofpers = document.getElementsByName('operrow')
 			for (let i =0; i < arofpers.length; i++) {
 				arofpers[i].onclick = function() {
@@ -64,8 +70,6 @@ async function operstatusleftbar() { // функция замены Script Packa
 							}
 							}
 						},1000)
-
-
 				}
 			}
 		}
