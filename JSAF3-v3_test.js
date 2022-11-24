@@ -461,7 +461,7 @@ function mystyles() {
 		transition: all 1s ease;
 	}
 	
-	#opennewcat:hover , #crmopersstatuses:hover {
+	#opennewcat:hover , #crmopersstatuses:hover, #afpersstatuses:hover {
 		opacity: 1 !important;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
@@ -1045,6 +1045,14 @@ function prepTp() { //функция подготовки расширения �
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
     crmopers.classList = 'onlyfortp'
     document.body.append(crmopers)
+
+    let afopers = document.createElement('button')
+    afopers.innerHTML = '⛑'
+    afopers.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    afopers.id = 'afpersstatuses'
+    afopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
+    afopers.classList = 'onlyfortp'
+    document.body.append(afopers)
 
     openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
