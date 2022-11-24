@@ -1135,6 +1135,7 @@ function prepTp() { //функция подготовки расширения �
 						 "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
 						 "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
 						 "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub 
+						  "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
 						 "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
         let promiseData = [];
         gfgScript.forEach(function(info) {
@@ -4147,6 +4148,45 @@ function closeTerms() { // функция автоподтверждения у�
 	}
 }
 
+// let peoplestatus = document.createElement('div')
+// peoplestatus.id = 'idforpeopstatus'
+// async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
+            // let opstats = []
+			// let moderresult;
+            // await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+                // "credentials": "include"
+            // }).then(r => r.json()).then(result => {
+
+                // for (let i = 0; i < result.onOperator.length; i++) {
+                    // if (result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
+                        // opstats.push(result.onOperator[i])
+                    // } // end of if state
+                // } // end of for
+            // })
+			// peoplestatus.innerHTML = ''
+			
+            // if (opstats.length != 0) {
+                // for (let i = 0; i < opstats.length; i++) {
+                    // if (opstats[i].aCnt == null)
+                        // opstats[i].aCnt = 0;
+                    // if (opstats[i].operator.status == "Online") {
+                        // moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					// } else if (opstats[i].operator.status == "Busy") {
+                        // moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+                    // } else if (opstats[i].operator.status == "Pause") {
+                        // moderresult+= '<div style="display:flex;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					// }
+				// }
+				// peoplestatus.innerHTML = 	moderresult			
+			// }
+
+
+	// for (let i = 0 ; document.getElementsByClassName('app-content')[1].children[i] != undefined; i++) {
+		// if (document.getElementsByClassName('app-content')[1].children[i].id == 'people_head')
+			// document.getElementsByClassName('app-content')[1].children[i].replaceWith(peoplestatus)
+	// }
+// }
+
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
     localStorage.setItem('winTopAF', '120');
     localStorage.setItem('winLeftAF', '295');
@@ -5512,6 +5552,8 @@ refreshTimerReminder1(); //обновляет оставшееся время д
 setInterval(clock_on_javascript_1, 1000);
 setInterval(clock_on_javascript_2, 1000);
 setInterval(clock_on_javascript_3, 1000);
+
+// setInterval(operstatusleftbar, 3000);
 
 // конец блока работы с будильником
 
