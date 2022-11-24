@@ -9,6 +9,8 @@ async function operstatusleftbar() { // функция замены Script Packa
 	let operonlinecnt = 0;
 	let busycnt = 0;
 	let pausecnt = 0;
+	let chatneraspcountleft = 0;
+	let chattpquecountleft = 0;
 
 	let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
 	if (operdep  == 'ТП')
@@ -19,6 +21,77 @@ async function operstatusleftbar() { // функция замены Script Packa
 		flagtpkc = 'КМ'
 	else if (operdep == 'ТС')
 		flagtpkc = 'ТС'
+	
+	
+	var dateopst = new Date()
+		day = month = ""
+    if (dateopst.getMonth() < 9)
+        month = "0" + (dateopst.getMonth() + 1)
+    else
+        month = (dateopst.getMonth() + 1)
+    if (dateopst.getDate() < 10)
+        day = "0" + dateopst.getDate()
+    else
+        day = dateopst.getDate()
+
+    secondDate = dateopst.getFullYear() + "-" + month + "-" + day + "T20:59:59.059Z"
+    dateopst = dateopst - 24 * 60 * 60 * 1000
+    var dateopst2 = new Date()
+    dateopst2.setTime(date)
+
+    if (dateopst2.getMonth() < 9)
+        month2 = "0" + (dateopst2.getMonth() + 1)
+    else
+        month2 = (dateopst2.getMonth() + 1)
+    if (dateopst2.getDate() < 10)
+        day2 = "0" + (dateopst2.getDate()) // убрал -1
+    else if (dateopst2.getDate() == 10)
+        day2 = (dateopst2.getDate());
+    else
+        day2 = (dateopst2.getDate() - 1)
+	firstDate = dateopst2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
+	
+	if (flagtpkc !='ТП') {
+		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+			"headers": {
+				"content-type": "application/json",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			},
+			"referrer": "https://skyeng.autofaq.ai/logs",
+			"referrerPolicy": "strict-origin-when-cross-origin",
+			"body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+		}).then(r => r.text()).then(result => {
+			setTimeout(function () {
+				chatneraspcount = result.match(/total.*?(\d+).*/)[1];
+				//		str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
+			}, 1000)
+		})
+	} else {
+		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+			"headers": {
+				"content-type": "application/json",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			},
+			"referrer": "https://skyeng.autofaq.ai/logs",
+			"referrerPolicy": "strict-origin-when-cross-origin",
+			"body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
+		}).then(r1 => r1.text()).then(result1 => {
+			setTimeout(function () {
+				chattpquecount = result1.match(/total.*?(\d+).*/)[1];
+				//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;
+			}, 1000)
+		})
+	}
 	
 	await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 		"credentials": "include"
@@ -54,7 +127,12 @@ async function operstatusleftbar() { // функция замены Script Packa
 					pausecnt +=1;
 				}
 			}
-			peoplestatus.innerHTML = moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
+			if (flagtpkc == 'ТП') {
+				peoplestatus.innerHTML = '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Нераспред: ' + chattpquecount + '</div>' +  moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
+			} else {
+				peoplestatus.innerHTML = '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Нераспред: ' + chatneraspcountleft + '</div>' + moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
+			}
+
 			
 			let arofpers = document.getElementsByName('operrow')
 			for (let i =0; i < arofpers.length; i++) {
