@@ -469,6 +469,16 @@ function mystyles() {
 		height:45px !important;
 		font-size:23px !important;
 	}
+	
+	.leftbaropers {
+		display:flex;
+		align-items:center;
+		font-size: 13.5px;
+		cursor:pointer;
+	}
+	.leftbaropers:hover {
+		background: DeepSkyBlue;
+	}
 
 	`
     mstl.innerHTML = style;
