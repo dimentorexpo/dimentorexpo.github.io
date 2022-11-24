@@ -26,11 +26,6 @@ wintOperStatus.style.display = 'none';
 wintOperStatus.setAttribute('id', 'AF_OperStat');
 wintOperStatus.innerHTML = win_OperStatus;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintOperStatus, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintOperStatus) 
-}
-
-
 var listenerOpStatus = function (e, a) { // сохранение позиции окна поиска оценок от пользователя
     wintOperStatus.style.left = Number(e.clientX - myXOpSt) + "px";
     wintOperStatus.style.top = Number(e.clientY - myYOpSt) + "px";

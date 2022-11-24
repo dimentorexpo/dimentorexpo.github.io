@@ -36,10 +36,6 @@ wintLessonStatus.style.display = 'none';
 wintLessonStatus.setAttribute('id', 'AF_LessonStatus');
 wintLessonStatus.innerHTML = win_LessonStatus;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintLessonStatus, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintLessonStatus) 
-}
-
 var listenerLessonStatus = function (e, a) { // сохранение позиции окна статус урока
     wintLessonStatus.style.left = Number(e.clientX - myX8) + "px";
     wintLessonStatus.style.top = Number(e.clientY - myY8) + "px";

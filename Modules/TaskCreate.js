@@ -65,10 +65,6 @@ wintCreateTask.style.display = 'none';
 wintCreateTask.setAttribute('id', 'AF_Createtask');
 wintCreateTask.innerHTML = win_taskform;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintCreateTask, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintCreateTask) 
-}
-
 var listenerTaskCreate = function (e, a) { // сохранение позиции окна доступов
     wintCreateTask.style.left = Number(e.clientX - myX17) + "px";
     wintCreateTask.style.top = Number(e.clientY - myY17) + "px";

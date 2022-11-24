@@ -24,10 +24,6 @@ wintTechSummary.style.display = 'none';
 wintTechSummary.setAttribute('id', 'AF_TechSummary');
 wintTechSummary.innerHTML = win_Techsummary;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintTechSummary, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintTechSummary) 
-}
-
 var listenerTechSummary = function (e, a) { // сохранение позиции окна инфо об устройстве пользователя
     wintTechSummary.style.left = Number(e.clientX - myX11) + "px";
     wintTechSummary.style.top = Number(e.clientY - myY11) + "px";

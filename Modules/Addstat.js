@@ -171,10 +171,6 @@ wintStat.style.display = 'none';
 wintStat.setAttribute('id', 'AF_Stat');
 wintStat.innerHTML = win_Stat;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную winStat, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintStat) 
-}
-
 var listenerStat = function (e, a) { // сохранение позиции окна работы со статистикой
     wintStat.style.left = Number(e.clientX - myX6) + "px";
     wintStat.style.top = Number(e.clientY - myY6) + "px";

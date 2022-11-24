@@ -69,10 +69,6 @@ wintSugform.style.display = 'none';
 wintSugform.setAttribute('id', 'AF_Sugform');
 wintSugform.innerHTML = win_suggest;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintSugform, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintSugform) 
-}
-
 var listenerSugform = function (e, a) { // сохранение позиции окна предложения
     wintSugform.style.left = Number(e.clientX - myX15) + "px";
     wintSugform.style.top = Number(e.clientY - myY15) + "px";

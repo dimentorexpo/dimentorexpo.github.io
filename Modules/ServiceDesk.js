@@ -694,10 +694,6 @@ wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintServDsk, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintServDsk) 
-}
-
 var listenerServDsk = function (e, a) { // сохранение позиции окна ServiceDesk
     wintServDsk.style.left = Number(e.clientX - myX12) + "px";
     wintServDsk.style.top = Number(e.clientY - myY12) + "px";

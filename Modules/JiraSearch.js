@@ -43,10 +43,6 @@ wintJira.style.display = 'none';
 wintJira.setAttribute('id', 'AF_Jira');
 wintJira.innerHTML = win_Jira;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintJira, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintJira) 
-}
-
 var listenerJira = function (e, a) { // сохранение позиции окна поиска по Jira
     wintJira.style.left = Number(e.clientX - myX5) + "px";
     wintJira.style.top = Number(e.clientY - myY5) + "px";

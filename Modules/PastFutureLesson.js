@@ -29,10 +29,6 @@ wintTimetable.style.display = 'none';
 wintTimetable.setAttribute('id', 'AF_Timetable');
 wintTimetable.innerHTML = win_Timetable;
 
-if (typeof modulesarray != 'undefined') { // добавляем в исходный массив модулей для проверки переменную wintTimetable, чтобы потом проверять подключился этот модуль или нет
-	modulesarray.push(wintTimetable) 
-}
-
 var listenerTimetable = function (e, a) { // сохранение позиции окна предстоящих и прошедших занятиях
     wintTimetable.style.left = Number(e.clientX - myX10) + "px";
     wintTimetable.style.top = Number(e.clientY - myY10) + "px";
