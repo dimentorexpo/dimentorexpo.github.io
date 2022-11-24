@@ -45,5 +45,10 @@ async function operstatusleftbar() { // функция замены Script Packa
 			}
 			peoplestatus.innerHTML = moderresult			
 		}
+		
+	for (let i = 0 ; document.getElementsByClassName('app-content')[1].children[i] != undefined; i++) {
+		if (document.getElementsByClassName('app-content')[1].children[i].id == 'people_head')
+			document.getElementsByClassName('app-content')[1].children[i].remove()
+	}
 			
 }
