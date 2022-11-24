@@ -67,7 +67,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 			"credentials": "include"
 		}).then(r => r.text()).then(result => {
 			setTimeout(function () {
-				chatneraspcount = result.match(/total.*?(\d+).*/)[1];
+				chatneraspcountleft = result.match(/total.*?(\d+).*/)[1];
 				//		str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
 			}, 1000)
 		})
@@ -87,7 +87,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 			"credentials": "include"
 		}).then(r1 => r1.text()).then(result1 => {
 			setTimeout(function () {
-				chattpquecount = result1.match(/total.*?(\d+).*/)[1];
+				chattpquecountleft = result1.match(/total.*?(\d+).*/)[1];
 				//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;
 			}, 1000)
 		})
@@ -128,7 +128,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				}
 			}
 			if (flagtpkc == 'ТП') {
-				peoplestatus.innerHTML = '<div  style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);">' + 'Нераспред: ' + chattpquecount + '</div>' +  moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
+				peoplestatus.innerHTML = '<div  style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);">' + 'Нераспред: ' + chattpquecountleft + '</div>' +  moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
 			} else {
 				peoplestatus.innerHTML = '<div  style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);">' + 'Нераспред: ' + chatneraspcountleft + '</div>' + moderresult + '<br>' +'<div  style="background:#257947; font-weight: 700; text-align: center;">' + 'Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center;">' + 'Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;">' + 'Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;">' + 'Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>'
 			}
