@@ -1,6 +1,7 @@
 async function findchatsonoper() {
 	if (document.getElementById('AF_ChatHis').style.display =='none')
 		document.getElementById('butChatHistory').click()
+	
 	let getdatesetleft = new Date()
     let hrs;
     let mins;
@@ -25,7 +26,7 @@ async function findchatsonoper() {
         secs = "0" + getdatesetleft.getUTCSeconds();
     else secs = getdatesetleft.getUTCSeconds()
 	
-	    if (document.getElementById('placeusid').innerText != '')
+	if (document.getElementById('placeusid').innerText != '')
         document.getElementById('placeusid').innerText = ''
 
     if (document.getElementById('placechatid').innerText != '')
@@ -39,7 +40,7 @@ async function findchatsonoper() {
 
     if (document.getElementById('comentsbar').style.display == '')
         document.getElementById('comentsbar').style.display = 'none';
-
+	foundarr = '';
     document.getElementById('infofield').innerHTML = 'Загрузка'
 	
 		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
