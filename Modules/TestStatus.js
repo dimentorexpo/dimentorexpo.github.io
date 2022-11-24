@@ -50,12 +50,15 @@ async function operstatusleftbar() { // функция замены Script Packa
 				arofpers[i].onclick = function() {
 						if (document.getElementById('AF_ChatHis').style.display =='none')
 							document.getElementById('butChatHistory').click()
+						
 							let massivvidapspiskaoperatorov = document.getElementById('operatorstp')
-
-							if (arofpers[i].value == massivvidapspiskaoperatorov.children[i+1].value) {
-								pizdamassivvidapspiskaoperatorovchildren[i+1].selected = true
+							for (let k =0; k<massivvidapspiskaoperatorov.length; k++) {
+								if (this.getAttribute('value') == massivvidapspiskaoperatorov.children[k+1].value) {
+								pizdamassivvidapspiskaoperatorovchildren[k+1].selected = true
 								findchatsoper()
 							}
+							}
+
 				}
 			}
 		}
