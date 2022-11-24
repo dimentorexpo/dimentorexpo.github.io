@@ -51,6 +51,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 						if (document.getElementById('AF_ChatHis').style.display =='none')
 							document.getElementById('butChatHistory').click()
 						
+						setTimeout( function() {
 							let massivvidapspiskaoperatorov = document.getElementById('operatorstp')
 							for (let k =0; k<massivvidapspiskaoperatorov.length; k++) {
 								if (massivvidapspiskaoperatorov.children[k+1].value == this.getAttribute('value')) {
@@ -58,6 +59,8 @@ async function operstatusleftbar() { // функция замены Script Packa
 								findchatsoper()
 							}
 							}
+						},1000)
+
 
 				}
 			}
