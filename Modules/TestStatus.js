@@ -60,7 +60,7 @@ async function findchatsonoper() {
 	console.log(operchatsdata)
 
 	if (operchatsdata.total == 0)
-		alert(`У выбранного пользователя ${objSel[i].innerText} нет активных чатов`)
+		alert(`У выбранного пользователя ${this.innerText} нет активных чатов`)
 
 	for (let i = 0; i < operchatsdata.items.length; i++) {
 
