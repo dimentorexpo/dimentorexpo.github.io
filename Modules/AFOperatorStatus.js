@@ -1,7 +1,7 @@
 let peoplestatus = document.createElement('div')
 peoplestatus.id = 'idforpeopstatus'
-peoplestatus.style = 'position: absolute; top: 310px; left: 0px; width: 205px; color: bisque;'
-document.body.append(peoplestatus)
+peoplestatus.style = 'width: 205px; color: bisque;'
+document.getElementsByClassName('ant-layout-sider-children')[0].append(peoplestatus)
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
 	let opstats = []
 	let moderresult =  '';
@@ -37,11 +37,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 				if (opstats[i].aCnt == null)
 					opstats[i].aCnt = 0;
 				if (opstats[i].operator.status == "Online") {
-					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(f f f) 0px 1px 1px, rgb(f f f) -1px 0px 1px, rgb(f f f) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Busy") {
-					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+					moderresult += '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(f f f) 0px 1px 1px, rgb(f f f) -1px 0px 1px, rgb(f f f) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Pause") {
-					moderresult+= '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					moderresult+= '<div style="display:flex; align-items:center;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px; padding-top:3px; color:black; font-size:13px; text-shadow: rgb(f f f) 1px 0px 1px, rgb(f f f) 0px 1px 1px, rgb(f f f) -1px 0px 1px, rgb(f f f) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				}
 			}
 			peoplestatus.innerHTML = moderresult			
@@ -54,4 +54,4 @@ async function operstatusleftbar() { // функция замены Script Packa
 			
 }
 
-setInterval(operstatusleftbar, 10000)
+setInterval(operstatusleftbar, 6000)
