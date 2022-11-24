@@ -1,6 +1,6 @@
 let peoplestatus = document.createElement('div')
 peoplestatus.id = 'idforpeopstatus'
-peoplestatus.style = 'width: 205px; color: bisque;'
+peoplestatus.style = 'width: 200px; color: bisque;'
 document.getElementsByClassName('ant-layout-sider-children')[0].append(peoplestatus)
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
 	let opstats = []
