@@ -33,10 +33,13 @@ async function operstatusleftbar() { // функция замены Script Packa
 				if (opstats[i].aCnt == null)
 					opstats[i].aCnt = 0;
 				if (opstats[i].operator.status == "Online") {
+					console.log(opstats[i].operator)
 					moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px; padding-top:5px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Busy") {
+					console.log(opstats[i].operator)
 					moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px; padding-top:5px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Pause") {
+					console.log(opstats[i].operator)
 					moderresult+= '<div style="display:flex;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px; padding-top:5px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				}
 			}
