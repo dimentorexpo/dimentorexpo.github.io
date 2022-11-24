@@ -1,6 +1,6 @@
 
 
-function findchatsonoper() {
+async function findchatsonoper() {
 	if (document.getElementById('AF_ChatHis').style.display =='none')
 		document.getElementById('AF_ChatHis').style.display =''
 	let getdatesetleft = new Date()
