@@ -1,5 +1,3 @@
-
-
 async function findchatsonoper() {
 	if (document.getElementById('AF_ChatHis').style.display =='none')
 		document.getElementById('butChatHistory').click()
@@ -8,7 +6,6 @@ async function findchatsonoper() {
     let mins;
     let secs;
     let difhrs;
-	let foundarr = []
     if (getdatesetleft.getUTCHours() < 10)
         hrs = "0" + (getdatesetleft.getUTCHours());
     else if (getdatesetleft.getUTCHours() >= 24)
