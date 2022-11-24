@@ -46,19 +46,19 @@ async function operstatusleftbar() { // функция замены Script Packa
 		peoplestatus.innerHTML = ''
 		
 		if (greenstats.length != 0)  {
-			for (let i = 0; i < greenstats.length: i++) {
+			for (let i = 0; i < greenstats.length; i++) {
 					moderresult += `<div class="leftbaropers" name="operrow" value="${greenstats[i].operator.id}">` + '<span style="font-size:22px;">🟢 </span> ' + '<span style="position: absolute;left: 12px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 			}
 		}		
 		
 		if (yellowstats.length != 0)  {
-			for (let i = 0; i < yellowstats.length: i++) {
+			for (let i = 0; i < yellowstats.length; i++) {
 					moderresult += `<div class="leftbaropers" style="opacity:0.8; color:Gold" name="operrow" value="${yellowstats[i].operator.id}">` + '<span style="font-size:22px;">🟡 </span>' + '<span style="position: absolute;left: 11px; padding-top:2px; color:black; font-size:13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
 			}
 		}
 
 		if (redstats.length != 0)  {
-			for (let i = 0; i < redstats.length: i++) {
+			for (let i = 0; i < redstats.length; i++) {
 					moderresult+= `<div class="leftbaropers" style="opacity:0.8; color:Salmon" name="operrow" value="${redstats[i].operator.id}">` + '<span style="font-size:22px;">🔴 </span>' +  '<span style="position: absolute;left: 11px; padding-top:1px; color:white; font-size:13px; text-shadow: rgb(255 255 255) 1px 0px 1px, rgb(255 255 255) 0px 1px 1px, rgb(255 255 255) -1px 0px 1px, rgb(255 255 255) 0px -1px 1px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 			}
 		}
