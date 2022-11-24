@@ -4797,7 +4797,7 @@ butMarks.classList.add('inithide');
 let butChatHistory = document.createElement('div')
 butChatHistory.id = "butChatHistory"
 butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.classList.add('onlyfortp', 'inithide');
+butChatHistory.classList.add('inithide');
 
 let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
