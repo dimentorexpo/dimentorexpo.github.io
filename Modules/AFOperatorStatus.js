@@ -33,11 +33,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 				if (opstats[i].aCnt == null)
 					opstats[i].aCnt = 0;
 				if (opstats[i].operator.status == "Online") {
-					moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟢 </span> ' + '<span style="position: absolute;left: 10px; padding-top:5px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Busy") {
-					moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
+					moderresult += '<div style="display:flex;">' + '<span style="font-size:20px;">🟡 </span>' + '<span style="position: absolute;left: 10px; padding-top:5px;">' + opstats[i].aCnt + '</span>' +  `${opstats[i].operator.fullName}` + '</div>'
 				} else if (opstats[i].operator.status == "Pause") {
-					moderresult+= '<div style="display:flex;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+					moderresult+= '<div style="display:flex;">' + '<span style="font-size:20px;">🔴 </span>' +  '<span style="position: absolute;left: 10px; padding-top:5px;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
 				}
 			}
 			peoplestatus.innerHTML = moderresult			
