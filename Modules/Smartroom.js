@@ -175,7 +175,9 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
 
             let checkedclienttype;
             let checkedquestion;
-            let alloptions
+            let alloptions;
+			let cat2selected;
+			let cat3selected;
 
             let flagemptysmart = 0;
 
@@ -216,37 +218,47 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
                     if (document.getElementsByName('typetoform')[i].checked == true)
                         checkedclienttype = document.getElementsByName('typetoform')[i].value;
                 }
-                checkedquestion = document.getElementsByName('whatobratform')[0].value;
-
-                alloptions = document.getElementsByName('catsmartroom')
-
-                for (let i = 0; i < alloptions.length; i++) {
-                    if (alloptions[i].checked && alloptions[i].value != 'Другое') {
-
-                        let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value) + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156=' + encodeURIComponent(alloptions[i].value)
-
-                        let options2 = {
-                            "headers": {
-                                "content-type": "application/x-www-form-urlencoded",
-                            },
-                            "body": body2,
-                            "method": "POST",
-                        }
-
-                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
-                        if (document.getElementById('responseTextarea3') != null)
-                            document.getElementById('responseTextarea3').value = ''
-                        document.getElementById('sendResponse').click()
-
-                        document.getElementById('AF_Smartroomform').style.display = 'none'
-                        document.getElementById('clientid').value = ''
-                        document.getElementById('fullcomentsmartroom').value = ''
-                        clearradio()
-                        sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
-
-                    } 
+				
+				for (let i =0; i<document.getElementById('cattwosmatrtoom').length;i++) {
+					if (document.getElementById('cattwosmatrtoom')[i].selected == true)
+					cat2selected = document.getElementById('cattwosmatrtoom')[i].value
 				}
+				
+				for (let i =0; i<document.getElementById('catthreesmatrtoom').length;i++) {
+					if (document.getElementById('catthreesmatrtoom')[i].selected == true)
+					cat3selected = document.getElementById('catthreesmatrtoom')[i].value
+				}
+					
+
+				for (let i =0; i<document.getElementsByName('whatobratform').length;i++) {
+					if (document.getElementsByName('whatobratform')[i].checked == true)
+					checkedquestion = document.getElementsByName('whatobratform')[i].value;
+				}					
+
+				let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value) + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1625340245=' + encodeURIComponent(cat2selected) + '&entry.478427702=' + encodeURIComponent(cat3selected)
+
+				let options2 = {
+					"headers": {
+						"content-type": "application/x-www-form-urlencoded",
+					},
+					"body": body2,
+					"method": "POST",
+				}
+
+				document.getElementById('responseTextarea1').value = JSON.stringify(options2)
+				document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
+				if (document.getElementById('responseTextarea3') != null)
+					document.getElementById('responseTextarea3').value = ''
+				document.getElementById('sendResponse').click()
+
+				document.getElementById('AF_Smartroomform').style.display = 'none'
+				document.getElementById('clientid').value = ''
+				document.getElementById('fullcomentsmartroom').value = ''
+				clearradio()
+				sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
+
+                     
+				
             }
         }
 
@@ -279,13 +291,15 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
                 } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
                     if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
                         document.getElementsByName('typetoform')[0].checked = true
-                        document.getElementsByName('typetoform')[1].checked = false
+                        document.getElementsByName('typetoform')[3].checked = false
                     } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
                         document.getElementsByName('typetoform')[0].checked = false
-                        document.getElementsByName('typetoform')[1].checked = true
+                        document.getElementsByName('typetoform')[3].checked = true
                     } else {
                         document.getElementsByName('typetoform')[0].checked = false
                         document.getElementsByName('typetoform')[1].checked = false
+                        document.getElementsByName('typetoform')[2].checked = false
+                        document.getElementsByName('typetoform')[3].checked = false
                     }
                 }
             }
