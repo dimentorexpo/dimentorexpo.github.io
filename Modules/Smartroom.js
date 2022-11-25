@@ -19,10 +19,11 @@ var win_smartroomform =  // описание элементов окна Мул�
 								<label for="typestud">Ученик Adults</label>
 								<input type="radio" id="typestudkids" name="typetoform" value="Ученик Kids">
 								<label for="typestud">Ученик Kids</label>
+								<input type="radio" id="typestudprem" name="typetoform" value="Ученик Premium">
+								<label for="typestudprem">Ученик Premium</label>
+								<br>
 							    <input type="radio" id="typeteach" name="typetoform" value="Преподаватель">
 								<label for="typeteach">Преподаватель</label>
-                                <input type="radio" id="typestudprem" name="typetoform" value="Ученик Premium">
-								<label for="typestudprem">Ученик Premium</label>
 							</div>
 							<input id="clientid" placeholder="ID пользователя" autocomplete="off" type="text">
 							<br>
@@ -34,11 +35,36 @@ var win_smartroomform =  // описание элементов окна Мул�
 								<label for="whattonegative">Негатив по мультирум</label>
 							</div>
 							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">Категория 1</div>
-								<div>
 								<label class="catsmartroom"><input class="radio" type="radio" name="catsmartroom" value="Обновление платформы" resolved="" checked> Обновление платформы</label>
 							</div>
-								<textarea id="fullcomentsmartroom" placeholder="Полный комментарий предложения по улучшению" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
-							<br>
+
+							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">Категория 2</div>
+								<select id="cattwosmatrtoom" style="margin-left:150px; margin-top:10px;">
+									<option style="background-color:DarkKhaki;" value="choosecategory2">Выбрать категорию</option>
+									<option value="Домашнее задания">-Домашнее задания</option>
+									<option value="Интерфейс платформы">-Интерфейс платформы</option>
+									<option value="Функционал урока П">-Функционал урока П</option>
+									<option value="Функционал урока У">-Функционал урока У</option>
+									<option value="Вернуть старую платформу">-Вернуть старую платформу</option>
+									<option value="Мобильное приложение Skyeng">-Мобильное приложение Skyeng</option>
+                                </select>
+							</div>	
+
+							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">Категория 3</div>
+								<select id="catthreesmatrtoom" style="margin-left:150px; margin-top:10px;">
+									<option style="background-color:DarkKhaki;" value="choosecategory3">Выбрать категорию</option>
+									<option value="Домашнее задания">-Домашнее задания</option>
+									<option value="Интерфейс платформы">-Интерфейс платформы</option>
+									<option value="Функционал урока П">-Функционал урока П</option>
+									<option value="Функционал урока У">-Функционал урока У</option>
+									<option value="Вернуть старую платформу">-Вернуть старую платформу</option>
+									<option value="Мобильное приложение Skyeng">-Мобильное приложение Skyeng</option>
+                                </select>
+							</div>
+							
+						<div>	
+							<textarea id="fullcomentsmartroom" placeholder="Полный комментарий предложения по улучшению" autocomplete="off" type="text" style="text-align: center; width: 405px; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
+						<br>
 							<button title="Отправляет заполненные поля формы в док" id="send2smartroom" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 						</div>
 				</span>
