@@ -107,8 +107,8 @@ async function operstatusleftbar() { // функция замены Script Packa
 		peoplestatus.innerHTML = ''
 		
 		opstats.sort((prev, next) => {
-			if ( prev.operator.status > next.operator.status ) return -1;
-			if ( prev.operator.status > next.operator.status ) return 1;
+			if ( prev.operator.status < next.operator.status ) return -1;
+			if ( prev.operator.status < next.operator.status ) return 1;
 		});
 		
 		if (opstats.length != 0) {
