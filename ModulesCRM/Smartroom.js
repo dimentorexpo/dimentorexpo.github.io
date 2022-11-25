@@ -49,7 +49,7 @@ var win_smartroomform =  // описание элементов окна Мул�
                                 </select>
 							</div>	
 
-							<div style="color:#c4ffd3; padding:5px; font-weight: 600;">Категория 3</div>
+							<div style="color:#c4ffd3; padding:5px; font-weight: 500;">Категория 3</div>
 								<select id="catthreesmatrtoom" style="margin-left: 5px; padding-top: 5px; font-size: 16px; vertical-align: middle; color: black;">
 									<option style="background-color:DarkKhaki;" value="Выбрать категорию" disabled>Выбрать категорию</option>
 									<option value="Интерфейс раздела домашки">-Интерфейс раздела домашки</option>
