@@ -66,10 +66,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 			"mode": "cors",
 			"credentials": "include"
 		}).then(r => r.text()).then(result => {
-			setTimeout(function () {
 				chatneraspcountleft = result.match(/total.*?(\d+).*/)[1];
-				//		str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
-			}, 1000)
 		})
 	} else {
 		await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -86,10 +83,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 			"mode": "cors",
 			"credentials": "include"
 		}).then(r1 => r1.text()).then(result1 => {
-			setTimeout(function () {
 				chattpquecountleft = result1.match(/total.*?(\d+).*/)[1];
-				//		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;
-			}, 1000)
 		})
 	}
 	
@@ -111,6 +105,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 	})
 	
 		peoplestatus.innerHTML = ''
+		
+		opstats.sort((prev, next) => {
+			if ( prev.status < next.operator.status ) return -1;
+			if ( prev.status < next.operator.status ) return 1;
+		});
 		
 		if (opstats.length != 0) {
 			for (let i = 0; i < opstats.length; i++) {
