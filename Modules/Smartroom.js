@@ -138,54 +138,19 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
             document.getElementById('idmymenu').style.display = 'none'
         }
 
-        function clearradio() {
-            for (let j = 0; j < 3; j++) {
+        function clearradio() { // функция очистки радиобатонов
+            for (let j = 0; j < 4; j++) {
                 document.getElementsByName('typetoform')[j].checked = false
             }
-            for (let k = 0; k < 6; k++) {
-                document.getElementsByName('catsmartroom')[k].checked = false
-            }
+			
+			document.getElementById('cattwosmatrtoom')[0].selected = true
+			document.getElementById('catthreesmatrtoom')[0].selected = true
+
         }
 
         //
         let catsmartroom = document.getElementsByName('catsmartroom')
-
-        for (let i = 0; i < catsmartroom.length; i++) {
-            catsmartroom[i].onclick = () => {
-                if (catsmartroom[i].checked && catsmartroom[i].value == 'Другое') {
-
-                    document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldoff')
-                    document.getElementById('otheroptionsmartchecked').classList.add('otherfieldon')
-                    document.getElementById('otheroptionsmartchecked').removeAttribute('disabled')
-
-                } else {
-                    document.getElementById('otheroptionsmartchecked').classList.add('otherfieldoff')
-                    document.getElementById('otheroptionsmartchecked').classList.remove('otherfieldon')
-                    document.getElementById('otheroptionsmartchecked').setAttribute('disabled', 'disabled')
-                }
-            }
-        }
-
         //
-
-        if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-                    document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
-                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
-                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
-                        document.getElementsByName('typetoform')[0].checked = true
-                        document.getElementsByName('typetoform')[1].checked = false
-                    } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
-                        document.getElementsByName('typetoform')[0].checked = false
-                        document.getElementsByName('typetoform')[1].checked = true
-                    } else {
-                        document.getElementsByName('typetoform')[0].checked = false
-                        document.getElementsByName('typetoform')[1].checked = false
-                    }
-                }
-            }
-        }
 
         document.getElementById('send2smartroom').onclick = function () {
 
