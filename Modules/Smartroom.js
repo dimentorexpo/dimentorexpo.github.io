@@ -34,11 +34,11 @@ var win_smartroomform =  // описание элементов окна Мул�
 								<input type="radio" id="whattonegative" name="whatobratform" value="Негатив по мультирум">
 								<label for="whattonegative">Негатив по мультирум</label>
 							</div>
-							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">Категория 1</div>
+							<div style="color:#c4ffd3; padding:5px; font-weight: 600;">Категория 1</div>
 								<label class="catsmartroom"><input class="radio" type="radio" name="catsmartroom" value="Обновление платформы" resolved="" checked> Обновление платформы</label>
 							</div>
 
-							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">Категория 2</div>
+							<div style="color:#c4ffd3; padding:5px; font-weight: 600;">Категория 2</div>
 								<select id="cattwosmatrtoom" style="margin-left: 5px; padding-top: 5px; font-size: 16px; vertical-align: middle; color: black;">
 									<option style="background-color:DarkKhaki;" value="choosecategory2">Выбрать категорию</option>
 									<option value="Домашнее задания">-Домашнее задания</option>
@@ -50,7 +50,7 @@ var win_smartroomform =  // описание элементов окна Мул�
                                 </select>
 							</div>	
 
-							<div style="margin-top:5px; color:#c4ffd3; padding:5px; font-weight: 600;">Категория 3</div>
+							<div style="color:#c4ffd3; padding:5px; font-weight: 600;">Категория 3</div>
 								<select id="catthreesmatrtoom" style="margin-left: 5px; padding-top: 5px; font-size: 16px; vertical-align: middle; color: black;">
 									<option style="background-color:DarkKhaki;" value="choosecategory3">Выбрать категорию</option>
 									<option value="Интерфейс раздела домашки">-Интерфейс раздела домашки</option>

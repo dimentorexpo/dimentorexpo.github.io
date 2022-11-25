@@ -352,7 +352,6 @@ function mystyles() {
 			font-weight: 600;
 		}
 		.catsmartroom {
-			margin-left: 5px;
 			color: bisque;
 			font-size: 16px;
 			transition: all 0.5s ease;
