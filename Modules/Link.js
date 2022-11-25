@@ -32,8 +32,8 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает сайт для поиска записей уроков" id="lesrecords" style="width:105px; margin-top: 3px">LessonRecords</button>
 					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
 					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button title="Открывает форму по добавлению новых вопросов для консультации преподавателей" id="TCQnew" style="width:105px; margin-top: 3px">TC нов. вопр.</button>
-					<button title="Открывает документ, где собраны вопросы и ответы для консультации преподавателей" id="TCQtable" style="width:105px; margin-top: 3px">TC таблица</button>	
+					<button title="Открывает Help Centr для учеников" id="helpocentrstud" style="width:105px; margin-top: 3px">Help Center У</button>
+					<button title="Открывает Help Centr для преподавателей" id="helpocentrteach style="width:105px; margin-top: 3px">Help Center П</button>	
 					<button title="Открывает сайт для просмотра ошибок и логов в комнате" id="trshoothing" style="width:105px; margin-top: 3px">Troubleshooting</button>
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_box">
@@ -216,12 +216,12 @@ document.getElementById('promocodes').addEventListener('click', function () { //
     window.open("https://billing-marketing.skyeng.ru/promocode/list")    
 })
 
-document.getElementById('TCQnew').addEventListener('click', function () { // открываем ссылку в новой вкладке на форму для внесения вопросов от П TC
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfZbw1GkZzerHWQGGbYslV6AsGTGxEKhNZFC1LV-TySHca9Fw/viewform")    
+document.getElementById('helpocentrteach').addEventListener('click', function () { // открываем ссылку в новой вкладке на Help Centr для П
+    window.open("https://helpcenter.skyeng.ru/teachers")    
 })
 
-document.getElementById('TCQtable').addEventListener('click', function () { // открываем ссылку в новой вкладке на таблицу вопросов-вопросов от П TC
-    window.open("https://docs.google.com/spreadsheets/d/1PVE_GnLoWESTzzMxb2Klwntesqxv1l3Ir8kaLezfiEM/edit#gid=0")    
+document.getElementById('helpocentrstud').addEventListener('click', function () { // открываем ссылку в новой вкладке на Help Centr для У
+    window.open("https://helpcenter.skyeng.ru/students")    
 })
 
 document.getElementById('kidscms').addEventListener('click', function () { // открываем ссылку в новой вкладке Kids CMS
