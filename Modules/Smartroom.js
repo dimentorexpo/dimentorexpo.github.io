@@ -41,7 +41,7 @@ var win_smartroomform =  // описание элементов окна Мул�
 							<div style="color:#c4ffd3; padding:5px; font-weight: 600;">Категория 2</div>
 								<select id="cattwosmatrtoom" style="margin-left: 5px; padding-top: 5px; font-size: 16px; vertical-align: middle; color: black;">
 									<option style="background-color:DarkKhaki;" value="choosecategory2">Выбрать категорию</option>
-									<option value="Домашнее задания">-Домашнее задания</option>
+									<option value="Домашние задания">-Домашние задания</option>
 									<option value="Интерфейс платформы">-Интерфейс платформы</option>
 									<option value="Функционал урока П">-Функционал урока П</option>
 									<option value="Функционал урока У">-Функционал урока У</option>
@@ -152,6 +152,25 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
         let catsmartroom = document.getElementsByName('catsmartroom')
         //
 
+        if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                    document.getElementById('clientid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType") {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'student' || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'parent') {
+                        document.getElementsByName('typetoform')[0].checked = true
+                        document.getElementsByName('typetoform')[3].checked = false
+                    } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] == 'teacher') {
+                        document.getElementsByName('typetoform')[0].checked = false
+                        document.getElementsByName('typetoform')[3].checked = true
+                    } else {
+                        document.getElementsByName('typetoform')[0].checked = false
+                        document.getElementsByName('typetoform')[1].checked = false
+                    }
+                }
+            }
+        }
+
         document.getElementById('send2smartroom').onclick = function () {
 
             let checkedclienttype;
@@ -160,7 +179,7 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
 
             let flagemptysmart = 0;
 
-            if (!document.getElementsByName('typetoform')[0].checked && !document.getElementsByName('typetoform')[1].checked && !document.getElementsByName('typetoform')[2].checked) {
+            if (!document.getElementsByName('typetoform')[0].checked && !document.getElementsByName('typetoform')[1].checked && !document.getElementsByName('typetoform')[2].checked && !document.getElementsByName('typetoform')[3].checked) {
                 document.getElementById('smartroomuser').style.backgroundColor = 'Coral';
                 document.getElementById('smartroomuser').style.color = 'black';
                 flagemptysmart = 1;
@@ -226,32 +245,8 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
                         clearradio()
                         sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
 
-                    } else if (alloptions[i].checked && alloptions[i].value == 'Другое') {
-                        let body2 = 'entry.466256037=' + encodeURIComponent(checkedclienttype) + '&entry.505070950=' + encodeURIComponent(document.getElementById('clientid').value) + '&entry.876256156=' + encodeURIComponent(checkedquestion) + '&entry.1879097323=' + encodeURIComponent(document.getElementById('fullcomentsmartroom').value) + '&entry.1552539156.other_option_response=' + encodeURIComponent(document.getElementById('otheroptionsmartchecked').value) + '&entry.1552539156=__other_option__'
-
-                        let options2 = {
-                            "headers": {
-                                "content-type": "application/x-www-form-urlencoded",
-                            },
-                            "body": body2,
-                            "method": "POST",
-                        }
-
-                        document.getElementById('responseTextarea1').value = JSON.stringify(options2)
-                        document.getElementById('responseTextarea2').value = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/formResponse'
-                        if (document.getElementById('responseTextarea3') != null)
-                            document.getElementById('responseTextarea3').value = ''
-                        document.getElementById('sendResponse').click()
-
-                        document.getElementById('AF_Smartroomform').style.display = 'none'
-                        document.getElementById('clientid').value = ''
-                        document.getElementById('fullcomentsmartroom').value = ''
-                        clearradio()
-                        document.getElementById('otheroptionsmartchecked').value = ''
-
-                        sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
-                    }
-                }
+                    } 
+				}
             }
         }
 
