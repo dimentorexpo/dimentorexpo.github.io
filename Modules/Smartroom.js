@@ -147,10 +147,6 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
 
         }
 
-        //
-        let catsmartroom = document.getElementsByName('catsmartroom')
-        //
-
         if (document.getElementsByClassName('expert-user_details-list')[1] != undefined) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
