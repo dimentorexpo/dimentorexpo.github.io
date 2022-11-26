@@ -147,7 +147,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				'<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
 					moderresult + '<br>' +
 					'<div id="clicktounhidestatusestp" style="color:bisque; cursor:pointer; text-align:center;">Открыть</div>' +
-				'<div id="opersstatstp" style="display:none">' +
+				'<div id="opersstatstp">' +
 					'<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
 					'<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
 					'<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  +
@@ -204,7 +204,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				peoplestatus.innerHTML = '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
 					moderresult + '<br>' +
 					'<div id="clicktounhidestatuses" style="color:bisque;">Открыть</div>' +
-				'<div id="opersstats" style="display:none">' +
+				'<div id="opersstats">' +
 					'<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
 					'<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
 					'<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  +
