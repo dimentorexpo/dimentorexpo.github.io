@@ -11,6 +11,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 	let pausecnt = 0;
 	let chatneraspcountleft = 0;
 	let chattpquecountleft = 0;
+	let hidesummaryhide = 1; // 1 список скрыт , 0 список открыт
 
 	let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
 	if (operdep  == 'ТП')
@@ -137,17 +138,27 @@ async function operstatusleftbar() { // функция замены Script Packa
 					'<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  +
 					'<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' +
 				'</div>' 
+				
+				if (hidesummaryhide == 1) {
+					document.getElementById('clicktounhidestatusestp').textContent = "Открыть"
+					document.getElementById('opersstatstp').style.display = "none"	
+				} else if (hidesummaryhide == 0) {
+					document.getElementById('clicktounhidestatusestp').textContent = "Скрыть"
+					document.getElementById('opersstatstp').style.display = ""	
+				}
 			} else {
-				peoplestatus.innerHTML = '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chatneraspcountleft + '</div>' + moderresult + '<br>' + '<div id="clicktounhidestatuseskc" style="color:bisque;">Открыть</div>' + '<div id="opersstatskc" style="display:none">' + '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' + '</div>'
+				peoplestatus.innerHTML = '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chatneraspcountleft + '</div>' + moderresult + '<br>' + '<div id="clicktounhidestatuses" style="color:bisque;">Открыть</div>' + '<div id="opersstats" style="display:none">' + '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' + '</div>'
 			}
 			
-			document.getElementById('clicktounhidestatusestp').onclick = function () {
-				if (document.getElementById('clicktounhidestatusestp').textContent == 'Открыть') {
-					document.getElementById('opersstatstp').style.display = '';
-					document.getElementById('clicktounhidestatusestp').textContent = 'Скрыть'
-				} else if (document.getElementById('clicktounhidestatusestp').textContent == 'Скрыть') {
-					document.getElementById('opersstatstp').style.display = '';
-					document.getElementById('clicktounhidestatusestp').textContent = 'Открыть'
+			document.getElementById('clicktounhidestatuses').onclick = function () {
+				if (document.getElementById('clicktounhidestatuses').textContent == 'Открыть') {
+					document.getElementById('opersstats').style.display = '';
+					document.getElementById('clicktounhidestatuses').textContent = 'Скрыть'
+					hidesummaryhide = 0;
+				} else if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
+					document.getElementById('opersstats').style.display = '';
+					document.getElementById('clicktounhidestatuses').textContent = 'Открыть'
+					hidesummaryhide = 1;
 				}
 			}
 
@@ -173,8 +184,8 @@ async function operstatusleftbar() { // функция замены Script Packa
 			if (flagtpkc == 'ТП') {
 				peoplestatus.innerHTML = '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
 					moderresult + '<br>' +
-					'<div id="clicktounhidestatusestp" style="color:bisque;">Открыть</div>' +
-					'<div id="opersstatstp" style="display:none">' +
+					'<div id="clicktounhidestatuses" style="color:bisque;">Открыть</div>' +
+					'<div id="opersstats" style="display:none">' +
 					'<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
 					'<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
 					'<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  +
