@@ -1,5 +1,5 @@
 if (localStorage.getItem('hidesummaryflag') == null)
-	localStorage.setItem('hidesummaryflag', '1') // 1 список скрыт , 0 список открыт
+    localStorage.setItem('hidesummaryflag', '1') // 1 список скрыт , 0 список открыт
 let peoplestatus = document.createElement('div')
 peoplestatus.id = 'idforpeopstatus'
 peoplestatus.style = 'width: 200px; color: bisque;'
@@ -131,19 +131,12 @@ async function operstatusleftbar() { // функция замены Script Packa
     } else moderresult = ''
 
     if (flagtpkc == 'ТП' && localStorage.getItem('hidesummaryflag') == '1') {
-        if (localStorage.getItem('hidesummaryflag') == '1' && document.getElementById('clicktounhidestatuses') != null) {
-            document.getElementById('clicktounhidestatuses').textContent = "Открыть"
-            document.getElementById('opersstats').style.display = "none"
-        } else if (localStorage.getItem('hidesummaryflag') == '0' && document.getElementById('clicktounhidestatuses') != null) {
-            document.getElementById('clicktounhidestatuses').textContent = "Скрыть"
-            document.getElementById('opersstats').style.display = ""
-        }
 
         peoplestatus.innerHTML =
             '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
             moderresult + '<br>' +
             '<div id="clicktounhidestatuses" style="color:bisque; cursor:pointer; text-align:center;">Открыть</div>' +
-            '<div id="opersstats">' +
+            '<div id="opersstats" style="display:none;">' +
             '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
             '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
             '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
