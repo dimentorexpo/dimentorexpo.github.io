@@ -1,3 +1,4 @@
+let hidesummaryflag = 1; // 1 список скрыт , 0 список открыт
 let peoplestatus = document.createElement('div')
 peoplestatus.id = 'idforpeopstatus'
 peoplestatus.style = 'width: 200px; color: bisque;'
@@ -11,7 +12,6 @@ async function operstatusleftbar() { // функция замены Script Packa
 	let pausecnt = 0;
 	let chatneraspcountleft = 0;
 	let chattpquecountleft = 0;
-	let hidesummaryflag = 1; // 1 список скрыт , 0 список открыт
 
 	let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
 	if (operdep  == 'ТП')
@@ -157,10 +157,12 @@ async function operstatusleftbar() { // функция замены Script Packa
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Скрыть'
 					hidesummaryflag = 0;
+					console.log(hidesummaryflag)
 				} else if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Открыть'
 					hidesummaryflag = 1;
+					console.log(hidesummaryflag)
 				}
 			}
 
@@ -210,10 +212,12 @@ async function operstatusleftbar() { // функция замены Script Packa
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Скрыть'
 					hidesummaryflag = 0;
+					console.log(hidesummaryflag)
 				} else if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Открыть'
 					hidesummaryflag = 1;
+					console.log(hidesummaryflag)
 				}
 			}
 		}
