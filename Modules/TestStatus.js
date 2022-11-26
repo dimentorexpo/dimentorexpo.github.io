@@ -147,7 +147,7 @@ async function operstatusleftbar() { // функция замены Script Packa
         peoplestatus.innerHTML =
             '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
             moderresult + '<br>' +
-            '<div id="clicktounhidestatuses" style="color:bisque; cursor:pointer; text-align:center;">Cкрыть</div>' +
+            '<div id="clicktounhidestatuses" style="color:bisque; cursor:pointer; text-align:center;">Скрыть</div>' +
             '<div id="opersstats">' +
             '<div style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
             '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
@@ -181,9 +181,7 @@ async function operstatusleftbar() { // функция замены Script Packa
             document.getElementById('opersstats').style.display = '';
             document.getElementById('clicktounhidestatuses').textContent = 'Скрыть'
             localStorage.setItem('hidesummaryflag', '0')
-		}
-			
-        if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
+		} else if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
             document.getElementById('opersstats').style.display = 'none';
             document.getElementById('clicktounhidestatuses').textContent = 'Открыть'
             localStorage.setItem('hidesummaryflag', '1')
