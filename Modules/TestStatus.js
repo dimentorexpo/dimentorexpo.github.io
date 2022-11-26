@@ -11,7 +11,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 	let pausecnt = 0;
 	let chatneraspcountleft = 0;
 	let chattpquecountleft = 0;
-	let hidesummaryhide = 1; // 1 список скрыт , 0 список открыт
+	let hidesummaryflag = 1; // 1 список скрыт , 0 список открыт
 
 	let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
 	if (operdep  == 'ТП')
@@ -139,10 +139,10 @@ async function operstatusleftbar() { // функция замены Script Packa
 					'<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' +
 				'</div>' 
 				
-				if (hidesummaryhide == 1) {
+				if (hidesummaryflag == 1) {
 					document.getElementById('clicktounhidestatusestp').textContent = "Открыть"
 					document.getElementById('opersstatstp').style.display = "none"	
-				} else if (hidesummaryhide == 0) {
+				} else if (hidesummaryflag == 0) {
 					document.getElementById('clicktounhidestatusestp').textContent = "Скрыть"
 					document.getElementById('opersstatstp').style.display = ""	
 				}
@@ -154,11 +154,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 				if (document.getElementById('clicktounhidestatuses').textContent == 'Открыть') {
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Скрыть'
-					hidesummaryhide = 0;
+					hidesummaryflag = 0;
 				} else if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Открыть'
-					hidesummaryhide = 1;
+					hidesummaryflag = 1;
 				}
 			}
 
@@ -192,10 +192,10 @@ async function operstatusleftbar() { // функция замены Script Packa
 					'<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' +
 				'</div>' 
 				
-				if (hidesummaryhide == 1) {
+				if (hidesummaryflag == 1) {
 					document.getElementById('clicktounhidestatusestp').textContent = "Открыть"
 					document.getElementById('opersstatstp').style.display = "none"	
-				} else if (hidesummaryhide == 0) {
+				} else if (hidesummaryflag == 0) {
 					document.getElementById('clicktounhidestatusestp').textContent = "Скрыть"
 					document.getElementById('opersstatstp').style.display = ""	
 				}
