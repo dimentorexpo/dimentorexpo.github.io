@@ -1,4 +1,5 @@
-localStorage.setItem('hidesummaryflag', '1') // 1 список скрыт , 0 список открыт
+if (localStorage.getItem('hidesummaryflag') == null)
+	localStorage.setItem('hidesummaryflag', '1') // 1 список скрыт , 0 список открыт
 let peoplestatus = document.createElement('div')
 peoplestatus.id = 'idforpeopstatus'
 peoplestatus.style = 'width: 200px; color: bisque;'
