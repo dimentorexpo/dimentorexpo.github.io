@@ -1,4 +1,4 @@
-let hidesummaryflag = 1; // 1 список скрыт , 0 список открыт
+localStorage.setItem('hidesummaryflag', '1') // 1 список скрыт , 0 список открыт
 let peoplestatus = document.createElement('div')
 peoplestatus.id = 'idforpeopstatus'
 peoplestatus.style = 'width: 200px; color: bisque;'
@@ -128,10 +128,10 @@ async function operstatusleftbar() { // функция замены Script Packa
 				}
 			}
 			if (flagtpkc == 'ТП') {
-				if (hidesummaryflag == 1 && document.getElementById('clicktounhidestatuses') !=null) {
+				if (localStorage.getItem('hidesummaryflag') == '1' && document.getElementById('clicktounhidestatuses') !=null) {
 					document.getElementById('clicktounhidestatuses').textContent = "Открыть"
 					document.getElementById('opersstats').style.display = "none"	
-				} else if (hidesummaryflag == 0 && document.getElementById('clicktounhidestatuses') !=null) {
+				} else if (localStorage.getItem('hidesummaryflag') == '0' && document.getElementById('clicktounhidestatuses') !=null) {
 					document.getElementById('clicktounhidestatuses').textContent = "Скрыть"
 					document.getElementById('opersstats').style.display = ""	
 				}
@@ -186,13 +186,14 @@ async function operstatusleftbar() { // функция замены Script Packa
 			}
 		} else {
 			if (flagtpkc == 'ТП') {
-				if (hidesummaryflag == 1 && document.getElementById('clicktounhidestatuses') !=null) {
+				if (localStorage.getItem('hidesummaryflag') == '1' && document.getElementById('clicktounhidestatuses') !=null) {
 					document.getElementById('clicktounhidestatuses').textContent = "Открыть"
 					document.getElementById('opersstats').style.display = "none"	
-				} else if (hidesummaryflag == 0 && document.getElementById('clicktounhidestatuses') !=null) {
+				} else if (localStorage.getItem('hidesummaryflag') == '0' && document.getElementById('clicktounhidestatuses') !=null) {
 					document.getElementById('clicktounhidestatuses').textContent = "Скрыть"
 					document.getElementById('opersstats').style.display = ""	
 				}
+				
 				peoplestatus.innerHTML = '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
 					moderresult + '<br>' +
 					'<div id="clicktounhidestatuses" style="color:bisque;">Открыть</div>' +
@@ -211,13 +212,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 				if (document.getElementById('clicktounhidestatuses').textContent == 'Открыть') {
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Скрыть'
-					hidesummaryflag = 0;
-					console.log(hidesummaryflag)
+					localStorage.setItem('hidesummaryflag', '0')
 				} else if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Открыть'
-					hidesummaryflag = 1;
-					console.log(hidesummaryflag)
+					localStorage.setItem('hidesummaryflag', '1')
 				}
 			}
 		}
