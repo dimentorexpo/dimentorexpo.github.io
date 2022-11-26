@@ -105,14 +105,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 		} // end of for			
 	})
 	
-		peoplestatus.innerHTML = '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
-				'<div id="clicktounhidestatusestp" style="color:bisque; cursor:pointer; text-align:center;">Открыть</div>' +
-				'<div id="opersstatstp" style="display:none">' +
-					'<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
-					'<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
-					'<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  +
-					'<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' +
-				'</div>' 
+		peoplestatus.innerHTML = ''
 		
 		opstats.sort((prev, next) => {
 			if ( prev.operator.status < next.operator.status ) return -1;
@@ -134,7 +127,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 					pausecnt +=1;
 				}
 			}
-			if (flagtpkc == 'ТП') {
+			if (flagtpkc == 'ТП' && localStorage.getItem('hidesummaryflag') == '1' ) {
 				if (localStorage.getItem('hidesummaryflag') == '1' && document.getElementById('clicktounhidestatuses') !=null) {
 					document.getElementById('clicktounhidestatuses').textContent = "Открыть"
 					document.getElementById('opersstats').style.display = "none"	
@@ -146,15 +139,25 @@ async function operstatusleftbar() { // функция замены Script Packa
 				peoplestatus.innerHTML =
 				'<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
 					moderresult + '<br>' +
-					'<div id="clicktounhidestatusestp" style="color:bisque; cursor:pointer; text-align:center;">Открыть</div>' +
-				'<div id="opersstatstp">' +
+					'<div id="clicktounhidestatuses" style="color:bisque; cursor:pointer; text-align:center;">Открыть</div>' +
+				'<div id="opersstats">' +
 					'<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
 					'<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
 					'<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  +
 					'<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' +
 				'</div>' 
 				
-
+			} else if  (flagtpkc == 'ТП' && localStorage.getItem('hidesummaryflag') == '0' ) {
+				peoplestatus.innerHTML =
+				'<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
+					moderresult + '<br>' +
+					'<div id="clicktounhidestatuses" style="color:bisque; cursor:pointer; text-align:center;">Cкрыть</div>' +
+				'<div id="opersstats">' +
+					'<div style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
+					'<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
+					'<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  +
+					'<div style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' +
+				'</div>' 
 			} else {
 				peoplestatus.innerHTML = '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343;">' + '🚧 Нераспред: ' + chatneraspcountleft + '</div>' + moderresult + '<br>' + '<div id="clicktounhidestatuses" style="color:bisque; cursor:pointer; text-align:center;">Открыть</div>' + '<div id="opersstats" style="display:none">' + '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +  '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' + '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>'  + '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt+busycnt+operonlinecnt) + '</div>' + '</div>'
 			}
@@ -163,15 +166,14 @@ async function operstatusleftbar() { // функция замены Script Packa
 				if (document.getElementById('clicktounhidestatuses').textContent == 'Открыть') {
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Скрыть'
-					hidesummaryflag = 0;
-					console.log(hidesummaryflag)
+					localStorage.setItem('hidesummaryflag', '0')
 				} else if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
 					document.getElementById('opersstats').style.display = '';
 					document.getElementById('clicktounhidestatuses').textContent = 'Открыть'
-					hidesummaryflag = 1;
-					console.log(hidesummaryflag)
+					localStorage.setItem('hidesummaryflag', '1')
 				}
 			}
+		}
 
 			
 			let arofpers = document.getElementsByName('operrow')
