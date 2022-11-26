@@ -181,13 +181,14 @@ async function operstatusleftbar() { // функция замены Script Packa
             document.getElementById('opersstats').style.display = '';
             document.getElementById('clicktounhidestatuses').textContent = 'Скрыть'
             localStorage.setItem('hidesummaryflag', '0')
+		}
 			
         if (document.getElementById('clicktounhidestatuses').textContent == 'Скрыть') {
             document.getElementById('opersstats').style.display = 'none';
             document.getElementById('clicktounhidestatuses').textContent = 'Открыть'
             localStorage.setItem('hidesummaryflag', '1')
         }
-    }
+	}
 
 
     let arofpers = document.getElementsByName('operrow')
