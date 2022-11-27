@@ -43,6 +43,9 @@ var win_taskform = //описание формы создания задач в 
 							<br>
 							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
 							<br>
+							<label>Выберипте дату и время для календаря</label>
+							<br>
+							<input class="jqpicker" type="text" name="jQueryScript" value>
 
 							<textarea required id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 
@@ -50,7 +53,7 @@ var win_taskform = //описание формы создания задач в 
 							<button title="Создает задачу на СРМ2 на выранный отдел и приоритет" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 							
 							<div id="servicehelper" style="position: absolute; top: 0px; left: -301px; width: 300px; height: 326px; background: #464451;">
-							<input id="useriddata">
+							<input id="useriddata" placeholder="Введите ID У для получения списка услуг" style="width:240px; margin:10px;">
 							<button id="getuserservices">🔎</button>
 								<p id="serviceinf"></p>
 							</div>
@@ -93,6 +96,10 @@ document.getElementById('AF_Createtask').ondblclick = function (a) { // скры
 
 taskBut.onclick = function () { // функция открытия окна для работы с созданием задач на СРМ
     let conversid;
+	$(function(){
+		$('.jqpicker').dateAndTime();
+	});
+
     if (document.getElementById('AF_Createtask').style.display == 'none') {
         document.getElementById('AF_Createtask').style.display = ''
 
