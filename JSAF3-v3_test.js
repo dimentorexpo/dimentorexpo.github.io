@@ -483,7 +483,7 @@ function mystyles() {
 	}
 	
 	#clicktounhidestatuses:hover {
-		background:DeepSkyBlue;\
+		background:DeepSkyBlue;
 		color:white;
 		font-weight:700;
 	}
