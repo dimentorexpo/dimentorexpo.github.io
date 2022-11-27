@@ -481,6 +481,10 @@ function mystyles() {
 		font-weight:700;
 		font-size:15px;
 	}
+		
+	#clicktounhidestatuses:hover {
+		background:DeepSkyBlue;
+	}
 
 	`
     mstl.innerHTML = style;
