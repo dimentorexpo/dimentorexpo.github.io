@@ -484,7 +484,10 @@ function mystyles() {
 		
 	#clicktounhidestatuses:hover {
 		background:DeepSkyBlue;
+		color:white !important;
+		font-weight:700;
 	}
+
 
 	`
     mstl.innerHTML = style;

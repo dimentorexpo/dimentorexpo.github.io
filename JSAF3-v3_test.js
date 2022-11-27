@@ -484,7 +484,7 @@ function mystyles() {
 	
 	#clicktounhidestatuses:hover {
 		background:DeepSkyBlue;
-		color:white;
+		color:white !important;
 		font-weight:700;
 	}
 
