@@ -318,7 +318,7 @@ function mystyles() {
 			padding-left:5px;
 		}
 
-		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #clicktounhidestatuses:hover {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
 			font-weight:600;
