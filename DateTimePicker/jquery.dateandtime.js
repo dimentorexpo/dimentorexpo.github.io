@@ -65,7 +65,7 @@
 					time = currentDateTime.val();
 				}
 				// set values on inputs
-				selectElement.attr('value', date + 'T' + time + ':00:000Z');
+				selectElement.attr('value', date + ' ' + time);
 
 				return false;
 
