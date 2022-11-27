@@ -1122,7 +1122,12 @@ function prepTp() { //функция подготовки расширения �
     let lboxstyles = document.createElement('link')
     lboxstyles.rel = 'stylesheet'
     lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-    document.querySelector('head').append(lboxstyles)
+    document.querySelector('head').append(lboxstyles)    
+	
+	let datetimepickerstyles = document.createElement('link')
+    datetimepickerstyles.rel = 'stylesheet'
+    datetimepickerstyles.href = "https://dimentorexpo.github.io/DateTimePicker/datetimepicker.css" // подключаем модуль стилей для Lightbox
+    document.querySelector('head').append(datetimepickerstyles)
 
 		let create = (info) => {
             return new Promise(function(resolve, reject) {
@@ -1159,6 +1164,8 @@ function prepTp() { //функция подготовки расширения �
 						 "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
 						 "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
 						 "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub 
+						 "https://dimentorexpo.github.io/DateTimePicker/moment-with-locales.js", // подключаем библиотеку для работы с датами и временем (локали и временные зоны)
+						 "https://dimentorexpo.github.io/DateTimePicker/datetimepicker.js", // подключаем библиотеку для работы с датами и временем
 						  "https://dimentorexpo.github.io/Modules/TestStatus.js", // подключаем модуль статусов операторов и количества чатов на них
 						  // "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
 						 "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
