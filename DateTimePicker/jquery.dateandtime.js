@@ -25,7 +25,7 @@
 
 			let class_name       = element.attr('class');
 			let date             = element.val().split(' ')[0];
-			let time             = element.val().split(' ')[1]-3 || '00:00'; 
+			let time             = element.val().split(' ')[1] || '00:00'; 
 			let css_class_custom = class_name;
 
 			// check the node type text
