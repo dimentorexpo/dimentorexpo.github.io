@@ -65,17 +65,17 @@ async function operstatusleftbar() { // функция замены Script Packa
 				} else chattpquecountleft = 0
             } else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
                 opstats.push(result.onOperator[i])
-				if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb != '120181') {
+				if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb != '121300' && result.unAssigned[0].kb != '120181') {
 					chatneraspcountleft = result.unAssigned[0].count
 				} else chatneraspcountleft = 0
             } else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
                 opstats.push(result.onOperator[i])
-				if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb != '120181') {
+				if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb == '121300') {
 					chatneraspcountleft = result.unAssigned[0].count
 				} else chatneraspcountleft = 0
             } else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
                 opstats.push(result.onOperator[i])
-				if (result.unAssigned[0]!=undefined && result.unAssigned[0].kb != '120181') {
+				if (result.unAssigned[0]!=undefined && result.unAssigned[0].kb != '120181' && result.unAssigned[0].kb != '121300') {
 					chatneraspcountleft = result.unAssigned[0].count
 				} else chatneraspcountleft = 0
             } // end of if state
