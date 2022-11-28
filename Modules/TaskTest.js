@@ -54,7 +54,7 @@ var win_taskform = //описание формы создания задач в 
 							<button id="testiko">Testik</button>
 							
 							<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: 0px; left: -301px; width: 300px; height: 326px; background: #464451;">
-							<input id="useriddata" placeholder="ID У для получения списка услуг" style="width:240px; margin:10px;">
+							<input id="useriddata" placeholder="ID У для получения списка услуг" style="width:240px; margin:10px; text-align:center;">
 							<button id="getuserservices">🔎</button>
 								<p id="serviceinf"></p>
 							</div>
@@ -95,11 +95,11 @@ document.getElementById('AF_Createtask').ondblclick = function (a) { // скры
     if (checkelementtype(a)) { document.getElementById('hideMeCreateForm').click(); }
 }
 
-let srvarray;
-let srvcont;
+var srvarray;
+var srvcont;
 
-let usersrv;
-let usersrvparsed;
+var usersrv;
+var usersrvparsed;
 taskBut.onclick = function () { // функция открытия окна для работы с созданием задач на СРМ
     let conversid;
 	
