@@ -95,14 +95,44 @@ document.getElementById('AF_Createtask').ondblclick = function (a) { // скры
     if (checkelementtype(a)) { document.getElementById('hideMeCreateForm').click(); }
 }
 
+let srvarray;
+let srvcont;
+
+let usersrv;
+let usersrvparsed;
 taskBut.onclick = function () { // функция открытия окна для работы с созданием задач на СРМ
     let conversid;
-	$(function(){
-		$('.jqpicker').dateAndTime();
-	});
-
+	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
         document.getElementById('AF_Createtask').style.display = ''
+		
+		document.getElementById('responseTextarea1').value = `{}`
+		document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
+		document.getElementById('responseTextarea3').value = 'arrayofservicesnew'
+		document.getElementById('sendResponse').click()
+
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+			srvarray = document.getElementById('responseTextarea1').getAttribute('arrayofservicesnew');
+			if (srvarray != null) {
+				srvcont = JSON.parse(srvarray);
+				console.log(srvcont)
+				document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
+			}
+		})
+	
+        document.getElementById('responseTextarea1').value = `{}`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
+        document.getElementById('responseTextarea3').value = 'getserviceinfonew'
+        document.getElementById('sendResponse').click()
+
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            usersrv = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getserviceinfonew'))
+			usersrvparsed = usersrv;
+			console.log(srvcusersrvparsedont)
+			document.getElementById('responseTextarea1').removeAttribute('getserviceinfonew')
+		})
+
+		}
 
         if (document.getElementsByClassName('expert-user_details-list').length > 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
