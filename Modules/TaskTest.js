@@ -103,6 +103,11 @@ var usersrvparsed;
 taskBut.onclick = function () { // функция открытия окна для работы с созданием задач на СРМ
     let conversid;
 	
+$(function(){
+  $('.example').dateAndTime();
+});
+
+	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
         document.getElementById('AF_Createtask').style.display = ''
 		
@@ -122,7 +127,7 @@ taskBut.onclick = function () { // функция открытия окна дл
 		
 		document.getElementById('getuserservices').onclick = function() {
 		document.getElementById('responseTextarea1').value = `{}`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('useriddata').value + "/education-services/"
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('useriddata').value.trim() + "/education-services/"
         document.getElementById('responseTextarea3').value = 'getserviceinfonew'
         document.getElementById('sendResponse').click()
 
