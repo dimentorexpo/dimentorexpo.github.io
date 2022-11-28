@@ -132,7 +132,7 @@ taskBut.onclick = function () { // функция открытия окна дл
 			document.getElementById('responseTextarea1').removeAttribute('getserviceinfonew')
 		})
 
-		}
+		
 
         if (document.getElementsByClassName('expert-user_details-list').length > 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
