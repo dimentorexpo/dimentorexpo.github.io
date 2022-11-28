@@ -142,7 +142,7 @@ $(function(){
 						if(srvcont.data[j].serviceTypeKey == usersrvparsed.data[i].serviceTypeKey) {
 							usersrvparsed.data[i].serviceTypeKey = srvcont.data[j].shortTitle
 							if (usersrvparsed.data[i].incorrectnessReason == null) {
-								document.getElementById('serviceinf').innerHTML += '<div style="color:bisque; margin-left: 5px;">' + [i+1] + '. ' + 'ID услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '<br>' + ' Student: ' + usersrvparsed.data[i].student.general.id + ' ' + usersrvparsed.data[i].student.general.name + ' ' + usersrvparsed.data[i].student.general.surname + '<br>' 'Teacher:' + usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : '—' + '</div>'
+								document.getElementById('serviceinf').innerHTML += '<div style="color:bisque; margin-left: 5px;">' + [i+1] + '. ' + 'ID услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '<br>' + ' Student: ' + usersrvparsed.data[i].student.general.id + ' ' + usersrvparsed.data[i].student.general.name + ' ' + usersrvparsed.data[i].student.general.surname + '<br>' + 'Teacher:' + usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : '—' + '</div>'
 							}
 						}	
 					}
