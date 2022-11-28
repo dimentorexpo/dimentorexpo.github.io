@@ -128,7 +128,7 @@ taskBut.onclick = function () { // функция открытия окна дл
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
             usersrv = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getserviceinfonew'))
 			usersrvparsed = usersrv;
-			console.log(srvcusersrvparsedont)
+			console.log(usersrvparsed)
 			document.getElementById('responseTextarea1').removeAttribute('getserviceinfonew')
 		})
 
