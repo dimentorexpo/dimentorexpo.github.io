@@ -119,9 +119,10 @@ taskBut.onclick = function () { // функция открытия окна дл
 				document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
 			}
 		})
-	
-        document.getElementById('responseTextarea1').value = `{}`
-        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + stid + "/education-services/"
+		
+		document.getElementById('getuserservices').onclick = function() {
+		document.getElementById('responseTextarea1').value = `{}`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('useriddata').value + "/education-services/"
         document.getElementById('responseTextarea3').value = 'getserviceinfonew'
         document.getElementById('sendResponse').click()
 
@@ -131,6 +132,9 @@ taskBut.onclick = function () { // функция открытия окна дл
 			console.log(usersrvparsed)
 			document.getElementById('responseTextarea1').removeAttribute('getserviceinfonew')
 		})
+		}
+	
+
 
 		
 
