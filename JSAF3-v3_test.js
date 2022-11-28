@@ -3850,7 +3850,7 @@ function screenshots() { //просмотр и трансформация скр
                         alink.setAttribute('data-lightbox', 'imgs');
                         alink.append(img)
                         img.src = div.querySelectorAll('a')[j].href
-                        img.alt = 'Изображение'
+                        img.alt = 'Click to load'
                         alink.href = img.src;
                         div.querySelectorAll('a')[j].replaceWith(alink)
                     }
@@ -3869,7 +3869,7 @@ function screenshots() { //просмотр и трансформация скр
                         alink.setAttribute('data-lightbox', 'imgs');
                         alink.append(img)
                         img.src = div.querySelectorAll('a')[j].href
-                        img.alt = 'Изображение'
+                        img.alt = 'Click to load'
                         alink.href = img.src;
                         div.querySelectorAll('a')[j].replaceWith(alink)
                     }
