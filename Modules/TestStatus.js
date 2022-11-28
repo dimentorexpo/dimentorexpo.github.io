@@ -61,42 +61,58 @@ async function operstatusleftbar() { // функция замены Script Packa
 			if (result.onOperator[i].operator.status != "Offline") {
 				if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
 					opstats.push(result.onOperator[i])
-					if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb == '120181') {
-						chattpquecountleft = result.unAssigned[0].count
-					} else chattpquecountleft = 0
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].kb == '120181') {
+							chattpquecountleft = result.unAssigned[j].count
+						}
+					}
 				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
-					opstats.push(result.onOperator[i])
-					if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb != '121300' && result.unAssigned[0].kb != '120181') {
-						chatneraspcountleft = result.unAssigned[0].count
-					} else chatneraspcountleft = 0
+					opstats.push(result.onOperator[i])					
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].kb != '121300' && result.unAssigned[j].kb != '120181') {
+							chatneraspcountleft = result.unAssigned[j].count
+						}
+					}	
 				} else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
 					opstats.push(result.onOperator[i])
-					if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb == '121300') {
-						chatneraspcountleft = result.unAssigned[0].count
-					} else chatneraspcountleft = 0
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].kb == '121300') {
+							chatneraspcountleft = result.unAssigned[j].count
+						}
+					}	
 				} else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
 					opstats.push(result.onOperator[i])
-					if (result.unAssigned[0]!=undefined && result.unAssigned[0].kb != '120181' && result.unAssigned[0].kb != '121300') {
-						chatneraspcountleft = result.unAssigned[0].count
-					} else chatneraspcountleft = 0
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300') {
+							chatneraspcountleft = result.unAssigned[j].count
+						}
+					}	
 				} // end of if state small 	
 			} else { // end of if state big
 				if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
-					if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb == '120181') {
-						chattpquecountleft = result.unAssigned[0].count
-					} else chattpquecountleft = 0
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].kb == '120181') {
+							chattpquecountleft = result.unAssigned[j].count
+						}
+					}
 				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
-					if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb != '121300' && result.unAssigned[0].kb != '120181') {
-						chatneraspcountleft = result.unAssigned[0].count
-					} else chatneraspcountleft = 0
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].kb != '121300' && result.unAssigned[j].kb != '120181') {
+							chatneraspcountleft = result.unAssigned[j].count
+						}
+					}	
 				} else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
-					if (result.unAssigned[0] !=undefined && result.unAssigned[0].kb == '121300') {
-						chatneraspcountleft = result.unAssigned[0].count
-					} else chatneraspcountleft = 0
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].kb == '121300') {
+							chatneraspcountleft = result.unAssigned[j].count
+						}
+					}	
 				} else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
-					if (result.unAssigned[0]!=undefined && result.unAssigned[0].kb != '120181' && result.unAssigned[0].kb != '121300') {
-						chatneraspcountleft = result.unAssigned[0].count
-					} else chatneraspcountleft = 0
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300') {
+							chatneraspcountleft = result.unAssigned[j].count
+						}
+					}
 				} // end of if state small 	
 			} 
 			
