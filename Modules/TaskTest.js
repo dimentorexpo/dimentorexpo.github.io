@@ -136,10 +136,22 @@ $(function(){
 			if (usersrv != null) {
 				usersrvparsed = JSON.parse(usersrv)
 				console.log(usersrvparsed)
+				
+				for (let i=0; i<usersrvparsed.data.length;+i++) { 
+					for (let j=0; j<srvcont.data.length;j++) {
+						if(srvcont.data[j].serviceTypeKey == usersrvparsed.data[i].serviceTypeKey) {
+							usersrvparsed.data[i].serviceTypeKey = srvcont.data[j].shortTitle
+							document.getElementById('serviceinf').innerHTML = [i] + '. ' + 'ID услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey
+						}	
+					}
+				}
+								
 				document.getElementById('responseTextarea1').removeAttribute('getserviceinfonew')
 			}
 		})
+		
 		}
+		
 	
 
 
