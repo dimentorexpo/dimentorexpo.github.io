@@ -53,7 +53,7 @@ var win_taskform = //описание формы создания задач в 
 							<button title="Создает задачу на СРМ2 на выранный отдел и приоритет" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 							<button id="testiko">Testik</button>
 							
-							<div id="servicehelper" style="position: absolute; top: 0px; left: -301px; width: 300px; height: 326px; background: #464451;">
+							<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: 0px; left: -301px; width: 300px; height: 326px; background: #464451;">
 							<input id="useriddata" placeholder="Введите ID У для получения списка услуг" style="width:240px; margin:10px;">
 							<button id="getuserservices">🔎</button>
 								<p id="serviceinf"></p>
