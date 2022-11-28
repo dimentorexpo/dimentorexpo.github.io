@@ -53,42 +53,6 @@ async function operstatusleftbar() { // функция замены Script Packa
         day2 = (dateopst2.getDate() - 1)
     firstDate = dateopst2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
 
-    if (flagtpkc != 'ТП') {
-        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-            "headers": {
-                "content-type": "application/json",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            "referrer": "https://skyeng.autofaq.ai/logs",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        }).then(r => r.text()).then(result => {
-            chatneraspcountleft = result.match(/total.*?(\d+).*/)[1];
-        })
-    } else {
-        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-            "headers": {
-                "content-type": "application/json",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            "referrer": "https://skyeng.autofaq.ai/logs",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
-            "method": "POST",
-            "mode": "cors",
-            "credentials": "include"
-        }).then(r1 => r1.text()).then(result1 => {
-            chattpquecountleft = result1.match(/total.*?(\d+).*/)[1];
-        })
-    }
-
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
     }).then(r => r.json()).then(result => {
@@ -96,12 +60,24 @@ async function operstatusleftbar() { // функция замены Script Packa
         for (let i = 0; i < result.onOperator.length; i++) {
             if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
                 opstats.push(result.onOperator[i])
+				if (result.unAssigned[0].kb == '120181') {
+					chattpquecountleft = result.unAssigned[0].count
+				}
             } else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
                 opstats.push(result.onOperator[i])
+				if (result.unAssigned[0].kb != '120181') {
+					chatneraspcountleft = result.unAssigned[0].count
+				}
             } else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
                 opstats.push(result.onOperator[i])
+				if (result.unAssigned[0].kb != '120181') {
+					chatneraspcountleft = result.unAssigned[0].count
+				}
             } else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
                 opstats.push(result.onOperator[i])
+				if (result.unAssigned[0].kb != '120181') {
+					chatneraspcountleft = result.unAssigned[0].count
+				}
             } // end of if state
         } // end of for
     })
