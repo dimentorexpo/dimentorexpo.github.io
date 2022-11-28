@@ -141,7 +141,7 @@ $(function(){
 					for (let j=0; j<srvcont.data.length;j++) {
 						if(srvcont.data[j].serviceTypeKey == usersrvparsed.data[i].serviceTypeKey) {
 							usersrvparsed.data[i].serviceTypeKey = srvcont.data[j].shortTitle
-							document.getElementById('serviceinf').innerHTML += '<div style="color:bisque;">' [i] + '. ' + 'ID услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '</div>'
+							document.getElementById('serviceinf').innerHTML += '<div style="color:bisque;">' + [i] + '. ' + 'ID услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '</div>'
 						}	
 					}
 				}
