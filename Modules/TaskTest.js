@@ -426,7 +426,7 @@ document.getElementsByClassName('jqpicker')[0].value = ''
 							"headers": {
 								"content-type": "application/json",
 							},
-							"body": "{\"educationServiceId\":${usluga},\"userId\":14176982,\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"},
+							"body": "{\"educationServiceId\":${usluga},\"userId\":${document.getElementById('taskuserid').value},\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"},
 								"method": "POST",
 								"mode": "cors",
 								"credentials": "include"
