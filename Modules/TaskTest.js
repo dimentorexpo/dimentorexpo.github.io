@@ -144,7 +144,7 @@ document.getElementById('serviceinf').innerHTML = '';
 						if(srvcont.data[j].serviceTypeKey == usersrvparsed.data[i].serviceTypeKey) {
 							usersrvparsed.data[i].serviceTypeKey = srvcont.data[j].shortTitle
 							if (usersrvparsed.data[i].incorrectnessReason == null) {
-								document.getElementById('serviceinf').innerHTML += '<div style="color:bisque; margin-left: 5px; border: 1px solid bisque;">' + '🆔 услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '<span name="movetoservid" style="cursor:pointer;"> ➡</span>' + '<br>' + '👨‍🎓 Student: ' + usersrvparsed.data[i].student.general.id + ' ' + usersrvparsed.data[i].student.general.name + ' ' + usersrvparsed.data[i].student.general.surname + '<br>' + '👽 Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
+								document.getElementById('serviceinf').innerHTML += `<div style="color:bisque; name="outservfield" value="${usersrvparsed.data[i].id}" margin-left: 5px; border: 1px solid bisque;">` + '🆔 услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '<span name="movetoservid" style="cursor:pointer;"> ➡</span>' + '<br>' + '👨‍🎓 Student: ' + usersrvparsed.data[i].student.general.id + ' ' + usersrvparsed.data[i].student.general.name + ' ' + usersrvparsed.data[i].student.general.surname + '<br>' + '👽 Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
 							}
 						}	
 					}
@@ -152,7 +152,7 @@ document.getElementById('serviceinf').innerHTML = '';
 				
 				for (let z=0; z<document.getElementsByName('movetoservid').length; z++) {
 					document.getElementsByName('movetoservid')[z].onclick = function() {
-						console.log('clicked')
+						document.getElementById('taskserviceid').value = document.getElementsByName('outservfield')[z].value
 					}	
 				}
 
