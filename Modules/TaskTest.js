@@ -52,12 +52,10 @@ var win_taskform = //описание формы создания задач в 
 							<br>
 							<button title="Создает задачу на СРМ2 на выранный отдел и приоритет" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 							<button id="testiko">Testik</button>
-							
-
 						</div>
 		</span>
         </span>
-			<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: 0px; left: -311px; width: 310px; max-height: 330px; overflow: auto; background: #464451; cursor:default;">
+			<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: -1px; left: -311px; width: 310px; max-height: 330px; overflow: auto; background: #464451; cursor:default;">
 				<input id="useriddata" placeholder="ID У для получения списка услуг" style="width:240px; margin:10px; text-align:center;">
 				<button id="getuserservices">🔎</button>
 				<p id="serviceinf"></p>
@@ -146,22 +144,22 @@ document.getElementById('serviceinf').innerHTML = '';
 						if(srvcont.data[j].serviceTypeKey == usersrvparsed.data[i].serviceTypeKey) {
 							usersrvparsed.data[i].serviceTypeKey = srvcont.data[j].shortTitle
 							if (usersrvparsed.data[i].incorrectnessReason == null) {
-								document.getElementById('serviceinf').innerHTML += '<div style="color:bisque; margin-left: 5px;">' + '🆔 услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '<span name="movetoservid">➡</span>' + '<br>' + '👨‍🎓 Student: ' + usersrvparsed.data[i].student.general.id + ' ' + usersrvparsed.data[i].student.general.name + ' ' + usersrvparsed.data[i].student.general.surname + '<br>' + '👽 Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
+								document.getElementById('serviceinf').innerHTML += '<div style="color:bisque; margin-left: 5px; border: 1px solid bisque;">' + '🆔 услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '<span name="movetoservid" style="cursor:pointer;"> ➡</span>' + '<br>' + '👨‍🎓 Student: ' + usersrvparsed.data[i].student.general.id + ' ' + usersrvparsed.data[i].student.general.name + ' ' + usersrvparsed.data[i].student.general.surname + '<br>' + '👽 Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
 							}
 						}	
 					}
 				}
-								
+				
+				for (let z=0; z<document.getElementsByName('movetoservid').length; z++) {
+					document.getElementsByName('movetoservid')[z].onclick = function() {
+						console.log('clicked')
+					}	
+				}
+
 				document.getElementById('responseTextarea1').removeAttribute('getserviceinfonew')
 			}
 		})
-		
-		}
-		
-	
-
-
-		
+		}	
 
         if (document.getElementsByClassName('expert-user_details-list').length > 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
