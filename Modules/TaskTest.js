@@ -128,6 +128,8 @@ document.getElementById('serviceinf').innerHTML = '';
 		})
 		
 		document.getElementById('getuserservices').onclick = function() {
+			if (document.getElementById('serviceinf').innerHTML != '')
+				document.getElementById('serviceinf').innerHTML = '';
 		document.getElementById('responseTextarea1').value = `{}`
         document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('useriddata').value.trim() + "/education-services/"
         document.getElementById('responseTextarea3').value = 'getserviceinfonew'
