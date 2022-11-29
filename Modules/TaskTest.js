@@ -53,14 +53,15 @@ var win_taskform = //описание формы создания задач в 
 							<button title="Создает задачу на СРМ2 на выранный отдел и приоритет" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
 							<button id="testiko">Testik</button>
 							
-							<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: 0px; left: -311px; width: 310px; max-height: 330px; overflow: auto; background: #464451;">
-							<input id="useriddata" placeholder="ID У для получения списка услуг" style="width:240px; margin:10px; text-align:center;">
-							<button id="getuserservices">🔎</button>
-								<p id="serviceinf"></p>
-							</div>
+
 						</div>
 		</span>
         </span>
+			<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: 0px; left: -311px; width: 310px; max-height: 330px; overflow: auto; background: #464451; cursor:default;">
+				<input id="useriddata" placeholder="ID У для получения списка услуг" style="width:240px; margin:10px; text-align:center;">
+				<button id="getuserservices">🔎</button>
+				<p id="serviceinf"></p>
+			</div>
 </div>`;
 
 if (localStorage.getItem('winTopTaskCreate') == null) { //начальное положение окна Создания задач на СРМ
@@ -108,7 +109,7 @@ $(function(){
 });
 
 document.getElementById('useriddata').value = '';
-document.getElementById('serviceinf').value = '';
+document.getElementById('serviceinf').innerHTML = '';
 
 	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
