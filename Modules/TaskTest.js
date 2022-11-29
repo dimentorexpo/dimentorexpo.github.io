@@ -107,6 +107,8 @@ $(function(){
   $('.jqpicker').dateAndTime();
 });
 
+document.getElementById('useriddata').value = '';
+
 	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
         document.getElementById('AF_Createtask').style.display = ''
