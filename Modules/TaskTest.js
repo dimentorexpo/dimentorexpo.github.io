@@ -415,42 +415,39 @@ document.getElementsByClassName('jqpicker')[0].value = ''
 					let activeonvar;
 					let getanswdata;
 					let parseddata;
-					
-						if ((+document.getElementsByClassName('jqpicker')[1].value.split(':')[0]-3) <10) {
-							activeonvar = document.getElementsByClassName('jqpicker')[0].value + 'T0' + (+document.getElementsByClassName('jqpicker')[1].value.split(':')[0]-3) + ':' + document.getElementsByClassName('jqpicker')[1].value.split(':')[1]  + ":00:000Z"
-						} else {
-							activeonvar  = document.getElementsByClassName('jqpicker')[0].value + 'T' + (+document.getElementsByClassName('jqpicker')[1].value.split(':')[0]-3) + ':' + document.getElementsByClassName('jqpicker')[1].value.split(':')[1]  + ":00:000Z"
-						}
-						
-					    document.getElementById('responseTextarea1').value = `{
+
+					if ((+document.getElementsByClassName('jqpicker')[1].value.split(':')[0] - 3) < 10) {
+						activeonvar = document.getElementsByClassName('jqpicker')[0].value + 'T0' + (+document.getElementsByClassName('jqpicker')[1].value.split(':')[0] - 3) + ':' + document.getElementsByClassName('jqpicker')[1].value.split(':')[1] + ":00:000Z"
+					} else {
+						activeonvar = document.getElementsByClassName('jqpicker')[0].value + 'T' + (+document.getElementsByClassName('jqpicker')[1].value.split(':')[0] - 3) + ':' + document.getElementsByClassName('jqpicker')[1].value.split(':')[1] + ":00:000Z"
+					}
+
+					document.getElementById('responseTextarea1').value = `{
 							"headers": {
 								"accept": "application/json, text/plain, */*",
-								"accept-language": "ru",
 								"content-type": "application/json",
-								"sec-ch-ua": "\"Google Chrome\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"",
-								"sec-ch-ua-mobile": "?0",
-								"sec-ch-ua-platform": "\"Windows\"",
 								"sec-fetch-dest": "empty",
 								"sec-fetch-mode": "cors",
 								"sec-fetch-site": "same-site"
 							},
-							"body": "{\"educationServiceId\":document.getElementById('taskserviceid').value,\"userId\":${document.getElementById('taskuserid').value},\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"},
+							"body": "{\"educationServiceId\":${document.getElementById('taskserviceid').value},\"userId\": ${document.getElementById('taskuserid').value},\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"}",
 								"method": "POST",
 								"mode": "cors",
 								"credentials": "include"
 							}`
-						document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/create"
-						document.getElementById('responseTextarea3').value = 'gettp2linetask'
-						document.getElementById('sendResponse').click()
-						
-						document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-							getanswdata = document.getElementById('responseTextarea1').getAttribute('gettp2linetask');
-							if (getanswdata != null) {
-								parseddata = JSON.parse(getanswdata);
-								console.log(parseddata)
-								document.getElementById('responseTextarea1').removeAttribute('gettp2linetask')
-							}
-						})
+
+					document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/create"
+					document.getElementById('responseTextarea3').value = 'gettp2linetask'
+					document.getElementById('sendResponse').click()
+
+					document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+						getanswdata = document.getElementById('responseTextarea1').getAttribute('gettp2linetask');
+						if (getanswdata != null) {
+							parseddata = JSON.parse(getanswdata);
+							console.log(parseddata)
+							document.getElementById('responseTextarea1').removeAttribute('gettp2linetask')
+						}
+					})
 					
 					
 				} else {
