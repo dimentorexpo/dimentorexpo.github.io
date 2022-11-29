@@ -43,15 +43,14 @@ var win_taskform = //описание формы создания задач в 
 							<br>
 							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
 							<br>
-							<label style="color:bisque;">Выберите дату и время для календаря 2 линии техподдержки. Если не календарь, оставьте поля без изменения</label>
+							<label style="color:bisque;">Используйте кнопку ниже для открытия создания задачи в СРМ на техподдерожку 2 лини с обязательным выбором Тема обращения "Запланированная связь с пользователем"</label>
 							<br>
-							<input class="jqpicker" type="text" name="jQueryScript" value>
+							<button id="taskcreate2linecrm">Создать задачу на 2ЛТП по календарю</button>
 
 							<textarea required id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 
 							<br>
 							<button title="Создает задачу на СРМ2 на выранный отдел и приоритет" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
-							<button id="testiko">Testik</button>
 						</div>
 		</span>
         </span>
@@ -100,12 +99,8 @@ var srvcont;
 var usersrv;
 var usersrvparsed;
 taskBut.onclick = function () { // функция открытия окна для работы с созданием задач на СРМ
-    let conversid;
+let conversid;
 	
-$(function(){
-  $('.jqpicker').dateAndTime();
-});
-
 document.getElementById('useriddata').value = '';
 document.getElementById('serviceinf').innerHTML = '';
 document.getElementsByClassName('jqpicker')[0].value = ''
@@ -114,6 +109,8 @@ document.getElementsByClassName('jqpicker')[0].value = ''
 	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
         document.getElementById('AF_Createtask').style.display = ''
+		
+
 		
 		document.getElementById('responseTextarea1').value = `{}`
 		document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
@@ -411,47 +408,7 @@ document.getElementsByClassName('jqpicker')[0].value = ''
                     }
                 }
 				
-				if ((document.getElementById('customerservice').value == 'tech_support_second_line_crm2') && document.getElementsByClassName('jqpicker')[0].value !='') {
-					let activeonvar;
-					let getanswdata;
-					let parseddata;
-
-					if ((+document.getElementsByClassName('jqpicker')[1].value.split(':')[0] - 3) < 10) {
-						activeonvar = document.getElementsByClassName('jqpicker')[0].value + 'T0' + (+document.getElementsByClassName('jqpicker')[1].value.split(':')[0] - 3) + ':' + document.getElementsByClassName('jqpicker')[1].value.split(':')[1] + ":00:000Z"
-					} else {
-						activeonvar = document.getElementsByClassName('jqpicker')[0].value + 'T' + (+document.getElementsByClassName('jqpicker')[1].value.split(':')[0] - 3) + ':' + document.getElementsByClassName('jqpicker')[1].value.split(':')[1] + ":00:000Z"
-					}
-
-					document.getElementById('responseTextarea1').value = `{
-							"headers": {
-								"accept": "application/json, text/plain, */*",
-								"content-type": "application/json",
-								"sec-fetch-dest": "empty",
-								"sec-fetch-mode": "cors",
-								"sec-fetch-site": "same-site"
-							},
-							"body": "{\"educationServiceId\":${document.getElementById('taskserviceid').value},\"userId\": ${document.getElementById('taskuserid').value},\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"}",
-								"method": "POST",
-								"mode": "cors",
-								"credentials": "include"
-							}`
-
-					document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/create"
-					document.getElementById('responseTextarea3').value = 'gettp2linetask'
-					document.getElementById('sendResponse').click()
-
-					document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-						getanswdata = document.getElementById('responseTextarea1').getAttribute('gettp2linetask');
-						if (getanswdata != null) {
-							parseddata = JSON.parse(getanswdata);
-							console.log(parseddata)
-							document.getElementById('responseTextarea1').removeAttribute('gettp2linetask')
-						}
-					})
-					
-					
-				} else {
-					if (idflagempty == 1){
+				if (idflagempty == 1){
                     fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
                         "headers": {
                             "content-type": "application/json",
@@ -472,7 +429,7 @@ document.getElementsByClassName('jqpicker')[0].value = ''
                         "credentials": "include"
                     });
                 }
-				}
+				
 
 
 
@@ -485,6 +442,12 @@ document.getElementsByClassName('jqpicker')[0].value = ''
 
             } else alert("Задача не была создана, проверьте, пожалуйста, заполнение полей")
         }
+		
+		document.getElementById('taskcreate2linecrm').onclick = function() {
+			if (document.getElementById('taskuserid').value !='') {
+				window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('taskuserid').value + "/customer-support/manual")
+			} else alert("Введите ID пользователя в соответствующее поле и повторите попытку")
+		}
 
 
     } else {
