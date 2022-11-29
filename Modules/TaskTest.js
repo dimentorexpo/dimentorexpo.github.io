@@ -410,8 +410,43 @@ document.getElementsByClassName('jqpicker')[0].value = ''
                         idflagempty = 1;
                     }
                 }
-
-                if (idflagempty == 1){
+				
+				if ((document.getElementById('customerservice').value == 'tech_support_second_line_crm2') && document.getElementsByClassName('jqpicker')[0].value !='') {
+					let activeonvar;
+					let getanswdata;
+					let parseddata;
+					
+						if ((+document.getElementsByClassName('jqpicker')[1].value.split(':')[0]-3) <10) {
+							activeonvar = document.getElementsByClassName('jqpicker')[0].value + 'T0' + (+document.getElementsByClassName('jqpicker')[1].value.split(':')[0]-3) + ':' + document.getElementsByClassName('jqpicker')[1].value.split(':')[1]  + ":00:000Z"
+						} else {
+							activeonvar  = document.getElementsByClassName('jqpicker')[0].value + 'T' + (+document.getElementsByClassName('jqpicker')[1].value.split(':')[0]-3) + ':' + document.getElementsByClassName('jqpicker')[1].value.split(':')[1]  + ":00:000Z"
+						}
+						
+					    document.getElementById('responseTextarea1').value = `{
+							"headers": {
+								"content-type": "application/json",
+							},
+							"body": "{\"educationServiceId\":${usluga},\"userId\":14176982,\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"},
+								"method": "POST",
+								"mode": "cors",
+								"credentials": "include"
+							}`
+						document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/create"
+						document.getElementById('responseTextarea3').value = 'gettp2linetask'
+						document.getElementById('sendResponse').click()
+						
+						document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+							getanswdata = document.getElementById('responseTextarea1').getAttribute('gettp2linetask');
+							if (getanswdata != null) {
+								parseddata = JSON.parse(getanswdata);
+								console.log(parseddata)
+								document.getElementById('responseTextarea1').removeAttribute('gettp2linetask')
+							}
+						})
+					
+					
+				} else {
+					if (idflagempty == 1){
                     fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
                         "headers": {
                             "content-type": "application/json",
@@ -432,6 +467,9 @@ document.getElementsByClassName('jqpicker')[0].value = ''
                         "credentials": "include"
                     });
                 }
+				}
+
+
 
                 document.getElementById('taskcomment').value = '';
                 document.getElementById('taskserviceid').value = '';
