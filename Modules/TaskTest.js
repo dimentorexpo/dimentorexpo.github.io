@@ -434,7 +434,7 @@ document.getElementsByClassName('jqpicker')[0].value = ''
 								"sec-fetch-mode": "cors",
 								"sec-fetch-site": "same-site"
 							},
-							"body": "{\"educationServiceId\":${usluga},\"userId\":${document.getElementById('taskuserid').value},\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"},
+							"body": "{\"educationServiceId\":document.getElementById('taskserviceid').value,\"userId\":${document.getElementById('taskuserid').value},\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"},
 								"method": "POST",
 								"mode": "cors",
 								"credentials": "include"
