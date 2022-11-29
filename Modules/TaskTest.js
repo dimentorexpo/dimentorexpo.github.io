@@ -108,6 +108,8 @@ $(function(){
 
 document.getElementById('useriddata').value = '';
 document.getElementById('serviceinf').innerHTML = '';
+document.getElementsByClassName('jqpicker')[0].value = ''
+
 
 	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
