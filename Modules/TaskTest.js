@@ -424,7 +424,15 @@ document.getElementsByClassName('jqpicker')[0].value = ''
 						
 					    document.getElementById('responseTextarea1').value = `{
 							"headers": {
+								"accept": "application/json, text/plain, */*",
+								"accept-language": "ru",
 								"content-type": "application/json",
+								"sec-ch-ua": "\"Google Chrome\";v=\"107\", \"Chromium\";v=\"107\", \"Not=A?Brand\";v=\"24\"",
+								"sec-ch-ua-mobile": "?0",
+								"sec-ch-ua-platform": "\"Windows\"",
+								"sec-fetch-dest": "empty",
+								"sec-fetch-mode": "cors",
+								"sec-fetch-site": "same-site"
 							},
 							"body": "{\"educationServiceId\":${usluga},\"userId\":${document.getElementById('taskuserid').value},\"type\":\"scheduled_communication_with_user.technical_support_second_line\",\"extra\":{\"comment\":\"${document.getElementById('taskcomment').value.replaceAll('\n', '\\n')}\"},\"activeOn\":\"${activeonvar}\"},
 								"method": "POST",
