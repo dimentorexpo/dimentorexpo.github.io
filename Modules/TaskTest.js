@@ -43,7 +43,7 @@ var win_taskform = //описание формы создания задач в 
 							<br>
 							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
 							<br>
-							<label style="color:bisque;">Выберите дату и время для календаря 2ЛТП</label>
+							<label style="color:bisque;">Выберите дату и время для календаря 2 линии техподдержки. Если не календарь, оставьте поля без изменения</label>
 							<br>
 							<input class="jqpicker" type="text" name="jQueryScript" value>
 
