@@ -108,6 +108,7 @@ $(function(){
 });
 
 document.getElementById('useriddata').value = '';
+document.getElementById('serviceinf').value = '';
 
 	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
@@ -144,7 +145,7 @@ document.getElementById('useriddata').value = '';
 						if(srvcont.data[j].serviceTypeKey == usersrvparsed.data[i].serviceTypeKey) {
 							usersrvparsed.data[i].serviceTypeKey = srvcont.data[j].shortTitle
 							if (usersrvparsed.data[i].incorrectnessReason == null) {
-								document.getElementById('serviceinf').innerHTML += '<div style="color:bisque; margin-left: 5px;">' + 'ID услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '<br>' + ' Student: ' + usersrvparsed.data[i].student.general.id + ' ' + usersrvparsed.data[i].student.general.name + ' ' + usersrvparsed.data[i].student.general.surname + '<br>' + 'Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
+								document.getElementById('serviceinf').innerHTML += '<div style="color:bisque; margin-left: 5px;">' + '🆔 услуги: ' + usersrvparsed.data[i].id + ' ' + usersrvparsed.data[i].serviceTypeKey + '<br>' + '👨‍🎓 Student: ' + usersrvparsed.data[i].student.general.id + ' ' + usersrvparsed.data[i].student.general.name + ' ' + usersrvparsed.data[i].student.general.surname + '<br>' + '👽 Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
 							}
 						}	
 					}
