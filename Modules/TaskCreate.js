@@ -43,6 +43,9 @@ var win_taskform = //описание формы создания задач в 
 							<br>
 							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
 							<br>
+							<label style="color:bisque;">Используйте кнопку ниже для открытия создания задачи в СРМ на техподдержку 2 линии с обязательным выбором Темы обращения "Запланированная связь с пользователем" и время открытия задачи, которое забронировали на datsy.ru . Другие задачи на 2ЛТП передаем в прежнем режиме через это окно.</label>
+							<br>
+							<button style="margin-left: 70px;" id="taskcreate2linecrm">Создать задачу на 2ЛТП по календарю</button>
 
 							<textarea required id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 
@@ -51,6 +54,11 @@ var win_taskform = //описание формы создания задач в 
 						</div>
 		</span>
         </span>
+			<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: -1px; left: -311px; width: 310px; max-height: 330px; overflow: auto; background: #464451; cursor:default;">
+				<input id="useriddata" placeholder="ID У для получения списка услуг" style="width:240px; margin:10px; text-align:center;">
+				<button id="getuserservices">🔎</button>
+				<p id="serviceinf"></p>
+			</div>
 </div>`;
 
 if (localStorage.getItem('winTopTaskCreate') == null) { //начальное положение окна Создания задач на СРМ
@@ -85,10 +93,77 @@ document.getElementById('AF_Createtask').ondblclick = function (a) { // скры
     if (checkelementtype(a)) { document.getElementById('hideMeCreateForm').click(); }
 }
 
+var srvarray;
+var srvcont;
+
+var usersrv;
+var usersrvparsed;
 taskBut.onclick = function () { // функция открытия окна для работы с созданием задач на СРМ
-    let conversid;
+let conversid;
+	
+document.getElementById('useriddata').value = '';
+document.getElementById('serviceinf').innerHTML = '';
+	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
         document.getElementById('AF_Createtask').style.display = ''
+		
+
+		
+		document.getElementById('responseTextarea1').value = `{}`
+		document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
+		document.getElementById('responseTextarea3').value = 'arrayofservicesnew'
+		document.getElementById('sendResponse').click()
+
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+			srvarray = document.getElementById('responseTextarea1').getAttribute('arrayofservicesnew');
+			if (srvarray != null) {
+				srvcont = JSON.parse(srvarray);
+				console.log(srvcont)
+				document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
+			}
+		})
+		
+		document.getElementById('getuserservices').onclick = function() {
+			if (document.getElementById('serviceinf').innerHTML != '')
+				document.getElementById('serviceinf').innerHTML = '';
+		document.getElementById('responseTextarea1').value = `{}`
+        document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('useriddata').value.trim() + "/education-services/"
+        document.getElementById('responseTextarea3').value = 'getserviceinfonew'
+        document.getElementById('sendResponse').click()
+
+        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+            usersrv =document.getElementById('responseTextarea1').getAttribute('getserviceinfonew')
+			if (usersrv != null) {
+				usersrvparsed = JSON.parse(usersrv)
+				console.log(usersrvparsed)
+				
+				for (let i=0; i<usersrvparsed.data.length;+i++) { 
+					for (let j=0; j<srvcont.data.length;j++) {
+						if(srvcont.data[j].serviceTypeKey == usersrvparsed.data[i].serviceTypeKey) {
+							usersrvparsed.data[i].serviceTypeKey = srvcont.data[j].shortTitle
+							if (usersrvparsed.data[i].incorrectnessReason == null) {
+								if (usersrvparsed.data[i].stage == 'regular_lessons') {
+									document.getElementById('serviceinf').innerHTML += `<div class="srvhhelpnomove" name="outservfield" title="${usersrvparsed.data[i].id}" style="background: #2b602b; color:bisque;  margin-left: 5px; border: 1px solid bisque;">` + '🆔 услуги: ' + usersrvparsed.data[i].id + ' — ' + usersrvparsed.data[i].serviceTypeKey + '<span class="srvhhelpnomove" name="movetoservid" title="По клику перенесет ID услуги в поле создания задачи" style="cursor:pointer; font-size:16px;"> ➡</span>' + '<br>' + '👨‍🎓 Student: ' + usersrvparsed.data[i].student.general.id + ' ' + (usersrvparsed.data[i].student.general.name != null ? usersrvparsed.data[i].student.general.name : '') + ' ' +  (usersrvparsed.data[i].student.general.surname != null ? usersrvparsed.data[i].student.general.surname : '') + '<br>' + '👽 Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
+								} else if (usersrvparsed.data[i].stage == 'lost') {
+									document.getElementById('serviceinf').innerHTML += `<div class="srvhhelpnomove" name="outservfield" title="${usersrvparsed.data[i].id}" style="background: #5a0f77; color:bisque;  margin-left: 5px; border: 1px solid bisque;">` + '🆔 услуги: ' + usersrvparsed.data[i].id + ' — ' + usersrvparsed.data[i].serviceTypeKey + '<span class="srvhhelpnomove" name="movetoservid" title="По клику перенесет ID услуги в поле создания задачи" style="cursor:pointer; font-size:16px;"> ➡</span>' + '<br>' + '👨‍🎓 Student: ' + usersrvparsed.data[i].student.general.id + ' ' + (usersrvparsed.data[i].student.general.name != null ? usersrvparsed.data[i].student.general.name : '') + ' ' + (usersrvparsed.data[i].student.general.surname != null ? usersrvparsed.data[i].student.general.surname : '') + '<br>' + '👽 Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
+								} else if (usersrvparsed.data[i].stage == "after_trial" || usersrvparsed.data[i].stage == "before_call") {
+									document.getElementById('serviceinf').innerHTML += `<div class="srvhhelpnomove" name="outservfield" title="${usersrvparsed.data[i].id}" style="background: #d59f34; color:#ffffff;  margin-left: 5px; border: 1px solid bisque;">` + '🆔 услуги: ' + usersrvparsed.data[i].id + ' — ' + usersrvparsed.data[i].serviceTypeKey + '<span class="srvhhelpnomove" name="movetoservid" title="По клику перенесет ID услуги в поле создания задачи" style="cursor:pointer; font-size:16px;"> ➡</span>' + '<br>' + '👨‍🎓 Student: ' + usersrvparsed.data[i].student.general.id + ' ' + (usersrvparsed.data[i].student.general.name != null ? usersrvparsed.data[i].student.general.name : '') + ' ' + (usersrvparsed.data[i].student.general.surname != null ? usersrvparsed.data[i].student.general.surname : '') + '<br>' + '👽 Teacher:' + (usersrvparsed.data[i].teacher != null ? usersrvparsed.data[i].teacher.general.id + ' ' + usersrvparsed.data[i].teacher.general.name + ' ' + usersrvparsed.data[i].teacher.general.surname : ' —') + '</div>'
+								}
+							}
+						}	
+					}
+				}
+				
+				for (let z=0; z<document.getElementsByName('movetoservid').length; z++) {
+					document.getElementsByName('movetoservid')[z].onclick = function() {
+						document.getElementById('taskserviceid').value = document.getElementsByName('outservfield')[z].title
+					}	
+				}
+
+				document.getElementById('responseTextarea1').removeAttribute('getserviceinfonew')
+			}
+		})
+		}	
 
         if (document.getElementsByClassName('expert-user_details-list').length > 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
@@ -329,8 +404,8 @@ taskBut.onclick = function () { // функция открытия окна дл
                         idflagempty = 1;
                     }
                 }
-
-                if (idflagempty == 1){
+				
+				if (idflagempty == 1){
                     fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
                         "headers": {
                             "content-type": "application/json",
@@ -351,6 +426,9 @@ taskBut.onclick = function () { // функция открытия окна дл
                         "credentials": "include"
                     });
                 }
+				
+
+
 
                 document.getElementById('taskcomment').value = '';
                 document.getElementById('taskserviceid').value = '';
@@ -361,6 +439,12 @@ taskBut.onclick = function () { // функция открытия окна дл
 
             } else alert("Задача не была создана, проверьте, пожалуйста, заполнение полей")
         }
+		
+		document.getElementById('taskcreate2linecrm').onclick = function() {
+			if (document.getElementById('taskuserid').value !='') {
+				window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('taskuserid').value + "/customer-support/manual")
+			} else alert("Введите ID пользователя в соответствующее поле и повторите попытку")
+		}
 
 
     } else {
