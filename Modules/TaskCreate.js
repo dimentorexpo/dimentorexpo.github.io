@@ -54,7 +54,7 @@ var win_taskform = //описание формы создания задач в 
 						</div>
 		</span>
         </span>
-			<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: -1px; left: -311px; width: 310px; max-height: 345px; overflow: auto; background: #464451; cursor:default;">
+			<div id="servicehelper" class="srvhhelpnomove" style="position: absolute; top: -1px; left: -311px; width: 310px; max-height: 400px; overflow: auto; background: #464451; cursor:default;">
 				<input id="useriddata" placeholder="ID У для получения списка услуг" style="width:240px; margin:10px; text-align:center;">
 				<button id="getuserservices">🔎</button>
 				<p id="serviceinf"></p>
