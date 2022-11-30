@@ -427,9 +427,6 @@ document.getElementById('serviceinf').innerHTML = '';
                     });
                 }
 				
-
-
-
                 document.getElementById('taskcomment').value = '';
                 document.getElementById('taskserviceid').value = '';
                 document.getElementById('taskuserid').value = '';
