@@ -1,10 +1,10 @@
 var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack.com/*","*://jira.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
 
 // описание сообщений отправляемых в чат techsupport-timelog
-var StatusStart = "Заступила :3842_paimonangry: :logo-play:";
-var StatusPause = "Перерыв 🍔 :play-pause:";
-var StatusResume = "Продолжаю :smiley_cat: :logo-play:";
-var StatusStop = "Закончила :flamingcat: :logo-stop:";
+var StatusStart = "Заступил :bezybik: :logo-play:";
+var StatusPause = "Перерыв :obed_pitca: :play-pause:";
+var StatusResume = "Продолжаю :тигр: :logo-play:";
+var StatusStop = "Закончила :party_parrot: :logo-stop:";
 
 //переменные каналов отправки сообщений
 var ChanelDev = "C9H76AC9X";
