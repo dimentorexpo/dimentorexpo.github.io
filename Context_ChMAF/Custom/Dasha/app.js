@@ -3,7 +3,7 @@ var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack
 // описание сообщений отправляемых в чат techsupport-timelog
 var StatusStart = "Заступил :bezybik: :logo-play:";
 var StatusPause = "Перерыв :obed_pitca: :play-pause:";
-var StatusResume = "Продолжаю :тигр: :logo-play:";
+var StatusResume = "Продолжаю :tiger: :logo-play:";
 var StatusStop = "Закончила :party_parrot: :logo-stop:";
 
 //переменные каналов отправки сообщений
