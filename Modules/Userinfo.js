@@ -143,9 +143,12 @@ async function startnewchat(polzid) { //открывает чат с польз�
             .then(response => response.json())
             .then(data => {
                 chatId = data.conversationId
-                console.log(data, chatId)
+				if (data.conversationId != undefined)  {
+					console.log(data, chatId)
+				    alert(`Чат начат c пользователем ${polzid}`);
+				} else alert(data)
             })
-        alert(`Чат начат c пользователем ${polzid}`);
+
     } else alert('Не введен id пользователя');
 }
 
