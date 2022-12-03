@@ -146,7 +146,7 @@ async function startnewchat(polzid) { //открывает чат с польз�
 				if (data.conversationId != undefined)  {
 					console.log(data, chatId)
 				    alert(`Чат начат c пользователем ${polzid}`);
-				} else alert(data.message + ' ' + data.textCode + 'code: ' + data.code)
+				} else alert('Чат не был открыт по причине: ' + data.message + ' ' + data.textCode + ' ' + 'code: ' + data.code)
             })
 
     } else alert('Не введен id пользователя');
