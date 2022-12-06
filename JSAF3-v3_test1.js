@@ -579,11 +579,14 @@ var win_AFhelper =  // описание элементов главного ок
                     <button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
                 </div>
                 <div style="margin-top: 5px; width: 320px">
-                    <span style="color:bisque">Выберите отдел:</span>
+                    <span style="color:bisque; position: relative; left: 35%;">Выберите отдел:</span>
+                    <br>
                     <button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
                     <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
                     <button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
                     <button onclick="AFthePieceofShitKC()" id="set_TPrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
+                    <button onclick="AFthePieceofShitPrem()" id="set_TPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
+                    <button onclick="WeAreTheChempionsPrem()" id="set_TP" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
                     <br>
                 </div>
 				<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
@@ -800,7 +803,7 @@ function startTimer() { // большая функция по таймеру а�
 
     }
 
-    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list').length != 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -880,7 +883,7 @@ function startTimer() { // большая функция по таймеру а�
         }
     }
 
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
@@ -2202,8 +2205,18 @@ function WeAreTheChempions() { //функция вносит в локалсто
     location.reload()
 }
 
+function WeAreTheChempionsPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП
+    localStorage.setItem('scriptAdr', TPprem_addr)
+    location.reload()
+}
+
 function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
     localStorage.setItem('scriptAdr', TP_addrRzrv)
+    location.reload()
+}
+
+function AFthePieceofShitPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП резервных тестовых
+    localStorage.setItem('scriptAdr', TPprem_addrRzrv)
     location.reload()
 }
 
@@ -3776,7 +3789,7 @@ function paintstatus() { //функция перекрашивания стат�
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
@@ -4100,13 +4113,13 @@ function setRemindAf(tsname) { //функция  при наступлении �
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
-    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv && localStorage.getItem('scriptAdr') != TPprem_addr && localStorage.getItem('scriptAdr') != TPprem_addrRzrv) {
         prepKC()
     } else {
         prepTp()
     }
 
-    if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
         document.getElementById('pages').title = 'Включены резервные шаблоны, если в АФ нет сбоя в работе Баз знаний - переключи на обычные шаблоны'
         languageAF.addEventListener('click', function () {
@@ -4254,6 +4267,8 @@ var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2
 var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
+var TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec'
+var TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec'
 
 let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
 document.body.append(wintRefuseFormNew);
