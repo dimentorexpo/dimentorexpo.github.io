@@ -1081,45 +1081,6 @@ function prepTp() { //функция подготовки расширения �
     flagLangBut = 1
     customTemplates()
     setTimeout(whoAmI, 2000)
-
-    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
-    buttonGetStat.id = 'buttonGetStat';
-    buttonGetStat.innerHTML = "Статистика";
-    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
-    buttonGetStat.onclick = function () {
-        if (this.textContent == 'Скрыть стату') {
-            if (this.getAttribute('disabled') != null)
-                return
-            if (document.getElementById('tableStats') != undefined) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
-            }
-            this.textContent = 'Статистика'
-
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
-            }
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
-            }
-        } else {
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
-            } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
-            } else {
-                this.textContent = 'Неверная страница'
-                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
-                return
-            }
-            getStats()
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-            this.textContent = 'Загрузка'
-        }
-    }
-    document.getElementById('app-header').append(buttonGetStat)
-
     setInterval(timerHideButtons, 300)
 
     // include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
@@ -4111,6 +4072,46 @@ function setRemindAf(tsname) { //функция  при наступлении �
     }
 }
 
+function Statbtnload() { // Добавление кнопки статистики
+    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
+    buttonGetStat.id = 'buttonGetStat';
+    buttonGetStat.innerHTML = "Статистика";
+    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
+    buttonGetStat.onclick = function () {
+        if (this.textContent == 'Скрыть стату') {
+            if (this.getAttribute('disabled') != null)
+                return
+            if (document.getElementById('tableStats') != undefined) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
+            }
+            this.textContent = 'Статистика'
+
+            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
+
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
+            }
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
+            }
+        } else {
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
+            } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
+            } else {
+                this.textContent = 'Неверная страница'
+                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
+                return
+            }
+            getStats()
+            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
+            this.textContent = 'Загрузка'
+        }
+    }
+    document.getElementById('app-header').append(buttonGetStat)
+}
+
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv && localStorage.getItem('scriptAdr') != TPprem_addr && localStorage.getItem('scriptAdr') != TPprem_addrRzrv) {
@@ -4118,6 +4119,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     } else {
         prepTp()
     }
+    
+    Statbtnload()
 
     if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
