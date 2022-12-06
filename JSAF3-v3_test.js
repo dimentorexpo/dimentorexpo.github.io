@@ -481,12 +481,13 @@ function mystyles() {
 		font-weight:700;
 		font-size:15px;
 	}
-	
+		
 	#clicktounhidestatuses:hover {
 		background:DeepSkyBlue;
 		color:white !important;
 		font-weight:700;
 	}
+
 
 	`
     mstl.innerHTML = style;
@@ -578,11 +579,14 @@ var win_AFhelper =  // описание элементов главного ок
                     <button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
                 </div>
                 <div style="margin-top: 5px; width: 320px">
-                    <span style="color:bisque">Выберите отдел:</span>
+                    <span style="color:bisque; position: relative; left: 35%;">Выберите отдел:</span>
+                    <br>
                     <button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
                     <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
                     <button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
                     <button onclick="AFthePieceofShitKC()" id="set_TPrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
+                    <button onclick="AFthePieceofShitPrem()" id="set_TPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
+                    <button onclick="WeAreTheChempionsPrem()" id="set_TP" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
                     <br>
                 </div>
 				<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
@@ -799,7 +803,7 @@ function startTimer() { // большая функция по таймеру а�
 
     }
 
-    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list').length != 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
@@ -879,7 +883,7 @@ function startTimer() { // большая функция по таймеру а�
         }
     }
 
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
@@ -1077,54 +1081,15 @@ function prepTp() { //функция подготовки расширения �
     flagLangBut = 1
     customTemplates()
     setTimeout(whoAmI, 2000)
-
-    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
-    buttonGetStat.id = 'buttonGetStat';
-    buttonGetStat.innerHTML = "Статистика";
-    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
-    buttonGetStat.onclick = function () {
-        if (this.textContent == 'Скрыть стату') {
-            if (this.getAttribute('disabled') != null)
-                return
-            if (document.getElementById('tableStats') != undefined) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
-            }
-            this.textContent = 'Статистика'
-
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
-            }
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
-            }
-        } else {
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
-            } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
-            } else {
-                this.textContent = 'Неверная страница'
-                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
-                return
-            }
-            getStats()
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-            this.textContent = 'Загрузка'
-        }
-    }
-    document.getElementById('app-header').append(buttonGetStat)
-
     setInterval(timerHideButtons, 300)
 
     // include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
     let lboxstyles = document.createElement('link')
     lboxstyles.rel = 'stylesheet'
     lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-    document.querySelector('head').append(lboxstyles)    
-	
-	let create = (info) => {
+    document.querySelector('head').append(lboxstyles)
+
+		let create = (info) => {
             return new Promise(function(resolve, reject) {
                 let gfgData = document.createElement("script");
                 gfgData.src = info;
@@ -1149,8 +1114,8 @@ function prepTp() { //функция подготовки расширения �
 						 "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
 						 "https://dimentorexpo.github.io/Modules/Suggest.js", // модуль формы пожеланий и предложений
 						 "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
-						 "https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-						 // "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
+						 //"https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
+						 "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
 						 "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
 						 "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
 						 "https://dimentorexpo.github.io/Modules/GrList.js", // модуль просмотра участников группы в L
@@ -1159,8 +1124,8 @@ function prepTp() { //функция подготовки расширения �
 						 "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
 						 "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
 						 "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub 
-						  "https://dimentorexpo.github.io/Modules/TestStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-						  // "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+						 // "https://dimentorexpo.github.io/Modules/TestStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+						  "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
 						 "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
         let promiseData = [];
         gfgScript.forEach(function(info) {
@@ -1253,7 +1218,7 @@ function noDoubts(object) { // функция для разрешения вво
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' && elem.className != "checkbox-audio-switch" && elem.className != "srvhhelpnomove") {
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' && elem.className != "checkbox-audio-switch") {
         return true;
     }
     return false;
@@ -2201,8 +2166,18 @@ function WeAreTheChempions() { //функция вносит в локалсто
     location.reload()
 }
 
+function WeAreTheChempionsPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП
+    localStorage.setItem('scriptAdr', TPprem_addr)
+    location.reload()
+}
+
 function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
     localStorage.setItem('scriptAdr', TP_addrRzrv)
+    location.reload()
+}
+
+function AFthePieceofShitPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП резервных тестовых
+    localStorage.setItem('scriptAdr', TPprem_addrRzrv)
     location.reload()
 }
 
@@ -3775,7 +3750,7 @@ function paintstatus() { //функция перекрашивания стат�
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
@@ -4097,15 +4072,57 @@ function setRemindAf(tsname) { //функция  при наступлении �
     }
 }
 
+function Statbtnload() { // Добавление кнопки статистики
+    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
+    buttonGetStat.id = 'buttonGetStat';
+    buttonGetStat.innerHTML = "Статистика";
+    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
+    buttonGetStat.onclick = function () {
+        if (this.textContent == 'Скрыть стату') {
+            if (this.getAttribute('disabled') != null)
+                return
+            if (document.getElementById('tableStats') != undefined) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
+            }
+            this.textContent = 'Статистика'
+
+            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
+
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
+            }
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
+            }
+        } else {
+            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
+            } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
+                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
+            } else {
+                this.textContent = 'Неверная страница'
+                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
+                return
+            }
+            getStats()
+            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
+            this.textContent = 'Загрузка'
+        }
+    }
+    document.getElementById('app-header').append(buttonGetStat)
+}
+
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
-    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv && localStorage.getItem('scriptAdr') != TPprem_addr && localStorage.getItem('scriptAdr') != TPprem_addrRzrv) {
         prepKC()
     } else {
         prepTp()
     }
+    
+    Statbtnload()
 
-    if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
         document.getElementById('pages').title = 'Включены резервные шаблоны, если в АФ нет сбоя в работе Баз знаний - переключи на обычные шаблоны'
         languageAF.addEventListener('click', function () {
@@ -4253,6 +4270,8 @@ var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2
 var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
 var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
 var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
+var TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec'
+var TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec'
 
 let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
 document.body.append(wintRefuseFormNew);
