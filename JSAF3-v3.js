@@ -585,8 +585,8 @@ var win_AFhelper =  // описание элементов главного ок
                     <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
                     <button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
                     <button onclick="AFthePieceofShitKC()" id="set_TPrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
-                    <button onclick="AFthePieceofShitPrem()" id="set_TPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
-                    <button onclick="WeAreTheChempionsPrem()" id="set_TP" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">ТП</button>
+                    <button onclick="AFthePieceofShitPrem()" id="set_TPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
+                    <button onclick="WeAreTheChempionsPrem()" id="set_TP" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
                     <br>
                 </div>
 				<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
