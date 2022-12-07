@@ -21,8 +21,8 @@ async function operstatusleftbar() { // функция замены Script Packa
         flagtpkc = 'КЦ'
     else if (operdep == 'КМ')
         flagtpkc = 'КМ'
-    else if (operdep == 'ТС')
-        flagtpkc = 'ТС'
+    else if (operdep == 'SC')
+        flagtpkc = 'SC'
 
 
     var dateopst = new Date()
@@ -80,7 +80,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
+				} else if (flagtpkc == 'SC' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/SC\D/)) {
 					opstats.push(result.onOperator[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300') {
@@ -107,7 +107,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
+				} else if (flagtpkc == 'SC' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/SC\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300') {
 							chatneraspcountleft = result.unAssigned[j].count
