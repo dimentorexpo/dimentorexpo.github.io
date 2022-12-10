@@ -23,7 +23,6 @@ var win_serviceinfo =  // описание элементов окна инфо�
 						<div style="width: 320px; margin:5px; display:flex; justify-content:left;" id="input_field2">
 						<input readonly id="onetimepassout"  placeholder="One time pass" title="Вывод разового пароля после выполнения команды" autocomplete="off" type="text" style="float:left; text-align: center; width: 100px; color: black;" class="">
 						<button title="Генерирует одноразовый код для входа в мобильное приложение и выводит его в спец поле" id="getonetimepass" class="usinfoops">📱</button>
-						<button title="Открывает админку групповых уроков по айди ученика для просмотра информации по ученику" id="getkglinfokid" class="usinfoops">👩‍👧‍👦</button>
 						<button title="Открывает админку редактирования пользователя/просмотра ролей" id="editadmbtn" class="usinfoops">✏</button>
 						<button title="Открывает кота для просмотра истории чатов" id="catchathistory" class="usinfoops">🗄</button>
 						<button title="Открывает меню для просмотра рассрочки" id="partialpaymentinfo" class="usinfoops">💸</button>
@@ -163,10 +162,6 @@ document.getElementById('checkbalance').onclick = function () {
 
 document.getElementById('GotoCRM').onclick = function () {
     window.open("https://crm2.skyeng.ru/persons/" + document.getElementById('idstudent').value)    // открываем ссылку в новой вкладке на  Пользовательская админка
-}
-
-document.getElementById('getkglinfokid').onclick = function () {
-    window.open("https://grouplessons-api.skyeng.ru/admin/student/view/" + document.getElementById('idstudent').value)
 }
 
 document.getElementById('partialpaymentinfo').onclick = function () {
@@ -857,7 +852,6 @@ function getuserinfo() {
                         document.getElementById('changelocalelng').style.display = ""
                     }
                     document.getElementById('checkbalance').style.display = "";
-                    document.getElementById('getkglinfokid').style.display = "";
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('getpastandfuturelessons').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
@@ -875,7 +869,6 @@ function getuserinfo() {
                         document.getElementById('changelocalelng').style.display = ""
                     }
                     document.getElementById('checkbalance').style.display = "";
-                    document.getElementById('getkglinfokid').style.display = "";
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('getpastandfuturelessons').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
@@ -893,7 +886,6 @@ function getuserinfo() {
                         document.getElementById('changelocalelng').style.display = ""
                     }
                     document.getElementById('checkbalance').style.display = "";
-                    document.getElementById('getkglinfokid').style.display = "";
                     document.getElementById('partialpaymentinfo').style.display = "";
                     document.getElementById('getpastandfuturelessons').style.display = "";
                     document.getElementById('newtrm').style.display = "none";
@@ -907,7 +899,6 @@ function getuserinfo() {
                     document.getElementById('servicetable').innerHTML = '<span style="color:#00BFFF; font-weight:900;">Преподаватель </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + teachername + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail">Email: </span>' + mailcontainer + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone">Phone: </span>' + phonecontainer + "<br>" + "🌍: " + countryofuser + "<br>";
                     document.getElementById('changelocalelng').style.display = "none";
                     document.getElementById('checkbalance').style.display = "none";
-                    document.getElementById('getkglinfokid').style.display = "none";
                     document.getElementById('partialpaymentinfo').style.display = "none";
                     document.getElementById('getpastandfuturelessons').style.display = "none";
                     document.getElementById('newtrm').style.display = "";
@@ -916,7 +907,6 @@ function getuserinfo() {
                 } else if (noservinfo == 1 && nameofuser != "" && teachername == "" && mailcontainer.endsWith('@skyeng.ru') == true) {
                     document.getElementById('servicetable').innerHTML = '<span style="color:#FF69B4; font-weight:900;">Оператор </span>' + "<br>" + '<span id="getloginer" title="При клике делает ссылку-логгинер и копирует в буфер обмена для авторизации"  class="cursor-userinfobtns">Имя: </span>' + nameofuser + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена почту пользователя" id="getusremail1">Email: </span>' + mailcontainer + "<br>" + '<span class="cursor-userinfobtns" title="При клике копирует в буфер обмена телефон пользователя" id="getusrphone1">Phone: </span>' + phonecontainer + "<br>";
                     document.getElementById('checkbalance').style.display = "none";
-                    document.getElementById('getkglinfokid').style.display = "none";
                     document.getElementById('partialpaymentinfo').style.display = "none";
                     document.getElementById('newtrm').style.display = "none";
                     document.getElementById('personalteacherpage').style.display = "none";
