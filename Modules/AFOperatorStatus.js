@@ -94,7 +94,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				} else if (flagtpkc == 'SC' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/SC\D/)) {
 					opstats.push(result.onOperator[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb == '121880' || result.unAssigned[j].kb == '121875' || result.unAssigned[j].kb == '121876' || result.unAssigned[j].kb != '121879' || result.unAssigned[j].kb == '121877' || result.unAssigned[j].kb == '121878' || result.unAssigned[j].kb == '121879' || result.unAssigned[j].kb != '121876' || result.unAssigned[j].kb == '121483' || result.unAssigned[j].kb == '121429' || result.unAssigned[j].kb == '121832' || result.unAssigned[j].kb == '121433' || result.unAssigned[j].kb == '121769' || result.unAssigned[j].kb == '121518') {
+						if (result.unAssigned[j].kb == '121880' || result.unAssigned[j].kb == '121875' || result.unAssigned[j].kb == '121876' || result.unAssigned[j].kb != '121879' || result.unAssigned[j].kb == '121877' || result.unAssigned[j].kb == '121878') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
@@ -133,7 +133,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 					}	
 				} else if (flagtpkc == 'SC' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/SC\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb == '121880' || result.unAssigned[j].kb == '121875' || result.unAssigned[j].kb == '121876' || result.unAssigned[j].kb != '121879' || result.unAssigned[j].kb == '121877' || result.unAssigned[j].kb == '121878' || result.unAssigned[j].kb == '121879' || result.unAssigned[j].kb != '121876' || result.unAssigned[j].kb == '121483' || result.unAssigned[j].kb == '121429' || result.unAssigned[j].kb == '121832' || result.unAssigned[j].kb == '121433' || result.unAssigned[j].kb == '121769' || result.unAssigned[j].kb == '121518') {
+						if (result.unAssigned[j].kb == '121880' || result.unAssigned[j].kb == '121875' || result.unAssigned[j].kb == '121876' || result.unAssigned[j].kb != '121879' || result.unAssigned[j].kb == '121877' || result.unAssigned[j].kb == '121878') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}
