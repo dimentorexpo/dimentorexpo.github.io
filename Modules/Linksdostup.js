@@ -164,7 +164,8 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
         UserActions.value = "";
     }
 	
-	    document.getElementById('grafanalnk').addEventListener('click', function () {
+	// Остальные сервисы
+    document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем Grafana
     })
 
