@@ -27,6 +27,8 @@ var win_linksd =  // описание элементов окна доступо
  							<input id="UserActions" placeholder="ID У/П действ" title="Вводим id пользователя для открытия информации о действиях в личном кабинете" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="GetUserActions">🔎</button>
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>
+                            <input id="WidgetLessonStatus" placeholder="ID У/П виджет" title="Вводим id пользователя для открытия информации об отображении виджета входа на урок" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="GetWidgetLessonStatus">🔎</button>
                             <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
 							<p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">KPI Teachers</p>
 							<button title="Открывает Tableaue для просмотра информации по KPI teachers" id="kpiteachersdashboard" style="width:150px">Tableaue Dashboard</button>
@@ -165,6 +167,15 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
 	    document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем Grafana
     })
+
+    document.getElementById('GetWidgetLessonStatus').onclick = function () { // Графана лог виджета входа на урок
+        if (WidgetLessonStatus.value == "") {
+            console.log('Введите id в поле')
+        } else {
+            window.open("https://grafana.skyeng.link/d/DZop3WKVz/nextlesson-analytics?orgId=1&var-UserId=" + WidgetLessonStatus.value + "&from=now-24h&to=now");
+        };
+        WidgetLessonStatus.value = "";
+    }
 
     document.getElementById('kpiteachersdashboard').addEventListener('click', function () {
         window.open("https://tableau.skyeng.ru/#/views/-_16291119357240/sheet18?:iid=1")    // копируем открываем дашборд КПИ тичерсов
