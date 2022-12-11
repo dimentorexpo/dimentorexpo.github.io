@@ -580,7 +580,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<div class="onlyfortp" style="margin-top: 5px; width: 320px">
                     <label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
                     <br>
-					<label style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
+					<label id="defaulcolorclschat" style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
                     <input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
                     <button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
                     <input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
@@ -4441,6 +4441,11 @@ document.getElementById('setting').onclick = function () { // открывает
 				
 		document.getElementById('aclstimepicker').onchange = function() {
 			localStorage.setItem('defaclschatcolor', this.value)
+		}
+		
+		document.getElementById('defaulcolorclschat').ondblclick = function() {
+			localStorage.setItem('defaclschatcolor','#FF47CA')
+			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
 		}
 				
 		// скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
