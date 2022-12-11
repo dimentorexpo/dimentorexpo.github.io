@@ -32,7 +32,10 @@ var operatorId = ""; //глобальная переменная после по
 var operatorsarray = []; //массив операторов , который потом пригодится для других функций
 var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
-var abortTimeOut1 = ''								// перменная для отмены будильника 2
+var abortTimeOut1 = ''	
+if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
+	localStorage.setItem('tpflag', 'ТП')
+}						// перменная для отмены будильника 2
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var modulesarray = [];
 function mystyles() {
@@ -2163,21 +2166,25 @@ function ShowMustGoOn() { //функция вносит в локалсторе�
 
 function WeAreTheChempions() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП
     localStorage.setItem('scriptAdr', TP_addr)
+	localStorage.setItem('tpflag', 'ТП')
     location.reload()
 }
 
 function WeAreTheChempionsPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП
     localStorage.setItem('scriptAdr', TPprem_addr)
-    location.reload()
+	localStorage.setItem('tpflag', 'ТПPrem')
+	location.reload()
 }
 
 function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
     localStorage.setItem('scriptAdr', TP_addrRzrv)
+	localStorage.setItem('tpflag', 'ТП')
     location.reload()
 }
 
 function AFthePieceofShitPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП резервных тестовых
     localStorage.setItem('scriptAdr', TPprem_addrRzrv)
+		localStorage.setItem('tpflag', 'ТПPrem')
     location.reload()
 }
 
@@ -2304,7 +2311,11 @@ async function buttonsFromDoc(butName) { // функция отправки ша
             butName = "ус+брауз (П)"
 
     if (butName == 'Привет') {
-        a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+		if (document.getElementsByClassName('expert-user_info_panel')[0].children[1].children[0].classList.contains('expert-user_details-name')) {
+			 a = document.getElementsByClassName('expert-user_info_panel')[0].children[1].children[0].innerText
+		} else {
+			a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+		}
         a = a.split(' ')
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
@@ -2767,7 +2778,8 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 }
 
 async function loadTemplates(template, word) { //загрузка шаблонов с дока
-    return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
+if (localStorage.getItem('tpflag') == 'ТП') {
+	 return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
         "headers": {
             "content-type": "application/json",
         },
@@ -2806,6 +2818,48 @@ async function loadTemplates(template, word) { //загрузка шаблоно
                 }
             }
         })
+} else if (localStorage.getItem('tpflag') == 'ТПPrem') {
+	 return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
+        "headers": {
+            "content-type": "application/json",
+        },
+        "body": "{\"query\":\"" + word + "\",\"answersLimit\":10,\"autoFaqServiceIds\":[121533, 121775, 121527, 121531, 121831]}",
+        "method": "POST",
+    })
+        .then(response => response.json())
+        .then(result => {
+            var documentId = ""
+            var serviceId = ""
+            var queryId = ""
+            var AFsessionId = ""
+            var tmpText = ""
+            var title = ""
+            var accuracy = ""
+            for (let i = 0; i < result.length; i++) {
+                if (result[i].title == template) {
+                    var b = result[i]
+                    documentId = b.documentId
+                    serviceId = b.serviceId
+                    queryId = b.queryId
+                    AFsessionId = b.sessionId
+                    tmpText = b.text
+                    tmpText = tmpText.split("<br>↵").join('\n')
+                    tmpText = tmpText.split("&nbsp;").join(' ')
+                    tmpText = tmpText.split("<br />").join('\n')
+                    tmpText = tmpText.split('<a').join('TMPaTMP').split('</a').join('TMPENDaTMEPEND')
+                    tmpText = tmpText.replace(/<\/?[^>]+>/g, '')
+                    tmpText = tmpText.split('TMPaTMP').join('<a').split('TMPENDaTMEPEND').join('</a')
+                    title = b.title
+                    title = title.split("\"").join("\\\"")
+                    accuracy = b.accuracy
+
+                    templatesAF.push([template, documentId, serviceId, queryId, AFsessionId, tmpText, title, accuracy])
+                    return ([template, documentId, serviceId, queryId, AFsessionId, tmpText, title, accuracy])
+                }
+            }
+        })
+}
+   
 }
 
 async function sendAnswerTemplate2(word, flag = 0) { //функция отправки шаблона 2
