@@ -583,6 +583,7 @@ var win_AFhelper =  // описание элементов главного ок
                 </div>
                 <div style="margin-top: 5px; width: 320px">
                     <span style="color:bisque; position: relative; left: 35%;">Выберите отдел:</span>
+                    <span style="background:green; color:white;" id="operdepout"></span>
                     <br>
                     <button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
                     <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
