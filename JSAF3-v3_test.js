@@ -2474,6 +2474,7 @@ function refreshTimer() { //функция обновления таймера
             for (i = 0; i < idk; i++) {
                 if (tmrs[i][1] == name) {
                     btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
+					btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.remove('soonwillclose')
                     if (tmrs[i][0] == "00:00")
                         if (tmrs[i][2] == 1)
                             btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
