@@ -656,7 +656,7 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
 		} else {
             todayLS = getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + Number(todayLS - 1);
+            document.getElementById('dateFromChHis').value = getyearLS + "-" + (getcurmonthLS - 1) + "-" + Number(todayLS - 1);
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }
 
