@@ -1132,7 +1132,20 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
 
         document.getElementById('addChat').onclick = function () { //функция добавления чата
 
-            fetchaddchat(document.getElementById('userid1').value, document.getElementById('userid2').value, "POST")
+		    fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				"headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				},
+				"referrer": "https://vimbox.skyeng.ru/",
+				"referrerPolicy": "strict-origin-when-cross-origin",
+				"body": `{\"userId1\":${document.getElementById('userid1').value},\"userId2\":${document.getElementById('userid2').value}}`,
+				"method": "POST",
+				"mode": "cors",
+				"credentials": "include"
+			});
+			
             console.log('%cChat was added successfully!', 'color:lightgreen; font-weight:700');
             document.getElementById('outputstatus').innerText = "Чат добавлен"
             document.getElementById('outputstatus').style.color = "#48e114"
@@ -1144,8 +1157,22 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
         }
 
         document.getElementById('RemoveChat').onclick = function () { //функция удаления чата
-
-            fetchaddchat(document.getElementById('userid1').value, document.getElementById('userid2').value, "DELETE")
+		
+		
+		    fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				"headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				},
+				"referrer": "https://vimbox.skyeng.ru/",
+				"referrerPolicy": "strict-origin-when-cross-origin",
+				"body": `{\"userId1\":${document.getElementById('userid1').value},\"userId2\":${document.getElementById('userid2').value}}`,
+				"method": "DELETE",
+				"mode": "cors",
+				"credentials": "include"
+			});
+		
             console.log('%cChat was removed successfully!', 'color:orange; font-weight:700');
 
             document.getElementById('outputstatus').innerText = "Чат удалён"
