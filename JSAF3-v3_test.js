@@ -2309,7 +2309,11 @@ async function buttonsFromDoc(butName) { // функция отправки ша
             butName = "ус+брауз (П)"
 
     if (butName == 'Привет') {
-        a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+		if (document.getElementsByClassName('expert-user_info_panel')[0].children[1].children[0].classList.contains('expert-user_details-name')) {
+			 a = document.getElementsByClassName('expert-user_info_panel')[0].children[1].children[0].innerText
+		} else {
+			a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+		}
         a = a.split(' ')
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
