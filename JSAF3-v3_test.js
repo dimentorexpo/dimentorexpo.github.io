@@ -4254,6 +4254,8 @@ function closeTerms() { // функция автоподтверждения у�
 }
 
 function playbeforeclosechat() {
+	audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3");
+	audio2.volume = 0.1
 	for (let i=0;i<document.getElementsByClassName('ant-list-item').length;i++) {
 			if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('soonwillclose')) {
 		audio2.play()
@@ -4561,12 +4563,8 @@ document.getElementById('setting').onclick = function () { // открывает
             localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
             if (document.getElementById('sound_adr').value == "")  {
                 audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
-				audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3");
-				audio2.volume = 0.1
             } else {
                 audio = new Audio(document.getElementById('sound_adr').value);
-				audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3");
-				audio2.volume = 0.1
                 document.getElementById('sound_save').innerText = "✅";
                 setTimeout(function () {
                     document.getElementById('sound_save').innerText = "💾";
