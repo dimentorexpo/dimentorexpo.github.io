@@ -1631,7 +1631,6 @@ const copyToClipboard = str => { // функция копирования в б�
 };
 
 function fetchaddchat(userid1, userid2, method) { //вспомогательная функция просто добавления чата мекжду пользователям
-    console.log("id 1" + userid1 + " id2 " + userid2 + " Метод " + method)
     fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
         "headers": {
             "content-type": "application/json",
