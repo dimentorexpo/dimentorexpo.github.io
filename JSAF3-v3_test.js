@@ -32,8 +32,10 @@ var operatorId = ""; //глобальная переменная после по
 var operatorsarray = []; //массив операторов , который потом пригодится для других функций
 var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
-var abortTimeOut1 = ''								// перменная для отмены будильника 2
-localStorage.setItem('tpflag', 'ТП')
+var abortTimeOut1 = ''	
+if (localStorage.setItem('tpflag') == null || localStorage.setItem('tpflag' == undefined) {
+	localStorage.setItem('tpflag', 'ТП')
+}						// перменная для отмены будильника 2
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var modulesarray = [];
 function mystyles() {
