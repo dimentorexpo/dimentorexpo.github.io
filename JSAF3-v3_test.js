@@ -4253,6 +4253,14 @@ function closeTerms() { // функция автоподтверждения у�
     }
 }
 
+function playbeforeclosechat() {
+	for (let i=0;i<document.getElementsByClassName('ant-list-item').length;i++) {
+			if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('soonwillclose')) {
+		audio2.play()
+	}
+	}
+}
+
 // let peoplestatus = document.createElement('div')
 // peoplestatus.id = 'idforpeopstatus'
 // async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
@@ -4551,10 +4559,14 @@ document.getElementById('setting').onclick = function () { // открывает
 
         document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
             localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
-            if (document.getElementById('sound_adr').value == "")
+            if (document.getElementById('sound_adr').value == "")  {
                 audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
-            else {
+				audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3");
+				audio2.volume = 0.1
+            } else {
                 audio = new Audio(document.getElementById('sound_adr').value);
+				audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3");
+				audio2.volume = 0.1
                 document.getElementById('sound_save').innerText = "✅";
                 setTimeout(function () {
                     document.getElementById('sound_save').innerText = "💾";
@@ -5124,6 +5136,8 @@ setInterval(addbuttonsintegration, 1000)
 setInterval(remandressl, 3000);
 
 setInterval(closeTerms, 500);
+
+setInterval(playbeforeclosechat, 10000);
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
