@@ -37,9 +37,8 @@ if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == u
     localStorage.setItem('tpflag', 'ТП')
 }						// перменная для отмены будильника 2
 
-if (localStorage.getItem('defaclschatcolor') != null || localStorage.getItem('defaclschatcolor') != undefined)
-	document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
-else localStorage.setItem('defaclschatcolor','#FF47CA')
+if (localStorage.getItem('defaclschatcolor') == null || localStorage.getItem('defaclschatcolor') == undefined)
+	localStorage.setItem('defaclschatcolor','#FF47CA')
 		
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var modulesarray = [];
@@ -4432,6 +4431,13 @@ document.getElementById('setting').onclick = function () { // открывает
         document.getElementById('set_bar').style.display = ''
         document.getElementById('reminder_bar').style.display = 'none'
         document.getElementById('addTmp').style.display = 'none'
+		
+		if (localStorage.getItem('defaclschatcolor') != null || localStorage.getItem('defaclschatcolor') != undefined) {
+			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+		} else {
+			localStorage.setItem('defaclschatcolor','#FF47CA')
+			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+		}
 				
 		document.getElementById('aclstimepicker').onchange = function() {
 			localStorage.setItem('defaclschatcolor', this.value)
