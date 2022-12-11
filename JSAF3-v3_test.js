@@ -4431,13 +4431,12 @@ document.getElementById('setting').onclick = function () { // открывает
 		if  (opsection != 'ТП' || opsection != 'ТПPrem') {
 			document.getElementById('set_TPrezerv').style.display = "none";
 			document.getElementById('set_TP').style.display = "none";
-			document.getElementById('set_PremTPrezerv').style.display = "";
-			document.getElementById('set_TPPrem').style.display = "";
+			document.getElementById('set_PremTPrezerv').style.display = "none";
+			document.getElementById('set_TPPrem').style.display = "none";
 		}
 		
 		if (localStorage.getItem('scriptAdr') == TP_addr) {
 			document.getElementById('operdepout').innerHTML = 'ТП'
-
 		} else if (localStorage.getItem('scriptAdr') == TP_addrRzrv) {
 			document.getElementById('operdepout').innerHTML = 'ТП резерв'
 		} else if (localStorage.getItem('scriptAdr') == TPprem_addr) {
