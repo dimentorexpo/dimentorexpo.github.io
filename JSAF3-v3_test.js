@@ -2486,9 +2486,10 @@ function refreshTimer() { //функция обновления таймера
                     var curT1 = tmrs[i][3]
                     var curT2 = Number(cT);
                     var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                    if (curT3 < 0)
+                    if (curT3 < 0) {
                         btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = localStorage.getItem('defaclschatcolor') // цвет окрашивания автозакрытия  сейчас сиреневый
 						btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classlist.add('soonwillclose')
+					}
                 }
             }
             j++
