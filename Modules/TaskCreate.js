@@ -425,7 +425,7 @@ document.getElementById('serviceinf').innerHTML = '';
                         "mode": "cors",
                         "credentials": "include"
                     });
-                }
+                } 
 				
                 document.getElementById('taskcomment').value = '';
                 document.getElementById('taskserviceid').value = '';
