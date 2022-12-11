@@ -30,6 +30,7 @@ var win_linksd =  // описание элементов окна доступо
                             <input id="WidgetLessonStatus" placeholder="ID У/П виджет" title="Вводим id пользователя для открытия информации об отображении виджета входа на урок" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="GetWidgetLessonStatus">🔎</button>
                             <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:105px">Вид.сервера</button>
+                            <button title="Открывает Графану с отображением пула задачь на группе Техподдержка Исход CRM2" id="grafanapoolCRM2" style="width:105px">Пул CRM2 исх.</button>
 							<p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">KPI Teachers</p>
 							<button title="Открывает Tableaue для просмотра информации по KPI teachers" id="kpiteachersdashboard" style="width:150px">Tableaue Dashboard</button>
                         </div>
@@ -167,6 +168,10 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
 	// Остальные сервисы
     document.getElementById('grafanalnk').addEventListener('click', function () {
         window.open("https://grafana.skyeng.link/d/NZkMHsVMk/video-servers-health-check?orgId=1&refresh=1m")    // открываем Grafana
+    })
+
+    document.getElementById('grafanapoolCRM2').addEventListener('click', function () {
+        window.open("https://grafana.skyeng.link/d/fzN-fk5Gk/task-dashboard?orgId=1&var-task_id=null&var-task_status=waiting&var-task_status=assigned&var-task_status=processing&var-operator_group_id=All&var-operator_id=All&var-task_operator_group_id=207")    // открываем Grafana пул задачь CRM2
     })
 
     document.getElementById('GetWidgetLessonStatus').onclick = function () { // Графана лог виджета входа на урок
