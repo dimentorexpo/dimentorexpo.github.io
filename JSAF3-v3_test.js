@@ -4257,9 +4257,12 @@ function playbeforeclosechat() { // функция проигрывания зв
 	audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3"); 
 	audio2.volume = 0.1
 	for (let i=0;i<document.getElementsByClassName('ant-list-item').length;i++) {
-			if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('soonwillclose')) {
-		audio2.play()
-	}
+		if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('soonwillclose')) {
+			audio2.play()
+		} else if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('stopsound'))  { // подумать как добавлять этот класс чтобы для того чата не проигрывался звук
+			audio2.pause()
+			audio.currentTime = 0
+		}
 	}
 }
 
