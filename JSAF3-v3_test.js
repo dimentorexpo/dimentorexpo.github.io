@@ -582,8 +582,8 @@ var win_AFhelper =  // описание элементов главного ок
                     <button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
                 </div>
                 <div style="margin-top: 5px; width: 320px">
-                    <span style="color:bisque; position: relative; left: 35%;">Выберите отдел:</span>
-                    <span style="background:green; color:white;" id="operdepout"></span>
+                    <span style="color:bisque; position: relative; left: 30%;">Выберите отдел:</span>
+                    <span style="position: relative; left: 30%; background: green; color: white; padding: 5px; border-radius: 5px;" id="operdepout"></span>
                     <br>
                     <button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
                     <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
@@ -4426,6 +4426,20 @@ document.getElementById('setting').onclick = function () { // открывает
         document.getElementById('set_bar').style.display = ''
         document.getElementById('reminder_bar').style.display = 'none'
         document.getElementById('addTmp').style.display = 'none'
+		
+		if (localStorage.getItem('scriptAdr') == TP_addr) {
+			document.getElementById('operdepout').innerHTML = 'ТП'
+		} else if (localStorage.getItem('scriptAdr') == TP_addrRzrv) {
+			document.getElementById('operdepout').innerHTML = 'ТП резерв'
+		} else if (localStorage.getItem('scriptAdr') == TPprem_addr) {
+			document.getElementById('operdepout').innerHTML = 'ТП прем'
+		} else if (localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
+			document.getElementById('operdepout').innerHTML = 'ТП прем резерв'
+		} else if (localStorage.getItem('scriptAdr') == KC_addr) {
+			document.getElementById('operdepout').innerHTML = 'КЦ'
+		} else if (localStorage.getItem('scriptAdr') == KC_addrRzrv) {
+			document.getElementById('operdepout').innerHTML = 'ТП резерв'
+		}
 
         let objSoundList = document.getElementById('soundlistaddr')
         let soundsfromdoc;
