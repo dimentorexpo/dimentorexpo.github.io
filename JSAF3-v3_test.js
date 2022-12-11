@@ -2170,8 +2170,10 @@ function WeAreTheChempions() { //функция вносит в локалсто
 
 function WeAreTheChempionsPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП
     localStorage.setItem('scriptAdr', TPprem_addr)
-	localStorage.setItem('tpflag', 'ТПPrem')
-    location.reload()
+	setTimeout( function() {
+		localStorage.setItem('tpflag', 'ТПPrem')
+		location.reload()
+	} , 1000) 
 }
 
 function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
