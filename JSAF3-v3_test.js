@@ -4428,7 +4428,7 @@ document.getElementById('setting').onclick = function () { // открывает
         document.getElementById('addTmp').style.display = 'none'
 
         let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
-        if (opsection != 'ТП' || opsection != 'ТПPrem') {
+        if (opsection != 'ТП' && opsection != 'ТПPrem') {
             document.getElementById('set_TPrezerv').style.display = "none";
             document.getElementById('set_TP').style.display = "none";
             document.getElementById('set_PremTPrezerv').style.display = "none";
