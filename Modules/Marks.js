@@ -78,7 +78,7 @@ function getDate() {
             document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
 		} else {
             todayLS = getdateset.getDate();
-            document.getElementById('dateFromMarks').value = getyearLS + "-" + '0' + (getcurmonthLS - 1) + "-" + (todayLS - 1);
+            document.getElementById('dateFromMarks').value = getyearLS + "-" + (getcurmonthLS - 1) + "-" + (todayLS - 1);
             document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
         }		
 		
