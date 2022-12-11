@@ -588,9 +588,9 @@ var win_AFhelper =  // описание элементов главного ок
                     <button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
                     <button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
                     <button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
-                    <button onclick="AFthePieceofShitKC()" id="set_TPrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
-                    <button onclick="AFthePieceofShitPrem()" id="set_TPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
-                    <button onclick="WeAreTheChempionsPrem()" id="set_TP" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
+                    <button onclick="AFthePieceofShitKC()" id="set_KCrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
+                    <button onclick="AFthePieceofShitPrem()" id="set_PremTPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
+                    <button onclick="WeAreTheChempionsPrem()" id="set_TPPrem" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
                     <br>
                 </div>
 				<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
@@ -4427,8 +4427,17 @@ document.getElementById('setting').onclick = function () { // открывает
         document.getElementById('reminder_bar').style.display = 'none'
         document.getElementById('addTmp').style.display = 'none'
 		
+		let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
+		if  (opsection != 'ТП' || opsection != 'ТПPrem') {
+			document.getElementById('set_TPrezerv').style.display = "none";
+			document.getElementById('set_TP').style.display = "none";
+			document.getElementById('set_PremTPrezerv').style.display = "";
+			document.getElementById('set_TPPrem').style.display = "";
+		}
+		
 		if (localStorage.getItem('scriptAdr') == TP_addr) {
 			document.getElementById('operdepout').innerHTML = 'ТП'
+
 		} else if (localStorage.getItem('scriptAdr') == TP_addrRzrv) {
 			document.getElementById('operdepout').innerHTML = 'ТП резерв'
 		} else if (localStorage.getItem('scriptAdr') == TPprem_addr) {
@@ -4438,7 +4447,7 @@ document.getElementById('setting').onclick = function () { // открывает
 		} else if (localStorage.getItem('scriptAdr') == KC_addr) {
 			document.getElementById('operdepout').innerHTML = 'КЦ'
 		} else if (localStorage.getItem('scriptAdr') == KC_addrRzrv) {
-			document.getElementById('operdepout').innerHTML = 'ТП резерв'
+			document.getElementById('operdepout').innerHTML = 'КЦ резерв'
 		}
 
         let objSoundList = document.getElementById('soundlistaddr')
