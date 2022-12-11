@@ -33,7 +33,7 @@ var operatorsarray = []; //массив операторов , который п
 var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
 var abortTimeOut1 = ''	
-if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined) {
+if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
 	localStorage.setItem('tpflag', 'ТП')
 }						// перменная для отмены будильника 2
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
