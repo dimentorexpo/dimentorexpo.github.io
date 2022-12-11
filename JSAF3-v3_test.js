@@ -4253,8 +4253,8 @@ function closeTerms() { // функция автоподтверждения у�
     }
 }
 
-function playbeforeclosechat() {
-	audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3");
+function playbeforeclosechat() { // функция проигрывания звука при автозакрытии чата если какой то из чатов 
+	audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3"); 
 	audio2.volume = 0.1
 	for (let i=0;i<document.getElementsByClassName('ant-list-item').length;i++) {
 			if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('soonwillclose')) {
@@ -5135,7 +5135,7 @@ setInterval(remandressl, 3000);
 
 setInterval(closeTerms, 500);
 
-setInterval(playbeforeclosechat, 10000);
+setInterval(playbeforeclosechat, 20000); //интервал вызова функции проигрывания закрытия чата
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
