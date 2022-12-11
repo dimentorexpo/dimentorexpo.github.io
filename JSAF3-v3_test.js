@@ -4433,6 +4433,11 @@ document.getElementById('setting').onclick = function () { // открывает
 			document.getElementById('set_TP').style.display = "none";
 			document.getElementById('set_PremTPrezerv').style.display = "none";
 			document.getElementById('set_TPPrem').style.display = "none";
+		} else {
+			document.getElementById('set_TPrezerv').style.display = "";
+			document.getElementById('set_TP').style.display = "";
+			document.getElementById('set_PremTPrezerv').style.display = "";
+			document.getElementById('set_TPPrem').style.display = "";
 		}
 		
 		if (localStorage.getItem('scriptAdr') == TP_addr) {
