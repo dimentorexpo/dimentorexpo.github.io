@@ -36,6 +36,10 @@ var abortTimeOut1 = ''
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }						// перменная для отмены будильника 2
+
+if (localStorage.getItem('defaclschatcolor') == null || localStorage.getItem('defaclschatcolor') == undefined)
+	localStorage.setItem('defaclschatcolor','#FF47CA')
+		
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var modulesarray = [];
 function mystyles() {
@@ -576,6 +580,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<div class="onlyfortp" style="margin-top: 5px; width: 320px">
                     <label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
                     <br>
+					<label id="defaulcolorclschat" style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
                     <input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
                     <button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
                     <input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
@@ -2481,8 +2486,10 @@ function refreshTimer() { //функция обновления таймера
                     var curT1 = tmrs[i][3]
                     var curT2 = Number(cT);
                     var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                    if (curT3 < 0)
-                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FF47CA" // цвет окрашивания автозакрытия  сейчас сиреневый
+                    if (curT3 < 0) {
+                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = localStorage.getItem('defaclschatcolor') // цвет окрашивания автозакрытия  сейчас сиреневый
+						btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.add('soonwillclose')
+					}
                 }
             }
             j++
@@ -4426,7 +4433,24 @@ document.getElementById('setting').onclick = function () { // открывает
         document.getElementById('set_bar').style.display = ''
         document.getElementById('reminder_bar').style.display = 'none'
         document.getElementById('addTmp').style.display = 'none'
-
+		
+		if (localStorage.getItem('defaclschatcolor') != null || localStorage.getItem('defaclschatcolor') != undefined) {
+			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+		} else {
+			localStorage.setItem('defaclschatcolor','#FF47CA')
+			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+		}
+				
+		document.getElementById('aclstimepicker').onchange = function() {
+			localStorage.setItem('defaclschatcolor', this.value)
+		}
+		
+		document.getElementById('defaulcolorclschat').ondblclick = function() {
+			localStorage.setItem('defaclschatcolor','#FF47CA')
+			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+		}
+				
+		// скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
         let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
         if (opsection != 'ТП' && opsection != 'ТПPrem') {
             document.getElementById('set_TPrezerv').style.display = "none";
@@ -4453,6 +4477,7 @@ document.getElementById('setting').onclick = function () { // открывает
         } else if (localStorage.getItem('scriptAdr') == KC_addrRzrv) {
             document.getElementById('operdepout').innerHTML = 'КЦ резерв'
         }
+		//
 
         let objSoundList = document.getElementById('soundlistaddr')
         let soundsfromdoc;
