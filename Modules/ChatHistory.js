@@ -704,6 +704,8 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
                         activetechopers.push(result.onOperator[i])
                     } else if (opsflag == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
                         activetechopers.push(result.onOperator[i])
+                    } else if (opsflag == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
+                        activetechopers.push(result.onOperator[i])
                     } // end of if state
                 } // end of for
             })
