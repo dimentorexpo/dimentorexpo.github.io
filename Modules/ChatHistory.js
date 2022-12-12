@@ -686,6 +686,8 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
 				opsflag = 'КМ'
 			else if (operdepchist == 'ТС')
 				opsflag = 'ТС'
+            else if (operdepchist == 'ТПPrem')
+			    opsflag = 'ТПPrem'
 			console.log("Подразделение для Chat history" + opsflag)
 			
             activetechopers = []
