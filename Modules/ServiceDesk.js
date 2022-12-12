@@ -243,7 +243,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="vimbugsbtn widthofsd" value="934">Автоотметка по урокам взрослых У</button>
 					<button class="vimbugsbtn widthofsd" value="933">Взрослый англиский: CMS и контент на взрослой платформе</button>
 					<button class="vimbugsbtn widthofsd" value="932">Взрослый английский: Домашки, уроки, тесты</button>
-					<button class="vimbugsbtn widthofsd" value="931">Шоукейс взрослого П/взрослого У</button>
 
 					<input id="customfield_50" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield"></input>
 					<textarea id="customfield_52" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
@@ -600,15 +599,21 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 	  }`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
 	document.getElementById('responseTextarea3').value = ''
-	document.getElementById('sendResponse').click()
 	
-	//console.log(idstdserv + " " + dscr + " " + str + " " + erx  + " " + ary + " " + code)
+	// логируем входящие переменные и значение полей отправки запроса
+	console.log(idstdserv + " " + dscr + " " + str + " " + erx  + " " + ary + " " + code)
+	console.log(document.getElementById('responseTextarea1').value)
+	console.log(document.getElementById('responseTextarea2').value)
+
+	document.getElementById('sendResponse').click()
+
 	setTimeout(getprsup, 5000);
 	setTimeout(getslacklnk, 8000);
 }
 
 function sendRequestBilling(str, erx, ary, idstd, code) {
-		console.log(jiratoken)
+	console.log(jiratoken)
+	console.log(jiratokennew)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
@@ -625,15 +630,21 @@ function sendRequestBilling(str, erx, ary, idstd, code) {
 	  }`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
 	document.getElementById('responseTextarea3').value = ''
+
+	// логируем входящие переменные и значение полей отправки запроса
+	console.log(str + " " + erx + " " + ary + " " + idstd + " " + code)
+	console.log(document.getElementById('responseTextarea1').value)
+	console.log(document.getElementById('responseTextarea2').value)
+
 	document.getElementById('sendResponse').click()
-	
-	//console.log(idstdserv + " " + dscr + " " + str + " " + erx  + " " + ary + " " + code)
+
 	setTimeout(getprsup, 5000);
 	setTimeout(getslacklnk, 8000);
 }
 
 function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, code) {
-		console.log(jiratoken)
+	console.log(jiratoken)
+	console.log(jiratokennew)
 	document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
@@ -650,6 +661,12 @@ function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstds
 	  }`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
 	document.getElementById('responseTextarea3').value = ''
+	
+	// логируем входящие переменные и значение полей отправки запроса
+	console.log(issuename + " " + device + " " + dscr + " " + str  + " " + erx + " " + ary +" " + idstdserv + " " + code)
+	console.log(document.getElementById('responseTextarea1').value)
+	console.log(document.getElementById('responseTextarea2').value)
+	
 	document.getElementById('sendResponse').click()
 	
 	setTimeout(getprsup, 5000);
@@ -657,7 +674,8 @@ function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstds
 }
 
 function sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, code) {
-		console.log(jiratoken)
+	console.log(jiratoken)
+	console.log(jiratokennew)
 	 document.getElementById('responseTextarea1').value = `{  "headers": {
 		 "content-type": "application/x-www-form-urlencoded",
 		 "sec-fetch-mode": "cors",
@@ -674,6 +692,12 @@ function sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, er
 		  }`
 	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
 	document.getElementById('responseTextarea3').value = ''
+
+	// логируем входящие переменные и значение полей отправки запроса
+	console.log(priorvalue + " " + issuename + " " + device + " " + dscr + " " + str + " " + erx  + " " + ary + " " + idstdserv + " " + code)
+	console.log(document.getElementById('responseTextarea1').value)
+	console.log(document.getElementById('responseTextarea2').value)
+
 	document.getElementById('sendResponse').click()
 	
 	setTimeout(getprsup, 5000);
