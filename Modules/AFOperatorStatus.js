@@ -84,7 +84,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'Prem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/Prem\D/)) {
+				} else if (flagtpkc == 'Prem' && result.onOperator[i].operator != null && result.onOperator[i].groupId =='68932fae-b9f9-6b37-2a52-911b2b6b4f6d' && result.onOperator[i].operator.fullName.match(/Prem\D/)) {
 					opstats.push(result.onOperator[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb == '121527') {
@@ -125,7 +125,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'Prem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/Prem\D/)) {
+				} else if (flagtpkc == 'Prem' && result.onOperator[i].groupId =='68932fae-b9f9-6b37-2a52-911b2b6b4f6d' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/Prem\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb == '121527') {
 							chatneraspcountleft = result.unAssigned[j].count
