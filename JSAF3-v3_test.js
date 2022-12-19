@@ -2474,7 +2474,6 @@ function refreshTimer() { //функция обновления таймера
             for (i = 0; i < idk; i++) {
                 if (tmrs[i][1] == name) {
                     btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
-					btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.remove('soonwillclose')
                     if (tmrs[i][0] == "00:00")
                         if (tmrs[i][2] == 1)
                             btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
@@ -2487,10 +2486,8 @@ function refreshTimer() { //функция обновления таймера
                     var curT1 = tmrs[i][3]
                     var curT2 = Number(cT);
                     var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                    if (curT3 < 0) {
+                    if (curT3 < 0)
                         btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = localStorage.getItem('defaclschatcolor') // цвет окрашивания автозакрытия  сейчас сиреневый
-						btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.add('soonwillclose')
-					}
                 }
             }
             j++
@@ -4253,19 +4250,6 @@ function closeTerms() { // функция автоподтверждения у�
     }
 }
 
-function playbeforeclosechat() { // функция проигрывания звука при автозакрытии чата если какой то из чатов 
-	audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3"); 
-	audio2.volume = 0.1
-	for (let i=0;i<document.getElementsByClassName('ant-list-item').length;i++) {
-		if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('soonwillclose')) {
-			audio2.play()
-		} else if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('stopsound'))  { // подумать как добавлять этот класс чтобы для того чата не проигрывался звук
-			audio2.pause()
-			audio.currentTime = 0
-		}
-	}
-}
-
 // let peoplestatus = document.createElement('div')
 // peoplestatus.id = 'idforpeopstatus'
 // async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
@@ -4564,9 +4548,9 @@ document.getElementById('setting').onclick = function () { // открывает
 
         document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
             localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
-            if (document.getElementById('sound_adr').value == "")  {
+            if (document.getElementById('sound_adr').value == "")
                 audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
-            } else {
+            else {
                 audio = new Audio(document.getElementById('sound_adr').value);
                 document.getElementById('sound_save').innerText = "✅";
                 setTimeout(function () {
@@ -5101,9 +5085,11 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
             setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
         }
     } else {
-        if (localStorage.getItem('scriptAdr') == TS_addr)
+        if (localStorage.getItem('scriptAdr') == TS_addr) {
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-18/' + adr1)
-        else
+        }else if (localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-26/' + adr1)
+        }else 
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
         document.getElementById('hashBut').innerHTML = "Скопировано"
         setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
@@ -5137,8 +5123,6 @@ setInterval(addbuttonsintegration, 1000)
 setInterval(remandressl, 3000);
 
 setInterval(closeTerms, 500);
-
-setInterval(playbeforeclosechat, 20000); //интервал вызова функции проигрывания закрытия чата
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
