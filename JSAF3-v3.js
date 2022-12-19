@@ -5085,9 +5085,11 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
             setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
         }
     } else {
-        if (localStorage.getItem('scriptAdr') == TS_addr)
+        if (localStorage.getItem('scriptAdr') == TS_addr) {
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-18/' + adr1)
-        else
+        }else if (localStorage.getItem('scriptAdr') == TPprem_addr && localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
+            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-26/' + adr1)
+        }else 
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
         document.getElementById('hashBut').innerHTML = "Скопировано"
         setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
