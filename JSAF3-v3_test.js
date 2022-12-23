@@ -1519,11 +1519,18 @@ async function checkCSAT() { // функция проверки CSAT и чато
         let aclosedchats = [];
         while (true) {
             test = ''
+			
+			let servicetopic;
+		if (localStorage.getItem('scriptAdr') == TS_addr) {
+			servicetopic = '361c681b-340a-4e47-9342-c7309e27e7b5'
+        } else if (localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
+            servicetopic = 'df7d4f86-bb75-45b5-8ae8-87bf896bf308' 			
+			
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
                 "headers": {
                     "content-type": "application/json",
                 },
-                "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "body": "{\"serviceId\":\""+servicetopic+"\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
             for (let i = 0; i < test.items.length; i++) {
@@ -5087,9 +5094,9 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     } else {
         if (localStorage.getItem('scriptAdr') == TS_addr) {
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-18/' + adr1)
-        }else if (localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
+        } else if (localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-26/' + adr1)
-        }else 
+        } else 
             copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
         document.getElementById('hashBut').innerHTML = "Скопировано"
         setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
