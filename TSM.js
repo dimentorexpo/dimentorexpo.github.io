@@ -2604,20 +2604,28 @@ async function gethwroominfo(api, hash) {
 function getkidsroominfo(data) {
     let temparr = [];
     let hwarr = [];
-    for (let i = 0; i < data.lessonCards[1].themes.length; i++) {
-        temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[1].themes[i].name + '<br>' + '</div>'
-        for (let j = 0; j < data.lessonCards[1].themes[i].cards.length; j++) {
-            (data.lessonCards[1].themes[i].cards[j].completeness == 100 && data.lessonCards[1].themes[i].cards[j].score == null) ? data.lessonCards[1].themes[i].cards[j].score = 100 : data.lessonCards[1].themes[i].cards[j].score;
-            if (data.lessonCards[1].themes[i].cards[j].completeness == null) {
-                data.lessonCards[1].themes[i].cards[j].completeness = '——'
-                data.lessonCards[1].themes[i].cards[j].score = '—'
+			
+	let flagofuser='';
+
+	for (let z=0; z<data.participants.length;z++) {
+		if (data.participants[z].role == 'student')
+			flagofuser = z;
+	}
+	
+    for (let i = 0; i < data.lessonCards[flagofuser].themes.length; i++) {
+        temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[flagofuser].themes[i].name + '<br>' + '</div>'
+        for (let j = 0; j < data.lessonCards[flagofuser].themes[i].cards.length; j++) {
+            (data.lessonCards[flagofuser].themes[i].cards[j].completeness == 100 && data.lessonCards[flagofuser].themes[i].cards[j].score == null) ? data.lessonCards[flagofuser].themes[i].cards[j].score = 100 : data.lessonCards[flagofuser].themes[i].cards[j].score;
+            if (data.lessonCards[flagofuser].themes[i].cards[j].completeness == null) {
+                data.lessonCards[flagofuser].themes[i].cards[j].completeness = '——'
+                data.lessonCards[flagofuser].themes[i].cards[j].score = '—'
             }
             temparr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
-                data.lessonCards[1].themes[i].cards[j].name + ' ' +
-                '<span class="stepuidslkids" style="display:none">' + data.lessonCards[1].themes[i].cards[j].stepUuid + '</span>' +
+                data.lessonCards[flagofuser].themes[i].cards[j].name + ' ' +
+                '<span class="stepuidslkids" style="display:none">' + data.lessonCards[flagofuser].themes[i].cards[j].stepUuid + '</span>' +
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
-                '<span style="float:right; margin-right: 80px;">' + data.lessonCards[1].themes[i].cards[j].completeness + '</span>' +
-                '<span style="float:right; margin-right: 60px;">' + data.lessonCards[1].themes[i].cards[j].score + '</span>' +
+                '<span style="float:right; margin-right: 80px;">' + data.lessonCards[flagofuser].themes[i].cards[j].completeness + '</span>' +
+                '<span style="float:right; margin-right: 60px;">' + data.lessonCards[flagofuser].themes[i].cards[j].score + '</span>' +
                 '</div>';
         }
     }
@@ -2626,9 +2634,9 @@ function getkidsroominfo(data) {
         '<div class="boxwithslides" style="display:none">' +
         '<div class="itemexerciseskids">' +
         '<div style="text-align:center;">Информация по категории: Lesson</div>' +
-        'Количество завершенных карточек: ' + data.lessonCards[1].completedCardsCount + ' из ' + data.lessonCards[1].cardsCount +
-        '<br>Общий % завершения слайдов: ' + data.lessonCards[1].completeness + '%' +
-        '<br>Итоговый результат: ' + data.lessonCards[1].score + ' баллов из 100<br>' +
+        'Количество завершенных карточек: ' + data.lessonCards[flagofuser].completedCardsCount + ' из ' + data.lessonCards[flagofuser].cardsCount +
+        '<br>Общий % завершения слайдов: ' + data.lessonCards[flagofuser].completeness + '%' +
+        '<br>Итоговый результат: ' + data.lessonCards[flagofuser].score + ' баллов из 100<br>' +
         '<div class="headerexplain">' +
         '<span style="margin-left: 60px;">Название слайда</span>' +
         '<span style="margin-left: 140px;">Балл</span>' +
@@ -2637,27 +2645,27 @@ function getkidsroominfo(data) {
         '</div>' +
         temparr +
         '</div>';
-
-    for (let i = 0; i < data.homeworkCards[1].themes.length; i++) {
-        hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[1].themes[i].name + '<br>' + '</div>'
-        for (let j = 0; j < data.homeworkCards[1].themes[i].cards.length; j++) {
-            (data.homeworkCards[1].themes[i].cards[j].completeness == 100 && data.homeworkCards[1].themes[i].cards[j].score == null) ? data.homeworkCards[1].themes[i].cards[j].score = 100 : data.homeworkCards[1].themes[i].cards[j].score;
-            if (data.homeworkCards[1].themes[i].cards[j].completeness == null) {
-                data.homeworkCards[1].themes[i].cards[j].completeness = '——'
-                data.homeworkCards[1].themes[i].cards[j].score = '—'
+	
+    for (let i = 0; i < data.homeworkCards[flagofuser].themes.length; i++) {
+        hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[flagofuser].themes[i].name + '<br>' + '</div>'
+        for (let j = 0; j < data.homeworkCards[flagofuser].themes[i].cards.length; j++) {
+            (data.homeworkCards[flagofuser].themes[i].cards[j].completeness == 100 && data.homeworkCards[flagofuser].themes[i].cards[j].score == null) ? data.homeworkCards[flagofuser].themes[i].cards[j].score = 100 : data.homeworkCards[flagofuser].themes[i].cards[j].score;
+            if (data.homeworkCards[flagofuser].themes[i].cards[j].completeness == null) {
+                data.homeworkCards[flagofuser].themes[i].cards[j].completeness = '——'
+                data.homeworkCards[flagofuser].themes[i].cards[j].score = '—'
             }
 
-            if (data.homeworkCards[1].themes[i].cards[j].emphasis == 'writing') {
-                data.homeworkCards[1].themes[i].cards[j].name = data.homeworkCards[1].themes[i].cards[j].name + '✏'
-            } else if (data.homeworkCards[1].themes[i].cards[j].emphasis == 'pronunciation') {
-                data.homeworkCards[1].themes[i].cards[j].name = data.homeworkCards[1].themes[i].cards[j].name + '🎧'
+            if (data.homeworkCards[flagofuser].themes[i].cards[j].emphasis == 'writing') {
+                data.homeworkCards[flagofuser].themes[i].cards[j].name = data.homeworkCards[flagofuser].themes[i].cards[j].name + '✏'
+            } else if (data.homeworkCards[flagofuser].themes[i].cards[j].emphasis == 'pronunciation') {
+                data.homeworkCards[flagofuser].themes[i].cards[j].name = data.homeworkCards[flagofuser].themes[i].cards[j].name + '🎧'
             }
             hwarr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
-                data.homeworkCards[1].themes[i].cards[j].name + ' ' +
-                '<span class="stepuidslkids" style="display:none">' + data.homeworkCards[1].themes[i].cards[j].stepUuid + '</span>' +
+                data.homeworkCards[flagofuser].themes[i].cards[j].name + ' ' +
+                '<span class="stepuidslkids" style="display:none">' + data.homeworkCards[flagofuser].themes[i].cards[j].stepUuid + '</span>' +
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
-                '<span style="float:right; margin-right: 80px;">' + data.homeworkCards[1].themes[i].cards[j].completeness + '</span>' +
-                '<span style="float:right; margin-right: 60px;">' + data.homeworkCards[1].themes[i].cards[j].score + '</span>' +
+                '<span style="float:right; margin-right: 80px;">' + data.homeworkCards[flagofuser].themes[i].cards[j].completeness + '</span>' +
+                '<span style="float:right; margin-right: 60px;">' + data.homeworkCards[flagofuser].themes[i].cards[j].score + '</span>' +
                 '</div>';
         }
     }
@@ -2666,9 +2674,9 @@ function getkidsroominfo(data) {
         '<div class="boxwithslides" style="display:none">' +
         '<div class="itemexerciseskids">' +
         '<div style="text-align:center;">Информация по категории: Homework</div>' +
-        'Количество завершенных карточек: ' + data.homeworkCards[1].completedCardsCount + ' из ' + data.homeworkCards[1].cardsCount +
-        '<br>Общий % завершения слайдов: ' + data.homeworkCards[1].completeness + '%' +
-        '<br>Итоговый результат: ' + data.homeworkCards[1].score + ' баллов из 100<br>' +
+        'Количество завершенных карточек: ' + data.homeworkCards[flagofuser].completedCardsCount + ' из ' + data.homeworkCards[flagofuser].cardsCount +
+        '<br>Общий % завершения слайдов: ' + data.homeworkCards[flagofuser].completeness + '%' +
+        '<br>Итоговый результат: ' + data.homeworkCards[flagofuser].score + ' баллов из 100<br>' +
         '<div class="headerexplain">' +
         '<span style="margin-left: 60px;">Название слайда</span>' +
         '<span style="margin-left: 140px;">Балл</span>' +
