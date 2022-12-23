@@ -1525,11 +1525,12 @@ async function checkCSAT() { // функция проверки CSAT и чато
 			servicetopic = '361c681b-340a-4e47-9342-c7309e27e7b5'
         } else if (localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
             servicetopic = 'df7d4f86-bb75-45b5-8ae8-87bf896bf308' 			
+		}
 			
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
                 "headers": {
                     "content-type": "application/json",
-                },
+                }, 
                 "body": "{\"serviceId\":\""+servicetopic+"\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
