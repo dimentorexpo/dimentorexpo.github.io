@@ -116,7 +116,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 
             checkJiraToken()
 
-            document.getElementById('RefreshJiraStatus').onclick = checkJiraToken // функция повторной проверки авторизации в Jira
+            document.getElementById('RefreshJiraStatus').onclick = checkJiraToken() // функция повторной проверки авторизации в Jira
             let favissues = [];
 
             document.getElementById('defaultQuery').onclick = function () { // если выбрана default

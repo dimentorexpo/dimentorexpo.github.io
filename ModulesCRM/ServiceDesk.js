@@ -928,7 +928,7 @@ document.getElementById('servDskCRM').onclick = function () { // функция 
         }
     }
 	
-	document.getElementById('refreshjiraauth').onclick = checkjiraauth; //функция обновления статуса авторизации
+	document.getElementById('refreshjiraauth').onclick = checkjiraauth(); //функция обновления статуса авторизации
 
 	function remres(a) { // функция переключения класса по нажатию на кнопку
 		$('.edumodbtn').not(a).removeClass('activebtn');
