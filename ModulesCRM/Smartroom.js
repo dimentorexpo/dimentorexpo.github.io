@@ -233,14 +233,14 @@ document.getElementById('AF_Smartroomform').ondblclick = function (a) { // ск�
 					document.getElementById('responseTextarea3').value = ''
 				document.getElementById('sendResponse').click()
 
-				document.getElementById('AF_Smartroomform').style.display = 'none'
-				document.getElementById('clientid').value = ''
-				document.getElementById('fullcomentsmartroom').value = ''
-				clearradio()
-				sendComment('Отправка в документ "Пожелания Смартрум" прошла успешно')
-
-                     
-				
+				document.getElementById('send2smartroom').innerText = "Отправлено✅"
+                        setTimeout(() => {
+                            document.getElementById('send2smartroom').innerText = "Отправить"
+                            document.getElementById('AF_Smartroomform').style.display = 'none'
+							document.getElementById('clientid').value = ''
+							document.getElementById('fullcomentsmartroom').value = ''
+							clearradio()
+                        }, 3000)
             }
         }
 
