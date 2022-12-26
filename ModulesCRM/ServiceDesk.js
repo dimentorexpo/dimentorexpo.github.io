@@ -46,7 +46,7 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="btnCRM sdbtn" id="optionStudcabmobbugs">👨‍🎓📱Bugs</button>
                     <button class="btnCRM sdbtn" id="optionAcademymobbugs">🅰📱🐞</button>
 					<button class="btnCRM sdbtn" id="optionMobbugs">📱Mobil bug</button>
-					<button class="btnCRM sdbtn" id="optionMrktprojbugs style="display: none">👨‍💻mproject</button>
+					<button class="btnCRM sdbtn" id="optionMrktprojbugs" style="display: none">👨‍💻mproject</button>
                     <button class="btnCRM sdbtn" id="optionInfra" style="margin-top:2px; display:none">🛠Infra</button>
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
