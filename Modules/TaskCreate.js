@@ -318,7 +318,7 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('taskserviceid').value = '';
         }
 
-        document.getElementById('highsecondline').onclick = function () {
+        document.getElementById('highteachertc').onclick = function () {
             document.getElementById('priority').children[2].selected = true;
             document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
             document.getElementById('customerservice').children[6].selected = true;
@@ -410,12 +410,16 @@ document.getElementById('serviceinf').innerHTML = '';
                 if (document.getElementById('priority').value == 'highest') {
                     document.getElementById('taskserviceid').style.background = 'Coral';
                     taskflagempty = 1;
-                } else if (document.getElementById('customerservice').value == 'Кризис менеджеры') {
-                    document.getElementById('taskserviceid').style.background = 'Coral';
-                    taskflagempty = 1;
                 } else {
                     document.getElementById('taskserviceid').style.background = '';
                 }
+            } else {
+                document.getElementById('taskserviceid').style.background = '';
+            }
+
+            if (document.getElementById('customerservice').value == 'Кризис менеджеры' && document.getElementById('taskserviceid').value.length < 3) {
+                document.getElementById('taskserviceid').style.background = 'Coral';
+                taskflagempty = 1;
             } else {
                 document.getElementById('taskserviceid').style.background = '';
             }
