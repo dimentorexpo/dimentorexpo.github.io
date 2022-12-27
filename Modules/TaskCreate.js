@@ -410,10 +410,7 @@ document.getElementById('serviceinf').innerHTML = '';
                 if (document.getElementById('priority').value == 'highest') {
                     document.getElementById('taskserviceid').style.background = 'Coral';
                     taskflagempty = 1;
-                } else {
-                    document.getElementById('taskserviceid').style.background = '';
-                }
-                if (document.getElementById('customerservice').value == 'Кризис менеджеры') {
+                } else if (document.getElementById('customerservice').value == 'Кризис менеджеры') {
                     document.getElementById('taskserviceid').style.background = 'Coral';
                     taskflagempty = 1;
                 } else {
