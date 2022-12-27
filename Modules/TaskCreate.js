@@ -14,9 +14,10 @@ var win_taskform = //описание формы создания задач в 
 							<button id="critteachertostudent" style="height:25px; width: 197px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
 							<button id="critstudenttoteacher" style="height:25px; width: 197px;">Крит 👨‍🎓У -> П👽</button>
 							<br>
-							<button id="highsecondline" style="height:25px; width: 130px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
-							<button id="highteachersc" style="height:25px; width: 130px;">👽Исход звонки</button>
-							<button id="highteachertc" style="height:25px; width: 130px;">👽П Teacher Care</button>
+							<button id="highsecondline" style="height:25px; width: 97px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
+							<button id="highteachersc" style="height:25px; width: 97px;">👽Исх. звонки</button>
+							<button id="highteachertc" style="height:25px; width: 97px;">👽 TC</button>
+                            <button id="lowkm" style="height:25px; width: 97px;">😡 КМ</button>
 						</div>
 
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
@@ -37,6 +38,7 @@ var win_taskform = //описание формы создания задач в 
 								<option value="content_management" style="background: white">Контент</option>
 								<option value="outgoing_calls_crm2" style="background: white">Исходящие звонки</option>
 								<option value="tech_support_second_line_crm2" style="background: white">Техподдержка 2Л CRM</option>
+                                <option value="crisis_manager" style="background: white">Кризис менеджеры</option>
 							</select>
 
 							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
