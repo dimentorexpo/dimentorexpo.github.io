@@ -318,6 +318,19 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('taskserviceid').value = '';
         }
 
+        document.getElementById('highsecondline').onclick = function () {
+            document.getElementById('priority').children[2].selected = true;
+            document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[6].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            document.getElementById('taskserviceid').value = '';
+        }
+
 
         document.getElementById('highteachersc').onclick = function () {
             document.getElementById('priority').children[2].selected = true;
@@ -329,10 +342,10 @@ document.getElementById('serviceinf').innerHTML = '';
             }
         }
 
-        document.getElementById('highteachertc').onclick = function () {
-            document.getElementById('priority').children[2].selected = true;
-            document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-            document.getElementById('customerservice').children[2].selected = true;
+        document.getElementById('lowkm').onclick = function () {
+            document.getElementById('priority').children[1].selected = true;
+            document.getElementById('priority').style = "color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[7].selected = true;
 
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
