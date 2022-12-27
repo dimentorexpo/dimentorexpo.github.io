@@ -347,7 +347,7 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('priority').style = "color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
             document.getElementById('customerservice').children[7].selected = true;
 
-            let services;
+            let serviceskm;
 
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
@@ -356,12 +356,12 @@ document.getElementById('serviceinf').innerHTML = '';
 
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
-                    services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+                    serviceskm = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
                 }
             }
 
-            if (services.length == 1) {
-                document.getElementById('taskserviceid').value = services[0].replace('service-', '')
+            if (serviceskm.length == 1) {
+                document.getElementById('taskserviceid').value = serviceskm[0].replace('service-', '')
             } else {
                 for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                     if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
