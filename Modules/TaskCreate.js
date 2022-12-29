@@ -417,9 +417,13 @@ document.getElementById('serviceinf').innerHTML = '';
                 document.getElementById('taskserviceid').style.background = '';
             }
 
-            if (document.getElementById('customerservice').value == 'crisis_manager' && document.getElementById('taskserviceid').value.length < 3) {
-                document.getElementById('taskserviceid').style.background = 'Coral';
-                taskflagempty = 1;
+            if (document.getElementById('customerservice').value == 'crisis_manager'){
+                if (document.getElementById('taskserviceid').value.length < 3) {
+                    document.getElementById('taskserviceid').style.background = 'Coral';
+                    taskflagempty = 1;
+                } else {
+                    document.getElementById('taskserviceid').style.background = '';
+                }
             } else {
                 document.getElementById('taskserviceid').style.background = '';
             }
