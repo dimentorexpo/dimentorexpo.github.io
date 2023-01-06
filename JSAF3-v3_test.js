@@ -1768,6 +1768,10 @@ async function checkCSAT() { // функция проверки CSAT и чато
 
 	const slaclchatcontainer = document.querySelectorAll('.lookchat');
 	const slaclchattids = document.querySelectorAll('.slaclchatids');
+	const artchatcontainer = document.querySelectorAll('.lookchatart');
+    const artchattids = document.querySelectorAll('.artchatids');
+	const aclsclookcontainer = document.querySelectorAll('.lookaclschat')
+    const aclsdchatids = document.getElementsByName('aclsconv')
 	const chatHistoryElement = document.getElementById('AF_ChatHis');
 	const chatHistoryButton = document.getElementById('butChatHistory');
 	const chatHistorySearchInput = document.getElementById('hashchathis');
@@ -1783,37 +1787,25 @@ async function checkCSAT() { // функция проверки CSAT и чато
 	  });
 	});
 
+	artchatcontainer.forEach((container, index) => {
+	  container.addEventListener('click', () => {
+		if (chatHistoryElement.style.display === 'none') {
+			chatHistoryButton.click();
+		}
+		chatHistorySearchInput.value = artchattids[index].innerText;
+		chatHistorySearchButton.click();
+	  });
+	});
 
-    let artchatcontainer = document.querySelectorAll('.lookchatart');
-    let artchattids = document.querySelectorAll('.artchatids');
-    for (let j = 0; j < artchatcontainer.length; j++) {
-        artchatcontainer[j].onclick = () => {
-            if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                document.getElementById('butChatHistory').click();
-                document.getElementById('hashchathis').value = artchattids[j].innerText;
-                btn_search_history.click()
-            } else {
-                document.getElementById('hashchathis').value = artchattids[j].innerText;
-                btn_search_history.click()
-            }
-        }
-    }
-
-    let aclsclookcontainer = document.querySelectorAll('.lookaclschat')
-    let aclsdchatids = document.getElementsByName('aclsconv')
-    for (let z = 0; z < aclsclookcontainer.length; z++) {
-        aclsclookcontainer[z].onclick = () => {
-            if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                document.getElementById('butChatHistory').click();
-                document.getElementById('hashchathis').value = aclsdchatids[z].innerText;
-                btn_search_history.click()
-            } else {
-                document.getElementById('hashchathis').value = aclsdchatids[z].innerText;
-                btn_search_history.click()
-            }
-        }
-    }
-
+	aclsclookcontainer.forEach((container, index) => {
+	  container.addEventListener('click', () => {
+		if (chatHistoryElement.style.display === 'none') {
+			chatHistoryButton.click();
+		}
+		chatHistorySearchInput.value = aclsdchatids[index].innerText;
+		chatHistorySearchButton.click();
+	  });
+	});
 
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
 }
