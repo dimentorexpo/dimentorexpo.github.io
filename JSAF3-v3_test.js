@@ -1429,10 +1429,13 @@ async function getStats() { // функция получения статист�
     }).then(result => b = result.json()).then(b => b.onOperator.forEach(k => {
         if (k.operator != null) 
             // if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opSection) {
-            if (k.operator.fullName.split('-')[0] == opSection) {
+            if ((k.operator.kbs.indexOf(120181) != -1 || k.operator.kbs.indexOf(121381) != -1 ) && k.operator.fullName.split('-')[0] == opSection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
-            }
+            } else if (k.operator.fullName.split('-')[0] == opSection)) {
+				operatorId.push(k.operator.id)
+                operatorNames.push(k.operator.fullName)
+			}
     }))
 
 
@@ -1444,7 +1447,7 @@ async function getStats() { // функция получения статист�
 	}
 
 	const now = new Date();
-	const secondDate = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
+	const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
 
 	const yesterday = new Date(now - 24 * 60 * 60 * 1000);
 	const firstDate = getFormattedDate(yesterday);
@@ -1461,7 +1464,7 @@ async function getStats() { // функция получения статист�
             },
             "referrer": "https://skyeng.autofaq.ai/logs",
             "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId[l] + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
+            "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId[l] + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDateN + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
             "method": "POST",
             "mode": "cors",
             "credentials": "include"
@@ -1481,7 +1484,7 @@ async function getStats() { // функция получения статист�
                     } else
                         td.style = 'text-align: left; padding-left: 5px'
                     break;
-                case 2:
+                case 2: // последить за выводом пощупанных чатов
                     for (let j = 0; j < operatorNames.length; j++)
                         if (arrayvars[i].operator == operatorNames[j]) {
                             td.textContent = operatorChatCount[j]
