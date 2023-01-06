@@ -660,40 +660,38 @@ Object.keys(localStorage).forEach(function (key) { // чистка localstorage 
 localStorage.setItem('SMART_TABLE_SORTED_INFO(/tickets/archive)', '{\"columnKey\":\"ts\",\"order\":\"descend\"}')
 
 // Блок горячих клавиш
-if (window.location.href.indexOf('skyeng.autofaq.ai') != -1) {
-    document.onkeydown = function (event) {
-        if (event.altKey && event.code == 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
-            fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+const API_ENDPOINT = 'https://skyeng.autofaq.ai/api/reason8/operator/status';
+const fetchOptions = {
+  headers: {
+    'content-type': 'application/json',
+  },
+  referrer: 'https://skyeng.autofaq.ai/tickets/archive',
+  referrerPolicy: 'strict-origin-when-cross-origin',
+  body: '',
+  method: 'POST',
+  mode: 'cors',
+  credentials: 'include',
+};
 
-                "headers": {
-                    "content-type": "application/json",
-                },
+function changeStatus(status) {
+  fetchOptions.body = `{ "command": "DO_SET_OPERATOR_STATUS", "status": "${status}", "source": "Operator" }`;
+  fetch(API_ENDPOINT, fetchOptions)
+    .then((res) => {
+      console.log(`Status changed to ${status}`);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
 
-                "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-                "referrerPolicy": "strict-origin-when-cross-origin",
-                "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Offline\",\"source\":\"Operator\"}",
-                "method": "POST",
-                "mode": "cors",
-                "credentials": "include"
-            });
-            console.log("Status changed to Offline")
-        } else if (event.altKey && event.code == 'KeyI') { // горячие клавиши для смены статуса в Занят
-            fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
-
-                "headers": {
-                    "content-type": "application/json",
-                },
-
-                "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-                "referrerPolicy": "strict-origin-when-cross-origin",
-                "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
-                "method": "POST",
-                "mode": "cors",
-                "credentials": "include"
-            });
-            console.log("Status changed to Busy")
-        }
+if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
+  document.onkeydown = (event) => {
+    if (event.altKey && event.code === 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
+      changeStatus('Offline'); 
+    } else if (event.altKey && event.code === 'KeyI') { // горячие клавиши для смены статуса в Занят
+      changeStatus('Busy');
     }
+  };
 }
 
 // Конец блока горячих клавиш
