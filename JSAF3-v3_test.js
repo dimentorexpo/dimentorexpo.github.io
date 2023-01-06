@@ -1032,9 +1032,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
 		  const menubutarea = document.createElement('div');
 		  menubutarea.style = 'margin-right:20px;';
 
-		  headmenulist.insertBefore(menubutarea, headmenulist.children[7]);
+		  headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
 		  menubutarea.append(butmenu);
-		  headmenulist.insertBefore(menubar, headmenulist.children[7]);
+		  headmenulist.insertBefore(menubar, headmenulist.children[15]);
 		  const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat];
 		  addElementsToList(elements, menubar);
 
