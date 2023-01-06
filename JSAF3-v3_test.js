@@ -873,18 +873,39 @@ function startTimer() { // большая функция по таймеру а�
                     }
 
                     //добавил окраску бренда skyeng
-                    for (let i = 0; i < document.getElementsByClassName('expert-user_details-dt').length; i++) {
-                        if (document.getElementsByClassName('expert-user_details-dt')[i].innerText == "brand") {
-                            for (let i = 0; i < document.getElementsByTagName('p').length; i++) {
-                                if (document.getElementsByTagName('p')[i].innerText == "skyeng")
-                                    document.getElementsByTagName('p')[i].style.background = "#00AEFA";
-                                else if (document.getElementsByTagName('p')[i].innerText == "skysmart")
-                                    document.getElementsByTagName('p')[i].style.background = "#2E8B57";
-                                else if (document.getElementsByTagName('p')[i].innerText == 'идёт урок')
-                                    document.getElementsByTagName('p')[i].style.background = "#FF0000";
-                            }
-                        }
-                    }
+                    // for (let i = 0; i < document.getElementsByClassName('expert-user_details-dt').length; i++) {
+                        // if (document.getElementsByClassName('expert-user_details-dt')[i].innerText == "brand") {
+                            // for (let i = 0; i < document.getElementsByTagName('p').length; i++) {
+                                // if (document.getElementsByTagName('p')[i].innerText == "skyeng")
+                                    // document.getElementsByTagName('p')[i].style.background = "#00AEFA";
+                                // else if (document.getElementsByTagName('p')[i].innerText == "skysmart")
+                                    // document.getElementsByTagName('p')[i].style.background = "#2E8B57";
+                                // else if (document.getElementsByTagName('p')[i].innerText == 'идёт урок')
+                                    // document.getElementsByTagName('p')[i].style.background = "#FF0000";
+                            // }
+                        // }
+                    // }
+					
+					const expertDts = document.getElementsByClassName('expert-user_details-dt');
+					const brandToBackgroundColorMap = {
+					  skyeng: '#00AEFA',
+					  skysmart: '#2E8B57',
+					  'идёт урок': '#FF0000',
+					};
+
+					function setBackgroundColor(element, brand) {
+					  element.style.background = brandToBackgroundColorMap[brand];
+					}
+
+					for (let i = 0; i < expertDts.length; i++) {
+					  if (expertDts[i].innerText === 'brand') {
+						const ps = document.getElementsByTagName('p');
+						for (let i = 0; i < ps.length; i++) {
+						  setBackgroundColor(ps[i], ps[i].innerText);
+						}
+					  }
+					}					
+			
                 }
             }
         }
