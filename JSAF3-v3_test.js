@@ -1341,6 +1341,7 @@ function checkelementtype(a) { // проверка на какой элемен�
     return false;
 }
 
+
 function changesoundaddr() { //функция изменения адреса звука
     let objSoundList = document.getElementById('soundlistaddr')
 
@@ -1409,32 +1410,23 @@ async function getStats() { // функция получения статист�
             }
     }))
 
-    var date = new Date()
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
+	const padStart = (string, targetLength, padString) => {
+	  return String(string).padStart(targetLength, padString);
+	}
 
-    var secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
-    date = date - 24 * 60 * 60 * 1000
-    var date2 = new Date()
-    date2.setTime(date)
+	const getFormattedDate = (date) => {
+	  const year = date.getFullYear();
+	  const month = padStart(date.getMonth() + 1, 2, '0');
+	  const day = padStart(date.getDate(), 2, '0');
+	  return `${year}-${month}-${day}T21:00:00.000z`;
+	}
 
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
+	const now = new Date();
+	const secondDate = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
 
-    var firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
+	const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+	const firstDate = getFormattedDate(yesterday);
+
 
     var operatorChatCount = []
     for (var l = 0; l < operatorId.length; l++) {
