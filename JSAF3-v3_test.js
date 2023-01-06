@@ -1432,7 +1432,7 @@ async function getStats() { // функция получения статист�
             if ((k.operator.kbs.indexOf(120181) != -1 || k.operator.kbs.indexOf(121381) != -1 ) && k.operator.fullName.split('-')[0] == opSection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
-            } else if (k.operator.fullName.split('-')[0] == opSection)) {
+            } else if (k.operator.fullName.split('-')[0] == opSection) {
 				operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
 			}
