@@ -1119,6 +1119,8 @@ function timerHideButtons() { //функция добавления скрыти
             // }
         // }
 		
+	    let modalContent = document.querySelector('.ant-modal-content');
+		
 		const setBackgroundColors = (selectorList, valuesToColor) => {
 			for (let i = 0; i < selectorList.length; i++) {
 				for (const [value, color] of Object.entries(valuesToColor)) {
