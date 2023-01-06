@@ -1398,6 +1398,10 @@ async function getStats() { // функция получения статист�
         // return b.conversationClosed - a.conversationClosed;
     // });
 	
+	const padStart = (string, targetLength, padString) => {
+	  return String(string).padStart(targetLength, padString);
+	}
+	
 	const opSection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
     console.log("Department:", opSection);
 
@@ -1430,9 +1434,6 @@ async function getStats() { // функция получения статист�
             }
     }))
 
-	const padStart = (string, targetLength, padString) => {
-	  return String(string).padStart(targetLength, padString);
-	}
 
 	const getFormattedDate = (date) => {
 	  const year = date.getFullYear();
@@ -1477,7 +1478,7 @@ async function getStats() { // функция получения статист�
             switch (j) {
                 case 0:
                     td.textContent = arrayvars[i].operator;
-                    if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == array[i].operator) {
+                    if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == arrayvars[i].operator) {
                         td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
                     } else
                         td.style = 'text-align: left; padding-left: 5px'
