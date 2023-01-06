@@ -973,35 +973,23 @@ function firstLoadPage() { //первичаня загрузка страниц�
 
         setTimeout(move_again_AF, 3500)
 
-        // setTimeout(function () {
-            // btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            // btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            // btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            // btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
-            // btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
-            // btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
-            // btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
-            // btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
-            // btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
-            // btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
-            // btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            // btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
-            // btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            // btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            // btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
-        // }, 2000)
-		
-		function addElementsToList(elements, list) {
-		  elements.forEach((element) => {
-			list.append(element);
-		  });
-		}
-
-		setTimeout(() => {
-		  const btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0];
-		  const elements = [butMarks, servDsk, butJiraOpenForm, butopensugestform, butrefuse, butsmartroom, butLessonInfo, butChatHistory, butFrozeChat, maskBack, hashBut, butServ, butThemes, taskBut];
-		  addElementsToList(elements, btnAdd1);
-		}, 2000);
+        setTimeout(function () {
+            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
+            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
+        }, 2000)
 
         // setTimeout(() => {
             // let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
