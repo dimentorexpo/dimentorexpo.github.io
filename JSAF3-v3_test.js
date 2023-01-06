@@ -1148,15 +1148,16 @@ function timerHideButtons() { //функция добавления скрыти
 function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '10px'
+	
+	let testUsers = document.getElementById('testUsers');
+	let languageSwitcher = document.querySelector('.user_menu-language_switcher');
 
+	const setDisplayStyle = (element, value) => {
+		element.style.display = value;
+	}
 
-    if (localStorage.getItem('disablelpmwindow') == 1)
-        document.getElementById('testUsers').style.display = "none";
-    else document.getElementById('testUsers').style.display = ''
-
-    if (localStorage.getItem('disablelngpmwindow') == 1)
-        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+	setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
+	setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
