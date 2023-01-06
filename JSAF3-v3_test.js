@@ -3901,7 +3901,7 @@ function checJiraF() { //Функция добавления коммента в
 function screenshots() { //просмотр и трансформация скриншотов в активном чате
     if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined) {
         for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined && document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('math-prod') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('communications.skyeng.ru') != -1) {
+            if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined && (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('math-prod') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('communications.skyeng.ru') != -1)) {
                 var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
                 for (let j = 0; j < div.querySelectorAll('a').length; j++) {
                     if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
@@ -3920,7 +3920,7 @@ function screenshots() { //просмотр и трансформация скр
         }
     } else if (document.getElementsByClassName('chat-messages')[0] != undefined) {
         for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined && document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('math-prod') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('communications.skyeng.ru') != -1) {
+            if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined && (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('math-prod') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('communications.skyeng.ru') != -1)) {
                 var div = document.getElementsByClassName('chat-messages')[0].children[i]
                 for (let j = 0; j < div.querySelectorAll('a').length; j++) {
                     if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
