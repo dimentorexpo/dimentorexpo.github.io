@@ -1593,6 +1593,10 @@ async function checkCSAT() { // функция проверки CSAT и чато
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+	
+	const padStart = (string, targetLength, padString) => {
+	  return String(string).padStart(targetLength, padString);
+	}
 
 	const getFormattedDate = (date) => {
 	  const year = date.getFullYear();
