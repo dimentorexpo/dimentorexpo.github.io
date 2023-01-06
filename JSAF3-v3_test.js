@@ -1377,26 +1377,46 @@ async function getStats() { // функция получения статист�
         th.textContent = columnNames[i]
     }
 
-    var time = new Date()
-    var time2 = new Date()
-    time2.setTime(time - 24 * 60 * 60 * 1000)
-    var date1 = time.getDate() < 10 ? '0' + time.getDate() : time.getDate()
-    var date2 = time2.getDate() < 10 ? '0' + time2.getDate() : time2.getDate()
-    var month1 = Number(time.getMonth() + 1) < 10 ? '0' + Number(time.getMonth() + 1) : Number(time.getMonth() + 1)
-    var month2 = Number(time2.getMonth() + 1) < 10 ? '0' + Number(time2.getMonth() + 1) : Number(time2.getMonth() + 1)
-    var str1 = time.getFullYear() + "-" + month1 + "-" + date1 + "T21%3A00%3A00Z"
-    var str2 = time2.getFullYear() + "-" + month2 + "-" + date2 + "T21%3A00%3A00Z"
-    var array = []
-    let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
-    console.log("Подразделение - " + opsection);
-    await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
-        if (k.operator.indexOf(opsection) != -1) {
-            array.push(k)
-        }
-    })))
-    array.sort(function (a, b) {
-        return b.conversationClosed - a.conversationClosed;
-    });
+    // var time = new Date()
+    // var time2 = new Date()
+    // time2.setTime(time - 24 * 60 * 60 * 1000)
+    // var date1 = time.getDate() < 10 ? '0' + time.getDate() : time.getDate()
+    // var date2 = time2.getDate() < 10 ? '0' + time2.getDate() : time2.getDate()
+    // var month1 = Number(time.getMonth() + 1) < 10 ? '0' + Number(time.getMonth() + 1) : Number(time.getMonth() + 1)
+    // var month2 = Number(time2.getMonth() + 1) < 10 ? '0' + Number(time2.getMonth() + 1) : Number(time2.getMonth() + 1)
+    // var str1 = time.getFullYear() + "-" + month1 + "-" + date1 + "T21:00:00Z"
+    // var str2 = time2.getFullYear() + "-" + month2 + "-" + date2 + "T21:00:00Z"
+    // var array = []
+    // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+    // console.log("Подразделение - " + opsection);
+    // await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
+        // if (k.operator.indexOf(opsection) != -1) {
+            // array.push(k)
+        // }
+    // })))
+    // array.sort(function (a, b) {
+        // return b.conversationClosed - a.conversationClosed;
+    // });
+	
+	const opSection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
+    console.log("Department:", opSection);
+
+    const currentDate = new Date();
+    const previousDate = new Date(currentDate.getTime() - 24 * 60 * 60 * 1000);
+
+    const date1 = currentDate.getDate().toString().padStart(2, '0');
+    const date2 = previousDate.getDate().toString().padStart(2, '0');
+    const month1 = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const month2 = (previousDate.getMonth() + 1).toString().padStart(2, '0');
+
+    const str1 = `${currentDate.getFullYear()}-${month1}-${date1}T21:00:00Z`;
+    const str2 = `${previousDate.getFullYear()}-${month2}-${date2}T21:00:00Z`;
+
+    const response = await fetch(`https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=${str2}&dateTo=${str1}`);
+    const data = await response.json();
+    const arrayvars = data.rows.filter(row => row.operator.indexOf(opSection) !== -1);
+    arrayvars.sort((a, b) => b.conversationClosed - a.conversationClosed);
+	
 
     var operatorId = []
     var operatorNames = []
@@ -1450,13 +1470,13 @@ async function getStats() { // функция получения статист�
     }
 
     let tbody = document.createElement('tbody')
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < arrayvars.length; i++) {
         var tr = document.createElement('tr')
         for (let j = 0; j < 5; j++) {
             var td = document.createElement('td')
             switch (j) {
                 case 0:
-                    td.textContent = array[i].operator;
+                    td.textContent = arrayvars[i].operator;
                     if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == array[i].operator) {
                         td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
                     } else
@@ -1464,23 +1484,23 @@ async function getStats() { // функция получения статист�
                     break;
                 case 2:
                     for (let j = 0; j < operatorNames.length; j++)
-                        if (array[i].operator == operatorNames[j]) {
+                        if (arrayvars[i].operator == operatorNames[j]) {
                             td.textContent = operatorChatCount[j]
                             td.classList.add("chtcnt");
                             break
                         }
                     break;
                 case 1:
-                    td.textContent = array[i].conversationClosed;
+                    td.textContent = arrayvars[i].conversationClosed;
                     td.classList.add("chtclosed");
                     break;
                 case 3:
-                    var averageAnswerTime = Math.floor(array[i].averageAnswerTime / 1000)
+                    var averageAnswerTime = Math.floor(arrayvars[i].averageAnswerTime / 1000)
                     averageAnswerTime = averageAnswerTime < 60 ? '00:' + averageAnswerTime : Math.floor(averageAnswerTime / 60) + ':' + ((averageAnswerTime % 60) < 10 ? '0' + (averageAnswerTime % 60) : (averageAnswerTime % 60))
                     td.textContent = averageAnswerTime;
                     break;
                 case 4:
-                    var averageHandlingTime = Math.floor(array[i].averageHandlingTime / 1000)
+                    var averageHandlingTime = Math.floor(arrayvars[i].averageHandlingTime / 1000)
                     averageHandlingTime = averageHandlingTime < 60 ? averageHandlingTime : Math.floor(averageHandlingTime / 60) + ':' + ((averageHandlingTime % 60) < 10 ? '0' + (averageHandlingTime % 60) : (averageHandlingTime % 60))
                     td.textContent = averageHandlingTime;
                     break;
