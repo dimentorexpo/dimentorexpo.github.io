@@ -1061,20 +1061,50 @@ function timerHideButtons() { //функция добавления скрыти
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
 
 
-        let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
-        if (opsection == "ТП") {
-            if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
-                for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                    if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)")
-                        document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+        // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+        // if (opsection == "ТП") {
+            // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
+                // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
+                    // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)")
+                        // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
-            if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
-                for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                    if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Закрыть") {
-                        // console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
-                        document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
-                    }
-        }
+            // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
+                // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
+                    // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Закрыть") {
+                        console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
+                        // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+                    // }
+        // }
+		
+		
+		// NeuralNetwork Version
+		let opsection = document.querySelector('.user_menu-dropdown-user_name').innerText.split('-')[0];
+
+		const hideElements = (modalContent, valuesToHide) => {
+		  for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
+			if (!valuesToHide.includes(modalContent.children[2].children[i].textContent)) {
+			  modalContent.children[2].children[i].style.display = 'none';
+			}
+		  }
+		}
+
+		if (opsection === 'ТП') {
+		  const modalContent = document.querySelector('.ant-modal-content');
+		  const heading = modalContent.children[1].children[0].childNodes[0].textContent;
+		  if (heading === 'Указать тему') {
+			hideElements(modalContent, [
+			  'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
+			  'Уроки V2',
+			  'Группа КМ (работает ежедневно с 8:00 до 21:55)',
+			  'Обратная связь ТП (работает ежедневно с 08:00-22:50)'
+			]);
+		  } else if (heading === 'Закрыть запрос?') {
+			hideElements(modalContent, [
+			  'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
+			  'Закрыть'
+			]);
+		  }
+		}
 
 
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки и добавления заметки
