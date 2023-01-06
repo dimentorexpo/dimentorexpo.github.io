@@ -1,6 +1,6 @@
 ﻿let pldata;
 let drevo;
-let afopername;
+let afopername; // переменная фамилии, имени оператора при переборе общего списка операторов
 let foundarr;
 let flagsearch;
 let operchatsdata;
@@ -673,7 +673,7 @@ const fetchOptions = {
   credentials: 'include',
 };
 
-function changeStatus(status) {
+function changeStatus(status) { // функция изменения статуса оператора
   fetchOptions.body = `{ "command": "DO_SET_OPERATOR_STATUS", "status": "${status}", "source": "Operator" }`;
   fetch(API_ENDPOINT, fetchOptions)
     .then((res) => {
@@ -697,19 +697,19 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
 // Конец блока горячих клавиш
 
 async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
-    a = await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-        "credentials": "include"
-    }).then(a => b = a.json()).then(b => {
-        let me = document.querySelector('.user_menu-dropdown-user_name');
-        operatorsarray = b.onOperator;
-        b.onOperator.forEach(s => {
-            if (s.operator != null && me && s.operator.fullName === me.innerText) {
-                operatorId = s.operator.id
-                afopername = s.operator.fullName
-                console.log("Мой ID: " + operatorId)
-            }
-        })
-    })
+  const a = await fetch('https://skyeng.autofaq.ai/api/operators/statistic/currentState', {
+    credentials: 'include',
+  });
+  const b = await a.json();
+  const me = document.querySelector('.user_menu-dropdown-user_name');
+
+  b.onOperator.forEach((s) => {
+    if (s.operator != null && me && s.operator.fullName === me.innerText) {
+      operatorId = s.operator.id;
+      afopername = s.operator.fullName;
+      console.log(`Мой ID: ${operatorId}`);
+    }
+  });
 }
 
 function startTimer() { // большая функция по таймеру автозакрытия, работой с аудио, добавлением доп кнопок справа в панель информации о пользователе и кнопок быстрого выставления тегов
