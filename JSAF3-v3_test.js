@@ -1815,34 +1815,23 @@ async function checkChatCountQue() { // функция проверки коли
     str.style.paddingLeft = '50px'
     if (document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-    var date = new Date()
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
+	const padStart = (string, targetLength, padString) => {
+	  return String(string).padStart(targetLength, padString);
+	}
 
-    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059Z"
-    date = date - 24 * 60 * 60 * 1000
-    var date2 = new Date()
-    date2.setTime(date)
+	const getFormattedDate = (date) => {
+	  const year = date.getFullYear();
+	  const month = padStart(date.getMonth() + 1, 2, '0');
+	  const day = padStart(date.getDate(), 2, '0');
+	  return `${year}-${month}-${day}T21:00:00.000z`;
+	}
 
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + (date2.getDate()) // убрал -1
-    else if (date2.getDate() == 10)
-        day2 = (date2.getDate());
-    else
-        day2 = (date2.getDate() - 1)
+	const now = new Date();
+	const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
 
-    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
+	const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+	const firstDate = getFormattedDate(yesterday);
+
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
         "headers": {
             "content-type": "application/json",
@@ -1852,7 +1841,7 @@ async function checkChatCountQue() { // функция проверки коли
         },
         "referrer": "https://skyeng.autofaq.ai/logs",
         "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
+        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDateN + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
         "method": "POST",
         "mode": "cors",
         "credentials": "include"
