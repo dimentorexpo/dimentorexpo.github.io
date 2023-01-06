@@ -1766,23 +1766,23 @@ async function checkCSAT() { // функция проверки CSAT и чато
         console.error(e, e.stack);
     }
 
-    let slaclchatcontainer = document.querySelectorAll('.lookchat');
-    let slaclchattids = document.querySelectorAll('.slaclchatids');
-    for (let j = 0; j < slaclchatcontainer.length; j++) {
-        slaclchatcontainer[j].onclick = function () {
+	const slaclchatcontainer = document.querySelectorAll('.lookchat');
+	const slaclchattids = document.querySelectorAll('.slaclchatids');
+	const chatHistoryElement = document.getElementById('AF_ChatHis');
+	const chatHistoryButton = document.getElementById('butChatHistory');
+	const chatHistorySearchInput = document.getElementById('hashchathis');
+	const chatHistorySearchButton = document.getElementById('btn_search_history');
 
-            if (document.getElementById('AF_ChatHis').style.display == 'none') {
-                document.getElementById('butChatHistory').click();
+	slaclchatcontainer.forEach((container, index) => {
+	  container.addEventListener('click', () => {
+		if (chatHistoryElement.style.display === 'none') {
+		  chatHistoryButton.click();
+		}
+		chatHistorySearchInput.value = slaclchattids[index].innerText;
+		chatHistorySearchButton.click();
+	  });
+	});
 
-                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
-                btn_search_history.click()
-
-            } else {
-                document.getElementById('hashchathis').value = slaclchattids[j].innerText;
-                btn_search_history.click()
-            }
-        }
-    }
 
     let artchatcontainer = document.querySelectorAll('.lookchatart');
     let artchattids = document.querySelectorAll('.artchatids');
