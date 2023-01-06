@@ -1452,7 +1452,6 @@ async function getStats() { // функция получения статист�
 	const yesterday = new Date(now - 24 * 60 * 60 * 1000);
 	const firstDate = getFormattedDate(yesterday);
 
-
     var operatorChatCount = []
     for (var l = 0; l < operatorId.length; l++) {
         await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -1595,32 +1594,18 @@ async function checkCSAT() { // функция проверки CSAT и чато
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
 
-    var date = new Date()
-    day = month = ""
-    if (date.getMonth() < 9)
-        month = "0" + (date.getMonth() + 1)
-    else
-        month = (date.getMonth() + 1)
-    if (date.getDate() < 10)
-        day = "0" + date.getDate()
-    else
-        day = date.getDate()
+	const getFormattedDate = (date) => {
+	  const year = date.getFullYear();
+	  const month = padStart(date.getMonth() + 1, 2, '0');
+	  const day = padStart(date.getDate(), 2, '0');
+	  return `${year}-${month}-${day}T21:00:00.000z`;
+	}
 
-    secondDate = date.getFullYear() + "-" + month + "-" + day + "T20:59:59.059z"
-    date = date - 24 * 60 * 60 * 1000
-    var date2 = new Date()
-    date2.setTime(date)
+	const now = new Date();
+	const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
 
-    if (date2.getMonth() < 9)
-        month2 = "0" + (date2.getMonth() + 1)
-    else
-        month2 = (date2.getMonth() + 1)
-    if (date2.getDate() < 10)
-        day2 = "0" + date2.getDate()
-    else
-        day2 = date2.getDate()
-
-    firstDate = date2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000z"
+	const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+	const firstDate = getFormattedDate(yesterday);
 
     try {
         page = 1
@@ -1653,7 +1638,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
                 "headers": {
                     "content-type": "application/json",
                 }, 
-                "body": "{\"serviceId\":\""+servicetopic+"\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDate + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                "body": "{\"serviceId\":\""+servicetopic+"\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDateN + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
             for (let i = 0; i < test.items.length; i++) {
