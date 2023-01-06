@@ -1427,8 +1427,9 @@ async function getStats() { // функция получения статист�
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
     }).then(result => b = result.json()).then(b => b.onOperator.forEach(k => {
-        if (k.operator != null)
-            if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opsection) {
+        if (k.operator != null) 
+            // if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opSection) {
+            if (k.operator.fullName.split('-')[0] == opSection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
             }
@@ -1454,10 +1455,7 @@ async function getStats() { // функция получения статист�
         await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
                 "accept": "*/*",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                "cache-control": "max-age=0",
                 "content-type": "application/json",
-                "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin"
             },
@@ -1563,13 +1561,13 @@ async function getStats() { // функция получения статист�
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
     for (i = 0; i < dcc.length; i++) {
-        summcnt = summcnt + Number(dcc[i].textContent)
+        summcnt += Number(dcc[i].textContent)
     }
 
     let dc = document.getElementsByClassName('chtclosed')
     let summclsd = 0;
     for (i = 0; i < dc.length; i++) {
-        summclsd = summclsd + Number(dc[i].textContent)
+        summclsd += Number(dc[i].textContent)
     }
 
     let sumchatclosed = document.createElement('div') // сумма закрытых чатов за сутки
