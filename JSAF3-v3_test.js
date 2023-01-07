@@ -2340,7 +2340,7 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
 	
     if (textFromTable.length > 1) {
 		const emailInput = document.getElementById('email_tr');
-		email = emailnput.value || emailInput.placeholder;
+		email = emailInput.value || emailInput.placeholder;
 		
 		if (email === 'Почта') {
 			document.getElementById('inp').value = "Введите почту"
