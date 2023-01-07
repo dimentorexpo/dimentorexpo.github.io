@@ -3379,35 +3379,6 @@ async function remandressl() { // функция добавляения масс
         }
     }
 
-    async function addChat(subject) { // функция для массового добавления чатов не в мультиклассруме для каждого отдельного предмета
-        let d = document.cookie;
-        d = d.match(/token_global=(.*)/);
-        let sidarr = [];
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "headers": {
-                "accept": "application/json, text/plain, */*",
-                "authorization": "Bearer" + d[1]
-            },
-            "credentials": "include",
-            "method": "POST",
-        }).then(r => r.json()).then(r => artid = r)
-
-        await fetch(subject, { "headers": { "authorization": "Bearer" + d[1], }, "method": "GET", "credentials": "include" })
-            .then(r => r.json()).then(data => studarr = data)
-        if (studarr.results != '') {
-            for (let i = 0; i < studarr.results.length; i++) {
-                if (studarr.results[i].status != "sleep")
-                    sidarr += studarr.results[i].userId + ","
-            }
-            sidarr = sidarr.split(',');
-            for (let j = 0; j < sidarr.length - 1; j++) {
-                fetchaddchat(sidarr[j], artid.user.id)
-            }
-            alert("Чаты с учениками в разделе 'Английский язык' успешно добавлены!")
-        } else alert("Выбран не верный предмет или нет учеников в разделе 'Английский язык'")
-    }
-
-
     let classworkbtn = document.createElement('div') // создание кнопки Classwork
     classworkbtn.id = "clwbtn"
     classworkbtn.innerText = "Classwork"
