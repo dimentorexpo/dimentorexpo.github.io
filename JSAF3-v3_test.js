@@ -3771,40 +3771,36 @@ function clock_on_javascript_1() {  //таймер обычного отсчет
   document.getElementById("clock_js").textContent = time;
 }
 
-
-
 function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
     var data = new Date();
-    hours = data.getHours();
-    if (hours < 10) { hours = "0" + hours; }
-    minutes = data.getMinutes();
-    if (minutes < 10) { minutes = "0" + minutes; }
-    seconds = data.getSeconds();
-    if (seconds < 10) { seconds = "0" + seconds; }
-    var summin = JSON.parse(localStorage.getItem('setminuta')) + 60;
-    if (localStorage.getItem('chronostamp') === null) {
+    var currentHours = data.getHours();
+    var currentMinutes = data.getMinutes();
+    var currentSeconds = data.getSeconds();
+    var setHours = JSON.parse(localStorage.getItem('setchas'));
+    var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
+
+    if (setHours == null || setMinutes == null) {
         time = "00" + " : " + "00" + " : " + "00";
         document.getElementById("clock_remin").innerHTML = time;
-    } else if (((localStorage.getItem('setchas') - hours) == 0) && ((localStorage.getItem('setminuta') > minutes))) {
-        time = "00" + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
-        document.getElementById("clock_remin").innerHTML = time;
-    } else if (((localStorage.getItem('setchas') - hours) > 1) && ((localStorage.getItem('setminuta') - minutes) == 0)) {
-        time = (localStorage.getItem('setchas') - hours) + " : " + "00" + " : " + (60 - seconds);
-        document.getElementById("clock_remin").innerHTML = time;
-    } else if (((localStorage.getItem('setchas') - hours) >= 1) && localStorage.getItem('setminuta') < minutes) {
-        time = ((localStorage.getItem('setchas') - hours) - 1) + " : " + (summin - minutes) + " : " + (60 - seconds);
-        document.getElementById("clock_remin").innerHTML = time;
-    } else if (((localStorage.getItem('setchas') - hours) > 0) && localStorage.getItem('setminuta') > minutes) {
-        time = localStorage.getItem('setchas') - hours + " : " + (localStorage.getItem('setminuta') - minutes - 1) + " : " + (60 - seconds);
-        document.getElementById("clock_remin").innerHTML = time;
-    } else if (((localStorage.getItem('setchas') - hours) == 1) && (localStorage.getItem('setminuta') - minutes) == 0) {
-        time = localStorage.getItem('setchas') - hours + " : " + "00" + " : " + (60 - seconds);
-        document.getElementById("clock_remin").innerHTML = time;
-    } else {
-        time = "00" + " : " + "00" + " : " + "00";
-        document.getElementById("clock_remin").innerHTML = time;
+        return;
     }
+
+    var remainingSeconds = (setHours - currentHours) * 3600 + (setMinutes - currentMinutes) * 60 - currentSeconds;
+    if (remainingSeconds <= 0) {
+        time = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin").innerHTML = time;
+        return;
+    }
+
+    var remainingMinutes = Math.floor(remainingSeconds / 60);
+    remainingSeconds = remainingSeconds % 60;
+    var remainingHours = Math.floor(remainingMinutes / 60);
+    remainingMinutes = remainingMinutes % 60;
+
+    time = (remainingHours < 10 ? "0" + remainingHours : remainingHours) + " : " + (remainingMinutes < 10 ? "0" + remainingMinutes : remainingMinutes) + " : " + (remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds);
+    document.getElementById("clock_remin").innerHTML = time;
 }
+
 
 function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
     var data1 = new Date();
