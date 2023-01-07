@@ -3602,103 +3602,110 @@ function addbuttonsintegration() { // добавляет подсветку пр
     }
 }
 
-// function checJiraF() { //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
-    // try {
-        // if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").textContent == "Ссылка на Jira:") {
-            // document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-                // if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
-                    // sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent);
-                    // console.log("DONE!")
-                // }
-            // }
+function checJiraF() { //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
+    try {
+        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").textContent == "Ссылка на Jira:") {
+            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+                if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent);
+                    console.log("DONE!")
+                }
+            }
 
-            // document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-                // if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
-                    // sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent);
-                    // console.log("DONE!")
-                // }
-            // }
-        // } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").textContent == "Ссылка на Jira:") {
-            // document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-                // if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
-                    // sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent);
-                    // console.log("DONE!")
-                // }
-            // }
+            document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+                if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent);
+                    console.log("DONE!")
+                }
+            }
+        } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").textContent == "Ссылка на Jira:") {
+            document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+                if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent);
+                    console.log("DONE!")
+                }
+            }
 
-            // document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-                // if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
-                    // sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent);
-                    // console.log("DONE!")
-                // }
-            // }
-        // }
-    // } catch (e) { }
-// }
-
-function checJiraF() {
-  // Select the element with the text "Ссылка на Jira:"
-  const jiraLinkElement = document.querySelector("#DateFilter span.sc-fznJRM[textContent='Ссылка на Jira:']");
-  if (!jiraLinkElement) {
-    return;
-  }
-
-  // Select the element containing the Jira link
-  const jiraLinkContainer = jiraLinkElement.parentNode.querySelector("span.sc-fzqNqU");
-  if (!jiraLinkContainer) {
-    return;
-  }
-
-  // Add the click event listener to the element containing the Jira link
-  jiraLinkContainer.addEventListener("click", () => {
-    if (jiraLinkContainer.textContent !== "Пусто") {
-      sendComment(jiraLinkContainer.textContent);
-      console.log("DONE!");
-    }
-  });
+            document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
+                if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent);
+                    console.log("DONE!")
+                }
+            }
+        }
+    } catch (e) { }
 }
 
-
 function screenshots() { //просмотр и трансформация скриншотов в активном чате
-    if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined) {
-        for (i = 0; document.getElementsByClassName('expert-chat-display-inner')[0].children[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined && (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('math-prod') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('communications.skyeng.ru') != -1)) {
-                var div = document.getElementsByClassName('expert-chat-display-inner')[0].children[i]
-                for (let j = 0; j < div.querySelectorAll('a').length; j++) {
-                    if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
-                        var img = document.createElement('img')
-                        img.style.width = '100px'
-                        var alink = document.createElement('a')
-                        alink.setAttribute('data-lightbox', 'imgs');
-                        alink.append(img)
-                        img.src = div.querySelectorAll('a')[j].href
-                        img.alt = 'ПКМ-Сохранить ссылку как'
-                        alink.href = img.src;
-                        div.querySelectorAll('a')[j].replaceWith(alink)
-                    }
-                }
-            }
-        }
-    } else if (document.getElementsByClassName('chat-messages')[0] != undefined) {
-        for (i = 0; document.getElementsByClassName('chat-messages')[0].children[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-chat-display-inner')[0] != undefined && (document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('vimbox-resource') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('math-prod') != -1 || document.getElementsByClassName('expert-chat-display-inner')[0].children[i].textContent.indexOf('communications.skyeng.ru') != -1)) {
-                var div = document.getElementsByClassName('chat-messages')[0].children[i]
-                for (let j = 0; j < div.querySelectorAll('a').length; j++) {
-                    if (div.querySelectorAll('a')[j].hasAttribute('data-lightbox') == false) {
-                        var img = document.createElement('img')
-                        img.style.width = '100px'
-                        var alink = document.createElement('a')
-                        alink.setAttribute('data-lightbox', 'imgs');
-                        alink.append(img)
-                        img.src = div.querySelectorAll('a')[j].href
-                        img.alt = 'ПКМ-Сохранить ссылку как'
-                        alink.href = img.src;
-                        div.querySelectorAll('a')[j].replaceWith(alink)
-                    }
-                }
-            }
-        }
-    }
+// Select the expert-chat-display-inner element
+	const expertChatDisplayInner = document.getElementsByClassName('expert-chat-display-inner')[0];
+	if (!expertChatDisplayInner) {
+	  return;
+	}
+
+	// Get all the children elements of expert-chat-display-inner
+	const children = expertChatDisplayInner.children;
+
+	// Iterate over the children elements
+	for (let i = 0; i < children.length; i++) {
+	  const child = children[i];
+	  if (child.textContent.includes('vimbox-resource') || child.textContent.includes('math-prod') || child.textContent.includes('communications.skyeng.ru')) {
+		// Get all the links in the child element
+		const links = child.querySelectorAll('a');
+
+		// Iterate over the links
+		for (let j = 0; j < links.length; j++) {
+		  const link = links[j];
+		  if (!link.hasAttribute('data-lightbox')) {
+			// Create the img and a elements
+			const img = document.createElement('img');
+			img.style.width = '100px';
+			const alink = document.createElement('a');
+			alink.setAttribute('data-lightbox', 'imgs');
+			alink.append(img);
+			img.src = link.href;
+			img.alt = 'ПКМ-Сохранить ссылку как';
+			alink.href = img.src;
+			link.replaceWith(alink);
+		  }
+		}
+	  }
+	}
+
+	// Select the chat-messages element
+	const chatMessages = document.getElementsByClassName('chat-messages')[0];
+	if (!chatMessages) {
+	  return;
+	}
+
+	// Get all the children elements of chat-messages
+	const children = chatMessages.children;
+
+	// Iterate over the children elements
+	for (let i = 0; i < children.length; i++) {
+	  const child = children[i];
+	  if (child.textContent.includes('vimbox-resource') || child.textContent.includes('math-prod') || child.textContent.includes('communications.skyeng.ru')) {
+		// Get all the links in the child element
+		const links = child.querySelectorAll('a');
+
+		// Iterate over the links
+		for (let j = 0; j < links.length; j++) {
+		  const link = links[j];
+		  if (!link.hasAttribute('data-lightbox')) {
+			// Create the img and a elements
+			const img = document.createElement('img');
+			img.style.width = '100px';
+			const alink = document.createElement('a');
+			alink.setAttribute('data-lightbox', 'imgs');
+			alink.append(img);
+			img.src = link.href;
+			img.alt = 'ПКМ-Сохранить ссылку как';
+			alink.href = img.src;
+			link.replaceWith(alink);
+		  }
+		}
+	  }
+	}
 }
 
 function getLocalstorageToFile(fileName) { //функция сохранения содержимого localstorage в файл на компьютере
