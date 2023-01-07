@@ -2781,7 +2781,6 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
                 }
             }, 1000)
 
-
             if (document.getElementById('languageAF').innerHTML == "Русский") {
                 if (table[l][1] == "Быстрый шаблон") {
                     sendAnswerTemplate2(table[l][2])
