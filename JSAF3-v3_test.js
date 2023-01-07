@@ -2745,23 +2745,29 @@ function tagToChat(btnName) { // функция отправляет темат�
     }
 }
 
-function newTag(valueId) { // функция выставления тега чата
-    let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/logs') !== -1)
-        chatId = document.location.pathname.split('/')[2]
-    else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
-        chatId = document.location.pathname.split('/')[3]
-    else
-        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
-        "headers": {
-            "content-type": "application/json",
-        },
-        "body": "{\"conversationId\":\"" + chatId + "\",\"elements\":[{\"name\":\"topicId\",\"value\":\"" + valueId + "\"}]}",
-        "method": "POST",
-        "credentials": "include"
-    });
+function newTag(valueId) {
+  const pathname = document.location.pathname.split('/');
+  let chatId;
+
+  if (window.location.href.includes('skyeng.autofaq.ai/logs')) {
+    chatId = pathname[2];
+  } else if (window.location.href.includes('skyeng.autofaq.ai/tickets/archive')) {
+    chatId = pathname[3];
+  } else {
+    const panel = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0];
+    chatId = panel.children[0].children[0].children[0].textContent.split(' ')[1];
+  }
+
+  fetch(`https://skyeng.autofaq.ai/api/conversation/${chatId}/payload`, {
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: `{"conversationId":"${chatId}","elements":[{"name":"topicId","value":"${valueId}"}]}`,
+    method: 'POST',
+    credentials: 'include',
+  });
 }
+
 
 function msgFromTable(btnName) { //шаблоны, тематики. теги с таблицы получает и выставляет
     for (var l = 0; l < table.length; l++) {
