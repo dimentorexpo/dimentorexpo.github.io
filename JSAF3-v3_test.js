@@ -3803,37 +3803,46 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
 
 
 function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
-    var data1 = new Date();
-    hours1 = data1.getHours();
-    if (hours1 < 10) { hours1 = "0" + hours1; }
-    minutes1 = data1.getMinutes();
-    if (minutes1 < 10) { minutes1 = "0" + minutes1; }
-    seconds1 = data1.getSeconds();
-    if (seconds1 < 10) { seconds1 = "0" + seconds1; }
-    var summin1 = JSON.parse(localStorage.getItem('setminuta1')) + 60;
-    if (localStorage.getItem('chronostamp1') === null) {
-        time1 = "00" + " : " + "00" + " : " + "00";
-        document.getElementById("clock_remin1").innerHTML = time1;
-    } else if (((localStorage.getItem('setchas1') - hours1) == 0) && ((localStorage.getItem('setminuta1') > minutes1))) {
-        time1 = "00" + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
-        document.getElementById("clock_remin1").innerHTML = time1;
-    } else if (((localStorage.getItem('setchas1') - hours1) > 1) && ((localStorage.getItem('setminuta1') - minutes1) == 0)) {
-        time1 = (localStorage.getItem('setchas1') - hours1) + " : " + "00" + " : " + (60 - seconds1);
-        document.getElementById("clock_remin1").innerHTML = time1;
-    } else if (((localStorage.getItem('setchas1') - hours1) >= 1) && localStorage.getItem('setminuta1') < minutes1) {
-        time1 = ((localStorage.getItem('setchas1') - hours1) - 1) + " : " + (summin1 - minutes1) + " : " + (60 - seconds1);
-        document.getElementById("clock_remin1").innerHTML = time1;
-    } else if (((localStorage.getItem('setchas1') - hours1) > 0) && localStorage.getItem('setminuta1') > minutes1) {
-        time1 = localStorage.getItem('setchas1') - hours1 + " : " + (localStorage.getItem('setminuta1') - minutes1 - 1) + " : " + (60 - seconds1);
-        document.getElementById("clock_remin1").innerHTML = time1;
-    } else if (((localStorage.getItem('setchas1') - hours1) == 1) && (localStorage.getItem('setminuta1') - minutes1) == 0) {
-        time1 = localStorage.getItem('setchas1') - hours1 + " : " + "00" + " : " + (60 - seconds1);
-        document.getElementById("clock_remin1").innerHTML = time1;
-    } else {
-        time1 = "00" + " : " + "00" + " : " + "00";
-        document.getElementById("clock_remin1").innerHTML = time1;
-    }
+  // Get current time
+  const data1 = new Date();
+  let hours1 = data1.getHours();
+  let minutes1 = data1.getMinutes();
+  let seconds1 = data1.getSeconds();
+  
+  // Get alarm time from local storage
+  const setHours1 = JSON.parse(localStorage.getItem("setchas1"));
+  const setMinutes1 = JSON.parse(localStorage.getItem("setminuta1"));
+  
+  // Check if there is a chronostamp1 value in local storage
+  if (localStorage.getItem("chronostamp1") === null) {
+    time1 = "00 : 00 : 00";
+    document.getElementById("clock_remin1").innerHTML = time1;
+    return;
+  }
+  
+  // Calculate time left until alarm goes off
+  let timeLeft = 0;
+  if (setHours1 > hours1 || (setHours1 === hours1 && setMinutes1 > minutes1)) {
+    // Alarm is set for a future time
+    timeLeft += (setHours1 - hours1) * 3600; // hours to seconds
+    timeLeft += (setMinutes1 - minutes1) * 60; // minutes to seconds
+    timeLeft += (60 - seconds1); // seconds left in current minute
+  } else {
+    // Alarm is set for a time in the past
+    timeLeft += (24 - hours1 + setHours1) * 3600; // hours to seconds
+    timeLeft += (60 - minutes1 + setMinutes1) * 60; // minutes to seconds
+    timeLeft += (60 - seconds1); // seconds left in current minute
+  }
+  
+  // Convert time left to HH:MM:SS format
+  const hoursLeft = Math.floor(timeLeft / 3600);
+  const minutesLeft = Math.floor((timeLeft % 3600) / 60);
+  const secondsLeft = timeLeft % 60;
+  
+  // Display time left in clock_remin1 element
+  document.getElementById("clock_remin1").innerHTML = `${hoursLeft.toString().padStart(2, "0")} : ${minutesLeft.toString().padStart(2, "0")} : ${secondsLeft.toString().padStart(2, "0")}`;
 }
+
 
 function refreshTimerReminder() { // обновляет оставшееся время будильника №1
     if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
