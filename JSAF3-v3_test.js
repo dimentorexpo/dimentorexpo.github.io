@@ -2303,7 +2303,7 @@ function pageClick(pageId) { // по клику переключает стра�
             document.getElementById(i + "page").style.display = 'none'
         } catch (e) { }
     }
-    document.getElementById(pageId).style.backgroundColor = 'background-color: green; border-top:4px solid orange'
+    document.getElementById(pageId).style = 'background-color: green; border-top:4px solid orange'
     document.getElementById(pageId[0] + "page").style.display = ''
 }
 
