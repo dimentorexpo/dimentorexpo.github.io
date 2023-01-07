@@ -2386,7 +2386,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
         if (document.getElementById('languageAF').innerHTML == "Русский") {
             if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Я виртуальный помощник Skyeng' && document.getElementById('msg1').innerHTML == "Доработать") {
-                console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
+                // console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
                 txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
             } else if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
                 txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
@@ -2420,26 +2420,48 @@ function servFromDoc(butName) { // отправка комента и сообщ
         sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
 }
 
-function getText() { //получить текст
-    var app = localStorage.getItem('scriptAdr'),
-        xhr = new XMLHttpRequest();
-    xhr.open('GET', app);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState !== 4) return;
+// function getText() { //получить текст
+    // var app = localStorage.getItem('scriptAdr'),
+        // xhr = new XMLHttpRequest();
+    // xhr.open('GET', app);
+    // xhr.onreadystatechange = function () {
+        // if (xhr.readyState !== 4) return;
 
-        if (xhr.status == 200) {
-            try {
-                var r = JSON.parse(xhr.responseText),
-                    result = r["result"];
+        // if (xhr.status == 200) {
+            // try {
+                // var r = JSON.parse(xhr.responseText),
+                    // result = r["result"];
 
-                table = result;
-                console.log('Обновили шаблоны')
-                refreshTemplates()
+                // table = result;
+                // console.log('Обновили шаблоны')
+                // refreshTemplates()
 
-            } catch (e) { console.log(e) }
-        }
+            // } catch (e) { console.log(e) }
+        // }
+    // }
+    // xhr.send()
+// }
+
+
+function getText() {
+  const app = localStorage.getItem('scriptAdr');
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', app);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      try {
+        const r = JSON.parse(xhr.responseText);
+        const result = r["result"];
+        table = result;
+        console.log('Updated templates');
+      } catch (e) {
+        console.log(e);
+      } finally {
+        refreshTemplates();
+      }
     }
-    xhr.send()
+  };
+  xhr.send();
 }
 
 async function getInfo(flag1 = 1) { //функция получения инфо о чате и сервис айди
