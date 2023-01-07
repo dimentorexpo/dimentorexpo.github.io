@@ -2747,9 +2747,9 @@ function newTag(valueId) {
   const pathname = document.location.pathname.split('/');
   let chatId;
 
-  if (window.location.href.includes('skyeng.autofaq.ai/logs')) {
+  if (window.location.href.indexOf('skyeng.autofaq.ai/logs') !== -1) {
     chatId = pathname[2];
-  } else if (window.location.href.includes('skyeng.autofaq.ai/tickets/archive')) {
+  } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
     chatId = pathname[3];
   } else {
     const panel = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0];
