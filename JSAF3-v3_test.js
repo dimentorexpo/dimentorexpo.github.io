@@ -3595,7 +3595,7 @@ function addbuttonsintegration() { // добавляет подсветку пр
                 } else if (categorylist[i].textContent == "Техподдержка 2-я линия crm2") {
                     categorylist[i].style = "color: green; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em green";
                 } else {
-					categorylist[i].style = "color: black; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em grey";
+					categorylist[i].style = "color: black;";
                 }
             }
         }
