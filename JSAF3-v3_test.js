@@ -4221,32 +4221,48 @@ document.getElementById('setting').onclick = function () { // открывает
 		}
 				
 		// скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
-        let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0]
-        if (opsection != 'ТП' && opsection != 'ТПPrem') {
-            document.getElementById('set_TPrezerv').style.display = "none";
-            document.getElementById('set_TP').style.display = "none";
-            document.getElementById('set_PremTPrezerv').style.display = "none";
-            document.getElementById('set_TPPrem').style.display = "none";
-        } else {
-            document.getElementById('set_TPrezerv').style.display = "";
-            document.getElementById('set_TP').style.display = "";
-            document.getElementById('set_PremTPrezerv').style.display = "";
-            document.getElementById('set_TPPrem').style.display = "";
-        }
+		
+		const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+		const setTPrezerv = document.getElementById('set_TPrezerv');
+		const setTP = document.getElementById('set_TP');
+		const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
+		const setTPPrem = document.getElementById('set_TPPrem');
+		const operdepout = document.getElementById('operdepout');
 
-        if (localStorage.getItem('scriptAdr') == TP_addr) {
-            document.getElementById('operdepout').innerHTML = 'ТП'
-        } else if (localStorage.getItem('scriptAdr') == TP_addrRzrv) {
-            document.getElementById('operdepout').innerHTML = 'ТП резерв'
-        } else if (localStorage.getItem('scriptAdr') == TPprem_addr) {
-            document.getElementById('operdepout').innerHTML = 'ТП прем'
-        } else if (localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
-            document.getElementById('operdepout').innerHTML = 'ТП прем резерв'
-        } else if (localStorage.getItem('scriptAdr') == KC_addr) {
-            document.getElementById('operdepout').innerHTML = 'КЦ'
-        } else if (localStorage.getItem('scriptAdr') == KC_addrRzrv) {
-            document.getElementById('operdepout').innerHTML = 'КЦ резерв'
-        }
+		if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
+		  setTPrezerv.style.display = "none";
+		  setTP.style.display = "none";
+		  setPremTPrezerv.style.display = "none";
+		  setTPPrem.style.display = "none";
+		} else {
+		  setTPrezerv.style.display = "";
+		  setTP.style.display = "";
+		  setPremTPrezerv.style.display = "";
+		  setTPPrem.style.display = "";
+		}
+
+		switch (localStorage.getItem('scriptAdr')) {
+		  case TP_addr:
+			operdepout.innerHTML = 'ТП';
+			break;
+		  case TP_addrRzrv:
+			operdepout.innerHTML = 'ТП резерв';
+			break;
+		  case TPprem_addr:
+			operdepout.innerHTML = 'ТП прем';
+			break;
+		  case TPprem_addrRzrv:
+			operdepout.innerHTML = 'ТП прем резерв';
+			break;
+		  case KC_addr:
+			operdepout.innerHTML = 'КЦ';
+			break;
+		  case KC_addrRzrv:
+			operdepout.innerHTML = 'КЦ резерв';
+			break;
+		  default:
+			break;
+		}
 		//
 
         let objSoundList = document.getElementById('soundlistaddr')
