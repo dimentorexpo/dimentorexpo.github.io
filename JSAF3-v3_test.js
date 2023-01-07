@@ -3337,26 +3337,49 @@ async function remandressl() { // функция добавляения масс
 
         for (let i = 0; i < Object.keys(studarr).length; i++) {
 		
-		function obrabotka(subjName, num = i) {
-		  console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700');
-		  sidarr = [];
-		  for (const student of studarr[num]) {
-			if (student.status !== "sleep") {
-			  sidarr.push(student.id);
-			  console.log(`${student.id} Status: ${student.status}`);
+		// function obrabotka(subjName, num = i) {
+		  // console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700');
+		  // sidarr = [];
+		  // for (const student of studarr[num]) {
+			// if (student.status !== "sleep") {
+			  // sidarr.push(student.id);
+			  // console.log(`${student.id} Status: ${student.status}`);
+			// }
+		  // }
+		  // if (sidarr.length > 0) {
+			// for (const studentId of sidarr) {
+			  // fetchaddchat(studentId, artid.user.id);
+			// }
+			// alert(`Chats with students in the ${subjName} section - Multi-classroom have been added in the amount: ${sidarr.length - 1}`);
+		  // }
+		// }
+		
+			function obrabotka(subjName, num) {
+			 console.log(Object.values(studarr)[num])
+                    sidarr = [];
+                    console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700')
+                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        if (Object.values(studarr)[num][j].status != "sleep")
+                            sidarr += Object.values(studarr)[num][j].id + ","
+
+                        console.log(Object.values(studarr)[num][j].id + " Status: " + Object.values(studarr)[num][j].status)
+                    }
+                    if (typeof (sidarr) != 'object') {
+                        sidarr = sidarr.split(',');
+
+                        for (let j = 0; j < sidarr.length - 1; j++) {
+                            fetchaddchat(sidarr[j], artid.user.id)
+                        }
+                        alert(`Чаты с учениками в разделе ${subjName} - Multi-classroom добавлены в количестве: ` + (sidarr.length - 1))
+                    }
 			}
-		  }
-		  if (sidarr.length > 0) {
-			for (const studentId of sidarr) {
-			  fetchaddchat(studentId, artid.user.id);
-			}
-			alert(`Chats with students in the ${subjName} section - Multi-classroom have been added in the amount: ${sidarr.length - 1}`);
-		  }
-		}
+		
+		
             let arrayofsubjects = Object.keys(studarr)[i]
             switch (arrayofsubjects) {
                 case 'math':
-					obrabotka('Математика');
+					obrabotka('Математика', i);
                     break;
                 case 'russian': console.log(Object.values(studarr)[i])
                     sidarr = [];
@@ -3498,7 +3521,7 @@ async function remandressl() { // функция добавляения масс
                     }
                     break;
                 case 'english':
-					obrabotka('Английский язык');
+					obrabotka('Английский язык', i);
                     break;
                 case 'history': console.log(Object.values(studarr)[i])
                     sidarr = [];
