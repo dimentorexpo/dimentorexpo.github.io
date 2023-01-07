@@ -2254,34 +2254,38 @@ function AFthePieceofShitKC() { //функция вносит в локалст�
     location.reload()
 }
 
-function logginerfortests(polzovatel) { //функция создания логиннера с последующим копированием в буфер обмена
-    document.getElementById('responseTextarea1').value = `{
-			  "headers": {
-				"content-type": "application/x-www-form-urlencoded",
-				"sec-fetch-site": "same-origin",
-				"sec-fetch-user": "?1",
-				"upgrade-insecure-requests": "1"
-			  },
-			  "referrer": "https://id.skyeng.ru/admin/auth/login-links",
-			  "referrerPolicy": "strict-origin-when-cross-origin",
-			  "body": "login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}",
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			}`
-    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/login-links";
-    document.getElementById('responseTextarea3').value = 'senddata1'
-    document.getElementById('sendResponse').click()
+function logginerfortests(polzovatel) {
+  const requestBody = `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}`;
+  const requestHeaders = {
+    'content-type': 'application/x-www-form-urlencoded',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+  };
+  const request = {
+    headers: requestHeaders,
+    referrer: 'https://id.skyeng.ru/admin/auth/login-links',
+    referrerPolicy: 'strict-origin-when-cross-origin',
+    body: requestBody,
+    method: 'POST',
+    mode: 'cors',
+    credentials: 'include',
+  };
 
-    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-        if (logginerinfo != null) {
-            logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-            logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
-            copyToClipboard1(logginerinfo[1])
-            document.getElementById('responseTextarea1').removeAttribute('senddata1')
-        }
-    })
+  document.getElementById('responseTextarea1').value = JSON.stringify(request);
+  document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/login-links';
+  document.getElementById('responseTextarea3').value = 'senddata1';
+  document.getElementById('sendResponse').click();
+
+  document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
+    let logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
+    if (logginerinfo) {
+      logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+      logginerinfo = logginerinfo[logginerinfo.length - 1].split('"');
+      copyToClipboard1(logginerinfo[1]);
+      document.getElementById('responseTextarea1').removeAttribute('senddata1');
+    }
+  });
 }
 
 function resetFlags() { //функция обнуления флагов
