@@ -3636,7 +3636,7 @@ function checJiraF() { //Функция добавления коммента в
     } catch (e) { }
 }
 
-function screenshots() {
+function screenshots() {  //просмотр и трансформация скриншотов в активном чате
   // Select the expert-chat-display-inner element
   const expertChatDisplayInner = document.getElementsByClassName('expert-chat-display-inner')[0];
 
@@ -3752,17 +3752,26 @@ function addOption(oListbox, text, value) {  //функция добавлени
     oListbox.appendChild(oOption);
 }
 
-function clock_on_javascript_1() { //таймер обычного отсчета текущего времени
-    var data = new Date();
-    hours = data.getHours();
-    if (hours < 10) { hours = "0" + hours; }
-    minutes = data.getMinutes();
-    if (minutes < 10) { minutes = "0" + minutes; }
-    seconds = data.getSeconds();
-    if (seconds < 10) { seconds = "0" + seconds; }
-    time = hours + " : " + minutes + " : " + seconds;
-    document.getElementById("clock_js").innerHTML = time;
+function clock_on_javascript_1() {  //таймер обычного отсчета текущего времени
+  // Get the current date and time
+  const date = new Date();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+
+  // Add a leading zero to hours, minutes, and seconds if they are less than 10
+  hours = hours < 10 ? "0" + hours : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  // Concatenate the hours, minutes, and seconds into a single string
+  const time = `${hours} : ${minutes} : ${seconds}`;
+
+  // Set the text content of the clock_js element to the time string
+  document.getElementById("clock_js").textContent = time;
 }
+
+
 
 function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
     var data = new Date();
