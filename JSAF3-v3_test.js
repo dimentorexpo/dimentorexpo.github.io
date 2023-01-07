@@ -510,7 +510,7 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
-					<button id="getnewtmpldata" title="Обновляет шаблоны из документа с шаблонами без необходимости обновлять страницу для этого действия" style="width:27px; float: right; margin-right: 5px">🔄</button>
+					<button id="getnewtmpldata" title="Обновляет шаблоны из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
 					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
@@ -2766,7 +2766,6 @@ function newTag(valueId) {
   });
 }
 
-
 function msgFromTable(btnName) { //шаблоны, тематики. теги с таблицы получает и выставляет
     for (var l = 0; l < table.length; l++) {
         if (btnName == table[l][0]) {
@@ -2976,8 +2975,6 @@ async function sendAnswerTemplate2(word, flag = 0) { //функция отпра
         fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
             "headers": {
                 "accept": "*/*",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-                "cache-control": "max-age=0",
                 "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
@@ -3100,16 +3097,18 @@ function refCurTimer(time) { //функция обновления текуще�
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
 
 function requestsRed() { //функция окрашивает в красный цвет, кнопка взять запрос не будет (0) иметь, а любое другое значение
-    if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
-        document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].addEventListener("DOMSubtreeModified", function () {
-            txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
-            if (txt != "Взять запрос (0)")
-                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "#F34723"
-            else
-                document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].style.backgroundColor = "white"
-        });
-    }
+  const taketask = document.getElementsByClassName('expert-sidebar-button')[0];
+
+  if (taketask) {
+    const textNode = taketask.childNodes[1].childNodes[0];
+    textNode.addEventListener('DOMSubtreeModified', () => {
+      const text = textNode.innerHTML;
+      const color = text === 'Взять запрос (0)' ? 'white' : '#F34723';
+      taketask.childNodes[1].style.backgroundColor = color;
+    });
+  }
 }
+
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
