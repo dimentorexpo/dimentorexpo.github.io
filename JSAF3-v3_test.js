@@ -3591,17 +3591,11 @@ function addbuttonsintegration() { // добавляет подсветку пр
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonservid)
             for (let i = 0; i < categorylist.length; i++) {
                 if (categorylist[i].textContent == "Техподдержка исход crm2") {
-                    categorylist[i].style.color = "red";
-                    categorylist[i].style.fontWeight = 600;
-                    categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em red";
+                    categorylist[i].style = "color: red; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em red";
                 } else if (categorylist[i].textContent == "Техподдержка 2-я линия crm2") {
-                    categorylist[i].style.color = "green";
-                    categorylist[i].style.fontWeight = 600;
-                    categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em green";
+                    categorylist[i].style = "color: green; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em green";
                 } else {
-                    categorylist[i].style.color = "black";
-                    categorylist[i].style.fontWeight = 400;
-                    categorylist[i].style.textShadow = "0px 0px 0px black, 0 0 1em grey";
+					categorylist[i].style = "color: black; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em grey";
                 }
             }
         }
