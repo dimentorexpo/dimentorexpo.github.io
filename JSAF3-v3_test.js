@@ -1973,8 +1973,6 @@ function customTemplates(language = '') { //собственные шаблон�
     if (tmpA.children[1].innerHTML != 'tmps')
         tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
 
-    tmpA.children[2].style.marginLeft = '40px'
-
     function refreshHotTmps() {
         while (document.getElementById('6str').children[0] != undefined)
             document.getElementById('6str').children[0].remove()
