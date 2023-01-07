@@ -3109,7 +3109,6 @@ function requestsRed() { //функция окрашивает в красный
   }
 }
 
-
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
         if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
@@ -3122,54 +3121,25 @@ async function checkthemestatus() { //функция проверки выста
                 drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
 
 
-            if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznWqX dAkvW')[2].innerText == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+            if (pldata.payload.topicId.value == "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].innerText == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].innerText == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+				
+				const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
 
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Тема: ❌"
-                    theme.style = 'color:red; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ✔') {
-                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ❌";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'red';
-                    }
-                }
+				if (button) {
+				  const textNode = button.childNodes[0].childNodes[0];
+				  const theme = document.createElement('div');
+				  theme.innerText = 'Тема: ❌';
+				  theme.style = 'color:red; font-weight:700';
+				  
+				  if (!textNode.childNodes[1].childNodes[4]) {
+					textNode.childNodes[1].appendChild(theme);
+				  } else if (textNode.childNodes[1].childNodes[4].innerText === 'Тема: ✔') {
+					textNode.childNodes[1].childNodes[4].innerText = 'Тема: ❌';
+					textNode.childNodes[1].childNodes[4].style.color = 'red';
+				  }
+				}
 
-            } else if (pldata.payload.topicId.value == "" && document.getElementsByClassName('sc-fznWqX dAkvW')[3].innerText == "Выбор темы/подтемы:") {
-
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Тема: ❌"
-                    theme.style = 'color:red; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ✔') {
-                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ❌";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'red';
-                    }
-                }
-
-            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznWqX dAkvW')[2].innerText == "Выбор темы/подтемы:") {
-
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.innerText = "Тема: ✔"
-                    theme.style = 'color:green; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ❌') {
-                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ✔";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'green';
-                    }
-
-                }
-
-            } else if (pldata.payload.topicId.value != "" && document.getElementsByClassName('sc-fznWqX dAkvW')[3].innerText == "Выбор темы/подтемы:") {
+            } else if (pldata.payload.topicId.value != "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].innerText == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].innerText == "Выбор темы/подтемы:")) {
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -3184,8 +3154,8 @@ async function checkthemestatus() { //функция проверки выста
                         txtbar.childNodes[1].childNodes[4].style.color = 'green';
                     }
                 }
-            }
-
+            } 
+			
             if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].innerText != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznWqX dAkvW')[1].innerText == 'Выбор тегов ТП:') {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                 txtbar.childNodes[1].childNodes[5].innerText = "";
