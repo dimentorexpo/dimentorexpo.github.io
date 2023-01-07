@@ -3267,7 +3267,6 @@ function setactivechatstyle() { // функция добавляющая акт�
   }
 }
 
-
 function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
     fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
         "headers": {
@@ -3385,6 +3384,10 @@ async function remandressl() { // функция добавляения масс
 
         let sidarr = [];
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
+              "headers": {
+                 "content-type": "application/json", 
+              },
+            "body": "{\"teacherId\":null}",
             "method": "POST",
             "credentials": "include"
         }).then(r => r.json()).then(data => studarr = data)
