@@ -3533,35 +3533,46 @@ async function remandressl() { // функция добавляения масс
 }
 
 function paintstatus() { //функция перекрашивания статуса оператора онлайн зеленый, занят желтый, офлайн и перерыв красные
-	const statuscolor = document.querySelectorAll('.user_menu-status-name')[1];
-	const classantbtn = document.querySelectorAll('.ant-btn')
-    if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && statuscolor) {
-        if (statuscolor.textContent == "Офлайн" || statuscolor.textContent == "Перерыв") {
-            statuscolor.style = " background: red; color: white; font-weight: 700";
-            if (classantbtn[4].textContent == 'Офлайн' || classantbtn[4].textContent == 'Перерыв')
-                classantbtn[4].style.background = "red";
-        } else if (statuscolor.textContent == "Онлайн") {
-            statuscolor.style = " background: green; color: white; font-weight: 700";
-            if (classantbtn[4].textContent == 'Онлайн')
-                classantbtn[4].style.background = "green";
-        } else if (statuscolor.textContent == "Занят") {
-            statuscolor.style = " background: yellow; color: black; font-weight: 700";
-            if (classantbtn[4].textContent == 'Занят')
-                classantbtn[4].style.background = "yellow";
+    const statusElem = document.querySelectorAll('.user_menu-status-name')[1];
+    const buttonElems = document.querySelectorAll('.ant-btn');
+    if (!statusElem) {
+        return;
+    }
+
+    let color;
+    let text;
+    switch (statusElem.textContent) {
+        case "Офлайн":
+        case "Перерыв":
+            color = "red";
+            text = "Офлайн" || "Перерыв";
+            break;
+        case "Онлайн":
+            color = "green";
+            text = "Онлайн";
+            break;
+        case "Занят":
+            color = "yellow";
+            text = "Занят";
+            break;
+    }
+
+    if (color) {
+        let style = `background: ${color}; color: white; font-weight: 700`;
+        if (color === "yellow") {
+            style += "; color: black";
         }
-    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && statuscolor) {
-        if (statuscolor.textContent == "Офлайн" || statuscolor.textContent == "Перерыв") {
-            statuscolor.style = " background: red; color: white; font-weight: 700";
-            if (classantbtn[5].textContent == 'Офлайн' || classantbtn[5].textContent == 'Перерыв')
-                classantbtn[5].style.background = "red";
-        } else if (statuscolor.textContent == "Онлайн") {
-            statuscolor.style = " background: green; color: white; font-weight: 700";
-            if (classantbtn[5].textContent == 'Онлайн')
-                classantbtn[5].style.background = "green";
-        } else if (statuscolor.textContent == "Занят") {
-            statuscolor.style = " background: yellow; color: black; font-weight: 700";
-            if (classantbtn[5].textContent == 'Занят')
-                classantbtn[5].style.background = "yellow";
+        statusElem.style = style;
+
+        let buttonElem;
+        if (document.URL === "https://skyeng.autofaq.ai/tickets/archive") {
+            buttonElem = buttonElems[5];
+        } else {
+            buttonElem = buttonElems[4];
+        }
+
+        if (buttonElem && buttonElem.textContent === text) {
+            buttonElem.style.background = color;
         }
     }
 }
