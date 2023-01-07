@@ -3803,44 +3803,33 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
 
 
 function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
-  // Get current time
-  const data1 = new Date();
-  let hours1 = data1.getHours();
-  let minutes1 = data1.getMinutes();
-  let seconds1 = data1.getSeconds();
-  
-  // Get alarm time from local storage
-  const setHours1 = JSON.parse(localStorage.getItem("setchas1"));
-  const setMinutes1 = JSON.parse(localStorage.getItem("setminuta1"));
-  
-  // Check if there is a chronostamp1 value in local storage
-  if (localStorage.getItem("chronostamp1") === null) {
-    time1 = "00 : 00 : 00";
+    var data1 = new Date();
+    var currentHours1 = data1.getHours();
+    var currentMinutes1 = data1.getMinutes();
+    var currentSeconds1 = data1.getSeconds();
+    var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
+    var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
+
+    if (localStorage.getItem('chronostamp1') === null) {
+        time1 = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin1").innerHTML = time1;
+        return;
+    }
+
+    var remainingSeconds1 = (setHours1 - currentHours1) * 3600 + (setMinutes1 - currentMinutes1) * 60 - currentSeconds1;
+    if (remainingSeconds1 <= 0) {
+        time1 = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin1").innerHTML = time1;
+        return;
+    }
+
+    var remainingMinutes1 = Math.floor(remainingSeconds1 / 60);
+    remainingSeconds1 = remainingSeconds1 % 60;
+    var remainingHours1 = Math.floor(remainingMinutes1 / 60);
+    remainingMinutes1 = remainingMinutes1 % 60;
+
+    time1 = (remainingHours1 < 10 ? "0" + remainingHours1 : remainingHours1) + " : " + (remainingMinutes1 < 10 ? "0" + remainingMinutes1 : remainingMinutes1) + " : " + (remainingSeconds1 < 10 ? "0" + remainingSeconds1 : remainingSeconds1);
     document.getElementById("clock_remin1").innerHTML = time1;
-    return;
-  }
-  
-  // Calculate time left until alarm goes off
-  let timeLeft = 0;
-  if (setHours1 > hours1 || (setHours1 === hours1 && setMinutes1 > minutes1)) {
-    // Alarm is set for a future time
-    timeLeft += (setHours1 - hours1) * 3600; // hours to seconds
-    timeLeft += (setMinutes1 - minutes1) * 60; // minutes to seconds
-    timeLeft += (60 - seconds1); // seconds left in current minute
-  } else {
-    // Alarm is set for a time in the past
-    timeLeft += (24 - hours1 + setHours1) * 3600; // hours to seconds
-    timeLeft += (60 - minutes1 + setMinutes1) * 60; // minutes to seconds
-    timeLeft += (60 - seconds1); // seconds left in current minute
-  }
-  
-  // Convert time left to HH:MM:SS format
-  const hoursLeft = Math.floor(timeLeft / 3600);
-  const minutesLeft = Math.floor((timeLeft % 3600) / 60);
-  const secondsLeft = timeLeft % 60;
-  
-  // Display time left in clock_remin1 element
-  document.getElementById("clock_remin1").innerHTML = `${hoursLeft.toString().padStart(2, "0")} : ${minutesLeft.toString().padStart(2, "0")} : ${secondsLeft.toString().padStart(2, "0")}`;
 }
 
 
