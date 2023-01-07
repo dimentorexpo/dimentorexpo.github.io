@@ -2319,31 +2319,33 @@ function bagPageButtons(butId) {  //с шаблонами тоже фукнкц�
 
 function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
     //resetFlags()
-    phone = ""
-    textFromTable = textFromTable.split('(phone)')
-    if (textFromTable.length > 1) {
-        if (document.getElementById('phone_tr').value == "")
-            phone = document.getElementById('phone_tr').placeholder
-        else
-            phone = document.getElementById('phone_tr').value
-        if (phone == "Телефон") {
-            document.getElementById('inp').value = "Введите номер телефона"
-            return
-        }
-    }
-    textFromTable = textFromTable.join(phone)
 
-    email = ""
+	let phone = '';
+	textFromTable = textFromTable.split('(phone)');
+
+	if (textFromTable.length > 1) {
+	  const phoneInput = document.getElementById('phone_tr');
+	  phone = phoneInput.value || phoneInput.placeholder;
+
+	  if (phone === 'Телефон') {
+		document.getElementById('inp').value = 'Введите номер телефона';
+		return;
+	  }
+	}
+
+	textFromTable = textFromTable.join(phone);
+
+    let email = ""
     textFromTable = textFromTable.split('(email)')
+	
     if (textFromTable.length > 1) {
-        if (document.getElementById('email_tr').value == "")
-            email = document.getElementById('email_tr').placeholder
-        else
-            email = document.getElementById('email_tr').value
-        if (email == "Почта") {
-            document.getElementById('inp').value = "Введите почту"
-            return
-        }
+		const emailInput = document.getElementById('email_tr');
+		email = emailnput.value || emailInput.placeholder;
+		
+		if (email === 'Почта') {
+			document.getElementById('inp').value = "Введите почту"
+            return;
+		}
     }
     textFromTable = textFromTable.join(email)
 
