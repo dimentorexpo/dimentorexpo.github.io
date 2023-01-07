@@ -4171,22 +4171,24 @@ loginer.onmouseup = function () { document.removeEventListener('mousemove', list
 
 // Блок настроек и взаимодействия с ними
 
-document.getElementById('sound_test').onclick = function () { // кнопка тест звука
-    if (document.getElementById('sound_test').innerHTML == '▶') {
-        document.getElementById('sound_test').innerHTML = '⏹'
-        document.getElementById('sound_test').title = 'Остановить воспроизведение'
-        audio.play()
-        setTimeout(() => {
-            document.getElementById('sound_test').innerHTML = '▶'
-            document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
-        }, Number(audio.duration * 1000 + 1).toFixed(0));
-    } else {
-        document.getElementById('sound_test').innerHTML = '▶'
-        document.getElementById('sound_test').title = 'Проверка звука при добавленной ссылке'
-        audio.pause()
-        audio.currentTime = 0
-    }
+const soundTestBtn = document.getElementById('sound_test');
+
+soundTestBtn.onclick = function () { // кнопка тест звука
+  const isPlaying = soundTestBtn.innerHTML == '▶';
+  soundTestBtn.innerHTML = isPlaying ? '⏹' : '▶';
+  soundTestBtn.title = isPlaying ? 'Остановить воспроизведение' : 'Проверка звука при добавленной ссылке';
+  if (isPlaying) {
+    audio.play();
+    setTimeout(() => {
+      soundTestBtn.innerHTML = '▶';
+      soundTestBtn.title = 'Проверка звука при добавленной ссылке';
+    }, Number(audio.duration * 1000 + 1).toFixed(0));
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+  }
 }
+
 
 if (localStorage.getItem('audiovol') != null) {
     audio.volume = localStorage.getItem('audiovol');
