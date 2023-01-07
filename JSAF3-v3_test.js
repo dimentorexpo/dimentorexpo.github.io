@@ -2421,30 +2421,7 @@ function servFromDoc(butName) { // отправка комента и сообщ
         sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
 }
 
-// function getText() { //получить текст
-    // var app = localStorage.getItem('scriptAdr'),
-        // xhr = new XMLHttpRequest();
-    // xhr.open('GET', app);
-    // xhr.onreadystatechange = function () {
-        // if (xhr.readyState !== 4) return;
-
-        // if (xhr.status == 200) {
-            // try {
-                // var r = JSON.parse(xhr.responseText),
-                    // result = r["result"];
-
-                // table = result;
-                // console.log('Обновили шаблоны')
-                // refreshTemplates()
-
-            // } catch (e) { console.log(e) }
-        // }
-    // }
-    // xhr.send()
-// }
-
-
-function getText() {
+function getText() { // функция обновления текста с шаблонов из документа
   const app = localStorage.getItem('scriptAdr');
   const xhr = new XMLHttpRequest();
   xhr.open('GET', app);
