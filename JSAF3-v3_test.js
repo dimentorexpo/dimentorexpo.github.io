@@ -3636,7 +3636,7 @@ function addbuttonsintegration() { // добавляет подсветку пр
     // } catch (e) { }
 // }
 
-function checkJiraF() {
+function checJiraF() {
   // Select the element with the text "Ссылка на Jira:"
   const jiraLinkElement = document.querySelector("#DateFilter span.sc-fznJRM[textContent='Ссылка на Jira:']");
   if (!jiraLinkElement) {
