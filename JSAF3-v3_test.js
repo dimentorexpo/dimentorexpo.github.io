@@ -4499,7 +4499,6 @@ document.getElementById('sound_test').onclick = function () { // кнопка т
         audio.pause()
         audio.currentTime = 0
     }
-
 }
 
 if (localStorage.getItem('audiovol') != null) {
