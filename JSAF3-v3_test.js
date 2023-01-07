@@ -3312,28 +3312,51 @@ async function remandressl() { // функция добавляения масс
             "method": "POST",
             "credentials": "include"
         }).then(r => r.json()).then(data => studarr = data)
+		
+		// function obrabotka(subjName) {
+			 // console.log(Object.values(studarr)[i])
+                    // sidarr = [];
+                    // console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700')
+                    // for (let j = 0; j < Object.values(studarr)[i].length; j++) {
+
+                        // if (Object.values(studarr)[i][j].status != "sleep")
+                            // sidarr += Object.values(studarr)[i][j].id + ","
+
+                        // console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
+                    // }
+                    // if (typeof (sidarr) != 'object') {
+                        // sidarr = sidarr.split(',');
+
+                        // for (let j = 0; j < sidarr.length - 1; j++) {
+                            // fetchaddchat(sidarr[j], artid.user.id)
+                        // }
+                        // alert(`Чаты с учениками в разделе ${subjName} - Multi-classroom добавлены в количестве: ` + (sidarr.length - 1))
+                    // }
+		// }
+		
+		function obrabotka(subjName) {
+		  console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700');
+		  sidarr = [];
+		  for (const student of studarr[i]) {
+			if (student.status !== "sleep") {
+			  sidarr.push(student.id);
+			  console.log(`${student.id} Status: ${student.status}`);
+			}
+		  }
+		  if (sidarr.length > 0) {
+			for (const studentId of sidarr) {
+			  fetchaddchat(studentId, artid.user.id);
+			}
+			alert(`Chats with students in the ${subjName} section - Multi-classroom have been added in the amount: ${sidarr.length - 1}`);
+		  }
+		}
+
 
         for (let i = 0; i < Object.keys(studarr).length; i++) {
             let arrayofsubjects = Object.keys(studarr)[i]
             switch (arrayofsubjects) {
-                case 'math': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cМатематика', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками в разделе Математика - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'math':
+					obrabotka('Математика');
                     break;
                 case 'russian': console.log(Object.values(studarr)[i])
                     sidarr = [];
@@ -3474,25 +3497,8 @@ async function remandressl() { // функция добавляения масс
                         alert("Чаты с учениками раздела Физика - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
                     }
                     break;
-                case 'english': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cАнглийский язык', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Английский язык -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'english':
+					obrabotka('Английский язык');
                     break;
                 case 'history': console.log(Object.values(studarr)[i])
                     sidarr = [];
