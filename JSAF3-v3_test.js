@@ -3334,10 +3334,13 @@ async function remandressl() { // функция добавляения масс
                     // }
 		// }
 		
-		function obrabotka(subjName) {
+
+        for (let i = 0; i < Object.keys(studarr).length; i++) {
+		
+		function obrabotka(subjName, num = i) {
 		  console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700');
 		  sidarr = [];
-		  for (const student of studarr[i]) {
+		  for (const student of studarr[num]) {
 			if (student.status !== "sleep") {
 			  sidarr.push(student.id);
 			  console.log(`${student.id} Status: ${student.status}`);
@@ -3350,9 +3353,6 @@ async function remandressl() { // функция добавляения масс
 			alert(`Chats with students in the ${subjName} section - Multi-classroom have been added in the amount: ${sidarr.length - 1}`);
 		  }
 		}
-
-
-        for (let i = 0; i < Object.keys(studarr).length; i++) {
             let arrayofsubjects = Object.keys(studarr)[i]
             switch (arrayofsubjects) {
                 case 'math':
