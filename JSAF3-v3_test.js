@@ -3779,7 +3779,7 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
     var setHours = JSON.parse(localStorage.getItem('setchas'));
     var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
 
-    if (setHours == null || setMinutes == null) {
+    if (localStorage.getItem('chronostamp') === null) {
         time = "00" + " : " + "00" + " : " + "00";
         document.getElementById("clock_remin").innerHTML = time;
         return;
