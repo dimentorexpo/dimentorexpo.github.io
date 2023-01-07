@@ -3543,9 +3543,12 @@ function paintstatus() { //функция перекрашивания стат�
     let text;
     switch (statusElem.textContent) {
         case "Офлайн":
+		    color = "red";
+            text = "Офлайн";
+            break;
         case "Перерыв":
             color = "red";
-            text = "Офлайн" || "Перерыв";
+            text = "Перерыв";
             break;
         case "Онлайн":
             color = "green";
