@@ -3313,46 +3313,8 @@ async function remandressl() { // функция добавляения масс
             "credentials": "include"
         }).then(r => r.json()).then(data => studarr = data)
 		
-		// function obrabotka(subjName) {
-			 // console.log(Object.values(studarr)[i])
-                    // sidarr = [];
-                    // console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700')
-                    // for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        // if (Object.values(studarr)[i][j].status != "sleep")
-                            // sidarr += Object.values(studarr)[i][j].id + ","
-
-                        // console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    // }
-                    // if (typeof (sidarr) != 'object') {
-                        // sidarr = sidarr.split(',');
-
-                        // for (let j = 0; j < sidarr.length - 1; j++) {
-                            // fetchaddchat(sidarr[j], artid.user.id)
-                        // }
-                        // alert(`Чаты с учениками в разделе ${subjName} - Multi-classroom добавлены в количестве: ` + (sidarr.length - 1))
-                    // }
-		// }
-		
 
         for (let i = 0; i < Object.keys(studarr).length; i++) {
-		
-		// function obrabotka(subjName, num = i) {
-		  // console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700');
-		  // sidarr = [];
-		  // for (const student of studarr[num]) {
-			// if (student.status !== "sleep") {
-			  // sidarr.push(student.id);
-			  // console.log(`${student.id} Status: ${student.status}`);
-			// }
-		  // }
-		  // if (sidarr.length > 0) {
-			// for (const studentId of sidarr) {
-			  // fetchaddchat(studentId, artid.user.id);
-			// }
-			// alert(`Chats with students in the ${subjName} section - Multi-classroom have been added in the amount: ${sidarr.length - 1}`);
-		  // }
-		// }
 		
 			function obrabotka(subjName, num) {
 			 console.log(Object.values(studarr)[num])
@@ -3375,214 +3337,43 @@ async function remandressl() { // функция добавляения масс
                     }
 			}
 		
-		
             let arrayofsubjects = Object.keys(studarr)[i]
             switch (arrayofsubjects) {
                 case 'math':
 					obrabotka('Математика', i);
                     break;
-                case 'russian': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cРусский язык', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Русский язык - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'russian': 
+					obrabotka('Русский язык', i);
                     break;
-                case 'social-science': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cОбществознание', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Обществознание - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'social-science': 
+					obrabotka('Обществознание', i);
                     break;
-                case 'preschool': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cДошколка', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Дошкольная подготовка - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'preschool': 
+					obrabotka('Дошколка', i);
                     break;
-                case 'chess': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cШахматы', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Шахматы -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'chess': 
+					obrabotka('Шахматы', i);
                     break;
-                case 'computer-science': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cКомпьютерные курсы', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Компьютерные курсы - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'computer-science':
+					obrabotka('Компьютерные курсы', i);
                     break;
-                case 'chemistry': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cХимия', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Химия -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'chemistry':
+					obrabotka('Химия', i);
                     break;
-                case 'physics': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cФизика', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Физика - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'physics':
+					obrabotka('Физика', i);
                     break;
                 case 'english':
 					obrabotka('Английский язык', i);
                     break;
-                case 'history': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cИстория', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела История -  Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'history': 
+					obrabotka('История', i);
                     break;
-                case 'biology': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cБиология', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела Биология - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
-                    break;
-                case 'geography': console.log(Object.values(studarr)[i])
-                    sidarr = [];
-                    console.log('%cГеография', 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
-
-                        if (Object.values(studarr)[i][j].status != "sleep")
-                            sidarr += Object.values(studarr)[i][j].id + ","
-
-
-                        console.log(Object.values(studarr)[i][j].id + " Status: " + Object.values(studarr)[i][j].status)
-                    }
-
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
-
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert("Чаты с учениками раздела География - Multi-classroom добавлены в количестве: " + (sidarr.length - 1))
-                    }
+                case 'biology':
+					obrabotka('Биология', i);
+				    break;
+                case 'geography':
+					obrabotka('География', i);
                     break;
             }
         }
