@@ -705,7 +705,7 @@ async function whoAmI() { // функция получения айди опер
   const me = document.querySelector('.user_menu-dropdown-user_name');
 
   b.onOperator.forEach((s) => {
-    if (s.operator != null && me && s.operator.fullName === me.innerText) {
+    if (s.operator != null && me && s.operator.fullName === me.textContent) {
       operatorId = s.operator.id;
       afopername = s.operator.fullName;
       console.log(`Мой ID: ${operatorId}`);
@@ -782,28 +782,28 @@ function startTimer() { // большая функция по таймеру а�
         nextClassMode = nextClassstudentId = ""
         nextClassModeId = ""
         for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "supportVertical" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "teacherVertical")
-                vertical = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "userType")
-                user = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "supportVertical" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "teacherVertical")
+                vertical = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "userType")
+                user = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
 
             btns = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0]
 
             name = btns.childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-statusHTML")
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-statusHTML")
                 for (k = 0; k < idk; k++) {
                     if (tmrs[k][1] == name) {
-                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "идёт вводный урок")
-                            tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "идёт урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "идет урок" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "идет ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "идёт ВУ" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "идёт вводный урок")
+                            tmrs[k][4] = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
                         else
                             tmrs[k][4] = ""
                     }
                 }
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-mode") {
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-mode") {
                 nextClassMode = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
                 nextClassModeId = i
             }
-            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
+            if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId")
                 nextClassstudentId = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
         }
 
@@ -814,7 +814,7 @@ function startTimer() { // большая функция по таймеру а�
     if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list').length != 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
                     btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                     btn.appendChild(infouserbut)
                     btn.appendChild(buttonservstud)
@@ -825,7 +825,7 @@ function startTimer() { // большая функция по таймеру а�
                         btn.appendChild(buttonmobpas)
                 }
 
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId" || document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId") {
                     btn = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i]
                     btn.appendChild(nextuserinfo)
                     btn.appendChild(buttonservivceuser)
@@ -849,7 +849,7 @@ function startTimer() { // большая функция по таймеру а�
                         copyCrmFromName.onclick = function () {
                             for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
                                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-                                    let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+                                    let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0];
                                     copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
                                 }
                             }
@@ -862,13 +862,13 @@ function startTimer() { // большая функция по таймеру а�
                     document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
                     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
-                            document.getElementById('userTypeId').innerText = "(П)"
+                            document.getElementById('userTypeId').textContent = "(П)"
                             document.getElementById('userTypeId').style.color = "#1E90FF"
                         } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student") {
-                            document.getElementById('userTypeId').innerText = "(У)"
+                            document.getElementById('userTypeId').textContent = "(У)"
                             document.getElementById('userTypeId').style.color = "#DC143C"
                         } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent") {
-                            document.getElementById('userTypeId').innerText = "(РУ)"
+                            document.getElementById('userTypeId').textContent = "(РУ)"
                             document.getElementById('userTypeId').style.color = "#DC143C"
                         }
                     }
@@ -887,10 +887,10 @@ function startTimer() { // большая функция по таймеру а�
 					}
 
 					for (let i = 0; i < expertDts.length; i++) {
-					  if (expertDts[i].innerText === 'brand') {
+					  if (expertDts[i].textContent === 'brand') {
 						const ps = document.getElementsByTagName('p');
 						for (let i = 0; i < ps.length; i++) {
-						  setBackgroundColor(ps[i], ps[i].innerText);
+						  setBackgroundColor(ps[i], ps[i].textContent);
 						}
 					  }
 					}					
@@ -1062,7 +1062,7 @@ function timerHideButtons() { //функция добавления скрыти
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
 
 
-        // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+        // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0] //определение отдела оператора
         // if (opsection == "ТП") {
             // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
                 // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
@@ -1079,7 +1079,7 @@ function timerHideButtons() { //функция добавления скрыти
 		
 		
 		// NeuralNetwork Version
-		let opsection = document.querySelector('.user_menu-dropdown-user_name').innerText.split('-')[0];
+		let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
 
 		const hideElements = (modalContent, valuesToHide) => {
 		  for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
@@ -1112,9 +1112,9 @@ function timerHideButtons() { //функция добавления скрыти
             // let selectorList = document.querySelectorAll('.sc-fzokOt');
             // if (selectorList.length > 5) {
                 // for (let i = 0; i < selectorList.length; i++) {
-                    // if (selectorList[i].innerText == "Техподдержка исход crm2")
+                    // if (selectorList[i].textContent == "Техподдержка исход crm2")
                         // selectorList[i].style.backgroundColor = 'red'
-                    // if (selectorList[i].innerText == "Техподдержка 2-я линия crm2")
+                    // if (selectorList[i].textContent == "Техподдержка 2-я линия crm2")
                         // selectorList[i].style.backgroundColor = 'green'
                 // }
             // }
@@ -1125,7 +1125,7 @@ function timerHideButtons() { //функция добавления скрыти
 		const setBackgroundColors = (selectorList, valuesToColor) => {
 			for (let i = 0; i < selectorList.length; i++) {
 				for (const [value, color] of Object.entries(valuesToColor)) {
-					if (selectorList[i].innerText === value) {
+					if (selectorList[i].textContent === value) {
 						selectorList[i].style.backgroundColor = color;
 					}
 				}
@@ -1356,7 +1356,7 @@ function changesoundaddr() { //функция изменения адреса з
                     document.getElementById('sound_adr').style.display = 'none'
                     document.getElementById('sound_save').style.display = 'none'
                     document.getElementById('sound_adr').value = ""
-                    console.log(objSoundList[i].innerText + ' ' + objSoundList[i].value)
+                    console.log(objSoundList[i].textContent + ' ' + objSoundList[i].value)
                     localStorage.setItem('sound_str', objSoundList[i].value)
                     audio = new Audio(localStorage.getItem('sound_str'))
                 }
@@ -1388,7 +1388,7 @@ async function getStats() { // функция получения статист�
     // var str1 = time.getFullYear() + "-" + month1 + "-" + date1 + "T21:00:00Z"
     // var str2 = time2.getFullYear() + "-" + month2 + "-" + date2 + "T21:00:00Z"
     // var array = []
-    // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0] //определение отдела оператора
+    // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0] //определение отдела оператора
     // console.log("Подразделение - " + opsection);
     // await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
         // if (k.operator.indexOf(opsection) != -1) {
@@ -1479,7 +1479,7 @@ async function getStats() { // функция получения статист�
             switch (j) {
                 case 0:
                     td.textContent = arrayvars[i].operator;
-                    if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText == arrayvars[i].operator) {
+                    if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent == arrayvars[i].operator) {
                         td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
                     } else
                         td.style = 'text-align: left; padding-left: 5px'
@@ -1783,7 +1783,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
 		if (chatHistoryElement.style.display === 'none') {
 		  chatHistoryButton.click();
 		}
-		chatHistorySearchInput.value = slaclchattids[index].innerText;
+		chatHistorySearchInput.value = slaclchattids[index].textContent;
 		chatHistorySearchButton.click();
 	  });
 	});
@@ -1793,7 +1793,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
 		if (chatHistoryElement.style.display === 'none') {
 			chatHistoryButton.click();
 		}
-		chatHistorySearchInput.value = artchattids[index].innerText;
+		chatHistorySearchInput.value = artchattids[index].textContent;
 		chatHistorySearchButton.click();
 	  });
 	});
@@ -1803,7 +1803,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
 		if (chatHistoryElement.style.display === 'none') {
 			chatHistoryButton.click();
 		}
-		chatHistorySearchInput.value = aclsdchatids[index].innerText;
+		chatHistorySearchInput.value = aclsdchatids[index].textContent;
 		chatHistorySearchButton.click();
 	  });
 	});
@@ -2351,7 +2351,7 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
     name = ""
     textFromTable = textFromTable.split('(name)')
     if (document.getElementsByClassName('expert-user_details-name').length != 0) {
-        a = document.getElementsByClassName('expert-user_details-name')[0].innerText
+        a = document.getElementsByClassName('expert-user_details-name')[0].textContent
         a = a.split(' ')
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
         if (textFromTable.length > 1 && cyrillicPattern.test(a[0])) {
@@ -2376,9 +2376,9 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
     if (butName == 'Привет') {
         if (document.getElementsByClassName('expert-user_info_panel')[0].children[1].children[0].classList.contains('expert-user_details-name')) {
-            a = document.getElementsByClassName('expert-user_info_panel')[0].children[1].children[0].innerText
+            a = document.getElementsByClassName('expert-user_info_panel')[0].children[1].children[0].textContent
         } else {
-            a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText
+            a = document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.textContent
         }
         a = a.split(' ')
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
@@ -2471,7 +2471,7 @@ function addTimer() { //функция добавления таймера пр�
         tm.childNodes[1].appendChild(serv2)
         tm.childNodes[0].childNodes[2].innerHTML = localStorage.getItem('aclstime') + ":00"
         let d = new Date()
-        tmrs[idk] = [localStorage.getItem('aclstime') + ":00", tm.childNodes[1].childNodes[0].innerText, 1, number(d), ""]
+        tmrs[idk] = [localStorage.getItem('aclstime') + ":00", tm.childNodes[1].childNodes[0].textContent, 1, number(d), ""]
         idk++
     }
 }
@@ -2538,7 +2538,7 @@ function refreshTimer() { //функция обновления таймера
                             btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
                     else
                         btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].textContent = tmrs[i][4]
                     var cT = new Date();
                     var curT1 = tmrs[i][3]
                     var curT2 = Number(cT);
@@ -2556,7 +2556,7 @@ function refreshTemplates() { // функция обновляет шаблон�
     setInterval(function () {
         if (document.getElementsByClassName('expert-user_details-list')[0] != undefined) {
             if (document.getElementById('phone_tr') != undefined) {
-                phone = document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText
+                phone = document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].textContent
                 if (phone == "-") {
                     phone = ""
                     document.getElementById('phone_tr').placeholder = "Телефон"
@@ -2564,7 +2564,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                     document.getElementById('phone_tr').placeholder = phone
             }
             if (document.getElementById('email_tr') != undefined) {
-                email = document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText
+                email = document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].textContent
                 if (email == "-") {
                     email = ""
                     document.getElementById('email_tr').placeholder = "Почта"
@@ -2608,7 +2608,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                 break
             case 'Страница':
                 var newPageBut = document.createElement('button')
-                newPageBut.innerText = c[1]
+                newPageBut.textContent = c[1]
                 pageType = c[2]
                 newPageBut.style.marginRight = '4px'
                 newPageBut.setAttribute('onclick', 'pageClick(this.id)')
@@ -2652,13 +2652,13 @@ function refreshTemplates() { // функция обновляет шаблон�
                         var newString = document.createElement('p')
                         newString.style.color = 'white'
                         newString.style.margin = '0 0 5px 0'
-                        newString.innerText = c[0]
+                        newString.textContent = c[0]
                         for (j = 0; j < c[1]; j++) {
                             var newBut = document.createElement('button')
                             newBut.style.width = '20px'
                             newBut.style.marginRight = '4px'
                             newBut.id = countOfStr + 'str' + (j + 1)
-                            newBut.innerText = (j + 1)
+                            newBut.textContent = (j + 1)
                             newBut.setAttribute('onclick', 'bagPageButtons(this.id)')
                             newString.appendChild(newBut)
                         }
@@ -2667,14 +2667,14 @@ function refreshTemplates() { // функция обновляет шаблон�
                         break
                     case 'Шаблоны':
                         var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
+                        newBut.textContent = c[0]
                         newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'buttonsFromDoc(this.innerText)')
-                        if (newBut.innerText == 'Урок NS')
+                        newBut.setAttribute('onclick', 'buttonsFromDoc(this.textContent)')
+                        if (newBut.textContent == 'Урок NS')
                             newBut.id = "NS"
-                        if (newBut.innerText == 'ус+брауз (У)')
-                            newBut.innerText = "ус+брауз"
-                        if (newBut.innerText == 'ус+брауз (П)')
+                        if (newBut.textContent == 'ус+брауз (У)')
+                            newBut.textContent = "ус+брауз"
+                        if (newBut.textContent == 'ус+брауз (П)')
                             continue
                         if (addTmpFlag == 0)
                             b.lastElementChild.lastElementChild.appendChild(newBut)
@@ -2685,36 +2685,36 @@ function refreshTemplates() { // функция обновляет шаблон�
                         break
                     case 'Переводы':
                         var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
+                        newBut.textContent = c[0]
                         newBut.style.marginRight = '4px'
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
                     case 'Серверные': // обработка нажатия на кнопку на странице серверные
                         var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
+                        newBut.textContent = c[0]
                         newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'servFromDoc(this.innerText)')
+                        newBut.setAttribute('onclick', 'servFromDoc(this.textContent)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
                     case 'ТемыМоб':
                         var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
+                        newBut.textContent = c[0]
                         newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
+                        newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
                     case 'Темыadd':
                         var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
+                        newBut.textContent = c[0]
                         newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
+                        newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
                     case 'Темы':
                         var newBut = document.createElement('button')
-                        newBut.innerText = c[0]
+                        newBut.textContent = c[0]
                         newBut.style.marginRight = '4px'
-                        newBut.setAttribute('onclick', 'tagToChat(this.innerText)')
+                        newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
                         break
                     default:
@@ -3121,71 +3121,71 @@ async function checkthemestatus() { //функция проверки выста
                 drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
 
 
-            if (pldata.payload.topicId.value == "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].innerText == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].innerText == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+            if (pldata.payload.topicId.value == "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].textContent == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 				
 				const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
 
 				if (button) {
 				  const textNode = button.childNodes[0].childNodes[0];
 				  const theme = document.createElement('div');
-				  theme.innerText = 'Тема: ❌';
+				  theme.textContent = 'Тема: ❌';
 				  theme.style = 'color:red; font-weight:700';
 				  
 				  if (!textNode.childNodes[1].childNodes[4]) {
 					textNode.childNodes[1].appendChild(theme);
-				  } else if (textNode.childNodes[1].childNodes[4].innerText === 'Тема: ✔') {
-					textNode.childNodes[1].childNodes[4].innerText = 'Тема: ❌';
+				  } else if (textNode.childNodes[1].childNodes[4].textContent === 'Тема: ✔') {
+					textNode.childNodes[1].childNodes[4].textContent = 'Тема: ❌';
 					textNode.childNodes[1].childNodes[4].style.color = 'red';
 				  }
 				}
 
-            } else if (pldata.payload.topicId.value != "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].innerText == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].innerText == "Выбор темы/подтемы:")) {
+            } else if (pldata.payload.topicId.value != "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].textContent == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent == "Выбор темы/подтемы:")) {
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
-                    theme.innerText = "Тема: ✔"
+                    theme.textContent = "Тема: ✔"
                     theme.style = 'color:green; font-weight:700'
                     if (txtbar.childNodes[1].childNodes[4] == undefined)
                         txtbar.childNodes[1].appendChild(theme)
 
-                    if (txtbar.childNodes[1].childNodes[4].innerText == 'Тема: ❌') {
-                        txtbar.childNodes[1].childNodes[4].innerText = "Тема: ✔";
+                    if (txtbar.childNodes[1].childNodes[4].textContent == 'Тема: ❌') {
+                        txtbar.childNodes[1].childNodes[4].textContent = "Тема: ✔";
                         txtbar.childNodes[1].childNodes[4].style.color = 'green';
                     }
                 }
             } 
 			
-            if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].innerText != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznWqX dAkvW')[1].innerText == 'Выбор тегов ТП:') {
+            if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent == 'Выбор тегов ТП:') {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                txtbar.childNodes[1].childNodes[5].innerText = "";
+                txtbar.childNodes[1].childNodes[5].textContent = "";
             }
 
-            if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznWqX dAkvW')[1].innerText == 'Выбор услуги:') {
+            if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
-                    theme.innerText = "Услуга: ❌"
+                    theme.textContent = "Услуга: ❌"
                     theme.style = 'color:red; font-weight:700'
                     if (txtbar.childNodes[1].childNodes[5] == undefined)
                         txtbar.childNodes[1].appendChild(theme)
 
-                    if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ✔') {
-                        txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ❌";
+                    if (txtbar.childNodes[1].childNodes[5].textContent == 'Услуга: ✔') {
+                        txtbar.childNodes[1].childNodes[5].textContent = "Услуга: ❌";
                         txtbar.childNodes[1].childNodes[5].style.color = 'red';
                     }
                 }
-            } else if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].innerText != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && document.getElementsByClassName('sc-fznWqX dAkvW')[1].innerText == 'Выбор услуги:') {
+            } else if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
-                    theme.innerText = "Услуга: ✔"
+                    theme.textContent = "Услуга: ✔"
                     theme.style = 'color:green; font-weight:700'
                     if (txtbar.childNodes[1].childNodes[5] == undefined)
                         txtbar.childNodes[1].appendChild(theme)
 
-                    if (txtbar.childNodes[1].childNodes[5].innerText == 'Услуга: ❌') {
-                        txtbar.childNodes[1].childNodes[5].innerText = "Услуга: ✔";
+                    if (txtbar.childNodes[1].childNodes[5].textContent == 'Услуга: ❌') {
+                        txtbar.childNodes[1].childNodes[5].textContent = "Услуга: ✔";
                         txtbar.childNodes[1].childNodes[5].style.color = 'green';
                     }
                 }
@@ -3206,9 +3206,9 @@ function dosetclasswork(subject) {     // функция перезапуска 
         "credentials": "include"
     });
 
-    document.getElementById('clwbtn').innerText = "Done!"
+    document.getElementById('clwbtn').textContent = "Done!"
 
-    setTimeout(() => { document.getElementById('clwbtn').innerText = "Classwork" }, 3000)
+    setTimeout(() => { document.getElementById('clwbtn').textContent = "Classwork" }, 3000)
 }
 
 function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
@@ -3381,7 +3381,7 @@ async function remandressl() { // функция добавляения масс
 
     let classworkbtn = document.createElement('div') // создание кнопки Classwork
     classworkbtn.id = "clwbtn"
-    classworkbtn.innerText = "Classwork"
+    classworkbtn.textContent = "Classwork"
     classworkbtn.style = "position:absolute; top:14px; left:65%; cursor: pointer; color:green; text-shadow: 1px 2px 5px rgb(0 0 0 / 20%);"
     let subject = document.URL.split('/')[4] + "/" + document.URL.split('/')[5]
 
@@ -3533,60 +3533,37 @@ async function remandressl() { // функция добавляения масс
 }
 
 function paintstatus() { //функция перекрашивания статуса оператора онлайн зеленый, занят желтый, офлайн и перерыв красные
-			const statusElem = document.querySelectorAll('.user_menu-status-name')[1];
-			if (document.URL !== "https://skyeng.autofaq.ai/tickets/archive" && statusElem) {
-				let color;
-				let text;
-				switch (statusElem.innerText) {
-					case "Офлайн":
-					case "Перерыв":
-						color = "red";
-						text = "Офлайн" || "Перерыв";
-						break;
-					case "Онлайн":
-						color = "green";
-						text = "Онлайн";
-						break;
-					case "Занят":
-						color = "yellow";
-						text = "Занят";
-						break;
-				}
-
-				if (color) {
-					statusElem.style = `background: ${color}; color: white; font-weight: 700`;
-					const buttonElem = document.querySelectorAll('.ant-btn')[4];
-					if (buttonElem && buttonElem.innerText === text) {
-						buttonElem.style.background = color;
-					}
-				}
-    } else if (document.URL === "https://skyeng.autofaq.ai/tickets/archive" && statusElem) {
-			  let color;
-			  let text;
-			  switch (statusElem.innerText) {
-				case "Офлайн":
-				case "Перерыв":
-				  color = "red";
-				  text = "Офлайн" || "Перерыв";
-				  break;
-				case "Онлайн":
-				  color = "green";
-				  text = "Онлайн";
-				  break;
-				case "Занят":
-				  color = "yellow";
-				  text = "Занят";
-				  break;
-			  }
-
-			  if (color) {
-				statusElem.style = `background: ${color}; color: white; font-weight: 700`;
-				const buttonElem = document.querySelectorAll('.ant-btn')[5];
-				if (buttonElem && buttonElem.innerText === text) {
-				  buttonElem.style.background = color;
-				}
-			  }
-			}
+	const statuscolor = document.querySelectorAll('.user_menu-status-name')[1];
+	const classantbtn = document.querySelectorAll('.ant-btn')
+    if (document.URL != "https://skyeng.autofaq.ai/tickets/archive" && statuscolor) {
+        if (statuscolor.textContent == "Офлайн" || statuscolor.textContent == "Перерыв") {
+            statuscolor.style = " background: red; color: white; font-weight: 700";
+            if (classantbtn[4].textContent == 'Офлайн' || classantbtn[4].textContent == 'Перерыв')
+                classantbtn[4].style.background = "red";
+        } else if (statuscolor.textContent == "Онлайн") {
+            statuscolor.style = " background: green; color: white; font-weight: 700";
+            if (classantbtn[4].textContent == 'Онлайн')
+                classantbtn[4].style.background = "green";
+        } else if (statuscolor.textContent == "Занят") {
+            statuscolor.style = " background: yellow; color: black; font-weight: 700";
+            if (classantbtn[4].textContent == 'Занят')
+                classantbtn[4].style.background = "yellow";
+        }
+    } else if (document.URL == "https://skyeng.autofaq.ai/tickets/archive" && statuscolor) {
+        if (statuscolor.textContent == "Офлайн" || statuscolor.textContent == "Перерыв") {
+            statuscolor.style = " background: red; color: white; font-weight: 700";
+            if (classantbtn[5].textContent == 'Офлайн' || classantbtn[5].textContent == 'Перерыв')
+                classantbtn[5].style.background = "red";
+        } else if (statuscolor.textContent == "Онлайн") {
+            statuscolor.style = " background: green; color: white; font-weight: 700";
+            if (classantbtn[5].textContent == 'Онлайн')
+                classantbtn[5].style.background = "green";
+        } else if (statuscolor.textContent == "Занят") {
+            statuscolor.style = " background: yellow; color: black; font-weight: 700";
+            if (classantbtn[5].textContent == 'Занят')
+                classantbtn[5].style.background = "yellow";
+        }
+    }
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
@@ -3599,11 +3576,11 @@ function addbuttonsintegration() { // добавляет подсветку пр
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachidfstd)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonservid)
             for (let i = 0; i < categorylist.length; i++) {
-                if (categorylist[i].innerText == "Техподдержка исход crm2") {
+                if (categorylist[i].textContent == "Техподдержка исход crm2") {
                     categorylist[i].style.color = "red";
                     categorylist[i].style.fontWeight = 600;
                     categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em red";
-                } else if (categorylist[i].innerText == "Техподдержка 2-я линия crm2") {
+                } else if (categorylist[i].textContent == "Техподдержка 2-я линия crm2") {
                     categorylist[i].style.color = "green";
                     categorylist[i].style.fontWeight = 600;
                     categorylist[i].style.textShadow = "1px 1px 1px black, 0 0 1em green";
@@ -3619,31 +3596,31 @@ function addbuttonsintegration() { // добавляет подсветку пр
 
 function checJiraF() { //Функция добавления коммента в чат при добавлении ссылки на джиру, но требуется повторное открытие окна чтобы система получила информацию о ссылке введеной в ячейку
     try {
-        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
+        if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fznJRM").textContent == "Ссылка на Jira:") {
             document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-                if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
-                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
+                if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent);
                     console.log("DONE!")
                 }
             }
 
             document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-                if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
-                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").innerText);
+                if (document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(3) > div > div > div > div > span > span.sc-fzqNqU").textContent);
                     console.log("DONE!")
                 }
             }
-        } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").innerText == "Ссылка на Jira:") {
+        } else if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM") != null && document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fznJRM").textContent == "Ссылка на Jira:") {
             document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-                if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
-                    sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
+                if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent);
                     console.log("DONE!")
                 }
             }
 
             document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").onclick = function () {
-                if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText != "Пусто") {
-                    sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").innerText);
+                if (document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent != "Пусто") {
+                    sendComment(document.querySelector("#DateFilter > div:nth-child(2) > div > div > div > div > span > span.sc-fzqNqU").textContent);
                     console.log("DONE!")
                 }
             }
@@ -4230,7 +4207,7 @@ document.getElementById('setting').onclick = function () { // открывает
 		}
 				
 		// скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
-        let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
+        let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0]
         if (opsection != 'ТП' && opsection != 'ТПPrem') {
             document.getElementById('set_TPrezerv').style.display = "none";
             document.getElementById('set_TP').style.display = "none";
@@ -4333,9 +4310,9 @@ document.getElementById('setting').onclick = function () { // открывает
                 audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
             else {
                 audio = new Audio(document.getElementById('sound_adr').value);
-                document.getElementById('sound_save').innerText = "✅";
+                document.getElementById('sound_save').textContent = "✅";
                 setTimeout(function () {
-                    document.getElementById('sound_save').innerText = "💾";
+                    document.getElementById('sound_save').textContent = "💾";
                 }, 3000);
             }
         }
@@ -4544,8 +4521,8 @@ buttonhistory.onclick = function () { //функция приска пр ист�
     document.getElementById('butChatHistory').click();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]
             btn_search_history.click()
         }
     }
@@ -4555,11 +4532,11 @@ btnNextUserChatHistory.onclick = function () { //искать историю ч�
     document.getElementById('butChatHistory').click();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]
             btn_search_history.click()
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId") {
+            document.getElementById('chatuserhis').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]
             btn_search_history.click()
         }
     }
@@ -4582,8 +4559,8 @@ trshotmain.onclick = function () {
     }
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0] +
                 '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
         }
     }
@@ -4606,11 +4583,11 @@ trshootnextuser.onclick = function () {
     }
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0] +
                 '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0] +
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId") {
+            window.open('https://video-trouble-shooter.skyeng.ru/?userId=' + document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0] +
                 '&from=' + curtime.getFullYear() + '-' + mesjac + '-' + (denj - 1 == 0 ? denj : (denj - 1 < 10 ? "0" + (denj - 1) : denj)) + 'T00:00:00&to=' + curtime.getFullYear() + '-' + mesjac + '-' + denj + 'T23:59:00&order=desc')
         }
     }
@@ -4618,14 +4595,14 @@ trshootnextuser.onclick = function () {
 
 infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
             const editorExtensionId = localStorage.getItem('ext_id');
             chrome.runtime.sendMessage(
                 editorExtensionId,
                 {
                     name: "chm_message", question: 'send_event', messageValue: {
                         message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]}`,
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]}`,
                     }
                 }
             )
@@ -4638,11 +4615,11 @@ buttonservivceuser.onclick = function () { //открывает окно вен�
         document.getElementById('AF_Service').style.display = '';
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent;
             getidstudent.click();
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText;
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent;
             getidstudent.click();
         }
     }
@@ -4653,8 +4630,8 @@ buttonservstud.onclick = function () { //открывает окно вензе�
         document.getElementById('AF_Service').style.display = '';
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0]
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
+            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]
             getidstudent.click();
         }
     }
@@ -4662,25 +4639,25 @@ buttonservstud.onclick = function () { //открывает окно вензе�
 
 nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId") {
             const editorExtensionId = localStorage.getItem('ext_id');
             chrome.runtime.sendMessage(
                 editorExtensionId,
                 {
                     name: "chm_message", question: 'send_event', messageValue: {
                         message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent}`,
                     }
                 }
             )
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId") {
+        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId") {
             const editorExtensionId = localStorage.getItem('ext_id');
             chrome.runtime.sendMessage(
                 editorExtensionId,
                 {
                     name: "chm_message", question: 'send_event', messageValue: {
                         message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText}`,
+                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent}`,
                     }
                 }
             )
@@ -4759,7 +4736,7 @@ butJiraOpenForm.innerHTML = "🔎Jira Search"
 butJiraOpenForm.classList.add('onlyfortp', 'inithide');
 
 let butmenu = document.createElement('button')
-butmenu.innerText = 'Меню'
+butmenu.textContent = 'Меню'
 butmenu.id = 'headmymenu'
 butmenu.style = 'height:32px;'
 butmenu.classList.add('ant-btn')
@@ -4798,9 +4775,9 @@ maskBack.onclick = function () { // кнопка свернуть
     email = document.getElementById('maskBack').getAttribute('email')
     phone = document.getElementById('maskBack').getAttribute('phone')
     mask = document.getElementById('maskBack').getAttribute('mask')
-    if (document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText == name &&
-        document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText == email &&
-        document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText == phone) {
+    if (document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.textContent == name &&
+        document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].textContent == email &&
+        document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].textContent == phone) {
         document.getElementsByClassName('ant-modal-wrap')[mask].style.display = ''
         document.getElementsByClassName('ant-modal-mask')[mask].style.display = ''
         document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = '' // кнопки сверху
@@ -4820,16 +4797,16 @@ maskBackHide.style.marginLeft = "15px";
 maskBackHide.style.display = "";
 
 maskBackHide.onclick = function () { // кнопка скрыть
-    if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.innerText == "Добавить комментарий к диалогу") {
+    if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.textContent == "Добавить комментарий к диалогу") {
         document.getElementsByClassName('ant-modal-wrap')[0].style.display = 'none'
         document.getElementsByClassName('ant-modal-mask')[0].style.display = 'none'
         document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
         document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
         document.getElementById('maskBack').style.display = ''
 
-        document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText)
-        document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText)
-        document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText)
+        document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.textContent)
+        document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].textContent)
+        document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].textContent)
         document.getElementById('maskBack').setAttribute('mask', 0)
     } else
         for (i = 0; ; i++) {
@@ -4841,9 +4818,9 @@ maskBackHide.onclick = function () { // кнопка скрыть
                 document.getElementById('maskBack').style.display = ''
 
 
-                document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.innerText)
-                document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].innerText)
-                document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].innerText)
+                document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.textContent)
+                document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].textContent)
+                document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].textContent)
                 document.getElementById('maskBack').setAttribute('mask', i - 1)
                 break;
             }
@@ -4907,10 +4884,10 @@ setInterval(closeTerms, 500);
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText == "teacher") {
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
             for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id") {
-                    getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].innerText.split(' ')[0];
+                    getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].textContent.split(' ')[0];
                     copyToClipboard1(getidusrteachreq)
                 }
             }
@@ -4921,8 +4898,8 @@ butteachid.onclick = function () { // копирует в буфер ID П пр�
 
 butstdid.onclick = function () {  // копирует в буфер ID У из секции nextclass-StudentId при создании задачи через АФ интеграцию
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId")
-            getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId")
+            getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
         copyToClipboard1(getidusrstud)
     }
 }
@@ -4930,8 +4907,8 @@ butstdid.onclick = function () {  // копирует в буфер ID У из �
 
 butteachidfstd.onclick = function () {  // копирует в буфер ID П из секции nextclass-TeacherId при обращении У и создании задачи через АФ интеграцию
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-teacherId")
-            getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId")
+            getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
         copyToClipboard1(getidusrsteach)
     }
 }
@@ -4939,8 +4916,8 @@ butteachidfstd.onclick = function () {  // копирует в буфер ID П 
 
 buttonservid.onclick = function () { //копирует в буфер nextClass-educationServiceId при обращении П во время крита услугу ученика при интеграции в форме АФ
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId")
-            getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-educationServiceId")
+            getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
         copyToClipboard1(getservidst)
     }
 }
@@ -4954,12 +4931,12 @@ setInterval(paintstatus, 5000);
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
 let btnsid = document.createElement('button')
-btnsid.innerText = "У";
+btnsid.textContent = "У";
 btnsid.id = "sidcode";
 btnsid.classList = 'teststudteach'
 
 let btntid = document.createElement('button')
-btntid.innerText = "П";
+btntid.textContent = "П";
 btntid.id = "tidcode";
 btntid.classList = 'teststudteach'
 
@@ -5108,7 +5085,7 @@ let intervalotak = setInterval(function () {
 
                 async function getissueandsolution() {
                     if (objSelIssue.children.length == 1 && objSelSolution.children.length == 1) {
-                        document.getElementById('send2doc').innerText = 'Загрузка'
+                        document.getElementById('send2doc').textContent = 'Загрузка'
 
                         issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
                         await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
@@ -5128,9 +5105,9 @@ let intervalotak = setInterval(function () {
                             addOption(objSelSolution, `${solutioncontainer[i][0]}`, `${solutioncontainer[i][0]}`)
                         }
 
-                        document.getElementById('send2doc').innerText = 'Отправить'
+                        document.getElementById('send2doc').textContent = 'Отправить'
                     } else {
-                        document.getElementById('send2doc').innerText = 'Отправить'
+                        document.getElementById('send2doc').textContent = 'Отправить'
                     }
 
                 }
@@ -5203,7 +5180,7 @@ let intervalotak = setInterval(function () {
                     objSelIssue.length = 1;
                     objSelSolution.length = 1;
 
-                    document.getElementById('send2doc').innerText = 'Загрузка'
+                    document.getElementById('send2doc').textContent = 'Загрузка'
 
                     issuefromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
                     await fetch(issuefromdoc).then(r => r.json()).then(r => issuedata = r)
@@ -5223,7 +5200,7 @@ let intervalotak = setInterval(function () {
                         addOption(objSelSolution, `${solutioncontainer[i][0]}`, `${solutioncontainer[i][0]}`)
                     }
 
-                    document.getElementById('send2doc').innerText = 'Отправить'
+                    document.getElementById('send2doc').textContent = 'Отправить'
 
                 }
 
@@ -5376,10 +5353,10 @@ let intervalotak = setInterval(function () {
                         document.getElementById('sendResponse').click()
 
                         sendComment('Отправка в документ "Отказ от помощи" прошла успешно')
-                        document.getElementById('send2doc').innerText = "Отправлено✅"
+                        document.getElementById('send2doc').textContent = "Отправлено✅"
 
                         setTimeout(() => {
-                            document.getElementById('send2doc').innerText = "Отправить"
+                            document.getElementById('send2doc').textContent = "Отправить"
                             document.getElementById('AF_Refuseformnew').style.display = 'none'
                         }, 3000)
 
