@@ -855,23 +855,34 @@ function startTimer() { // большая функция по таймеру а�
                             }
                         }
                     }
+				
+					let userTypeName = document.createElement('span');
+					userTypeName.id = "userTypeId";
 
+					const userDetailsName = document.getElementsByClassName('expert-user_details-name')[0];
+					const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
 
-                    let userTypeName = document.createElement('span')
-                    userTypeName.id = "userTypeId"
-                    document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName)
-                    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
-                            document.getElementById('userTypeId').textContent = "(П)"
-                            document.getElementById('userTypeId').style.color = "#1E90FF"
-                        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "student") {
-                            document.getElementById('userTypeId').textContent = "(У)"
-                            document.getElementById('userTypeId').style.color = "#DC143C"
-                        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "parent") {
-                            document.getElementById('userTypeId').textContent = "(РУ)"
-                            document.getElementById('userTypeId').style.color = "#DC143C"
-                        }
-                    }
+					if (!userDetailsName.contains(userTypeName)) {
+						  userDetailsName.appendChild(userTypeName);
+
+						for (let i = 0; userDetailsList.childNodes[i]; i++) {
+							const childNode = userDetailsList.childNodes[i];
+							const textContent = childNode.childNodes[1].textContent;
+							if (textContent === "teacher") {
+							  document.getElementById('userTypeId').textContent = "(П)";
+							  document.getElementById('userTypeId').style.color = "#1E90FF";
+							  break;
+							} else if (textContent === "student") {
+							  document.getElementById('userTypeId').textContent = "(У)";
+							  document.getElementById('userTypeId').style.color = "#DC143C";
+							  break;
+							} else if (textContent === "parent") {
+							  document.getElementById('userTypeId').textContent = "(РУ)";
+							  document.getElementById('userTypeId').style.color = "#DC143C";
+							  break;
+							}
+						}
+					}
 
                     //добавил окраску бренда skyeng
 					
@@ -4913,22 +4924,21 @@ hashBut.onclick = function() { // кнопка копирующая хеш ча�
   }
 }
 
-document.getElementById('testUsers').ondblclick = function(a) { // скрытие поля ввода и кнопки логинера в окне testUsers
+document.getElementById('testUsers').ondblclick = function(a) {
   if (checkelementtype(a)) {
     const testid = document.getElementById('testid');
     const idlogin = document.getElementById('idlogin');
-    if (testid.style.display === '' && idlogin.style.display === '') {
+    if (testid && idlogin && testid.style.display === '' && idlogin.style.display === '') {
       testid.style.display = 'none';
       idlogin.style.display = 'none';
       localStorage.setItem('Hidetestid', '0');
-    } else {
+    } else if (testid && idlogin) {
       testid.style.display = '';
       idlogin.style.display = '';
       localStorage.setItem('Hidetestid', '1');
     }
   }
 };
-
 
 setInterval(screenshots, 5000)
 
