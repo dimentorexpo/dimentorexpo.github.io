@@ -680,27 +680,20 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
 		let getdateset = new Date();
 		let getyearLS = getdateset.getFullYear();
 		let getcurmonthLS = getdateset.getMonth() + 1;
-		let todayLS = getdateset.getDate();
-
-		function getFormattedDateComponent(dateComponent) {
-		  return dateComponent < 10 ? '0' + dateComponent : dateComponent;
-		}
-
-		if (getdateset.getDate() < 10) {
-		  todayLS = "0" + getdateset.getDate();
-		} else {
-		  todayLS = getdateset.getDate();
-		}
+		let todayLS = getFormattedDateComponent(getdateset.getDate())
 
 		let fromMonthLS = getcurmonthLS - 1;
 		let toMonthLS = getcurmonthLS;
+		let getyearFromLS;
 
 		if (fromMonthLS == 0) {
 		  fromMonthLS = "12";
-		  getyearLS = getyearLS - 1;
+		    getyearFromLS = getyearLS - 1;
+		} else {
+			getyearFromLS = getyearLS;
 		}
 
-		document.getElementById('dateFromChHis').value = getyearLS + "-" + getFormattedDateComponent(fromMonthLS) + "-" + todayLS;
+		document.getElementById('dateFromChHis').value = getyearFromLS + "-" + getFormattedDateComponent(fromMonthLS) + "-" + todayLS;
 		document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDateComponent(toMonthLS) + "-" + todayLS;
 
         let radiobtnsarray = document.getElementsByName('chatornotes')
