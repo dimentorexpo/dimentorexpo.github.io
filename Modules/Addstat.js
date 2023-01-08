@@ -210,30 +210,19 @@ document.getElementById('clearall').onclick = function () {
 }
 	
 	    document.getElementById('getStats').onclick = function () { // открытие Статистики
-        let getcurdate = new Date()
-        let getyear = getcurdate.getFullYear();
-        let getcurmonth = (getcurdate.getMonth() + 1)
-        let today = getcurdate.getDate();
 
-        if (getcurmonth < 10) {
-            getcurmonth = "0" + (getcurdate.getMonth() + 1);
-        } else {
-            getcurmonth = (getcurdate.getMonth() + 1);
-        }
+		  const currentDate = new Date();
+		  const year = currentDate.getFullYear();
+		  let month = currentDate.getMonth() + 1;
+		  let day = currentDate.getDate();
 
-        if (getcurdate.getDate() < 10) {
-            today = "0" + getcurdate.getDate();
-            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
-            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-        } else if (getcurdate.getDate() == 10) {
-			today = getcurdate.getDate();
-            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + "0" + (Number(today) - 1);
-            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-        } else {
-            today = getcurdate.getDate();
-            document.getElementById('dateFrom').value = getyear + "-" + getcurmonth + "-" + (today - 1);
-            document.getElementById('dateTo').value = getyear + "-" + getcurmonth + "-" + today;
-        }
+		  month = month.toString().padStart(2, '0');
+		  day = day.toString().padStart(2, '0');
+
+		  document.getElementById('dateFrom').value = `${year}-${month}-${day - 1}`;
+		  document.getElementById('dateTo').value = `${year}-${month}-${day}`;
+
+
         document.querySelector('#chatcommentsdata').style.display = "none"
         document.querySelector('#lowCSATcount').style.display = "none"
         if (document.getElementById('AF_Stat').style.display == '')
