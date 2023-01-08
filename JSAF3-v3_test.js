@@ -4624,22 +4624,23 @@ trshootnextuser.onclick = function () {
     }
 }
 
-infouserbut.onclick = function () { //функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-            const editorExtensionId = localStorage.getItem('ext_id');
-            chrome.runtime.sendMessage(
-                editorExtensionId,
-                {
-                    name: "chm_message", question: 'send_event', messageValue: {
-                        message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]}`,
-                    }
-                }
-            )
-        }
-    }
-}
+infouserbut.onclick = function () { // функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
+  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+  const idNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'id');
+  if (idNode) {
+    const editorExtensionId = localStorage.getItem('ext_id');
+    chrome.runtime.sendMessage(
+      editorExtensionId,
+      {
+        name: 'chm_message', question: 'send_event', messageValue: {
+          message: 'open-user-info',
+          userId: `${idNode.childNodes[1].textContent.split(' ')[0]}`,
+        },
+      },
+    );
+  }
+};
+
 
 buttonservivceuser.onclick = function () { //открывает окно вензель user info
     if (document.getElementById('AF_Service').style.display == 'none')
