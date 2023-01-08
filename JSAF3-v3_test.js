@@ -4655,19 +4655,20 @@ buttonservivceuser.onclick = function () { //открывает окно вен�
   }
 }
 
-
-
 buttonservstud.onclick = function () { //открывает окно вензель user info
-    if (document.getElementById('AF_Service').style.display == 'none')
-        document.getElementById('AF_Service').style.display = '';
+  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+  const idNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'id');
 
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0]
-            getidstudent.click();
-        }
+  if (idNode) {
+    const AF_Service = document.getElementById('AF_Service');
+    if (AF_Service.style.display === 'none') {
+      AF_Service.style.display = '';
     }
+    document.getElementById('idstudent').value = idNode.childNodes[1].textContent.split(' ')[0];
+    getidstudent.click();
+  }
 }
+
 
 nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
   const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
