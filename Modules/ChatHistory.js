@@ -304,38 +304,13 @@ function getFormattedDateComponent(dateComponent) { // функция добав
 
 async function findchatsoper() { // ищет активные чаты на выбранном операторе
     let objSel = document.getElementById("operatorstp");
-    // let getdateset = new Date()
-    // let hrs;
-    // let mins;
-    // let secs;
-    // let difhrs;
-    // if (getdateset.getUTCHours() < 10)
-        // hrs = "0" + (getdateset.getUTCHours());
-    // else if (getdateset.getUTCHours() >= 24)
-        // hrs = '0' + ((getdateset.getUTCHours() - 24))
-    // else
-        // hrs = (getdateset.getUTCHours());
 
-
-    // if (hrs - 1 < 10)
-        // difhrs = '0' + (hrs - 1)
-    // else difhrs = hrs;
-
-    // if (getdateset.getMinutes() < 10)
-        // mins = "0" + getdateset.getMinutes();
-    // else mins = getdateset.getMinutes();
-
-    // if (getdateset.getUTCSeconds() < 10)
-        // secs = "0" + getdateset.getUTCSeconds();
-    // else secs = getdateset.getUTCSeconds()
-	
 	let getdateset = new Date();
 
 	let hrs = getdateset.getUTCHours() < 10 ? "0" + (getdateset.getUTCHours()) : getdateset.getUTCHours() >= 24 ? '0' + ((getdateset.getUTCHours() - 24)) : getdateset.getUTCHours();
 	let difhrs = hrs - 1 < 10 ? '0' + (hrs - 1) : hrs - 1;
 	let mins = getFormattedDateComponent(getdateset.getMinutes());
 	let secs = getFormattedDateComponent(getdateset.getUTCSeconds());
-
 
     flagsearch = 'searchbyoperator'
 
@@ -646,55 +621,54 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
         changeviewtheme()
 
         flagsearch = ''
-        // let getdateset = new Date()
-        // let getyearLS = getdateset.getFullYear();
-        // let getcurmonthLS = (getdateset.getMonth() + 1)
-        // let todayLS = getdateset.getDate();    
-        // if (getcurmonthLS < 10) {
-            // getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        // } else {
-            // getcurmonthLS = (getdateset.getMonth() + 1);
-        // }
-        // if (getdateset.getDate() < 10 && getcurmonthLS == 1){
-            // todayLS = "0" + getdateset.getDate();
-            // document.getElementById('dateFromChHis').value = JSON.stringify(getyearLS - 1) + "-" + '12' + "-" + "0" + Number(todayLS);
-            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        // } else if (getdateset.getDate() < 10 && getcurmonthLS > 1 && getcurmonthLS <= 10) {
-            // todayLS = "0" + getdateset.getDate();
-            // document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
-            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        // } else  if  (getdateset.getDate() < 10 && getcurmonthLS > 10) {
-            // todayLS = "0" + getdateset.getDate();
-            // document.getElementById('dateFromChHis').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
-            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-		// } else  if  ( (getdateset.getDate() == 10 && getcurmonthLS > 10) || (getdateset.getDate() > 10 && (getcurmonthLS-1 == 10)) ) {
-            // todayLS = getdateset.getDate();
-            // document.getElementById('dateFromChHis').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + Number(todayLS);
-            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-		// } else {
-            // todayLS = getdateset.getDate();
-            // document.getElementById('dateFromChHis').value = getyearLS + "-" + (getcurmonthLS - 1) + "-" + Number(todayLS - 1);
-            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        // }
-		
+
 		let getdateset = new Date();
 		let getyearLS = getdateset.getFullYear();
 		let getcurmonthLS = getdateset.getMonth() + 1;
-		let todayLS = getFormattedDateComponent(getdateset.getDate())
+
+		// Set the number of days in the current month
+		let numDaysInCurrentMonth;
+		if (getcurmonthLS == 2) {
+		  numDaysInCurrentMonth = 28;
+		} else if (getcurmonthLS == 4 || getcurmonthLS == 6 || getcurmonthLS == 9 || getcurmonthLS == 11) {
+		  numDaysInCurrentMonth = 30;
+		} else {
+		  numDaysInCurrentMonth = 31;
+		}
 
 		let fromMonthLS = getcurmonthLS - 1;
 		let toMonthLS = getcurmonthLS;
 		let getyearFromLS;
 
-		if (fromMonthLS == 0) {
+		// Set the number of days in the fromMonthLS and toMonthLS months
+		let numDaysInFromMonth, numDaysInToMonth;
+		if (fromMonthLS == 2) {
+		  numDaysInFromMonth = 28;
+		} else if (fromMonthLS == 4 || fromMonthLS == 6 || fromMonthLS == 9 || fromMonthLS == 11) {
+		  numDaysInFromMonth = 30;
+		} else if (fromMonthLS == 0) {
+		  numDaysInFromMonth = 31;
 		  fromMonthLS = "12";
-		    getyearFromLS = getyearLS - 1;
+		  getyearFromLS = getyearLS - 1;
 		} else {
-			getyearFromLS = getyearLS;
+		  numDaysInFromMonth = 31;
+		  getyearFromLS = getyearLS;
 		}
 
-		document.getElementById('dateFromChHis').value = getyearFromLS + "-" + getFormattedDateComponent(fromMonthLS) + "-" + todayLS;
-		document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDateComponent(toMonthLS) + "-" + todayLS;
+		if (toMonthLS == 2) {
+		  numDaysInToMonth = 28;
+		} else if (toMonthLS == 4 || toMonthLS == 6 || toMonthLS == 9 || toMonthLS == 11) {
+		  numDaysInToMonth = 30;
+		} else {
+		  numDaysInToMonth = 31;
+		}
+
+		// Set today's day to the last day of the month if it is greater than the number of days in the month
+		let todayLSFrom = getFormattedDateComponent(Math.min(getdateset.getDate(), numDaysInFromMonth));
+		let todayLSTo = getFormattedDateComponent(Math.min(getdateset.getDate(), numDaysInToMonth));
+
+		document.getElementById('dateFromChHis').value = getyearFromLS + "-" + getFormattedDateComponent(fromMonthLS) + "-" + todayLSFrom;
+		document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDateComponent(toMonthLS) + "-" + todayLSTo;
 
         let radiobtnsarray = document.getElementsByName('chatornotes')
         let radiobtnsarray1 = document.getElementsByName('chatornotes1')
