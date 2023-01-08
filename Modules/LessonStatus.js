@@ -98,28 +98,6 @@ document.getElementById('butLessonInfo').onclick = function () {
 	}
 }
 	
-	document.getElementById('butLessonInfo').onclick = function () {
-	  let getdateset = new Date();
-	  let getyearLS = getdateset.getFullYear();
-	  let getcurmonthLS = getdateset.getMonth() + 1;
-	  let todayLS = getdateset.getDate();
-	  getcurmonthLS = getcurmonthLS < 10 ? `0${getcurmonthLS}` : getcurmonthLS;
-	  todayLS = todayLS < 10 ? `0${todayLS}` : todayLS;
-	  document.getElementById('dateFromLS').value = `${getyearLS}-${getcurmonthLS}-${todayLS - 1}`;
-	  document.getElementById('dateToLS').value = `${getyearLS}-${getcurmonthLS}-${todayLS}`;
-
-	  if (document.getElementById('AF_LessonStatus').style.display === '') {
-		document.getElementById('AF_LessonStatus').style.display = 'none';
-		document.getElementById('idmymenu').style.display = 'none';
-	  } else {
-		document.getElementById('AF_LessonStatus').style.display = '';
-		document.getElementById('idmymenu').style.display = 'none';
-	  }
-	}
-
-	
-	
-	
 //Функция проверки статусов урока
 let arregetted;
 
