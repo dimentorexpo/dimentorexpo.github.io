@@ -28,35 +28,6 @@ async function operstatusleftbar() { // функция замены Script Packa
     else if (operdep == 'Prem')
         flagtpkc = 'Prem'
 
-
-    var dateopst = new Date()
-    day = month = ""
-    if (dateopst.getMonth() < 9)
-        month = "0" + (dateopst.getMonth() + 1)
-    else
-        month = (dateopst.getMonth() + 1)
-    if (dateopst.getDate() < 10)
-        day = "0" + dateopst.getDate()
-    else
-        day = dateopst.getDate()
-
-    secondDate = dateopst.getFullYear() + "-" + month + "-" + day + "T20:59:59.059Z"
-    dateopst = dateopst - 24 * 60 * 60 * 1000
-    var dateopst2 = new Date()
-    dateopst2.setTime(dateopst)
-
-    if (dateopst2.getMonth() < 9)
-        month2 = "0" + (dateopst2.getMonth() + 1)
-    else
-        month2 = (dateopst2.getMonth() + 1)
-    if (dateopst2.getDate() < 10)
-        day2 = "0" + (dateopst2.getDate()) // убрал -1
-    else if (dateopst2.getDate() == 10)
-        day2 = (dateopst2.getDate());
-    else
-        day2 = (dateopst2.getDate() - 1)
-    firstDate = dateopst2.getFullYear() + "-" + month2 + "-" + day2 + "T21:00:00.000Z"
-
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
     }).then(r => r.json()).then(result => {
