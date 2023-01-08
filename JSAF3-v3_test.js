@@ -4268,29 +4268,32 @@ document.getElementById('setting').onclick = function () { // открывает
         let objSoundList = document.getElementById('soundlistaddr')
         let soundsfromdoc;
         let soundsconteiner;
+	
+		async function getsoundsfromdoc() { // загрузка списка звуков из файла
+		  const soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec';
+		  const response = await fetch(soundsfromdoc);
+		  const soundsdata = await response.json();
+		  const soundsconteiner = soundsdata.result;
+		  console.log(soundsdata.result) //получим список звуков
+		  soundsconteiner.forEach((sound) => {
+			if (sound[0] !== '') {
+			  addOption(objSoundList, `${sound[0]}`, `${sound[1]}`)
+			}
+		  });
+		  Array.prototype.forEach.call(objSoundList.children, (option) => { // проверяем какой звук выбран
+			if (option.value === localStorage.getItem('sound_str')) {
+			  option.selected = true;
+			}
+		  });
+		  if (objSoundList.children[0].selected) {
+			objSoundList.children[1].selected = true;
+			document.getElementById('sound_adr').style.display = '';
+			document.getElementById('sound_save').style.display = '';
+			document.getElementById('sound_adr').value = localStorage.getItem('sound_str');
+		  }
+		}
 
-        async function getsoundsfromdoc() { // загрузка списка звуков из файла
-            soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec'
-            await fetch(soundsfromdoc).then(r => r.json()).then(r => soundsdata = r)
-            soundsconteiner = soundsdata.result;
-            console.log(soundsdata.result) //получим список звуков
-            for (j = 0; j < soundsconteiner.length; j++) {
-                if (soundsconteiner[j][0] != '') {
-                    addOption(objSoundList, `${soundsconteiner[j][0]}`, `${soundsconteiner[j][1]}`)
-                }
-            }
-            for (let i = 0; i < objSoundList.length; i++) { // проверяем какой звук выбран
-                if (objSoundList.children[i].value == localStorage.getItem('sound_str')) {
-                    objSoundList.children[i].selected = true;
-                }
-            }
-            if (objSoundList.children[0].selected) {
-                objSoundList.children[1].selected = true
-                document.getElementById('sound_adr').style.display = ''
-                document.getElementById('sound_save').style.display = ''
-                document.getElementById('sound_adr').value = localStorage.getItem('sound_str')
-            }
-        }
+		
 
         if (objSoundList.length < 3) {
             getsoundsfromdoc()
