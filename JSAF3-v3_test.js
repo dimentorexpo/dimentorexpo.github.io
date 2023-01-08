@@ -4293,8 +4293,6 @@ document.getElementById('setting').onclick = function () { // открывает
 		  }
 		}
 
-		
-
         if (objSoundList.length < 3) {
             getsoundsfromdoc()
         }
@@ -4671,32 +4669,22 @@ buttonservstud.onclick = function () { //открывает окно вензе�
 }
 
 nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId") {
-            const editorExtensionId = localStorage.getItem('ext_id');
-            chrome.runtime.sendMessage(
-                editorExtensionId,
-                {
-                    name: "chm_message", question: 'send_event', messageValue: {
-                        message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent}`,
-                    }
-                }
-            )
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId") {
-            const editorExtensionId = localStorage.getItem('ext_id');
-            chrome.runtime.sendMessage(
-                editorExtensionId,
-                {
-                    name: "chm_message", question: 'send_event', messageValue: {
-                        message: 'open-user-info',
-                        userId: `${document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent}`,
-                    }
-                }
-            )
-        }
+  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+  Array.prototype.forEach.call(userDetailsList.childNodes, (node) => {
+    if (node.firstChild.textContent === 'nextClass-studentId' || node.firstChild.textContent === 'nextClass-teacherId') {
+      const editorExtensionId = localStorage.getItem('ext_id');
+      chrome.runtime.sendMessage(
+        editorExtensionId,
+        {
+          name: 'chm_message', question: 'send_event', messageValue: {
+            message: 'open-user-info',
+            userId: `${node.childNodes[1].textContent}`,
+          },
+        },
+      );
     }
-}
+  });
+};
 
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
