@@ -851,31 +851,20 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
 
                 for (let i = 0; i < data.items.length; i++) {
 
-                    let tmestmp = new Date((data.items[i].ts.split('[GMT]'))[0])
-                    let tshrs;
-                    let tsmin
-                    let day;
-                    let month;
-                    let actstatus = '';
-                    let marksarr;
-                    if (tmestmp.getMonth() < 9)
-                        month = "0" + (tmestmp.getMonth() + 1)
-                    else
-                        month = (tmestmp.getMonth() + 1)
-                    if (tmestmp.getDate() < 10)
-                        day = "0" + tmestmp.getDate()
-                    else
-                        day = tmestmp.getDate()
-                    let year = tmestmp.getFullYear();
-                    if ((tmestmp.getUTCHours() + 3) < 10)
-                        tshrs = "0" + (tmestmp.getUTCHours() + 3);
-                    else if ((tmestmp.getUTCHours() + 3) >= 24)
-                        tshrs = '0' + ((tmestmp.getUTCHours() + 3 - 24))
-                    else tshrs = (tmestmp.getUTCHours() + 3);
+				let tmestmp = new Date((data.items[i].ts.split('[GMT]'))[0]);
+				let tshrs;
+				let tsmin;
+				let day;
+				let month;
+				let actstatus = '';
+				let marksarr;
 
-                    if (tmestmp.getMinutes() < 10)
-                        tsmin = "0" + tmestmp.getMinutes();
-                    else tsmin = tmestmp.getMinutes();
+				month = (tmestmp.getMonth() < 9) ? "0" + (tmestmp.getMonth() + 1) : (tmestmp.getMonth() + 1);
+				day = (tmestmp.getDate() < 10) ? "0" + tmestmp.getDate() : tmestmp.getDate();
+				let year = tmestmp.getFullYear();
+				tshrs = (tmestmp.getUTCHours() + 3 < 10) ? "0" + (tmestmp.getUTCHours() + 3) : ((tmestmp.getUTCHours() + 3 >= 24) ? '0' + ((tmestmp.getUTCHours() + 3 - 24)) : (tmestmp.getUTCHours() + 3));
+				tsmin = (tmestmp.getMinutes() < 10) ? "0" + tmestmp.getMinutes() : tmestmp.getMinutes();
+
 
                     if (data.items[i].stats.rate == undefined || data.items[i].stats.rate.rate == undefined)
                         marksarr = '⭕'
