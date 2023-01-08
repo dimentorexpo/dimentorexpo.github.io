@@ -636,13 +636,17 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
         let getdateset = new Date()
         let getyearLS = getdateset.getFullYear();
         let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
+        let todayLS = getdateset.getDate();    
         if (getcurmonthLS < 10) {
             getcurmonthLS = "0" + (getdateset.getMonth() + 1)
         } else {
             getcurmonthLS = (getdateset.getMonth() + 1);
         }
-        if (getdateset.getDate() < 10 && getcurmonthLS <=10) {
+        if (getdateset.getDate() < 10 && getcurmonthLS == 1){
+            todayLS = "0" + getdateset.getDate();
+            document.getElementById('dateFromChHis').value = JSON.stringify(getyearLS - 1) + "-" + '12' + "-" + "0" + Number(todayLS);
+            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        } else if (getdateset.getDate() < 10 && getcurmonthLS > 1 && getcurmonthLS <= 10) {
             todayLS = "0" + getdateset.getDate();
             document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
             document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
