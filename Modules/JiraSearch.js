@@ -222,19 +222,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         document.getElementById('favouriteissuetable').innerHTML = favissues;
                     }
 
-                    for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
-                        document.getElementsByName('removefromfavourites')[i].onclick = function () {
-                            favissues.splice([i], 1)
-                            localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                            favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                            document.getElementById('favouriteissuetable').innerHTML = favissues;
-                            removebug();
-                            sndmsgafterdeletebug()
-                            plusonecount()
-                        }
-                    }
-					
-					// for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
+                    // for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
                         // document.getElementsByName('removefromfavourites')[i].onclick = function () {
                             // favissues.splice([i], 1)
                             // localStorage.setItem('bugsarray', JSON.stringify(favissues))
@@ -245,20 +233,6 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                             // plusonecount()
                         // }
                     // }
-					
-					document.querySelectorAll('[name=removefromfavourites]').forEach((btn, i) => {
-					  btn.addEventListener('click', () => {
-						favissues.splice(i, 1);
-						localStorage.setItem('bugsarray', JSON.stringify(favissues));
-						favissues = JSON.parse(localStorage.getItem('bugsarray'));
-						document.getElementById('favouriteissuetable').innerHTML = favissues;
-						removebug();
-						sndmsgafterdeletebug();
-						plusonecount();
-					  });
-					});
-
-					
 
                     // function removebug() {
                         // let arroffavbugs = document.getElementsByName('removefromfavourites');
@@ -275,19 +249,17 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         // }
                     // }
 					
-					function removebug() {
-					  const arroffavbugs = document.getElementsByName('removefromfavourites');
-					  for (let i = 0; i < arroffavbugs.length; i++) {
-						arroffavbugs[i].onclick = () => {
-						  favissues.splice(i, 1);
-						  localStorage.setItem('bugsarray', JSON.stringify(favissues));
-						  favissues = JSON.parse(localStorage.getItem('bugsarray'));
-						  document.getElementById('favouriteissuetable').innerHTML = favissues;
-						  sndmsgafterdeletebug();
-						  plusonecount();
-						};
-					  }
-					}
+				document.getElementById('favouriteissuetable').addEventListener('click', function(event) {
+				  if (event.target.name === 'removefromfavourites') {
+					let index = Array.from(document.getElementsByName('removefromfavourites')).indexOf(event.target);
+					favissues.splice(index, 1);
+					localStorage.setItem('bugsarray', JSON.stringify(favissues));
+					favissues = JSON.parse(localStorage.getItem('bugsarray'));
+					document.getElementById('favouriteissuetable').innerHTML = favissues;
+					sndmsgafterdeletebug();
+					plusonecount();
+				  }
+				});
 
 
 
