@@ -4641,21 +4641,21 @@ infouserbut.onclick = function () { // функция Info по нажатию �
   }
 };
 
+buttonservivceuser.onclick = function () { //открывает окно вензель user info для nextuser
+  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+  const userIdNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'nextClass-teacherId' || node.firstChild.textContent === 'nextClass-studentId');
 
-buttonservivceuser.onclick = function () { //открывает окно вензель user info
-    if (document.getElementById('AF_Service').style.display == 'none')
-        document.getElementById('AF_Service').style.display = '';
-
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent;
-            getidstudent.click();
-        } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId") {
-            document.getElementById('idstudent').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent;
-            getidstudent.click();
-        }
+  if (userIdNode) {
+    const AF_Service = document.getElementById('AF_Service');
+    if (AF_Service.style.display === 'none') {
+      AF_Service.style.display = '';
     }
+    document.getElementById('idstudent').value = userIdNode.childNodes[1].textContent;
+    getidstudent.click();
+  }
 }
+
+
 
 buttonservstud.onclick = function () { //открывает окно вензель user info
     if (document.getElementById('AF_Service').style.display == 'none')
