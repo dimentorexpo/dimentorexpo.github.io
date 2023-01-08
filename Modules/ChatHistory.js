@@ -686,19 +686,32 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
         }
 
         async function currstate() { // функция получает массив операторов ТП, которые не в офлайне
-		let opsflag = '';
-			let operdepchist = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
-			if (operdepchist  == 'ТП')
-				opsflag = 'ТП'
-			else if (operdepchist == 'КЦ')
-				opsflag = 'КЦ'
-			else if (operdepchist == 'КМ')
-				opsflag = 'КМ'
-			else if (operdepchist == 'ТС')
-				opsflag = 'ТС'
-            else if (operdepchist == 'ТПPrem')
-			    opsflag = 'ТПPrem'
-			console.log("Подразделение для Chat history" + opsflag)
+		let opsflag;
+		let operdepchist = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0];
+
+		switch (operdepchist) {
+		  case 'ТП':
+			opsflag = 'ТП';
+			break;
+		  case 'КЦ':
+			opsflag = 'КЦ';
+			break;
+		  case 'КМ':
+			opsflag = 'КМ';
+			break;
+		  case 'ТС':
+			opsflag = 'ТС';
+			break;
+		  case 'ТПPrem':
+			opsflag = 'ТПPrem';
+			break;
+		  default:
+			opsflag = 'Unknown';
+			break;
+		}
+
+		console.log(`Подразделение для Chat history: ${opsflag}`);
+
 			
             activetechopers = []
             objSel.length = 1
