@@ -4769,23 +4769,34 @@ menubar.style = `background: white; position:absolute; left: 0; top: 50px; borde
 menubar.id = 'idmymenu'
 
 butmenu.onclick = () => { // кнопка открытия Меню
-    if (menubar.style.display == 'none') {
-        menubar.style.display = ''
-        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231)
-        menubar.style.left = xvarmenu + 'px';
-        if (document.querySelector('.ant-layout-content .expert-chat_content') != null) {
-            document.querySelector('.ant-layout-content .expert-chat_content').addEventListener('click', function (event) {
-                var e = document.getElementById('idmymenu');
-                if (!e.contains(event.target)) e.style.display = 'none';
-            });
-        } else if (document.querySelector('.ant-layout-content .app-body-content-inner-right') != null) {
-            document.querySelector('.ant-layout-content .app-body-content-inner-right').addEventListener('click', function (event) {
-                var e = document.getElementById('idmymenu');
-                if (!e.contains(event.target)) e.style.display = 'none';
-            });
-        }
-    } else menubar.style.display = 'none'
+  if (menubar.style.display === 'none') {
+    menubar.style.display = '';
+    let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231);
+    menubar.style.left = `${xvarmenu}px`;
+
+    // Query the DOM only once
+    const expertChatContent = document.querySelector('.ant-layout-content .expert-chat_content');
+    const appBodyContentInnerRight = document.querySelector('.ant-layout-content .app-body-content-inner-right');
+    let clickHandler;
+
+    if (expertChatContent) {
+      clickHandler = (event) => {
+        const e = document.getElementById('idmymenu');
+        if (!e.contains(event.target)) e.style.display = 'none';
+      };
+      expertChatContent.addEventListener('click', clickHandler);
+    } else if (appBodyContentInnerRight) {
+      clickHandler = (event) => {
+        const e = document.getElementById('idmymenu');
+        if (!e.contains(event.target)) e.style.display = 'none';
+      };
+      appBodyContentInnerRight.addEventListener('click', clickHandler);
+    }
+  } else {
+    menubar.style.display = 'none';
+  }
 }
+
 
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
