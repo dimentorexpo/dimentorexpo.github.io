@@ -4950,18 +4950,23 @@ setInterval(remandressl, 3000);
 setInterval(closeTerms, 500);
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
-    for (let i = 1; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent == "teacher") {
-            for (let j = 0; j < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; j++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].firstChild.textContent == "id") {
-                    getidusrteachreq = document.getElementsByClassName('expert-user_details-list')[1].childNodes[j].childNodes[1].textContent.split(' ')[0];
-                    copyToClipboard1(getidusrteachreq)
-                }
-            }
+  // Find the 'teacher' user type and get the user's id.
+  const userTypeList = document.getElementsByClassName('expert-user_details-list')[1];
+  let getidusrteachreq;
+  for (let i = 0; i < userTypeList.childElementCount; i++) {
+    const childNode = userTypeList.childNodes[i];
+    if (childNode.childNodes[1].textContent === "teacher") {
+      for (let j = 0; j < userTypeList.childElementCount; j++) {
+        if (userTypeList.childNodes[j].firstChild.textContent === "id") {
+          getidusrteachreq = userTypeList.childNodes[j].childNodes[1].textContent.split(' ')[0];
+          copyToClipboard1(getidusrteachreq);
+          break;
         }
+      }
+      break;
     }
+  }
 }
-
 
 butstdid.onclick = function () {  // копирует в буфер ID У из секции nextclass-StudentId при создании задачи через АФ интеграцию
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
