@@ -5081,27 +5081,34 @@ document.getElementById('msg1').onclick = function () { //  переключат
 }
 
 document.getElementById('snd').onclick = function () { //функция отправки сообщений в чат или заметки
-    document.getElementById('snd').setAttribute('disabled', 'disabled')
-    setTimeout(function () { document.getElementById('snd').removeAttribute('disabled') }, 500)
-    if (document.getElementById('msg').innerHTML == "Чат") {
-        if (template_flag == 1) {
-            if (template_flag2 == 1)
-                sendAnswerTemplate2(document.getElementById('inp').value, 1)
-            else
-                sendAnswerTemplate("", "", 1, document.getElementById('inp').value, 1)
-        } else {
-            sendAnswer(document.getElementById('inp').value, 0)
-        }
-    }
-    else
-        sendComment(document.getElementById('inp').value)
-    document.getElementById('inp').value = ""
+  const inp = document.getElementById('inp');
+  const phoneTr = document.getElementById('phone_tr');
+  const emailTr = document.getElementById('email_tr');
+  const snd = document.getElementById('snd');
 
-    if (document.getElementById('phone_tr') != undefined)
-        document.getElementById('phone_tr').value = ""
-    if (document.getElementById('email_tr') != undefined)
-        document.getElementById('email_tr').value = ""
-}
+  snd.setAttribute('disabled', 'disabled');
+  setTimeout(function () { snd.removeAttribute('disabled') }, 500);
+
+  if (document.getElementById('msg').innerHTML === 'Чат') {
+    if (template_flag === 1) {
+      if (template_flag2 === 1) {
+        sendAnswerTemplate2(inp.value, 1);
+      } else {
+        sendAnswerTemplate('', '', 1, inp.value, 1);
+      }
+    } else {
+      sendAnswer(inp.value, 0);
+    }
+  } else {
+    sendComment(inp.value);
+  }
+
+  inp.value = '';
+  if (phoneTr) phoneTr.value = '';
+  if (emailTr) emailTr.value = '';
+};
+
+
 
 document.getElementById('opandclsbarhyper').onclick = function () { // функция открытия формы для добавления гиперссылки
     if (document.getElementById('hyperlnk').classList.contains('hyper-active') == false) {
@@ -5157,9 +5164,6 @@ let intervalotak = setInterval(function () {
 
                 let objSelIssue = document.getElementById("userissue");
                 let objSelSolution = document.getElementById("howissuesolverd");
-
-
-
                 let issuefromdoc;
                 let issuecontainer;
                 let solutionfromdoc;
@@ -5471,7 +5475,6 @@ document.getElementById('reminderstatus').onclick = function () { // откры�
         document.getElementById('addTmp').style.display = 'none'
     }
 }
-
 
 if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronostamp1') == null) { // если будильники не заданы статус отмечать такой
     document.getElementById('reminderstatus').textContent = "🔕";
