@@ -89,30 +89,39 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
             let iosbugsqueryitem = '';
             let androidbugsqueryitem = '';
 
-            let jiratkn;
+			function checkJiraToken() {
+			  // Set initial values for the textarea elements
+			  document.getElementById('responseTextarea1').value = '{}';
+			  document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/";
+			  document.getElementById('responseTextarea3').value = 'getjiratoken';
 
-            function checkJiraToken() { //функция проверки авторизации в jira
-                document.getElementById('responseTextarea1').value = '{}'
-                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-                document.getElementById('responseTextarea3').value = 'getjiratoken'
-                document.getElementById('sendResponse').click()
+			  // Click the 'sendResponse' element to trigger the DOMSubtreeModified event
+			  document.getElementById('sendResponse').click();
 
-                document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-                    jiratkn = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-                    if (jiratkn != null) {
-                        if (jiratkn.match(/name="atlassian-token" content="(.*lin)/) != null) {
-                            jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
-                            document.getElementById('searchjiratknstatus').innerText = "🟢"
-                            console.log("TOKEN: " + jiratkn);
-                        } else {
-                            alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
-                            document.getElementById('searchjiratknstatus').innerText = "🔴"
-                        }
-                        document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+			  // Add an event listener for the DOMSubtreeModified event
+			  document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+				// Get the 'getjiratoken' attribute from the 'responseTextarea1' element
+				const jiratkn = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
 
-                    }
-                })
-            }
+				// Check if the 'getjiratoken' attribute is not null
+				if (jiratkn) {
+				  // Check if the 'getjiratoken' attribute matches the regex pattern
+				  if (jiratkn.match(/name="atlassian-token" content="(.*lin)/)) {
+					// Set the 'jiratkn' variable to the first capturing group of the regex match
+					jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+					// Set the inner text of the 'searchjiratknstatus' element to a green checkmark
+					document.getElementById('searchjiratknstatus').innerText = "🟢";
+					console.log(`TOKEN: ${jiratkn}`);
+				  } else {
+					// If the regex pattern is not found, show an alert and set the inner text of the 'searchjiratknstatus' element to a red cross
+					alert("Авторизуйтесь в системе Jira, чтобы при поиске запрос был отправлен");
+					document.getElementById('searchjiratknstatus').innerText = "🔴";
+				  }
+				  // Remove the 'getjiratoken'
+				   document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+			  }
+			  }
+			}
 
             checkJiraToken()
 
