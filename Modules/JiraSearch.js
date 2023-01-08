@@ -120,7 +120,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 				  // Remove the 'getjiratoken'
 				   document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
 			  }
-			  }
+			  })
 			}
 
             checkJiraToken()
