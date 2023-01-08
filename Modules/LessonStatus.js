@@ -99,7 +99,6 @@ document.getElementById('butLessonInfo').onclick = function () {
 }
 	
 //Функция проверки статусов урока
-let arregetted;
 
 document.getElementById('startlookstatus').onclick = function () { //Функция проверки статусов урока
     if (document.getElementById('idteacherforsearch').value != "") {
@@ -132,18 +131,7 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
-		
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-  const arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-  if (arregetted) {
-    const parsed = JSON.parse(arregetted);
-    if (parsed && parsed[0].result[0].classes) {
-      document.querySelector('#statustable').innerText = "";
-    }
-  }
-});
-
+	
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
             const arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
             if (arregetted) {
