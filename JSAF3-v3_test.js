@@ -4879,34 +4879,42 @@ maskBackHide.onclick = function() { // кнопка скрыть
   }
 };
 
+hashBut.onclick = function() { // кнопка копирующая хеш чата
+  const adr = document.location.href;
+  const adr1 = document.location.pathname;
+  const adrPathArray = adr1.split('/');
+  const chatId = adrPathArray[3];
+  const scriptAdr = localStorage.getItem('scriptAdr');
+  const hashBut = document.getElementById('hashBut');
+  let hash;
 
-hashBut.onclick = function () { // кнопка копирующая хеш чата
-    adr = document.location.href
-    adr1 = document.location.pathname
-    adr1 = adr1.split('/')
-    adr1 = adr1[3]
-    if ((adr1 == undefined || adr1 == "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
-        if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
-            document.getElementById('hashBut').innerHTML = "Ошибка"
-            setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
-        } else {
-            adr1 = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
-            document.getElementById('hashBut').innerHTML = "Скопировано"
-            setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
-        }
+  if ((chatId === undefined || chatId === "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
+    if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
+      hashBut.innerHTML = "Ошибка";
+      setTimeout(function() { hashBut.innerHTML = "Хэш"; }, 3000);
     } else {
-        if (localStorage.getItem('scriptAdr') == TS_addr) {
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-18/' + adr1)
-        } else if (localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-26/' + adr1)
-        } else 
-            copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + adr1)
-        document.getElementById('hashBut').innerHTML = "Скопировано"
-        setTimeout(function () { document.getElementById('hashBut').innerHTML = "Хэш" }, 3000)
+      chatId = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent;
+      hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
+      copyToClipboard1(hash);
+      hashBut.innerHTML = "Скопировано";
+      setTimeout(function() { hashBut.innerHTML = "Хэш"; }, 3000);
     }
-
+  } else {
+    if (scriptAdr === TS_addr) {
+      hash = 'https://hdi.skyeng.ru/autofaq/conversation/-18/' + chatId;
+    } else if (scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
+      hash = 'https://hdi.skyeng.ru/autofaq/conversation/-26/' + chatId;
+    } else {
+      hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
+    }
+    copyToClipboard1(hash);
+    hashBut.innerHTML = "Скопировано";
+    setTimeout(function () { hashBut.innerHTML= "Хэш" }, 3000)
+  }
 }
+
+
+
 
 document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
     if (checkelementtype(a)) {
