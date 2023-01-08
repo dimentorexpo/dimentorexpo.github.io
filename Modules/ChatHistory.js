@@ -735,20 +735,34 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
                 } // end of for
             })
 
-            if (activetechopers.length != 0) {
-                for (let i = 0; i < activetechopers.length; i++) {
-                    if (activetechopers[i].aCnt == null)
-                        activetechopers[i].aCnt = 0;
+            // if (activetechopers.length != 0) {
+                // for (let i = 0; i < activetechopers.length; i++) {
+                    // if (activetechopers[i].aCnt == null)
+                        // activetechopers[i].aCnt = 0;
 
-                    if (activetechopers[i].operator.status == "Online") {
-                        addOption(objSel, `🟢 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
-                    } else if (activetechopers[i].operator.status == "Busy") {
-                        addOption(objSel, `🟡 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
-                    } else if (activetechopers[i].operator.status == "Pause") {
-                        addOption(objSel, `🔴 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
-                    }
-                }
-            }
+                    // if (activetechopers[i].operator.status == "Online") {
+                        // addOption(objSel, `🟢 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    // } else if (activetechopers[i].operator.status == "Busy") {
+                        // addOption(objSel, `🟡 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    // } else if (activetechopers[i].operator.status == "Pause") {
+                        // addOption(objSel, `🔴 ${activetechopers[i].operator.fullName} (${activetechopers[i].aCnt})`, `${activetechopers[i].operator.id}`)
+                    // }
+                // }
+            // }
+			
+			if (activetechopers.length) {
+			  let statusMap = {
+				Online: '🟢',
+				Busy: '🟡',
+				Pause: '🔴'
+			  };
+			  activetechopers.forEach(activetechoper => {
+				let { operator, aCnt = 0 } = activetechoper;
+				if (operator) {
+				  addOption(objSel, `${statusMap[operator.status]} ${operator.fullName} (${aCnt})`, operator.id);
+				}
+			  });
+			}
         }
 
         document.getElementById('getdatafrchat').onclick = () => { //открывает окно с информацией об обратившемся пользователе
