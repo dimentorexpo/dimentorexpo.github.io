@@ -105,17 +105,16 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
     if (document.getElementById('idteacherforsearch').value != "") {
         document.querySelector('#statustable').style.display = "";
         document.querySelector('#statustable').innerText = "Загрузка. Если информация не появилась нажмите повторно на кнопку получить инфа";
-        let time_t = new Date();
-        let ticherid = document.getElementById('idteacherforsearch').value;
-        ticherid = ticherid.trim();
-        let startdate = document.querySelector('#dateFromLS').value;
-        startdate = startdate.split('-');
-        startdate = Number(startdate[2]) + '-' + Number(startdate[1]) + '-' + Number(startdate[0]) + ' ' + 21;
-        console.log("start date= " + startdate);
-        let enddate = document.querySelector('#dateToLS').value;
-        enddate = enddate.split('-');
-        enddate = Number(enddate[2]) + '-' + Number(enddate[1]) + '-' + Number(enddate[0]) + ' ' + 21;
-        console.log("end date= " + enddate);
+		let time_t = new Date();
+		let ticherid = document.getElementById('idteacherforsearch').value.trim();
+		let startdate = document.querySelector('#dateFromLS').value;
+		startdate = startdate.split('-');
+		startdate = `${startdate[2]}-${startdate[1]}-${startdate[0]} 21`;
+		console.log(`start date= ${startdate}`);
+		let enddate = document.querySelector('#dateToLS').value;
+		enddate = enddate.split('-');
+		enddate = `${enddate[2]}-${enddate[1]}-${enddate[0]} 21`;
+		console.log(`end date= ${enddate}`);
 
         document.getElementById('responseTextarea1').value = `{
 		  "headers": {
@@ -133,38 +132,49 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
         document.getElementById('responseTextarea2').value = "https://timetable.skyeng.ru/api/teachers/search";
         document.getElementById('responseTextarea3').value = 'getlessonstatusinfos'
         document.getElementById('sendResponse').click()
+		
+		
+		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+  const arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+  if (arregetted) {
+    const parsed = JSON.parse(arregetted);
+    if (parsed && parsed[0].result[0].classes) {
+      document.querySelector('#statustable').innerText = "";
+    }
+  }
+});
 
         document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-            arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
-            arregetted = JSON.parse(arregetted);
-            if (arregetted != null) {
-                if (arregetted[0].result[0].classes != null || arregetted[0].result[0].classes !== undefined) {
+            const arregetted = document.getElementById('responseTextarea1').getAttribute('getlessonstatusinfos');
+            if (arregetted) {
+				    const parsed = JSON.parse(arregetted);
+                if (parsed && parsed[0].result[0].classes) {
                     document.querySelector('#statustable').innerText = "";
-                    for (let i = 0; i < arregetted[0].result[0].classes.length; i++) {
-                        if (arregetted[0].result[0].classes[i].studentId == document.getElementById('idstudentforsearch').value.trim()) {
+                    for (let i = 0; i < parsed[0].result[0].classes.length; i++) {
+                        if (parsed[0].result[0].classes[i].studentId == document.getElementById('idstudentforsearch').value.trim()) {
 
-                            let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
+                            let text = '💠 У: ' + parsed[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(parsed[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
-                            if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-                                arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
+                            if (parsed[0].result[0].classes[i].classStatus !== undefined) {
+                                parsed[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? parsed[0].result[0].classes[i].classStatus.createdByUserId = parsed[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : parsed[0].result[0].classes[i].classStatus.createdByUserId = parsed[0].result[0].classes[i].classStatus.createdByUserId
 
-                                text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
-                                text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
-                                text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-                                text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-                                text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
-                                if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-                                    text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                                text = text + ' | услуга: ' + parsed[0].result[0].classes[i].educationServiceId;
+                                text = text + ' | статус: ' + parsed[0].result[0].classes[i].classStatus.status;
+                                text = text + ' | 📅 когда выставлен: ' + new Date(parsed[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                                text = text + ' | кем ❓: ' + parsed[0].result[0].classes[i].classStatus.createdByUserId;
+                                text = text + ' | тип: ' + parsed[0].result[0].classes[i].type;
+                                if (parsed[0].result[0].classes[i].classStatus.comment !== '') {
+                                    text = text + ' | комментарий: ' + parsed[0].result[0].classes[i].classStatus.comment;
                                 }
-                            } else if (arregetted[0].result[0].classes[i].removedAt) {
+                            } else if (parsed[0].result[0].classes[i].removedAt) {
 
-                                arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                                parsed[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? parsed[0].result[0].classes[i].createdByUserId = parsed[0].result[0].classes[i].createdByUserId + ' (П)👽' : parsed[0].result[0].classes[i].createdByUserId = parsed[0].result[0].classes[i].createdByUserId
 
-                                arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                                parsed[0].result[0].classes[i].createdByUserId == parsed[0].result[0].classes[i].studentId ? parsed[0].result[0].classes[i].createdByUserId = parsed[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : parsed[0].result[0].classes[i].createdByUserId = parsed[0].result[0].classes[i].createdByUserId
 
 
-                                text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-                                text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                                text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + parsed[0].result[0].classes[i].createdByUserId
+                                text = text + ' | 📅 дата удаления: ' + new Date(parsed[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                             }
 
                             let tempor = document.createElement('textarea');
@@ -174,26 +184,26 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                             tempor.value = text;
                             //    console.log(text);
                         } else if (document.getElementById('idstudentforsearch').value == "") {
-                            let text = '💠 У: ' + arregetted[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(arregetted[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
+                            let text = '💠 У: ' + parsed[0].result[0].classes[i].studentId + ' | 📆 ' + new Date(parsed[0].result[0].classes[i].startAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' }).slice(0, 17)
 
-                            if (arregetted[0].result[0].classes[i].classStatus !== undefined) {
-                                arregetted[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].classStatus.createdByUserId = arregetted[0].result[0].classes[i].classStatus.createdByUserId
-                                text = text + ' | услуга: ' + arregetted[0].result[0].classes[i].educationServiceId;
-                                text = text + ' | статус: ' + arregetted[0].result[0].classes[i].classStatus.status;
-                                text = text + ' | 📅 когда выставлен: ' + new Date(arregetted[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
-                                text = text + ' | кем ❓: ' + arregetted[0].result[0].classes[i].classStatus.createdByUserId;
-                                text = text + ' | тип: ' + arregetted[0].result[0].classes[i].type;
-                                if (arregetted[0].result[0].classes[i].classStatus.comment !== '') {
-                                    text = text + ' | комментарий: ' + arregetted[0].result[0].classes[i].classStatus.comment;
+                            if (parsed[0].result[0].classes[i].classStatus !== undefined) {
+                                parsed[0].result[0].classes[i].classStatus.createdByUserId == document.getElementById('idteacherforsearch').value ? parsed[0].result[0].classes[i].classStatus.createdByUserId = parsed[0].result[0].classes[i].classStatus.createdByUserId + ' (П)👽' : parsed[0].result[0].classes[i].classStatus.createdByUserId = parsed[0].result[0].classes[i].classStatus.createdByUserId
+                                text = text + ' | услуга: ' + parsed[0].result[0].classes[i].educationServiceId;
+                                text = text + ' | статус: ' + parsed[0].result[0].classes[i].classStatus.status;
+                                text = text + ' | 📅 когда выставлен: ' + new Date(parsed[0].result[0].classes[i].classStatus.createdAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                                text = text + ' | кем ❓: ' + parsed[0].result[0].classes[i].classStatus.createdByUserId;
+                                text = text + ' | тип: ' + parsed[0].result[0].classes[i].type;
+                                if (parsed[0].result[0].classes[i].classStatus.comment !== '') {
+                                    text = text + ' | комментарий: ' + parsed[0].result[0].classes[i].classStatus.comment;
                                 }
-                            } else if (arregetted[0].result[0].classes[i].removedAt) {
+                            } else if (parsed[0].result[0].classes[i].removedAt) {
 
-                                arregetted[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId + ' (П)👽' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                                parsed[0].result[0].classes[i].createdByUserId == document.getElementById('idteacherforsearch').value ? parsed[0].result[0].classes[i].createdByUserId = parsed[0].result[0].classes[i].createdByUserId + ' (П)👽' : parsed[0].result[0].classes[i].createdByUserId = parsed[0].result[0].classes[i].createdByUserId
 
-                                arregetted[0].result[0].classes[i].createdByUserId == arregetted[0].result[0].classes[i].studentId ? arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : arregetted[0].result[0].classes[i].createdByUserId = arregetted[0].result[0].classes[i].createdByUserId
+                                parsed[0].result[0].classes[i].createdByUserId == parsed[0].result[0].classes[i].studentId ? parsed[0].result[0].classes[i].createdByUserId = parsed[0].result[0].classes[i].studentId + ' (У)👨‍🎓' : parsed[0].result[0].classes[i].createdByUserId = parsed[0].result[0].classes[i].createdByUserId
 
-                                text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + arregetted[0].result[0].classes[i].createdByUserId
-                                text = text + ' | 📅 дата удаления: ' + new Date(arregetted[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
+                                text = text + ' | ❌ удален (проверить CRM на отпуск или удаление оператором): ' + parsed[0].result[0].classes[i].createdByUserId
+                                text = text + ' | 📅 дата удаления: ' + new Date(parsed[0].result[0].classes[i].removedAt).toLocaleString("ru-RU", { timeZone: 'Europe/Moscow' });
                             }
 
                             let tempor = document.createElement('textarea');
@@ -211,8 +221,6 @@ document.getElementById('startlookstatus').onclick = function () { //Функц�
                 document.getElementById('responseTextarea1').removeAttribute('getlessonstatusinfos');
             }
         })
-
-
 
     } else {
         alert("Введите ID учителя в поле");
