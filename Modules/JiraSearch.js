@@ -222,45 +222,32 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         document.getElementById('favouriteissuetable').innerHTML = favissues;
                     }
 
-                    // for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
-                        // document.getElementsByName('removefromfavourites')[i].onclick = function () {
-                            // favissues.splice([i], 1)
-                            // localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                            // favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                            // document.getElementById('favouriteissuetable').innerHTML = favissues;
-                            // removebug();
-                            // sndmsgafterdeletebug()
-                            // plusonecount()
-                        // }
-                    // }
+                    for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
+                        document.getElementsByName('removefromfavourites')[i].onclick = function () {
+                            favissues.splice([i], 1)
+                            localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                            favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                            document.getElementById('favouriteissuetable').innerHTML = favissues;
+                            removebug();
+                            sndmsgafterdeletebug()
+                            plusonecount()
+                        }
+                    }
 
-                    // function removebug() {
-                        // let arroffavbugs = document.getElementsByName('removefromfavourites');
-                        // for (let i = 0; i < arroffavbugs.length; i++) {
-                            // arroffavbugs[i].onclick = function () {
-                                // favissues.splice([i], 1)
-                                // localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                                // favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                                // document.getElementById('favouriteissuetable').innerHTML = favissues;
-                                // removebug();
-                                // sndmsgafterdeletebug()
-                                // plusonecount()
-                            // }
-                        // }
-                    // }
-					
-				document.getElementById('favouriteissuetable').addEventListener('click', function(event) {
-				  if (event.target.name === 'removefromfavourites') {
-					let index = Array.from(document.getElementsByName('removefromfavourites')).indexOf(event.target);
-					favissues.splice(index, 1);
-					localStorage.setItem('bugsarray', JSON.stringify(favissues));
-					favissues = JSON.parse(localStorage.getItem('bugsarray'));
-					document.getElementById('favouriteissuetable').innerHTML = favissues;
-					sndmsgafterdeletebug();
-					plusonecount();
-				  }
-				});
-
+                    function removebug() {
+                        let arroffavbugs = document.getElementsByName('removefromfavourites');
+                        for (let i = 0; i < arroffavbugs.length; i++) {
+                            arroffavbugs[i].onclick = function () {
+                                favissues.splice([i], 1)
+                                localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                                favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                                document.getElementById('favouriteissuetable').innerHTML = favissues;
+                                removebug();
+                                sndmsgafterdeletebug()
+                                plusonecount()
+                            }
+                        }
+                    }
 
 
                     for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
