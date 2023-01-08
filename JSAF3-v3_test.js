@@ -4804,24 +4804,33 @@ maskBack.innerHTML = "Вернуть"
 maskBack.style.marginRight = "15px";
 maskBack.style.display = "none";
 
-maskBack.onclick = function () { // кнопка свернуть
-    name = document.getElementById('maskBack').getAttribute('name')
-    email = document.getElementById('maskBack').getAttribute('email')
-    phone = document.getElementById('maskBack').getAttribute('phone')
-    mask = document.getElementById('maskBack').getAttribute('mask')
-    if (document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.textContent == name &&
-        document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].textContent == email &&
-        document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].textContent == phone) {
-        document.getElementsByClassName('ant-modal-wrap')[mask].style.display = ''
-        document.getElementsByClassName('ant-modal-mask')[mask].style.display = ''
-        document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = '' // кнопки сверху
-        document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = '' // кнопка заметок
-        document.getElementById('maskBack').style.display = 'none'
-    } else {
-        document.getElementById('maskBack').innerHTML = "Открыт неверный чат"
-        setTimeout(function () { document.getElementById('maskBack').innerHTML = "Вернуть" }, 3000)
-    }
-}
+maskBack.onclick = function() { // кнопка свернуть
+  const name = document.getElementById('maskBack').getAttribute('name');
+  const email = document.getElementById('maskBack').getAttribute('email');
+  const phone = document.getElementById('maskBack').getAttribute('phone');
+  const mask = document.getElementById('maskBack').getAttribute('mask');
+  const userInfoPanel = document.getElementsByClassName('expert-user_info_panel')[0];
+  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[0];
+  const modalWrap = document.getElementsByClassName('ant-modal-wrap')[mask];
+  const modalMask = document.getElementsByClassName('ant-modal-mask')[mask];
+  const chatHeaderActionsInner = document.getElementsByClassName('expert-chat-header-actions-inner')[0];
+  const chatFooter = document.getElementsByClassName('expert-chat-footer')[0];
+  const chatNotesButton = chatFooter.firstChild.firstChild;
+
+  if (userInfoPanel.firstChild.firstChild.textContent === name &&
+      userDetailsList.childNodes[0].childNodes[1].textContent === email &&
+      userDetailsList.childNodes[1].childNodes[1].textContent === phone) {
+    modalWrap.style.display = '';
+    modalMask.style.display = '';
+    chatHeaderActionsInner.style.display = ''; // кнопки сверху
+    chatNotesButton.style.display = ''; // кнопка заметок
+    maskBack.style.display = 'none';
+  } else {
+    maskBack.innerHTML = "Открыт неверный чат";
+    setTimeout(function() { maskBack.innerHTML = "Вернуть"; }, 3000);
+  }
+};
+
 
 let maskBackHide = document.createElement('span')
 maskBackHide.id = "maskBackHide"
