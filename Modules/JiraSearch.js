@@ -233,21 +233,62 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                             plusonecount()
                         }
                     }
+					
+					// for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
+                        // document.getElementsByName('removefromfavourites')[i].onclick = function () {
+                            // favissues.splice([i], 1)
+                            // localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                            // favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                            // document.getElementById('favouriteissuetable').innerHTML = favissues;
+                            // removebug();
+                            // sndmsgafterdeletebug()
+                            // plusonecount()
+                        // }
+                    // }
+					
+					document.querySelectorAll('[name=removefromfavourites]').forEach((btn, i) => {
+					  btn.addEventListener('click', () => {
+						favissues.splice(i, 1);
+						localStorage.setItem('bugsarray', JSON.stringify(favissues));
+						favissues = JSON.parse(localStorage.getItem('bugsarray'));
+						document.getElementById('favouriteissuetable').innerHTML = favissues;
+						removebug();
+						sndmsgafterdeletebug();
+						plusonecount();
+					  });
+					});
 
-                    function removebug() {
-                        let arroffavbugs = document.getElementsByName('removefromfavourites');
-                        for (let i = 0; i < arroffavbugs.length; i++) {
-                            arroffavbugs[i].onclick = function () {
-                                favissues.splice([i], 1)
-                                localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                                favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                                document.getElementById('favouriteissuetable').innerHTML = favissues;
-                                removebug();
-                                sndmsgafterdeletebug()
-                                plusonecount()
-                            }
-                        }
-                    }
+					
+
+                    // function removebug() {
+                        // let arroffavbugs = document.getElementsByName('removefromfavourites');
+                        // for (let i = 0; i < arroffavbugs.length; i++) {
+                            // arroffavbugs[i].onclick = function () {
+                                // favissues.splice([i], 1)
+                                // localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                                // favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                                // document.getElementById('favouriteissuetable').innerHTML = favissues;
+                                // removebug();
+                                // sndmsgafterdeletebug()
+                                // plusonecount()
+                            // }
+                        // }
+                    // }
+					
+					function removebug() {
+					  const arroffavbugs = document.getElementsByName('removefromfavourites');
+					  for (let i = 0; i < arroffavbugs.length; i++) {
+						arroffavbugs[i].onclick = () => {
+						  favissues.splice(i, 1);
+						  localStorage.setItem('bugsarray', JSON.stringify(favissues));
+						  favissues = JSON.parse(localStorage.getItem('bugsarray'));
+						  document.getElementById('favouriteissuetable').innerHTML = favissues;
+						  sndmsgafterdeletebug();
+						  plusonecount();
+						};
+					  }
+					}
+
 
 
                     for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
