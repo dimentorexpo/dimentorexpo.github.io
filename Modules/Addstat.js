@@ -211,16 +211,13 @@ document.getElementById('clearall').onclick = function () {
 	
 	    document.getElementById('getStats').onclick = function () { // открытие Статистики
 
-		  const currentDate = new Date();
-		  const year = currentDate.getFullYear();
-		  let month = currentDate.getMonth() + 1;
-		  let day = currentDate.getDate();
+		let getcurdate = new Date();
+		let year = getcurdate.getFullYear();
+		let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
+		let day = String(getcurdate.getDate()).padStart(2, "0");
 
-		  month = month.toString().padStart(2, '0');
-		  day = day.toString().padStart(2, '0');
-
-		  document.getElementById('dateFrom').value = `${year}-${month}-${day - 1}`;
-		  document.getElementById('dateTo').value = `${year}-${month}-${day}`;
+		document.getElementById("dateFrom").value = `${year}-${month}-${String(Number(day) - 1).padStart(2, "0")}`;
+		document.getElementById("dateTo").value = `${year}-${month}-${day}`;
 
 
         document.querySelector('#chatcommentsdata').style.display = "none"
