@@ -4969,30 +4969,40 @@ butteachid.onclick = function () { // копирует в буфер ID П пр�
 }
 
 butstdid.onclick = function () {  // копирует в буфер ID У из секции nextclass-StudentId при создании задачи через АФ интеграцию
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId")
-            getidusrstud = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
-        copyToClipboard1(getidusrstud)
+  // Get the element with the class "expert-user_details-list"
+  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+
+  // Loop through the child nodes of the element
+  for (const child of userDetailsList.childNodes) {
+    // Check if the first child node has the text content "nextClass-studentId"
+    if (child.firstChild.textContent === "nextClass-studentId") {
+      // Get the text content of the grandchild node
+      const getidusrstud = child.childNodes[1].textContent;
+
+      // Call the copyToClipboard1 function with the getidusrstud variable as an argument
+      copyToClipboard1(getidusrstud);
     }
+  }
+};
+
+butteachidfstd.onclick = function () { // копирует в буфер ID П из секции nextclass-TeacherId при обращении У и создании задачи через АФ интеграцию
+  const detailsList = document.getElementsByClassName('expert-user_details-list')[1];
+  const teacherIdNode = Array.from(detailsList.childNodes).find(node => node.firstChild.textContent == "nextClass-teacherId");
+  if (teacherIdNode) {
+    getidusrsteach = teacherIdNode.childNodes[1].textContent;
+    copyToClipboard1(getidusrsteach);
+  }
 }
-
-
-butteachidfstd.onclick = function () {  // копирует в буфер ID П из секции nextclass-TeacherId при обращении У и создании задачи через АФ интеграцию
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-teacherId")
-            getidusrsteach = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
-        copyToClipboard1(getidusrsteach)
-    }
-}
-
 
 buttonservid.onclick = function () { //копирует в буфер nextClass-educationServiceId при обращении П во время крита услугу ученика при интеграции в форме АФ
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-        if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-educationServiceId")
-            getservidst = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent
-        copyToClipboard1(getservidst)
-    }
+  const detailsList = document.getElementsByClassName('expert-user_details-list')[1];
+  const serviceIdNode = Array.from(detailsList.childNodes).find(node => node.firstChild.textContent == "nextClass-educationServiceId");
+  if (serviceIdNode) {
+    getservidst = serviceIdNode.childNodes[1].textContent;
+    copyToClipboard1(getservidst);
+  }
 }
+
 
 setInterval(checJiraF, 1000);
 
