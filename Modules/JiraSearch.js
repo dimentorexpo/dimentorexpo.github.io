@@ -101,14 +101,15 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 			  // Add an event listener for the DOMSubtreeModified event
 			  document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
 				// Get the 'getjiratoken' attribute from the 'responseTextarea1' element
-				const jiratkn = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+				const jiratknAttr = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
 
 				// Check if the 'getjiratoken' attribute is not null
-				if (jiratkn) {
+				if (jiratknAttr) {
 				  // Check if the 'getjiratoken' attribute matches the regex pattern
-				  if (jiratkn.match(/name="atlassian-token" content="(.*lin)/)) {
+				  const regexMatch = jiratknAttr.match(/name="atlassian-token" content="(.*lin)/);
+				  if (regexMatch) {
 					// Set the 'jiratkn' variable to the first capturing group of the regex match
-					jiratkn = jiratkn.match(/name="atlassian-token" content="(.*lin)/)[1];
+					const jiratkn = regexMatch[1];
 					// Set the inner text of the 'searchjiratknstatus' element to a green checkmark
 					document.getElementById('searchjiratknstatus').innerText = "🟢";
 					console.log(`TOKEN: ${jiratkn}`);
@@ -118,8 +119,8 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 					document.getElementById('searchjiratknstatus').innerText = "🔴";
 				  }
 				  // Remove the 'getjiratoken'
-				   document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-			  }
+				  document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+				}
 			  })
 			}
 
