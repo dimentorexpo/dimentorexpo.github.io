@@ -4913,25 +4913,22 @@ hashBut.onclick = function() { // кнопка копирующая хеш ча�
   }
 }
 
-
-
-
-document.getElementById('testUsers').ondblclick = function (a) { // скрытие поля ввода и кнопки логинера в окне testUsers
-    if (checkelementtype(a)) {
-        // if ( document.getElementById('testid') != null && document.getElementById('idlogin')!=null &&
-        if (document.getElementById('testid').style.display == '' && document.getElementById('idlogin').style.display == '') {
-            document.getElementById('testid').style.display = 'none';
-            document.getElementById('idlogin').style.display = 'none';
-            localStorage.setItem('Hidetestid', '0');
-
-        }
-        else {
-            document.getElementById('testid').style.display = '';
-            document.getElementById('idlogin').style.display = '';
-            localStorage.setItem('Hidetestid', '1');
-        }
+document.getElementById('testUsers').ondblclick = function(a) { // скрытие поля ввода и кнопки логинера в окне testUsers
+  if (checkelementtype(a)) {
+    const testid = document.getElementById('testid');
+    const idlogin = document.getElementById('idlogin');
+    if (testid.style.display === '' && idlogin.style.display === '') {
+      testid.style.display = 'none';
+      idlogin.style.display = 'none';
+      localStorage.setItem('Hidetestid', '0');
+    } else {
+      testid.style.display = '';
+      idlogin.style.display = '';
+      localStorage.setItem('Hidetestid', '1');
     }
-}
+  }
+};
+
 
 setInterval(screenshots, 5000)
 
