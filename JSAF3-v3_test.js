@@ -856,33 +856,32 @@ function startTimer() { // большая функция по таймеру а�
                         }
                     }
 				
-					let userTypeName = document.createElement('span');
-					userTypeName.id = "userTypeId";
+					const userTypeId = document.querySelector('#userTypeId');
+					if (!userTypeId) {
+					  let userTypeName = document.createElement('span');
+					  userTypeName.id = "userTypeId";
+					  document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName);
 
-					const userDetailsName = document.getElementsByClassName('expert-user_details-name')[0];
-					const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
-
-					if (!userDetailsName.contains(userTypeName)) {
-						  userDetailsName.appendChild(userTypeName);
-
-						for (let i = 0; userDetailsList.childNodes[i]; i++) {
-							const childNode = userDetailsList.childNodes[i];
-							const textContent = childNode.childNodes[1].textContent;
-							if (textContent === "teacher") {
-							  document.getElementById('userTypeId').textContent = "(П)";
-							  document.getElementById('userTypeId').style.color = "#1E90FF";
-							  break;
-							} else if (textContent === "student") {
-							  document.getElementById('userTypeId').textContent = "(У)";
-							  document.getElementById('userTypeId').style.color = "#DC143C";
-							  break;
-							} else if (textContent === "parent") {
-							  document.getElementById('userTypeId').textContent = "(РУ)";
-							  document.getElementById('userTypeId').style.color = "#DC143C";
-							  break;
-							}
+					  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+					  for (let i = 0; userDetailsList.childNodes[i]; i++) {
+						const childNode = userDetailsList.childNodes[i];
+						const textContent = childNode.childNodes[1].textContent;
+						if (textContent === "teacher") {
+						  document.getElementById('userTypeId').textContent = "(П)";
+						  document.getElementById('userTypeId').style.color = "#1E90FF";
+						  break;
+						} else if (textContent === "student") {
+						  document.getElementById('userTypeId').textContent = "(У)";
+						  document.getElementById('userTypeId').style.color = "#DC143C";
+						  break;
+						} else if (textContent === "parent") {
+						  document.getElementById('userTypeId').textContent = "(РУ)";
+						  document.getElementById('userTypeId').style.color = "#DC143C";
+						  break;
 						}
+					  }
 					}
+
 
                     //добавил окраску бренда skyeng
 					
