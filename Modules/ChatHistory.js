@@ -716,24 +716,18 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
             activetechopers = []
             objSel.length = 1
             objSel[0].selected = true;
-            await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
-                "credentials": "include"
-            }).then(r => r.json()).then(result => {
+			await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+			  "credentials": "include"
+			}).then(r => r.json()).then(result => {
+			  let activetechopers = [];
+			  for (let i = 0; i < result.onOperator.length; i++) {
+				let operator = result.onOperator[i].operator;
+				if (operator && operator.status !== "Offline" && operator.fullName.match(new RegExp(opsflag))) {
+				  activetechopers.push(result.onOperator[i]);
+				}
+			  }
+			});
 
-                for (let i = 0; i < result.onOperator.length; i++) {
-                    if (opsflag == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
-                        activetechopers.push(result.onOperator[i])
-                    } else if (opsflag == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
-                        activetechopers.push(result.onOperator[i])
-                    } else if (opsflag == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
-                        activetechopers.push(result.onOperator[i])
-                    } else if (opsflag == 'ТС' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТС\D/)) {
-                        activetechopers.push(result.onOperator[i])
-                    } else if (opsflag == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.status != "Offline" && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
-                        activetechopers.push(result.onOperator[i])
-                    } // end of if state
-                } // end of for
-            })
 
             if (activetechopers.length != 0) {
                 for (let i = 0; i < activetechopers.length; i++) {
