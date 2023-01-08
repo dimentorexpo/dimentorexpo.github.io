@@ -4839,36 +4839,46 @@ maskBackHide.style.marginRight = "15px";
 maskBackHide.style.marginLeft = "15px";
 maskBackHide.style.display = "";
 
-maskBackHide.onclick = function () { // кнопка скрыть
-    if (document.getElementsByClassName('ant-modal-content')[0].childNodes[1].firstChild.textContent == "Добавить комментарий к диалогу") {
-        document.getElementsByClassName('ant-modal-wrap')[0].style.display = 'none'
-        document.getElementsByClassName('ant-modal-mask')[0].style.display = 'none'
-        document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
-        document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
-        document.getElementById('maskBack').style.display = ''
+maskBackHide.onclick = function() { // кнопка скрыть
+  const modalContent = document.getElementsByClassName('ant-modal-content')[0];
+  const modalWraps = document.getElementsByClassName('ant-modal-wrap');
+  const modalMasks = document.getElementsByClassName('ant-modal-mask');
+  const chatHeaderActionsInner = document.getElementsByClassName('expert-chat-header-actions-inner')[0];
+  const chatFooter = document.getElementsByClassName('expert-chat-footer')[0];
+  const chatNotesButton = chatFooter.firstChild.firstChild;
+  const userInfoPanel = document.getElementsByClassName('expert-user_info_panel')[0];
+  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[0];
 
-        document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.textContent)
-        document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].textContent)
-        document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].textContent)
-        document.getElementById('maskBack').setAttribute('mask', 0)
-    } else
-        for (i = 0; ; i++) {
-            if (document.getElementsByClassName('ant-modal-wrap')[i] == undefined) {
-                document.getElementsByClassName('ant-modal-wrap')[i - 1].style.display = 'none'
-                document.getElementsByClassName('ant-modal-mask')[i - 1].style.display = 'none'
-                document.getElementsByClassName('expert-chat-header-actions-inner')[0].style.display = 'none' // кнопки сверху
-                document.getElementsByClassName('expert-chat-footer')[0].firstChild.firstChild.style.display = 'none' // кнопка заметок
-                document.getElementById('maskBack').style.display = ''
+  if (modalContent.childNodes[1].firstChild.textContent === "Добавить комментарий к диалогу") {
+    modalWraps[0].style.display = 'none';
+    modalMasks[0].style.display = 'none';
+    chatHeaderActionsInner.style.display = 'none'; // кнопки сверху
+    chatNotesButton.style.display = 'none'; // кнопка заметок
+    maskBack.style.display = '';
 
+    maskBack.setAttribute('name', userInfoPanel.firstChild.firstChild.textContent);
+    maskBack.setAttribute('email', userDetailsList.childNodes[0].childNodes[1].textContent);
+    maskBack.setAttribute('phone', userDetailsList.childNodes[1].childNodes[1].textContent);
+    maskBack.setAttribute('mask', 0);
+  } else {
+    for (let i = 0; ; i++) {
+      if (modalWraps[i] === undefined) {
+        modalWraps[i - 1].style.display = 'none';
+        modalMasks[i - 1].style.display = 'none';
+        chatHeaderActionsInner.style.display = 'none'; // кнопки сверху
+        chatNotesButton.style.display = 'none'; // кнопка заметок
+        maskBack.style.display = '';
 
-                document.getElementById('maskBack').setAttribute('name', document.getElementsByClassName('expert-user_info_panel')[0].firstChild.firstChild.textContent)
-                document.getElementById('maskBack').setAttribute('email', document.getElementsByClassName('expert-user_details-list')[0].childNodes[0].childNodes[1].textContent)
-                document.getElementById('maskBack').setAttribute('phone', document.getElementsByClassName('expert-user_details-list')[0].childNodes[1].childNodes[1].textContent)
-                document.getElementById('maskBack').setAttribute('mask', i - 1)
-                break;
-            }
-        }
-}
+        maskBack.setAttribute('name', userInfoPanel.firstChild.firstChild.textContent);
+        maskBack.setAttribute('email', userDetailsList.childNodes[0].childNodes[1].textContent);
+        maskBack.setAttribute('phone', userDetailsList.childNodes[1].childNodes[1].textContent);
+        maskBack.setAttribute('mask', i - 1);
+        break;
+      }
+    }
+  }
+};
+
 
 hashBut.onclick = function () { // кнопка копирующая хеш чата
     adr = document.location.href
