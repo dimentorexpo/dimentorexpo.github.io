@@ -299,30 +299,42 @@ function fillchatbox() { //функция наполнения элемента,
 
 async function findchatsoper() { // ищет активные чаты на выбранном операторе
     let objSel = document.getElementById("operatorstp");
-    let getdateset = new Date()
-    let hrs;
-    let mins;
-    let secs;
-    let difhrs;
-    if (getdateset.getUTCHours() < 10)
-        hrs = "0" + (getdateset.getUTCHours());
-    else if (getdateset.getUTCHours() >= 24)
-        hrs = '0' + ((getdateset.getUTCHours() - 24))
-    else
-        hrs = (getdateset.getUTCHours());
+    // let getdateset = new Date()
+    // let hrs;
+    // let mins;
+    // let secs;
+    // let difhrs;
+    // if (getdateset.getUTCHours() < 10)
+        // hrs = "0" + (getdateset.getUTCHours());
+    // else if (getdateset.getUTCHours() >= 24)
+        // hrs = '0' + ((getdateset.getUTCHours() - 24))
+    // else
+        // hrs = (getdateset.getUTCHours());
 
 
-    if (hrs - 1 < 10)
-        difhrs = '0' + (hrs - 1)
-    else difhrs = hrs;
+    // if (hrs - 1 < 10)
+        // difhrs = '0' + (hrs - 1)
+    // else difhrs = hrs;
 
-    if (getdateset.getMinutes() < 10)
-        mins = "0" + getdateset.getMinutes();
-    else mins = getdateset.getMinutes();
+    // if (getdateset.getMinutes() < 10)
+        // mins = "0" + getdateset.getMinutes();
+    // else mins = getdateset.getMinutes();
 
-    if (getdateset.getUTCSeconds() < 10)
-        secs = "0" + getdateset.getUTCSeconds();
-    else secs = getdateset.getUTCSeconds()
+    // if (getdateset.getUTCSeconds() < 10)
+        // secs = "0" + getdateset.getUTCSeconds();
+    // else secs = getdateset.getUTCSeconds()
+	
+	let getdateset = new Date();
+
+	function getFormattedDateComponent(dateComponent) {
+	  return dateComponent < 10 ? '0' + dateComponent : dateComponent;
+	}
+
+	let hrs = getdateset.getUTCHours() < 10 ? "0" + (getdateset.getUTCHours()) : getdateset.getUTCHours() >= 24 ? '0' + ((getdateset.getUTCHours() - 24)) : getdateset.getUTCHours();
+	let difhrs = hrs - 1 < 10 ? '0' + (hrs - 1) : hrs - 1;
+	let mins = getFormattedDateComponent(getdateset.getMinutes());
+	let secs = getFormattedDateComponent(getdateset.getUTCSeconds());
+
 
     flagsearch = 'searchbyoperator'
 
