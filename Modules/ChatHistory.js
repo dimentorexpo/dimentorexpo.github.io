@@ -297,6 +297,11 @@ function fillchatbox() { //функция наполнения элемента,
     }
 }
 
+
+function getFormattedDateComponent(dateComponent) { // функция добавляет 0 к месяцу, дню, минуте, часу если значение меньше 10 иначе просто размещает значение
+  return dateComponent < 10 ? '0' + dateComponent : dateComponent;
+}
+
 async function findchatsoper() { // ищет активные чаты на выбранном операторе
     let objSel = document.getElementById("operatorstp");
     // let getdateset = new Date()
@@ -325,10 +330,6 @@ async function findchatsoper() { // ищет активные чаты на вы
     // else secs = getdateset.getUTCSeconds()
 	
 	let getdateset = new Date();
-
-	function getFormattedDateComponent(dateComponent) {
-	  return dateComponent < 10 ? '0' + dateComponent : dateComponent;
-	}
 
 	let hrs = getdateset.getUTCHours() < 10 ? "0" + (getdateset.getUTCHours()) : getdateset.getUTCHours() >= 24 ? '0' + ((getdateset.getUTCHours() - 24)) : getdateset.getUTCHours();
 	let difhrs = hrs - 1 < 10 ? '0' + (hrs - 1) : hrs - 1;
@@ -645,36 +646,62 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
         changeviewtheme()
 
         flagsearch = ''
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();    
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10 && getcurmonthLS == 1){
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromChHis').value = JSON.stringify(getyearLS - 1) + "-" + '12' + "-" + "0" + Number(todayLS);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else if (getdateset.getDate() < 10 && getcurmonthLS > 1 && getcurmonthLS <= 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else  if  (getdateset.getDate() < 10 && getcurmonthLS > 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-		} else  if  ( (getdateset.getDate() == 10 && getcurmonthLS > 10) || (getdateset.getDate() > 10 && (getcurmonthLS-1 == 10)) ) {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + Number(todayLS);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        // let getdateset = new Date()
+        // let getyearLS = getdateset.getFullYear();
+        // let getcurmonthLS = (getdateset.getMonth() + 1)
+        // let todayLS = getdateset.getDate();    
+        // if (getcurmonthLS < 10) {
+            // getcurmonthLS = "0" + (getdateset.getMonth() + 1)
+        // } else {
+            // getcurmonthLS = (getdateset.getMonth() + 1);
+        // }
+        // if (getdateset.getDate() < 10 && getcurmonthLS == 1){
+            // todayLS = "0" + getdateset.getDate();
+            // document.getElementById('dateFromChHis').value = JSON.stringify(getyearLS - 1) + "-" + '12' + "-" + "0" + Number(todayLS);
+            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        // } else if (getdateset.getDate() < 10 && getcurmonthLS > 1 && getcurmonthLS <= 10) {
+            // todayLS = "0" + getdateset.getDate();
+            // document.getElementById('dateFromChHis').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        // } else  if  (getdateset.getDate() < 10 && getcurmonthLS > 10) {
+            // todayLS = "0" + getdateset.getDate();
+            // document.getElementById('dateFromChHis').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+		// } else  if  ( (getdateset.getDate() == 10 && getcurmonthLS > 10) || (getdateset.getDate() > 10 && (getcurmonthLS-1 == 10)) ) {
+            // todayLS = getdateset.getDate();
+            // document.getElementById('dateFromChHis').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + Number(todayLS);
+            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+		// } else {
+            // todayLS = getdateset.getDate();
+            // document.getElementById('dateFromChHis').value = getyearLS + "-" + (getcurmonthLS - 1) + "-" + Number(todayLS - 1);
+            // document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+        // }
+		
+		let getdateset = new Date();
+		let getyearLS = getdateset.getFullYear();
+		let getcurmonthLS = getdateset.getMonth() + 1;
+		let todayLS = getdateset.getDate();
+
+		function getFormattedDateComponent(dateComponent) {
+		  return dateComponent < 10 ? '0' + dateComponent : dateComponent;
+		}
+
+		if (getdateset.getDate() < 10) {
+		  todayLS = "0" + getdateset.getDate();
 		} else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromChHis').value = getyearLS + "-" + (getcurmonthLS - 1) + "-" + Number(todayLS - 1);
-            document.getElementById('dateToChHis').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
+		  todayLS = getdateset.getDate();
+		}
+
+		let fromMonthLS = getcurmonthLS - 1;
+		let toMonthLS = getcurmonthLS;
+
+		if (fromMonthLS == 0) {
+		  fromMonthLS = "12";
+		  getyearLS = getyearLS - 1;
+		}
+
+		document.getElementById('dateFromChHis').value = getyearLS + "-" + getFormattedDateComponent(fromMonthLS) + "-" + todayLS;
+		document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDateComponent(toMonthLS) + "-" + todayLS;
 
         let radiobtnsarray = document.getElementsByName('chatornotes')
         let radiobtnsarray1 = document.getElementsByName('chatornotes1')
