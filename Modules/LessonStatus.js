@@ -63,60 +63,61 @@ document.getElementById('hideMeLessonStatus').onclick = function () { // скр�
             document.getElementById('statustable').innerText = "";
         }
 }
-	
-	
-document.getElementById('clearlessonstatus').onclick = function () { // очистить поля проверки статуса урока
-    if (confirm("Вы уверены, что хотите очистить?")) {
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
 
-        if (getdateset.getDate() < 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
-        document.getElementById('statustable').innerText = "";
-        document.getElementById('idteacherforsearch').value = "";
-        document.getElementById('idstudentforsearch').value = "";
-    } else {
-        console.log("Canceled!")
-    }
+function renewdate() { // функция обновления даты
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = (now.getMonth() + 1).toString().padStart(2, '0');
+  let day = now.getDate().toString().padStart(2, '0');
+
+  const prevDay = (day - 1).toString().padStart(2, '0');
+  document.getElementById('dateFromLS').value = `${year}-${month}-${prevDay}`;
+  document.getElementById('dateToLS').value = `${year}-${month}-${day}`;
+  document.getElementById('statustable').innerText = "";
+  document.getElementById('idteacherforsearch').value = "";
+  document.getElementById('idstudentforsearch').value = "";
 }
 
-    document.getElementById('butLessonInfo').onclick = function () {
-        let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + "0" + (Number(todayLS) - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromLS').value = getyearLS + "-" + getcurmonthLS + "-" + (todayLS - 1);
-            document.getElementById('dateToLS').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }
+document.getElementById('clearlessonstatus').onclick = function () { // очистить поля проверки статуса урока
+  if (!confirm("Are you sure you want to clear?")) {
+    console.log("Canceled!");
+    return;
+  }
+	renewdate()
+};
 
-        if (document.getElementById('AF_LessonStatus').style.display == '') {
-            document.getElementById('AF_LessonStatus').style.display = 'none'
-            document.getElementById('idmymenu').style.display = 'none'
-        } else {
-            document.getElementById('AF_LessonStatus').style.display = ''
-            document.getElementById('idmymenu').style.display = 'none'
-        }
-    }
+document.getElementById('butLessonInfo').onclick = function () {
+	renewdate()
+
+	if (document.getElementById('AF_LessonStatus').style.display == '') {
+		document.getElementById('AF_LessonStatus').style.display = 'none'
+		document.getElementById('idmymenu').style.display = 'none'
+	} else {
+		document.getElementById('AF_LessonStatus').style.display = ''
+		document.getElementById('idmymenu').style.display = 'none'
+	}
+}
+	
+	document.getElementById('butLessonInfo').onclick = function () {
+	  let getdateset = new Date();
+	  let getyearLS = getdateset.getFullYear();
+	  let getcurmonthLS = getdateset.getMonth() + 1;
+	  let todayLS = getdateset.getDate();
+	  getcurmonthLS = getcurmonthLS < 10 ? `0${getcurmonthLS}` : getcurmonthLS;
+	  todayLS = todayLS < 10 ? `0${todayLS}` : todayLS;
+	  document.getElementById('dateFromLS').value = `${getyearLS}-${getcurmonthLS}-${todayLS - 1}`;
+	  document.getElementById('dateToLS').value = `${getyearLS}-${getcurmonthLS}-${todayLS}`;
+
+	  if (document.getElementById('AF_LessonStatus').style.display === '') {
+		document.getElementById('AF_LessonStatus').style.display = 'none';
+		document.getElementById('idmymenu').style.display = 'none';
+	  } else {
+		document.getElementById('AF_LessonStatus').style.display = '';
+		document.getElementById('idmymenu').style.display = 'none';
+	  }
+	}
+
+	
 	
 	
 //Функция проверки статусов урока
