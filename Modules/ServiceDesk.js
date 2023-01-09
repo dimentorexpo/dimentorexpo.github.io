@@ -421,32 +421,37 @@ var win_servicedesk = // описание элементов окна Service De
 //func initialize
 
 function getprsuplasttask() { //функция для получения ссылки на последний созданный после отправки в канал тикет в джира +
-		document.getElementById('responseTextarea1').value = `{}`
-		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-		document.getElementById('responseTextarea3').value = 'pstickets'
-		document.getElementById('sendResponse').click()
-		
-		document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-			psarr = document.getElementById('responseTextarea1').getAttribute('pstickets');
-			if (psarr !=null) {
-				let sortarr = psarr.match(/PS-(\d+)/g);
-				sortarr = sortarr.sort().reverse();
-				firstEl = sortarr[0];
+  const responseTextarea1 = document.getElementById('responseTextarea1');
+  const responseTextarea2 = document.getElementById('responseTextarea2');
+  const responseTextarea3 = document.getElementById('responseTextarea3');
+  const sendResponse = document.getElementById('sendResponse');
+  const prevtask = document.getElementById('prevtask');
 
-				prevtsk = firstEl;
-				document.getElementById('prevtask').innerText = prevtsk;
+  responseTextarea1.value = `{}`;
+  responseTextarea2.value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
+  responseTextarea3.value = 'pstickets';
+  sendResponse.click();
 
-				document.getElementById('prevtask').onclick = function () {
-					if (document.getElementById('prevtask').innerText == "") {
-						console.log('Задача не найдена')
-					} else {
-						window.open("https://jira.skyeng.tech/browse/" + prevtsk);
-					};
-				}
-			}
-			document.getElementById('responseTextarea1').removeAttribute('pstickets');
-		})
+  responseTextarea1.addEventListener("DOMSubtreeModified", function() {
+	const psarr = responseTextarea1.getAttribute('pstickets');
+	if (psarr) {
+	  const sortarr = psarr.match(/PS-(\d+)/g).sort().reverse();
+	  const firstEl = sortarr[0];
+	  const prevtsk = firstEl;
+	  prevtask.innerText = prevtsk;
+
+	  prevtask.onclick = function() {
+		if (prevtask.innerText === "") {
+		  console.log('Задача не найдена');
+		} else {
+		  window.open(`https://jira.skyeng.tech/browse/${prevtsk}`);
+		}
+	  }
+	}
+	responseTextarea1.removeAttribute('pstickets');
+  });
 }
+
 
 function getprsup() { //функция для получения ссылки на предыдщий созданный тикет в джира
 	document.getElementById('responseTextarea1').value = `{}`
