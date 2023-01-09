@@ -880,6 +880,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 	
   } else {
     teacherOptions.style.display = 'none';
+	otherOptions.push(teacherOptions.id)
   }
 });
 
@@ -913,6 +914,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 	
 		} else {
 			EdModelOptions.style.display = 'none';
+				otherOptions.push(EdModelOptions.id)
 		}
 	}
 
