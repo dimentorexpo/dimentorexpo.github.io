@@ -853,7 +853,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 document.getElementById('optionTeacher').addEventListener('click', function() { // Teachers+
   const teacherOptions = document.getElementById('teacherssrvdskoptions');
 
-
   if (teacherOptions.style.display === '') {
     teacherOptions.style.display = '';
 	
@@ -874,6 +873,8 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 		  for (const button of activeButtons) {
 			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
 			console.log(`Selected topic: ${button.innerText}`);
+			setTimeout(getprsup, 5000);
+			setTimeout(getslacklnk, 8000);
 		  }
 	});
 	
@@ -883,46 +884,35 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 });
 
 	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS + 
-		if (document.getElementById('edumodeloptions').style.display != '') {
-			document.getElementById('edumodeloptions').style.display = '';
-
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('marketprojbugsptions').style.display = 'none';
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-
-			document.getElementById('create_20').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_97').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_98').value);
-				let str = encodeURIComponent(document.getElementById('customfield_99').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_100').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_101').value);
-				
-				for(let i=0; i<document.getElementsByClassName('edumodbtn').length;i++) {
-					if (document.getElementsByClassName('edumodbtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('edumodbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('edumodbtn')[i].innerText)
-						setTimeout(getprsup, 5000);
-						setTimeout(getslacklnk, 8000);
-					}
-				}
-			}
+	const EdModelOptions = document.getElementById('edumodeloptions');
+	
+	  if (EdModelOptions.style.display === '') {
+    EdModelOptions.style.display = '';
+	
+	otherOptions = otherOptions.filter(option => option !== EdModelOptions.id);
+	
+    otherOptions.forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+	
+	document.getElementById('create_20').addEventListener('click', function() {
+	  const idstdserv = encodeURIComponent(document.getElementById('customfield_97').value);
+	  const dscr = encodeURIComponent(document.getElementById('customfield_98').value);
+	  const str = encodeURIComponent(document.getElementById('customfield_99').value);
+	  const erx = encodeURIComponent(document.getElementById('customfield_100').value);
+	  const ary = encodeURIComponent(document.getElementById('customfield_101').value);
+	  const activeButtons = document.querySelectorAll('.edumodbtn.activebtn');
+	  
+		  for (const button of activeButtons) {
+			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+			console.log(`Selected topic: ${button.innerText}`);
+			setTimeout(getprsup, 5000);
+			setTimeout(getslacklnk, 8000);
+		  }
+	});
+	
 		} else {
-			document.getElementById('edumodeloptions').style.display = 'none';  
+			EdModelOptions.style.display = 'none';
 		}
 	}
 
