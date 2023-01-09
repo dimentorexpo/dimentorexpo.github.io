@@ -49,7 +49,7 @@ const buttons = [ //array of buttonsnames
     'schedulesrvdskoptions',
     'authsrvdskoptions',
     'crm2srvdskoptions',
-    'billingsrvdskoptions'
+    'billingsrvdskoptions',
 	'teacherssrvdskoptions'
   ];
 
