@@ -607,10 +607,10 @@ function checkjiraauth() { // функция проверки авторизац
 					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
 					jiratokennew = jiratoken;
 					document.getElementById('jiratknstatus').innerText = "🟢"
-					console.log("TOKEN: " + jiratoken);
+					console.log('%cTOKEN received successfully', 'color:LimeGreen' );
 					getprsuplasttask()
 				} else {
-					console.log("Авторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk");
+					console.log('%cАвторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk!', 'color:red');
 					document.getElementById('jiratknstatus').innerText = "🔴"
 				}
 			}
