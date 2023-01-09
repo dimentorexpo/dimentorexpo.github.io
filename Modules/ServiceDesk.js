@@ -70,7 +70,7 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
                 <div id="servicedeskinfo" style="margin-left:20px;">
                     <button class="sdbtn" id="optionTeacher" style="margin-left:2px; width:80px;">👽Teacher</button>
-                    <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px; display:none">🧮CRM2</button>
+                    <button class="sdbtn" id="optionCRM2" style="margin-left:2px; width:80px;">🧮CRM2</button>
                     <button class="sdbtn" id="optionAuth" style="margin-left:2px; width:80px;">🔐Auth</button>
                     <button class="sdbtn" id="optionSchedule" style="margin-left:2px; width:80px;">📆Schedul</button>
                     <button class="sdbtn" id="optionBillingQA" style="margin-left:2px; width:80px;">💲Billing-QA</button>
@@ -83,7 +83,6 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionTripwire" style="margin-left:2px; margin-top:2px; width:80px;">🗣Tripwire</button>
                     <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px;">📊KPI T</button>
                     <button class="sdbtn" id="optionCorp" style="margin-left:2px; margin-top:2px; width:80px;">💼Corp</button>
-                    <button class="sdbtn" id="optionMarketing" style="margin-left:2px; margin-top:2px; width:80px;">📟Landing</button>
                     <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓EM-QA</button>
 					<button class="sdbtn" id="optionMrktprojbugs" style="display:none; margin-left:2px; margin-top:2px; width:80px;">👨‍💻mproject</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
@@ -356,17 +355,6 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_84" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
 					<textarea id="customfield_85" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
 					<button id="create_17" style="width: 150px; position:relative; left:30%; margin-bottom:5px;">Создать</button>
-				</div>
-				<div id="marketprojbugsptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#marketing-projects-bugs; Канал для обращений от ТП, связанных с багами на лендингах Тильды и проектами маркетинга</p>
-					<button class="marketprojbugsbtn widthofsd" value="952">Обращение для QA</button>
-
-					<input id="customfield_109" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines  removefield"></input>
-					<textarea id="customfield_110" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="customfield_111" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines  removefield"></textarea>
-					<textarea id="customfield_112" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
-					<textarea id="customfield_113" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="create_22" style="width: 150px; position:relative; left:30%; margin-bottom:5px;">Создать</button>
 				</div>
 				<div id="mobbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#mobile-bugs; Канал обработки обращений по мобильному приложению Skyeng и Teachers.</p>
@@ -921,7 +909,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 			document.getElementById('billingqasrvdskoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -966,7 +954,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1011,7 +999,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1055,7 +1043,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1101,7 +1089,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1144,7 +1132,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1189,7 +1177,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1231,7 +1219,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1274,7 +1262,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1319,7 +1307,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1364,7 +1352,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1409,7 +1397,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1454,7 +1442,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1493,58 +1481,13 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 		}
 	}
 
-	document.getElementById('optionMrktprojbugs').onclick = function () { //marketing-projects-bugs(landing pages) + 
-		if (document.getElementById('marketprojbugsptions').style.display != '') {
-			document.getElementById('marketprojbugsptions').style.display = '';
-
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
-
-			document.getElementById('create_22').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_109').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_110').value);
-				let str = encodeURIComponent(document.getElementById('customfield_111').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_112').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_113').value);
-				
-				for(let i=0; i<document.getElementsByClassName('marketprojbugsbtn').length;i++) {
-					if (document.getElementsByClassName('marketprojbugsbtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('marketprojbugsbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('marketprojbugsbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('marketprojbugsptions').style.display = 'none';
-		}
-	}
-
 	document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
 		if (document.getElementById('mobbugsoptions').style.display != '') {
 			document.getElementById('mobbugsoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -1592,7 +1535,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 			
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -1640,7 +1583,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('corpoptions').style.display = 'none';
@@ -1687,7 +1630,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('marketprojbugsptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			
