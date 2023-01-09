@@ -10,7 +10,28 @@ let lasttsk;
 let prevtsk;
 let flagpsis = 0;
 let msgissnd = 0;
-
+const buttons = [
+'.edumodbtn',
+'.bilqabtn',
+'.teacbtn',
+'.c1sbtn',
+'.schdbtn',
+'.authbtn',
+'.crm2sbtn',
+'.billbtn',
+'.vimbugsbtn',
+'.vimvidsbtn',
+'.studcabbtn',
+'.chatqabtn',
+'.tripwbtn',
+'.analystbtn',
+'.corpbtn',
+'.mobbugsbtn',
+'.academymobbugsbtn',
+'.stcabmbsbtn',
+'.marketprojbugsbtn',
+'.infrabtn'
+];
 
 var win_servicedesk = // описание элементов окна Service Desk
     `<div style="display: flex; width: 480px;">
@@ -452,41 +473,47 @@ function getprsuplasttask() { //функция для получения ссы�
   });
 }
 
+function getprsup() {  //функция для получения ссылки на предыдщий созданный тикет в джира
+  const responseTextarea1 = document.getElementById('responseTextarea1');
+  const responseTextarea2 = document.getElementById('responseTextarea2');
+  const responseTextarea3 = document.getElementById('responseTextarea3');
+  const sendResponse = document.getElementById('sendResponse');
 
-function getprsup() { //функция для получения ссылки на предыдщий созданный тикет в джира
-	document.getElementById('responseTextarea1').value = `{}`
-	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-	document.getElementById('responseTextarea3').value = 'shmikets'
-	document.getElementById('sendResponse').click()
-	
-	document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-		psarr = document.getElementById('responseTextarea1').getAttribute('shmikets');
-		
-		let sortarr = psarr.match(/PS-(\d+)/g);
-		sortarr = sortarr.sort().reverse();
-		firstEl = sortarr[0];
+  responseTextarea1.value = `{}`;
+  responseTextarea2.value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
+  responseTextarea3.value = 'shmikets';
+  sendResponse.click();
 
-		console.log("Testo massiv " + sortarr);
-		console.log("Link tp PJ JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
+  responseTextarea1.addEventListener("DOMSubtreeModified", () => {
+    const psarr = responseTextarea1.getAttribute('shmikets');
+    const sortarr = psarr.match(/PS-(\d+)/g).sort().reverse();
+    const firstEl = sortarr[0];
 
-		lasttsk = firstEl;
-		flagpsis = 1;
+    console.log(`Testo massiv ${sortarr}`);
+    console.log(`Link tp PJ JIRA https://jira.skyeng.tech/browse/${firstEl}`);
 
-		if (lasttsk > prevtsk & msgissnd == 0) {
-			document.getElementById('newtask').innerText = lasttsk;
-			sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
-			msgissnd = 1;
-			for (let i = 0; i < document.getElementsByClassName('removefield').length; i++) {
-				document.getElementsByClassName('removefield')[i].value = ''
-			}
-		} else if (lasttsk <= prevtsk) {
-			console.log("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!")
-		}
-		
-		document.getElementById('responseTextarea1').removeAttribute('pstickets');
-	})
-	msgissnd = 0;
+    const lasttsk = firstEl;
+    flagpsis = 1;
+
+    if (lasttsk > prevtsk && msgissnd === 0) {
+      document.getElementById('newtask').innerText = lasttsk;
+      sendComment(`Jira Service Desk link: https://jira.skyeng.tech/browse/${lasttsk}`);
+      msgissnd = 1;
+      const removefields = document.getElementsByClassName('removefield');
+      for (let i = 0; i < removefields.length; i++) {
+        removefields[i].value = '';
+      }
+    } else if (lasttsk <= prevtsk) {
+      console.log("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!");
+    }
+
+    responseTextarea1.removeAttribute('pstickets');
+  });
+
+  msgissnd = 0;
 }
+
+
 
 function getinfrasup() { //функция для получения ссылки на последний запрос Infra в джира
 	document.getElementById('responseTextarea1').value = `{}`
@@ -756,85 +783,12 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 		$(this).toggleClass('activebtnsd');
 	});
 	
-		$('.teacbtn').click(function () {
-		remres(this)
-	});
+		buttons.forEach(button => {
+		  $(button).click(function() {
+			remres(this);
+		  });
+		});
 
-	$('.edumodbtn').click(function () {
-		remres(this)
-	});
-
-	$('.bilqabtn').click(function () {
-		remres(this)
-	});
-
-	$('.c1sbtn').click(function () {
-		remres(this)
-	});
-
-	$('.schdbtn').click(function () {
-		remres(this)
-	});
-
-	$('.authbtn').click(function () {
-		remres(this)
-	});
-
-	$('.crm2sbtn').click(function () {
-		remres(this)
-	});
-
-	$('.billbtn').click(function () {
-		remres(this)
-	});
-
-	$('.vimbugsbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.vimvidsbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.studcabbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.chatqabtn').click(function () {  
-		remres(this)
-	});
-
-	$('.tripwbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.analystbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.corpbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.mobbugsbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.academymobbugsbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.stcabmbsbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.marketprojbugsbtn').click(function () {  
-		remres(this)
-	});
-
-	$('.infrabtn').click(function () {  
-		remres(this)
-	});
 
 } // tested
 
@@ -966,29 +920,40 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 	
 	document.getElementById('refreshjiraauth').onclick = checkjiraauth; //функция обновления статуса авторизации
 
+	// function remres(a) { // функция переключения класса по нажатию на кнопку
+		// $('.edumodbtn').not(a).removeClass('activebtn');
+		// $('.bilqabtn').not(a).removeClass('activebtn');
+		// $('.teacbtn').not(a).removeClass('activebtn');
+		// $('.c1sbtn').not(a).removeClass('activebtn');
+		// $('.schdbtn').not(a).removeClass('activebtn');
+		// $('.authbtn').not(a).removeClass('activebtn');
+		// $('.crm2sbtn').not(a).removeClass('activebtn');
+		// $('.billbtn').not(a).removeClass('activebtn');
+		// $('.vimbugsbtn').not(a).removeClass('activebtn');
+		// $('.vimvidsbtn').not(a).removeClass('activebtn');
+		// $('.studcabbtn').not(a).removeClass('activebtn');
+		// $('.chatqabtn').not(a).removeClass('activebtn');
+		// $('.tripwbtn').not(a).removeClass('activebtn');
+		// $('.analystbtn').not(a).removeClass('activebtn');
+		// $('.corpbtn').not(a).removeClass('activebtn');
+		// $('.mobbugsbtn').not(a).removeClass('activebtn');
+		// $('.academymobbugsbtn').not(a).removeClass('activebtn');
+		// $('.stcabmbsbtn').not(a).removeClass('activebtn');
+		// $('.marketprojbugsbtn').not(a).removeClass('activebtn');
+		// $('.infrabtn').not(a).removeClass('activebtn');
+		// $(a).toggleClass('activebtn');
+	// }
+	
 	function remres(a) { // функция переключения класса по нажатию на кнопку
-		$('.edumodbtn').not(a).removeClass('activebtn');
-		$('.bilqabtn').not(a).removeClass('activebtn');
-		$('.teacbtn').not(a).removeClass('activebtn');
-		$('.c1sbtn').not(a).removeClass('activebtn');
-		$('.schdbtn').not(a).removeClass('activebtn');
-		$('.authbtn').not(a).removeClass('activebtn');
-		$('.crm2sbtn').not(a).removeClass('activebtn');
-		$('.billbtn').not(a).removeClass('activebtn');
-		$('.vimbugsbtn').not(a).removeClass('activebtn');
-		$('.vimvidsbtn').not(a).removeClass('activebtn');
-		$('.studcabbtn').not(a).removeClass('activebtn');
-		$('.chatqabtn').not(a).removeClass('activebtn');
-		$('.tripwbtn').not(a).removeClass('activebtn');
-		$('.analystbtn').not(a).removeClass('activebtn');
-		$('.corpbtn').not(a).removeClass('activebtn');
-		$('.mobbugsbtn').not(a).removeClass('activebtn');
-		$('.academymobbugsbtn').not(a).removeClass('activebtn');
-		$('.stcabmbsbtn').not(a).removeClass('activebtn');
-		$('.marketprojbugsbtn').not(a).removeClass('activebtn');
-		$('.infrabtn').not(a).removeClass('activebtn');
-		$(a).toggleClass('activebtn');
+	  buttons.forEach(button => {
+		if (button !== a) {
+		  $(button).removeClass('activebtn');
+		}
+	  });
+
+	  $(a).toggleClass('activebtn');
 	}
+
 
 	document.getElementById('optionTeacher').onclick = function () { // Teachers +
 		if (document.getElementById('teacherssrvdskoptions').style.display != '') {
