@@ -33,7 +33,6 @@ const buttons = [ //array of buttonsnames
 ];
 
   const otherOptions = [ // array of buttons categories id's
-    'marketprojbugsptions',
     'studcabmobbugskoptions',
     'edumodeloptions',
     'mobbugsoptions',
