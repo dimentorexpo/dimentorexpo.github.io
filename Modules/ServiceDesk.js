@@ -807,142 +807,17 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 $(this).toggleClass('activebtnsd');
             });
 
-            function remres(a) {
-                $('.edumodbtn').not(a).removeClass('activebtn');
-                $('.bilqabtn').not(a).removeClass('activebtn');
-                $('.teacbtn').not(a).removeClass('activebtn');
-                $('.c1sbtn').not(a).removeClass('activebtn');
-                $('.schdbtn').not(a).removeClass('activebtn');
-                $('.authbtn').not(a).removeClass('activebtn');
-                $('.crm2sbtn').not(a).removeClass('activebtn');
-                $('.billbtn').not(a).removeClass('activebtn');
-                $('.vimbugsbtn').not(a).removeClass('activebtn');
-                $('.vimvidsbtn').not(a).removeClass('activebtn');
-                $('.studcabbtn').not(a).removeClass('activebtn');
-                $('.chatqabtn').not(a).removeClass('activebtn');
-                $('.tripwbtn').not(a).removeClass('activebtn');
-                $('.analystbtn').not(a).removeClass('activebtn');
-                $('.corpbtn').not(a).removeClass('activebtn');
-                $('.mobbugsbtn').not(a).removeClass('activebtn');
-                $('.academymobbugsbtn').not(a).removeClass('activebtn');
-                $('.stcabmbsbtn').not(a).removeClass('activebtn');
-                $('.marketprojbugsbtn').not(a).removeClass('activebtn');
-                $('.infrabtn').not(a).removeClass('activebtn');
-                $(a).toggleClass('activebtn');
-            }
-
-            $('.teacbtn').click(function () {
-                remres(this)
-            });
-
-            $('.edumodbtn').click(function () {
-                remres(this)
-            });
-
-            $('.bilqabtn').click(function () {
-                remres(this)
-            });
-
-            $('.c1sbtn').click(function () {
-                remres(this)
-            });
-
-            $('.schdbtn').click(function () {
-                remres(this)
-            });
-
-            $('.authbtn').click(function () {
-                remres(this)
-            });
-
-            $('.crm2sbtn').click(function () {
-                remres(this)
-            });
-
-            $('.billbtn').click(function () {
-                remres(this)
-            });
-
-            $('.vimbugsbtn').click(function () {
-                remres(this)
-            });
-
-            $('.vimvidsbtn').click(function () {
-                remres(this)
-            });
-
-            $('.studcabbtn').click(function () {
-                remres(this)
-            });
-
-            $('.chatqabtn').click(function () {
-                remres(this)
-            });
-
-            $('.tripwbtn').click(function () {
-                remres(this)
-            });
-
-            $('.analystbtn').click(function () {
-                remres(this)
-            });
-
-            $('.corpbtn').click(function () {
-                remres(this)
-            });
-
-            $('.mobbugsbtn').click(function () {
-                remres(this)
-            });
-
-            $('.academymobbugsbtn').click(function () {
-                remres(this)
-            });
-
-            $('.stcabmbsbtn').click(function () {
-                remres(this)
-            });
-
-            $('.marketprojbugsbtn').click(function () {
-                remres(this)
-
-            });
-
-            $('.infrabtn').click(function () {
-                remres(this)
-
-            });
-
+		buttons.forEach(button => {
+		  $(button).click(function() {
+			remres(this);
+		  });
+		});
 
             document.getElementById('AF_ServDsk').style.display = 'none'
         }
     }
 	
 	document.getElementById('refreshjiraauth').onclick = checkjiraauth; //функция обновления статуса авторизации
-
-	// function remres(a) { // функция переключения класса по нажатию на кнопку
-		// $('.edumodbtn').not(a).removeClass('activebtn');
-		// $('.bilqabtn').not(a).removeClass('activebtn');
-		// $('.teacbtn').not(a).removeClass('activebtn');
-		// $('.c1sbtn').not(a).removeClass('activebtn');
-		// $('.schdbtn').not(a).removeClass('activebtn');
-		// $('.authbtn').not(a).removeClass('activebtn');
-		// $('.crm2sbtn').not(a).removeClass('activebtn');
-		// $('.billbtn').not(a).removeClass('activebtn');
-		// $('.vimbugsbtn').not(a).removeClass('activebtn');
-		// $('.vimvidsbtn').not(a).removeClass('activebtn');
-		// $('.studcabbtn').not(a).removeClass('activebtn');
-		// $('.chatqabtn').not(a).removeClass('activebtn');
-		// $('.tripwbtn').not(a).removeClass('activebtn');
-		// $('.analystbtn').not(a).removeClass('activebtn');
-		// $('.corpbtn').not(a).removeClass('activebtn');
-		// $('.mobbugsbtn').not(a).removeClass('activebtn');
-		// $('.academymobbugsbtn').not(a).removeClass('activebtn');
-		// $('.stcabmbsbtn').not(a).removeClass('activebtn');
-		// $('.marketprojbugsbtn').not(a).removeClass('activebtn');
-		// $('.infrabtn').not(a).removeClass('activebtn');
-		// $(a).toggleClass('activebtn');
-	// }
 	
 	function remres(a) { // функция переключения класса по нажатию на кнопку
 	  buttons.forEach(button => {
