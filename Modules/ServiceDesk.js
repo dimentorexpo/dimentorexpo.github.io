@@ -10,28 +10,48 @@ let lasttsk;
 let prevtsk;
 let flagpsis = 0;
 let msgissnd = 0;
-const buttons = [
-'.edumodbtn',
-'.bilqabtn',
-'.teacbtn',
-'.c1sbtn',
-'.schdbtn',
-'.authbtn',
-'.crm2sbtn',
-'.billbtn',
-'.vimbugsbtn',
-'.vimvidsbtn',
-'.studcabbtn',
-'.chatqabtn',
-'.tripwbtn',
-'.analystbtn',
-'.corpbtn',
-'.mobbugsbtn',
-'.academymobbugsbtn',
-'.stcabmbsbtn',
-'.marketprojbugsbtn',
-'.infrabtn'
+const buttons = [ //array of buttonsnames
+	'.edumodbtn',
+	'.bilqabtn',
+	'.teacbtn',
+	'.c1sbtn',
+	'.schdbtn',
+	'.authbtn',
+	'.crm2sbtn',
+	'.billbtn',
+	'.vimbugsbtn',
+	'.vimvidsbtn',
+	'.studcabbtn',
+	'.chatqabtn',
+	'.tripwbtn',
+	'.analystbtn',
+	'.corpbtn',
+	'.mobbugsbtn',
+	'.academymobbugsbtn',
+	'.stcabmbsbtn',
+	'.marketprojbugsbtn',
 ];
+
+  let otherOptions = [ // array of buttons categories id's
+    'marketprojbugsptions',
+    'studcabmobbugskoptions',
+    'edumodeloptions',
+    'mobbugsoptions',
+    'corpoptions',
+    'analystoptions',
+    'tripwireoptions',
+    'chatqaoptions',
+    'studcaboptions',
+    'vimvidoptions',
+    'vimbugsoptions',
+    'billingqasrvdskoptions',
+    'c1srvdskoptions',
+    'schedulesrvdskoptions',
+    'authsrvdskoptions',
+    'crm2srvdskoptions',
+    'billingsrvdskoptions'
+	'teacherssrvdskoptions'
+  ];
 
 var win_servicedesk = // описание элементов окна Service Desk
     `<div style="display: flex; width: 480px;">
@@ -830,56 +850,43 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 	}
 
 
-	document.getElementById('optionTeacher').onclick = function () { // Teachers +
-		if (document.getElementById('teacherssrvdskoptions').style.display != '') {
-			document.getElementById('teacherssrvdskoptions').style.display = '';
+document.getElementById('optionTeacher').addEventListener('click', function() { // Teachers+
+  const teacherOptions = document.getElementById('teacherssrvdskoptions');
 
-			document.getElementById('infraoptions').style.display = 'none';
-			document.getElementById('marketprojbugsptions').style.display = 'none';
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
 
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
-
-			document.getElementById('create_2').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_6').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_7').value);
-				let str = encodeURIComponent(document.getElementById('customfield_8').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_9').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_10').value);		
-				
-				for(let i=0; i<document.getElementsByClassName('teacbtn').length;i++) {
-					if (document.getElementsByClassName('teacbtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('teacbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('teacbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-		}
-	}
+  if (teacherOptions.style.display === '') {
+    teacherOptions.style.display = '';
+	
+	otherOptions = otherOptions.filter(option => option !== teacherOptions.id);
+	
+    otherOptions.forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+	
+	document.getElementById('create_2').addEventListener('click', function() {
+	  const idstdserv = encodeURIComponent(document.getElementById('customfield_6').value);
+	  const dscr = encodeURIComponent(document.getElementById('customfield_7').value);
+	  const str = encodeURIComponent(document.getElementById('customfield_8').value);
+	  const erx = encodeURIComponent(document.getElementById('customfield_9').value);
+	  const ary = encodeURIComponent(document.getElementById('customfield_10').value);
+	  const activeButtons = document.querySelectorAll('.teacbtn.activebtn');
+	  
+		  for (const button of activeButtons) {
+			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+			console.log(`Selected topic: ${button.innerText}`);
+		  }
+	});
+	
+  } else {
+    teacherOptions.style.display = 'none';
+  }
+});
 
 	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS + 
 		if (document.getElementById('edumodeloptions').style.display != '') {
 			document.getElementById('edumodeloptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -924,7 +931,6 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingqasrvdskoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -969,7 +975,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('vimvidoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1014,7 +1020,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('c1srvdskoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1058,7 +1064,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('schedulesrvdskoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1104,7 +1110,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('authsrvdskoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1147,7 +1153,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('crm2srvdskoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1192,7 +1198,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('billingsrvdskoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1234,7 +1240,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('vimbugsoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1277,7 +1283,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('studcaboptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1322,7 +1328,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('chatqaoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1367,7 +1373,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('tripwireoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1412,7 +1418,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('analystoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1457,7 +1463,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('corpoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1502,7 +1508,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('marketprojbugsptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
@@ -1547,7 +1553,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('mobbugsoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1595,7 +1601,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('academymobbugsoptions').style.display = '';
 			
 			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1643,7 +1649,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			document.getElementById('studcabmobbugskoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('infraoptions').style.display = 'none';
+			
 			document.getElementById('marketprojbugsptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
@@ -1753,7 +1759,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 			}
 
 		} else {
-			document.getElementById('infraoptions').style.display = 'none';
+			
 		}
 	}
 
