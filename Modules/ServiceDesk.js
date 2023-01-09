@@ -32,7 +32,7 @@ const buttons = [ //array of buttonsnames
 	'.marketprojbugsbtn',
 ];
 
-  let otherOptions = [ // array of buttons categories id's
+  const otherOptions = [ // array of buttons categories id's
     'marketprojbugsptions',
     'studcabmobbugskoptions',
     'edumodeloptions',
@@ -856,9 +856,9 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
   if (teacherOptions.style.display === 'none') {
     teacherOptions.style.display = '';
 	
-	otherOptions = otherOptions.filter(option => option !== teacherOptions.id);
+	let operateoptions = otherOptions.filter(option => option !== teacherOptions.id);
 	
-    otherOptions.forEach(id => {
+    operateoptions.forEach(id => {
       document.getElementById(id).style.display = 'none';
     });
 	
@@ -880,19 +880,18 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 	
   } else {
     teacherOptions.style.display = 'none';
-	otherOptions.push(teacherOptions.id)
   }
 });
 
-	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS + 
+	document.getElementById('optionEdModel').onclick = function () { // Em-qa-support + 
 	const EdModelOptions = document.getElementById('edumodeloptions');
 	
-	  if (EdModelOptions.style.display === 'none') {
+	 if (EdModelOptions.style.display === 'none') {
     EdModelOptions.style.display = '';
 	
-	otherOptions = otherOptions.filter(option => option !== EdModelOptions.id);
+	let operateoptions = operateoptions.filter(option => option !== EdModelOptions.id);
 	
-    otherOptions.forEach(id => {
+    operateoptions.forEach(id => {
       document.getElementById(id).style.display = 'none';
     });
 	
@@ -914,7 +913,6 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 	
 		} else {
 			EdModelOptions.style.display = 'none';
-				otherOptions.push(EdModelOptions.id)
 		}
 	}
 
