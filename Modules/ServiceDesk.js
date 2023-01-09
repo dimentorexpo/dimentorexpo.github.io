@@ -889,7 +889,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 	 if (EdModelOptions.style.display === 'none') {
     EdModelOptions.style.display = '';
 	
-	let operateoptions = operateoptions.filter(option => option !== EdModelOptions.id);
+	let operateoptions = otherOptions.filter(option => option !== EdModelOptions.id);
 	
     operateoptions.forEach(id => {
       document.getElementById(id).style.display = 'none';
