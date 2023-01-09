@@ -1245,6 +1245,7 @@ function prepTp() { //функция подготовки расширения �
     });
     Promise.all(promiseData).then(function () {
         console.log('%cThe required scripts are loaded successfully!', 'color:#37ff85; font-weight:700; border: 1px solid white; padding:5px; border-radius:10px');
+		console.log('\r\n   ______  __       ____    ____       _       ________  \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_| \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|    \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_     \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    \r\n                                                         \r\n')
     }).catch(function (gfgData) {
         console.log(gfgData + " failed to load!");
     });
