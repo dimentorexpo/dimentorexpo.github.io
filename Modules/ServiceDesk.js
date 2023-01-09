@@ -29,7 +29,6 @@ const buttons = [ //array of buttonsnames
 	'.mobbugsbtn',
 	'.academymobbugsbtn',
 	'.stcabmbsbtn',
-	'.marketprojbugsbtn',
 ];
 
   const otherOptions = [ // array of buttons categories id's
@@ -890,12 +889,12 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 	  const ary = encodeURIComponent(document.getElementById('customfield_101').value);
 	  const activeButtons = document.querySelectorAll('.edumodbtn.activebtn');
 	  
-		  for (const button of activeButtons) {
-			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-			console.log(`Selected topic: ${button.innerText}`);
-			setTimeout(getprsup, 5000);
-			setTimeout(getslacklnk, 8000);
-		  }
+	  for (const button of activeButtons) {
+		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
+		setTimeout(getprsup, 5000);
+		setTimeout(getslacklnk, 8000);
+	  }
 	});
 	
 		} else {
@@ -904,46 +903,38 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 	}
 
 	document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
-		if (document.getElementById('billingqasrvdskoptions').style.display != '') {
-			document.getElementById('billingqasrvdskoptions').style.display = '';
+	
+	  const billQaOptions = document.getElementById('billingqasrvdskoptions');
 
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
-
-			document.getElementById('create_4').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_17').value);
-				let str = encodeURIComponent(document.getElementById('customfield_18').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_19').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_20').value);
-
-				for(let i=0; i<document.getElementsByClassName('bilqabtn').length;i++) {
-					if (document.getElementsByClassName('bilqabtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('bilqabtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('bilqabtn')[i].innerText)
-					}
-				}
-			}
+	  if (billQaOptions.style.display === 'none') {
+		billQaOptions.style.display = '';
+		
+		let operateoptions = otherOptions.filter(option => option !== billQaOptions.id);
+		
+		operateoptions.forEach(id => {
+		  document.getElementById(id).style.display = 'none';
+		});
+	
+	
+		document.getElementById('create_4').addEventListener('click', function() {
+		
+		const idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
+		const dscr = encodeURIComponent(document.getElementById('customfield_17').value);
+		const str = encodeURIComponent(document.getElementById('customfield_18').value);
+		const erx = encodeURIComponent(document.getElementById('customfield_19').value);
+		const ary = encodeURIComponent(document.getElementById('customfield_20').value);
+		const activeButtons = document.querySelectorAll('.bilqabtn.activebtn');
+		
+		for (const button of activeButtons) {
+			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+			console.log(`Selected topic: ${button.innerText}`);
+			setTimeout(getprsup, 5000);
+			setTimeout(getslacklnk, 8000);
+		}
+	});
+	
 		} else {
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
+			billQaOptions.style.display = 'none';
 		}
 	}
 
@@ -952,8 +943,6 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 			document.getElementById('vimvidoptions').style.display = '';
 
 			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			
 			document.getElementById('studcabmobbugskoptions').style.display = 'none';
 			document.getElementById('edumodeloptions').style.display = 'none';
 			document.getElementById('mobbugsoptions').style.display = 'none';
