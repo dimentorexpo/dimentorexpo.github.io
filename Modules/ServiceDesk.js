@@ -853,7 +853,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 document.getElementById('optionTeacher').addEventListener('click', function() { // Teachers+
   const teacherOptions = document.getElementById('teacherssrvdskoptions');
 
-  if (teacherOptions.style.display === '') {
+  if (teacherOptions.style.display === 'none') {
     teacherOptions.style.display = '';
 	
 	otherOptions = otherOptions.filter(option => option !== teacherOptions.id);
@@ -886,7 +886,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 	document.getElementById('optionEdModel').onclick = function () { // Skysmart KIDS + 
 	const EdModelOptions = document.getElementById('edumodeloptions');
 	
-	  if (EdModelOptions.style.display === '') {
+	  if (EdModelOptions.style.display === 'none') {
     EdModelOptions.style.display = '';
 	
 	otherOptions = otherOptions.filter(option => option !== EdModelOptions.id);
