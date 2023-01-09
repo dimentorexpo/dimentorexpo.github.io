@@ -849,12 +849,12 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
     });
 	
 	document.getElementById('create_2').addEventListener('click', function() {
-	  const idstdserv = encodeURIComponent(document.getElementById('customfield_6').value);
-	  const dscr = encodeURIComponent(document.getElementById('customfield_7').value);
-	  const str = encodeURIComponent(document.getElementById('customfield_8').value);
-	  const erx = encodeURIComponent(document.getElementById('customfield_9').value);
-	  const ary = encodeURIComponent(document.getElementById('customfield_10').value);
-	  const activeButtons = document.querySelectorAll('.teacbtn.activebtn');
+	  let idstdserv = encodeURIComponent(document.getElementById('customfield_6').value);
+	  let dscr = encodeURIComponent(document.getElementById('customfield_7').value);
+	  let str = encodeURIComponent(document.getElementById('customfield_8').value);
+	  let erx = encodeURIComponent(document.getElementById('customfield_9').value);
+	  let ary = encodeURIComponent(document.getElementById('customfield_10').value);
+	  let activeButtons = document.querySelectorAll('.teacbtn.activebtn');
 	  
 		  for (const button of activeButtons) {
 			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
@@ -882,12 +882,12 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
     });
 	
 	document.getElementById('create_20').addEventListener('click', function() {
-	  const idstdserv = encodeURIComponent(document.getElementById('customfield_97').value);
-	  const dscr = encodeURIComponent(document.getElementById('customfield_98').value);
-	  const str = encodeURIComponent(document.getElementById('customfield_99').value);
-	  const erx = encodeURIComponent(document.getElementById('customfield_100').value);
-	  const ary = encodeURIComponent(document.getElementById('customfield_101').value);
-	  const activeButtons = document.querySelectorAll('.edumodbtn.activebtn');
+	  let idstdserv = encodeURIComponent(document.getElementById('customfield_97').value);
+	  let dscr = encodeURIComponent(document.getElementById('customfield_98').value);
+	  let str = encodeURIComponent(document.getElementById('customfield_99').value);
+	  let erx = encodeURIComponent(document.getElementById('customfield_100').value);
+	  let ary = encodeURIComponent(document.getElementById('customfield_101').value);
+	  let activeButtons = document.querySelectorAll('.edumodbtn.activebtn');
 	  
 	  for (const button of activeButtons) {
 		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
@@ -902,28 +902,63 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 		}
 	}
 
-	document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
-	
-	  const billQaOptions = document.getElementById('billingqasrvdskoptions');
+document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
 
-	  if (billQaOptions.style.display === 'none') {
-		billQaOptions.style.display = '';
-		
-		let operateoptions = otherOptions.filter(option => option !== billQaOptions.id);
-		
-		operateoptions.forEach(id => {
-		  document.getElementById(id).style.display = 'none';
-		});
+  const billQaOptions = document.getElementById('billingqasrvdskoptions');
+
+  if (billQaOptions.style.display === 'none') {
+	billQaOptions.style.display = '';
 	
+	let operateoptions = otherOptions.filter(option => option !== billQaOptions.id);
 	
-		document.getElementById('create_4').addEventListener('click', function() {
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
+
+
+	document.getElementById('create_4').addEventListener('click', function() {
+	
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_17').value);
+	let str = encodeURIComponent(document.getElementById('customfield_18').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_19').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_20').value);
+	let activeButtons = document.querySelectorAll('.bilqabtn.activebtn');
+	
+	for (const button of activeButtons) {
+		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
+		setTimeout(getprsup, 5000);
+		setTimeout(getslacklnk, 8000);
+	}
+});
+
+	} else {
+		billQaOptions.style.display = 'none';
+	}
+}
+
+document.getElementById('optionVimvideocall').onclick = function () { //Vim-video-call +
+	
+  const vimVidCallOptions = document.getElementById('vimvidoptions');
+
+  if (vimVidCallOptions.style.display === 'none') {
+	vimVidCallOptions.style.display = '';
+	
+	let operateoptions = otherOptions.filter(option => option !== billQaOptions.id);
+	
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
+	
+	document.getElementById('create_12').addEventListener('click', function() {
 		
-		const idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
-		const dscr = encodeURIComponent(document.getElementById('customfield_17').value);
-		const str = encodeURIComponent(document.getElementById('customfield_18').value);
-		const erx = encodeURIComponent(document.getElementById('customfield_19').value);
-		const ary = encodeURIComponent(document.getElementById('customfield_20').value);
-		const activeButtons = document.querySelectorAll('.bilqabtn.activebtn');
+		let idstdserv = encodeURIComponent(document.getElementById('customfield_56').value);
+		let dscr = encodeURIComponent(document.getElementById('customfield_57').value);
+		let str = encodeURIComponent(document.getElementById('customfield_58').value);
+		let erx = encodeURIComponent(document.getElementById('customfield_59').value);
+		let ary = encodeURIComponent(document.getElementById('customfield_60').value);
+		let activeButtons = document.querySelectorAll('.vimvidsbtn.activebtn');
 		
 		for (const button of activeButtons) {
 			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
@@ -932,54 +967,11 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 			setTimeout(getslacklnk, 8000);
 		}
 	});
-	
-		} else {
-			billQaOptions.style.display = 'none';
-		}
+
+	} else {
+		vimVidCallOptions.style.display = 'none';
 	}
-
-	document.getElementById('optionVimvideocall').onclick = function () { //Vim-video-call +
-		if (document.getElementById('vimvidoptions').style.display != '') {
-			document.getElementById('vimvidoptions').style.display = '';
-
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
-
-			document.getElementById('create_12').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_56').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_57').value);
-				let str = encodeURIComponent(document.getElementById('customfield_58').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_59').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_60').value);
-				
-				for(let i=0; i<document.getElementsByClassName('vimvidsbtn').length;i++) {
-					if (document.getElementsByClassName('vimvidsbtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('vimvidsbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('vimvidsbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('vimvidoptions').style.display = 'none';
-		}
-	}
+}
 
 	document.getElementById('optionOnboarding').onclick = function () { //C1 Onboarding +
 		if (document.getElementById('c1srvdskoptions').style.display != '') {
