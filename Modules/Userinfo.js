@@ -174,39 +174,80 @@ document.getElementById('editadmbtn').onclick = function () {
     window.open("https://id.skyeng.ru/admin/users/" + stuid + "/update-contacts")
 }
 
-document.getElementById('getonetimepass').onclick = function () { //функция генерации разового пароля для МП
-    if (document.getElementById('idstudent').value == "")
-        console.log('Введите id в поле')
-    else {
-        document.getElementById('getonetimepass').innerHTML = "✅";
-        setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
+// document.getElementById('getonetimepass').onclick = function () { //функция генерации разового пароля для МП
+    // if (document.getElementById('idstudent').value == "")
+        // console.log('Введите id в поле')
+    // else {
+        // document.getElementById('getonetimepass').innerHTML = "✅";
+        // setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
 
-        document.getElementById('responseTextarea1').value = `{
-			"headers": {
-				"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-			},
-			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
-				"method": "POST",
-				"mode": "cors",
-				"credentials": "include"
-			}`
-        document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-        document.getElementById('responseTextarea3').value = 'getmobpwdnew'
-        document.getElementById('sendResponse').click()
+        // document.getElementById('responseTextarea1').value = `{
+			// "headers": {
+				// "content-type": "application/x-www-form-urlencoded",
+					// "sec-fetch-site": "same-origin",
+					// "sec-fetch-user": "?1",
+					// "upgrade-insecure-requests": "1"
+			// },
+			// "body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${document.getElementById('idstudent').value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+				// "method": "POST",
+				// "mode": "cors",
+				// "credentials": "include"
+			// }`
+        // document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+        // document.getElementById('responseTextarea3').value = 'getmobpwdnew'
+        // document.getElementById('sendResponse').click()
 
-        function getPassInfo1() {
-            var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
-            document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
-            var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-            onetimepassout.value = convertres11[1];
-        }
-        setTimeout(getPassInfo1, 1000);
-    };
-    setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
+        // function getPassInfo1() {
+            // var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew')
+            // document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
+            // var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+            // onetimepassout.value = convertres11[1];
+        // }
+        // setTimeout(getPassInfo1, 1000);
+    // };
+    // setTimeout(function () { document.getElementById('onetimepassout').value = "" }, 15000);
+// }
+
+document.getElementById('getonetimepass').onclick = function () {
+if (!document.getElementById('idstudent').value) {
+console.log('Please enter id in the field')
+} else {
+document.getElementById('getonetimepass').innerHTML = "✅";
+setTimeout(function () { document.getElementById('getonetimepass').innerHTML = "📱" }, 2000);
+    const data = new URLSearchParams();
+    data.append("user_id_or_identity_for_one_time_password_form[userIdOrIdentity]", document.getElementById('idstudent').value);
+    data.append("user_id_or_identity_for_one_time_password_form[generate]", "");
+    data.append("user_id_or_identity_for_one_time_password_form[_token]", null);
+
+    document.getElementById('responseTextarea1').value = JSON.stringify({
+        headers: {
+            "content-type": "application/x-www-form-urlencoded",
+            "sec-fetch-site": "same-origin",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1"
+        },
+        body: data,
+        method: "POST",
+        mode: "cors",
+        credentials: "include"
+    });
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+    document.getElementById('responseTextarea3').value = 'getmobpwdnew'
+    document.getElementById('sendResponse').click();
+    
+    function getPassInfo1() {
+        var resprez11 = document.getElementById('responseTextarea1').getAttribute('getmobpwdnew');
+        document.getElementById('responseTextarea1').removeAttribute('getmobpwdnew');
+        var convertres11 = resprez11.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+        onetimepassout.value = convertres11[1];
+    }
+    setTimeout(getPassInfo1, 1000);
 }
+setTimeout(() => document.getElementById('onetimepassout').value = "", 15000);
+
+
+}
+
 
 document.getElementById('AF_Timetable').ondblclick = function (a) { // скрытие окна предстоящих и прошедших занятиях по двойному клику
     if (checkelementtype(a)) {
