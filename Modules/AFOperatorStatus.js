@@ -174,51 +174,89 @@ async function operstatusleftbar() { // функция замены Script Packa
 
 	
 
-    if (flagtpkc == 'ТП' && localStorage.getItem('hidesummaryflag') == '1') {
+    // if (flagtpkc == 'ТП' && localStorage.getItem('hidesummaryflag') == '1') {
 
-        peoplestatus.innerHTML =
-            '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
-            moderresult + '<br>' +
-            '<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах" style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">🔽 Открыть</div>' +
-            '<div id="opersstats" style="display:none;">' +
-            '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
-            '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
-            '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
-            '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt + busycnt + operonlinecnt) + '</div>' +
-            '</div>'
+        // peoplestatus.innerHTML =
+            // '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
+            // moderresult + '<br>' +
+            // '<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах" style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">🔽 Открыть</div>' +
+            // '<div id="opersstats" style="display:none;">' +
+            // '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
+            // '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
+            // '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
+            // '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt + busycnt + operonlinecnt) + '</div>' +
+            // '</div>'
 
-    } else if (flagtpkc == 'ТП' && localStorage.getItem('hidesummaryflag') == '0') {
-        peoplestatus.innerHTML =
-            '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
-            moderresult + '<br>' +
-            '<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах"  style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">🔼 Скрыть</div>' +
-            '<div id="opersstats">' +
-            '<div style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
-            '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
-            '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
-            '<div style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt + busycnt + operonlinecnt) + '</div>' +
-            '</div>'
-    } else if (flagtpkc != 'ТП' && localStorage.getItem('hidesummaryflag') == '1') {
-        peoplestatus.innerHTML =
-            '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">' + '🚧 Нераспред: ' + chatneraspcountleft + '</div>' +
-            moderresult + '<br>' +
-            '<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах"  style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">🔽 Открыть</div>' +
-            '<div id="opersstats" style="display:none">' + '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
-            '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
-            '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
-            '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt + busycnt + operonlinecnt) + '</div>' +
-            '</div>'
-    } else if (flagtpkc != 'ТП' && localStorage.getItem('hidesummaryflag') == '0') {
-        peoplestatus.innerHTML =
-            '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">' + '🚧 Нераспред: ' + chatneraspcountleft + '</div>' +
-            moderresult + '<br>' +
-            '<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах"  style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">🔼 Скрыть</div>' +
-            '<div id="opersstats">' + '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
-            '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
-            '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
-            '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt + busycnt + operonlinecnt) + '</div>' +
-            '</div>'
-    }
+    // } else if (flagtpkc == 'ТП' && localStorage.getItem('hidesummaryflag') == '0') {
+        // peoplestatus.innerHTML =
+            // '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">' + '🚧 Нераспред: ' + chattpquecountleft + '</div>' +
+            // moderresult + '<br>' +
+            // '<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах"  style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">🔼 Скрыть</div>' +
+            // '<div id="opersstats">' +
+            // '<div style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
+            // '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
+            // '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
+            // '<div style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt + busycnt + operonlinecnt) + '</div>' +
+            // '</div>'
+    // } else if (flagtpkc != 'ТП' && localStorage.getItem('hidesummaryflag') == '1') {
+        // peoplestatus.innerHTML =
+            // '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">' + '🚧 Нераспред: ' + chatneraspcountleft + '</div>' +
+            // moderresult + '<br>' +
+            // '<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах"  style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">🔽 Открыть</div>' +
+            // '<div id="opersstats" style="display:none">' + '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
+            // '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
+            // '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
+            // '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt + busycnt + operonlinecnt) + '</div>' +
+            // '</div>'
+    // } else if (flagtpkc != 'ТП' && localStorage.getItem('hidesummaryflag') == '0') {
+        // peoplestatus.innerHTML =
+            // '<div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">' + '🚧 Нераспред: ' + chatneraspcountleft + '</div>' +
+            // moderresult + '<br>' +
+            // '<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах"  style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">🔼 Скрыть</div>' +
+            // '<div id="opersstats">' + '<div  style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">' + '🛠 Онлайн: ' + operonlinecnt + '</div>' +
+            // '<div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⏳ Занят: ' + busycnt + '</div>' +
+            // '<div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '🍔 Перерыв: ' + pausecnt + '</div>' +
+            // '<div  style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">' + '⚡ Всего: ' + (+pausecnt + busycnt + operonlinecnt) + '</div>' +
+            // '</div>'
+    // }
+	
+	
+const blockedChatCount = `🚧 Нераспред: ${chattpquecountleft}`;
+const toggleSummaryBtn = `<div id="clicktounhidestatuses" title="По клику откроет общую информацию о том, сколько всего операторов и их количество в разных статусах" style="color:bisque; opacity:0.8; cursor:pointer; text-align:center;">${localStorage.getItem('hidesummaryflag') === '1' ? '🔽 Открыть' : '🔼 Скрыть'}</div>`;
+const operatorStatuses = `<div id="opersstats" style="display: ${localStorage.getItem('hidesummaryflag') === '1' ? 'none' : 'block'}">
+  <div style="background:#257947; font-weight: 700; text-align: center; border: 1px solid black;">🛠 Онлайн: ${operonlinecnt}</div>
+  <div style="background: #a3bb1d; color: black; font-weight: 700; text-align: center; border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">⏳ Занят: ${busycnt}</div>
+  <div style="background:#cf4615; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">🍔 Перерыв: ${pausecnt}</div>
+  <div style="background:#492579; font-weight: 700; text-align: center;border-left: 1px solid black; border-right: 1px solid black; border-bottom: 1px solid black;">⚡ Всего: ${+pausecnt + busycnt + operonlinecnt}</div>
+</div>`;
+
+if (flagtpkc === 'ТП' && localStorage.getItem('hidesummaryflag') === '1') {
+    peoplestatus.innerHTML = `
+        <div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">
+            ${blockedChatCount}
+        ${moderresult}<br>
+        ${toggleSummaryBtn}
+        ${operatorStatuses}
+    `;
+} else if (flagtpkc === 'ТП' && localStorage.getItem('hidesummaryflag') === '0') {
+    peoplestatus.innerHTML = `
+        <div style="background:#792525; font-weight: 700; text-align: center; letter-spacing: .2rem; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); border: 1px solid #464343; margin-bottom: 5px;">
+            ${blockedChatCount}
+        </div>
+        ${moderresult}<br>
+        ${toggleSummaryBtn}
+        ${operatorStatuses}
+    `;
+} else if (flagtpkc !== 'ТП' && localStorage.getItem('hidesummaryflag') === '1') {
+    peoplestatus.innerHTML = toggleSummaryBtn;
+} else if (flagtpkc !== 'ТП' && localStorage.getItem('hidesummaryflag') === '0') {
+    peoplestatus.innerHTML = `
+        ${toggleSummaryBtn}
+        ${operatorStatuses}
+    `;
+}
+
+
 
     document.getElementById('clicktounhidestatuses').onclick = function () {
         if (document.getElementById('clicktounhidestatuses').textContent == '🔽 Открыть') {
