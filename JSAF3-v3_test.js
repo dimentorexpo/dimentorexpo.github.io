@@ -5552,19 +5552,10 @@ setInterval(clock_on_javascript_3, 1000);
 
 // конец блока работы с будильником
 
-document.getElementById('hideMenuMain').onclick = function () { //форма hide
-    document.getElementById('AF_helper').style.display = 'none'
-    document.getElementById('scriptBut').style.display = ''
-    if (document.getElementById('cstmTmplates').style.display == '')
-        document.getElementById('cstmTmplates').style.display = 'none'
-    if (document.getElementById('AF_Links').style.display == '')
-        document.getElementById('AF_Links').style.display = 'none'
-    if (document.getElementById('reminder_bar').style.display == '')
-        document.getElementById('reminder_bar').style.display = 'none'
-    if (document.getElementById('AF_Stat').style.display == '')
-        document.getElementById('AF_Stat').style.display = 'none'
-    if (document.getElementById('AF_LessonStatus').style.display == '')
-        document.getElementById('AF_LessonStatus').style.display = 'none'
-    if (document.getElementById('AF_Linksd').style.display == '')
-        document.getElementById('AF_Linksd').style.display = 'none'
+document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
+    var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'reminder_bar', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd'];
+    elements.forEach(function(element) {
+        document.getElementById(element).style.display = 'none';
+    });
+    document.getElementById('scriptBut').style.display = '';
 }
