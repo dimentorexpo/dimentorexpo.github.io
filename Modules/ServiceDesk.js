@@ -86,7 +86,6 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
 					<button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
                     <button class="sdbtn" id="optionAcademymobbugs" style="margin-left:2px; margin-top:2px; width:80px;">🅰📱🐞</button>
-                    <button class="sdbtn" id="optionInfra" style="margin-left:2px; margin-top:2px; width:80px; display:none">🛠Infra</button>
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
@@ -109,18 +108,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<textarea id="customfield_108" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
 					<button id="create_21" style="width: 150px; position:relative; left:30%; margin-bottom:5px;">Создать</button>
 				</div>
-				<div id="infraoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">Здесь можно получить помощь от команды Инфраструктуры</p>
-					<button class="infrabtn" id="askfordelacc">Запрос на удаление перс. данных</button>
 
-					<input id="customfield_114" placeholder="ID в системе Auth"  class="sdcustfieldformlines removefield"></input>
-					<textarea id="customfield_115" placeholder="Ссылка на запрос (об удалении данных)"  class="sdcustfieldformlines  removefield"></textarea>
-					<legend style="color:bisque" id="customfield_116-label">Нужен ли официальный ответ на запрос?</legend>
-					<input class="radio" type="radio" name="customfield_116" value="15820" resolved=""><label style="color:bisque; font-size: 16px;">Да</label>
-					<input class="radio" type="radio" name="customfield_116" value="15821" resolved=""><label style="color:bisque; font-size: 16px;">Нет</label>
-					<textarea id="customfield_117" placeholder="Комментарий"  class="sdexpecactual removefield"></textarea>
-					<button id="create_23" style="width: 150px; position:relative; left:30%; margin-bottom:5px;">Создать</button>
-				</div>
 				<div id="teacherssrvdskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#teachers-qa-support; канал по вопросам ЛКП, ТРМ</p>
 					<button class="teacbtn widthofsd" value="644">Статистика</button>
@@ -520,33 +508,6 @@ function getprsup() {  //функция для получения ссылки �
   msgissnd = 0;
 }
 
-
-
-function getinfrasup() { //функция для получения ссылки на последний запрос Infra в джира
-	document.getElementById('responseTextarea1').value = `{}`
-	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?status=open&reporter=all";
-	document.getElementById('responseTextarea3').value = 'istickets'
-	document.getElementById('sendResponse').click()
-
-	setTimeout( () => {
-		psarr = document.getElementById('responseTextarea1').getAttribute('istickets');
-
-		document.getElementById('responseTextarea1').removeAttribute('istickets');
-
-		let sortisarr = psarr.match(/IS-(\d+)/g);
-		sortisarr = sortisarr.sort().reverse();
-		firstEl = sortisarr[0];
-
-		console.log("Testo massiv " + sortisarr);
-		console.log("Link tp IS JIRA " + "https://jira.skyeng.tech/browse/" + firstEl);
-
-		lasttsk = firstEl;
-		flagpsis = 2;
-		sendComment("Jira Service Desk link: " + "https://jira.skyeng.tech/browse/" + lasttsk);
-
-	}, 2000);
-
-}
 
 function getslacklnk() { // получаем ссылку на обращение в слака с помощью парсинга номера задачи в джире и вытягивание ссылки с нее
 	if (flagpsis == 1) {
@@ -1092,508 +1053,331 @@ const crm2Options = document.getElementById('crm2srvdskoptions');
 	}
 }
 
-	document.getElementById('optionBilling').onclick = function () { //billing +
-	
-	const billingOptions = document.getElementById('billingsrvdskoptions');
+document.getElementById('optionBilling').onclick = function () { //billing +
 
-		if (billingOptions.style.display === 'none') {
-			billingOptions.style.display = '';
+const billingOptions = document.getElementById('billingsrvdskoptions');
 
-		let operateoptions = otherOptions.filter(option => option !== billingOptions.id);
+	if (billingOptions.style.display === 'none') {
+		billingOptions.style.display = '';
 
-		operateoptions.forEach(id => {
-		  document.getElementById(id).style.display = 'none';
-		});
+	let operateoptions = otherOptions.filter(option => option !== billingOptions.id);
 
-		document.getElementById('create_6').addEventListener('click', function() {
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
 
-		let idstdserv = encodeURIComponent(document.getElementById('customfield_32').value);
-		let dscr = encodeURIComponent(document.getElementById('customfield_33').value);
-		let str = encodeURIComponent(document.getElementById('customfield_34').value);
-		let erx = encodeURIComponent(document.getElementById('customfield_35').value);
-		let ary = encodeURIComponent(document.getElementById('customfield_36').value);
-		let activeButtons = document.querySelectorAll('.billbtn.activebtn');
+	document.getElementById('create_6').addEventListener('click', function() {
 
-		for (const button of activeButtons) {
-			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-			console.log(`Selected topic: ${button.innerText}`);
-		}
-		});
-	
-		} else {
-			billingOptions.style.display = 'none';
-		}
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_32').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_33').value);
+	let str = encodeURIComponent(document.getElementById('customfield_34').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_35').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_36').value);
+	let activeButtons = document.querySelectorAll('.billbtn.activebtn');
+
+	for (const button of activeButtons) {
+		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
 	}
+	});
 
-	document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
-		if (document.getElementById('vimbugsoptions').style.display != '') {
-			document.getElementById('vimbugsoptions').style.display = '';
-
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			
-			document.getElementById('create_11').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_50').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_52').value);
-				let str = encodeURIComponent(document.getElementById('customfield_53').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_54').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_55').value);
-				
-				for(let i=0; i<document.getElementsByClassName('vimbugsbtn').length;i++) {
-					if (document.getElementsByClassName('vimbugsbtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('vimbugsbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('vimbugsbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('vimbugsoptions').style.display = 'none';
-		}
+	} else {
+		billingOptions.style.display = 'none';
 	}
+}
 
-	document.getElementById('optionStudcab').onclick = function () { //student-cabinet-bugs +
-		if (document.getElementById('studcaboptions').style.display != '') {
-			document.getElementById('studcaboptions').style.display = '';
+document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
+	const vmBugsOptions = document.getElementById('vimbugsoptions');
 
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
+	if (vmBugsOptions.style.display === 'none') {
+		vmBugsOptions.style.display = '';
 
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
+	let operateoptions = otherOptions.filter(option => option !== vmBugsOptions.id);
 
-			document.getElementById('create_13').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_61').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_62').value);
-				let str = encodeURIComponent(document.getElementById('customfield_63').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_64').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_65').value);
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
 
-				for(let i=0; i<document.getElementsByClassName('studcabbtn').length;i++) {
-					if (document.getElementsByClassName('studcabbtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('studcabbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('studcabbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('studcaboptions').style.display = 'none';
-		}
+	document.getElementById('create_11').addEventListener('click', function() {
+
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_50').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_52').value);
+	let str = encodeURIComponent(document.getElementById('customfield_53').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_54').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_55').value);
+	let activeButtons = document.querySelectorAll('.vimbugsbtn.activebtn');
+
+	for (const button of activeButtons) {
+		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
 	}
+	});
 
-	document.getElementById('optionChat').onclick = function () { //chat-qa-support +
-		if (document.getElementById('chatqaoptions').style.display != '') {
-			document.getElementById('chatqaoptions').style.display = '';
-
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
-
-			document.getElementById('create_14').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_66').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_67').value);
-				let str = encodeURIComponent(document.getElementById('customfield_68').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_69').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_70').value);
-				
-				for(let i=0; i<document.getElementsByClassName('chatqabtn').length;i++) {
-					if (document.getElementsByClassName('chatqabtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('chatqabtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('chatqabtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('chatqaoptions').style.display = 'none';
-		}
+	} else {
+		vmBugsOptions.style.display = 'none';
 	}
+}
 
-	document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs +
-		if (document.getElementById('tripwireoptions').style.display != '') {
-			document.getElementById('tripwireoptions').style.display = '';
+document.getElementById('optionStudcab').onclick = function () { //student-cabinet-bugs +
+	const studCabOptions = document.getElementById('studcaboptions');
 
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-			
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
+	if (studCabOptions.style.display === 'none') {
+		studCabOptions.style.display = '';
 
-			document.getElementById('create_15').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_71').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_72').value);
-				let str = encodeURIComponent(document.getElementById('customfield_73').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_74').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_75').value);
+	let operateoptions = otherOptions.filter(option => option !== studCabOptions.id);
 
-				for(let i=0; i<document.getElementsByClassName('tripwbtn').length;i++) {
-					if (document.getElementsByClassName('tripwbtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('tripwbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('tripwbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('tripwireoptions').style.display = 'none';
-		}
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
+
+	document.getElementById('create_13').addEventListener('click', function() {
+
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_61').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_62').value);
+	let str = encodeURIComponent(document.getElementById('customfield_63').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_64').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_65').value);
+	let activeButtons = document.querySelectorAll('.studcabbtn.activebtn');
+
+	for (const button of activeButtons) {
+		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
 	}
-
-	document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl +
-	 const analystOptions = document.getElementById('analystoptions');
-
-		if (analystOptions.style.display === 'none') {
-			analystOptions.style.display = '';
-
-		let operateoptions = otherOptions.filter(option => option !== analystOptions.id);
-
-		operateoptions.forEach(id => {
-		  document.getElementById(id).style.display = 'none';
-		});
-
-		document.getElementById('create_16').addEventListener('click', function() {
-
-		let idstdserv = encodeURIComponent(document.getElementById('customfield_76').value);
-		let dscr = encodeURIComponent(document.getElementById('customfield_77').value);
-		let str = encodeURIComponent(document.getElementById('customfield_78').value);
-		let erx = encodeURIComponent(document.getElementById('customfield_79').value);
-		let ary = encodeURIComponent(document.getElementById('customfield_80').value);
-		let activeButtons = document.querySelectorAll('.analystbtn.activebtn');
-
-		for (const button of activeButtons) {
-			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-			console.log(`Selected topic: ${button.innerText}`);
-		}
-		});
-			
-		} else {
-			analystOptions.style.display = 'none';
-		}
+	});
+	} else {
+		studCabOptions.style.display = 'none';
 	}
+}
 
-	document.getElementById('optionCorp').onclick = function () { //corp-support +
-		if (document.getElementById('corpoptions').style.display != '') {
-			document.getElementById('corpoptions').style.display = '';
+document.getElementById('optionChat').onclick = function () { //chat-qa-support +
+	const chatQaOptions = document.getElementById('chatqaoptions');
 
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
+	if (chatQaOptions.style.display === 'none') {
+		chatQaOptions.style.display = '';
 
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
+	let operateoptions = otherOptions.filter(option => option !== chatQaOptions.id);
 
-			document.getElementById('create_17').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_81').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_82').value);
-				let str = encodeURIComponent(document.getElementById('customfield_83').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_84').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_85').value);
+	operateoptions.forEach(id => {
+		document.getElementById(id).style.display = 'none';
+	});
 
-				for(let i=0; i<document.getElementsByClassName('corpbtn').length;i++) {
-					if (document.getElementsByClassName('corpbtn')[i].classList.contains('activebtn')) {
-						sendRequest(idstdserv, dscr, str, erx, ary,document.getElementsByClassName('corpbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('corpbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('corpoptions').style.display = 'none';
-		}
+	document.getElementById('create_14').addEventListener('click', function() {
+
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_66').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_67').value);
+	let str = encodeURIComponent(document.getElementById('customfield_68').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_69').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_70').value);
+	let activeButtons = document.querySelectorAll('.chatqabtn.activebtn');
+
+	for (const button of activeButtons) {
+		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
 	}
+	});
 
-	document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
-		if (document.getElementById('mobbugsoptions').style.display != '') {
-			document.getElementById('mobbugsoptions').style.display = '';
-
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
-
-			document.getElementById('create_19').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_91').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_92').value);
-				let issuename = encodeURIComponent(document.getElementById('customfield_911').value);
-				let device = encodeURIComponent(document.getElementById('customfield_912').value);
-				let str = encodeURIComponent(document.getElementById('customfield_94').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_95').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_96').value);
-				let priorvalue = document.getElementById('prioritymbugs').value;
-				
-				for(let i=0; i<document.getElementsByClassName('mobbugsbtn').length;i++) {
-					if (document.getElementsByClassName('mobbugsbtn')[i].classList.contains('activebtn')) {
-						sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, document.getElementsByClassName('mobbugsbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('mobbugsbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('mobbugsoptions').style.display = 'none';
-		}
+	} else {
+		chatQaOptions.style.display = 'none';
 	}
+}
 
-	document.getElementById('optionAcademymobbugs').onclick = function () { //academy-mobile-bugs + 
-		if (document.getElementById('academymobbugsoptions').style.display != '') {
-			document.getElementById('academymobbugsoptions').style.display = '';
-			
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
+document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs +
+const tripWireOptions = document.getElementById('tripwireoptions');
 
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
+if (tripWireOptions.style.display === 'none') {
+	tripWireOptions.style.display = '';
 
-			document.getElementById('create_24').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_118').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_121').value);
-				let issuename = encodeURIComponent(document.getElementById('customfield_119').value);
-				let device = encodeURIComponent(document.getElementById('customfield_120').value);
-				let str = encodeURIComponent(document.getElementById('customfield_122').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_123').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_124').value);
-				let priorvalue = document.getElementById('academyprioritymbugs').value;
-				
-				for(let i=0; i<document.getElementsByClassName('academymobbugsbtn').length;i++) {
-					if (document.getElementsByClassName('academymobbugsbtn')[i].classList.contains('activebtn')) {
-						sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, document.getElementsByClassName('academymobbugsbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('academymobbugsbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-		}
+let operateoptions = otherOptions.filter(option => option !== tripWireOptions.id);
+
+operateoptions.forEach(id => {
+	document.getElementById(id).style.display = 'none';
+});
+
+document.getElementById('create_15').addEventListener('click', function() {
+
+let idstdserv = encodeURIComponent(document.getElementById('customfield_71').value);
+let dscr = encodeURIComponent(document.getElementById('customfield_72').value);
+let str = encodeURIComponent(document.getElementById('customfield_73').value);
+let erx = encodeURIComponent(document.getElementById('customfield_74').value);
+let ary = encodeURIComponent(document.getElementById('customfield_75').value);
+let activeButtons = document.querySelectorAll('.tripwbtn.activebtn');
+
+for (const button of activeButtons) {
+	sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+	console.log(`Selected topic: ${button.innerText}`);
+}
+});
+} else {
+		tripWireOptions.style.display = 'none';
 	}
+}
 
-	document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-mobile-bugs +
-		if (document.getElementById('studcabmobbugskoptions').style.display != '') {
-			document.getElementById('studcabmobbugskoptions').style.display = '';
+document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl +
+ const analystOptions = document.getElementById('analystoptions');
 
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			
-			
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
+	if (analystOptions.style.display === 'none') {
+		analystOptions.style.display = '';
 
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
+	let operateoptions = otherOptions.filter(option => option !== analystOptions.id);
 
-			document.getElementById('create_21').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_102').value);
-				let dscr = encodeURIComponent(document.getElementById('customfield_105').value);
-				let issuename = encodeURIComponent(document.getElementById('customfield_103').value);
-				let device = encodeURIComponent(document.getElementById('customfield_104').value);
-				let str = encodeURIComponent(document.getElementById('customfield_106').value);
-				let erx = encodeURIComponent(document.getElementById('customfield_107').value);
-				let ary = encodeURIComponent(document.getElementById('customfield_108').value);
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
 
-				for(let i=0; i<document.getElementsByClassName('stcabmbsbtn').length;i++) {
-					if (document.getElementsByClassName('stcabmbsbtn')[i].classList.contains('activebtn')) {
-						sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, document.getElementsByClassName('stcabmbsbtn')[i].value)
-						console.log("Выбранная тематика: " + document.getElementsByClassName('stcabmbsbtn')[i].innerText)
-					}
-				}
-			}
-		} else {
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-		}
+	document.getElementById('create_16').addEventListener('click', function() {
+
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_76').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_77').value);
+	let str = encodeURIComponent(document.getElementById('customfield_78').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_79').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_80').value);
+	let activeButtons = document.querySelectorAll('.analystbtn.activebtn');
+
+	for (const button of activeButtons) {
+		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
 	}
-
-	document.getElementById('optionInfra').onclick = function () { //Infra support for delete account
-		if (document.getElementById('infraoptions').style.display != '') {
-			document.getElementById('infraoptions').style.display = '';
-
-			document.getElementById('academymobbugsoptions').style.display = 'none';
-			document.getElementById('mobbugsoptions').style.display = 'none';
-			
-			document.getElementById('studcabmobbugskoptions').style.display = 'none';
-			document.getElementById('edumodeloptions').style.display = 'none';
-			
-			document.getElementById('corpoptions').style.display = 'none';
-			document.getElementById('analystoptions').style.display = 'none';
-			document.getElementById('tripwireoptions').style.display = 'none';
-			document.getElementById('chatqaoptions').style.display = 'none';
-			document.getElementById('studcaboptions').style.display = 'none';
-			document.getElementById('vimvidoptions').style.display = 'none';
-			document.getElementById('vimbugsoptions').style.display = 'none';
-			document.getElementById('teacherssrvdskoptions').style.display = 'none';
-			document.getElementById('c1srvdskoptions').style.display = 'none';
-			document.getElementById('schedulesrvdskoptions').style.display = 'none';
-			document.getElementById('authsrvdskoptions').style.display = 'none';
-			document.getElementById('crm2srvdskoptions').style.display = 'none';
-			document.getElementById('billingsrvdskoptions').style.display = 'none';
-			document.getElementById('billingqasrvdskoptions').style.display = 'none';
-
-
-			//Начало окрашивания кнопок и добавление закрашивания при переключении
-
-			document.getElementById('create_23').onclick = function () {
-				let idstdserv = encodeURIComponent(document.getElementById('customfield_114').value);
-				let lnk = encodeURIComponent(document.getElementById('customfield_115').value);
-				let commentos = encodeURIComponent(document.getElementById('customfield_117').value);
-				let radiosel = document.getElementsByName('customfield_116');
-				if (document.getElementsByClassName('activebtn')[0].textContent == document.getElementById('askfordelacc').textContent) {
-					console.log("Запрос на удаление перс.данных: " + "  Id student and teacher: " + idstdserv + " Link: " + lnk + " Комментарий " + commentos);
-
-					for (let i = 0; i < radiosel.length; i++) {
-						if (radiosel[i].checked == true) {
-							document.getElementById('responseTextarea1').value = `{  "headers": {
-							 "content-type": "application/x-www-form-urlencoded",
-							 "sec-fetch-mode": "cors",
-							 "sec-fetch-site": "same-origin",
-							 "x-requested-with": "XMLHttpRequest",
-							 "x-sitemesh-off": "true"
-							  },
-							  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/4/create/957",
-							  "referrerPolicy": "strict-origin-when-cross-origin",
-							  "body": "atl_token=${jiratoken}projectId=13437&customfield_18225=${lnk}&customfield_18975=${idstdserv}&customfield_20613=${radiosel[i].value}&customfield_17713=${commentos}&sd-kb-article-viewed=false"",
-							 "method": "POST",
-							  "mode": "cors",
-							  "credentials": "include"
-							  }`
-							document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/4/create/957";
-							document.getElementById('responseTextarea3').value = ''
-							document.getElementById('sendResponse').click()
-
-							document.getElementById('customfield_114').value = "";
-							document.getElementById('customfield_115').value = "";
-							document.getElementById('customfield_117').value = "";
-
-							setTimeout(getinfrasup, 5000);
-							setTimeout(getslacklnk, 8000);
-						}
-					}
-				} else console.log("Not found");
-			}
-
-		} else {
-			
-		}
+	});
+		
+	} else {
+		analystOptions.style.display = 'none';
 	}
+}
+
+document.getElementById('optionCorp').onclick = function () { //corp-support +
+	const corpOptions = document.getElementById('corpoptions');
+
+	if (corpOptions.style.display === 'none') {
+		corpOptions.style.display = '';
+
+	let operateoptions = otherOptions.filter(option => option !== corpOptions.id);
+
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
+
+	document.getElementById('create_17').addEventListener('click', function() {
+
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_81').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_82').value);
+	let str = encodeURIComponent(document.getElementById('customfield_83').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_84').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_85').value);
+	let activeButtons = document.querySelectorAll('.corpbtn.activebtn');
+
+	for (const button of activeButtons) {
+		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
+	}
+	});
+		} else {
+			corpOptions.style.display = 'none';
+		}
+}
+
+document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
+	const mobOptions = document.getElementById('mobbugsoptions');
+
+	if (mobOptions.style.display === 'none') {
+		mobOptions.style.display = '';
+
+	let operateoptions = otherOptions.filter(option => option !== mobOptions.id);
+
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
+
+	document.getElementById('create_19').addEventListener('click', function() {
+		
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_91').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_92').value);
+	let issuename = encodeURIComponent(document.getElementById('customfield_911').value);
+	let device = encodeURIComponent(document.getElementById('customfield_912').value);
+	let str = encodeURIComponent(document.getElementById('customfield_94').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_95').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_96').value);
+	let priorvalue = document.getElementById('prioritymbugs').value;
+	let activeButtons = document.querySelectorAll('.mobbugsbtn.activebtn');
+
+	for (const button of activeButtons) {
+		ssendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
+	}
+	});
+
+	} else {
+		mobOptions.style.display = 'none';
+	}
+}
+
+document.getElementById('optionAcademymobbugs').onclick = function () { //academy-mobile-bugs + 
+	const acadMobOptions = document.getElementById('academymobbugsoptions');
+
+	if (acadMobOptions.style.display === 'none') {
+		acadMobOptions.style.display = '';
+
+	let operateoptions = otherOptions.filter(option => option !== acadMobOptions.id);
+
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
+
+	document.getElementById('create_24').addEventListener('click', function() {
+		
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_118').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_121').value);
+	let issuename = encodeURIComponent(document.getElementById('customfield_119').value);
+	let device = encodeURIComponent(document.getElementById('customfield_120').value);
+	let str = encodeURIComponent(document.getElementById('customfield_122').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_123').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_124').value);
+	let priorvalue = document.getElementById('academyprioritymbugs').value;
+	let activeButtons = document.querySelectorAll('.academymobbugsbtn.activebtn');
+
+	for (const button of activeButtons) {
+		ssendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
+	}
+	});
+
+	} else {
+		acadMobOptions.style.display = 'none';
+	}
+}
+
+document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-mobile-bugs +
+	const studCabMobOptions = document.getElementById('studcabmobbugskoptions');
+
+	if (studCabMobOptions.style.display === 'none') {
+		studCabMobOptions.style.display = '';
+
+	let operateoptions = otherOptions.filter(option => option !== studCabMobOptions.id);
+
+	operateoptions.forEach(id => {
+	  document.getElementById(id).style.display = 'none';
+	});
+
+	document.getElementById('create_21').addEventListener('click', function() {
+		
+	let idstdserv = encodeURIComponent(document.getElementById('customfield_102').value);
+	let dscr = encodeURIComponent(document.getElementById('customfield_105').value);
+	let issuename = encodeURIComponent(document.getElementById('customfield_103').value);
+	let device = encodeURIComponent(document.getElementById('customfield_104').value);
+	let str = encodeURIComponent(document.getElementById('customfield_106').value);
+	let erx = encodeURIComponent(document.getElementById('customfield_107').value);
+	let ary = encodeURIComponent(document.getElementById('customfield_108').value);
+	let activeButtons = document.querySelectorAll('.stcabmbsbtn.activebtn');
+
+	for (const button of activeButtons) {
+		ssendRequestMobWithPriority(issuename, device, dscr, str, erx, ary, idstdserv, button.value);
+		console.log(`Selected topic: ${button.innerText}`);
+	}
+	});
+
+	} else {
+		studCabMobOptions.style.display = 'none';
+	}
+}
 
 	//End of script
 // }
