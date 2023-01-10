@@ -612,37 +612,6 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 	setTimeout(getslacklnk, 8000);
 }
 
-function sendRequestBilling(str, erx, ary, idstd, code) {
-	console.log(jiratoken)
-	console.log(jiratokennew)
-	document.getElementById('responseTextarea1').value = `{  "headers": {
-	 "content-type": "application/x-www-form-urlencoded",
-	 "sec-fetch-mode": "cors",
-	 "sec-fetch-site": "same-origin",
-	 "x-requested-with": "XMLHttpRequest",
-	 "x-sitemesh-off": "true"
-	  },
-	  "referrer": "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/${code}",
-	  "referrerPolicy": "strict-origin-when-cross-origin",
-	  "body": "atl_token=${jiratokennew}&projectId=15206&customfield_18319=${str}&customfield_18320=${erx}&customfield_18321=${ary}&customfield_18975=${idstd}&sd-kb-article-viewed=false",
-	 "method": "POST",
-	  "mode": "cors",
-	  "credentials": "include"
-	  }`
-	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
-	document.getElementById('responseTextarea3').value = ''
-
-	// логируем входящие переменные и значение полей отправки запроса
-	console.log(str + " " + erx + " " + ary + " " + idstd + " " + code)
-	console.log(document.getElementById('responseTextarea1').value)
-	console.log(document.getElementById('responseTextarea2').value)
-
-	document.getElementById('sendResponse').click()
-
-	setTimeout(getprsup, 5000);
-	setTimeout(getslacklnk, 8000);
-}
-
 function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, code) {
 	console.log(jiratoken)
 	console.log(jiratokennew)
@@ -1370,7 +1339,7 @@ document.getElementById('optionStudcabmobbugs').onclick = function () { //studen
 	let activeButtons = document.querySelectorAll('.stcabmbsbtn.activebtn');
 
 	for (const button of activeButtons) {
-		ssendRequestMobWithPriority(issuename, device, dscr, str, erx, ary, idstdserv, button.value);
+		sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, button.value);
 		console.log(`Selected topic: ${button.innerText}`);
 	}
 	});
