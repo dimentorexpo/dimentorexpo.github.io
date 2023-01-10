@@ -703,7 +703,8 @@ async function whoAmI() { // функция получения айди опер
   });
   const b = await a.json();
   const me = document.querySelector('.user_menu-dropdown-user_name');
-
+	operatorsarray = b.onOperator;
+	
   b.onOperator.forEach((s) => {
     if (s.operator != null && me && s.operator.fullName === me.textContent) {
       operatorId = s.operator.id;
