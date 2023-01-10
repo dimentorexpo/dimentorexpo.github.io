@@ -131,22 +131,66 @@ async function operstatusleftbar() { // функция замены Script Packa
 	}
 
 
-    if (opstats.length != 0) {
-        for (let i = 0; i < opstats.length; i++) {
-            if (opstats[i].aCnt == null)
-                opstats[i].aCnt = 0;
-            if (opstats[i].operator.status == "Online") {
-                moderresult += `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="color: black;font-size: 13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px; background: green; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
-                operonlinecnt += 1;
-            } else if (opstats[i].operator.status == "Busy") {
-                moderresult += `<div class="leftbaropers" style="opacity:0.8; color:Gold" name="operrow" value="${opstats[i].operator.id}">` + '<span style="color: black; font-size: 13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px; background: gold; opacity:0.8; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
-                busycnt += 1;
-            } else if (opstats[i].operator.status == "Pause") {
-                moderresult += `<div class="leftbaropers" style="opacity:0.8; color:Salmon" name="operrow" value="${opstats[i].operator.id}">` + '<span style="color: white; font-size: 13px; font-weight:700; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px; background: FireBrick; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
-                pausecnt += 1;
-            }
-        }
-    } else moderresult = ''
+    // if (opstats.length != 0) {
+        // for (let i = 0; i < opstats.length; i++) {
+            // if (opstats[i].aCnt == null)
+                // opstats[i].aCnt = 0;
+            // if (opstats[i].operator.status == "Online") {
+                // moderresult += `<div class="leftbaropers" name="operrow" value="${opstats[i].operator.id}">` + '<span style="color: black;font-size: 13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px; background: green; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+                // operonlinecnt += 1;
+            // } else if (opstats[i].operator.status == "Busy") {
+                // moderresult += `<div class="leftbaropers" style="opacity:0.8; color:Gold" name="operrow" value="${opstats[i].operator.id}">` + '<span style="color: black; font-size: 13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px; background: gold; opacity:0.8; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+                // busycnt += 1;
+            // } else if (opstats[i].operator.status == "Pause") {
+                // moderresult += `<div class="leftbaropers" style="opacity:0.8; color:Salmon" name="operrow" value="${opstats[i].operator.id}">` + '<span style="color: white; font-size: 13px; font-weight:700; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px; background: FireBrick; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">' + opstats[i].aCnt + '</span>' + `${opstats[i].operator.fullName}` + '</div>'
+                // pausecnt += 1;
+            // }
+        // }
+    // } else moderresult = ''
+	
+		if (opstats.length) {
+		  for (let i = 0; i < opstats.length; i++) {
+			opstats[i].aCnt = opstats[i].aCnt || 0;
+
+			const operator = opstats[i].operator;
+			const divClass = "leftbaropers";
+			let divStyle = "";
+			let spanBackground = "";
+			let spanText = "";
+
+			switch (operator.status) {
+			  case "Online":
+				operonlinecnt += 1;
+				spanBackground = "green";
+				spanText = "black";
+				break;
+			  case "Busy":
+				busycnt += 1;
+				divStyle = "opacity:0.8; color:Gold";
+				spanBackground = "gold";
+				spanText = "black";
+				break;
+			  case "Pause":
+				pausecnt += 1;
+				divStyle = "opacity:0.8; color:Salmon";
+				spanBackground = "FireBrick";
+				spanText = "white";
+				break;
+			  default:
+				continue;
+			}
+			moderresult += `<div class="${divClass}" style="${divStyle}" name="operrow" value="${operator.id}">` +
+			  `<span style="color: ${spanText}; font-size: 13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px; background: ${spanBackground}; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">` + 
+			  `${opstats[i].aCnt}` + 
+			  `</span>` + 
+			  `${operator.fullName}` + 
+			  '</div>';
+		  }
+		} else {
+		  moderresult = '';
+		}
+
+	
 
     if (flagtpkc == 'ТП' && localStorage.getItem('hidesummaryflag') == '1') {
 
