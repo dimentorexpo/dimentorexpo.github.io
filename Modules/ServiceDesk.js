@@ -48,7 +48,8 @@ const buttons = [ //array of buttonsnames
     'authsrvdskoptions',
     'crm2srvdskoptions',
     'billingsrvdskoptions',
-	'teacherssrvdskoptions'
+	'teacherssrvdskoptions',
+	'academymobbugsoptions'
   ];
 
 var win_servicedesk = // описание элементов окна Service Desk
