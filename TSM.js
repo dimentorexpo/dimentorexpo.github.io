@@ -1092,6 +1092,36 @@ wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove
 
 
 // main script
+
+let div = document.getElementById("AFMS_addMenu");
+
+// Select the body element to add the event listener
+document.querySelector('body').addEventListener('dblclick', (event) => {
+    // Add the mouse cursor coordinates to the div's content
+    // Append the div to the body
+    // Show the div
+    div.style.display = "block";
+    // Set the div's position
+    div.style.left = event.clientX + "px";
+    div.style.top = event.clientY + "px";
+
+	token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+		const [key, ...v] = c.split('=');
+		return [key, decodeURIComponent(v.join('='))];
+	}));
+	console.log(token)
+});
+
+document.querySelector('body').addEventListener('click', (event) => {
+    if (!div.contains(event.target)) {
+        div.style.display = "none";
+    }
+});
+
+document.getElementById('hidemainmenu').onclick = function () {
+	document.getElementById('AFMS_addMenu').style.display = 'none';
+}
+
 let token;
 if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
     document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
@@ -1104,10 +1134,6 @@ if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
                     return [key, decodeURIComponent(v.join('='))];
                 }));
                 console.log(token)
-
-                document.getElementById('hidemainmenu').onclick = function () {
-                    document.getElementById('AFMS_addMenu').style.display = 'none';
-                }
 
             } else document.getElementById('AFMS_addMenu').style.display = 'none'
         }
