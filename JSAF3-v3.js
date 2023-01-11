@@ -1257,35 +1257,35 @@ function prepKC() { //функция подготовки расширения �
     document.getElementById('snd').style.marginLeft = '10px'
     document.getElementById('testUsers').style.display = 'none'
 
-    // if (localStorage.getItem('disablelngpmwindow') == 1)
-        // document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-    // else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+    if (localStorage.getItem('disablelngpmwindow') == 1)
+        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
-    // let needtohide = document.getElementsByClassName('onlyfortp')
-    // for (i = 0; i < needtohide.length; i++) {
-        // needtohide[i].style.display = 'none'
-    // }
+    let needtohide = document.getElementsByClassName('onlyfortp')
+    for (i = 0; i < needtohide.length; i++) {
+        needtohide[i].style.display = 'none'
+    }
 
-    // let needtoopen = document.getElementsByClassName('onlyforkc')
-    // for (i = 0; i < needtoopen.length; i++) {
-        // needtoopen[i].style.display = ''
-    // }
+    let needtoopen = document.getElementsByClassName('onlyforkc')
+    for (i = 0; i < needtoopen.length; i++) {
+        needtoopen[i].style.display = ''
+    }
 	
 	//Neural network
 	
-	let languageSwitcher = document.querySelector('.user_menu-language_switcher');
-	let onlyForTp = document.querySelectorAll('.onlyfortp');
-	let onlyForKc = document.querySelectorAll('.onlyforkc');
+	// let languageSwitcher = document.querySelector('.user_menu-language_switcher');
+	// let onlyForTp = document.querySelectorAll('.onlyfortp');
+	// let onlyForKc = document.querySelectorAll('.onlyforkc');
 
-	let setDisplayStyle = (elements, value) => {
-	  elements.forEach(element => {
-		element.style.display = value;
-	  });
-	}
+	// let setDisplayStyle = (elements, value) => {
+	  // elements.forEach(element => {
+		// element.style.display = value;
+	  // });
+	// }
 
-	setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
-	setDisplayStyle(onlyForTp, 'none');
-	setDisplayStyle(onlyForKc, '');
+	// setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
+	// setDisplayStyle(onlyForTp, 'none');
+	// setDisplayStyle(onlyForKc, '');
 
     flagLangBut = 1
     customTemplates()
