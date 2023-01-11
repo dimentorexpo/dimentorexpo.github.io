@@ -3896,8 +3896,8 @@ function refreshTimerReminder1() { // обновляет оставшееся в
   if (localStorage.getItem("chronostamp1") !== null && localStorage.getItem("chronostamp1") > 0) {
     // Update reminder status and alarm time in form fields
     document.getElementById("reminderstatus").textContent = "🔔";
-    setchas.value = setHours;
-    setminuta.value = setMinutes;
+    setchas1.value = setHours;
+    setminuta1.value = setMinutes;
 
     // Calculate time left until alarm goes off, in milliseconds
     const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
