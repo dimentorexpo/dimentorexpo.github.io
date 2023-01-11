@@ -997,7 +997,7 @@ document.getElementById('optionStudcabmobbugs').onclick = function () { //studen
 	}
 }
 
-	document.getElementById('createsd').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() { //функция создания задачи на сервис деск
 		
 		let priorityMobile = document.getElementById('prioritymbugs')
 		let idUser = document.getElementById('custom_id')
