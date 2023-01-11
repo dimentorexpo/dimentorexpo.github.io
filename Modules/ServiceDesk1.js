@@ -282,7 +282,7 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				
 				<div>
-					<select style="height:28px; margin-left: 5px; margin-top: 5px;" id="prioritymbugs">
+					<select style="height:28px; margin-left: 5px; margin-top: 5px; display:none;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="1">Blocker</option>
 							<option value="2">Critical</option>
@@ -292,8 +292,8 @@ var win_servicedesk = // описание элементов окна Service De
 							<option value="5">Trivial</option>
 					   </select>
 					<input id="custom_id" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield" style="margin-left: 30px;">
-                    <input id="custom_appinfo" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield" style="margin-left: 30px;"></input>
-                    <input id="custom_deviceinfo" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield" style="margin-left: 30px;"></input>
+                    <input id="custom_appinfo" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield" style="margin-left: 30px; display:none;"></input>
+                    <input id="custom_deviceinfo" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield" style="margin-left: 30px; display:none;"></input>
 					<textarea id="custom_descr" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield" style="margin-left: 30px;"></textarea>
 					<textarea id="custom_str" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield" style="margin-left: 30px;"></textarea>
 					<textarea id="custom_er" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield" style="margin-left: 30px;"></textarea>
@@ -648,21 +648,7 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
     operateoptions.forEach(id => {
       document.getElementById(id).style.display = 'none';
     });
-	
-	document.getElementById('createsd').addEventListener('click', function() {
-	  // let idstdserv = encodeURIComponent(document.getElementById('customfield_6').value);
-	  // let dscr = encodeURIComponent(document.getElementById('customfield_7').value);
-	  // let str = encodeURIComponent(document.getElementById('customfield_8').value);
-	  // let erx = encodeURIComponent(document.getElementById('customfield_9').value);
-	  // let ary = encodeURIComponent(document.getElementById('customfield_10').value);
-	  let activeButtons = document.querySelectorAll('.teacbtn.activebtn');
-	  
-		  for (const button of activeButtons) {
-			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-			console.log(`Selected topic: ${button.innerText}`);
-		  }
-	});
-	
+		
   } else {
     teacherOptions.style.display = 'none';
   }
@@ -678,20 +664,6 @@ let operateoptions = otherOptions.filter(option => option !== EdModelOptions.id)
 
 operateoptions.forEach(id => {
   document.getElementById(id).style.display = 'none';
-});
-
-document.getElementById('createsd').addEventListener('click', function() {
-  // let idstdserv = encodeURIComponent(document.getElementById('customfield_97').value);
-  // let dscr = encodeURIComponent(document.getElementById('customfield_98').value);
-  // let str = encodeURIComponent(document.getElementById('customfield_99').value);
-  // let erx = encodeURIComponent(document.getElementById('customfield_100').value);
-  // let ary = encodeURIComponent(document.getElementById('customfield_101').value);
-  let activeButtons = document.querySelectorAll('.edumodbtn.activebtn');
-  
-  for (const button of activeButtons) {
-	sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-	console.log(`Selected topic: ${button.innerText}`);
-  }
 });
 
 	} else {
@@ -711,22 +683,6 @@ document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
 	  document.getElementById(id).style.display = 'none';
 	});
 
-
-	document.getElementById('createsd').addEventListener('click', function() {
-	
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_17').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_18').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_19').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_20').value);
-	let activeButtons = document.querySelectorAll('.bilqabtn.activebtn');
-	
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
-});
-
 	} else {
 		billQaOptions.style.display = 'none';
 	}
@@ -744,21 +700,6 @@ document.getElementById('optionVimvideocall').onclick = function () { //Vim-vide
 	  document.getElementById(id).style.display = 'none';
 	});
 	
-	document.getElementById('createsd').addEventListener('click', function() {
-		
-		// let idstdserv = encodeURIComponent(document.getElementById('customfield_56').value);
-		// let dscr = encodeURIComponent(document.getElementById('customfield_57').value);
-		// let str = encodeURIComponent(document.getElementById('customfield_58').value);
-		// let erx = encodeURIComponent(document.getElementById('customfield_59').value);
-		// let ary = encodeURIComponent(document.getElementById('customfield_60').value);
-		let activeButtons = document.querySelectorAll('.vimvidsbtn.activebtn');
-		
-		for (const button of activeButtons) {
-			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-			console.log(`Selected topic: ${button.innerText}`);
-		}
-	});
-
 	} else {
 		vimVidCallOptions.style.display = 'none';
 	}
@@ -776,21 +717,6 @@ document.getElementById('optionOnboarding').onclick = function () { //C1 Onboard
 	  document.getElementById(id).style.display = 'none';
 	});
 	
-	document.getElementById('createsd').addEventListener('click', function() {
-	
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_11').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_12').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_13').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_14').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_15').value);
-	let activeButtons = document.querySelectorAll('.c1sbtn.activebtn');
-	
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
-});
-
 	} else {
 		c1sOptions.style.display = 'none';
 	}
@@ -806,21 +732,6 @@ document.getElementById('optionSchedule').onclick = function () { // Schedule +
 
 	operateoptions.forEach(id => {
 	  document.getElementById(id).style.display = 'none';
-	});
-
-	document.getElementById('createsd').addEventListener('click', function() {
-
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_21').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_22').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_23').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_24').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_25').value);
-	let activeButtons = document.querySelectorAll('.schdbtn.activebtn');
-
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
 	});
 
 	} else {
@@ -840,21 +751,6 @@ operateoptions.forEach(id => {
   document.getElementById(id).style.display = 'none';
 });
 
-document.getElementById('createsd').addEventListener('click', function() {
-
-// let idstdserv = encodeURIComponent(document.getElementById('customfield_26').value);
-// let dscr = encodeURIComponent(document.getElementById('customfield_27').value);
-// let str = encodeURIComponent(document.getElementById('customfield_28').value);
-// let erx = encodeURIComponent(document.getElementById('customfield_29').value);
-// let ary = encodeURIComponent(document.getElementById('customfield_30').value);
-let activeButtons = document.querySelectorAll('.authbtn.activebtn');
-
-for (const button of activeButtons) {
-	sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-	console.log(`Selected topic: ${button.innerText}`);
-}
-});
-
 	} else {
 		authOptions.style.display = 'none';
 	}
@@ -870,21 +766,6 @@ const crm2Options = document.getElementById('crm2srvdskoptions');
 
 		operateoptions.forEach(id => {
 		  document.getElementById(id).style.display = 'none';
-		});
-
-		document.getElementById('createsd').addEventListener('click', function() {
-
-		// let idstdserv = encodeURIComponent(document.getElementById('customfield_40').value);
-		// let dscr = encodeURIComponent(document.getElementById('customfield_41').value);
-		// let str = encodeURIComponent(document.getElementById('customfield_42').value);
-		// let erx = encodeURIComponent(document.getElementById('customfield_43').value);
-		// let ary = encodeURIComponent(document.getElementById('customfield_44').value);
-		let activeButtons = document.querySelectorAll('.crm2sbtn.activebtn');
-
-		for (const button of activeButtons) {
-			sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-			console.log(`Selected topic: ${button.innerText}`);
-		}
 		});
 
 	} else {
@@ -905,21 +786,6 @@ const billingOptions = document.getElementById('billingsrvdskoptions');
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('createsd').addEventListener('click', function() {
-
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_32').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_33').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_34').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_35').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_36').value);
-	let activeButtons = document.querySelectorAll('.billbtn.activebtn');
-
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
-	});
-
 	} else {
 		billingOptions.style.display = 'none';
 	}
@@ -935,21 +801,6 @@ document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
 
 	operateoptions.forEach(id => {
 	  document.getElementById(id).style.display = 'none';
-	});
-
-	document.getElementById('createsd').addEventListener('click', function() {
-
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_50').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_52').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_53').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_54').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_55').value);
-	let activeButtons = document.querySelectorAll('.vimbugsbtn.activebtn');
-
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
 	});
 
 	} else {
@@ -969,20 +820,6 @@ document.getElementById('optionStudcab').onclick = function () { //student-cabin
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('createsd').addEventListener('click', function() {
-
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_61').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_62').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_63').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_64').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_65').value);
-	let activeButtons = document.querySelectorAll('.studcabbtn.activebtn');
-
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
-	});
 	} else {
 		studCabOptions.style.display = 'none';
 	}
@@ -998,21 +835,6 @@ document.getElementById('optionChat').onclick = function () { //chat-qa-support 
 
 	operateoptions.forEach(id => {
 		document.getElementById(id).style.display = 'none';
-	});
-
-	document.getElementById('createsd').addEventListener('click', function() {
-
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_66').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_67').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_68').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_69').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_70').value);
-	let activeButtons = document.querySelectorAll('.chatqabtn.activebtn');
-
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
 	});
 
 	} else {
@@ -1032,20 +854,6 @@ operateoptions.forEach(id => {
 	document.getElementById(id).style.display = 'none';
 });
 
-document.getElementById('createsd').addEventListener('click', function() {
-
-// let idstdserv = encodeURIComponent(document.getElementById('customfield_71').value);
-// let dscr = encodeURIComponent(document.getElementById('customfield_72').value);
-// let str = encodeURIComponent(document.getElementById('customfield_73').value);
-// let erx = encodeURIComponent(document.getElementById('customfield_74').value);
-// let ary = encodeURIComponent(document.getElementById('customfield_75').value);
-let activeButtons = document.querySelectorAll('.tripwbtn.activebtn');
-
-for (const button of activeButtons) {
-	sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-	console.log(`Selected topic: ${button.innerText}`);
-}
-});
 } else {
 		tripWireOptions.style.display = 'none';
 	}
@@ -1061,21 +869,6 @@ document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl
 
 	operateoptions.forEach(id => {
 	  document.getElementById(id).style.display = 'none';
-	});
-
-	document.getElementById('createsd').addEventListener('click', function() {
-
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_76').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_77').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_78').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_79').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_80').value);
-	let activeButtons = document.querySelectorAll('.analystbtn.activebtn');
-
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
 	});
 		
 	} else {
@@ -1094,24 +887,10 @@ document.getElementById('optionCorp').onclick = function () { //corp-support +
 	operateoptions.forEach(id => {
 	  document.getElementById(id).style.display = 'none';
 	});
-
-	document.getElementById('createsd').addEventListener('click', function() {
-
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_81').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_82').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_83').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_84').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_85').value);
-	let activeButtons = document.querySelectorAll('.corpbtn.activebtn');
-
-	for (const button of activeButtons) {
-		sendRequest(idstdserv, dscr, str, erx, ary, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
+	
+	} else {
+		corpOptions.style.display = 'none';
 	}
-	});
-		} else {
-			corpOptions.style.display = 'none';
-		}
 }
 
 document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
@@ -1124,24 +903,6 @@ document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
 
 	operateoptions.forEach(id => {
 	  document.getElementById(id).style.display = 'none';
-	});
-
-	document.getElementById('createsd').addEventListener('click', function() {
-		
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_91').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_92').value);
-	// let issuename = encodeURIComponent(document.getElementById('customfield_911').value);
-	// let device = encodeURIComponent(document.getElementById('customfield_912').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_94').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_95').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_96').value);
-	// let priorvalue = document.getElementById('prioritymbugs').value;
-	let activeButtons = document.querySelectorAll('.mobbugsbtn.activebtn');
-
-	for (const button of activeButtons) {
-		ssendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
 	});
 
 	} else {
@@ -1161,24 +922,6 @@ document.getElementById('optionAcademymobbugs').onclick = function () { //academ
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('createsd').addEventListener('click', function() {
-		
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_118').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_121').value);
-	// let issuename = encodeURIComponent(document.getElementById('customfield_119').value);
-	// let device = encodeURIComponent(document.getElementById('customfield_120').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_122').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_123').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_124').value);
-	// let priorvalue = document.getElementById('academyprioritymbugs').value;
-	let activeButtons = document.querySelectorAll('.academymobbugsbtn.activebtn');
-
-	for (const button of activeButtons) {
-		ssendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
-	});
-
 	} else {
 		acadMobOptions.style.display = 'none';
 	}
@@ -1196,27 +939,38 @@ document.getElementById('optionStudcabmobbugs').onclick = function () { //studen
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('createsd').addEventListener('click', function() {
-		
-	// let idstdserv = encodeURIComponent(document.getElementById('customfield_102').value);
-	// let dscr = encodeURIComponent(document.getElementById('customfield_105').value);
-	// let issuename = encodeURIComponent(document.getElementById('customfield_103').value);
-	// let device = encodeURIComponent(document.getElementById('customfield_104').value);
-	// let str = encodeURIComponent(document.getElementById('customfield_106').value);
-	// let erx = encodeURIComponent(document.getElementById('customfield_107').value);
-	// let ary = encodeURIComponent(document.getElementById('customfield_108').value);
-	let activeButtons = document.querySelectorAll('.stcabmbsbtn.activebtn');
-
-	for (const button of activeButtons) {
-		sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, button.value);
-		console.log(`Selected topic: ${button.innerText}`);
-	}
-	});
-
 	} else {
 		studCabMobOptions.style.display = 'none';
 	}
 }
+
+	document.getElementById('createsd').addEventListener('click', function() {
+		
+		let priorityMobile = document.getElementById('prioritymbugs')
+		let idUser = document.getElementById('custom_id').value
+		let appInfo = document.getElementById('custom_appinfo').value
+		let deviceInfo = document.getElementById('custom_deviceinfo').value
+		let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value)
+		let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value)
+		let expectedResult = encodeURIComponent(document.getElementById('custom_er').value)
+		let actualResult = encodeURIComponent(document.getElementById('custom_ar').value)
+		let activeButtons = document.querySelectorAll('.stcabmbsbtn.activebtn');
+		
+		if(priorityMobile.style.display == 'none' && appInfo.style.display == 'none' && deviceInfo.style.display == 'none') {
+			for (const button of activeButtons) {
+				sendRequest(idUser, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+				console.log(`Selected topic: ${button.innerText}`);
+			}
+		} else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '') {
+			sendRequestMobWithPriority(priorityMobile, idUser, appInfo, deviceInfo, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+			console.log(`Selected topic: ${button.innerText}`);
+		} else if (priorityMobile.style.display == 'none' && appInfo.style.display == '' && deviceInfo.style.display == '') {
+			sendRequestMobNoPriority(idUser, appInfo, deviceInfo, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+			console.log(`Selected topic: ${button.innerText}`);
+		}
+
+	});
+
 
 	//End of script
 // }
