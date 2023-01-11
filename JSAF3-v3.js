@@ -1271,22 +1271,6 @@ function prepKC() { //функция подготовки расширения �
         needtoopen[i].style.display = ''
     }
 	
-	//Neural network
-	
-	// let languageSwitcher = document.querySelector('.user_menu-language_switcher');
-	// let onlyForTp = document.querySelectorAll('.onlyfortp');
-	// let onlyForKc = document.querySelectorAll('.onlyforkc');
-
-	// let setDisplayStyle = (elements, value) => {
-	  // elements.forEach(element => {
-		// element.style.display = value;
-	  // });
-	// }
-
-	// setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
-	// setDisplayStyle(onlyForTp, 'none');
-	// setDisplayStyle(onlyForKc, '');
-
     flagLangBut = 1
     customTemplates()
     setTimeout(whoAmI, 2000)
