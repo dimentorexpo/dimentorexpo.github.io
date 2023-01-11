@@ -11,46 +11,46 @@ let prevtsk;
 let flagpsis = 0;
 let msgissnd = 0;
 const buttons = [ //array of buttonsnames
-	'.edumodbtn',
-	'.bilqabtn',
-	'.teacbtn',
-	'.c1sbtn',
-	'.schdbtn',
-	'.authbtn',
-	'.crm2sbtn',
-	'.billbtn',
-	'.vimbugsbtn',
-	'.vimvidsbtn',
-	'.studcabbtn',
-	'.chatqabtn',
-	'.tripwbtn',
-	'.analystbtn',
-	'.corpbtn',
-	'.mobbugsbtn',
-	'.academymobbugsbtn',
-	'.stcabmbsbtn',
+    '.edumodbtn',
+    '.bilqabtn',
+    '.teacbtn',
+    '.c1sbtn',
+    '.schdbtn',
+    '.authbtn',
+    '.crm2sbtn',
+    '.billbtn',
+    '.vimbugsbtn',
+    '.vimvidsbtn',
+    '.studcabbtn',
+    '.chatqabtn',
+    '.tripwbtn',
+    '.analystbtn',
+    '.corpbtn',
+    '.mobbugsbtn',
+    '.academymobbugsbtn',
+    '.stcabmbsbtn',
 ];
 
-  const otherOptions = [ // array of buttons categories id's
-  	'teacherssrvdskoptions',
+const otherOptions = [ // array of buttons categories id's
+    'teacherssrvdskoptions',
     'crm2srvdskoptions',
-	'authsrvdskoptions',
-	'schedulesrvdskoptions',
-	'billingqasrvdskoptions',
-	'c1srvdskoptions',
+    'authsrvdskoptions',
+    'schedulesrvdskoptions',
+    'billingqasrvdskoptions',
+    'c1srvdskoptions',
     'billingsrvdskoptions',
-    'vimbugsoptions',	
+    'vimbugsoptions',
     'vimvidoptions',
-	'studcaboptions',
+    'studcaboptions',
     'chatqaoptions',
     'tripwireoptions',
     'analystoptions',
     'corpoptions',
-    'edumodeloptions',	
+    'edumodeloptions',
     'studcabmobbugskoptions',
     'mobbugsoptions',
-	'academymobbugsoptions'
-  ];
+    'academymobbugsoptions'
+];
 
 var win_servicedesk = // описание элементов окна Service Desk
     `<div style="display: flex; width: 480px;">
@@ -279,7 +279,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="studcabbtn widthofsd" value="967">Страница шоукейса (подключение услуг)</button>
 					<button class="studcabbtn widthofsd" value="946">Подземный стук</button>
                 </div>
-				
+
 				<div>
 					<select style="height:28px; margin-left: 21px; margin-top: 5px; display: none;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
@@ -307,152 +307,152 @@ var win_servicedesk = // описание элементов окна Service De
 //func initialize
 
 function getprsuplasttask() { //функция для получения ссылки на последний созданный после отправки в канал тикет в джира +
-  const responseTextarea1 = document.getElementById('responseTextarea1');
-  const responseTextarea2 = document.getElementById('responseTextarea2');
-  const responseTextarea3 = document.getElementById('responseTextarea3');
-  const sendResponse = document.getElementById('sendResponse');
-  const prevtask = document.getElementById('prevtask');
+    const responseTextarea1 = document.getElementById('responseTextarea1');
+    const responseTextarea2 = document.getElementById('responseTextarea2');
+    const responseTextarea3 = document.getElementById('responseTextarea3');
+    const sendResponse = document.getElementById('sendResponse');
+    const prevtask = document.getElementById('prevtask');
 
-  responseTextarea1.value = `{}`;
-  responseTextarea2.value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-  responseTextarea3.value = 'pstickets';
-  sendResponse.click();
+    responseTextarea1.value = `{}`;
+    responseTextarea2.value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
+    responseTextarea3.value = 'pstickets';
+    sendResponse.click();
 
-  responseTextarea1.addEventListener("DOMSubtreeModified", function() {
-	const psarr = responseTextarea1.getAttribute('pstickets');
-	if (psarr) {
-	  const sortarr = psarr.match(/PS-(\d+)/g).sort().reverse();
-	  const firstEl = sortarr[0];
-	  prevtsk = firstEl;
-	  prevtask.innerText = prevtsk;
+    responseTextarea1.addEventListener("DOMSubtreeModified", function () {
+        const psarr = responseTextarea1.getAttribute('pstickets');
+        if (psarr) {
+            const sortarr = psarr.match(/PS-(\d+)/g).sort().reverse();
+            const firstEl = sortarr[0];
+            prevtsk = firstEl;
+            prevtask.innerText = prevtsk;
 
-	  prevtask.onclick = function() {
-		if (prevtask.innerText === "") {
-		  console.log('Задача не найдена');
-		} else {
-		  window.open(`https://jira.skyeng.tech/browse/${prevtsk}`);
-		}
-	  }
-	}
-	responseTextarea1.removeAttribute('pstickets');
-  });
+            prevtask.onclick = function () {
+                if (prevtask.innerText === "") {
+                    console.log('Задача не найдена');
+                } else {
+                    window.open(`https://jira.skyeng.tech/browse/${prevtsk}`);
+                }
+            }
+        }
+        responseTextarea1.removeAttribute('pstickets');
+    });
 }
 
 function getprsup() {  //функция для получения ссылки на предыдщий созданный тикет в джира
-  const responseTextarea1 = document.getElementById('responseTextarea1');
-  const responseTextarea2 = document.getElementById('responseTextarea2');
-  const responseTextarea3 = document.getElementById('responseTextarea3');
-  const sendResponse = document.getElementById('sendResponse');
+    const responseTextarea1 = document.getElementById('responseTextarea1');
+    const responseTextarea2 = document.getElementById('responseTextarea2');
+    const responseTextarea3 = document.getElementById('responseTextarea3');
+    const sendResponse = document.getElementById('sendResponse');
 
-  responseTextarea1.value = `{}`;
-  responseTextarea2.value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
-  responseTextarea3.value = 'shmikets';
-  sendResponse.click();
+    responseTextarea1.value = `{}`;
+    responseTextarea2.value = "https://jira.skyeng.tech/servicedesk/customer/user/requests?portalId=62&page=1";
+    responseTextarea3.value = 'shmikets';
+    sendResponse.click();
 
-  responseTextarea1.addEventListener("DOMSubtreeModified", () => {
-    const psarr = responseTextarea1.getAttribute('shmikets');
-    const sortarr = psarr.match(/PS-(\d+)/g).sort().reverse();
-    const firstEl = sortarr[0];
+    responseTextarea1.addEventListener("DOMSubtreeModified", () => {
+        const psarr = responseTextarea1.getAttribute('shmikets');
+        const sortarr = psarr.match(/PS-(\d+)/g).sort().reverse();
+        const firstEl = sortarr[0];
 
-    console.log(`Testo massiv ${sortarr}`);
-    console.log(`Link tp PJ JIRA https://jira.skyeng.tech/browse/${firstEl}`);
+        console.log(`Testo massiv ${sortarr}`);
+        console.log(`Link tp PJ JIRA https://jira.skyeng.tech/browse/${firstEl}`);
 
-    lasttsk = firstEl;
-    flagpsis = 1;
+        lasttsk = firstEl;
+        flagpsis = 1;
 
-    if (lasttsk > prevtsk && msgissnd === 0) {
-      document.getElementById('newtask').innerText = lasttsk;
-      sendComment(`Jira Service Desk link: https://jira.skyeng.tech/browse/${lasttsk}`);
-      msgissnd = 1;
-      const removefields = document.getElementsByClassName('removefield');
-      for (let i = 0; i < removefields.length; i++) {
-        removefields[i].value = '';
-      }
-    } else if (lasttsk <= prevtsk) {
-      console.log("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!");
-    }
+        if (lasttsk > prevtsk && msgissnd === 0) {
+            document.getElementById('newtask').innerText = lasttsk;
+            sendComment(`Jira Service Desk link: https://jira.skyeng.tech/browse/${lasttsk}`);
+            msgissnd = 1;
+            const removefields = document.getElementsByClassName('removefield');
+            for (let i = 0; i < removefields.length; i++) {
+                removefields[i].value = '';
+            }
+        } else if (lasttsk <= prevtsk) {
+            console.log("Новая задача не была создана из-за введных значений или изменения логики работы  выбранной формы в самом ServiceDesk!");
+        }
 
-    responseTextarea1.removeAttribute('pstickets');
-  });
+        responseTextarea1.removeAttribute('pstickets');
+    });
 
-  msgissnd = 0;
+    msgissnd = 0;
 }
 
 function getslacklnk() { // получаем ссылку на обращение в слака с помощью парсинга номера задачи в джире и вытягивание ссылки с нее
-	if (flagpsis == 1) {
-		if (lasttsk > prevtsk) {
-			document.getElementById('responseTextarea1').value = `{}`
-			document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
-			document.getElementById('responseTextarea3').value = 'slacklnkhere'
-			document.getElementById('sendResponse').click()
+    if (flagpsis == 1) {
+        if (lasttsk > prevtsk) {
+            document.getElementById('responseTextarea1').value = `{}`
+            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
+            document.getElementById('responseTextarea3').value = 'slacklnkhere'
+            document.getElementById('sendResponse').click()
 
-			setTimeout(async () => {
-				infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
-				document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
+            setTimeout(async () => {
+                infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
+                document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
 
-				slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
+                slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
 
-				console.log("Slack link " + slacklnk);
-				sendComment("Slack Service Desk link: " + slacklnk);
+                console.log("Slack link " + slacklnk);
+                sendComment("Slack Service Desk link: " + slacklnk);
 
 
-			}, 2000);
+            }, 2000);
 
-		} else console.log("Задача не была создана, поэтому в заметки нечего размещать")
+        } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
 
-	} else if (flagpsis == 2) {
+    } else if (flagpsis == 2) {
 
-		document.getElementById('responseTextarea1').value = `{}`
-		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
-		document.getElementById('responseTextarea3').value = 'slacklnkhere'
-		document.getElementById('sendResponse').click()
+        document.getElementById('responseTextarea1').value = `{}`
+        document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + lasttsk;
+        document.getElementById('responseTextarea3').value = 'slacklnkhere'
+        document.getElementById('sendResponse').click()
 
-		setTimeout(async () => {
-			infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
-			document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
+        setTimeout(async () => {
+            infoarr = await document.getElementById('responseTextarea1').getAttribute('slacklnkhere');
+            document.getElementById('responseTextarea1').removeAttribute('slacklnkhere');
 
-			slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
+            slacklnk = infoarr.match(/">(https:\/\/skyeng.slack.com.*?)<\/a>/)[1];
 
-			console.log("Slack link " + slacklnk);
-			sendComment("Slack Service Desk link: " + slacklnk);
+            console.log("Slack link " + slacklnk);
+            sendComment("Slack Service Desk link: " + slacklnk);
 
-		}, 2000);
+        }, 2000);
 
-	} else console.log("Задача не была создана, поэтому в заметки нечего размещать")
+    } else console.log("Задача не была создана, поэтому в заметки нечего размещать")
 
 }
 
-function checkjiraauth() { // функция проверки авторизации в Jira 
+function checkjiraauth() { // функция проверки авторизации в Jira
 
-		document.getElementById('responseTextarea1').value = '{}'
-		document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
-		document.getElementById('responseTextarea3').value = 'getjiratoken'
-		document.getElementById('sendResponse').click()
+    document.getElementById('responseTextarea1').value = '{}'
+    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/"
+    document.getElementById('responseTextarea3').value = 'getjiratoken'
+    document.getElementById('sendResponse').click()
 
-        document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-            responsejira = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
-			jiratoken = responsejira;
-			if (jiratoken !=null) {
-				if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
-					jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
-					jiratokennew = jiratoken;
-					document.getElementById('jiratknstatus').innerText = "🟢"
-					console.log('%cTOKEN received successfully', 'color:LimeGreen' );
-					getprsuplasttask()
-				} else {
-					console.log('%cАвторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk!', 'color:red');
-					document.getElementById('jiratknstatus').innerText = "🔴"
-				}
-			}
-			document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
-		});
-		
+    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+        responsejira = document.getElementById('responseTextarea1').getAttribute('getjiratoken');
+        jiratoken = responsejira;
+        if (jiratoken != null) {
+            if (jiratoken.match(/name="atlassian-token" content="(.*lin)/) != null) {
+                jiratoken = jiratoken.match(/name="atlassian-token" content="(.*lin)/)[1];
+                jiratokennew = jiratoken;
+                document.getElementById('jiratknstatus').innerText = "🟢"
+                console.log('%cTOKEN received successfully', 'color:LimeGreen');
+                getprsuplasttask()
+            } else {
+                console.log('%cАвторизуйтесь в системе Jira, чтобы при заполнении формы запрос был отправлен в Service Desk!', 'color:red');
+                document.getElementById('jiratknstatus').innerText = "🔴"
+            }
+        }
+        document.getElementById('responseTextarea1').removeAttribute('getjiratoken');
+    });
+
 }
 
 function sendRequest(idstdserv, dscr, str, erx, ary, code) {
-	console.log(jiratoken)
-	console.log(jiratokennew)
-	document.getElementById('responseTextarea1').value = `{  "headers": {
+    console.log(jiratoken)
+    console.log(jiratokennew)
+    document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
 	 "sec-fetch-site": "same-origin",
@@ -466,24 +466,24 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 	  "mode": "cors",
 	  "credentials": "include"
 	  }`
-	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
-	document.getElementById('responseTextarea3').value = ''
-	
-	// логируем входящие переменные и значение полей отправки запроса
-	console.log(idstdserv + " " + dscr + " " + str + " " + erx  + " " + ary + " " + code)
-	console.log(document.getElementById('responseTextarea1').value)
-	console.log(document.getElementById('responseTextarea2').value)
+    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/" + code;
+    document.getElementById('responseTextarea3').value = ''
 
-	document.getElementById('sendResponse').click()
+    // логируем входящие переменные и значение полей отправки запроса
+    console.log(idstdserv + " " + dscr + " " + str + " " + erx + " " + ary + " " + code)
+    console.log(document.getElementById('responseTextarea1').value)
+    console.log(document.getElementById('responseTextarea2').value)
 
-	setTimeout(getprsup, 5000);
-	setTimeout(getslacklnk, 8000);
+    document.getElementById('sendResponse').click()
+
+    setTimeout(getprsup, 5000);
+    setTimeout(getslacklnk, 8000);
 }
 
 function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstdserv, code) {
-	console.log(jiratoken)
-	console.log(jiratokennew)
-	document.getElementById('responseTextarea1').value = `{  "headers": {
+    console.log(jiratoken)
+    console.log(jiratokennew)
+    document.getElementById('responseTextarea1').value = `{  "headers": {
 	 "content-type": "application/x-www-form-urlencoded",
 	 "sec-fetch-mode": "cors",
 	 "sec-fetch-site": "same-origin",
@@ -497,24 +497,24 @@ function sendRequestMobNoPriority(issuename, device, dscr, str, erx, ary, idstds
 	  "mode": "cors",
 	  "credentials": "include"
 	  }`
-	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
-	document.getElementById('responseTextarea3').value = ''
-	
-	// логируем входящие переменные и значение полей отправки запроса
-	console.log(issuename + " " + device + " " + dscr + " " + str  + " " + erx + " " + ary +" " + idstdserv + " " + code)
-	console.log(document.getElementById('responseTextarea1').value)
-	console.log(document.getElementById('responseTextarea2').value)
-	
-	document.getElementById('sendResponse').click()
-	
-	setTimeout(getprsup, 5000);
-	setTimeout(getslacklnk, 8000);
+    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/" + code;
+    document.getElementById('responseTextarea3').value = ''
+
+    // логируем входящие переменные и значение полей отправки запроса
+    console.log(issuename + " " + device + " " + dscr + " " + str + " " + erx + " " + ary + " " + idstdserv + " " + code)
+    console.log(document.getElementById('responseTextarea1').value)
+    console.log(document.getElementById('responseTextarea2').value)
+
+    document.getElementById('sendResponse').click()
+
+    setTimeout(getprsup, 5000);
+    setTimeout(getslacklnk, 8000);
 }
 
 function sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, erx, ary, idstdserv, code) {
-	console.log(jiratoken)
-	console.log(jiratokennew)
-	 document.getElementById('responseTextarea1').value = `{  "headers": {
+    console.log(jiratoken)
+    console.log(jiratokennew)
+    document.getElementById('responseTextarea1').value = `{  "headers": {
 		 "content-type": "application/x-www-form-urlencoded",
 		 "sec-fetch-mode": "cors",
 		 "sec-fetch-site": "same-origin",
@@ -528,18 +528,18 @@ function sendRequestMobWithPriority(priorvalue, issuename, device, dscr, str, er
 		  "mode": "cors",
 		  "credentials": "include"
 		  }`
-	document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/"+code;
-	document.getElementById('responseTextarea3').value = ''
+    document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/servicedesk/customer/portal/62/create/" + code;
+    document.getElementById('responseTextarea3').value = ''
 
-	// логируем входящие переменные и значение полей отправки запроса
-	console.log(priorvalue + " " + issuename + " " + device + " " + dscr + " " + str + " " + erx  + " " + ary + " " + idstdserv + " " + code)
-	console.log(document.getElementById('responseTextarea1').value)
-	console.log(document.getElementById('responseTextarea2').value)
+    // логируем входящие переменные и значение полей отправки запроса
+    console.log(priorvalue + " " + issuename + " " + device + " " + dscr + " " + str + " " + erx + " " + ary + " " + idstdserv + " " + code)
+    console.log(document.getElementById('responseTextarea1').value)
+    console.log(document.getElementById('responseTextarea2').value)
 
-	document.getElementById('sendResponse').click()
-	
-	setTimeout(getprsup, 5000);
-	setTimeout(getslacklnk, 8000);
+    document.getElementById('sendResponse').click()
+
+    setTimeout(getprsup, 5000);
+    setTimeout(getslacklnk, 8000);
 }
 
 //main
@@ -572,525 +572,122 @@ wintServDsk.onmousedown = function (a) { // изменение позиции о
 }
 wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', listenerServDsk); } // прекращение изменения позиции окна ServiceDesk
 
-
 document.getElementById('servDsk').onclick = function () { // функция открытия главного окна SD +
-	if (document.getElementById('AF_ServDsk').style.display == '') {
-		document.getElementById('AF_ServDsk').style.display = 'none'
-		document.getElementById('newtask').textContent =  ''
-		lasttsk = '';
-	} else
-		document.getElementById('AF_ServDsk').style.display = ''
-	document.getElementById('idmymenu').style.display = 'none'
+    if (document.getElementById('AF_ServDsk').style.display == '') {
+        document.getElementById('AF_ServDsk').style.display = 'none'
+        document.getElementById('newtask').textContent = ''
+        lasttsk = '';
+    } else
+        document.getElementById('AF_ServDsk').style.display = ''
+    document.getElementById('idmymenu').style.display = 'none'
 
-	checkjiraauth()
+    checkjiraauth()
 
-	// setTimeout(getprsuplasttask, 2000)
-	
-// $('.sdbtn').click(function () {
-    // $('.sdbtn').not(this).removeClass('activebtnsd');
-    // $(this).toggleClass('activebtnsd');
-
-    // let index = $('.sdbtn').index(this);
-    // $('#' + otherOptions[index]).toggle();
-    // $(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', ')).hide();
-// });
-
-// $('.sdbtn').click(function () {
-    // $('.sdbtn').not(this).removeClass('activebtnsd');
-    // $(this).toggleClass('activebtnsd');
-
-    // let index = $('.sdbtn').index(this);
-    // $('#' + otherOptions[index]).toggle();
-    // $(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', ')).hide();
-
-    // if (otherOptions[index] === "academymobbugsoptions" || otherOptions[index] === "mobbugsoptions") {
-        // document.getElementById('prioritymbugs').style.display = '';
-        // document.getElementById('custom_appinfo').style.display = '';
-        // document.getElementById('custom_deviceinfo').style.display = '';
-    // } else if (otherOptions[index] === 'studcabmobbugskoptions') {
-        // document.getElementById('prioritymbugs').style.display = 'none';
-        // document.getElementById('custom_appinfo').style.display = '';
-        // document.getElementById('custom_deviceinfo').style.display = '';
-    // } else {
-        // document.getElementById('prioritymbugs').style.display = 'none';
-        // document.getElementById('custom_appinfo').style.display = 'none';
-        // document.getElementById('custom_deviceinfo').style.display = 'none';
-    // }
-// });
+    // setTimeout(getprsuplasttask, 2000)
 
 const sdbtn = document.getElementsByClassName('sdbtn');
-for(let i = 0; i < sdbtn.length; i++) {
-  sdbtn[i].onclick = function() {
-    let activeBtnsd = document.getElementsByClassName('activebtnsd');
-    for(let j = 0; j < activeBtnsd.length; j++) {
-      activeBtnsd[j].classList.remove('activebtnsd');
-    }
-    this.classList.toggle('activebtnsd');
-    let index = i;
-    let elementId = otherOptions[index];
-    document.getElementById(elementId).style.display = "block";
+for (let i = 0; i < sdbtn.length; i++) {
+	sdbtn[i].onclick = function () {
+		let activeBtnsd = document.getElementsByClassName('activebtnsd');
+		for (let j = 0; j < activeBtnsd.length; j++) {
+			activeBtnsd[j].classList.remove('activebtnsd');
+		}
+		this.classList.toggle('activebtnsd');
+		let index = i;
+		let elementId = otherOptions[index];
+		document.getElementById(elementId).style.display = "block";
 
-    let otherElements = document.querySelectorAll(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', '));
-    for(let k = 0; k < otherElements.length; k++) {
-      otherElements[k].style.display = 'none';
-    }
+		let otherElements = document.querySelectorAll(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', '));
+		for (let k = 0; k < otherElements.length; k++) {
+			otherElements[k].style.display = 'none';
+		}
 
-    if (elementId === "academymobbugsoptions" || elementId === "mobbugsoptions") {
-        document.getElementById('prioritymbugs').style.display = '';
-        document.getElementById('custom_appinfo').style.display = '';
-        document.getElementById('custom_deviceinfo').style.display = '';
-    } else if (elementId === 'studcabmobbugskoptions') {
-        document.getElementById('prioritymbugs').style.display = 'none';
-        document.getElementById('custom_appinfo').style.display = '';
-        document.getElementById('custom_deviceinfo').style.display = '';
-    } else {
-        document.getElementById('prioritymbugs').style.display = 'none';
-        document.getElementById('custom_appinfo').style.display = 'none';
-        document.getElementById('custom_deviceinfo').style.display = 'none';
-    }
-  }
+		if (elementId === "academymobbugsoptions" || elementId === "mobbugsoptions") {
+			document.getElementById('prioritymbugs').style.display = '';
+			document.getElementById('custom_appinfo').style.display = '';
+			document.getElementById('custom_deviceinfo').style.display = '';
+		} else if (elementId === 'studcabmobbugskoptions') {
+			document.getElementById('prioritymbugs').style.display = 'none';
+			document.getElementById('custom_appinfo').style.display = '';
+			document.getElementById('custom_deviceinfo').style.display = '';
+		} else {
+			document.getElementById('prioritymbugs').style.display = 'none';
+			document.getElementById('custom_appinfo').style.display = 'none';
+			document.getElementById('custom_deviceinfo').style.display = 'none';
+		}
+	}
 }
 
-
-
-
-
-
-	
-		buttons.forEach(button => {
-		  $(button).click(function() {
-			remres(this);
-		  });
-		});
-
+buttons.forEach(button => {
+	$(button).click(function () {
+		remres(this);
+	});
+});
 
 } // tested
 
-	document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
-		if (checkelementtype(a)) { document.getElementById('hideMeSrvDsk').click(); }
-	}
+document.getElementById('AF_ServDsk').ondblclick = function (a) { // скрытие окна ServiceDesk по двойному клику
+    if (checkelementtype(a)) { document.getElementById('hideMeSrvDsk').click(); }
+}
 
-    document.getElementById('ServiceDeskinstr').onclick = function () {
-        window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-ServiceDesk')
-    }
+document.getElementById('ServiceDeskinstr').onclick = function () {
+    window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-ServiceDesk')
+}
 
-    document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
-        if (document.getElementById('AF_ServDsk').style.display == '') {
-            $('.sdbtn').click(function () {
-                $('.sdbtn').not(this).removeClass('activebtnsd');
-                $(this).toggleClass('activebtnsd');
+document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
+    if (document.getElementById('AF_ServDsk').style.display == '') {
+        $('.sdbtn').click(function () {
+            $('.sdbtn').not(this).removeClass('activebtnsd');
+            $(this).toggleClass('activebtnsd');
+        });
+
+        buttons.forEach(button => {
+            $(button).click(function () {
+                remres(this);
             });
+        });
 
-		buttons.forEach(button => {
-		  $(button).click(function() {
-			remres(this);
-		  });
-		});
-
-            document.getElementById('AF_ServDsk').style.display = 'none'
-        }
+        document.getElementById('AF_ServDsk').style.display = 'none'
     }
-	
-	document.getElementById('refreshjiraauth').onclick = checkjiraauth; //функция обновления статуса авторизации
-	
-	function remres(a) { // функция переключения класса по нажатию на кнопку
-	  buttons.forEach(button => {
-		if (button !== a) {
-		  $(button).removeClass('activebtn');
-		}
-	  });
-
-	  $(a).toggleClass('activebtn');
-	}
-
-
-// document.getElementById('optionTeacher').addEventListener('click', function() { // Teachers+
-	// const teacherOptions = document.getElementById('teacherssrvdskoptions');
-  	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-  // if (teacherOptions.style.display === 'none') {
-    // teacherOptions.style.display = '';
-	
-	// let operateoptions = otherOptions.filter(option => option !== teacherOptions.id);
-	
-    // operateoptions.forEach(id => {
-      // document.getElementById(id).style.display = 'none';
-    // });
-		
-  // } else {
-    // teacherOptions.style.display = 'none';
-  // }
-// });
-
-// document.getElementById('optionEdModel').onclick = function () { // Em-qa-support + 
-	// const EdModelOptions = document.getElementById('edumodeloptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
- // if (EdModelOptions.style.display === 'none') {
-// EdModelOptions.style.display = '';
-
-// let operateoptions = otherOptions.filter(option => option !== EdModelOptions.id);
-
-// operateoptions.forEach(id => {
-  // document.getElementById(id).style.display = 'none';
-// });
-
-	// } else {
-		// EdModelOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
-	// const billQaOptions = document.getElementById('billingqasrvdskoptions');
-  	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-  // if (billQaOptions.style.display === 'none') {
-	// billQaOptions.style.display = '';
-	
-	// let operateoptions = otherOptions.filter(option => option !== billQaOptions.id);
-	
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// billQaOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionVimvideocall').onclick = function () { //Vim-video-call +
-	// const vimVidCallOptions = document.getElementById('vimvidoptions');
-  	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-  // if (vimVidCallOptions.style.display === 'none') {
-	// vimVidCallOptions.style.display = '';
-	
-	// let operateoptions = otherOptions.filter(option => option !== vimVidCallOptions.id);
-	
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-	
-	// } else {
-		// vimVidCallOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionOnboarding').onclick = function () { //C1 Onboarding +
-	// const c1sOptions = document.getElementById('c1srvdskoptions');
-  	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-  // if (c1sOptions.style.display === 'none') {
-	// c1sOptions.style.display = '';
-	
-	// let operateoptions = otherOptions.filter(option => option !== c1sOptions.id);
-	
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-	
-	// } else {
-		// c1sOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionSchedule').onclick = function () { // Schedule +
-	// const schdOptions = document.getElementById('schedulesrvdskoptions');
-  	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-	// if (schdOptions.style.display === 'none') {
-	// schdOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== schdOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// schdOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionAuth').onclick = function () { //Auth +
-	// const authOptions = document.getElementById('authsrvdskoptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-// if (authOptions.style.display === 'none') {
-// authOptions.style.display = '';
-
-// let operateoptions = otherOptions.filter(option => option !== authOptions.id);
-
-// operateoptions.forEach(id => {
-  // document.getElementById(id).style.display = 'none';
-// });
-
-	// } else {
-		// authOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionCRM2').onclick = function () { //CRM2 + 
-	// const crm2Options = document.getElementById('crm2srvdskoptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-		// if (crm2Options.style.display === 'none') {
-			// crm2Options.style.display = '';
-
-		// let operateoptions = otherOptions.filter(option => option !== crm2Options.id);
-
-		// operateoptions.forEach(id => {
-		  // document.getElementById(id).style.display = 'none';
-		// });
-
-	// } else {
-		// crm2Options.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionBilling').onclick = function () { //billing +
-	// const billingOptions = document.getElementById('billingsrvdskoptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-	
-	// if (billingOptions.style.display === 'none') {
-		// billingOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== billingOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// billingOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
-	// const vmBugsOptions = document.getElementById('vimbugsoptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-	// if (vmBugsOptions.style.display === 'none') {
-		// vmBugsOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== vmBugsOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// vmBugsOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionStudcab').onclick = function () { //student-cabinet-bugs +
-	// const studCabOptions = document.getElementById('studcaboptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-	// if (studCabOptions.style.display === 'none') {
-		// studCabOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== studCabOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// studCabOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionChat').onclick = function () { //chat-qa-support +
-	// const chatQaOptions = document.getElementById('chatqaoptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-	// if (chatQaOptions.style.display === 'none') {
-		// chatQaOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== chatQaOptions.id);
-
-	// operateoptions.forEach(id => {
-		// document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// chatQaOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs +
-	// const tripWireOptions = document.getElementById('tripwireoptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-// if (tripWireOptions.style.display === 'none') {
-	// tripWireOptions.style.display = '';
-
-// let operateoptions = otherOptions.filter(option => option !== tripWireOptions.id);
-
-// operateoptions.forEach(id => {
-	// document.getElementById(id).style.display = 'none';
-// });
-
-// } else {
-		// tripWireOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl +
-	// const analystOptions = document.getElementById('analystoptions');
- 	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-	// if (analystOptions.style.display === 'none') {
-		// analystOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== analystOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-		
-	// } else {
-		// analystOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionCorp').onclick = function () { //corp-support +
-	// const corpOptions = document.getElementById('corpoptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = 'none'
-	// document.getElementById('custom_deviceinfo').style.display = 'none'
-
-	// if (corpOptions.style.display === 'none') {
-		// corpOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== corpOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-	
-	// } else {
-		// corpOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
-	// const mobOptions = document.getElementById('mobbugsoptions');
-	// document.getElementById('prioritymbugs').style.display = ''
-	// document.getElementById('custom_appinfo').style.display = ''
-	// document.getElementById('custom_deviceinfo').style.display = ''
-
-	// if (mobOptions.style.display === 'none') {
-		// mobOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== mobOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// mobOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionAcademymobbugs').onclick = function () { //academy-mobile-bugs + 
-	// const acadMobOptions = document.getElementById('academymobbugsoptions');
-	// document.getElementById('prioritymbugs').style.display = ''
-	// document.getElementById('custom_appinfo').style.display = ''
-	// document.getElementById('custom_deviceinfo').style.display = ''
-
-	// if (acadMobOptions.style.display === 'none') {
-		// acadMobOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== acadMobOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// acadMobOptions.style.display = 'none';
-	// }
-// }
-
-// document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-mobile-bugs +
-	// const studCabMobOptions = document.getElementById('studcabmobbugskoptions');
-	// document.getElementById('prioritymbugs').style.display = 'none'
-	// document.getElementById('custom_appinfo').style.display = ''
-	// document.getElementById('custom_deviceinfo').style.display = ''
-
-	// if (studCabMobOptions.style.display === 'none') {
-		// studCabMobOptions.style.display = '';
-
-	// let operateoptions = otherOptions.filter(option => option !== studCabMobOptions.id);
-
-	// operateoptions.forEach(id => {
-	  // document.getElementById(id).style.display = 'none';
-	// });
-
-	// } else {
-		// studCabMobOptions.style.display = 'none';
-	// }
-// }
-
-	document.getElementById('createsd').addEventListener('click', function() { //функция создания задачи на сервис деск
-		
-		let priorityMobile = document.getElementById('prioritymbugs')
-		let idUser = document.getElementById('custom_id')
-		let appInfo = document.getElementById('custom_appinfo')
-		let deviceInfo = document.getElementById('custom_deviceinfo')
-		let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value)
-		let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value)
-		let expectedResult = encodeURIComponent(document.getElementById('custom_er').value)
-		let actualResult = encodeURIComponent(document.getElementById('custom_ar').value)
-		let activeButtons = document.querySelectorAll('.activebtn');
-		
-		if(priorityMobile.style.display == 'none' && appInfo.style.display == 'none' && deviceInfo.style.display == 'none') {
-			for (const button of activeButtons) {
-				sendRequest(idUser, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
-				console.log(`Selected topic: ${button.innerText}`);
-			}
-		} else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '') {
-			sendRequestMobWithPriority(priorityMobile.value, idUser, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
-			console.log(`Selected topic: ${button.innerText}`);
-		} else if (priorityMobile.style.display == 'none' && appInfo.style.display == '' && deviceInfo.style.display == '') {
-			sendRequestMobNoPriority(idUser, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
-			console.log(`Selected topic: ${button.innerText}`);
-		}
-
-	});
-
-
+}
+
+document.getElementById('refreshjiraauth').onclick = checkjiraauth; //функция обновления статуса авторизации
+
+function remres(a) { // функция переключения класса по нажатию на кнопку
+    buttons.forEach(button => {
+        if (button !== a) {
+            $(button).removeClass('activebtn');
+        }
+    });
+
+    $(a).toggleClass('activebtn');
+}
+
+document.getElementById('createsd').addEventListener('click', function () { //функция создания задачи на сервис деск
+
+    let priorityMobile = document.getElementById('prioritymbugs')
+    let idUser = document.getElementById('custom_id')
+    let appInfo = document.getElementById('custom_appinfo')
+    let deviceInfo = document.getElementById('custom_deviceinfo')
+    let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value)
+    let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value)
+    let expectedResult = encodeURIComponent(document.getElementById('custom_er').value)
+    let actualResult = encodeURIComponent(document.getElementById('custom_ar').value)
+    let activeButtons = document.querySelectorAll('.activebtn');
+
+    if (priorityMobile.style.display == 'none' && appInfo.style.display == 'none' && deviceInfo.style.display == 'none') {
+        for (const button of activeButtons) {
+            sendRequest(idUser, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+            console.log(`Selected topic: ${button.innerText}`);
+        }
+    } else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '') {
+        sendRequestMobWithPriority(priorityMobile.value, idUser, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+        console.log(`Selected topic: ${button.innerText}`);
+    } else if (priorityMobile.style.display == 'none' && appInfo.style.display == '' && deviceInfo.style.display == '') {
+        sendRequestMobNoPriority(idUser, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+        console.log(`Selected topic: ${button.innerText}`);
+    }
+
+});
 	//End of script
 // }
