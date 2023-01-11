@@ -626,18 +626,20 @@ for(let i = 0; i < sdbtn.length; i++) {
       activeBtnsd[j].classList.remove('activebtnsd');
     }
     this.classList.toggle('activebtnsd');
-
     let index = i;
-    document.getElementById(otherOptions[index]).classList.toggle('show');
+    let elementId = otherOptions[index];
+    document.getElementById(elementId).style.display = "block";
+
     let otherElements = document.querySelectorAll(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', '));
     for(let k = 0; k < otherElements.length; k++) {
-        otherElements[k].classList.remove('show');
+      otherElements[k].style.display = 'none';
     }
-    if (otherOptions[index] === "academymobbugsoptions" || otherOptions[index] === "mobbugsoptions") {
+
+    if (elementId === "academymobbugsoptions" || elementId === "mobbugsoptions") {
         document.getElementById('prioritymbugs').style.display = '';
         document.getElementById('custom_appinfo').style.display = '';
         document.getElementById('custom_deviceinfo').style.display = '';
-    } else if (otherOptions[index] === 'studcabmobbugskoptions') {
+    } else if (elementId === 'studcabmobbugskoptions') {
         document.getElementById('prioritymbugs').style.display = 'none';
         document.getElementById('custom_appinfo').style.display = '';
         document.getElementById('custom_deviceinfo').style.display = '';
@@ -648,6 +650,7 @@ for(let i = 0; i < sdbtn.length; i++) {
     }
   }
 }
+
 
 
 
