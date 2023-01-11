@@ -3895,7 +3895,7 @@ function refreshTimerReminder1() { // обновляет оставшееся в
   // Check if there is a chronostamp value in local storage
   if (localStorage.getItem("chronostamp1") !== null && localStorage.getItem("chronostamp1") > 0) {
     // Update reminder status and alarm time in form fields
-    document.getElementById("reminderstatus1").textContent = "🔔";
+    document.getElementById("reminderstatus").textContent = "🔔";
     setchas.value = setHours;
     setminuta.value = setMinutes;
 
