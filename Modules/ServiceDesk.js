@@ -324,7 +324,7 @@ function getprsuplasttask() { //функция для получения ссы�
 	if (psarr) {
 	  const sortarr = psarr.match(/PS-(\d+)/g).sort().reverse();
 	  const firstEl = sortarr[0];
-	  const prevtsk = firstEl;
+	  prevtsk = firstEl;
 	  prevtask.innerText = prevtsk;
 
 	  prevtask.onclick = function() {
