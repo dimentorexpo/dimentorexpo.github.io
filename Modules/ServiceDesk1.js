@@ -358,7 +358,7 @@ function getprsup() {  //функция для получения ссылки �
     console.log(`Testo massiv ${sortarr}`);
     console.log(`Link tp PJ JIRA https://jira.skyeng.tech/browse/${firstEl}`);
 
-    const lasttsk = firstEl;
+    lasttsk = firstEl;
     flagpsis = 1;
 
     if (lasttsk > prevtsk && msgissnd === 0) {
