@@ -3859,7 +3859,7 @@ function refreshTimerReminder() { // обновляет оставшееся в�
     setminuta.value = localStorage.getItem("setminuta");
 
     // Calculate time left until alarm goes off, in milliseconds
-    const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
+    const timeLeft = (((localStorage.getItem("setchas") - hours) * 60 * 60) + ((localStorage.getItem("setminuta") - minutes) * 60) + (0 - seconds)) * 1000;
     localStorage.setItem("chronostamp2", timeLeft);
 
     // Set timeout to trigger the alarm
@@ -3888,11 +3888,11 @@ function refreshTimerReminder1() { // обновляет оставшееся в
   if (localStorage.getItem("chronostamp1") !== null && localStorage.getItem("chronostamp1") > 0) {
     // Update reminder status and alarm time in form fields
     document.getElementById("reminderstatus").textContent = "🔔";
-    setchas.value = localStorage.getItem("setchas1");;
-    setminuta.value = localStorage.getItem("setminuta1");;
+    setchas.value = localStorage.getItem("setchas1");
+    setminuta.value = localStorage.getItem("setminuta1");
 
     // Calculate time left until alarm goes off, in milliseconds
-    const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
+    const timeLeft = ((( localStorage.getItem("setchas1") - hours) * 60 * 60) + ((localStorage.getItem("setminuta1") - minutes) * 60) + (0 - seconds)) * 1000;
     localStorage.setItem("chronostamp22", timeLeft);
 
     // Set timeout to trigger the alarm
