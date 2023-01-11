@@ -586,10 +586,14 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 
 	// setTimeout(getprsuplasttask, 2000)
 	
-	$('.sdbtn').click(function () {
-		$('.sdbtn').not(this).removeClass('activebtnsd');
-		$(this).toggleClass('activebtnsd');
-	});
+$('.sdbtn').click(function () {
+    $('.sdbtn').not(this).removeClass('activebtnsd');
+    $(this).toggleClass('activebtnsd');
+
+    let index = $('.sdbtn').index(this);
+    $('#' + otherOptions[index]).toggle();
+    $(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', ')).hide();
+});
 	
 		buttons.forEach(button => {
 		  $(button).click(function() {
@@ -638,365 +642,365 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 	}
 
 
-document.getElementById('optionTeacher').addEventListener('click', function() { // Teachers+
-	const teacherOptions = document.getElementById('teacherssrvdskoptions');
-  	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionTeacher').addEventListener('click', function() { // Teachers+
+	// const teacherOptions = document.getElementById('teacherssrvdskoptions');
+  	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-  if (teacherOptions.style.display === 'none') {
-    teacherOptions.style.display = '';
+  // if (teacherOptions.style.display === 'none') {
+    // teacherOptions.style.display = '';
 	
-	let operateoptions = otherOptions.filter(option => option !== teacherOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== teacherOptions.id);
 	
-    operateoptions.forEach(id => {
-      document.getElementById(id).style.display = 'none';
-    });
+    // operateoptions.forEach(id => {
+      // document.getElementById(id).style.display = 'none';
+    // });
 		
-  } else {
-    teacherOptions.style.display = 'none';
-  }
-});
+  // } else {
+    // teacherOptions.style.display = 'none';
+  // }
+// });
 
-document.getElementById('optionEdModel').onclick = function () { // Em-qa-support + 
-	const EdModelOptions = document.getElementById('edumodeloptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionEdModel').onclick = function () { // Em-qa-support + 
+	// const EdModelOptions = document.getElementById('edumodeloptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
- if (EdModelOptions.style.display === 'none') {
-EdModelOptions.style.display = '';
+ // if (EdModelOptions.style.display === 'none') {
+// EdModelOptions.style.display = '';
 
-let operateoptions = otherOptions.filter(option => option !== EdModelOptions.id);
+// let operateoptions = otherOptions.filter(option => option !== EdModelOptions.id);
 
-operateoptions.forEach(id => {
-  document.getElementById(id).style.display = 'none';
-});
+// operateoptions.forEach(id => {
+  // document.getElementById(id).style.display = 'none';
+// });
 
-	} else {
-		EdModelOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// EdModelOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
-	const billQaOptions = document.getElementById('billingqasrvdskoptions');
-  	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
+	// const billQaOptions = document.getElementById('billingqasrvdskoptions');
+  	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-  if (billQaOptions.style.display === 'none') {
-	billQaOptions.style.display = '';
+  // if (billQaOptions.style.display === 'none') {
+	// billQaOptions.style.display = '';
 	
-	let operateoptions = otherOptions.filter(option => option !== billQaOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== billQaOptions.id);
 	
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		billQaOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// billQaOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionVimvideocall').onclick = function () { //Vim-video-call +
-	const vimVidCallOptions = document.getElementById('vimvidoptions');
-  	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionVimvideocall').onclick = function () { //Vim-video-call +
+	// const vimVidCallOptions = document.getElementById('vimvidoptions');
+  	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-  if (vimVidCallOptions.style.display === 'none') {
-	vimVidCallOptions.style.display = '';
+  // if (vimVidCallOptions.style.display === 'none') {
+	// vimVidCallOptions.style.display = '';
 	
-	let operateoptions = otherOptions.filter(option => option !== vimVidCallOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== vimVidCallOptions.id);
 	
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 	
-	} else {
-		vimVidCallOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// vimVidCallOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionOnboarding').onclick = function () { //C1 Onboarding +
-	const c1sOptions = document.getElementById('c1srvdskoptions');
-  	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionOnboarding').onclick = function () { //C1 Onboarding +
+	// const c1sOptions = document.getElementById('c1srvdskoptions');
+  	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-  if (c1sOptions.style.display === 'none') {
-	c1sOptions.style.display = '';
+  // if (c1sOptions.style.display === 'none') {
+	// c1sOptions.style.display = '';
 	
-	let operateoptions = otherOptions.filter(option => option !== c1sOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== c1sOptions.id);
 	
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 	
-	} else {
-		c1sOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// c1sOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionSchedule').onclick = function () { // Schedule +
-	const schdOptions = document.getElementById('schedulesrvdskoptions');
-  	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionSchedule').onclick = function () { // Schedule +
+	// const schdOptions = document.getElementById('schedulesrvdskoptions');
+  	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-	if (schdOptions.style.display === 'none') {
-	schdOptions.style.display = '';
+	// if (schdOptions.style.display === 'none') {
+	// schdOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== schdOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== schdOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		schdOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// schdOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionAuth').onclick = function () { //Auth +
-	const authOptions = document.getElementById('authsrvdskoptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionAuth').onclick = function () { //Auth +
+	// const authOptions = document.getElementById('authsrvdskoptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-if (authOptions.style.display === 'none') {
-authOptions.style.display = '';
+// if (authOptions.style.display === 'none') {
+// authOptions.style.display = '';
 
-let operateoptions = otherOptions.filter(option => option !== authOptions.id);
+// let operateoptions = otherOptions.filter(option => option !== authOptions.id);
 
-operateoptions.forEach(id => {
-  document.getElementById(id).style.display = 'none';
-});
+// operateoptions.forEach(id => {
+  // document.getElementById(id).style.display = 'none';
+// });
 
-	} else {
-		authOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// authOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionCRM2').onclick = function () { //CRM2 + 
-	const crm2Options = document.getElementById('crm2srvdskoptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionCRM2').onclick = function () { //CRM2 + 
+	// const crm2Options = document.getElementById('crm2srvdskoptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-		if (crm2Options.style.display === 'none') {
-			crm2Options.style.display = '';
+		// if (crm2Options.style.display === 'none') {
+			// crm2Options.style.display = '';
 
-		let operateoptions = otherOptions.filter(option => option !== crm2Options.id);
+		// let operateoptions = otherOptions.filter(option => option !== crm2Options.id);
 
-		operateoptions.forEach(id => {
-		  document.getElementById(id).style.display = 'none';
-		});
+		// operateoptions.forEach(id => {
+		  // document.getElementById(id).style.display = 'none';
+		// });
 
-	} else {
-		crm2Options.style.display = 'none';
-	}
-}
+	// } else {
+		// crm2Options.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionBilling').onclick = function () { //billing +
-	const billingOptions = document.getElementById('billingsrvdskoptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionBilling').onclick = function () { //billing +
+	// const billingOptions = document.getElementById('billingsrvdskoptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 	
-	if (billingOptions.style.display === 'none') {
-		billingOptions.style.display = '';
+	// if (billingOptions.style.display === 'none') {
+		// billingOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== billingOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== billingOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		billingOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// billingOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
-	const vmBugsOptions = document.getElementById('vimbugsoptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
+	// const vmBugsOptions = document.getElementById('vimbugsoptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-	if (vmBugsOptions.style.display === 'none') {
-		vmBugsOptions.style.display = '';
+	// if (vmBugsOptions.style.display === 'none') {
+		// vmBugsOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== vmBugsOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== vmBugsOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		vmBugsOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// vmBugsOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionStudcab').onclick = function () { //student-cabinet-bugs +
-	const studCabOptions = document.getElementById('studcaboptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionStudcab').onclick = function () { //student-cabinet-bugs +
+	// const studCabOptions = document.getElementById('studcaboptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-	if (studCabOptions.style.display === 'none') {
-		studCabOptions.style.display = '';
+	// if (studCabOptions.style.display === 'none') {
+		// studCabOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== studCabOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== studCabOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		studCabOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// studCabOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionChat').onclick = function () { //chat-qa-support +
-	const chatQaOptions = document.getElementById('chatqaoptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionChat').onclick = function () { //chat-qa-support +
+	// const chatQaOptions = document.getElementById('chatqaoptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-	if (chatQaOptions.style.display === 'none') {
-		chatQaOptions.style.display = '';
+	// if (chatQaOptions.style.display === 'none') {
+		// chatQaOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== chatQaOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== chatQaOptions.id);
 
-	operateoptions.forEach(id => {
-		document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+		// document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		chatQaOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// chatQaOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs +
-	const tripWireOptions = document.getElementById('tripwireoptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs +
+	// const tripWireOptions = document.getElementById('tripwireoptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-if (tripWireOptions.style.display === 'none') {
-	tripWireOptions.style.display = '';
+// if (tripWireOptions.style.display === 'none') {
+	// tripWireOptions.style.display = '';
 
-let operateoptions = otherOptions.filter(option => option !== tripWireOptions.id);
+// let operateoptions = otherOptions.filter(option => option !== tripWireOptions.id);
 
-operateoptions.forEach(id => {
-	document.getElementById(id).style.display = 'none';
-});
+// operateoptions.forEach(id => {
+	// document.getElementById(id).style.display = 'none';
+// });
 
-} else {
-		tripWireOptions.style.display = 'none';
-	}
-}
+// } else {
+		// tripWireOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl +
-	const analystOptions = document.getElementById('analystoptions');
- 	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl +
+	// const analystOptions = document.getElementById('analystoptions');
+ 	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-	if (analystOptions.style.display === 'none') {
-		analystOptions.style.display = '';
+	// if (analystOptions.style.display === 'none') {
+		// analystOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== analystOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== analystOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 		
-	} else {
-		analystOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// analystOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionCorp').onclick = function () { //corp-support +
-	const corpOptions = document.getElementById('corpoptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = 'none'
-	document.getElementById('custom_deviceinfo').style.display = 'none'
+// document.getElementById('optionCorp').onclick = function () { //corp-support +
+	// const corpOptions = document.getElementById('corpoptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = 'none'
+	// document.getElementById('custom_deviceinfo').style.display = 'none'
 
-	if (corpOptions.style.display === 'none') {
-		corpOptions.style.display = '';
+	// if (corpOptions.style.display === 'none') {
+		// corpOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== corpOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== corpOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 	
-	} else {
-		corpOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// corpOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
-	const mobOptions = document.getElementById('mobbugsoptions');
-	document.getElementById('prioritymbugs').style.display = ''
-	document.getElementById('custom_appinfo').style.display = ''
-	document.getElementById('custom_deviceinfo').style.display = ''
+// document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
+	// const mobOptions = document.getElementById('mobbugsoptions');
+	// document.getElementById('prioritymbugs').style.display = ''
+	// document.getElementById('custom_appinfo').style.display = ''
+	// document.getElementById('custom_deviceinfo').style.display = ''
 
-	if (mobOptions.style.display === 'none') {
-		mobOptions.style.display = '';
+	// if (mobOptions.style.display === 'none') {
+		// mobOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== mobOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== mobOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		mobOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// mobOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionAcademymobbugs').onclick = function () { //academy-mobile-bugs + 
-	const acadMobOptions = document.getElementById('academymobbugsoptions');
-	document.getElementById('prioritymbugs').style.display = ''
-	document.getElementById('custom_appinfo').style.display = ''
-	document.getElementById('custom_deviceinfo').style.display = ''
+// document.getElementById('optionAcademymobbugs').onclick = function () { //academy-mobile-bugs + 
+	// const acadMobOptions = document.getElementById('academymobbugsoptions');
+	// document.getElementById('prioritymbugs').style.display = ''
+	// document.getElementById('custom_appinfo').style.display = ''
+	// document.getElementById('custom_deviceinfo').style.display = ''
 
-	if (acadMobOptions.style.display === 'none') {
-		acadMobOptions.style.display = '';
+	// if (acadMobOptions.style.display === 'none') {
+		// acadMobOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== acadMobOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== acadMobOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		acadMobOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// acadMobOptions.style.display = 'none';
+	// }
+// }
 
-document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-mobile-bugs +
-	const studCabMobOptions = document.getElementById('studcabmobbugskoptions');
-	document.getElementById('prioritymbugs').style.display = 'none'
-	document.getElementById('custom_appinfo').style.display = ''
-	document.getElementById('custom_deviceinfo').style.display = ''
+// document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-mobile-bugs +
+	// const studCabMobOptions = document.getElementById('studcabmobbugskoptions');
+	// document.getElementById('prioritymbugs').style.display = 'none'
+	// document.getElementById('custom_appinfo').style.display = ''
+	// document.getElementById('custom_deviceinfo').style.display = ''
 
-	if (studCabMobOptions.style.display === 'none') {
-		studCabMobOptions.style.display = '';
+	// if (studCabMobOptions.style.display === 'none') {
+		// studCabMobOptions.style.display = '';
 
-	let operateoptions = otherOptions.filter(option => option !== studCabMobOptions.id);
+	// let operateoptions = otherOptions.filter(option => option !== studCabMobOptions.id);
 
-	operateoptions.forEach(id => {
-	  document.getElementById(id).style.display = 'none';
-	});
+	// operateoptions.forEach(id => {
+	  // document.getElementById(id).style.display = 'none';
+	// });
 
-	} else {
-		studCabMobOptions.style.display = 'none';
-	}
-}
+	// } else {
+		// studCabMobOptions.style.display = 'none';
+	// }
+// }
 
 	document.getElementById('createsd').addEventListener('click', function() { //функция создания задачи на сервис деск
 		
