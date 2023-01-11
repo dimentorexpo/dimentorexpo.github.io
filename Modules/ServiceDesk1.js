@@ -1007,7 +1007,7 @@ document.getElementById('optionStudcabmobbugs').onclick = function () { //studen
 		let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value)
 		let expectedResult = encodeURIComponent(document.getElementById('custom_er').value)
 		let actualResult = encodeURIComponent(document.getElementById('custom_ar').value)
-		let activeButtons = document.querySelectorAll('.stcabmbsbtn.activebtn');
+		let activeButtons = document.querySelectorAll('.activebtn');
 		
 		if(priorityMobile.style.display == 'none' && appInfo.style.display == 'none' && deviceInfo.style.display == 'none') {
 			for (const button of activeButtons) {
