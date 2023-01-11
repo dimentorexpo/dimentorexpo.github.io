@@ -324,7 +324,7 @@ function getprsuplasttask() { //функция для получения ссы�
 	if (psarr) {
 	  const sortarr = psarr.match(/PS-(\d+)/g).sort().reverse();
 	  const firstEl = sortarr[0];
-	  const prevtsk = firstEl;
+	  prevtsk = firstEl;
 	  prevtask.innerText = prevtsk;
 
 	  prevtask.onclick = function() {
@@ -577,6 +577,8 @@ wintServDsk.onmouseup = function () { document.removeEventListener('mousemove', 
 document.getElementById('servDsk').onclick = function () { // функция открытия главного окна SD +
 	if (document.getElementById('AF_ServDsk').style.display == '')
 		document.getElementById('AF_ServDsk').style.display = 'none'
+	document.getElementById('newtask').textContent =  ''
+	lasttsk = '';
 	else
 		document.getElementById('AF_ServDsk').style.display = ''
 	document.getElementById('idmymenu').style.display = 'none'
