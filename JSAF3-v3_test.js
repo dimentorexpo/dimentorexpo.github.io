@@ -3851,16 +3851,12 @@ function refreshTimerReminder() { // обновляет оставшееся в�
   const minutes = timearr.getMinutes();
   const seconds = timearr.getSeconds();
 
-  // Get alarm time from local storage
-  const setHours = localStorage.getItem("setchas");
-  const setMinutes = localStorage.getItem("setminuta");
-
   // Check if there is a chronostamp value in local storage
   if (localStorage.getItem("chronostamp") !== null && localStorage.getItem("chronostamp") > 0) {
     // Update reminder status and alarm time in form fields
     document.getElementById("reminderstatus").textContent = "🔔";
-    setchas.value = setHours;
-    setminuta.value = setMinutes;
+    setchas.value = localStorage.getItem("setchas");
+    setminuta.value = localStorage.getItem("setminuta");
 
     // Calculate time left until alarm goes off, in milliseconds
     const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
@@ -3888,16 +3884,12 @@ function refreshTimerReminder1() { // обновляет оставшееся в
   const minutes = timearr.getMinutes();
   const seconds = timearr.getSeconds();
 
-  // Get alarm time from local storage
-  const setHours = localStorage.getItem("setchas1");
-  const setMinutes = localStorage.getItem("setminuta1");
-
   // Check if there is a chronostamp value in local storage
   if (localStorage.getItem("chronostamp1") !== null && localStorage.getItem("chronostamp1") > 0) {
     // Update reminder status and alarm time in form fields
     document.getElementById("reminderstatus").textContent = "🔔";
-    setchas.value = setHours;
-    setminuta.value = setMinutes;
+    setchas.value = localStorage.getItem("setchas1");;
+    setminuta.value = localStorage.getItem("setminuta1");;
 
     // Calculate time left until alarm goes off, in milliseconds
     const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
