@@ -282,7 +282,7 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				
 				<div>
-					<select style="height:28px;" id="prioritymbugs">
+					<select style="height:28px; margin-left: 5px; margin-top: 5px;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="1">Blocker</option>
 							<option value="2">Critical</option>
@@ -291,14 +291,14 @@ var win_servicedesk = // описание элементов окна Service De
 							<option value="4">Minor</option>
 							<option value="5">Trivial</option>
 					   </select>
-					<input id="custom_id" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield">
-                    <input id="custom_appinfo" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield"></input>
-                    <input id="custom_deviceinfo" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield"></input>
-					<textarea id="custom_descr" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="custom_str" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield"></textarea>
-					<textarea id="custom_er" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield"></textarea>
-					<textarea id="custom_ar" placeholder="Фактическое поведение"  class="sdexpecactual removefield"></textarea>
-					<button id="createsd" style="width: 150px; position:relative; left:30%; margin-bottom:5px;">Создать</button>
+					<input id="custom_id" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield" style="margin-left: 5px;">
+                    <input id="custom_appinfo" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield" style="margin-left: 5px;"></input>
+                    <input id="custom_deviceinfo" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield" style="margin-left: 5px;"></input>
+					<textarea id="custom_descr" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield" style="margin-left: 5px;"></textarea>
+					<textarea id="custom_str" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield" style="margin-left: 5px;"></textarea>
+					<textarea id="custom_er" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield" style="margin-left: 5px;"></textarea>
+					<textarea id="custom_ar" placeholder="Фактическое поведение"  class="sdexpecactual removefield" style="margin-left: 5px;"></textarea>
+					<button id="createsd" style="width: 150px; position:relative; left:30%; margin-bottom:5px;" style="margin-left: 5px;">Создать</button>
 				</div>
 	        </span>
 		</span>
@@ -649,12 +649,12 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
       document.getElementById(id).style.display = 'none';
     });
 	
-	document.getElementById('create_2').addEventListener('click', function() {
-	  let idstdserv = encodeURIComponent(document.getElementById('customfield_6').value);
-	  let dscr = encodeURIComponent(document.getElementById('customfield_7').value);
-	  let str = encodeURIComponent(document.getElementById('customfield_8').value);
-	  let erx = encodeURIComponent(document.getElementById('customfield_9').value);
-	  let ary = encodeURIComponent(document.getElementById('customfield_10').value);
+	document.getElementById('createsd').addEventListener('click', function() {
+	  // let idstdserv = encodeURIComponent(document.getElementById('customfield_6').value);
+	  // let dscr = encodeURIComponent(document.getElementById('customfield_7').value);
+	  // let str = encodeURIComponent(document.getElementById('customfield_8').value);
+	  // let erx = encodeURIComponent(document.getElementById('customfield_9').value);
+	  // let ary = encodeURIComponent(document.getElementById('customfield_10').value);
 	  let activeButtons = document.querySelectorAll('.teacbtn.activebtn');
 	  
 		  for (const button of activeButtons) {
@@ -680,12 +680,12 @@ operateoptions.forEach(id => {
   document.getElementById(id).style.display = 'none';
 });
 
-document.getElementById('create_20').addEventListener('click', function() {
-  let idstdserv = encodeURIComponent(document.getElementById('customfield_97').value);
-  let dscr = encodeURIComponent(document.getElementById('customfield_98').value);
-  let str = encodeURIComponent(document.getElementById('customfield_99').value);
-  let erx = encodeURIComponent(document.getElementById('customfield_100').value);
-  let ary = encodeURIComponent(document.getElementById('customfield_101').value);
+document.getElementById('createsd').addEventListener('click', function() {
+  // let idstdserv = encodeURIComponent(document.getElementById('customfield_97').value);
+  // let dscr = encodeURIComponent(document.getElementById('customfield_98').value);
+  // let str = encodeURIComponent(document.getElementById('customfield_99').value);
+  // let erx = encodeURIComponent(document.getElementById('customfield_100').value);
+  // let ary = encodeURIComponent(document.getElementById('customfield_101').value);
   let activeButtons = document.querySelectorAll('.edumodbtn.activebtn');
   
   for (const button of activeButtons) {
@@ -712,13 +712,13 @@ document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
 	});
 
 
-	document.getElementById('create_4').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 	
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_17').value);
-	let str = encodeURIComponent(document.getElementById('customfield_18').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_19').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_20').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_16').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_17').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_18').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_19').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_20').value);
 	let activeButtons = document.querySelectorAll('.bilqabtn.activebtn');
 	
 	for (const button of activeButtons) {
@@ -744,13 +744,13 @@ document.getElementById('optionVimvideocall').onclick = function () { //Vim-vide
 	  document.getElementById(id).style.display = 'none';
 	});
 	
-	document.getElementById('create_12').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 		
-		let idstdserv = encodeURIComponent(document.getElementById('customfield_56').value);
-		let dscr = encodeURIComponent(document.getElementById('customfield_57').value);
-		let str = encodeURIComponent(document.getElementById('customfield_58').value);
-		let erx = encodeURIComponent(document.getElementById('customfield_59').value);
-		let ary = encodeURIComponent(document.getElementById('customfield_60').value);
+		// let idstdserv = encodeURIComponent(document.getElementById('customfield_56').value);
+		// let dscr = encodeURIComponent(document.getElementById('customfield_57').value);
+		// let str = encodeURIComponent(document.getElementById('customfield_58').value);
+		// let erx = encodeURIComponent(document.getElementById('customfield_59').value);
+		// let ary = encodeURIComponent(document.getElementById('customfield_60').value);
 		let activeButtons = document.querySelectorAll('.vimvidsbtn.activebtn');
 		
 		for (const button of activeButtons) {
@@ -776,13 +776,13 @@ document.getElementById('optionOnboarding').onclick = function () { //C1 Onboard
 	  document.getElementById(id).style.display = 'none';
 	});
 	
-	document.getElementById('create_3').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 	
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_11').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_12').value);
-	let str = encodeURIComponent(document.getElementById('customfield_13').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_14').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_15').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_11').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_12').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_13').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_14').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_15').value);
 	let activeButtons = document.querySelectorAll('.c1sbtn.activebtn');
 	
 	for (const button of activeButtons) {
@@ -808,13 +808,13 @@ document.getElementById('optionSchedule').onclick = function () { // Schedule +
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_5').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_21').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_22').value);
-	let str = encodeURIComponent(document.getElementById('customfield_23').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_24').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_25').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_21').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_22').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_23').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_24').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_25').value);
 	let activeButtons = document.querySelectorAll('.schdbtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -840,13 +840,13 @@ operateoptions.forEach(id => {
   document.getElementById(id).style.display = 'none';
 });
 
-document.getElementById('create_8').addEventListener('click', function() {
+document.getElementById('createsd').addEventListener('click', function() {
 
-let idstdserv = encodeURIComponent(document.getElementById('customfield_26').value);
-let dscr = encodeURIComponent(document.getElementById('customfield_27').value);
-let str = encodeURIComponent(document.getElementById('customfield_28').value);
-let erx = encodeURIComponent(document.getElementById('customfield_29').value);
-let ary = encodeURIComponent(document.getElementById('customfield_30').value);
+// let idstdserv = encodeURIComponent(document.getElementById('customfield_26').value);
+// let dscr = encodeURIComponent(document.getElementById('customfield_27').value);
+// let str = encodeURIComponent(document.getElementById('customfield_28').value);
+// let erx = encodeURIComponent(document.getElementById('customfield_29').value);
+// let ary = encodeURIComponent(document.getElementById('customfield_30').value);
 let activeButtons = document.querySelectorAll('.authbtn.activebtn');
 
 for (const button of activeButtons) {
@@ -872,13 +872,13 @@ const crm2Options = document.getElementById('crm2srvdskoptions');
 		  document.getElementById(id).style.display = 'none';
 		});
 
-		document.getElementById('create_9').addEventListener('click', function() {
+		document.getElementById('createsd').addEventListener('click', function() {
 
-		let idstdserv = encodeURIComponent(document.getElementById('customfield_40').value);
-		let dscr = encodeURIComponent(document.getElementById('customfield_41').value);
-		let str = encodeURIComponent(document.getElementById('customfield_42').value);
-		let erx = encodeURIComponent(document.getElementById('customfield_43').value);
-		let ary = encodeURIComponent(document.getElementById('customfield_44').value);
+		// let idstdserv = encodeURIComponent(document.getElementById('customfield_40').value);
+		// let dscr = encodeURIComponent(document.getElementById('customfield_41').value);
+		// let str = encodeURIComponent(document.getElementById('customfield_42').value);
+		// let erx = encodeURIComponent(document.getElementById('customfield_43').value);
+		// let ary = encodeURIComponent(document.getElementById('customfield_44').value);
 		let activeButtons = document.querySelectorAll('.crm2sbtn.activebtn');
 
 		for (const button of activeButtons) {
@@ -905,13 +905,13 @@ const billingOptions = document.getElementById('billingsrvdskoptions');
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_6').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_32').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_33').value);
-	let str = encodeURIComponent(document.getElementById('customfield_34').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_35').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_36').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_32').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_33').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_34').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_35').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_36').value);
 	let activeButtons = document.querySelectorAll('.billbtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -937,13 +937,13 @@ document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_11').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_50').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_52').value);
-	let str = encodeURIComponent(document.getElementById('customfield_53').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_54').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_55').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_50').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_52').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_53').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_54').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_55').value);
 	let activeButtons = document.querySelectorAll('.vimbugsbtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -969,13 +969,13 @@ document.getElementById('optionStudcab').onclick = function () { //student-cabin
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_13').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_61').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_62').value);
-	let str = encodeURIComponent(document.getElementById('customfield_63').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_64').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_65').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_61').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_62').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_63').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_64').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_65').value);
 	let activeButtons = document.querySelectorAll('.studcabbtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -1000,13 +1000,13 @@ document.getElementById('optionChat').onclick = function () { //chat-qa-support 
 		document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_14').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_66').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_67').value);
-	let str = encodeURIComponent(document.getElementById('customfield_68').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_69').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_70').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_66').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_67').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_68').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_69').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_70').value);
 	let activeButtons = document.querySelectorAll('.chatqabtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -1032,13 +1032,13 @@ operateoptions.forEach(id => {
 	document.getElementById(id).style.display = 'none';
 });
 
-document.getElementById('create_15').addEventListener('click', function() {
+document.getElementById('createsd').addEventListener('click', function() {
 
-let idstdserv = encodeURIComponent(document.getElementById('customfield_71').value);
-let dscr = encodeURIComponent(document.getElementById('customfield_72').value);
-let str = encodeURIComponent(document.getElementById('customfield_73').value);
-let erx = encodeURIComponent(document.getElementById('customfield_74').value);
-let ary = encodeURIComponent(document.getElementById('customfield_75').value);
+// let idstdserv = encodeURIComponent(document.getElementById('customfield_71').value);
+// let dscr = encodeURIComponent(document.getElementById('customfield_72').value);
+// let str = encodeURIComponent(document.getElementById('customfield_73').value);
+// let erx = encodeURIComponent(document.getElementById('customfield_74').value);
+// let ary = encodeURIComponent(document.getElementById('customfield_75').value);
 let activeButtons = document.querySelectorAll('.tripwbtn.activebtn');
 
 for (const button of activeButtons) {
@@ -1063,13 +1063,13 @@ document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_16').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_76').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_77').value);
-	let str = encodeURIComponent(document.getElementById('customfield_78').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_79').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_80').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_76').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_77').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_78').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_79').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_80').value);
 	let activeButtons = document.querySelectorAll('.analystbtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -1095,13 +1095,13 @@ document.getElementById('optionCorp').onclick = function () { //corp-support +
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_17').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_81').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_82').value);
-	let str = encodeURIComponent(document.getElementById('customfield_83').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_84').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_85').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_81').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_82').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_83').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_84').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_85').value);
 	let activeButtons = document.querySelectorAll('.corpbtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -1126,16 +1126,16 @@ document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_19').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 		
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_91').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_92').value);
-	let issuename = encodeURIComponent(document.getElementById('customfield_911').value);
-	let device = encodeURIComponent(document.getElementById('customfield_912').value);
-	let str = encodeURIComponent(document.getElementById('customfield_94').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_95').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_96').value);
-	let priorvalue = document.getElementById('prioritymbugs').value;
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_91').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_92').value);
+	// let issuename = encodeURIComponent(document.getElementById('customfield_911').value);
+	// let device = encodeURIComponent(document.getElementById('customfield_912').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_94').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_95').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_96').value);
+	// let priorvalue = document.getElementById('prioritymbugs').value;
 	let activeButtons = document.querySelectorAll('.mobbugsbtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -1161,16 +1161,16 @@ document.getElementById('optionAcademymobbugs').onclick = function () { //academ
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_24').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 		
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_118').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_121').value);
-	let issuename = encodeURIComponent(document.getElementById('customfield_119').value);
-	let device = encodeURIComponent(document.getElementById('customfield_120').value);
-	let str = encodeURIComponent(document.getElementById('customfield_122').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_123').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_124').value);
-	let priorvalue = document.getElementById('academyprioritymbugs').value;
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_118').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_121').value);
+	// let issuename = encodeURIComponent(document.getElementById('customfield_119').value);
+	// let device = encodeURIComponent(document.getElementById('customfield_120').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_122').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_123').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_124').value);
+	// let priorvalue = document.getElementById('academyprioritymbugs').value;
 	let activeButtons = document.querySelectorAll('.academymobbugsbtn.activebtn');
 
 	for (const button of activeButtons) {
@@ -1196,15 +1196,15 @@ document.getElementById('optionStudcabmobbugs').onclick = function () { //studen
 	  document.getElementById(id).style.display = 'none';
 	});
 
-	document.getElementById('create_21').addEventListener('click', function() {
+	document.getElementById('createsd').addEventListener('click', function() {
 		
-	let idstdserv = encodeURIComponent(document.getElementById('customfield_102').value);
-	let dscr = encodeURIComponent(document.getElementById('customfield_105').value);
-	let issuename = encodeURIComponent(document.getElementById('customfield_103').value);
-	let device = encodeURIComponent(document.getElementById('customfield_104').value);
-	let str = encodeURIComponent(document.getElementById('customfield_106').value);
-	let erx = encodeURIComponent(document.getElementById('customfield_107').value);
-	let ary = encodeURIComponent(document.getElementById('customfield_108').value);
+	// let idstdserv = encodeURIComponent(document.getElementById('customfield_102').value);
+	// let dscr = encodeURIComponent(document.getElementById('customfield_105').value);
+	// let issuename = encodeURIComponent(document.getElementById('customfield_103').value);
+	// let device = encodeURIComponent(document.getElementById('customfield_104').value);
+	// let str = encodeURIComponent(document.getElementById('customfield_106').value);
+	// let erx = encodeURIComponent(document.getElementById('customfield_107').value);
+	// let ary = encodeURIComponent(document.getElementById('customfield_108').value);
 	let activeButtons = document.querySelectorAll('.stcabmbsbtn.activebtn');
 
 	for (const button of activeButtons) {
