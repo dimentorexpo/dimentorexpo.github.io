@@ -1097,6 +1097,7 @@ let div = document.getElementById("AFMS_addMenu");
 
 // Select the body element to add the event listener
 document.querySelector('body').addEventListener('dblclick', (event) => {
+	if(event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA" && event.target.tagName !== "BUTTON"){
     // Add the mouse cursor coordinates to the div's content
     // Append the div to the body
     // Show the div
@@ -1110,6 +1111,7 @@ document.querySelector('body').addEventListener('dblclick', (event) => {
 		return [key, decodeURIComponent(v.join('='))];
 	}));
 	console.log(token)
+		}
 });
 
 document.querySelector('body').addEventListener('click', (event) => {
