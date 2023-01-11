@@ -3851,15 +3851,19 @@ function refreshTimerReminder() { // обновляет оставшееся в�
   const minutes = timearr.getMinutes();
   const seconds = timearr.getSeconds();
 
+  // Get alarm time from local storage
+  const setHours = localStorage.getItem("setchas");
+  const setMinutes = localStorage.getItem("setminuta");
+
   // Check if there is a chronostamp value in local storage
   if (localStorage.getItem("chronostamp") !== null && localStorage.getItem("chronostamp") > 0) {
     // Update reminder status and alarm time in form fields
     document.getElementById("reminderstatus").textContent = "🔔";
-    setchas.value = localStorage.getItem("setchas");
-    setminuta.value = localStorage.getItem("setminuta");
+    setchas.value = setHours;
+    setminuta.value = setMinutes;
 
     // Calculate time left until alarm goes off, in milliseconds
-    const timeLeft = (((localStorage.getItem("setchas") - hours) * 60 * 60) + ((localStorage.getItem("setminuta") - minutes) * 60) + (0 - seconds)) * 1000;
+    const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
     localStorage.setItem("chronostamp2", timeLeft);
 
     // Set timeout to trigger the alarm
@@ -3884,15 +3888,19 @@ function refreshTimerReminder1() { // обновляет оставшееся в
   const minutes = timearr.getMinutes();
   const seconds = timearr.getSeconds();
 
+  // Get alarm time from local storage
+  const setHours = localStorage.getItem("setchas1");
+  const setMinutes = localStorage.getItem("setminuta1");
+
   // Check if there is a chronostamp value in local storage
   if (localStorage.getItem("chronostamp1") !== null && localStorage.getItem("chronostamp1") > 0) {
     // Update reminder status and alarm time in form fields
     document.getElementById("reminderstatus").textContent = "🔔";
-    setchas1.value = localStorage.getItem("setchas1");
-    setminuta1.value = localStorage.getItem("setminuta1");
+    setchas1.value = setHours;
+    setminuta1.value = setMinutes;
 
     // Calculate time left until alarm goes off, in milliseconds
-    const timeLeft = ((( localStorage.getItem("setchas1") - hours) * 60 * 60) + ((localStorage.getItem("setminuta1") - minutes) * 60) + (0 - seconds)) * 1000;
+    const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
     localStorage.setItem("chronostamp22", timeLeft);
 
     // Set timeout to trigger the alarm
