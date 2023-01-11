@@ -586,14 +586,73 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 
 	// setTimeout(getprsuplasttask, 2000)
 	
-$('.sdbtn').click(function () {
-    $('.sdbtn').not(this).removeClass('activebtnsd');
-    $(this).toggleClass('activebtnsd');
+// $('.sdbtn').click(function () {
+    // $('.sdbtn').not(this).removeClass('activebtnsd');
+    // $(this).toggleClass('activebtnsd');
 
-    let index = $('.sdbtn').index(this);
-    $('#' + otherOptions[index]).toggle();
-    $(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', ')).hide();
-});
+    // let index = $('.sdbtn').index(this);
+    // $('#' + otherOptions[index]).toggle();
+    // $(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', ')).hide();
+// });
+
+// $('.sdbtn').click(function () {
+    // $('.sdbtn').not(this).removeClass('activebtnsd');
+    // $(this).toggleClass('activebtnsd');
+
+    // let index = $('.sdbtn').index(this);
+    // $('#' + otherOptions[index]).toggle();
+    // $(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', ')).hide();
+
+    // if (otherOptions[index] === "academymobbugsoptions" || otherOptions[index] === "mobbugsoptions") {
+        // document.getElementById('prioritymbugs').style.display = '';
+        // document.getElementById('custom_appinfo').style.display = '';
+        // document.getElementById('custom_deviceinfo').style.display = '';
+    // } else if (otherOptions[index] === 'studcabmobbugskoptions') {
+        // document.getElementById('prioritymbugs').style.display = 'none';
+        // document.getElementById('custom_appinfo').style.display = '';
+        // document.getElementById('custom_deviceinfo').style.display = '';
+    // } else {
+        // document.getElementById('prioritymbugs').style.display = 'none';
+        // document.getElementById('custom_appinfo').style.display = 'none';
+        // document.getElementById('custom_deviceinfo').style.display = 'none';
+    // }
+// });
+
+const sdbtn = document.getElementsByClassName('sdbtn');
+for(let i = 0; i < sdbtn.length; i++) {
+  sdbtn[i].onclick = function() {
+    let activeBtnsd = document.getElementsByClassName('activebtnsd');
+    for(let j = 0; j < activeBtnsd.length; j++) {
+      activeBtnsd[j].classList.remove('activebtnsd');
+    }
+    this.classList.toggle('activebtnsd');
+
+    let index = i;
+    document.getElementById(otherOptions[index]).classList.toggle('show');
+    let otherElements = document.querySelectorAll(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', '));
+    for(let k = 0; k < otherElements.length; k++) {
+        otherElements[k].classList.remove('show');
+    }
+    if (otherOptions[index] === "academymobbugsoptions" || otherOptions[index] === "mobbugsoptions") {
+        document.getElementById('prioritymbugs').style.display = '';
+        document.getElementById('custom_appinfo').style.display = '';
+        document.getElementById('custom_deviceinfo').style.display = '';
+    } else if (otherOptions[index] === 'studcabmobbugskoptions') {
+        document.getElementById('prioritymbugs').style.display = 'none';
+        document.getElementById('custom_appinfo').style.display = '';
+        document.getElementById('custom_deviceinfo').style.display = '';
+    } else {
+        document.getElementById('prioritymbugs').style.display = 'none';
+        document.getElementById('custom_appinfo').style.display = 'none';
+        document.getElementById('custom_deviceinfo').style.display = 'none';
+    }
+  }
+}
+
+
+
+
+
 	
 		buttons.forEach(button => {
 		  $(button).click(function() {
