@@ -282,7 +282,7 @@ var win_servicedesk = // описание элементов окна Service De
                 </div>
 				
 				<div>
-					<select style="height:28px; margin-left: 5px; margin-top: 5px; display:none;" id="prioritymbugs">
+					<select style="height:28px; margin-left: 21px; margin-top: 5px; display:none;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="1">Blocker</option>
 							<option value="2">Critical</option>
@@ -291,13 +291,13 @@ var win_servicedesk = // описание элементов окна Service De
 							<option value="4">Minor</option>
 							<option value="5">Trivial</option>
 					   </select>
-					<input id="custom_id" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield" style="margin-left: 30px;">
-                    <input id="custom_appinfo" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield" style="margin-left: 30px; display:none;"></input>
-                    <input id="custom_deviceinfo" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield" style="margin-left: 30px; display:none;"></input>
-					<textarea id="custom_descr" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield" style="margin-left: 30px;"></textarea>
-					<textarea id="custom_str" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield" style="margin-left: 30px;"></textarea>
-					<textarea id="custom_er" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield" style="margin-left: 30px;"></textarea>
-					<textarea id="custom_ar" placeholder="Фактическое поведение"  class="sdexpecactual removefield" style="margin-left: 30px;"></textarea>
+					<input id="custom_id" placeholder="ID Пользователей (Id П, Id У)"  class="sdcustfieldformlines removefield" style="margin-left: 21px;">
+                    <input id="custom_appinfo" placeholder="Приложение / Версия / Платформа"  class="sdcustfieldformlines removefield" style="margin-left: 21px; display:none;"></input>
+                    <input id="custom_deviceinfo" placeholder="Девайс / ОС"  class="sdcustfieldformlines removefield" style="margin-left: 21px; display:none;"></input>
+					<textarea id="custom_descr" placeholder="Описание проблемы"  class="sdcustfieldformlines removefield" style="margin-left: 21px;"></textarea>
+					<textarea id="custom_str" placeholder="Как воспроизвести ошибку?"  class="sdcustfieldformlines removefield" style="margin-left: 21px;"></textarea>
+					<textarea id="custom_er" placeholder="Ожидаемое поведение"  class="sdexpecactual removefield" style="margin-left: 21px;"></textarea>
+					<textarea id="custom_ar" placeholder="Фактическое поведение"  class="sdexpecactual removefield" style="margin-left: 21px;"></textarea>
 					<button id="createsd" style="width: 150px; position:relative; left:30%; margin-bottom:5px;">Создать</button>
 				</div>
 	        </span>
@@ -638,7 +638,10 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 
 
 document.getElementById('optionTeacher').addEventListener('click', function() { // Teachers+
-  const teacherOptions = document.getElementById('teacherssrvdskoptions');
+	const teacherOptions = document.getElementById('teacherssrvdskoptions');
+  	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
   if (teacherOptions.style.display === 'none') {
     teacherOptions.style.display = '';
@@ -655,7 +658,10 @@ document.getElementById('optionTeacher').addEventListener('click', function() { 
 });
 
 document.getElementById('optionEdModel').onclick = function () { // Em-qa-support + 
-const EdModelOptions = document.getElementById('edumodeloptions');
+	const EdModelOptions = document.getElementById('edumodeloptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
  if (EdModelOptions.style.display === 'none') {
 EdModelOptions.style.display = '';
@@ -672,7 +678,10 @@ operateoptions.forEach(id => {
 }
 
 document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
-  const billQaOptions = document.getElementById('billingqasrvdskoptions');
+	const billQaOptions = document.getElementById('billingqasrvdskoptions');
+  	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
   if (billQaOptions.style.display === 'none') {
 	billQaOptions.style.display = '';
@@ -689,7 +698,10 @@ document.getElementById('optionBillingQA').onclick = function () { //BillingQA +
 }
 
 document.getElementById('optionVimvideocall').onclick = function () { //Vim-video-call +
-  const vimVidCallOptions = document.getElementById('vimvidoptions');
+	const vimVidCallOptions = document.getElementById('vimvidoptions');
+  	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
   if (vimVidCallOptions.style.display === 'none') {
 	vimVidCallOptions.style.display = '';
@@ -706,7 +718,10 @@ document.getElementById('optionVimvideocall').onclick = function () { //Vim-vide
 }
 
 document.getElementById('optionOnboarding').onclick = function () { //C1 Onboarding +
-  const c1sOptions = document.getElementById('c1srvdskoptions');
+	const c1sOptions = document.getElementById('c1srvdskoptions');
+  	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
   if (c1sOptions.style.display === 'none') {
 	c1sOptions.style.display = '';
@@ -723,7 +738,10 @@ document.getElementById('optionOnboarding').onclick = function () { //C1 Onboard
 }
 
 document.getElementById('optionSchedule').onclick = function () { // Schedule +
-  const schdOptions = document.getElementById('schedulesrvdskoptions');
+	const schdOptions = document.getElementById('schedulesrvdskoptions');
+  	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 	if (schdOptions.style.display === 'none') {
 	schdOptions.style.display = '';
@@ -740,7 +758,10 @@ document.getElementById('optionSchedule').onclick = function () { // Schedule +
 }
 
 document.getElementById('optionAuth').onclick = function () { //Auth +
-const authOptions = document.getElementById('authsrvdskoptions');
+	const authOptions = document.getElementById('authsrvdskoptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 if (authOptions.style.display === 'none') {
 authOptions.style.display = '';
@@ -757,7 +778,10 @@ operateoptions.forEach(id => {
 }
 
 document.getElementById('optionCRM2').onclick = function () { //CRM2 + 
-const crm2Options = document.getElementById('crm2srvdskoptions');
+	const crm2Options = document.getElementById('crm2srvdskoptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 		if (crm2Options.style.display === 'none') {
 			crm2Options.style.display = '';
@@ -774,9 +798,11 @@ const crm2Options = document.getElementById('crm2srvdskoptions');
 }
 
 document.getElementById('optionBilling').onclick = function () { //billing +
-
-const billingOptions = document.getElementById('billingsrvdskoptions');
-
+	const billingOptions = document.getElementById('billingsrvdskoptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
+	
 	if (billingOptions.style.display === 'none') {
 		billingOptions.style.display = '';
 
@@ -793,6 +819,9 @@ const billingOptions = document.getElementById('billingsrvdskoptions');
 
 document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
 	const vmBugsOptions = document.getElementById('vimbugsoptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 	if (vmBugsOptions.style.display === 'none') {
 		vmBugsOptions.style.display = '';
@@ -810,6 +839,9 @@ document.getElementById('optionVimbugs').onclick = function () { //vimbugs +
 
 document.getElementById('optionStudcab').onclick = function () { //student-cabinet-bugs +
 	const studCabOptions = document.getElementById('studcaboptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 	if (studCabOptions.style.display === 'none') {
 		studCabOptions.style.display = '';
@@ -827,6 +859,9 @@ document.getElementById('optionStudcab').onclick = function () { //student-cabin
 
 document.getElementById('optionChat').onclick = function () { //chat-qa-support +
 	const chatQaOptions = document.getElementById('chatqaoptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 	if (chatQaOptions.style.display === 'none') {
 		chatQaOptions.style.display = '';
@@ -843,7 +878,10 @@ document.getElementById('optionChat').onclick = function () { //chat-qa-support 
 }
 
 document.getElementById('optionTripwire').onclick = function () { //exp-tripwire-bugs +
-const tripWireOptions = document.getElementById('tripwireoptions');
+	const tripWireOptions = document.getElementById('tripwireoptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 if (tripWireOptions.style.display === 'none') {
 	tripWireOptions.style.display = '';
@@ -860,7 +898,10 @@ operateoptions.forEach(id => {
 }
 
 document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl +
- const analystOptions = document.getElementById('analystoptions');
+	const analystOptions = document.getElementById('analystoptions');
+ 	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 	if (analystOptions.style.display === 'none') {
 		analystOptions.style.display = '';
@@ -878,6 +919,9 @@ document.getElementById('optionAnalyst').onclick = function () { //analyst-gm-tl
 
 document.getElementById('optionCorp').onclick = function () { //corp-support +
 	const corpOptions = document.getElementById('corpoptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = 'none'
+	document.getElementById('custom_deviceinfo').style.display = 'none'
 
 	if (corpOptions.style.display === 'none') {
 		corpOptions.style.display = '';
@@ -895,6 +939,9 @@ document.getElementById('optionCorp').onclick = function () { //corp-support +
 
 document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
 	const mobOptions = document.getElementById('mobbugsoptions');
+	document.getElementById('prioritymbugs').style.display = ''
+	document.getElementById('custom_appinfo').style.display = ''
+	document.getElementById('custom_deviceinfo').style.display = ''
 
 	if (mobOptions.style.display === 'none') {
 		mobOptions.style.display = '';
@@ -912,6 +959,9 @@ document.getElementById('optionMobbugs').onclick = function () { //mobile-bugs +
 
 document.getElementById('optionAcademymobbugs').onclick = function () { //academy-mobile-bugs + 
 	const acadMobOptions = document.getElementById('academymobbugsoptions');
+	document.getElementById('prioritymbugs').style.display = ''
+	document.getElementById('custom_appinfo').style.display = ''
+	document.getElementById('custom_deviceinfo').style.display = ''
 
 	if (acadMobOptions.style.display === 'none') {
 		acadMobOptions.style.display = '';
@@ -929,6 +979,9 @@ document.getElementById('optionAcademymobbugs').onclick = function () { //academ
 
 document.getElementById('optionStudcabmobbugs').onclick = function () { //student-cabint-mobile-bugs +
 	const studCabMobOptions = document.getElementById('studcabmobbugskoptions');
+	document.getElementById('prioritymbugs').style.display = 'none'
+	document.getElementById('custom_appinfo').style.display = ''
+	document.getElementById('custom_deviceinfo').style.display = ''
 
 	if (studCabMobOptions.style.display === 'none') {
 		studCabMobOptions.style.display = '';
