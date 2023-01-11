@@ -1103,7 +1103,7 @@ document.querySelector('body').addEventListener('dblclick', (event) => {
     // Show the div
     div.style.display = "block";
     // Set the div's position
-    div.style.left = event.clientX + "px";
+    div.style.left = (event.clientX - 180) + "px";
     div.style.top = event.clientY + "px";
 
 	token = Object.fromEntries(document.cookie.split(/; */).map(c => {
