@@ -1273,11 +1273,11 @@ function prepKC() { //функция подготовки расширения �
 	
 	//Neural network
 	
-	const languageSwitcher = document.querySelector('.user_menu-language_switcher');
-	const onlyForTp = document.querySelectorAll('.onlyfortp');
-	const onlyForKc = document.querySelectorAll('.onlyforkc');
+	let languageSwitcher = document.querySelector('.user_menu-language_switcher');
+	let onlyForTp = document.querySelectorAll('.onlyfortp');
+	let onlyForKc = document.querySelectorAll('.onlyforkc');
 
-	const setDisplayStyle = (elements, value) => {
+	let setDisplayStyle = (elements, value) => {
 	  elements.forEach(element => {
 		element.style.display = value;
 	  });
