@@ -1000,9 +1000,9 @@ document.getElementById('optionStudcabmobbugs').onclick = function () { //studen
 	document.getElementById('createsd').addEventListener('click', function() {
 		
 		let priorityMobile = document.getElementById('prioritymbugs')
-		let idUser = document.getElementById('custom_id').value
-		let appInfo = document.getElementById('custom_appinfo').value
-		let deviceInfo = document.getElementById('custom_deviceinfo').value
+		let idUser = document.getElementById('custom_id')
+		let appInfo = document.getElementById('custom_appinfo')
+		let deviceInfo = document.getElementById('custom_deviceinfo')
 		let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value)
 		let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value)
 		let expectedResult = encodeURIComponent(document.getElementById('custom_er').value)
@@ -1015,10 +1015,10 @@ document.getElementById('optionStudcabmobbugs').onclick = function () { //studen
 				console.log(`Selected topic: ${button.innerText}`);
 			}
 		} else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '') {
-			sendRequestMobWithPriority(priorityMobile, idUser, appInfo, deviceInfo, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+			sendRequestMobWithPriority(priorityMobile.value, idUser, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
 			console.log(`Selected topic: ${button.innerText}`);
 		} else if (priorityMobile.style.display == 'none' && appInfo.style.display == '' && deviceInfo.style.display == '') {
-			sendRequestMobNoPriority(idUser, appInfo, deviceInfo, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+			sendRequestMobNoPriority(idUser, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
 			console.log(`Selected topic: ${button.innerText}`);
 		}
 
