@@ -1097,7 +1097,7 @@ let div = document.getElementById("AFMS_addMenu");
 
 // Select the body element to add the event listener
 document.querySelector('body').addEventListener('dblclick', (event) => {
-	if(event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA" && event.target.tagName !== "BUTTON"){
+	if(event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA" && event.target.tagName !== "BUTTON" && event.target.tagName !== "H1" && event.target.tagName !== "H2" && event.target.tagName !== "H3" && event.target.tagName !== "UL" && event.target.tagName !== "LI" && event.target.tagName !== "VIM-WORD" && event.target.tagName !== "P" ){ 
     // Add the mouse cursor coordinates to the div's content
     // Append the div to the body
     // Show the div
