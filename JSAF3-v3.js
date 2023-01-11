@@ -1971,7 +1971,7 @@ function customTemplates(language = '') { //собственные шаблон�
     var buttonOpenTmpWindow = document.createElement('button')
     buttonOpenTmpWindow.innerHTML = '📒'
     buttonOpenTmpWindow.title = 'Открывает окно для добавления своих шаблонов либо информации в ячейки в этом поле'
-    buttonOpenTmpWindow.style.marginLeft = '7px'
+    //buttonOpenTmpWindow.style.marginLeft = '7px'
     buttonOpenTmpWindow.onclick = function () {
         var a = document.getElementById('cstmTmplates')
         if (a.style.display == '')
@@ -1981,7 +1981,7 @@ function customTemplates(language = '') { //собственные шаблон�
     }
 
     var tmpA = document.getElementById('AF_helper').children[0].children[0].children[0].children[0]
-    if (tmpA.children[1].innerHTML != 'tmps')
+    if (tmpA.children[1].innerHTML != '📒')
         tmpA.insertBefore(buttonOpenTmpWindow, tmpA.children[1])
 
     function refreshHotTmps() {
