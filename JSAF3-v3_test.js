@@ -3857,34 +3857,68 @@ function refreshTimerReminder() {
 }
 
 
+// function setRemindAf(tsname) { //функция  при наступлении времени перевода в статус занят Будильник №1
+    // fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+        // "headers": {
+            // "content-type": "application/json",
+        // },
+        // "referrer": "https://skyeng.autofaq.ai/tickets/archive",
+        // "referrerPolicy": "strict-origin-when-cross-origin",
+        // "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
+        // "method": "POST",
+        // "mode": "cors",
+        // "credentials": "include"
+    // });
+    // alert("Время ставить занят! :D");
+    // localStorage.removeItem(tsname);
+
+    // if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
+        // document.getElementById('reminderstatus').textContent = "🔕";
+    // else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
+        // document.getElementById('reminderstatus').textContent = "🔔";
+    // else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
+        // document.getElementById('reminderstatus').textContent = "🔔";
+    // else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
+        // document.getElementById('reminderstatus').textContent = "🔔";
+
+    // if (tsname == 'chronostamp') {
+        // setchas.value = "";
+        // setminuta.value = "";
+    // } else if (tsname == 'chronostamp1') {
+        // setchas1.value = "";
+        // setminuta1.value = "";
+    // }
+// }
+
 function setRemindAf(tsname) { //функция  при наступлении времени перевода в статус занят Будильник №1
+    const data = {
+        command: "DO_SET_OPERATOR_STATUS",
+        status: "Busy",
+        source: "Operator"
+    };
+
     fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
-        "headers": {
-            "content-type": "application/json",
-        },
-        "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+        mode: "cors",
+        credentials: "include"
     });
+
     alert("Время ставить занят! :D");
     localStorage.removeItem(tsname);
 
-    if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
-        document.getElementById('reminderstatus').textContent = "🔕";
-    else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
-        document.getElementById('reminderstatus').textContent = "🔔";
-    else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
-        document.getElementById('reminderstatus').textContent = "🔔";
-    else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
-        document.getElementById('reminderstatus').textContent = "🔔";
+    const reminderstatus = document.getElementById('reminderstatus');
+    if (!localStorage.getItem('chronostamp') && !localStorage.getItem('chronostamp1')) {
+        reminderstatus.textContent = "🔕";
+    } else {
+        reminderstatus.textContent = "🔔";
+    }
 
-    if (tsname == 'chronostamp') {
+    if (tsname === 'chronostamp') {
         setchas.value = "";
         setminuta.value = "";
-    } else if (tsname == 'chronostamp1') {
+    } else if (tsname === 'chronostamp1') {
         setchas1.value = "";
         setminuta1.value = "";
     }
