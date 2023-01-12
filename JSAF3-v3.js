@@ -3884,9 +3884,13 @@ function setRemindAf(tsname) { //функция  при наступлении �
     if (tsname === 'chronostamp') {
         setchas.value = "";
         setminuta.value = "";
+        localStorage.removeItem('setchas');
+        localStorage.removeItem('setminuta');
     } else if (tsname === 'chronostamp1') {
         setchas1.value = "";
         setminuta1.value = "";
+        localStorage.removeItem('setchas1');
+        localStorage.removeItem('setminuta1');
     }
 }
 
@@ -5461,6 +5465,8 @@ document.getElementById('clock_remin').ondblclick = function () {		// Удале
         clearTimeout(abortTimeOut)
         localStorage.removeItem('chronostamp')
         localStorage.removeItem('chronostamp2')
+        localStorage.removeItem('setchas')
+        localStorage.removeItem('setminuta')
         setchas.value = ""
         setminuta.value = ""
         alert("Будильник удален")
@@ -5473,6 +5479,8 @@ document.getElementById('clock_remin1').ondblclick = function () {		// Удал�
         clearTimeout(abortTimeOut1)
         localStorage.removeItem('chronostamp1')
         localStorage.removeItem('chronostamp22')
+        localStorage.removeItem('setchas1')
+        localStorage.removeItem('setminuta1')
         setchas1.value = ""
         setminuta1.value = ""
         alert("Будильник удален")
