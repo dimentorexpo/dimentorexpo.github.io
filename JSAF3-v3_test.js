@@ -3828,80 +3828,26 @@ function clock_on_javascript_3() { //таймер отсчета до сраба
     document.getElementById("clock_remin1").innerHTML = time1;
 }
 
-
-function refreshTimerReminder() { // обновляет оставшееся время будильника №1
-    // Get current time
-    const timearr = new Date();
-    const hours = timearr.getHours();
-    const minutes = timearr.getMinutes();
-    const seconds = timearr.getSeconds();
-
-    // Get alarm time from local storage
-    const setHours = localStorage.getItem("setchas");
-    const setMinutes = localStorage.getItem("setminuta");
-
-    // Check if there is a chronostamp value in local storage
-    if (localStorage.getItem("chronostamp") !== null && localStorage.getItem("chronostamp") > 0) {
-        // Update reminder status and alarm time in form fields
-        document.getElementById("reminderstatus").textContent = "🔔";
-        setchas.value = setHours;
-        setminuta.value = setMinutes;
-
-        // Calculate time left until alarm goes off, in milliseconds
-        const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
-        localStorage.setItem("chronostamp2", timeLeft);
-
-        // Set timeout to trigger the alarm
-        clearTimeout(abortTimeOut);
+function refreshTimerReminder() {
+    if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+        setchas.value = localStorage.getItem('setchas');
+        setminuta.value = localStorage.getItem('setminuta');
+        var timearr = new Date();
+        var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp2', chronostamp2);
         abortTimeOut = setTimeout(function () {
-            setRemindAf("chronostamp");
-        }, localStorage.getItem("chronostamp2"));
-    } else if (localStorage.getItem("chronostamp") === null && localStorage.getItem("chronostamp1") === null) {
-        // No alarm is set, clear timeout and update reminder status
-        clearTimeout(abortTimeOut);
-        document.getElementById("reminderstatus").textContent = "🔕";
-    } else if (localStorage.getItem("chronostamp1") !== null) {
-        // Update reminder status
-        document.getElementById("reminderstatus").textContent = "🔔";
-    }
-}
+            setRemindAf('chronostamp')
+        }, localStorage.getItem('chronostamp2'));
+    } else if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+        setchas1.value = localStorage.getItem('setchas1');
+        setminuta1.value = localStorage.getItem('setminuta1');
+        var timearr1 = new Date();
+        var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp22', chronostamp22);
+        abortTimeOut1 = setTimeout(function () {
 
-function refreshTimerReminder1() { // обновляет оставшееся время будильника №2
-    // Get current time
-    const timearr = new Date();
-    const hours = timearr.getHours();
-    const minutes = timearr.getMinutes();
-    const seconds = timearr.getSeconds();
-
-    // Get alarm time from local storage
-    const setHours = localStorage.getItem("setchas1");
-    const setMinutes = localStorage.getItem("setminuta1");
-
-    // Check if there is a chronostamp value in local storage
-    if (localStorage.getItem("chronostamp1") !== null && localStorage.getItem("chronostamp1") > 0) {
-        // Update reminder status and alarm time in form fields
-        document.getElementById("reminderstatus").textContent = "🔔";
-        setchas1.value = setHours;
-        setminuta1.value = setMinutes;
-
-        // Calculate time left until alarm goes off, in milliseconds
-        const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
-        localStorage.setItem("chronostamp22", timeLeft);
-
-        // Set timeout to trigger the alarm
-        clearTimeout(abortTimeOut);
-        abortTimeOut = setTimeout(function () {
-            setRemindAf("chronostamp1");
-        }, localStorage.getItem("chronostamp22"));
-    } else if (localStorage.getItem("chronostamp") === null && localStorage.getItem("chronostamp1") === null) {
-        // No alarm is set, clear timeout and update reminder status
-        clearTimeout(abortTimeOut1);
-        document.getElementById("reminderstatus").textContent = "🔕";
-    } else if (localStorage.getItem("chronostamp") !== null) {
-        // Update reminder status
-        document.getElementById("reminderstatus").textContent = "🔔";
-    }
-}
 
 function setRemindAf(tsname) { //функция  при наступлении времени перевода в статус занят Будильник №1
     fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
@@ -5527,7 +5473,6 @@ document.getElementById('clock_remin1').ondblclick = function () {		// Удал�
 }
 
 refreshTimerReminder(); //обновляет оставшееся время до будильника №1
-refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
 setInterval(clock_on_javascript_1, 1000);
 setInterval(clock_on_javascript_2, 1000);
