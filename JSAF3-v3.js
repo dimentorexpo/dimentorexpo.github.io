@@ -38,8 +38,8 @@ if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == u
 }						// перменная для отмены будильника 2
 
 if (localStorage.getItem('defaclschatcolor') == null || localStorage.getItem('defaclschatcolor') == undefined)
-	localStorage.setItem('defaclschatcolor','#FF47CA')
-		
+    localStorage.setItem('defaclschatcolor', '#FF47CA')
+
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var modulesarray = [];
 function mystyles() {
@@ -466,7 +466,7 @@ function mystyles() {
 		border-left: 8px solid #b4b4b4;
 		transition: all 1s ease;
 	}
-	
+
 	#opennewcat:hover , #crmopersstatuses:hover {
 		opacity: 1 !important;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
@@ -475,7 +475,7 @@ function mystyles() {
 		height:45px !important;
 		font-size:23px !important;
 	}
-	
+
 	.leftbaropers {
 		display:flex;
 		align-items:center;
@@ -488,7 +488,7 @@ function mystyles() {
 		font-weight:700;
 		font-size:15px;
 	}
-		
+
 	#clicktounhidestatuses:hover {
 		background:DeepSkyBlue;
 		color:white !important;
@@ -663,55 +663,55 @@ localStorage.setItem('SMART_TABLE_SORTED_INFO(/tickets/archive)', '{\"columnKey\
 // Блок горячих клавиш
 const API_ENDPOINT = 'https://skyeng.autofaq.ai/api/reason8/operator/status';
 const fetchOptions = {
-  headers: {
-    'content-type': 'application/json',
-  },
-  referrer: 'https://skyeng.autofaq.ai/tickets/archive',
-  referrerPolicy: 'strict-origin-when-cross-origin',
-  body: '',
-  method: 'POST',
-  mode: 'cors',
-  credentials: 'include',
+    headers: {
+        'content-type': 'application/json',
+    },
+    referrer: 'https://skyeng.autofaq.ai/tickets/archive',
+    referrerPolicy: 'strict-origin-when-cross-origin',
+    body: '',
+    method: 'POST',
+    mode: 'cors',
+    credentials: 'include',
 };
 
 function changeStatus(status) { // функция изменения статуса оператора
-  fetchOptions.body = `{ "command": "DO_SET_OPERATOR_STATUS", "status": "${status}", "source": "Operator" }`;
-  fetch(API_ENDPOINT, fetchOptions)
-    .then((res) => {
-      console.log(`Status changed to ${status}`);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+    fetchOptions.body = `{ "command": "DO_SET_OPERATOR_STATUS", "status": "${status}", "source": "Operator" }`;
+    fetch(API_ENDPOINT, fetchOptions)
+        .then((res) => {
+            console.log(`Status changed to ${status}`);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
 }
 
 if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
-  document.onkeydown = (event) => {
-    if (event.altKey && event.code === 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
-      changeStatus('Offline'); 
-    } else if (event.altKey && event.code === 'KeyI') { // горячие клавиши для смены статуса в Занят
-      changeStatus('Busy');
-    }
-  };
+    document.onkeydown = (event) => {
+        if (event.altKey && event.code === 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
+            changeStatus('Offline');
+        } else if (event.altKey && event.code === 'KeyI') { // горячие клавиши для смены статуса в Занят
+            changeStatus('Busy');
+        }
+    };
 }
 
 // Конец блока горячих клавиш
 
 async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
-  const a = await fetch('https://skyeng.autofaq.ai/api/operators/statistic/currentState', {
-    credentials: 'include',
-  });
-  const b = await a.json();
-  const me = document.querySelector('.user_menu-dropdown-user_name');
-	operatorsarray = b.onOperator;
-	
-  b.onOperator.forEach((s) => {
-    if (s.operator != null && me && s.operator.fullName === me.textContent) {
-      operatorId = s.operator.id;
-      afopername = s.operator.fullName;
-      console.log(`Мой ID: ${operatorId}`);
-    }
-  });
+    const a = await fetch('https://skyeng.autofaq.ai/api/operators/statistic/currentState', {
+        credentials: 'include',
+    });
+    const b = await a.json();
+    const me = document.querySelector('.user_menu-dropdown-user_name');
+    operatorsarray = b.onOperator;
+
+    b.onOperator.forEach((s) => {
+        if (s.operator != null && me && s.operator.fullName === me.textContent) {
+            operatorId = s.operator.id;
+            afopername = s.operator.fullName;
+            console.log(`Мой ID: ${operatorId}`);
+        }
+    });
 }
 
 function startTimer() { // большая функция по таймеру автозакрытия, работой с аудио, добавлением доп кнопок справа в панель информации о пользователе и кнопок быстрого выставления тегов
@@ -856,56 +856,56 @@ function startTimer() { // большая функция по таймеру а�
                             }
                         }
                     }
-				
-					const userTypeId = document.querySelector('#userTypeId');
-					if (!userTypeId) {
-					  let userTypeName = document.createElement('span');
-					  userTypeName.id = "userTypeId";
-					  document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName);
 
-					  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
-					  for (let i = 0; userDetailsList.childNodes[i]; i++) {
-						const childNode = userDetailsList.childNodes[i];
-						const textContent = childNode.childNodes[1].textContent;
-						if (textContent === "teacher") {
-						  document.getElementById('userTypeId').textContent = "(П)";
-						  document.getElementById('userTypeId').style.color = "#1E90FF";
-						  break;
-						} else if (textContent === "student") {
-						  document.getElementById('userTypeId').textContent = "(У)";
-						  document.getElementById('userTypeId').style.color = "#DC143C";
-						  break;
-						} else if (textContent === "parent") {
-						  document.getElementById('userTypeId').textContent = "(РУ)";
-						  document.getElementById('userTypeId').style.color = "#DC143C";
-						  break;
-						}
-					  }
-					}
+                    const userTypeId = document.querySelector('#userTypeId');
+                    if (!userTypeId) {
+                        let userTypeName = document.createElement('span');
+                        userTypeName.id = "userTypeId";
+                        document.getElementsByClassName('expert-user_details-name')[0].appendChild(userTypeName);
+
+                        const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+                        for (let i = 0; userDetailsList.childNodes[i]; i++) {
+                            const childNode = userDetailsList.childNodes[i];
+                            const textContent = childNode.childNodes[1].textContent;
+                            if (textContent === "teacher") {
+                                document.getElementById('userTypeId').textContent = "(П)";
+                                document.getElementById('userTypeId').style.color = "#1E90FF";
+                                break;
+                            } else if (textContent === "student") {
+                                document.getElementById('userTypeId').textContent = "(У)";
+                                document.getElementById('userTypeId').style.color = "#DC143C";
+                                break;
+                            } else if (textContent === "parent") {
+                                document.getElementById('userTypeId').textContent = "(РУ)";
+                                document.getElementById('userTypeId').style.color = "#DC143C";
+                                break;
+                            }
+                        }
+                    }
 
 
                     //добавил окраску бренда skyeng
-					
-					const expertDts = document.getElementsByClassName('expert-user_details-dt');
-					const brandToBackgroundColorMap = {
-					  skyeng: '#00AEFA',
-					  skysmart: '#2E8B57',
-					  'идёт урок': '#FF0000',
-					};
 
-					function setBackgroundColor(element, brand) {
-					  element.style.background = brandToBackgroundColorMap[brand];
-					}
+                    const expertDts = document.getElementsByClassName('expert-user_details-dt');
+                    const brandToBackgroundColorMap = {
+                        skyeng: '#00AEFA',
+                        skysmart: '#2E8B57',
+                        'идёт урок': '#FF0000',
+                    };
 
-					for (let i = 0; i < expertDts.length; i++) {
-					  if (expertDts[i].textContent === 'brand') {
-						const ps = document.getElementsByTagName('p');
-						for (let i = 0; i < ps.length; i++) {
-						  setBackgroundColor(ps[i], ps[i].textContent);
-						}
-					  }
-					}					
-			
+                    function setBackgroundColor(element, brand) {
+                        element.style.background = brandToBackgroundColorMap[brand];
+                    }
+
+                    for (let i = 0; i < expertDts.length; i++) {
+                        if (expertDts[i].textContent === 'brand') {
+                            const ps = document.getElementsByTagName('p');
+                            for (let i = 0; i < ps.length; i++) {
+                                setBackgroundColor(ps[i], ps[i].textContent);
+                            }
+                        }
+                    }
+
                 }
             }
         }
@@ -1004,64 +1004,64 @@ function firstLoadPage() { //первичаня загрузка страниц�
         }, 2000)
 
         // setTimeout(() => {
-            // let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            // let menubutarea = document.createElement('div')
-            // menubutarea.style = 'margin-right:20px;'
+        // let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+        // let menubutarea = document.createElement('div')
+        // menubutarea.style = 'margin-right:20px;'
 
-            // headmenulist.insertBefore(menubutarea, headmenulist.children[15])
-            // menubutarea.append(butmenu)
-            // headmenulist.insertBefore(menubar, headmenulist.children[15])
-            // menubar.append(document.getElementById('servDsk'))
-            // menubar.append(document.getElementById('JiraOpenForm'))
-            // menubar.append(document.getElementById('buttonOpenForm'))
-            // menubar.append(document.getElementById('butMarks'))
-            // menubar.append(document.getElementById('suggestform'))
-            // menubar.append(document.getElementById('otkaz'))
-            // menubar.append(document.getElementById('smartroomform'))
-            // menubar.append(document.getElementById('butLessonInfo'))
-            // menubar.append(document.getElementById('butChatHistory'))
-            // menubar.append(document.getElementById('butFrozeChat'))
-            // servDsk.classList.remove('inithide')
-            // JiraOpenForm.classList.remove('inithide')
-            // butopensugestform.classList.remove('inithide')
-            // butrefuse.classList.remove('inithide')
-            // butsmartroom.classList.remove('inithide')
-            // butLessonInfo.classList.remove('inithide')
-            // butChatHistory.classList.remove('inithide')
-            // butFrozeChat.classList.remove('inithide')
-            // butMarks.classList.remove('inithide')
-            // buttonOpenForm.classList.remove('inithide')
+        // headmenulist.insertBefore(menubutarea, headmenulist.children[15])
+        // menubutarea.append(butmenu)
+        // headmenulist.insertBefore(menubar, headmenulist.children[15])
+        // menubar.append(document.getElementById('servDsk'))
+        // menubar.append(document.getElementById('JiraOpenForm'))
+        // menubar.append(document.getElementById('buttonOpenForm'))
+        // menubar.append(document.getElementById('butMarks'))
+        // menubar.append(document.getElementById('suggestform'))
+        // menubar.append(document.getElementById('otkaz'))
+        // menubar.append(document.getElementById('smartroomform'))
+        // menubar.append(document.getElementById('butLessonInfo'))
+        // menubar.append(document.getElementById('butChatHistory'))
+        // menubar.append(document.getElementById('butFrozeChat'))
+        // servDsk.classList.remove('inithide')
+        // JiraOpenForm.classList.remove('inithide')
+        // butopensugestform.classList.remove('inithide')
+        // butrefuse.classList.remove('inithide')
+        // butsmartroom.classList.remove('inithide')
+        // butLessonInfo.classList.remove('inithide')
+        // butChatHistory.classList.remove('inithide')
+        // butFrozeChat.classList.remove('inithide')
+        // butMarks.classList.remove('inithide')
+        // buttonOpenForm.classList.remove('inithide')
         // }, 8000)
-		
-		function addElementsToList(elements, list) {
-		  elements.forEach((element) => {
-			list.append(element);
-		  });
-		}
 
-		setTimeout(() => {
-		  const headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0];
-		  const menubutarea = document.createElement('div');
-		  menubutarea.style = 'margin-right:20px;';
+        function addElementsToList(elements, list) {
+            elements.forEach((element) => {
+                list.append(element);
+            });
+        }
 
-		  headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
-		  menubutarea.append(butmenu);
-		  headmenulist.insertBefore(menubar, headmenulist.children[15]);
-		  const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat];
-		  addElementsToList(elements, menubar);
+        setTimeout(() => {
+            const headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0];
+            const menubutarea = document.createElement('div');
+            menubutarea.style = 'margin-right:20px;';
 
-		  servDsk.classList.remove('inithide');
-		  JiraOpenForm.classList.remove('inithide');
-		  butopensugestform.classList.remove('inithide');
-		  butrefuse.classList.remove('inithide');
-		  butsmartroom.classList.remove('inithide');
-		  butLessonInfo.classList.remove('inithide');
-		  butChatHistory.classList.remove('inithide');
-		  butFrozeChat.classList.remove('inithide');
-		  butMarks.classList.remove('inithide');
-		  buttonOpenForm.classList.remove('inithide');
-		}, 8000);
-		
+            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
+            menubutarea.append(butmenu);
+            headmenulist.insertBefore(menubar, headmenulist.children[15]);
+            const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat];
+            addElementsToList(elements, menubar);
+
+            servDsk.classList.remove('inithide');
+            JiraOpenForm.classList.remove('inithide');
+            butopensugestform.classList.remove('inithide');
+            butrefuse.classList.remove('inithide');
+            butsmartroom.classList.remove('inithide');
+            butLessonInfo.classList.remove('inithide');
+            butChatHistory.classList.remove('inithide');
+            butFrozeChat.classList.remove('inithide');
+            butMarks.classList.remove('inithide');
+            buttonOpenForm.classList.remove('inithide');
+        }, 8000);
+
 
         setInterval(startTimer, 1000)
     }
@@ -1075,101 +1075,101 @@ function timerHideButtons() { //функция добавления скрыти
 
         // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0] //определение отдела оператора
         // if (opsection == "ТП") {
-            // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
-                // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                    // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)")
-                        // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
+        // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
+        // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
+        // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)")
+        // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
-            // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
-                // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-                    // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Закрыть") {
-                       // // console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
-                        // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
-                    // }
+        // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
+        // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
+        // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Закрыть") {
+        // // console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
+        // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
         // }
-		
-		
-		// NeuralNetwork Version
-		let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
-
-		const hideElements = (modalContent, valuesToHide) => {
-		  for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
-			if (!valuesToHide.includes(modalContent.children[2].children[i].textContent)) {
-			  modalContent.children[2].children[i].style.display = 'none';
-			}
-		  }
-		}
-
-		if (opsection === 'ТП') {
-		  let modalContent = document.querySelector('.ant-modal-content');
-		  const heading = modalContent.children[1].children[0].childNodes[0].textContent;
-		  if (heading === 'Указать тему') {
-			hideElements(modalContent, [
-			  'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
-			  'Уроки V2',
-			  'Группа КМ (работает ежедневно с 8:00 до 21:55)',
-			  'Обратная связь ТП (работает ежедневно с 08:00-22:50)'
-			]);
-		  } else if (heading === 'Закрыть запрос?') {
-			hideElements(modalContent, [
-			  'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
-			  'Закрыть'
-			]);
-		  }
-		}
-
-
-        // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки 
-            // let selectorList = document.querySelectorAll('.sc-fzokOt');
-            // if (selectorList.length > 5) {
-                // for (let i = 0; i < selectorList.length; i++) {
-                    // if (selectorList[i].textContent == "Техподдержка исход crm2")
-                        // selectorList[i].style.backgroundColor = 'red'
-                    // if (selectorList[i].textContent == "Техподдержка 2-я линия crm2")
-                        // selectorList[i].style.backgroundColor = 'green'
-                // }
-            // }
         // }
-		
-	    let modalContent = document.querySelector('.ant-modal-content');
-		
-		const setBackgroundColors = (selectorList, valuesToColor) => {
-			for (let i = 0; i < selectorList.length; i++) {
-				for (const [value, color] of Object.entries(valuesToColor)) {
-					if (selectorList[i].textContent === value) {
-						selectorList[i].style.backgroundColor = color;
-					}
-				}
-			}
-		}
 
-		if (modalContent.children[1].children[0].childNodes[0].textContent === 'Создать задачу') {
-			const selectorList = document.querySelectorAll('.sc-fzokOt');
-			if (selectorList.length > 5) {
-				setBackgroundColors(selectorList, {
-					'Техподдержка исход crm2': 'red',
-					'Техподдержка 2-я линия crm2': 'green'
-				});
-			}
-		}
-		
-		
+
+        // NeuralNetwork Version
+        let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
+
+        const hideElements = (modalContent, valuesToHide) => {
+            for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
+                if (!valuesToHide.includes(modalContent.children[2].children[i].textContent)) {
+                    modalContent.children[2].children[i].style.display = 'none';
+                }
+            }
+        }
+
+        if (opsection === 'ТП') {
+            let modalContent = document.querySelector('.ant-modal-content');
+            const heading = modalContent.children[1].children[0].childNodes[0].textContent;
+            if (heading === 'Указать тему') {
+                hideElements(modalContent, [
+                    'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
+                    'Уроки V2',
+                    'Группа КМ (работает ежедневно с 8:00 до 21:55)',
+                    'Обратная связь ТП (работает ежедневно с 08:00-22:50)'
+                ]);
+            } else if (heading === 'Закрыть запрос?') {
+                hideElements(modalContent, [
+                    'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
+                    'Закрыть'
+                ]);
+            }
+        }
+
+
+        // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки
+        // let selectorList = document.querySelectorAll('.sc-fzokOt');
+        // if (selectorList.length > 5) {
+        // for (let i = 0; i < selectorList.length; i++) {
+        // if (selectorList[i].textContent == "Техподдержка исход crm2")
+        // selectorList[i].style.backgroundColor = 'red'
+        // if (selectorList[i].textContent == "Техподдержка 2-я линия crm2")
+        // selectorList[i].style.backgroundColor = 'green'
+        // }
+        // }
+        // }
+
+        let modalContent = document.querySelector('.ant-modal-content');
+
+        const setBackgroundColors = (selectorList, valuesToColor) => {
+            for (let i = 0; i < selectorList.length; i++) {
+                for (const [value, color] of Object.entries(valuesToColor)) {
+                    if (selectorList[i].textContent === value) {
+                        selectorList[i].style.backgroundColor = color;
+                    }
+                }
+            }
+        }
+
+        if (modalContent.children[1].children[0].childNodes[0].textContent === 'Создать задачу') {
+            const selectorList = document.querySelectorAll('.sc-fzokOt');
+            if (selectorList.length > 5) {
+                setBackgroundColors(selectorList, {
+                    'Техподдержка исход crm2': 'red',
+                    'Техподдержка 2-я линия crm2': 'green'
+                });
+            }
+        }
+
+
     }
 }
 
 function prepTp() { //функция подготовки расширения ТП
     document.getElementById('msg1').style.display = ''
     document.getElementById('snd').style.marginLeft = '10px'
-	
-	const testUsers = document.getElementById('testUsers');
-	const languageSwitcher = document.querySelector('.user_menu-language_switcher');
 
-	const setDisplayStyle = (element, value) => {
-		element.style.display = value;
-	}
+    const testUsers = document.getElementById('testUsers');
+    const languageSwitcher = document.querySelector('.user_menu-language_switcher');
 
-	setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
-	setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
+    const setDisplayStyle = (element, value) => {
+        element.style.display = value;
+    }
+
+    setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
+    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
@@ -1221,7 +1221,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
+        "https://dimentorexpo.github.io/Modules/ServiceDesk1.js", // модуль Service Desk , с 1  тестовая версия
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
@@ -1236,7 +1236,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-        "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub 
+        "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         // "https://dimentorexpo.github.io/Modules/TestStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
@@ -1245,7 +1245,7 @@ function prepTp() { //функция подготовки расширения �
         promiseData.push(create(info));
     });
     Promise.all(promiseData).then(function () {
-		console.log('%c\r\n   ______  __       ____    ____       _       ________  \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_| \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|    \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_     \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    \r\n                                                         \r\n', 'color:Limegreen')
+        console.log('%c\r\n   ______  __       ____    ____       _       ________  \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_| \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|    \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_     \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    \r\n                                                         \r\n', 'color:Limegreen')
     }).catch(function (gfgData) {
         console.log(gfgData + " failed to load!");
     });
@@ -1270,7 +1270,7 @@ function prepKC() { //функция подготовки расширения �
     for (i = 0; i < needtoopen.length; i++) {
         needtoopen[i].style.display = ''
     }
-	
+
     flagLangBut = 1
     customTemplates()
     setTimeout(whoAmI, 2000)
@@ -1386,19 +1386,19 @@ async function getStats() { // функция получения статист�
     // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0] //определение отдела оператора
     // console.log("Подразделение - " + opsection);
     // await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
-        // if (k.operator.indexOf(opsection) != -1) {
-            // array.push(k)
-        // }
+    // if (k.operator.indexOf(opsection) != -1) {
+    // array.push(k)
+    // }
     // })))
     // array.sort(function (a, b) {
-        // return b.conversationClosed - a.conversationClosed;
+    // return b.conversationClosed - a.conversationClosed;
     // });
-	
-	const padStart = (string, targetLength, padString) => {
-	  return String(string).padStart(targetLength, padString);
-	}
-	
-	const opSection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
+
+    const padStart = (string, targetLength, padString) => {
+        return String(string).padStart(targetLength, padString);
+    }
+
+    const opSection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
     console.log("Department:", opSection);
 
     const currentDate = new Date();
@@ -1416,37 +1416,37 @@ async function getStats() { // функция получения статист�
     const data = await response.json();
     const arrayvars = data.rows.filter(row => row.operator.indexOf(opSection) !== -1);
     arrayvars.sort((a, b) => b.conversationClosed - a.conversationClosed);
-	
+
 
     var operatorId = []
     var operatorNames = []
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
     }).then(result => b = result.json()).then(b => b.onOperator.forEach(k => {
-        if (k.operator != null) 
+        if (k.operator != null)
             // if (k.operator.kbs.indexOf(120181) != -1 && k.operator.fullName.split('-')[0] == opSection) {
-            if ((k.operator.kbs.indexOf(120181) != -1 || k.operator.kbs.indexOf(121381) != -1 ) && k.operator.fullName.split('-')[0] == opSection) {
+            if ((k.operator.kbs.indexOf(120181) != -1 || k.operator.kbs.indexOf(121381) != -1) && k.operator.fullName.split('-')[0] == opSection) {
                 operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
             } else if (k.operator.fullName.split('-')[0] == opSection) {
-				operatorId.push(k.operator.id)
+                operatorId.push(k.operator.id)
                 operatorNames.push(k.operator.fullName)
-			}
+            }
     }))
 
 
-	const getFormattedDate = (date) => {
-	  const year = date.getFullYear();
-	  const month = padStart(date.getMonth() + 1, 2, '0');
-	  const day = padStart(date.getDate(), 2, '0');
-	  return `${year}-${month}-${day}T21:00:00.000z`;
-	}
+    const getFormattedDate = (date) => {
+        const year = date.getFullYear();
+        const month = padStart(date.getMonth() + 1, 2, '0');
+        const day = padStart(date.getDate(), 2, '0');
+        return `${year}-${month}-${day}T21:00:00.000z`;
+    }
 
-	const now = new Date();
-	const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
+    const now = new Date();
+    const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
 
-	const yesterday = new Date(now - 24 * 60 * 60 * 1000);
-	const firstDate = getFormattedDate(yesterday);
+    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+    const firstDate = getFormattedDate(yesterday);
 
     var operatorChatCount = []
     for (var l = 0; l < operatorId.length; l++) {
@@ -1589,23 +1589,23 @@ async function checkCSAT() { // функция проверки CSAT и чато
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-	
-	const padStart = (string, targetLength, padString) => {
-	  return String(string).padStart(targetLength, padString);
-	}
 
-	const getFormattedDate = (date) => {
-	  const year = date.getFullYear();
-	  const month = padStart(date.getMonth() + 1, 2, '0');
-	  const day = padStart(date.getDate(), 2, '0');
-	  return `${year}-${month}-${day}T21:00:00.000z`;
-	}
+    const padStart = (string, targetLength, padString) => {
+        return String(string).padStart(targetLength, padString);
+    }
 
-	const now = new Date();
-	const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
+    const getFormattedDate = (date) => {
+        const year = date.getFullYear();
+        const month = padStart(date.getMonth() + 1, 2, '0');
+        const day = padStart(date.getDate(), 2, '0');
+        return `${year}-${month}-${day}T21:00:00.000z`;
+    }
 
-	const yesterday = new Date(now - 24 * 60 * 60 * 1000);
-	const firstDate = getFormattedDate(yesterday);
+    const now = new Date();
+    const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
+
+    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+    const firstDate = getFormattedDate(yesterday);
 
     try {
         page = 1
@@ -1626,19 +1626,19 @@ async function checkCSAT() { // функция проверки CSAT и чато
         let aclosedchats = [];
         while (true) {
             test = ''
-			
-			let servicetopic;
-		if (localStorage.getItem('scriptAdr') == TS_addr) {
-			servicetopic = '361c681b-340a-4e47-9342-c7309e27e7b5'
-        } else if (localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
-            servicetopic = 'df7d4f86-bb75-45b5-8ae8-87bf896bf308' 			
-		}
-			
+
+            let servicetopic;
+            if (localStorage.getItem('scriptAdr') == TS_addr) {
+                servicetopic = '361c681b-340a-4e47-9342-c7309e27e7b5'
+            } else if (localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
+                servicetopic = 'df7d4f86-bb75-45b5-8ae8-87bf896bf308'
+            }
+
             await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
                 "headers": {
                     "content-type": "application/json",
-                }, 
-                "body": "{\"serviceId\":\""+servicetopic+"\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDateN + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
+                },
+                "body": "{\"serviceId\":\"" + servicetopic + "\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDateN + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":" + page + ",\"limit\":100}",
                 "method": "POST",
             }).then(r => r.json()).then(r => test = r)
             for (let i = 0; i < test.items.length; i++) {
@@ -1734,26 +1734,26 @@ async function checkCSAT() { // функция проверки CSAT и чато
                     count[4] = 0;
                 if (count[5] == undefined)
                     count[5] = 0;
-				
-		let firstpart = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' + "Количество оценок: " + csatCount + ' из них: ' + '<br>'
-		let secondpart = stringChatsWithoutTopic + '<br>' + "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " + (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart + '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + 'Чаты, которые были автозакрыты, проверить потерявшиеся и необработанные чаты: ' + '<br>' + aclosedchats.join('<br>');
 
-		if (flagvbad == "" && flagbad == "" && flagmid == "")
-			str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
-		else if (flagvbad == "" && flagbad == "" && flagmid != "")
-			str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpar
-		else if (flagvbad == "" && flagbad != "" && flagmid == "")
-			str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
-		else if (flagvbad != "" && flagbad == "" && flagmid == "")
-			str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
-		else if (flagvbad != "" && flagbad == "" && flagmid != "")
-			str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart	
-		else if (flagvbad != "" && flagbad != "" && flagmid == "")
-			str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
-		else if (flagvbad == "" && flagbad != "" && flagmid != "")
-			str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
-		else if (flagvbad != "" && flagbad != "" && flagmid != "")
-			str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
+                let firstpart = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' + "Количество оценок: " + csatCount + ' из них: ' + '<br>'
+                let secondpart = stringChatsWithoutTopic + '<br>' + "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " + (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart + '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + 'Чаты, которые были автозакрыты, проверить потерявшиеся и необработанные чаты: ' + '<br>' + aclosedchats.join('<br>');
+
+                if (flagvbad == "" && flagbad == "" && flagmid == "")
+                    str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
+                else if (flagvbad == "" && flagbad == "" && flagmid != "")
+                    str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpar
+                else if (flagvbad == "" && flagbad != "" && flagmid == "")
+                    str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
+                else if (flagvbad != "" && flagbad == "" && flagmid == "")
+                    str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
+                else if (flagvbad != "" && flagbad == "" && flagmid != "")
+                    str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
+                else if (flagvbad != "" && flagbad != "" && flagmid == "")
+                    str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
+                else if (flagvbad == "" && flagbad != "" && flagmid != "")
+                    str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
+                else if (flagvbad != "" && flagbad != "" && flagmid != "")
+                    str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + flagvbad + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + flagbad + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + flagmid + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
                 console.log(tagsarr) //выводит список полученных тегов с чатов
                 break
             }
@@ -1762,46 +1762,46 @@ async function checkCSAT() { // функция проверки CSAT и чато
         console.error(e, e.stack);
     }
 
-	const slaclchatcontainer = document.querySelectorAll('.lookchat');
-	const slaclchattids = document.querySelectorAll('.slaclchatids');
-	const artchatcontainer = document.querySelectorAll('.lookchatart');
+    const slaclchatcontainer = document.querySelectorAll('.lookchat');
+    const slaclchattids = document.querySelectorAll('.slaclchatids');
+    const artchatcontainer = document.querySelectorAll('.lookchatart');
     const artchattids = document.querySelectorAll('.artchatids');
-	const aclsclookcontainer = document.querySelectorAll('.lookaclschat')
+    const aclsclookcontainer = document.querySelectorAll('.lookaclschat')
     const aclsdchatids = document.getElementsByName('aclsconv')
-	const chatHistoryElement = document.getElementById('AF_ChatHis');
-	const chatHistoryButton = document.getElementById('butChatHistory');
-	const chatHistorySearchInput = document.getElementById('hashchathis');
-	const chatHistorySearchButton = document.getElementById('btn_search_history');
+    const chatHistoryElement = document.getElementById('AF_ChatHis');
+    const chatHistoryButton = document.getElementById('butChatHistory');
+    const chatHistorySearchInput = document.getElementById('hashchathis');
+    const chatHistorySearchButton = document.getElementById('btn_search_history');
 
-	slaclchatcontainer.forEach((container, index) => {
-	  container.addEventListener('click', () => {
-		if (chatHistoryElement.style.display === 'none') {
-		  chatHistoryButton.click();
-		}
-		chatHistorySearchInput.value = slaclchattids[index].textContent;
-		chatHistorySearchButton.click();
-	  });
-	});
+    slaclchatcontainer.forEach((container, index) => {
+        container.addEventListener('click', () => {
+            if (chatHistoryElement.style.display === 'none') {
+                chatHistoryButton.click();
+            }
+            chatHistorySearchInput.value = slaclchattids[index].textContent;
+            chatHistorySearchButton.click();
+        });
+    });
 
-	artchatcontainer.forEach((container, index) => {
-	  container.addEventListener('click', () => {
-		if (chatHistoryElement.style.display === 'none') {
-			chatHistoryButton.click();
-		}
-		chatHistorySearchInput.value = artchattids[index].textContent;
-		chatHistorySearchButton.click();
-	  });
-	});
+    artchatcontainer.forEach((container, index) => {
+        container.addEventListener('click', () => {
+            if (chatHistoryElement.style.display === 'none') {
+                chatHistoryButton.click();
+            }
+            chatHistorySearchInput.value = artchattids[index].textContent;
+            chatHistorySearchButton.click();
+        });
+    });
 
-	aclsclookcontainer.forEach((container, index) => {
-	  container.addEventListener('click', () => {
-		if (chatHistoryElement.style.display === 'none') {
-			chatHistoryButton.click();
-		}
-		chatHistorySearchInput.value = aclsdchatids[index].textContent;
-		chatHistorySearchButton.click();
-	  });
-	});
+    aclsclookcontainer.forEach((container, index) => {
+        container.addEventListener('click', () => {
+            if (chatHistoryElement.style.display === 'none') {
+                chatHistoryButton.click();
+            }
+            chatHistorySearchInput.value = aclsdchatids[index].textContent;
+            chatHistorySearchButton.click();
+        });
+    });
 
     document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
 }
@@ -1811,22 +1811,22 @@ async function checkChatCountQue() { // функция проверки коли
     str.style.paddingLeft = '50px'
     if (document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-	const padStart = (string, targetLength, padString) => {
-	  return String(string).padStart(targetLength, padString);
-	}
+    const padStart = (string, targetLength, padString) => {
+        return String(string).padStart(targetLength, padString);
+    }
 
-	const getFormattedDate = (date) => {
-	  const year = date.getFullYear();
-	  const month = padStart(date.getMonth() + 1, 2, '0');
-	  const day = padStart(date.getDate(), 2, '0');
-	  return `${year}-${month}-${day}T21:00:00.000z`;
-	}
+    const getFormattedDate = (date) => {
+        const year = date.getFullYear();
+        const month = padStart(date.getMonth() + 1, 2, '0');
+        const day = padStart(date.getDate(), 2, '0');
+        return `${year}-${month}-${day}T21:00:00.000z`;
+    }
 
-	const now = new Date();
-	const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
+    const now = new Date();
+    const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
 
-	const yesterday = new Date(now - 24 * 60 * 60 * 1000);
-	const firstDate = getFormattedDate(yesterday);
+    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+    const firstDate = getFormattedDate(yesterday);
 
     await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
         "headers": {
@@ -2249,37 +2249,37 @@ function AFthePieceofShitKC() { //функция вносит в локалст�
 }
 
 function logginerfortests(polzovatel) {
-  const requestBody = `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}`;
-  const requestHeaders = {
-    'content-type': 'application/x-www-form-urlencoded',
-    'sec-fetch-site': 'same-origin',
-    'sec-fetch-user': '?1',
-    'upgrade-insecure-requests': '1',
-  };
-  const request = {
-    headers: requestHeaders,
-    referrer: 'https://id.skyeng.ru/admin/auth/login-links',
-    referrerPolicy: 'strict-origin-when-cross-origin',
-    body: requestBody,
-    method: 'POST',
-    mode: 'cors',
-    credentials: 'include',
-  };
+    const requestBody = `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}`;
+    const requestHeaders = {
+        'content-type': 'application/x-www-form-urlencoded',
+        'sec-fetch-site': 'same-origin',
+        'sec-fetch-user': '?1',
+        'upgrade-insecure-requests': '1',
+    };
+    const request = {
+        headers: requestHeaders,
+        referrer: 'https://id.skyeng.ru/admin/auth/login-links',
+        referrerPolicy: 'strict-origin-when-cross-origin',
+        body: requestBody,
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'include',
+    };
 
-  document.getElementById('responseTextarea1').value = JSON.stringify(request);
-  document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/login-links';
-  document.getElementById('responseTextarea3').value = 'senddata1';
-  document.getElementById('sendResponse').click();
+    document.getElementById('responseTextarea1').value = JSON.stringify(request);
+    document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/login-links';
+    document.getElementById('responseTextarea3').value = 'senddata1';
+    document.getElementById('sendResponse').click();
 
-  document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
-    let logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-    if (logginerinfo) {
-      logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-      logginerinfo = logginerinfo[logginerinfo.length - 1].split('"');
-      copyToClipboard1(logginerinfo[1]);
-      document.getElementById('responseTextarea1').removeAttribute('senddata1');
-    }
-  });
+    document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
+        let logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
+        if (logginerinfo) {
+            logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
+            logginerinfo = logginerinfo[logginerinfo.length - 1].split('"');
+            copyToClipboard1(logginerinfo[1]);
+            document.getElementById('responseTextarea1').removeAttribute('senddata1');
+        }
+    });
 }
 
 function resetFlags() { //функция обнуления флагов
@@ -2314,32 +2314,32 @@ function bagPageButtons(butId) {  //с шаблонами тоже фукнкц�
 function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
     //resetFlags()
 
-	let phone = '';
-	textFromTable = textFromTable.split('(phone)');
+    let phone = '';
+    textFromTable = textFromTable.split('(phone)');
 
-	if (textFromTable.length > 1) {
-	  const phoneInput = document.getElementById('phone_tr');
-	  phone = phoneInput.value || phoneInput.placeholder;
+    if (textFromTable.length > 1) {
+        const phoneInput = document.getElementById('phone_tr');
+        phone = phoneInput.value || phoneInput.placeholder;
 
-	  if (phone === 'Телефон') {
-		document.getElementById('inp').value = 'Введите номер телефона';
-		return;
-	  }
-	}
+        if (phone === 'Телефон') {
+            document.getElementById('inp').value = 'Введите номер телефона';
+            return;
+        }
+    }
 
-	textFromTable = textFromTable.join(phone);
+    textFromTable = textFromTable.join(phone);
 
     let email = ""
     textFromTable = textFromTable.split('(email)')
-	
+
     if (textFromTable.length > 1) {
-		const emailInput = document.getElementById('email_tr');
-		email = emailInput.value || emailInput.placeholder;
-		
-		if (email === 'Почта') {
-			document.getElementById('inp').value = "Введите почту"
+        const emailInput = document.getElementById('email_tr');
+        email = emailInput.value || emailInput.placeholder;
+
+        if (email === 'Почта') {
+            document.getElementById('inp').value = "Введите почту"
             return;
-		}
+        }
     }
     textFromTable = textFromTable.join(email)
 
@@ -2416,24 +2416,24 @@ function servFromDoc(butName) { // отправка комента и сообщ
 }
 
 function getText() { // функция обновления текста с шаблонов из документа
-  const app = localStorage.getItem('scriptAdr');
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', app);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      try {
-        const r = JSON.parse(xhr.responseText);
-        const result = r["result"];
-        table = result;
-        console.log('Updated templates');
-      } catch (e) {
-        console.log(e);
-      } finally {
-        refreshTemplates();
-      }
-    }
-  };
-  xhr.send();
+    const app = localStorage.getItem('scriptAdr');
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', app);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            try {
+                const r = JSON.parse(xhr.responseText);
+                const result = r["result"];
+                table = result;
+                console.log('Updated templates');
+            } catch (e) {
+                console.log(e);
+            } finally {
+                refreshTemplates();
+            }
+        }
+    };
+    xhr.send();
 }
 
 async function getInfo(flag1 = 1) { //функция получения инфо о чате и сервис айди
@@ -2740,26 +2740,26 @@ function tagToChat(btnName) { // функция отправляет темат�
 }
 
 function newTag(valueId) {
-  const pathname = document.location.pathname.split('/');
-  let chatId;
+    const pathname = document.location.pathname.split('/');
+    let chatId;
 
-  if (window.location.href.indexOf('skyeng.autofaq.ai/logs') !== -1) {
-    chatId = pathname[2];
-  } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
-    chatId = pathname[3];
-  } else {
-    const panel = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0];
-    chatId = panel.children[0].children[0].children[0].textContent.split(' ')[1];
-  }
+    if (window.location.href.indexOf('skyeng.autofaq.ai/logs') !== -1) {
+        chatId = pathname[2];
+    } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
+        chatId = pathname[3];
+    } else {
+        const panel = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0];
+        chatId = panel.children[0].children[0].children[0].textContent.split(' ')[1];
+    }
 
-  fetch(`https://skyeng.autofaq.ai/api/conversation/${chatId}/payload`, {
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: `{"conversationId":"${chatId}","elements":[{"name":"topicId","value":"${valueId}"}]}`,
-    method: 'POST',
-    credentials: 'include',
-  });
+    fetch(`https://skyeng.autofaq.ai/api/conversation/${chatId}/payload`, {
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: `{"conversationId":"${chatId}","elements":[{"name":"topicId","value":"${valueId}"}]}`,
+        method: 'POST',
+        credentials: 'include',
+    });
 }
 
 function msgFromTable(btnName) { //шаблоны, тематики. теги с таблицы получает и выставляет
@@ -3093,47 +3093,47 @@ function refCurTimer(time) { //функция обновления текуще�
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
 
 function requestsRed() { //функция окрашивает в красный цвет, кнопка взять запрос не будет (0) иметь, а любое другое значение
-  const taketask = document.getElementsByClassName('expert-sidebar-button')[0];
+    const taketask = document.getElementsByClassName('expert-sidebar-button')[0];
 
-  if (taketask) {
-    const textNode = taketask.childNodes[1].childNodes[0];
-    textNode.addEventListener('DOMSubtreeModified', () => {
-      const text = textNode.innerHTML;
-      const color = text === 'Взять запрос (0)' ? 'white' : '#F34723';
-      taketask.childNodes[1].style.backgroundColor = color;
-    });
-  }
+    if (taketask) {
+        const textNode = taketask.childNodes[1].childNodes[0];
+        textNode.addEventListener('DOMSubtreeModified', () => {
+            const text = textNode.innerHTML;
+            const color = text === 'Взять запрос (0)' ? 'white' : '#F34723';
+            taketask.childNodes[1].style.backgroundColor = color;
+        });
+    }
 }
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
         if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
-//            drevo = '';
+            //            drevo = '';
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
 
-//            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
-//                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
+            //            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
+            //                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
 
 
             if (pldata.payload.topicId.value == "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].textContent == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
-				
-				const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
 
-				if (button) {
-				  const textNode = button.childNodes[0].childNodes[0];
-				  const theme = document.createElement('div');
-				  theme.textContent = 'Тема: ❌';
-				  theme.style = 'color:red; font-weight:700';
-				  
-				  if (!textNode.childNodes[1].childNodes[4]) {
-					textNode.childNodes[1].appendChild(theme);
-				  } else if (textNode.childNodes[1].childNodes[4].textContent === 'Тема: ✔') {
-					textNode.childNodes[1].childNodes[4].textContent = 'Тема: ❌';
-					textNode.childNodes[1].childNodes[4].style.color = 'red';
-				  }
-				}
+                const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
+
+                if (button) {
+                    const textNode = button.childNodes[0].childNodes[0];
+                    const theme = document.createElement('div');
+                    theme.textContent = 'Тема: ❌';
+                    theme.style = 'color:red; font-weight:700';
+
+                    if (!textNode.childNodes[1].childNodes[4]) {
+                        textNode.childNodes[1].appendChild(theme);
+                    } else if (textNode.childNodes[1].childNodes[4].textContent === 'Тема: ✔') {
+                        textNode.childNodes[1].childNodes[4].textContent = 'Тема: ❌';
+                        textNode.childNodes[1].childNodes[4].style.color = 'red';
+                    }
+                }
 
             } else if (pldata.payload.topicId.value != "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].textContent == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent == "Выбор темы/подтемы:")) {
 
@@ -3150,8 +3150,8 @@ async function checkthemestatus() { //функция проверки выста
                         txtbar.childNodes[1].childNodes[4].style.color = 'green';
                     }
                 }
-            } 
-			
+            }
+
             if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent == 'Выбор тегов ТП:') {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                 txtbar.childNodes[1].childNodes[5].textContent = "";
@@ -3250,17 +3250,17 @@ function newTags(tagName) { //функция добавления несколь
 }
 
 function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
-  const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
-  const isActiveChat = (
-    document.URL.split('/')[2] === 'skyeng.autofaq.ai' &&
-    document.URL.length > 43 &&
-    button &&
-    !button.classList.contains('selchatact')
-  );
+    const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
+    const isActiveChat = (
+        document.URL.split('/')[2] === 'skyeng.autofaq.ai' &&
+        document.URL.length > 43 &&
+        button &&
+        !button.classList.contains('selchatact')
+    );
 
-  if (isActiveChat) {
-    button.classList.toggle('selchatact');
-  }
+    if (isActiveChat) {
+        button.classList.toggle('selchatact');
+    }
 }
 
 function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
@@ -3287,7 +3287,7 @@ async function remandressl() { // функция добавляения масс
     achatb.textContent = "💬"
     achatb.style = 'cursor:pointer;'
 
-  if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
+    if (document.URL.split('/')[5] + '/' + document.URL.split('/')[6] == 'teacher/multi-classroom' && document.getElementById('achatbtn') == null) {
         document.querySelector('.navigation').appendChild(achatb)
         achatb.onclick = addMulticlassrom;
         achatb.title = "По нажатию добавляет все чаты с учениками, которые активны и не уснули по всем возможнным предметам сразу!"
@@ -3301,75 +3301,75 @@ async function remandressl() { // функция добавляения масс
 
         let sidarr = [];
         await fetch("https://academic-gateway.skyeng.ru/academic/api/teacher-classroom/get-data/personal", {
-              "headers": {
-                 "content-type": "application/json", 
-              },
+            "headers": {
+                "content-type": "application/json",
+            },
             "body": "{\"teacherId\":null}",
             "method": "POST",
             "credentials": "include"
         }).then(r => r.json()).then(data => studarr = data)
-		
+
 
         for (let i = 0; i < Object.keys(studarr).length; i++) {
-		
-			function obrabotka(subjName, num) {
-			 console.log(Object.values(studarr)[num])
-                    sidarr = [];
-                    console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700')
-                    for (let j = 0; j < Object.values(studarr)[i].length; j++) {
 
-                        if (Object.values(studarr)[num][j].status != "sleep")
-                            sidarr += Object.values(studarr)[num][j].id + ","
+            function obrabotka(subjName, num) {
+                console.log(Object.values(studarr)[num])
+                sidarr = [];
+                console.log(`%c${subjName}`, 'color:lightgreen; font-weight:700')
+                for (let j = 0; j < Object.values(studarr)[i].length; j++) {
 
-                        console.log(Object.values(studarr)[num][j].id + " Status: " + Object.values(studarr)[num][j].status)
+                    if (Object.values(studarr)[num][j].status != "sleep")
+                        sidarr += Object.values(studarr)[num][j].id + ","
+
+                    console.log(Object.values(studarr)[num][j].id + " Status: " + Object.values(studarr)[num][j].status)
+                }
+                if (typeof (sidarr) != 'object') {
+                    sidarr = sidarr.split(',');
+
+                    for (let j = 0; j < sidarr.length - 1; j++) {
+                        fetchaddchat(sidarr[j], artid.user.id)
                     }
-                    if (typeof (sidarr) != 'object') {
-                        sidarr = sidarr.split(',');
+                    alert(`Чаты с учениками в разделе ${subjName} - Multi-classroom добавлены в количестве: ` + (sidarr.length - 1))
+                }
+            }
 
-                        for (let j = 0; j < sidarr.length - 1; j++) {
-                            fetchaddchat(sidarr[j], artid.user.id)
-                        }
-                        alert(`Чаты с учениками в разделе ${subjName} - Multi-classroom добавлены в количестве: ` + (sidarr.length - 1))
-                    }
-			}
-		
             let arrayofsubjects = Object.keys(studarr)[i]
             switch (arrayofsubjects) {
                 case 'math':
-					obrabotka('Математика', i);
+                    obrabotka('Математика', i);
                     break;
-                case 'russian': 
-					obrabotka('Русский язык', i);
+                case 'russian':
+                    obrabotka('Русский язык', i);
                     break;
-                case 'social-science': 
-					obrabotka('Обществознание', i);
+                case 'social-science':
+                    obrabotka('Обществознание', i);
                     break;
-                case 'preschool': 
-					obrabotka('Дошколка', i);
+                case 'preschool':
+                    obrabotka('Дошколка', i);
                     break;
-                case 'chess': 
-					obrabotka('Шахматы', i);
+                case 'chess':
+                    obrabotka('Шахматы', i);
                     break;
                 case 'computer-science':
-					obrabotka('Компьютерные курсы', i);
+                    obrabotka('Компьютерные курсы', i);
                     break;
                 case 'chemistry':
-					obrabotka('Химия', i);
+                    obrabotka('Химия', i);
                     break;
                 case 'physics':
-					obrabotka('Физика', i);
+                    obrabotka('Физика', i);
                     break;
                 case 'english':
-					obrabotka('Английский язык', i);
+                    obrabotka('Английский язык', i);
                     break;
-                case 'history': 
-					obrabotka('История', i);
+                case 'history':
+                    obrabotka('История', i);
                     break;
                 case 'biology':
-					obrabotka('Биология', i);
-				    break;
+                    obrabotka('Биология', i);
+                    break;
                 case 'geography':
-					obrabotka('География', i);
+                    obrabotka('География', i);
                     break;
             }
         }
@@ -3539,7 +3539,7 @@ function paintstatus() { //функция перекрашивания стат�
     let text;
     switch (statusElem.textContent) {
         case "Офлайн":
-		    color = "red";
+            color = "red";
             text = "Офлайн";
             break;
         case "Перерыв":
@@ -3591,7 +3591,7 @@ function addbuttonsintegration() { // добавляет подсветку пр
                 } else if (categorylist[i].textContent == "Техподдержка 2-я линия crm2") {
                     categorylist[i].style = "color: green; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em green";
                 } else {
-					categorylist[i].style = "color: black;";
+                    categorylist[i].style = "color: black;";
                 }
             }
         }
@@ -3633,48 +3633,48 @@ function checJiraF() { //Функция добавления коммента в
 }
 
 function screenshots() {  //просмотр и трансформация скриншотов в активном чате
-  // Select the expert-chat-display-inner element
-  const expertChatDisplayInner = document.getElementsByClassName('expert-chat-display-inner')[0];
+    // Select the expert-chat-display-inner element
+    const expertChatDisplayInner = document.getElementsByClassName('expert-chat-display-inner')[0];
 
-  // If expert-chat-display-inner exists, use it to get the children elements
-  let children;
-  if (expertChatDisplayInner) {
-    children = expertChatDisplayInner.children;
-  }
-  // If expert-chat-display-inner does not exist, select the chat-messages element and use it to get the children elements
-  else {
-    const chatMessages = document.getElementsByClassName('chat-messages')[0];
-    if (!chatMessages) {
-      return;
+    // If expert-chat-display-inner exists, use it to get the children elements
+    let children;
+    if (expertChatDisplayInner) {
+        children = expertChatDisplayInner.children;
     }
-    children = chatMessages.children;
-  }
-
-  // Iterate over the children elements
-  for (let i = 0; i < children.length; i++) {
-    const child = children[i];
-    if (child.textContent.includes('vimbox-resource') || child.textContent.includes('math-prod') || child.textContent.includes('communications.skyeng.ru')) {
-      // Get all the links in the child element
-      const links = child.querySelectorAll('a');
-
-      // Iterate over the links
-      for (let j = 0; j < links.length; j++) {
-        const link = links[j];
-        if (!link.hasAttribute('data-lightbox')) {
-          // Create the img and a elements
-          const img = document.createElement('img');
-          img.style.width = '100px';
-          const alink = document.createElement('a');
-          alink.setAttribute('data-lightbox', 'imgs');
-          alink.append(img);
-          img.src = link.href;
-          img.alt = 'ПКМ-Сохранить ссылку как';
-          alink.href = img.src;
-          link.replaceWith(alink);
+    // If expert-chat-display-inner does not exist, select the chat-messages element and use it to get the children elements
+    else {
+        const chatMessages = document.getElementsByClassName('chat-messages')[0];
+        if (!chatMessages) {
+            return;
         }
-      }
+        children = chatMessages.children;
     }
-  }
+
+    // Iterate over the children elements
+    for (let i = 0; i < children.length; i++) {
+        const child = children[i];
+        if (child.textContent.includes('vimbox-resource') || child.textContent.includes('math-prod') || child.textContent.includes('communications.skyeng.ru')) {
+            // Get all the links in the child element
+            const links = child.querySelectorAll('a');
+
+            // Iterate over the links
+            for (let j = 0; j < links.length; j++) {
+                const link = links[j];
+                if (!link.hasAttribute('data-lightbox')) {
+                    // Create the img and a elements
+                    const img = document.createElement('img');
+                    img.style.width = '100px';
+                    const alink = document.createElement('a');
+                    alink.setAttribute('data-lightbox', 'imgs');
+                    alink.append(img);
+                    img.src = link.href;
+                    img.alt = 'ПКМ-Сохранить ссылку как';
+                    alink.href = img.src;
+                    link.replaceWith(alink);
+                }
+            }
+        }
+    }
 }
 
 
@@ -3749,22 +3749,22 @@ function addOption(oListbox, text, value) {  //функция добавлени
 }
 
 function clock_on_javascript_1() {  //таймер обычного отсчета текущего времени
-  // Get the current date and time
-  const date = new Date();
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  let seconds = date.getSeconds();
+    // Get the current date and time
+    const date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
 
-  // Add a leading zero to hours, minutes, and seconds if they are less than 10
-  hours = hours < 10 ? "0" + hours : hours;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
+    // Add a leading zero to hours, minutes, and seconds if they are less than 10
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  // Concatenate the hours, minutes, and seconds into a single string
-  const time = `${hours} : ${minutes} : ${seconds}`;
+    // Concatenate the hours, minutes, and seconds into a single string
+    const time = `${hours} : ${minutes} : ${seconds}`;
 
-  // Set the text content of the clock_js element to the time string
-  document.getElementById("clock_js").textContent = time;
+    // Set the text content of the clock_js element to the time string
+    document.getElementById("clock_js").textContent = time;
 }
 
 function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
@@ -3828,109 +3828,63 @@ function clock_on_javascript_3() { //таймер отсчета до сраба
     document.getElementById("clock_remin1").innerHTML = time1;
 }
 
-
-function refreshTimerReminder() { // обновляет оставшееся время будильника №1
-  // Get current time
-  const timearr = new Date();
-  const hours = timearr.getHours();
-  const minutes = timearr.getMinutes();
-  const seconds = timearr.getSeconds();
-
-  // Get alarm time from local storage
-  const setHours = localStorage.getItem("setchas");
-  const setMinutes = localStorage.getItem("setminuta");
-
-  // Check if there is a chronostamp value in local storage
-  if (localStorage.getItem("chronostamp") !== null && localStorage.getItem("chronostamp") > 0) {
-    // Update reminder status and alarm time in form fields
-    document.getElementById("reminderstatus").textContent = "🔔";
-    setchas.value = setHours;
-    setminuta.value = setMinutes;
-
-    // Calculate time left until alarm goes off, in milliseconds
-    const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
-    localStorage.setItem("chronostamp2", timeLeft);
-
-    // Set timeout to trigger the alarm
-    clearTimeout(abortTimeOut);
-    abortTimeOut = setTimeout(function() {
-      setRemindAf("chronostamp");
-    }, localStorage.getItem("chronostamp2"));
-  } else if (localStorage.getItem("chronostamp") === null && localStorage.getItem("chronostamp1") === null) {
-    // No alarm is set, clear timeout and update reminder status
-    clearTimeout(abortTimeOut);
-    document.getElementById("reminderstatus").textContent = "🔕";
-  } else if (localStorage.getItem("chronostamp1") !== null) {
-    // Update reminder status
-    document.getElementById("reminderstatus").textContent = "🔔";
-  }
-}
-
-function refreshTimerReminder1() { // обновляет оставшееся время будильника №2
-  // Get current time
-  const timearr = new Date();
-  const hours = timearr.getHours();
-  const minutes = timearr.getMinutes();
-  const seconds = timearr.getSeconds();
-
-  // Get alarm time from local storage
-  const setHours = localStorage.getItem("setchas1");
-  const setMinutes = localStorage.getItem("setminuta1");
-
-  // Check if there is a chronostamp value in local storage
-  if (localStorage.getItem("chronostamp1") !== null && localStorage.getItem("chronostamp1") > 0) {
-    // Update reminder status and alarm time in form fields
-    document.getElementById("reminderstatus").textContent = "🔔";
-    setchas1.value = setHours;
-    setminuta1.value = setMinutes;
-
-    // Calculate time left until alarm goes off, in milliseconds
-    const timeLeft = (((setHours - hours) * 60 * 60) + ((setMinutes - minutes) * 60) + (0 - seconds)) * 1000;
-    localStorage.setItem("chronostamp22", timeLeft);
-
-    // Set timeout to trigger the alarm
-    clearTimeout(abortTimeOut);
-    abortTimeOut = setTimeout(function() {
-      setRemindAf("chronostamp1");
-    }, localStorage.getItem("chronostamp22"));
-  } else if (localStorage.getItem("chronostamp") === null && localStorage.getItem("chronostamp1") === null) {
-    // No alarm is set, clear timeout and update reminder status
-    clearTimeout(abortTimeOut1);
-    document.getElementById("reminderstatus").textContent = "🔕";
-  } else if (localStorage.getItem("chronostamp") !== null) {
-    // Update reminder status
-    document.getElementById("reminderstatus").textContent = "🔔";
-  }
+function refreshTimerReminder() {
+    if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+        setchas.value = localStorage.getItem('setchas');
+        setminuta.value = localStorage.getItem('setminuta');
+        var timearr = new Date();
+        var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp2', chronostamp2);
+        abortTimeOut = setTimeout(function () {
+            setRemindAf('chronostamp')
+        }, localStorage.getItem('chronostamp2'));
+    } else if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+        setchas1.value = localStorage.getItem('setchas1');
+        setminuta1.value = localStorage.getItem('setminuta1');
+        var timearr1 = new Date();
+        var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp22', chronostamp22);
+		abortTimeOut1 = setTimeout(function () {
+		setRemindAf('chronostamp1')
+		}, localStorage.getItem('chronostamp22'));
+		} else {
+		clearTimeout(abortTimeOut);
+		clearTimeout(abortTimeOut1);
+		document.getElementById('reminderstatus').textContent = "🔕";
+		}
 }
 
 function setRemindAf(tsname) { //функция  при наступлении времени перевода в статус занят Будильник №1
+    const data = {
+        command: "DO_SET_OPERATOR_STATUS",
+        status: "Busy",
+        source: "Operator"
+    };
+
     fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
-        "headers": {
-            "content-type": "application/json",
-        },
-        "referrer": "https://skyeng.autofaq.ai/tickets/archive",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"command\":\"DO_SET_OPERATOR_STATUS\",\"status\":\"Busy\",\"source\":\"Operator\"}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+        mode: "cors",
+        credentials: "include"
     });
+
     alert("Время ставить занят! :D");
     localStorage.removeItem(tsname);
 
-    if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') === null)
-        document.getElementById('reminderstatus').textContent = "🔕";
-    else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') !== null)
-        document.getElementById('reminderstatus').textContent = "🔔";
-    else if (localStorage.getItem('chronostamp') === null && localStorage.getItem('chronostamp1') !== null)
-        document.getElementById('reminderstatus').textContent = "🔔";
-    else if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp1') === null)
-        document.getElementById('reminderstatus').textContent = "🔔";
+    const reminderstatus = document.getElementById('reminderstatus');
+    if (!localStorage.getItem('chronostamp') && !localStorage.getItem('chronostamp1')) {
+        reminderstatus.textContent = "🔕";
+    } else {
+        reminderstatus.textContent = "🔔";
+    }
 
-    if (tsname == 'chronostamp') {
+    if (tsname === 'chronostamp') {
         setchas.value = "";
         setminuta.value = "";
-    } else if (tsname == 'chronostamp1') {
+    } else if (tsname === 'chronostamp1') {
         setchas1.value = "";
         setminuta1.value = "";
     }
@@ -4170,19 +4124,19 @@ loginer.onmouseup = function () { document.removeEventListener('mousemove', list
 const soundTestBtn = document.getElementById('sound_test');
 
 soundTestBtn.onclick = function () { // кнопка тест звука
-  const isPlaying = soundTestBtn.innerHTML == '▶';
-  soundTestBtn.innerHTML = isPlaying ? '⏹' : '▶';
-  soundTestBtn.title = isPlaying ? 'Остановить воспроизведение' : 'Проверка звука при добавленной ссылке';
-  if (isPlaying) {
-    audio.play();
-    setTimeout(() => {
-      soundTestBtn.innerHTML = '▶';
-      soundTestBtn.title = 'Проверка звука при добавленной ссылке';
-    }, Number(audio.duration * 1000 + 1).toFixed(0));
-  } else {
-    audio.pause();
-    audio.currentTime = 0;
-  }
+    const isPlaying = soundTestBtn.innerHTML == '▶';
+    soundTestBtn.innerHTML = isPlaying ? '⏹' : '▶';
+    soundTestBtn.title = isPlaying ? 'Остановить воспроизведение' : 'Проверка звука при добавленной ссылке';
+    if (isPlaying) {
+        audio.play();
+        setTimeout(() => {
+            soundTestBtn.innerHTML = '▶';
+            soundTestBtn.title = 'Проверка звука при добавленной ссылке';
+        }, Number(audio.duration * 1000 + 1).toFixed(0));
+    } else {
+        audio.pause();
+        audio.currentTime = 0;
+    }
 }
 
 
@@ -4199,95 +4153,95 @@ document.getElementById('setting').onclick = function () { // открывает
         document.getElementById('set_bar').style.display = ''
         document.getElementById('reminder_bar').style.display = 'none'
         document.getElementById('addTmp').style.display = 'none'
-		
-		if (localStorage.getItem('defaclschatcolor') != null || localStorage.getItem('defaclschatcolor') != undefined) {
-			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
-		} else {
-			localStorage.setItem('defaclschatcolor','#FF47CA')
-			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
-		}
-				
-		document.getElementById('aclstimepicker').onchange = function() {
-			localStorage.setItem('defaclschatcolor', this.value)
-		}
-		
-		document.getElementById('defaulcolorclschat').ondblclick = function() {
-			localStorage.setItem('defaclschatcolor','#FF47CA')
-			document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
-		}
-				
-		// скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
-		
-		const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-		const setTPrezerv = document.getElementById('set_TPrezerv');
-		const setTP = document.getElementById('set_TP');
-		const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
-		const setTPPrem = document.getElementById('set_TPPrem');
-		const operdepout = document.getElementById('operdepout');
 
-		if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
-		  setTPrezerv.style.display = "none";
-		  setTP.style.display = "none";
-		  setPremTPrezerv.style.display = "none";
-		  setTPPrem.style.display = "none";
-		} else {
-		  setTPrezerv.style.display = "";
-		  setTP.style.display = "";
-		  setPremTPrezerv.style.display = "";
-		  setTPPrem.style.display = "";
-		}
+        if (localStorage.getItem('defaclschatcolor') != null || localStorage.getItem('defaclschatcolor') != undefined) {
+            document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+        } else {
+            localStorage.setItem('defaclschatcolor', '#FF47CA')
+            document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+        }
 
-		switch (localStorage.getItem('scriptAdr')) {
-		  case TP_addr:
-			operdepout.innerHTML = 'ТП';
-			break;
-		  case TP_addrRzrv:
-			operdepout.innerHTML = 'ТП резерв';
-			break;
-		  case TPprem_addr:
-			operdepout.innerHTML = 'ТП прем';
-			break;
-		  case TPprem_addrRzrv:
-			operdepout.innerHTML = 'ТП прем резерв';
-			break;
-		  case KC_addr:
-			operdepout.innerHTML = 'КЦ';
-			break;
-		  case KC_addrRzrv:
-			operdepout.innerHTML = 'КЦ резерв';
-			break;
-		  default:
-			break;
-		}
-		//
+        document.getElementById('aclstimepicker').onchange = function () {
+            localStorage.setItem('defaclschatcolor', this.value)
+        }
+
+        document.getElementById('defaulcolorclschat').ondblclick = function () {
+            localStorage.setItem('defaclschatcolor', '#FF47CA')
+            document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+        }
+
+        // скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
+
+        const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+        const setTPrezerv = document.getElementById('set_TPrezerv');
+        const setTP = document.getElementById('set_TP');
+        const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
+        const setTPPrem = document.getElementById('set_TPPrem');
+        const operdepout = document.getElementById('operdepout');
+
+        if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
+            setTPrezerv.style.display = "none";
+            setTP.style.display = "none";
+            setPremTPrezerv.style.display = "none";
+            setTPPrem.style.display = "none";
+        } else {
+            setTPrezerv.style.display = "";
+            setTP.style.display = "";
+            setPremTPrezerv.style.display = "";
+            setTPPrem.style.display = "";
+        }
+
+        switch (localStorage.getItem('scriptAdr')) {
+            case TP_addr:
+                operdepout.innerHTML = 'ТП';
+                break;
+            case TP_addrRzrv:
+                operdepout.innerHTML = 'ТП резерв';
+                break;
+            case TPprem_addr:
+                operdepout.innerHTML = 'ТП прем';
+                break;
+            case TPprem_addrRzrv:
+                operdepout.innerHTML = 'ТП прем резерв';
+                break;
+            case KC_addr:
+                operdepout.innerHTML = 'КЦ';
+                break;
+            case KC_addrRzrv:
+                operdepout.innerHTML = 'КЦ резерв';
+                break;
+            default:
+                break;
+        }
+        //
 
         let objSoundList = document.getElementById('soundlistaddr')
         let soundsfromdoc;
         let soundsconteiner;
-	
-		async function getsoundsfromdoc() { // загрузка списка звуков из файла
-		  const soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec';
-		  const response = await fetch(soundsfromdoc);
-		  const soundsdata = await response.json();
-		  const soundsconteiner = soundsdata.result;
-		  console.log(soundsdata.result) //получим список звуков
-		  soundsconteiner.forEach((sound) => {
-			if (sound[0] !== '') {
-			  addOption(objSoundList, `${sound[0]}`, `${sound[1]}`)
-			}
-		  });
-		  Array.prototype.forEach.call(objSoundList.children, (option) => { // проверяем какой звук выбран
-			if (option.value === localStorage.getItem('sound_str')) {
-			  option.selected = true;
-			}
-		  });
-		  if (objSoundList.children[0].selected) {
-			objSoundList.children[1].selected = true;
-			document.getElementById('sound_adr').style.display = '';
-			document.getElementById('sound_save').style.display = '';
-			document.getElementById('sound_adr').value = localStorage.getItem('sound_str');
-		  }
-		}
+
+        async function getsoundsfromdoc() { // загрузка списка звуков из файла
+            const soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec';
+            const response = await fetch(soundsfromdoc);
+            const soundsdata = await response.json();
+            const soundsconteiner = soundsdata.result;
+            console.log(soundsdata.result) //получим список звуков
+            soundsconteiner.forEach((sound) => {
+                if (sound[0] !== '') {
+                    addOption(objSoundList, `${sound[0]}`, `${sound[1]}`)
+                }
+            });
+            Array.prototype.forEach.call(objSoundList.children, (option) => { // проверяем какой звук выбран
+                if (option.value === localStorage.getItem('sound_str')) {
+                    option.selected = true;
+                }
+            });
+            if (objSoundList.children[0].selected) {
+                objSoundList.children[1].selected = true;
+                document.getElementById('sound_adr').style.display = '';
+                document.getElementById('sound_save').style.display = '';
+                document.getElementById('sound_adr').value = localStorage.getItem('sound_str');
+            }
+        }
 
         if (objSoundList.length < 3) {
             getsoundsfromdoc()
@@ -4621,67 +4575,67 @@ trshootnextuser.onclick = function () {
 }
 
 infouserbut.onclick = function () { // функция Info по нажатию на которую ID переносится в расширение омельченко и нажимает Info кнопку автоматически
-  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
-  const idNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'id');
-  if (idNode) {
-    const editorExtensionId = localStorage.getItem('ext_id');
-    chrome.runtime.sendMessage(
-      editorExtensionId,
-      {
-        name: 'chm_message', question: 'send_event', messageValue: {
-          message: 'open-user-info',
-          userId: `${idNode.childNodes[1].textContent.split(' ')[0]}`,
-        },
-      },
-    );
-  }
+    const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+    const idNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'id');
+    if (idNode) {
+        const editorExtensionId = localStorage.getItem('ext_id');
+        chrome.runtime.sendMessage(
+            editorExtensionId,
+            {
+                name: 'chm_message', question: 'send_event', messageValue: {
+                    message: 'open-user-info',
+                    userId: `${idNode.childNodes[1].textContent.split(' ')[0]}`,
+                },
+            },
+        );
+    }
 };
 
 buttonservivceuser.onclick = function () { //открывает окно вензель user info для nextuser
-  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
-  const userIdNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'nextClass-teacherId' || node.firstChild.textContent === 'nextClass-studentId');
+    const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+    const userIdNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'nextClass-teacherId' || node.firstChild.textContent === 'nextClass-studentId');
 
-  if (userIdNode) {
-    const AF_Service = document.getElementById('AF_Service');
-    if (AF_Service.style.display === 'none') {
-      AF_Service.style.display = '';
+    if (userIdNode) {
+        const AF_Service = document.getElementById('AF_Service');
+        if (AF_Service.style.display === 'none') {
+            AF_Service.style.display = '';
+        }
+        document.getElementById('idstudent').value = userIdNode.childNodes[1].textContent;
+        getidstudent.click();
     }
-    document.getElementById('idstudent').value = userIdNode.childNodes[1].textContent;
-    getidstudent.click();
-  }
 }
 
 buttonservstud.onclick = function () { //открывает окно вензель user info
-  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
-  const idNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'id');
+    const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+    const idNode = Array.prototype.find.call(userDetailsList.childNodes, (node) => node.firstChild.textContent === 'id');
 
-  if (idNode) {
-    const AF_Service = document.getElementById('AF_Service');
-    if (AF_Service.style.display === 'none') {
-      AF_Service.style.display = '';
+    if (idNode) {
+        const AF_Service = document.getElementById('AF_Service');
+        if (AF_Service.style.display === 'none') {
+            AF_Service.style.display = '';
+        }
+        document.getElementById('idstudent').value = idNode.childNodes[1].textContent.split(' ')[0];
+        getidstudent.click();
     }
-    document.getElementById('idstudent').value = idNode.childNodes[1].textContent.split(' ')[0];
-    getidstudent.click();
-  }
 }
 
 
 nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
-  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
-  Array.prototype.forEach.call(userDetailsList.childNodes, (node) => {
-    if (node.firstChild.textContent === 'nextClass-studentId' || node.firstChild.textContent === 'nextClass-teacherId') {
-      const editorExtensionId = localStorage.getItem('ext_id');
-      chrome.runtime.sendMessage(
-        editorExtensionId,
-        {
-          name: 'chm_message', question: 'send_event', messageValue: {
-            message: 'open-user-info',
-            userId: `${node.childNodes[1].textContent}`,
-          },
-        },
-      );
-    }
-  });
+    const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+    Array.prototype.forEach.call(userDetailsList.childNodes, (node) => {
+        if (node.firstChild.textContent === 'nextClass-studentId' || node.firstChild.textContent === 'nextClass-teacherId') {
+            const editorExtensionId = localStorage.getItem('ext_id');
+            chrome.runtime.sendMessage(
+                editorExtensionId,
+                {
+                    name: 'chm_message', question: 'send_event', messageValue: {
+                        message: 'open-user-info',
+                        userId: `${node.childNodes[1].textContent}`,
+                    },
+                },
+            );
+        }
+    });
 };
 
 let hashBut = document.createElement('div')
@@ -4765,32 +4719,32 @@ menubar.style = `background: white; position:absolute; left: 0; top: 50px; borde
 menubar.id = 'idmymenu'
 
 butmenu.onclick = () => { // кнопка открытия Меню
-  if (menubar.style.display === 'none') {
-    menubar.style.display = '';
-    let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231);
-    menubar.style.left = `${xvarmenu}px`;
+    if (menubar.style.display === 'none') {
+        menubar.style.display = '';
+        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231);
+        menubar.style.left = `${xvarmenu}px`;
 
-    // Query the DOM only once
-    const expertChatContent = document.querySelector('.ant-layout-content .expert-chat_content');
-    const appBodyContentInnerRight = document.querySelector('.ant-layout-content .app-body-content-inner-right');
-    let clickHandler;
+        // Query the DOM only once
+        const expertChatContent = document.querySelector('.ant-layout-content .expert-chat_content');
+        const appBodyContentInnerRight = document.querySelector('.ant-layout-content .app-body-content-inner-right');
+        let clickHandler;
 
-    if (expertChatContent) {
-      clickHandler = (event) => {
-        const e = document.getElementById('idmymenu');
-        if (!e.contains(event.target)) e.style.display = 'none';
-      };
-      expertChatContent.addEventListener('click', clickHandler);
-    } else if (appBodyContentInnerRight) {
-      clickHandler = (event) => {
-        const e = document.getElementById('idmymenu');
-        if (!e.contains(event.target)) e.style.display = 'none';
-      };
-      appBodyContentInnerRight.addEventListener('click', clickHandler);
+        if (expertChatContent) {
+            clickHandler = (event) => {
+                const e = document.getElementById('idmymenu');
+                if (!e.contains(event.target)) e.style.display = 'none';
+            };
+            expertChatContent.addEventListener('click', clickHandler);
+        } else if (appBodyContentInnerRight) {
+            clickHandler = (event) => {
+                const e = document.getElementById('idmymenu');
+                if (!e.contains(event.target)) e.style.display = 'none';
+            };
+            appBodyContentInnerRight.addEventListener('click', clickHandler);
+        }
+    } else {
+        menubar.style.display = 'none';
     }
-  } else {
-    menubar.style.display = 'none';
-  }
 }
 
 
@@ -4800,31 +4754,31 @@ maskBack.innerHTML = "Вернуть"
 maskBack.style.marginRight = "15px";
 maskBack.style.display = "none";
 
-maskBack.onclick = function() { // кнопка свернуть
-  const name = document.getElementById('maskBack').getAttribute('name');
-  const email = document.getElementById('maskBack').getAttribute('email');
-  const phone = document.getElementById('maskBack').getAttribute('phone');
-  const mask = document.getElementById('maskBack').getAttribute('mask');
-  const userInfoPanel = document.getElementsByClassName('expert-user_info_panel')[0];
-  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[0];
-  const modalWrap = document.getElementsByClassName('ant-modal-wrap')[mask];
-  const modalMask = document.getElementsByClassName('ant-modal-mask')[mask];
-  const chatHeaderActionsInner = document.getElementsByClassName('expert-chat-header-actions-inner')[0];
-  const chatFooter = document.getElementsByClassName('expert-chat-footer')[0];
-  const chatNotesButton = chatFooter.firstChild.firstChild;
+maskBack.onclick = function () { // кнопка свернуть
+    const name = document.getElementById('maskBack').getAttribute('name');
+    const email = document.getElementById('maskBack').getAttribute('email');
+    const phone = document.getElementById('maskBack').getAttribute('phone');
+    const mask = document.getElementById('maskBack').getAttribute('mask');
+    const userInfoPanel = document.getElementsByClassName('expert-user_info_panel')[0];
+    const userDetailsList = document.getElementsByClassName('expert-user_details-list')[0];
+    const modalWrap = document.getElementsByClassName('ant-modal-wrap')[mask];
+    const modalMask = document.getElementsByClassName('ant-modal-mask')[mask];
+    const chatHeaderActionsInner = document.getElementsByClassName('expert-chat-header-actions-inner')[0];
+    const chatFooter = document.getElementsByClassName('expert-chat-footer')[0];
+    const chatNotesButton = chatFooter.firstChild.firstChild;
 
-  if (userInfoPanel.firstChild.firstChild.textContent === name &&
-      userDetailsList.childNodes[0].childNodes[1].textContent === email &&
-      userDetailsList.childNodes[1].childNodes[1].textContent === phone) {
-    modalWrap.style.display = '';
-    modalMask.style.display = '';
-    chatHeaderActionsInner.style.display = ''; // кнопки сверху
-    chatNotesButton.style.display = ''; // кнопка заметок
-    maskBack.style.display = 'none';
-  } else {
-    maskBack.innerHTML = "Открыт неверный чат";
-    setTimeout(function() { maskBack.innerHTML = "Вернуть"; }, 3000);
-  }
+    if (userInfoPanel.firstChild.firstChild.textContent === name &&
+        userDetailsList.childNodes[0].childNodes[1].textContent === email &&
+        userDetailsList.childNodes[1].childNodes[1].textContent === phone) {
+        modalWrap.style.display = '';
+        modalMask.style.display = '';
+        chatHeaderActionsInner.style.display = ''; // кнопки сверху
+        chatNotesButton.style.display = ''; // кнопка заметок
+        maskBack.style.display = 'none';
+    } else {
+        maskBack.innerHTML = "Открыт неверный чат";
+        setTimeout(function () { maskBack.innerHTML = "Вернуть"; }, 3000);
+    }
 };
 
 
@@ -4835,32 +4789,19 @@ maskBackHide.style.marginRight = "15px";
 maskBackHide.style.marginLeft = "15px";
 maskBackHide.style.display = "";
 
-maskBackHide.onclick = function() { // кнопка скрыть
-  const modalContent = document.getElementsByClassName('ant-modal-content')[0];
-  const modalWraps = document.getElementsByClassName('ant-modal-wrap');
-  const modalMasks = document.getElementsByClassName('ant-modal-mask');
-  const chatHeaderActionsInner = document.getElementsByClassName('expert-chat-header-actions-inner')[0];
-  const chatFooter = document.getElementsByClassName('expert-chat-footer')[0];
-  const chatNotesButton = chatFooter.firstChild.firstChild;
-  const userInfoPanel = document.getElementsByClassName('expert-user_info_panel')[0];
-  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[0];
+maskBackHide.onclick = function () { // кнопка скрыть
+    const modalContent = document.getElementsByClassName('ant-modal-content')[0];
+    const modalWraps = document.getElementsByClassName('ant-modal-wrap');
+    const modalMasks = document.getElementsByClassName('ant-modal-mask');
+    const chatHeaderActionsInner = document.getElementsByClassName('expert-chat-header-actions-inner')[0];
+    const chatFooter = document.getElementsByClassName('expert-chat-footer')[0];
+    const chatNotesButton = chatFooter.firstChild.firstChild;
+    const userInfoPanel = document.getElementsByClassName('expert-user_info_panel')[0];
+    const userDetailsList = document.getElementsByClassName('expert-user_details-list')[0];
 
-  if (modalContent.childNodes[1].firstChild.textContent === "Добавить комментарий к диалогу") {
-    modalWraps[0].style.display = 'none';
-    modalMasks[0].style.display = 'none';
-    chatHeaderActionsInner.style.display = 'none'; // кнопки сверху
-    chatNotesButton.style.display = 'none'; // кнопка заметок
-    maskBack.style.display = '';
-
-    maskBack.setAttribute('name', userInfoPanel.firstChild.firstChild.textContent);
-    maskBack.setAttribute('email', userDetailsList.childNodes[0].childNodes[1].textContent);
-    maskBack.setAttribute('phone', userDetailsList.childNodes[1].childNodes[1].textContent);
-    maskBack.setAttribute('mask', 0);
-  } else {
-    for (let i = 0; ; i++) {
-      if (modalWraps[i] === undefined) {
-        modalWraps[i - 1].style.display = 'none';
-        modalMasks[i - 1].style.display = 'none';
+    if (modalContent.childNodes[1].firstChild.textContent === "Добавить комментарий к диалогу") {
+        modalWraps[0].style.display = 'none';
+        modalMasks[0].style.display = 'none';
         chatHeaderActionsInner.style.display = 'none'; // кнопки сверху
         chatNotesButton.style.display = 'none'; // кнопка заметок
         maskBack.style.display = '';
@@ -4868,61 +4809,74 @@ maskBackHide.onclick = function() { // кнопка скрыть
         maskBack.setAttribute('name', userInfoPanel.firstChild.firstChild.textContent);
         maskBack.setAttribute('email', userDetailsList.childNodes[0].childNodes[1].textContent);
         maskBack.setAttribute('phone', userDetailsList.childNodes[1].childNodes[1].textContent);
-        maskBack.setAttribute('mask', i - 1);
-        break;
-      }
+        maskBack.setAttribute('mask', 0);
+    } else {
+        for (let i = 0; ; i++) {
+            if (modalWraps[i] === undefined) {
+                modalWraps[i - 1].style.display = 'none';
+                modalMasks[i - 1].style.display = 'none';
+                chatHeaderActionsInner.style.display = 'none'; // кнопки сверху
+                chatNotesButton.style.display = 'none'; // кнопка заметок
+                maskBack.style.display = '';
+
+                maskBack.setAttribute('name', userInfoPanel.firstChild.firstChild.textContent);
+                maskBack.setAttribute('email', userDetailsList.childNodes[0].childNodes[1].textContent);
+                maskBack.setAttribute('phone', userDetailsList.childNodes[1].childNodes[1].textContent);
+                maskBack.setAttribute('mask', i - 1);
+                break;
+            }
+        }
     }
-  }
 };
 
-hashBut.onclick = function() { // кнопка копирующая хеш чата
-  const adr = document.location.href;
-  const adr1 = document.location.pathname;
-  const adrPathArray = adr1.split('/');
-  const chatId = adrPathArray[3];
-  const scriptAdr = localStorage.getItem('scriptAdr');
-  const hashBut = document.getElementById('hashBut');
-  let hash;
+hashBut.onclick = function () { // кнопка копирующая хеш чата
+    const adr = document.location.href;
+    const adr1 = document.location.pathname;
+    const adrPathArray = adr1.split('/');
+    const chatId = adrPathArray[3];
+    const scriptAdr = localStorage.getItem('scriptAdr');
+    const hashBut = document.getElementById('hashBut');
+    let hash;
 
-  if ((chatId === undefined || chatId === "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
-    if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
-      hashBut.innerHTML = "Ошибка";
-      setTimeout(function() { hashBut.innerHTML = "Хэш"; }, 3000);
+    if ((chatId === undefined || chatId === "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
+        if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
+            hashBut.innerHTML = "Ошибка";
+            setTimeout(function () { hashBut.innerHTML = "Хэш"; }, 3000);
+        } else {
+            chatId = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent;
+            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
+            copyToClipboard1(hash);
+            hashBut.innerHTML = "Скопировано";
+            setTimeout(function () { hashBut.innerHTML = "Хэш"; }, 3000);
+        }
     } else {
-      chatId = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent;
-      hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
-      copyToClipboard1(hash);
-      hashBut.innerHTML = "Скопировано";
-      setTimeout(function() { hashBut.innerHTML = "Хэш"; }, 3000);
+        if (scriptAdr === TS_addr) {
+            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-18/' + chatId;
+        } else if (scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
+            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-26/' + chatId;
+        } else {
+            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
+        }
+        copyToClipboard1(hash);
+        hashBut.innerHTML = "Скопировано";
+        setTimeout(function () { hashBut.innerHTML = "Хэш" }, 3000)
     }
-  } else {
-    if (scriptAdr === TS_addr) {
-      hash = 'https://hdi.skyeng.ru/autofaq/conversation/-18/' + chatId;
-    } else if (scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
-      hash = 'https://hdi.skyeng.ru/autofaq/conversation/-26/' + chatId;
-    } else {
-      hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
-    }
-    copyToClipboard1(hash);
-    hashBut.innerHTML = "Скопировано";
-    setTimeout(function () { hashBut.innerHTML= "Хэш" }, 3000)
-  }
 }
 
-document.getElementById('testUsers').ondblclick = function(a) {
-  if (checkelementtype(a)) {
-    const testid = document.getElementById('testid');
-    const idlogin = document.getElementById('idlogin');
-    if (testid && idlogin && testid.style.display === '' && idlogin.style.display === '') {
-      testid.style.display = 'none';
-      idlogin.style.display = 'none';
-      localStorage.setItem('Hidetestid', '0');
-    } else if (testid && idlogin) {
-      testid.style.display = '';
-      idlogin.style.display = '';
-      localStorage.setItem('Hidetestid', '1');
+document.getElementById('testUsers').ondblclick = function (a) {
+    if (checkelementtype(a)) {
+        const testid = document.getElementById('testid');
+        const idlogin = document.getElementById('idlogin');
+        if (testid && idlogin && testid.style.display === '' && idlogin.style.display === '') {
+            testid.style.display = 'none';
+            idlogin.style.display = 'none';
+            localStorage.setItem('Hidetestid', '0');
+        } else if (testid && idlogin) {
+            testid.style.display = '';
+            idlogin.style.display = '';
+            localStorage.setItem('Hidetestid', '1');
+        }
     }
-  }
 };
 
 setInterval(screenshots, 5000)
@@ -4936,57 +4890,57 @@ setInterval(remandressl, 3000);
 setInterval(closeTerms, 500);
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
-  // Find the 'teacher' user type and get the user's id.
-  const userTypeList = document.getElementsByClassName('expert-user_details-list')[1];
-  let getidusrteachreq;
-  for (let i = 0; i < userTypeList.childElementCount; i++) {
-    const childNode = userTypeList.childNodes[i];
-    if (childNode.childNodes[1].textContent === "teacher") {
-      for (let j = 0; j < userTypeList.childElementCount; j++) {
-        if (userTypeList.childNodes[j].firstChild.textContent === "id") {
-          getidusrteachreq = userTypeList.childNodes[j].childNodes[1].textContent.split(' ')[0];
-          copyToClipboard1(getidusrteachreq);
-          break;
+    // Find the 'teacher' user type and get the user's id.
+    const userTypeList = document.getElementsByClassName('expert-user_details-list')[1];
+    let getidusrteachreq;
+    for (let i = 0; i < userTypeList.childElementCount; i++) {
+        const childNode = userTypeList.childNodes[i];
+        if (childNode.childNodes[1].textContent === "teacher") {
+            for (let j = 0; j < userTypeList.childElementCount; j++) {
+                if (userTypeList.childNodes[j].firstChild.textContent === "id") {
+                    getidusrteachreq = userTypeList.childNodes[j].childNodes[1].textContent.split(' ')[0];
+                    copyToClipboard1(getidusrteachreq);
+                    break;
+                }
+            }
+            break;
         }
-      }
-      break;
     }
-  }
 }
 
 butstdid.onclick = function () {  // копирует в буфер ID У из секции nextclass-StudentId при создании задачи через АФ интеграцию
-  // Get the element with the class "expert-user_details-list"
-  const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+    // Get the element with the class "expert-user_details-list"
+    const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
 
-  // Loop through the child nodes of the element
-  for (const child of userDetailsList.childNodes) {
-    // Check if the first child node has the text content "nextClass-studentId"
-    if (child.firstChild.textContent === "nextClass-studentId") {
-      // Get the text content of the grandchild node
-      const getidusrstud = child.childNodes[1].textContent;
+    // Loop through the child nodes of the element
+    for (const child of userDetailsList.childNodes) {
+        // Check if the first child node has the text content "nextClass-studentId"
+        if (child.firstChild.textContent === "nextClass-studentId") {
+            // Get the text content of the grandchild node
+            const getidusrstud = child.childNodes[1].textContent;
 
-      // Call the copyToClipboard1 function with the getidusrstud variable as an argument
-      copyToClipboard1(getidusrstud);
+            // Call the copyToClipboard1 function with the getidusrstud variable as an argument
+            copyToClipboard1(getidusrstud);
+        }
     }
-  }
 };
 
 butteachidfstd.onclick = function () { // копирует в буфер ID П из секции nextclass-TeacherId при обращении У и создании задачи через АФ интеграцию
-  const detailsList = document.getElementsByClassName('expert-user_details-list')[1];
-  const teacherIdNode = Array.from(detailsList.childNodes).find(node => node.firstChild.textContent == "nextClass-teacherId");
-  if (teacherIdNode) {
-    getidusrsteach = teacherIdNode.childNodes[1].textContent;
-    copyToClipboard1(getidusrsteach);
-  }
+    const detailsList = document.getElementsByClassName('expert-user_details-list')[1];
+    const teacherIdNode = Array.from(detailsList.childNodes).find(node => node.firstChild.textContent == "nextClass-teacherId");
+    if (teacherIdNode) {
+        getidusrsteach = teacherIdNode.childNodes[1].textContent;
+        copyToClipboard1(getidusrsteach);
+    }
 }
 
 buttonservid.onclick = function () { //копирует в буфер nextClass-educationServiceId при обращении П во время крита услугу ученика при интеграции в форме АФ
-  const detailsList = document.getElementsByClassName('expert-user_details-list')[1];
-  const serviceIdNode = Array.from(detailsList.childNodes).find(node => node.firstChild.textContent == "nextClass-educationServiceId");
-  if (serviceIdNode) {
-    getservidst = serviceIdNode.childNodes[1].textContent;
-    copyToClipboard1(getservidst);
-  }
+    const detailsList = document.getElementsByClassName('expert-user_details-list')[1];
+    const serviceIdNode = Array.from(detailsList.childNodes).find(node => node.firstChild.textContent == "nextClass-educationServiceId");
+    if (serviceIdNode) {
+        getservidst = serviceIdNode.childNodes[1].textContent;
+        copyToClipboard1(getservidst);
+    }
 }
 
 
@@ -5067,31 +5021,31 @@ document.getElementById('msg1').onclick = function () { //  переключат
 }
 
 document.getElementById('snd').onclick = function () { //функция отправки сообщений в чат или заметки
-  const inp = document.getElementById('inp');
-  const phoneTr = document.getElementById('phone_tr');
-  const emailTr = document.getElementById('email_tr');
-  const snd = document.getElementById('snd');
+    const inp = document.getElementById('inp');
+    const phoneTr = document.getElementById('phone_tr');
+    const emailTr = document.getElementById('email_tr');
+    const snd = document.getElementById('snd');
 
-  snd.setAttribute('disabled', 'disabled');
-  setTimeout(function () { snd.removeAttribute('disabled') }, 500);
+    snd.setAttribute('disabled', 'disabled');
+    setTimeout(function () { snd.removeAttribute('disabled') }, 500);
 
-  if (document.getElementById('msg').innerHTML === 'Чат') {
-    if (template_flag === 1) {
-      if (template_flag2 === 1) {
-        sendAnswerTemplate2(inp.value, 1);
-      } else {
-        sendAnswerTemplate('', '', 1, inp.value, 1);
-      }
+    if (document.getElementById('msg').innerHTML === 'Чат') {
+        if (template_flag === 1) {
+            if (template_flag2 === 1) {
+                sendAnswerTemplate2(inp.value, 1);
+            } else {
+                sendAnswerTemplate('', '', 1, inp.value, 1);
+            }
+        } else {
+            sendAnswer(inp.value, 0);
+        }
     } else {
-      sendAnswer(inp.value, 0);
+        sendComment(inp.value);
     }
-  } else {
-    sendComment(inp.value);
-  }
 
-  inp.value = '';
-  if (phoneTr) phoneTr.value = '';
-  if (emailTr) emailTr.value = '';
+    inp.value = '';
+    if (phoneTr) phoneTr.value = '';
+    if (emailTr) emailTr.value = '';
 };
 
 
@@ -5527,7 +5481,6 @@ document.getElementById('clock_remin1').ondblclick = function () {		// Удал�
 }
 
 refreshTimerReminder(); //обновляет оставшееся время до будильника №1
-refreshTimerReminder1(); //обновляет оставшееся время до будильника №2
 
 setInterval(clock_on_javascript_1, 1000);
 setInterval(clock_on_javascript_2, 1000);
@@ -5539,7 +5492,7 @@ setInterval(clock_on_javascript_3, 1000);
 
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'reminder_bar', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd'];
-    elements.forEach(function(element) {
+    elements.forEach(function (element) {
         document.getElementById(element).style.display = 'none';
     });
     document.getElementById('scriptBut').style.display = '';
