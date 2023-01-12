@@ -579,6 +579,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
         lasttsk = '';
     } else
         document.getElementById('AF_ServDsk').style.display = ''
+	
     document.getElementById('idmymenu').style.display = 'none'
 
     checkjiraauth()
@@ -646,6 +647,9 @@ document.getElementById('hideMeSrvDsk').onclick = function () { //форма hid
                 remres(this);
             });
         });
+		
+		document.getElementById('newtask').textContent = ''
+		lasttsk = '';
 
         document.getElementById('AF_ServDsk').style.display = 'none'
     }
