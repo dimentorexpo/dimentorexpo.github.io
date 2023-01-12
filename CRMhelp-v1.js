@@ -508,7 +508,8 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 }
 
 function checkforsoundplay() {
-	document.body.click()
+	//document.body.click()
+	audioCRM.setAttribute('mute','true')
     if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
         if (document.getElementsByClassName('mat-button-disabled')[2] == undefined && document.getElementsByClassName('mat-button-wrapper')[13].innerText == 'Взять новую задачу') {    
             if (localStorage.getItem('repeatsound') == 0){
