@@ -1,3 +1,5 @@
+var soundsconteinerCRM;
+var soundintervalsetCRM = null
 function mystyles() {
     let mstl = document.createElement('style');
     document.body.append(mstl);

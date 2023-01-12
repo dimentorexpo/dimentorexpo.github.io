@@ -40,8 +40,6 @@ var win_SettingsApp =  // описание элементов главного �
 
 let audioCRM
 let soundsfromdocCRM;
-let soundsconteinerCRM;
-let soundintervalsetCRM = null
 let soundflagCRM = 0
 
 if (localStorage.getItem('sound_strCRM') !== null && localStorage.getItem('sound_strCRM') !== "")
