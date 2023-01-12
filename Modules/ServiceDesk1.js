@@ -673,10 +673,26 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
     let idUser = document.getElementById('custom_id')
     let appInfo = document.getElementById('custom_appinfo')
     let deviceInfo = document.getElementById('custom_deviceinfo')
-    let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value)
-    let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value)
-    let expectedResult = encodeURIComponent(document.getElementById('custom_er').value)
-    let actualResult = encodeURIComponent(document.getElementById('custom_ar').value)
+    let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value.replace(/[\n\t\"]/g, function(match) {
+    if (match === '\n') return '<br>';
+    if (match === '\t') return '&emsp;';
+    if (match === '\"') return '&quot;';
+});)
+	let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value.replace(/[\n\t\"]/g, function(match) {
+    if (match === '\n') return '<br>';
+    if (match === '\t') return '&emsp;';
+    if (match === '\"') return '&quot;';
+});)
+	let expectedResult = encodeURIComponent(document.getElementById('custom_er').value.replace(/[\n\t\"]/g, function(match) {
+    if (match === '\n') return '<br>';
+    if (match === '\t') return '&emsp;';
+    if (match === '\"') return '&quot;';
+});)
+	let actualResult = encodeURIComponent(document.getElementById('custom_ar').value.replace(/[\n\t\"]/g, function(match) {
+    if (match === '\n') return '<br>';
+    if (match === '\t') return '&emsp;';
+    if (match === '\"') return '&quot;';
+});)
     let activeButtons = document.querySelectorAll('.activebtn');
 
     if (priorityMobile.style.display == 'none' && appInfo.style.display == 'none' && deviceInfo.style.display == 'none') {
