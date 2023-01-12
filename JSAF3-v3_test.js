@@ -3846,7 +3846,15 @@ function refreshTimerReminder() {
         var timearr1 = new Date();
         var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
         localStorage.setItem('chronostamp22', chronostamp22);
-        abortTimeOut1 = setTimeout(function () {
+		abortTimeOut1 = setTimeout(function () {
+		setRemindAf('chronostamp1')
+		}, localStorage.getItem('chronostamp22'));
+		} else {
+		clearTimeout(abortTimeOut);
+		clearTimeout(abortTimeOut1);
+		document.getElementById('reminderstatus').textContent = "🔕";
+		}
+}
 
 
 function setRemindAf(tsname) { //функция  при наступлении времени перевода в статус занят Будильник №1
