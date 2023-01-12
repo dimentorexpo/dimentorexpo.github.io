@@ -327,35 +327,5 @@ document.getElementById('fileinputCRM').onclick = function () { // по клик
     });
 }
 
-function checkforsoundplay() {
-    if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
-        if (document.getElementsByClassName('mat-button-disabled')[2] == undefined && document.getElementsByClassName('mat-button-wrapper')[13].innerText == 'Взять новую задачу') {    
-            if (localStorage.getItem('repeatsound') == 0){
-                if (!soundintervalsetCRM) {
-                    audioCRM.play()
-                    soundintervalsetCRM = true
-                }
-            } else {
-                if (!soundintervalsetCRM) {
-                    audioCRM.play()
-                    soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
-                }    
-            }       
-        } else {
-            if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
-                clearInterval(soundintervalsetCRM)
-                soundintervalsetCRM = null
-            }
-            if (soundintervalsetCRM == true) {soundintervalsetCRM = null}
-        }
-    } else {
-        if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
-            clearInterval(soundintervalsetCRM)
-            soundintervalsetCRM = null
-        }
-        if (soundintervalsetCRM == true) {soundintervalsetCRM = null}
-    }
-}
 
-setInterval(checkforsoundplay, 1000);
 
