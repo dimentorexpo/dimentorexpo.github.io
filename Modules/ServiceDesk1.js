@@ -697,14 +697,14 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
 
     if (priorityMobile.style.display == 'none' && appInfo.style.display == 'none' && deviceInfo.style.display == 'none') {
         for (const button of activeButtons) {
-            sendRequest(idUser, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+            sendRequest(idUser.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
             console.log(`Selected topic: ${button.innerText}`);
         }
     } else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '') {
-        sendRequestMobWithPriority(priorityMobile.value, idUser, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+        sendRequestMobWithPriority(priorityMobile.value, idUser.value, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
         console.log(`Selected topic: ${button.innerText}`);
     } else if (priorityMobile.style.display == 'none' && appInfo.style.display == '' && deviceInfo.style.display == '') {
-        sendRequestMobNoPriority(idUser, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+        sendRequestMobNoPriority(idUser.value, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
         console.log(`Selected topic: ${button.innerText}`);
     }
 
