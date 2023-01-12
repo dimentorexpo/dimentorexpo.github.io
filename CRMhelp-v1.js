@@ -509,18 +509,35 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 
 function checkforsoundplay() {
 	//document.body.click()
-	audioCRM.muted = true
+	
+	var respTest = audioCRM.play();
+	
     if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
         if (document.getElementsByClassName('mat-button-disabled')[2] == undefined && document.getElementsByClassName('mat-button-wrapper')[13].innerText == 'Взять новую задачу') {    
             if (localStorage.getItem('repeatsound') == 0){
                 if (!soundintervalsetCRM) {
-                    audioCRM.play()
-                    soundintervalsetCRM = true
+					if (respTest!== undefined) {
+						respTest.then(_ => {
+							audioCRM.play()
+							soundintervalsetCRM = true
+						}).catch(error => {
+						  console.log(error)
+						});
+					}
+
                 }
             } else {
                 if (!soundintervalsetCRM) {
-                    audioCRM.play()
-                    soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
+					
+					if (respTest!== undefined) {
+						respTest.then(_ => {
+						audioCRM.play()
+						soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
+						}).catch(error => {
+						  console.log(error)
+						});
+					}
+				
                 }    
             }       
         } else {
