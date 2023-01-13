@@ -511,7 +511,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 
 						function handleAddtofarrClick(index) {
 							addtofarr[index].innerText = "❤";
-							favissues.push(`<span style="color: #00FA9A">&#5129;</span><a name="favbugs" href="${tagsarray[index].href}" target="_blank" style="color:bisque;">${tagsarray[index].innerHTML}</a><span name="favissuemassive" style="display:none">${massivissueids[index].innerText}</span><span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span><span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span><span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span><br>`);
+							favissues.push(`<li><span style="color: #00FA9A">&#5129;</span><a name="favbugs" href="${tagsarray[index].href}" target="_blank" style="color:bisque;">${tagsarray[index].innerHTML}</a><span name="favissuemassive" style="display:none">${massivissueids[index].innerText}</span><span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span><span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span><span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span></li>`);
 							localStorage.setItem('bugsarray', JSON.stringify(favissues));
 						}
 
