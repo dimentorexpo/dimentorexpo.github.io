@@ -468,20 +468,37 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         }
 
 
-                        let addtofarr = document.getElementsByName('addtofavourites')
-                        let tagsarray = document.getElementsByName('buglinks');
-                        let massivissueids = document.getElementsByName('issueIds')
-                        for (let v = 0; v < addtofarr.length; v++) {
-                            addtofarr[v].onclick = function () {
-                                addtofarr[v].innerText = "❤"
-                                for (let x = 0; x < tagsarray.length; x++) {
-                                    if (x == v) {
-                                        favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
-                                        localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                                    }
-                                }
-                            }
-                        }
+                        // let addtofarr = document.getElementsByName('addtofavourites')
+                        // let tagsarray = document.getElementsByName('buglinks');
+                        // let massivissueids = document.getElementsByName('issueIds')
+                        // for (let v = 0; v < addtofarr.length; v++) {
+                            // addtofarr[v].onclick = function () {
+                                // addtofarr[v].innerText = "❤"
+                                // for (let x = 0; x < tagsarray.length; x++) {
+                                    // if (x == v) {
+                                        // favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
+                                        // localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                                    // }
+                                // }
+                            // }
+                        // }
+						
+						const addtofarr = document.getElementsByName('addtofavourites');
+						const tagsarray = document.getElementsByName('buglinks');
+						const massivissueids = document.getElementsByName('issueIds');
+
+						function handleAddtofarrClick(index) {
+							addtofarr[index].innerText = "❤";
+							favissues.push(`<span style="color: #00FA9A">&#5129;</span><a name="favbugs" href="${tagsarray[index].href}" target="_blank" style="color:bisque;">${tagsarray[index].innerHTML}</a><span name="favissuemassive" style="display:none">${massivissueids[index].innerText}</span><span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span><span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span><span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span><br>`);
+							localStorage.setItem('bugsarray', JSON.stringify(favissues));
+						}
+
+						for (let v = 0; v < addtofarr.length; v++) {
+							addtofarr[v].onclick = function () {
+								handleAddtofarrClick(v);
+							}
+						}
+						
 
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
