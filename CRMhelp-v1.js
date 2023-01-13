@@ -508,13 +508,13 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 		}
 	}
 }
-
+let takeTaskBtn;
 function checkforsoundplay() {
     //document.body.click()
-
+	takeTaskBtn = document.getElementsByClassName('mat-button-wrapper');
     if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
-        if (document.getElementsByClassName('mat-button-wrapper').length > 0) {
-            if (document.getElementsByClassName('mat-button-disabled').length == 0 && document.getElementsByClassName('mat-button-wrapper')[13].innerText == 'Взять новую задачу') {
+        if (takeTaskBtn.length > 0) {
+            if (document.getElementsByClassName('mat-button-disabled').length == 0 && takeTaskBtn[13] && takeTaskBtn[13].innerText == 'Взять новую задачу') {
                 if (localStorage.getItem('repeatsound') == 0) {
                     if (!soundintervalsetCRM) {
                         soundintervalsetCRM = true
