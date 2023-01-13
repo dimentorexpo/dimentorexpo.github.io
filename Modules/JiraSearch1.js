@@ -471,7 +471,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 
                         let addtofarr = document.getElementsByName('addtofavourites')
                         let tagsarray = document.getElementsByName('buglinks');
-						let outputTable	= document.getElementsByName('favouriteissuetable');
+						let outputTable	= document.getElementById('favouriteissuetable');
                         let massivissueids = document.getElementsByName('issueIds')
                         for (let v = 0; v < addtofarr.length; v++) {
                             addtofarr[v].onclick = function () {
