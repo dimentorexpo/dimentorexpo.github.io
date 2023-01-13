@@ -222,32 +222,32 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         document.getElementById('favouriteissuetable').innerHTML = favissues;
                     }
 
-                    for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
-                        document.getElementsByName('removefromfavourites')[i].onclick = function () {
-                            favissues.splice([i], 1)
-                            localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                            favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                            document.getElementById('favouriteissuetable').innerHTML = favissues;
-                            removebug();
-                            sndmsgafterdeletebug()
-                            plusonecount()
-                        }
-                    }
+                    // for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
+                        // document.getElementsByName('removefromfavourites')[i].onclick = function () {
+                            // favissues.splice([i], 1)
+                            // localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                            // favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                            // document.getElementById('favouriteissuetable').innerHTML = favissues;
+                            // removebug();
+                            // sndmsgafterdeletebug()
+                            // plusonecount()
+                        // }
+                    // }
 
-                    function removebug() {
-                        let arroffavbugs = document.getElementsByName('removefromfavourites');
-                        for (let i = 0; i < arroffavbugs.length; i++) {
-                            arroffavbugs[i].onclick = function () {
-                                favissues.splice([i], 1)
-                                localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                                favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                                document.getElementById('favouriteissuetable').innerHTML = favissues;
-                                removebug();
-                                sndmsgafterdeletebug()
-                                plusonecount()
-                            }
-                        }
-                    }
+                    // function removebug() {
+                        // let arroffavbugs = document.getElementsByName('removefromfavourites');
+                        // for (let i = 0; i < arroffavbugs.length; i++) {
+                            // arroffavbugs[i].onclick = function () {
+                                // favissues.splice([i], 1)
+                                // localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                                // favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                                // document.getElementById('favouriteissuetable').innerHTML = favissues;
+                                // removebug();
+                                // sndmsgafterdeletebug()
+                                // plusonecount()
+                            // }
+                        // }
+                    // }
 
 
                     for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
@@ -498,6 +498,21 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 								handleAddtofarrClick(v);
 							}
 						}
+						
+						const removeFromFavorites = document.getElementsByName('removefromfavourites');
+
+						function handleRemoveFromFavoritesClick(index) {
+							favissues.splice(index, 1);
+							localStorage.setItem('bugsarray', JSON.stringify(favissues));
+							document.getElementById('favtable').removeChild(document.getElementsByName('favbugs')[index].parentNode);
+						}
+
+						for (let i = 0; i < removeFromFavorites.length; i++) {
+							removeFromFavorites[i].onclick = function () {
+								handleRemoveFromFavoritesClick(i);
+							}
+						}
+
 						
 
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
