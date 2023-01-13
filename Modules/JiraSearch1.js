@@ -230,19 +230,34 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 							// document.getElementById('favouriteissuetable').removeChild(document.getElementsByName('favbugs')[index].parentNode);
 						// }
 						
-						function handleRemoveFromFavoritesClick(index) {
-						  favissues.splice(index, 1);
-						  localStorage.setItem('bugsarray', JSON.stringify(favissues));
-						  const favIssueTable = document.getElementById('favouriteissuetable');
-						  const favIssueRow = document.getElementsByName('favbugs')[index].parentNode;
-						  favIssueTable.removeChild(favIssueRow);
-						}
+						// function handleRemoveFromFavoritesClick(index) {
+						  // favissues.splice(index, 1);
+						  // localStorage.setItem('bugsarray', JSON.stringify(favissues));
+						  // const favIssueTable = document.getElementById('favouriteissuetable');
+						  // const favIssueRow = document.getElementsByName('favbugs')[index].parentNode;
+						  // favIssueTable.removeChild(favIssueRow);
+						// }
 
-						for (let i = 0; i < removeFromFavorites.length; i++) {
-							removeFromFavorites[i].onclick = function () {
-								handleRemoveFromFavoritesClick(i);
+						// for (let i = 0; i < removeFromFavorites.length; i++) {
+							// removeFromFavorites[i].onclick = function () {
+								// handleRemoveFromFavoritesClick(i);
+							// }
+						// }
+						
+						// Function to remove item from favissues array and update HTML
+							function handleRemoveFromFavoritesClick(e) {
+							  let index = e.target.getAttribute("data-index");
+							  favissues.splice(index, 1);
+							  localStorage.setItem('bugsarray', JSON.stringify(favissues));
+							  document.getElementById('favouriteissuetable').innerHTML = favissues.join("");
 							}
-						}
+
+							// Attaching click event to the remove button
+							for (let i = 0; i < removeFromFavorites.length; i++) {
+								removeFromFavorites[i].setAttribute("data-index", i);
+								removeFromFavorites[i].addEventListener("click", handleRemoveFromFavoritesClick);
+							}
+
 
                     // for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
                         // document.getElementsByName('removefromfavourites')[i].onclick = function () {
