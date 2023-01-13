@@ -513,8 +513,8 @@ function checkforsoundplay() {
 	//document.body.click()
 
     if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
-		if (document.getElementsByClassName('mat-button-wrapper').length >0) {
-			if (document.getElementsByClassName('mat-button-disabled')[2] == undefined && document.getElementsByClassName('mat-button-wrapper')[13].innerText == 'Взять новую задачу') {    
+		if (document.getElementsByClassName('mat-button-wrapper').length >0 && document.getElementsByClassName('mat-button-disabled').length >0) {
+			if (document.getElementsByClassName('mat-button-disabled')[0].disabled !=true && document.getElementsByClassName('mat-button-wrapper')[13].innerText == 'Взять новую задачу') {    
 				if (localStorage.getItem('repeatsound') == 0){
 					if (!soundintervalsetCRM) {
 						soundintervalsetCRM = true				
