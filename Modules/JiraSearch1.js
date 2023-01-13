@@ -381,35 +381,35 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                     document.getElementById('JQLquery').value = defqueryitem;
                     defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
-                    document.getElementById('responseTextarea1').value = optionsforfetch(defqueryitem)
+					document.getElementById('responseTextarea1').value = `{${optionsforfetch(defqueryitem)}}`
 
                 } else if (document.getElementById('freshQuery').classList.contains('active-query')) {
                     frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = frqueryitem;
                     frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
-                    document.getElementById('responseTextarea1').value = optionsforfetch(frqueryitem) 
+                    document.getElementById('responseTextarea1').value = `{${optionsforfetch(frqueryitem)}}`
 
                 } else if (document.getElementById('customQuery').classList.contains('active-query')) {
                     customquery = `${localStorage.getItem('customquery')}`
                     document.getElementById('JQLquery').value = customquery
                     customquery = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-
-					document.getElementById('responseTextarea1').value = optionsforfetch(customquery) 
+					
+					document.getElementById('responseTextarea1').value = `{${optionsforfetch(customquery)}}`
 
                 } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
                     iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = iosbugsqueryitem;
                     iosbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-
-                    document.getElementById('responseTextarea1').value = optionsforfetch(iosbugsqueryitem) 
+				
+					document.getElementById('responseTextarea1').value = `{${optionsforfetch(iosbugsqueryitem)}}`
 	
                 } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
                     androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = androidbugsqueryitem;
                     androidbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-
-					document.getElementById('responseTextarea1').value = optionsforfetch(androidbugsqueryitem) 
+			
+					document.getElementById('responseTextarea1').value = `{${optionsforfetch(androidbugsqueryitem)}}`
                 }
 
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
