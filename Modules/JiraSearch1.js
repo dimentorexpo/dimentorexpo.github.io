@@ -597,20 +597,20 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 
                 setTimeout(getJiraTask1, 1000)
             }
+		
+			const searchJiraByEnter = document.querySelector('#testJira');
+			const searchJiraByEnterInput = document.querySelector('#JQLquery');
+			const getJiraTasksBtn = document.querySelector('#getJiraTasks');
 
-            let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
-            searchJiraByEnter.addEventListener('keydown', event => {
-                if (event.key === "Enter") {
-                    document.querySelector('#getJiraTasks').click()
-                }
-            })
+			function handleSearchJiraByEnter(event) { //по Enter запускает поиск по Jira
+				if (event.key === "Enter") {
+					getJiraTasksBtn.click();
+				}
+			}
 
-            let searchJiraByEnterInput = document.querySelector('#JQLquery'); //по Enter запускает поиск по Jira
-            searchJiraByEnterInput.addEventListener('keydown', event => {
-                if (event.key === "Enter") {
-                    document.querySelector('#getJiraTasks').click()
-                }
-            })
+			searchJiraByEnter.addEventListener('keydown', handleSearchJiraByEnter);
+			searchJiraByEnterInput.addEventListener('keydown', handleSearchJiraByEnter);
+
 
 
         } else if (document.getElementById('AF_Jira').style.display == '') {
