@@ -542,12 +542,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                 setTimeout(getJiraTask, 1000)
 
             }
-			
-			
-			
-			//
-			
-			
+						
             // Просмотр таски по джира по ее коду и номеру
             document.getElementById('getJiraTasks').ondblclick = function () {
                 if (document.getElementById('AF_Jira').style.display == 'none') {
