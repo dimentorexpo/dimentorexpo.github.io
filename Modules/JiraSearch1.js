@@ -286,7 +286,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         cnttoincrease[c].onclick = plusonecount;
                     }
 
-                    function plusonecount() {
+                    function plusonecount() { // функция увеличения +1 в сапорт таб в джира
                         let cnttoincrease = document.getElementsByName('increasecount');
                         let itarrs = document.getElementsByName('favissuemassive')
                         for (let c = 0; c < cnttoincrease.length; c++) {
@@ -356,105 +356,60 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
             document.getElementById('getJiraTasks').onclick = function () {
 
                 let rezissuetable;
+				
+				function optionsforfetch(queryName) {
+					let tempvar;
+					tempvar = `
+					"headers": {
+                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
+                       "accept": "*/*",
+                        "sec-fetch-mode": "cors",
+                       "sec-fetch-site": "same-origin",
+                       "x-atlassian-token": "no-check",
+                       "x-requested-with": "XMLHttpRequest"
+                     },
+                     "body": "startIndex=0&filterId=21266&jql=${queryName}&layoutKey=list-view",
+                     "method": "POST",
+                     "mode": "cors",
+                     "credentials": "include"
+					`
+					return tempvar;
+				}
 
                 if (document.getElementById('defaultQuery').classList.contains('active-query')) {
                     defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
                     document.getElementById('JQLquery').value = defqueryitem;
                     defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
-                    document.getElementById('responseTextarea1').value = `{
-                     "headers": {
-                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
-                       "accept": "*/*",
-                        "sec-fetch-mode": "cors",
-                       "sec-fetch-site": "same-origin",
-                       "x-atlassian-token": "no-check",
-                       "x-requested-with": "XMLHttpRequest"
-                     },
-                     "body": "startIndex=0&filterId=21266&jql=${defqueryitem}&layoutKey=list-view",
-                     "method": "POST",
-                     "mode": "cors",
-                     "credentials": "include"
-					}`
+                    document.getElementById('responseTextarea1').value = optionsforfetch(defqueryitem)
 
                 } else if (document.getElementById('freshQuery').classList.contains('active-query')) {
                     frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = frqueryitem;
                     frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
-                    document.getElementById('responseTextarea1').value = `{
-                     "headers": {
-                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
-                       "accept": "*/*",
-                        "sec-fetch-mode": "cors",
-                       "sec-fetch-site": "same-origin",
-                       "x-atlassian-token": "no-check",
-                       "x-requested-with": "XMLHttpRequest"
-                     },
-                     "body": "startIndex=0&filterId=21266&jql=${frqueryitem}&layoutKey=list-view",
-                     "method": "POST",
-                     "mode": "cors",
-                     "credentials": "include"
-					}`
+                    document.getElementById('responseTextarea1').value = optionsforfetch(frqueryitem) 
 
                 } else if (document.getElementById('customQuery').classList.contains('active-query')) {
                     customquery = `${localStorage.getItem('customquery')}`
                     document.getElementById('JQLquery').value = customquery
                     customquery = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-                    document.getElementById('responseTextarea1').value = `{
-                     "headers": {
-                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
-                       "accept": "*/*",
-                        "sec-fetch-mode": "cors",
-                       "sec-fetch-site": "same-origin",
-                       "x-atlassian-token": "no-check",
-                       "x-requested-with": "XMLHttpRequest"
-                     },
-                     "body": "startIndex=0&filterId=21266&jql=${customquery}&layoutKey=list-view",
-                     "method": "POST",
-                     "mode": "cors",
-                     "credentials": "include"
-					}`
+
+					document.getElementById('responseTextarea1').value = optionsforfetch(customquery) 
 
                 } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
                     iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = iosbugsqueryitem;
                     iosbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
-                    document.getElementById('responseTextarea1').value = `{
-                     "headers": {
-                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
-                       "accept": "*/*",
-                        "sec-fetch-mode": "cors",
-                       "sec-fetch-site": "same-origin",
-                       "x-atlassian-token": "no-check",
-                       "x-requested-with": "XMLHttpRequest"
-                     },
-                     "body": "startIndex=0&filterId=21266&jql=${iosbugsqueryitem}&layoutKey=list-view",
-                     "method": "POST",
-                     "mode": "cors",
-                     "credentials": "include"
-					}`
-
+                    document.getElementById('responseTextarea1').value = optionsforfetch(iosbugsqueryitem) 
+	
                 } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
                     androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                     document.getElementById('JQLquery').value = androidbugsqueryitem;
                     androidbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
-                    document.getElementById('responseTextarea1').value = `{
-                     "headers": {
-                        "__amdmodulename": "jira/issue/utils/xsrf-token-header",
-                       "accept": "*/*",
-                        "sec-fetch-mode": "cors",
-                       "sec-fetch-site": "same-origin",
-                       "x-atlassian-token": "no-check",
-                       "x-requested-with": "XMLHttpRequest"
-                     },
-                     "body": "startIndex=0&filterId=21266&jql=${androidbugsqueryitem}&layoutKey=list-view",
-                     "method": "POST",
-                     "mode": "cors",
-                     "credentials": "include"
-					}`
+					document.getElementById('responseTextarea1').value = optionsforfetch(androidbugsqueryitem) 
                 }
 
                 document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
