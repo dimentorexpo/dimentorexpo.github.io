@@ -1,3 +1,4 @@
+let retResult;
 var win_Jira =  // описание элементов окна Поиска по Jira
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -219,7 +220,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                     document.getElementById('getJiraTasks').style.display = "none"
                     if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
                         favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                        document.getElementById('favouriteissuetable').innerHTML = favissues;
+                        // document.getElementById('favouriteissuetable').innerHTML = favissues;
                     }
 
                     for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
@@ -470,13 +471,14 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 
                         let addtofarr = document.getElementsByName('addtofavourites')
                         let tagsarray = document.getElementsByName('buglinks');
+						let outputTable	= document.getElementsByName('favouriteissuetable');
                         let massivissueids = document.getElementsByName('issueIds')
                         for (let v = 0; v < addtofarr.length; v++) {
                             addtofarr[v].onclick = function () {
                                 addtofarr[v].innerText = "❤"
                                 for (let x = 0; x < tagsarray.length; x++) {
                                     if (x == v) {
-                                        favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
+                                        outputTable.appendChild(document.createTextNode('<div><span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '</div>')) 								
                                         localStorage.setItem('bugsarray', JSON.stringify(favissues))
                                     }
                                 }
