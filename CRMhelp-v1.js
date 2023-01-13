@@ -513,59 +513,61 @@ function checkforsoundplay() {
 	//document.body.click()
 
     if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
-        if (document.getElementsByClassName('mat-button-wrapper').length >0 && document.getElementsByClassName('mat-button-disabled')[2] == undefined && document.getElementsByClassName('mat-button-wrapper')[13].innerText == 'Взять новую задачу') {    
-            if (localStorage.getItem('repeatsound') == 0){
-                if (!soundintervalsetCRM) {
-                    soundintervalsetCRM = true				
-					audioCRM.oncanplaythrough = (event) => {
-					var playedPromise = audioCRM.play();
-					if (playedPromise) {
-						playedPromise.catch((e) => {
-							console.log(e)
-							if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
-								console.log(e.name);
-							}
-						}).then(() => {
-							console.log("playing sound !!!");
-						});
+		if (document.getElementsByClassName('mat-button-wrapper').length >0) {
+			if (document.getElementsByClassName('mat-button-disabled')[2] == undefined && document.getElementsByClassName('mat-button-wrapper')[13].innerText == 'Взять новую задачу') {    
+				if (localStorage.getItem('repeatsound') == 0){
+					if (!soundintervalsetCRM) {
+						soundintervalsetCRM = true				
+						audioCRM.oncanplaythrough = (event) => {
+						var playedPromise = audioCRM.play();
+						if (playedPromise) {
+							playedPromise.catch((e) => {
+								console.log(e)
+								if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
+									console.log(e.name);
+								}
+							}).then(() => {
+								console.log("playing sound !!!");
+							});
+						}
 					}
-				}
-					
-					
-                }
-            } else {
-                if (!soundintervalsetCRM) {
-					audioCRM.oncanplaythrough = (event) => {
-					var playedPromise = audioCRM.play();
-					if (playedPromise) {
-						playedPromise.catch((e) => {
-							console.log(e)
-							if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
-								console.log(e.name);
-							}
-						}).then(() => {
-							console.log("playing sound !!!");
-						});
+						
+						
 					}
+				} else {
+					if (!soundintervalsetCRM) {
+						audioCRM.oncanplaythrough = (event) => {
+						var playedPromise = audioCRM.play();
+						if (playedPromise) {
+							playedPromise.catch((e) => {
+								console.log(e)
+								if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
+									console.log(e.name);
+								}
+							}).then(() => {
+								console.log("playing sound !!!");
+							});
+						}
+					}
+						soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
+					}    
+				}   
+				
+			} else {
+				if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
+					clearInterval(soundintervalsetCRM)
+					soundintervalsetCRM = null
 				}
-                    soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
-                }    
-            }   
-			
-        } else {
-            if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
-                clearInterval(soundintervalsetCRM)
-                soundintervalsetCRM = null
-            }
-            if (soundintervalsetCRM == true) {soundintervalsetCRM = null}
-        }
-    } else {
-        if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
-            clearInterval(soundintervalsetCRM)
-            soundintervalsetCRM = null
-        }
-        if (soundintervalsetCRM == true) {soundintervalsetCRM = null}
-    }
+				if (soundintervalsetCRM == true) {soundintervalsetCRM = null}
+			}
+		} else {
+			if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
+				clearInterval(soundintervalsetCRM)
+				soundintervalsetCRM = null
+			}
+			if (soundintervalsetCRM == true) {soundintervalsetCRM = null}
+		}
+	}
 }
 
 setInterval(checkforsoundplay, 1000);
