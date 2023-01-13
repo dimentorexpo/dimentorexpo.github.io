@@ -221,70 +221,33 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         favissues = JSON.parse(localStorage.getItem('bugsarray'))
                         document.getElementById('favouriteissuetable').innerHTML = favissues;
                     }
-					
-						const removeFromFavorites = document.getElementsByName('removefromfavourites');
 
-						// function handleRemoveFromFavoritesClick(index) {
-							// favissues.splice(index, 1);
-							// localStorage.setItem('bugsarray', JSON.stringify(favissues));
-							// document.getElementById('favouriteissuetable').removeChild(document.getElementsByName('favbugs')[index].parentNode);
-						// }
-						
-						// function handleRemoveFromFavoritesClick(index) {
-						  // favissues.splice(index, 1);
-						  // localStorage.setItem('bugsarray', JSON.stringify(favissues));
-						  // const favIssueTable = document.getElementById('favouriteissuetable');
-						  // const favIssueRow = document.getElementsByName('favbugs')[index].parentNode;
-						  // favIssueTable.removeChild(favIssueRow);
-						// }
+                    for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
+                        document.getElementsByName('removefromfavourites')[i].onclick = function () {
+                            favissues.splice([i], 1)
+                            localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                            favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                            document.getElementById('favouriteissuetable').innerHTML = favissues;
+                            removebug();
+                            sndmsgafterdeletebug()
+                            plusonecount()
+                        }
+                    }
 
-						// for (let i = 0; i < removeFromFavorites.length; i++) {
-							// removeFromFavorites[i].onclick = function () {
-								// handleRemoveFromFavoritesClick(i);
-							// }
-						// }
-						
-						// Function to remove item from favissues array and update HTML
-							function handleRemoveFromFavoritesClick(e) {
-							  let index = e.target.getAttribute("data-index");
-							  favissues.splice(index, 1);
-							  localStorage.setItem('bugsarray', JSON.stringify(favissues));
-							  document.getElementById('favouriteissuetable').innerHTML = favissues.join("");
-							}
-
-							// Attaching click event to the remove button
-							for (let i = 0; i < removeFromFavorites.length; i++) {
-								removeFromFavorites[i].setAttribute("data-index", i);
-								removeFromFavorites[i].addEventListener("click", handleRemoveFromFavoritesClick);
-							}
-
-
-                    // for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
-                        // document.getElementsByName('removefromfavourites')[i].onclick = function () {
-                            // favissues.splice([i], 1)
-                            // localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                            // favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                            // document.getElementById('favouriteissuetable').innerHTML = favissues;
-                            // removebug();
-                            // sndmsgafterdeletebug()
-                            // plusonecount()
-                        // }
-                    // }
-
-                    // function removebug() {
-                        // let arroffavbugs = document.getElementsByName('removefromfavourites');
-                        // for (let i = 0; i < arroffavbugs.length; i++) {
-                            // arroffavbugs[i].onclick = function () {
-                                // favissues.splice([i], 1)
-                                // localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                                // favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                                // document.getElementById('favouriteissuetable').innerHTML = favissues;
-                                // removebug();
-                                // sndmsgafterdeletebug()
-                                // plusonecount()
-                            // }
-                        // }
-                    // }
+                    function removebug() {
+                        let arroffavbugs = document.getElementsByName('removefromfavourites');
+                        for (let i = 0; i < arroffavbugs.length; i++) {
+                            arroffavbugs[i].onclick = function () {
+                                favissues.splice([i], 1)
+                                localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                                favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                                document.getElementById('favouriteissuetable').innerHTML = favissues;
+                                removebug();
+                                sndmsgafterdeletebug()
+                                plusonecount()
+                            }
+                        }
+                    }
 
 
                     for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
@@ -505,38 +468,21 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         }
 
 
-                        // let addtofarr = document.getElementsByName('addtofavourites')
-                        // let tagsarray = document.getElementsByName('buglinks');
-                        // let massivissueids = document.getElementsByName('issueIds')
-                        // for (let v = 0; v < addtofarr.length; v++) {
-                            // addtofarr[v].onclick = function () {
-                                // addtofarr[v].innerText = "❤"
-                                // for (let x = 0; x < tagsarray.length; x++) {
-                                    // if (x == v) {
-                                        // favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
-                                        // localStorage.setItem('bugsarray', JSON.stringify(favissues))
-                                    // }
-                                // }
-                            // }
-                        // }
-						
-						const addtofarr = document.getElementsByName('addtofavourites');
-						const tagsarray = document.getElementsByName('buglinks');
-						const massivissueids = document.getElementsByName('issueIds');
+                        let addtofarr = document.getElementsByName('addtofavourites')
+                        let tagsarray = document.getElementsByName('buglinks');
+                        let massivissueids = document.getElementsByName('issueIds')
+                        for (let v = 0; v < addtofarr.length; v++) {
+                            addtofarr[v].onclick = function () {
+                                addtofarr[v].innerText = "❤"
+                                for (let x = 0; x < tagsarray.length; x++) {
+                                    if (x == v) {
+                                        favissues.push('<span style="color: #00FA9A">&#5129;</span>' + `<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` + tagsarray[x].innerHTML + '</a>' + `<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}` + '</span>' + '<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' + '<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' + '<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>')
+                                        localStorage.setItem('bugsarray', JSON.stringify(favissues))
+                                    }
+                                }
+                            }
+                        }
 
-						function handleAddtofarrClick(index) {
-							addtofarr[index].innerText = "❤";
-							favissues.push(`<p><span style="color: #00FA9A">&#5129;</span><a name="favbugs" href="${tagsarray[index].href}" target="_blank" style="color:bisque;">${tagsarray[index].innerHTML}</a><span name="favissuemassive" style="display:none">${massivissueids[index].innerText}</span><span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span><span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span><span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span></p>`);
-							localStorage.setItem('bugsarray', JSON.stringify(favissues));
-						}
-						
-
-						for (let v = 0; v < addtofarr.length; v++) {
-							addtofarr[v].onclick = function () {
-								handleAddtofarrClick(v);
-							}
-						}
-					
                         let refreshissuesarr = document.querySelectorAll('.refreshissues');
                         for (let f = 0; f < refreshissuesarr.length; f++) {
                             refreshissuesarr[f].onclick = function () {
