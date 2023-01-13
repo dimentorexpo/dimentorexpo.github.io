@@ -224,10 +224,18 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 					
 						const removeFromFavorites = document.getElementsByName('removefromfavourites');
 
+						// function handleRemoveFromFavoritesClick(index) {
+							// favissues.splice(index, 1);
+							// localStorage.setItem('bugsarray', JSON.stringify(favissues));
+							// document.getElementById('favouriteissuetable').removeChild(document.getElementsByName('favbugs')[index].parentNode);
+						// }
+						
 						function handleRemoveFromFavoritesClick(index) {
-							favissues.splice(index, 1);
-							localStorage.setItem('bugsarray', JSON.stringify(favissues));
-							document.getElementById('favtable').removeChild(document.getElementsByName('favbugs')[index].parentNode);
+						  favissues.splice(index, 1);
+						  localStorage.setItem('bugsarray', JSON.stringify(favissues));
+						  const favIssueTable = document.getElementById('favouriteissuetable');
+						  const favIssueRow = document.getElementsByName('favbugs')[index].parentNode;
+						  favIssueTable.removeChild(favIssueRow);
 						}
 
 						for (let i = 0; i < removeFromFavorites.length; i++) {
