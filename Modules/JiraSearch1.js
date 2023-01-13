@@ -416,7 +416,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                 document.getElementById('responseTextarea3').value = 'getissuetable'
                 document.getElementById('sendResponse').click()
 
-                function getJiraTask() {
+                function getJiraTask() { // функция получения таски джира
                     rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
                     if (rezissuetable == null)
                         setTimeout(getJiraTask, 1000)
@@ -542,55 +542,112 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                 setTimeout(getJiraTask, 1000)
 
             }
+			
+			
+			
+			//
+			
+let getJiraTasksBtn = document.getElementById('getJiraTasks');
+let AF_Jira = document.getElementById('AF_Jira');
+let responseTextarea111 = document.getElementById('responseTextarea1');
+let responseTextarea222 = document.getElementById('responseTextarea2');
+let responseTextarea333 = document.getElementById('responseTextarea3');
+let sendResponse111 = document.getElementById('sendResponse');
+let testJira = document.getElementById('testJira');
+let issuetable = document.getElementById('issuetable');
+
+function toggleAF_Jira() {
+    AF_Jira.style.display == 'none' ? AF_Jira.style.display = '' : AF_Jira.style.display = 'none';
+}
+
+function getJiraTask1() {
+    let rezissuetable = JSON.parse(responseTextarea1.getAttribute('getissuetable1'));
+    responseTextarea1.removeAttribute('getissuetable1');
+    if (rezissuetable) {
+        let issues = `<span style="color: #00FA9A">&#5129;</span> <a href="${rezissuetable[0].items[0].url}" onclick="" target="_blank" style="color: #ffe4c4">${rezissuetable[0].items[0].subtitle} - ${rezissuetable[0].items[0].title}</a> <span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>`;
+        issuetable.innerHTML = issues;
+        const barray = document.querySelector('.jiraissues');
+        barray.onclick = function () {
+            sendComment(rezissuetable[0].items[0].url);
+            const b = document.URL.split('/');
+            fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                headers: {
+                    "accept": "*/*",
+                    "content-type": "application/json",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "same-origin"
+                },
+                body: JSON.stringify({conversationId: b[5], elements: [{name: "taskUrl", value: rezissuetable[0].items[0].url}]}),
+                method: "POST",
+                mode: "cors",
+                credentials: "include"
+            });
+        }
+        setTimeout(() => { issuetable.innerHTML = ""; testJira.value = ""; }, 5000);
+    }
+}
+
+	getJiraTasksBtn.ondblclick = function () {
+		toggleAF_Jira();
+		responseTextarea111.value = `{}`;
+		responseTextarea222.value = `https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/
+	search?q=${testJira.value}`;
+	responseTextarea333.value = 'getissuetable1';
+	sendResponse111.click();
+	setTimeout(getJiraTask1, 1000);
+	}
+
+//
             // Просмотр таски по джира по ее коду и номеру
-            document.getElementById('getJiraTasks').ondblclick = function () {
-                if (document.getElementById('AF_Jira').style.display == 'none') {
-                    document.getElementById('AF_Jira').style.display = ''
-                }
+            // document.getElementById('getJiraTasks').ondblclick = function () {
+                // if (document.getElementById('AF_Jira').style.display == 'none') {
+                    // document.getElementById('AF_Jira').style.display = ''
+                // }
 
-                let rezissuetable;
+                // let rezissuetable;
 
-                document.getElementById('responseTextarea1').value = `{}`
-                document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
-                document.getElementById('responseTextarea3').value = 'getissuetable1'
-                document.getElementById('sendResponse').click()
+                // document.getElementById('responseTextarea1').value = `{}`
+                // document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/quicksearch/1.0/productsearch/search?q=" + document.getElementById('testJira').value;
+                // document.getElementById('responseTextarea3').value = 'getissuetable1'
+                // document.getElementById('sendResponse').click()
 
-                async function getJiraTask1() {
+                // async function getJiraTask1() {
 
-                    rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
-                    rezissuetable = await rezissuetable;
-                    document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
-                    if (rezissuetable != null) {
-                        let issues = [];
-                        issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
+                    // rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable1'))
+                    // rezissuetable = await rezissuetable;
+                    // document.getElementById('responseTextarea1').removeAttribute('getissuetable1')
+                    // if (rezissuetable != null) {
+                        // let issues = [];
+                        // issues = '<span style="color: #00FA9A">&#5129;</span>' + '<a href="' + rezissuetable[0].items[0].url + '" onclick="" target="_blank" style="color: #ffe4c4">' + rezissuetable[0].items[0].subtitle + " - " + rezissuetable[0].items[0].title + '</a>' + " " + '<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
 
-                        document.getElementById('issuetable').innerHTML = issues;
+                        // document.getElementById('issuetable').innerHTML = issues;
 
-                        let barray = document.querySelector('.jiraissues');
-                        barray.onclick = function () {
-                            sendComment(rezissuetable[0].items[0].url)
-                            let b = document.URL.split('/')
-                            fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
-                                "headers": {
-                                    "accept": "*/*",
-                                    "content-type": "application/json",
-                                    "sec-fetch-dest": "empty",
-                                    "sec-fetch-mode": "cors",
-                                    "sec-fetch-site": "same-origin"
-                                },
-                                "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
-                                "method": "POST",
-                                "mode": "cors",
-                                "credentials": "include"
-                            })
-                        }
+                        // let barray = document.querySelector('.jiraissues');
+                        // barray.onclick = function () {
+                            // sendComment(rezissuetable[0].items[0].url)
+                            // let b = document.URL.split('/')
+                            // fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                                // "headers": {
+                                    // "accept": "*/*",
+                                    // "content-type": "application/json",
+                                    // "sec-fetch-dest": "empty",
+                                    // "sec-fetch-mode": "cors",
+                                    // "sec-fetch-site": "same-origin"
+                                // },
+                                // "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
+                                // "method": "POST",
+                                // "mode": "cors",
+                                // "credentials": "include"
+                            // })
+                        // }
 
-                        setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
-                    }
-                }
+                        // setTimeout(function () { issues = []; testJira.value = ""; }, 5000)
+                    // }
+                // }
 
-                setTimeout(getJiraTask1, 1000)
-            }
+                // setTimeout(getJiraTask1, 1000)
+            // }
 
             let searchJiraByEnter = document.querySelector('#testJira'); //по Enter запускает поиск по Jira
             searchJiraByEnter.addEventListener('keydown', event => {
