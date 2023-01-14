@@ -222,42 +222,71 @@ document.getElementById('AF_Timetable').ondblclick = function (a) { // скры�
         document.getElementById('timetabledata').innerHTML = "";
     }
 
-
-
 let commonidentity;
 let responseinfo;
-let emailidentity;
-let phoneidentity;
+let emailidentity, phoneidentity;
 
-function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
-    document.getElementById('responseTextarea1').value = `{}` // убрал тело проверим как будет работать
-    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
-    document.getElementById('responseTextarea3').value = 'responseupdate'
-    document.getElementById('sendResponse').click()
+// function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
+    // document.getElementById('responseTextarea1').value = `{}` // убрал тело проверим как будет работать
+    // document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
+    // document.getElementById('responseTextarea3').value = 'responseupdate'
+    // document.getElementById('sendResponse').click()
+
+    // document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+        // responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+        // if (responseinfo != null) {
+            // commonidentity = '';
+            // commonidentity = responseinfo;
+            // if (flagusertype == "teacher") {
+                // console.log('It is a teacher!')
+            // } else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
+                // emailidentity = "📧✖";
+                // phoneidentity = "☎✖";
+            // } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+                // emailidentity = "📧✔";
+                // phoneidentity = "☎✖";
+            // } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
+                // emailidentity = "📧✖";
+                // phoneidentity = "☎✔";
+            // } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
+                // emailidentity = "📧✔";
+                // phoneidentity = "☎✔";
+            // }
+        // }
+    // })
+// }
+
+function checkemailandphoneidentity() {
+    document.getElementById('responseTextarea1').value = `{}`;
+    document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts";
+    document.getElementById('responseTextarea3').value = 'responseupdate';
+    document.getElementById('sendResponse').click();
 
     document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+        const responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
+
         if (responseinfo != null) {
-            commonidentity = '';
-            commonidentity = responseinfo;
-            if (flagusertype == "teacher") {
-                console.log('It is a teacher!')
-            } else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-                emailidentity = "📧✖";
-                phoneidentity = "☎✖";
-            } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                emailidentity = "📧✔";
-                phoneidentity = "☎✖";
-            } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-                emailidentity = "📧✖";
-                phoneidentity = "☎✔";
-            } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                emailidentity = "📧✔";
-                phoneidentity = "☎✔";
+            if (flagusertype === "teacher") {
+                console.log('It is a teacher!');
+            } else if (flagusertype === "student") {
+                if (responseinfo.includes('"identityEmail" disabled data-value=""') && responseinfo.includes('"identityPhone" disabled data-value=""')) {
+                    emailidentity = "📧✖";
+                    phoneidentity = "☎✖";
+                } else if (responseinfo.includes('"identityEmail" disabled data-value=""') && !responseinfo.includes('"identityPhone" disabled data-value=""')) {
+                    emailidentity = "📧✖";
+                    phoneidentity = "☎✔";
+                } else if (!responseinfo.includes('"identityEmail" disabled data-value=""') && responseinfo.includes('"identityPhone" disabled data-value=""')) {
+                    emailidentity = "📧✔";
+                    phoneidentity = "☎✖";
+                } else {
+                    emailidentity = "📧✔";
+                    phoneidentity = "☎✔";
+                }
             }
         }
-    })
+    });
 }
+
 
 let unhidephone;
 let phonecontainer;
