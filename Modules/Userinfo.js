@@ -277,7 +277,7 @@ function getunhidephone() {  //открывает телефон пользов�
 
 let mailcontainer;
 
-function getunhideemail() {
+function getunhideemail() { //открывает почту пользователя
   document.getElementById("responseTextarea1").value = "{}";
   document.getElementById("responseTextarea2").value = `https://backend.skyeng.ru/api/persons/${document.getElementById("idstudent").value}/personal-data/?pdType=email&source=persons.profile`;
   document.getElementById("responseTextarea3").value = "emailishere";
@@ -293,24 +293,24 @@ function getunhideemail() {
 }
 
 
-let servicearray;
 let servicecontainer;
-function getservicearr() { // получает массив услуг с СРМки
 
+function getservicearr() {  // получает массив услуг с СРМки
     document.getElementById('responseTextarea1').value = `{}`
     document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
     document.getElementById('responseTextarea3').value = 'arrayofservices'
     document.getElementById('sendResponse').click()
 
     document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
-        if (servicearray != null) {
+        const servicearray = document.getElementById('responseTextarea1').getAttribute('arrayofservices');
+        if (servicearray) {
             servicecontainer = JSON.parse(servicearray);
-			console.log(servicecontainer)
-            document.getElementById('responseTextarea1').removeAttribute('arrayofservices')
+            console.log(servicecontainer);
+            document.getElementById('responseTextarea1').removeAttribute('arrayofservices');
         }
-    })
+    });
 }
+
 
 document.getElementById('getlessonpast').onclick = function () { // показывает прошедшие уроки
     document.getElementById('timetabledata').innerHTML = "";
