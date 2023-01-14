@@ -226,37 +226,7 @@ let commonidentity;
 let responseinfo;
 let emailidentity, phoneidentity;
 
-// function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
-    // document.getElementById('responseTextarea1').value = `{}` // убрал тело проверим как будет работать
-    // document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts"
-    // document.getElementById('responseTextarea3').value = 'responseupdate'
-    // document.getElementById('sendResponse').click()
-
-    // document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        // responseinfo = document.getElementById('responseTextarea1').getAttribute('responseupdate');
-        // if (responseinfo != null) {
-            // commonidentity = '';
-            // commonidentity = responseinfo;
-            // if (flagusertype == "teacher") {
-                // console.log('It is a teacher!')
-            // } else if (flagusertype == "student" && commonidentity.match(/"identityEmail" disabled data-value=""/) != null && commonidentity.match(/"identityPhone" disabled data-value=""/) != null) {
-                // emailidentity = "📧✖";
-                // phoneidentity = "☎✖";
-            // } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) != null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                // emailidentity = "📧✔";
-                // phoneidentity = "☎✖";
-            // } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) != null) {
-                // emailidentity = "📧✖";
-                // phoneidentity = "☎✔";
-            // } else if (flagusertype == "student" && commonidentity.match(/"identityPhone" disabled data-value=""/) == null && commonidentity.match(/"identityEmail" disabled data-value=""/) == null) {
-                // emailidentity = "📧✔";
-                // phoneidentity = "☎✔";
-            // }
-        // }
-    // })
-// }
-
-function checkemailandphoneidentity() {
+function checkemailandphoneidentity() { // проверяет подключены почта и номер телефона как айдентити
     document.getElementById('responseTextarea1').value = `{}`;
     document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/users/" + document.getElementById('idstudent').value + "/update-contacts";
     document.getElementById('responseTextarea3').value = 'responseupdate';
@@ -288,23 +258,22 @@ function checkemailandphoneidentity() {
 }
 
 
-let unhidephone;
 let phonecontainer;
-async function getunhidephone() { // открывает номер телефона
-
-    document.getElementById('responseTextarea1').value = `{}`
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile"
-    document.getElementById('responseTextarea3').value = 'phoneishere'
-    document.getElementById('sendResponse').click()
+function getunhidephone() {  //открывает телефон пользователя
+    document.getElementById('responseTextarea1').value = `{}`;
+    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=phone&source=persons.profile";
+    document.getElementById('responseTextarea3').value = 'phoneishere';
+    document.getElementById('sendResponse').click();
 
     document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
+        const unhidephone = document.getElementById('responseTextarea1').getAttribute('phoneishere');
         if (unhidephone != null) {
             phonecontainer = JSON.parse(unhidephone).data.value;
-            document.getElementById('responseTextarea1').removeAttribute('phoneishere')
+            document.getElementById('responseTextarea1').removeAttribute('phoneishere');
         }
-    })
+    });
 }
+
 
 let unhidenemail;
 let mailcontainer;
