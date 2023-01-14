@@ -516,7 +516,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 											'<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' +
 											'<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>';
 										outputTable.appendChild(testvar);
-										favissues.push(testvar/innerHTML);
+										favissues.push(testvar.innerHTML);
 										localStorage.setItem('bugsarray', JSON.stringify(favissues));
 									}
 								}
