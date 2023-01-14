@@ -129,73 +129,98 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         document.getElementById('RefreshJiraStatus').onclick = checkJiraToken // функция повторной проверки авторизации в Jira
         let favissues = [];
 
-        const toggleActiveQuery = (elementId) => {
-            const elements = ['defaultQuery', 'getiosbugs', 'getandroidbugs', 'freshQuery', 'customQuery', 'favouriteBugs'];
-            elements.forEach((el) => {
-                if (el !== elementId) {
-                    document.getElementById(el).classList.remove('active-query');
-                }
-            });
-            document.getElementById(elementId).classList.toggle('active-query');
-        };
-
-        const setDefaultQuery = () => {
-            const defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`;
+        document.getElementById('defaultQuery').onclick = function () { // если выбрана default
+            defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
             document.getElementById('JQLquery').value = defqueryitem;
-            document.getElementById('testJira').value = "";
-            toggleActiveQuery('defaultQuery');
-            document.getElementById('issuetable').style.display = "";
-            document.getElementById('testJira').style.display = "";
-            document.getElementById('getJiraTasks').style.display = "";
-            document.getElementById('favouriteissuetable').style.display = "none";
-        };
+            document.getElementById('testJira').value = ""
+            this.classList.toggle('active-query')
+            document.getElementById('getiosbugs').classList.remove('active-query')
+            document.getElementById('getandroidbugs').classList.remove('active-query')
+            document.getElementById('freshQuery').classList.remove('active-query')
+            document.getElementById('customQuery').classList.remove('active-query')
+            document.getElementById('favouriteBugs').classList.remove('active-query')
+            document.getElementById('issuetable').style.display = ""
+            document.getElementById('testJira').style.display = ""
+            document.getElementById('getJiraTasks').style.display = ""
+            document.getElementById('favouriteissuetable').style.display = "none"
+        }
 
-        const setIosQuery = () => {
-            document.getElementById('testJira').value = "ios";
-            toggleActiveQuery('getiosbugs');
-            document.getElementById('issuetable').style.display = "";
-            document.getElementById('testJira').style.display = "";
-            document.getElementById('getJiraTasks').style.display = "";
-            document.getElementById('favouriteissuetable').style.display = "none";
-            document.getElementById('getJiraTasks').click();
-        };
+        document.getElementById('getiosbugs').onclick = function () { // если выбрана ios
+            document.getElementById('testJira').value = "ios"
+            this.classList.toggle('active-query')
+            document.getElementById('getandroidbugs').classList.remove('active-query')
+            document.getElementById('defaultQuery').classList.remove('active-query')
+            document.getElementById('freshQuery').classList.remove('active-query')
+            document.getElementById('customQuery').classList.remove('active-query')
+            document.getElementById('favouriteBugs').classList.remove('active-query')
+            document.getElementById('issuetable').style.display = ""
+            document.getElementById('testJira').style.display = ""
+            document.getElementById('getJiraTasks').style.display = ""
+            document.getElementById('favouriteissuetable').style.display = "none"
+            document.getElementById('getJiraTasks').click()
+        }
 
-        const setAndroidQuery = () => {
-            document.getElementById('testJira').value = "android";
-            toggleActiveQuery('getandroidbugs');
-            document.getElementById('issuetable').style.display = "";
-            document.getElementById('testJira').style.display = "";
-            document.getElementById('getJiraTasks').style.display = "";
-            document.getElementById('favouriteissuetable').style.display = "none";
-            document.getElementById('getJiraTasks').click();
-        };
+        document.getElementById('getandroidbugs').onclick = function () { // если выбрана android
+            document.getElementById('testJira').value = "android"
+            this.classList.toggle('active-query')
+            document.getElementById('getiosbugs').classList.remove('active-query')
+            document.getElementById('defaultQuery').classList.remove('active-query')
+            document.getElementById('freshQuery').classList.remove('active-query')
+            document.getElementById('customQuery').classList.remove('active-query')
+            document.getElementById('favouriteBugs').classList.remove('active-query')
+            document.getElementById('issuetable').style.display = ""
+            document.getElementById('testJira').style.display = ""
+            document.getElementById('getJiraTasks').style.display = ""
+            document.getElementById('favouriteissuetable').style.display = "none"
+            document.getElementById('getJiraTasks').click()
+        }
 
-        const setFreshQuery = () => {
-            const frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype in (Bug, Task) AND status != closed AND resolution = Unresolved AND created >= -7d ORDER BY created DESC`;
+        document.getElementById('freshQuery').onclick = function () {  // если выбрана fresh
+            frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
             document.getElementById('JQLquery').value = frqueryitem;
-            toggleActiveQuery('freshQuery');
-            document.getElementById('issuetable').style.display = "";
-            document.getElementById('testJira').style.display = "none";
-            document.getElementById('getJiraTasks').style.display = "";
-            document.getElementById('favouriteissuetable').style.display = "none";
-            document.getElementById('getJiraTasks').click();
-        };
+            document.getElementById('testJira').value = ""
+            this.classList.toggle('active-query')
+            document.getElementById('getiosbugs').classList.remove('active-query')
+            document.getElementById('getandroidbugs').classList.remove('active-query')
+            document.getElementById('defaultQuery').classList.remove('active-query')
+            document.getElementById('customQuery').classList.remove('active-query')
+            document.getElementById('favouriteBugs').classList.remove('active-query')
+            document.getElementById('issuetable').style.display = ""
+            document.getElementById('testJira').style.display = ""
+            document.getElementById('getJiraTasks').style.display = ""
+            document.getElementById('favouriteissuetable').style.display = "none"
+        }
 
-        const setCustomQuery = () => {
-            toggleActiveQuery('customQuery');
-            document.getElementById('issuetable').style.display = "";
-            document.getElementById('testJira').style.display = "none";
-            document.getElementById('getJiraTasks').style.display = "";
-            document.getElementById('favouriteissuetable').style.display = "none";
-        };
+        document.getElementById('customQuery').onclick = function () { // если выбрана custom
+            document.getElementById('JQLquery').oninput = function () {
+                localStorage.setItem('customquery', this.value)
+            }
+            document.getElementById('JQLquery').value = localStorage.getItem('customquery');
+            document.getElementById('testJira').value = ""
+            this.classList.toggle('active-query')
+            document.getElementById('getiosbugs').classList.remove('active-query')
+            document.getElementById('getandroidbugs').classList.remove('active-query')
+            document.getElementById('freshQuery').classList.remove('active-query')
+            document.getElementById('defaultQuery').classList.remove('active-query')
+            document.getElementById('favouriteBugs').classList.remove('active-query')
+            document.getElementById('issuetable').style.display = ""
+            document.getElementById('testJira').style.display = ""
+            document.getElementById('getJiraTasks').style.display = ""
+            document.getElementById('favouriteissuetable').style.display = "none"
+        }
 
-        const setFavouriteBugs = () => {
-            toggleActiveQuery('favouriteBugs');
+        document.getElementById('favouriteBugs').onclick = function () { // если выбрана ❤ favourite
             if (document.getElementById('favouriteissuetable').style.display != "") {
                 document.getElementById('issuetable').style.display = "none"
                 document.getElementById('favouriteissuetable').style.display = ""
+                document.getElementById('getiosbugs').classList.remove('active-query')
+                document.getElementById('getandroidbugs').classList.remove('active-query')
                 document.getElementById('testJira').style.display = "none"
                 document.getElementById('getJiraTasks').style.display = "none"
+                // if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
+                // favissues = JSON.parse(localStorage.getItem('bugsarray'))
+                // document.getElementById('favouriteissuetable').innerHTML = favissues;
+                // }
 
                 if (localStorage.getItem('bugsarray')) {
                     favissues = JSON.parse(localStorage.getItem('bugsarray'));
@@ -313,18 +338,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                 document.getElementById('favouriteissuetable').style.display = "none"
                 document.getElementById('favouriteBugs').classList.remove('active-query')
             }
-        };
-
-        document.getElementById('defaultQuery').onclick = setDefaultQuery;
-        document.getElementById('getiosbugs').onclick = setIosQuery;
-        document.getElementById('getandroidbugs').onclick = setAndroidQuery;
-        document.getElementById('freshQuery').onclick = setFreshQuery;
-        document.getElementById('customQuery').onclick = setCustomQuery;
-        document.getElementById('favouriteBugs').onclick = setFavouriteBugs;
-
-
-        document.getElementById('favouriteBugs').onclick = function () { // если выбрана ❤ favourite
-
         }
 
 
