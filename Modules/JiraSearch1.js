@@ -515,8 +515,8 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 											'<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' +
 											'<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' +
 											'<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>';
-										outputTable.appendChild(testvar);
 										favissues.push(testvar)
+										outputTable.appendChild(testvar);
 										// favissues.push({
 											// bugName: tagsarray[x].innerHTML,
 											// bugId: massivissueids[x].innerText,
