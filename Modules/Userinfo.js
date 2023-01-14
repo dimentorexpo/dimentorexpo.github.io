@@ -803,12 +803,10 @@ function getuserinfo() {
                         }
 
                         if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost" && srvparsed.data[i].teacher != null && srvparsed.data[i].temporaryTeacher == null) {
-
                             tinfo += [i + 1] + ") " + srvparsed.data[i].teacher.general.id + "," + " " + srvparsed.data[i].teacher.general.name + " " + srvparsed.data[i].teacher.general.surname + "<br>";
                             servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
                             arrservice += srvparsed.data[i].id + ", "
                         } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].teacher == null && srvparsed.data[i].temporaryTeacher != null && srvparsed.data[i].incorrectnessReason == null && srvparsed.data[i].stage != "lost") {
-
                             temtinfo += [i + 1] + ") " + srvparsed.data[i].temporaryTeacher.general.id + "," + " " + srvparsed.data[i].temporaryTeacher.general.name + " " + srvparsed.data[i].temporaryTeacher.general.surname + "<br>";
                             servinfo += [i + 1] + ") " + '<span class = "iduslugitxt">ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid">💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
                             arrservice += srvparsed.data[i].id + ", "
