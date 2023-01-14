@@ -26,7 +26,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 
                         <div style="margin: 5px; width: 550px" id="jira_tasks_box">
                                 <p id="issuetable" style="max-height:400px; margin-left:5px; overflow:auto"></p>
-                                <p id="favouriteissuetable" style="max-height:400px; margin-left:5px; overflow:auto; display:none"></p>
+                                <div id="favouriteissuetable" style="max-height:400px; margin-left:5px; overflow:auto; display:none"></div>
                         </div>
                 </span>
         </span>
@@ -509,13 +509,13 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 								for (let x = 0; x < tagsarray.length; x++) {
 									if (x == v) {
 										let testvar = document.createElement('div');
-										testvar.innerHTML = '<span style="color: #00FA9A">&#5129;</span>' +
+										testvar.innerHTML = '<p>'+'<span style="color: #00FA9A">&#5129;</span>' +
 											`<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` +
 											tagsarray[x].innerHTML + '</a>' +
 											`<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}</span>` +
 											'<span name="addtonotesbug" style="cursor:pointer;" title="Добавить в комментарий в чат и в ссылку на Jira">💬</span>' +
 											'<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' +
-											'<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>';
+											'<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + '<br>' + '</p>';
 										outputTable.appendChild(testvar);
 										favissues.push(testvar.innerHTML);
 										localStorage.setItem('bugsarray', JSON.stringify(favissues));
