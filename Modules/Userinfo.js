@@ -821,16 +821,7 @@ function getuserinfo() {
                             tinfo += [i + 1] + ") " + '<span style="color:#FF7F50; font-weight:900;">Этап ВУ</span><br>';
                             servinfo += [i + 1] + ") " + '<span>ID Услуги: </span>' + srvparsed.data[i].id + '<span class = "copyserviceid" >💾</span>' + '<br> Баланс: ' + srvparsed.data[i].balance + '<br>' + srvparsed.data[i].serviceTypeKey + '<hr class="underline-service">';
                             arrservice += srvparsed.data[i].id + ", "
-                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage == "lost" && srvparsed.data[i].incorrectnessReason == null) {
-                            //	tinfo += [i+1] + ") " + "Нет П, услуга(и) потеряна(ы)"+ "<br>";
-                            console.log(srvparsed.data[i].id + ' ' + srvparsed.data[i].serviceTypeKey + ' ' + "Услуга потеряна");
-                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage != "lost" && srvparsed.data[i].incorrectnessReason != null) {
-                            //	tinfo += [i+1] + ") " + "Нет П, услуга(и) некорректна(ы)"+ "<br>";
-                            console.log(srvparsed.data[i].id + ' ' + srvparsed.data[i].serviceTypeKey + ' ' + "Услуга некорректна");
-                        } else if (srvparsed.data[i].student.general.id == stid && srvparsed.data[i].stage == "lost" && srvparsed.data[i].incorrectnessReason == null) {
-                            //	tinfo = "Нет П, услуга(и) потеряна(ы) и некорректна(ы)"+ "<br>";
-                            console.log(srvparsed.data[i].id + ' ' + srvparsed.data[i].serviceTypeKey + ' ' + "Услуга потеряна и некорректна");
-                        }
+                        } 
                     }
                 }
 
