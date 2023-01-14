@@ -223,7 +223,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
                         // document.getElementById('favouriteissuetable').innerHTML = favissues;
                     // }
 					
-					if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
+					if (localStorage.getItem('bugsarray')) {
 						favissues = JSON.parse(localStorage.getItem('bugsarray'));
 						document.getElementById('favouriteissuetable').innerHTML = favissues;
 					}
@@ -516,11 +516,12 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 											'<span name="removefromfavourites" style="cursor:pointer;" title="Удалить задачу из Избранного">❌</span>' +
 											'<span name = "increasecount" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>';
 										outputTable.appendChild(testvar);
-										favissues.push({
-											bugName: tagsarray[x].innerHTML,
-											bugId: massivissueids[x].innerText,
-											bugLink: tagsarray[x].href
-										});
+										favissues.push(testvar)
+										// favissues.push({
+											// bugName: tagsarray[x].innerHTML,
+											// bugId: massivissueids[x].innerText,
+											// bugLink: tagsarray[x].href
+										// });
 										localStorage.setItem('bugsarray', JSON.stringify(favissues));
 									}
 								}
