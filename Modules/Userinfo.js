@@ -275,22 +275,23 @@ function getunhidephone() {  //открывает телефон пользов�
 }
 
 
-let unhidenemail;
 let mailcontainer;
-function getunhideemail() { //открывает почту пользователя
-    document.getElementById('responseTextarea1').value = `{}`
-    document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/persons/" + document.getElementById('idstudent').value + "/personal-data/?pdType=email&source=persons.profile"
-    document.getElementById('responseTextarea3').value = 'emailishere'
-    document.getElementById('sendResponse').click()
 
-    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        unhidenemail = document.getElementById('responseTextarea1').getAttribute('emailishere');
-        if (unhidenemail != null) {
-            mailcontainer = JSON.parse(unhidenemail).data.value;
-            document.getElementById('responseTextarea1').removeAttribute('emailishere')
-        }
-    })
+function getunhideemail() {
+  document.getElementById("responseTextarea1").value = "{}";
+  document.getElementById("responseTextarea2").value = `https://backend.skyeng.ru/api/persons/${document.getElementById("idstudent").value}/personal-data/?pdType=email&source=persons.profile`;
+  document.getElementById("responseTextarea3").value = "emailishere";
+  document.getElementById("sendResponse").click();
+
+  document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+    const unhiddenEmail = document.getElementById("responseTextarea1").getAttribute("emailishere");
+    if (unhiddenEmail) {
+      mailcontainer = JSON.parse(unhiddenEmail).data.value;
+      document.getElementById("responseTextarea1").removeAttribute("emailishere");
+    }
+  });
 }
+
 
 let servicearray;
 let servicecontainer;
