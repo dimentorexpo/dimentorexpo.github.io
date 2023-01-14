@@ -225,7 +225,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 					
 					if (localStorage.getItem('bugsarray')) {
 						favissues = JSON.parse(localStorage.getItem('bugsarray'));
-						document.getElementById('favouriteissuetable').innerHTML = favissues;
+						document.getElementById('favouriteissuetable').innerHTML = favissues.join(" ");
 					}
 					
 					for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
