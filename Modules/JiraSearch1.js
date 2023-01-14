@@ -230,12 +230,13 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 					
 					for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
 						document.getElementsByName('removefromfavourites')[i].onclick = function () {
-							let parent = this.parentNode;
-							favissues.splice(i, 1);
+							let parent = this.parentNode.parentNode;
+							favissues.splice(favissues.indexOf(this.value),1);
 							localStorage.setItem('bugsarray', JSON.stringify(favissues));
-							parent.remove();
+							parent.removeChild(this.parentNode);
 						}
 					}
+
 
                     // for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
                         // document.getElementsByName('removefromfavourites')[i].onclick = function () {
