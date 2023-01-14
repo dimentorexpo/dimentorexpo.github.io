@@ -468,7 +468,7 @@ document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие
 								for (let x = 0; x < tagsarray.length; x++) {
 									if (x == v) {
 										let testvar = document.createElement('div');
-										testvar.innerHTML = '<p>'+'<span style="color: #00FA9A">&#5129;</span>' +
+										testvar.innerHTML = '<p style="margin-bottom:0">'+'<span style="color: #00FA9A">&#5129;</span>' +
 											`<a name="favbugs" href="${tagsarray[x].href}" target="_blank" style="color:bisque;">` +
 											tagsarray[x].innerHTML + '</a>' +
 											`<span name="favissuemassive" style="display:none">${massivissueids[x].innerText}</span>` +
