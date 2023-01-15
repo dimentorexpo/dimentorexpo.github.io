@@ -519,9 +519,9 @@ function checkforsoundplay() {
                     // if (!soundintervalsetCRM) {
                         // soundintervalsetCRM = true
                         audioCRM.oncanplaythrough = (event) => {
-                            var playedPromise = audioCRM.play();
-                            if (playedPromise) {
-                                playedPromise.catch((e) => {
+                            var playedPromise1 = audioCRM.play();
+                            if (playedPromise1) {
+                                playedPromise1.catch((e) => {
                                     console.log(e)
                                     if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
                                         console.log(e.name);
