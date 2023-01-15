@@ -517,20 +517,22 @@ function checkforsoundplay() {
                 if (localStorage.getItem('repeatsound') == 0) {
 					// soundintervalsetCRM = '';
                     if (!soundintervalsetCRM) {
-                        audioCRM.oncanplaythrough = (event) => {
-                            var playedPromise1 = audioCRM.play();
-                            if (playedPromise1) {
-                                playedPromise1.catch((e) => {
-                                    console.log(e)
-                                    if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
-                                        console.log(e.name);
-                                    }
-                                }).then(() => {
-                                    console.log("playing sound one time !!!");
-									soundintervalsetCRM = true
-                                });
-                            }
-                        }
+						audioCRM.play()
+						oundintervalsetCRM = true
+                        // audioCRM.oncanplaythrough = (event) => {
+                            // var playedPromise1 = audioCRM.play();
+                            // if (playedPromise1) {
+                                // playedPromise1.catch((e) => {
+                                    // console.log(e)
+                                    // if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
+                                        // console.log(e.name);
+                                    // }
+                                // }).then(() => {
+                                    // console.log("playing sound one time !!!");
+									// s
+                                // });
+                            // }
+                        // }
                     }
                 } else {
                     if (!soundintervalsetCRM) {
