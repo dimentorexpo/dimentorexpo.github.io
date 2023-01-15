@@ -495,7 +495,7 @@ function mystyles() {
 		font-weight:700;
 	}
 	
-	        .mainplayer {
+	    .mainplayer {
             width: 600px;
             border: 1px solid black;
             padding: 5px;
@@ -510,7 +510,7 @@ function mystyles() {
             justify-content: space-evenly;
         }
 
-        .active {
+        li.active {
             background: #3cbb56;
             border-radius: 10px;
             box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
@@ -621,6 +621,10 @@ function mystyles() {
             background: #b66253;
             cursor: pointer;
         }
+		
+		#audioList {
+			margin-top:5px;
+		}
 
 
 	`

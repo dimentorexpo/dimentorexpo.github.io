@@ -7,9 +7,9 @@
 				</div>
 				<div id="audioPlayer" class="mainplayer">
 					<div id="audioControls">
-						<input type="text" id="audioUrl" style="text-align: center; border-radius: 10px;"
+						<input type="text" id="audioUrl" style="text-align: center; border-radius: 10px; color:black;"
 							placeholder="Enter Radio URL">
-						<input type="text" id="audioName" style="text-align: center; border-radius: 10px; width:110px;"
+						<input type="text" id="audioName" style="text-align: center; border-radius: 10px; width:110px; color:black;"
 							placeholder="Enter Radio name">
 						<button id="addAudio">➕</button>
 						<button id="playAudio">▶</button>
