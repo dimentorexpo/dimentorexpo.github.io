@@ -1,4 +1,5 @@
-    var win_Radio =  // описание элементов окна радио
+    let audioListItems ;
+	var win_Radio =  // описание элементов окна радио
     `<div style="display: flex; width: 625px;">
         <span style="width: 625px">
 			<span style="cursor: -webkit-grab;">
@@ -124,6 +125,7 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
         if (audioUrls.length > 0) {
             for (let i = 0; i < audioUrls.length; i++) {
                 audioList.appendChild(createAudioElement(audioUrls[i], audioNames[i]));
+				addClickListener();
             }
         }
 
@@ -139,13 +141,26 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
             localStorage.setItem("volume", player.volume);
         });
 
-        let audioListItems = document.querySelectorAll('[name=radiolist]');
-        audioListItems.forEach(item => {
-            item.addEventListener('click', function () {
-                audioListItems.forEach(item => item.classList.remove('active'));
-                this.classList.toggle('active');
-            });
-        });
+        // audioListItems = document.querySelectorAll('[name=radiolist]');
+        // audioListItems.forEach(item => {
+            // item.addEventListener('click', function () {
+                // audioListItems.forEach(item => item.classList.remove('active'));
+                // this.classList.toggle('active');
+            // });
+        // });
+		
+		function addClickListener() {
+			audioListItems = document.getElementsByName('radiolist');
+			for (let i = 0; i < audioListItems.length; i++) {
+				audioListItems[i].addEventListener('click', function () {
+					for (let j = 0; j < audioListItems.length; j++) {
+						audioListItems[j].classList.remove('active');
+					}
+					this.classList.toggle('active');
+				});
+			}
+		}
+		
 
         function muteorunmute() {
             if (player.muted) {
