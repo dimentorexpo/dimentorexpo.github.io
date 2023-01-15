@@ -78,7 +78,7 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
             let deleteBtn = document.createElement("button");
             deleteBtn.innerHTML = "❌";
             deleteBtn.style = "margin: 5px; background: transparent !important; width:30px; border: 1px solid darkslategrey; cursor:pointer; border-radius: 10px;";
-            deleteBtn.setAttribute('name', 'deleteline')
+            deleteBtn.classList ='deleteline'
             newAudio.appendChild(deleteBtn);
             newAudio.appendChild(document.createTextNode(name));
             newAudio.addEventListener("click", function () {
