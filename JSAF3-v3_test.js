@@ -536,7 +536,7 @@ function mystyles() {
 		margin-left: 25px;
 	}
 
-	button[name="deleteline"]:hover {
+	.deleteline:hover {
 		background: red !important;
 		font-weight: 700 !important;
 	}
