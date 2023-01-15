@@ -495,138 +495,134 @@ function mystyles() {
 		font-weight:700;
 	}
 	
-	    .mainplayer {
-            width: 600px;
-            border: 1px solid black;
-            padding: 5px;
-            background: #464451;
-            color: bisque;
-            max-height: 510px;
-            overflow-y: auto;
-        }
+	.mainplayer {
+		width: 600px;
+		border: 1px solid black;
+		padding: 5px;
+		background: #464451;
+		color: bisque;
+		max-height: 510px;
+		overflow-y: auto;
+	}
 
-        #audioControls {
-            display: flex;
-            justify-content: space-evenly;
-        }
+	#audioControls {
+		display: flex;
+		justify-content: space-evenly;
+	}
 
-        li.active {
-            background: #3cbb56;
-            border-radius: 10px;
-            box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
-            text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
-        }
+	li.active {
+		background: #3cbb56;
+		border-radius: 10px;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+	}
 
-        li:hover {
-            background: #373c67;
-            border-radius: 10px;
-        }
+	li:hover {
+		background: #373c67;
+		border-radius: 10px;
+	}
 
-        #audioList {
-            width: 515px;
-            border: 1px solid black;
-            background: #768d87;
-            border-radius: 10px;
-            margin-left: 20px;
-        }
+	#audioList {
+		margin-top:5px;
+		width: 515px;
+		border: 1px solid black;
+		background: #768d87;
+		border-radius: 10px;
+		margin-left: 20px;
+	}
 
-        #player {
-            width: 550px;
-            margin-left: 25px;
-        }
+	#player {
+		width: 550px;
+		margin-left: 25px;
+	}
 
-        button[name="deleteline"]:hover {
-            background: red !important;
-            font-weight: 700 !important;
-        }
+	button[name="deleteline"]:hover {
+		background: red !important;
+		font-weight: 700 !important;
+	}
 
-        #pauseAudio {
-            font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-            background: #bd4b37;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background 0.2s ease-in-out;
-        }
+	#pauseAudio {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #bd4b37;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 16px;
+		transition: background 0.2s ease-in-out;
+	}
 
-        #playAudio {
-            font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-            background: #3cbb56;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background 0.2s ease-in-out;
-        }
+	#playAudio {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #3cbb56;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 16px;
+		transition: background 0.2s ease-in-out;
+	}
 
-        #addAudio {
-            font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-            background: #ffbb00;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background 0.2s ease-in-out;
-        }
+	#addAudio {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #ffbb00;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 16px;
+		transition: background 0.2s ease-in-out;
+	}
 
-        #volumeUp,
-        #volumeDown {
-            font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-            background: #85ac8c;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            font-size: 16px;
-            width: 50px;
-            transition: background 0.2s ease-in-out;
-        }
+	#volumeUp,
+	#volumeDown {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #85ac8c;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 16px;
+		width: 50px;
+		transition: background 0.2s ease-in-out;
+	}
 
-        #muteAudio {
-            font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-            background: #85ac8c;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            letter-spacing: 1px;
-            transition: background 0.2s ease-in-out;
-        }
+	#muteAudio {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #85ac8c;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		letter-spacing: 1px;
+		transition: background 0.2s ease-in-out;
+	}
 
-        #playAudio:hover,
-        #volumeUp:hover,
-        #muteAudio:hover {
-            background: #4ecc6e;
-            cursor: pointer;
-        }
+	#playAudio:hover,
+	#volumeUp:hover,
+	#muteAudio:hover {
+		background: #4ecc6e;
+		cursor: pointer;
+	}
 
-        #addAudio:hover {
-            background: #e6c772;
-            cursor: pointer;
-        }
+	#addAudio:hover {
+		background: #e6c772;
+		cursor: pointer;
+	}
 
-        #pauseAudio:hover,
-        #volumeDown:hover {
-            background: #b66253;
-            cursor: pointer;
-        }
-		
-		#audioList {
-			margin-top:5px;
-		}
-
-
+	#pauseAudio:hover,
+	#volumeDown:hover {
+		background: #b66253;
+		cursor: pointer;
+	}
+	
 	`
     mstl.innerHTML = style;
 }
