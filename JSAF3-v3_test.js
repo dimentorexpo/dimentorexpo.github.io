@@ -524,7 +524,7 @@ function mystyles() {
 
 	#audioList {
 		margin-top:5px;
-		width: 515px;
+		width: 440px;
 		border: 1px solid black;
 		background: #768d87;
 		border-radius: 10px;
