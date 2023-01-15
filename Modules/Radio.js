@@ -85,6 +85,7 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
                 player.src = url;
                 player.play();
             });
+			
             deleteBtn.addEventListener("click", function () {
                 let question = confirm("Вы уверены, что хотите удалить эту позицию из списка?")
                 if (question) {
@@ -161,7 +162,6 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
 				});
 			}
 		}
-		
 
         function muteorunmute() {
             if (player.muted) {
