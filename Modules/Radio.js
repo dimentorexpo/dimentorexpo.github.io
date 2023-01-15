@@ -100,6 +100,14 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
             });
             return newAudio;
         }
+		
+		document.getElementById('radioPlayer').onclick = function() {
+			if(document.getElementById('AF_Radio').style.display == 'none') {
+				document.getElementById('AF_Radio').style.display = ''
+			} else {
+				document.getElementById('AF_Radio').style.display = 'none'
+			}
+		}
 
         addAudio.addEventListener("click", function () {
             let url = audioUrl.value;
@@ -149,3 +157,7 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
                 muteAudio.innerHTML = "📢Unmute";
             }
         }
+		
+		document.getElementById('hideMeRadio').onclick = function() {
+			document.getElementById('AF_Radio').style.display = 'none'
+		}
