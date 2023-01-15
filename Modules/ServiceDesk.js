@@ -221,7 +221,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="chatqabtn widthofsd" value="948">Подземный стук</button>
                 </div>
 				<div id="tripwireoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#exp-tripwire-bugs; Life, Talks, расширение переводчик для браузера</p>
+					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#eco-tripwire-bugs; Life, Talks, РК adults, расширение переводчик для браузера</p>
 					<button class="tripwbtn widthofsd" value="987">Расширение Vimbox Translate</button>
 					<button class="tripwbtn widthofsd" value="986">Life</button>
 					<button class="tripwbtn widthofsd" value="985">Talks</button>
