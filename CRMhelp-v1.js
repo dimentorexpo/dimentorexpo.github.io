@@ -508,67 +508,108 @@ include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // п
 		}
 	}
 }
-let takeTaskBtn;
+
+// function checkforsoundplay() {
+	// takeTaskBtn = document.getElementsByClassName('mat-button-wrapper');
+    // if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
+        // if (takeTaskBtn.length > 0) {
+            // if (document.getElementsByClassName('mat-button-disabled').length == 0 && takeTaskBtn[13] && takeTaskBtn[13].innerText == 'Взять новую задачу') {
+                // if (localStorage.getItem('repeatsound') == 0) {
+                    // if (!soundintervalsetCRM) {
+                        // soundintervalsetCRM = true
+                        // audioCRM.oncanplaythrough = (event) => {
+                            // var playedPromise = audioCRM.play();
+                            // if (playedPromise) {
+                                // playedPromise.catch((e) => {
+                                    // console.log(e)
+                                    // if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
+                                        // console.log(e.name);
+                                    // }
+                                // }).then(() => {
+                                    // console.log("playing sound one time !!!");
+                                // });
+                            // }
+                        // }
+                    // }
+                // } else {
+                    // if (!soundintervalsetCRM) {
+                        // audioCRM.oncanplaythrough = (event) => {
+                            // var playedPromise = audioCRM.play();
+                            // if (playedPromise) {
+                                // playedPromise.catch((e) => {
+                                    // console.log(e)
+                                    // if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
+                                        // console.log(e.name);
+                                    // }
+                                // }).then(() => {
+                                    // console.log("playing sound repeatedly !!!");
+                                // });
+                            // }
+                        // }
+                        // soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
+                    // }
+                // }
+
+            // } else {
+                // if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
+                    // clearInterval(soundintervalsetCRM)
+                    // soundintervalsetCRM = null
+                // }
+                // if (soundintervalsetCRM == true) { soundintervalsetCRM = null }
+            // }
+        // } else {
+            // if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
+                // clearInterval(soundintervalsetCRM)
+                // soundintervalsetCRM = null
+            // }
+            // if (soundintervalsetCRM == true) { soundintervalsetCRM = null }
+        // }
+    // }
+// }
+
 function checkforsoundplay() {
-    //document.body.click()
-	takeTaskBtn = document.getElementsByClassName('mat-button-wrapper');
-    if (localStorage.getItem('audioCRM') == 1 && window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') !== -1) {
-        if (takeTaskBtn.length > 0) {
-            if (document.getElementsByClassName('mat-button-disabled').length == 0 && takeTaskBtn[13] && takeTaskBtn[13].innerText == 'Взять новую задачу') {
-                if (localStorage.getItem('repeatsound') == 0) {
-                    if (!soundintervalsetCRM) {
-                        soundintervalsetCRM = true
-                        audioCRM.oncanplaythrough = (event) => {
-                            var playedPromise = audioCRM.play();
-                            if (playedPromise) {
-                                playedPromise.catch((e) => {
-                                    console.log(e)
-                                    if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
-                                        console.log(e.name);
-                                    }
-                                }).then(() => {
-                                    console.log("playing sound one time !!!");
-                                });
-                            }
-                        }
-
-
-                    }
+	const takeTaskBtn = document.getElementsByClassName('mat-button-wrapper');
+    if (localStorage.getItem('audioCRM') !== '1' || window.location.href.indexOf('https://crm2.skyeng.ru/customer-support/start') === -1) {
+        if (soundintervalsetCRM) {
+            clearInterval(soundintervalsetCRM);
+            soundintervalsetCRM = null;
+        }
+        return;
+    }
+    if (takeTaskBtn.length === 0) {
+        if (soundintervalsetCRM) {
+            clearInterval(soundintervalsetCRM);
+            soundintervalsetCRM = null;
+        }
+        return;
+    }
+    if (document.getElementsByClassName('mat-button-disabled').length !== 0 || !takeTaskBtn[13] || takeTaskBtn[13].innerText !== 'Взять новую задачу') {
+        if (soundintervalsetCRM) {
+            clearInterval(soundintervalsetCRM);
+            soundintervalsetCRM = null;
+        }
+        return;
+    }
+    audioCRM.oncanplaythrough = (event) => {
+        var playedPromise = audioCRM.play();
+        if (playedPromise) {
+            playedPromise.catch((e) => {
+                console.log(e);
+                if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
+                    console.log(e.name);
+                }
+            }).then(() => {
+                if (localStorage.getItem('repeatsound') === '0') {
+                    console.log("playing sound one time !!!");
                 } else {
-                    if (!soundintervalsetCRM) {
-                        audioCRM.oncanplaythrough = (event) => {
-                            var playedPromise = audioCRM.play();
-                            if (playedPromise) {
-                                playedPromise.catch((e) => {
-                                    console.log(e)
-                                    if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
-                                        console.log(e.name);
-                                    }
-                                }).then(() => {
-                                    console.log("playing sound repeatedly !!!");
-                                });
-                            }
-                        }
-                        soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000)
-                    }
+                    console.log("playing sound repeatedly !!!");
+                    soundintervalsetCRM = setInterval(() => { audioCRM.play() }, localStorage.getItem('splinterCRM') * 1000);
                 }
-
-            } else {
-                if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
-                    clearInterval(soundintervalsetCRM)
-                    soundintervalsetCRM = null
-                }
-                if (soundintervalsetCRM == true) { soundintervalsetCRM = null }
-            }
-        } else {
-            if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
-                clearInterval(soundintervalsetCRM)
-                soundintervalsetCRM = null
-            }
-            if (soundintervalsetCRM == true) { soundintervalsetCRM = null }
+            });
         }
     }
 }
+
 
 setInterval(checkforsoundplay, 1000);
 
