@@ -517,7 +517,6 @@ function checkforsoundplay() {
                 if (localStorage.getItem('repeatsound') == 0) {
 					// soundintervalsetCRM = '';
                     if (!soundintervalsetCRM) {
-                        soundintervalsetCRM = true
                         audioCRM.oncanplaythrough = (event) => {
                             var playedPromise1 = audioCRM.play();
                             if (playedPromise1) {
@@ -531,6 +530,7 @@ function checkforsoundplay() {
                                 });
                             }
                         }
+						soundintervalsetCRM = true
                     }
                 } else {
                     if (!soundintervalsetCRM) {
