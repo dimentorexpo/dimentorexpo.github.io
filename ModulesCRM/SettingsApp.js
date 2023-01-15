@@ -200,7 +200,6 @@ function changerepeatsoundCRM() {
             soundintervalsetCRM = null    
         }
     } else {
-		soundintervalsetCRM = null  
         document.getElementById("repeatsoundselectCRM").checked = true;
         localStorage.setItem('repeatsound', 1)
         document.getElementById('setsoundplayintervalCRM').removeAttribute('disabled')
