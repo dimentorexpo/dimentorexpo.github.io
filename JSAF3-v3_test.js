@@ -496,7 +496,7 @@ function mystyles() {
 	}
 	
 	.mainplayer {
-		width: 600px;
+		width: 625px;
 		border: 1px solid black;
 		padding: 5px;
 		background: #464451;

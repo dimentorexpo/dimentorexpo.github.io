@@ -1,15 +1,15 @@
     var win_Radio =  // описание элементов окна радио
-    `<div style="display: flex; width: 600px;">
-        <span style="width: 600px">
+    `<div style="display: flex; width: 625px;">
+        <span style="width: 625px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 600;" id="links_1str">
+				<div style="margin: 5px; width: 625;" id="links_1str">
 					<button title="Скрытие меню" id="hideMeRadio" style="width:50px; background: #228B22;">hide</button>
 				</div>
 				<div id="audioPlayer" class="mainplayer">
 					<div id="audioControls">
 						<input type="text" id="audioUrl" style="text-align: center; border-radius: 10px; color:black;"
 							placeholder="Enter Radio URL">
-						<input type="text" id="audioName" style="text-align: center; border-radius: 10px; width:110px; color:black;"
+						<input type="text" id="audioName" style="text-align: center; border-radius: 10px; width:120px; color:black;"
 							placeholder="Enter Radio name">
 						<button id="addAudio">➕</button>
 						<button id="playAudio">▶</button>
