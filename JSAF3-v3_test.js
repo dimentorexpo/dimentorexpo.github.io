@@ -467,7 +467,7 @@ function mystyles() {
 		transition: all 1s ease;
 	}
 
-	#opennewcat:hover , #crmopersstatuses:hover {
+	#opennewcat:hover , #crmopersstatuses:hover, #radioPlayer:hover  {
 		opacity: 1 !important;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
@@ -633,7 +633,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
-					<button id="hideMenuMain" title="Скрывает расширение и др открытых окон" style="margin-left:15px;">hide</button>
+					<button id="hideMenuMain" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
@@ -1314,7 +1314,7 @@ function prepTp() { //функция подготовки расширения �
     document.body.append(crmopers) 
 
 	let playerRadio = document.createElement('button')
-    playerRadio.innerHTML = '🧮'
+    playerRadio.innerHTML = '📻'
     playerRadio.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     playerRadio.id = 'radioPlayer'
     playerRadio.title = 'Открывает радио проигрыватель'
