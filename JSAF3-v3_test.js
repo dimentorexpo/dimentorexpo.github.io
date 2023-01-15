@@ -1366,6 +1366,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         // "https://dimentorexpo.github.io/Modules/TestStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     let promiseData = [];
     gfgScript.forEach(function (info) {
