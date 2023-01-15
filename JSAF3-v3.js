@@ -494,8 +494,135 @@ function mystyles() {
 		color:white !important;
 		font-weight:700;
 	}
+	
+	.mainplayer {
+		width: 625px;
+		border: 1px solid black;
+		padding: 5px;
+		background: #464451;
+		color: bisque;
+		max-height: 510px;
+		overflow-y: auto;
+	}
 
+	#audioControls {
+		display: flex;
+		justify-content: space-evenly;
+	}
 
+	li.active {
+		background: #3cbb56;
+		border-radius: 10px;
+		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+	}
+
+	li:hover {
+		background: #373c67;
+		border-radius: 10px;
+	}
+
+	#audioList {
+		margin-top:5px;
+		width: 515px;
+		border: 1px solid black;
+		background: #768d87;
+		border-radius: 10px;
+		margin-left: 20px;
+	}
+
+	#player {
+		width: 550px;
+		margin-left: 25px;
+	}
+
+	.deleteline:hover {
+		background: red !important;
+		font-weight: 700 !important;
+	}
+
+	#pauseAudio {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #bd4b37;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 16px;
+		transition: background 0.2s ease-in-out;
+	}
+
+	#playAudio {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #3cbb56;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 16px;
+		transition: background 0.2s ease-in-out;
+	}
+
+	#addAudio {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #ffbb00;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 16px;
+		transition: background 0.2s ease-in-out;
+	}
+
+	#volumeUp,
+	#volumeDown {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #85ac8c;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+		font-size: 16px;
+		width: 50px;
+		transition: background 0.2s ease-in-out;
+	}
+
+	#muteAudio {
+		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
+		background: #85ac8c;
+		color: #fff;
+		padding: 5px;
+		border-radius: 5px;
+		letter-spacing: 1px;
+		transition: background 0.2s ease-in-out;
+	}
+
+	#playAudio:hover,
+	#volumeUp:hover,
+	#muteAudio:hover {
+		background: #4ecc6e;
+		cursor: pointer;
+	}
+
+	#addAudio:hover {
+		background: #e6c772;
+		cursor: pointer;
+	}
+
+	#pauseAudio:hover,
+	#volumeDown:hover {
+		background: #b66253;
+		cursor: pointer;
+	}
+	
 	`
     mstl.innerHTML = style;
 }
@@ -506,12 +633,13 @@ var win_AFhelper =  // описание элементов главного ок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
-					<button id="hideMenuMain" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
+					<button id="hideMenuMain" title="Скрывает расширение и др открытых окон" style="margin-left:15px;">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
 					<button id="getnewtmpldata" title="Обновляет шаблоны из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
-					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
+					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; margin-right: 5px"></button>
+					<button id="radioPlayer" title="Открывает окно с радио проигрывателем" style="width:25px;  float: right; margin-right: 5px">📻</button>
 					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
                     <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
@@ -1221,7 +1349,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        "https://dimentorexpo.github.io/Modules/ServiceDesk1.js", // модуль Service Desk , с 1  тестовая версия
+        "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
@@ -1239,6 +1367,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         // "https://dimentorexpo.github.io/Modules/TestStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     let promiseData = [];
     gfgScript.forEach(function (info) {
@@ -3884,13 +4013,9 @@ function setRemindAf(tsname) { //функция  при наступлении �
     if (tsname === 'chronostamp') {
         setchas.value = "";
         setminuta.value = "";
-        localStorage.removeItem('setchas');
-        localStorage.removeItem('setminuta');
     } else if (tsname === 'chronostamp1') {
         setchas1.value = "";
         setminuta1.value = "";
-        localStorage.removeItem('setchas1');
-        localStorage.removeItem('setminuta1');
     }
 }
 
@@ -5465,8 +5590,6 @@ document.getElementById('clock_remin').ondblclick = function () {		// Удале
         clearTimeout(abortTimeOut)
         localStorage.removeItem('chronostamp')
         localStorage.removeItem('chronostamp2')
-        localStorage.removeItem('setchas')
-        localStorage.removeItem('setminuta')
         setchas.value = ""
         setminuta.value = ""
         alert("Будильник удален")
@@ -5479,8 +5602,6 @@ document.getElementById('clock_remin1').ondblclick = function () {		// Удал�
         clearTimeout(abortTimeOut1)
         localStorage.removeItem('chronostamp1')
         localStorage.removeItem('chronostamp22')
-        localStorage.removeItem('setchas1')
-        localStorage.removeItem('setminuta1')
         setchas1.value = ""
         setminuta1.value = ""
         alert("Будильник удален")
