@@ -527,7 +527,7 @@ function checkforsoundplay() {
                                         console.log(e.name);
                                     }
                                 }).then(() => {
-                                    console.log("playing sound !!!");
+                                    console.log("playing sound one time !!!");
                                 });
                             }
                         }
@@ -545,7 +545,7 @@ function checkforsoundplay() {
                                         console.log(e.name);
                                     }
                                 }).then(() => {
-                                    console.log("playing sound !!!");
+                                    console.log("playing sound repeatedly !!!");
                                 });
                             }
                         }
