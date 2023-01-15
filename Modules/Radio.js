@@ -75,6 +75,7 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
             let newAudio = document.createElement("li");
             newAudio.style = "cursor:pointer";
             newAudio.setAttribute("name", "radiolist")
+			newAudio.classList  = 'radiolist'
             let deleteBtn = document.createElement("button");
             deleteBtn.innerHTML = "❌";
             deleteBtn.style = "margin: 5px; width:30px; border: 1px solid darkslategrey; cursor:pointer; border-radius: 10px;";
@@ -142,14 +143,6 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
         player.addEventListener("volumechange", function () {
             localStorage.setItem("volume", player.volume);
         });
-
-        // audioListItems = document.querySelectorAll('[name=radiolist]');
-        // audioListItems.forEach(item => {
-            // item.addEventListener('click', function () {
-                // audioListItems.forEach(item => item.classList.remove('active'));
-                // this.classList.toggle('active');
-            // });
-        // });
 		
 		function addClickListener() {
 			audioListItems = document.getElementsByName('radiolist');

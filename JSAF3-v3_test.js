@@ -517,14 +517,14 @@ function mystyles() {
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 	}
 
-	li:hover {
+	.radiolist:hover {
 		background: #373c67;
 		border-radius: 10px;
 	}
 
 	#audioList {
 		margin-top:5px;
-		width: 440px;
+		width: 515px;
 		border: 1px solid black;
 		background: #768d87;
 		border-radius: 10px;
