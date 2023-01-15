@@ -1,24 +1,25 @@
     var win_Radio =  // описание элементов окна радио
-    `<div style="display: flex; width: 550px;">
-        <span style="width: 550px">
+    `<div style="display: flex; width: 600px;">
+        <span style="width: 600px">
 			<span style="cursor: -webkit-grab;">
-				<div style="margin: 5px; width: 550;" id="links_1str">
-					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
-                    <button title="Открывает Базу знаний в Confluence" id="knoweledgebaseKC" class="uplinksbar onlyforkc">📚</button>
-                    <button title="Прослушать запись урока" id="lessonrecordKC" class="uplinksbar onlyforkc">👩‍🏫</button>
-					<button title="Личный кабинет в Skyeng" id="skyhomeKC" class="uplinksbar onlyforkc">💼</button>
+				<div style="margin: 5px; width: 600;" id="links_1str">
+					<button title="Скрытие меню" id="hideMeRadio" style="width:50px; background: #228B22;">hide</button>
 				</div>
-                <div style="margin: 5px; width: 550px;" id="links_butKC">
-                    <button title="Открывает Timetable" id="timetableKC" style="width:105px">TimeTable</button>
-                    <button title="Проведение операций с балансом ученика" id="CalcKC" style="width:105px">Калькулятор</button>
-                    <button title="Проведение компенсаций, условия промокодов/сертиикатов" id="nachislyatorKC" style="width:105px">Начислятор</button>
-                    <button title="Админка рассрочек" id="rassrochKC" style="width:105px">Рассрочка</button>
-                    <button title="Админка подписок" id="pondpisKC" style="width:105px">Подписки</button>
-                    <button title="Открывает Omnidesk" id="omniKC" style="width:105px">Omni</button>
-                    <button title="Админка разговорных клубов" id="RKKC" style="width:105px">РК</button>
-                    <button title="Актуальные шаблоны КЦ" id="shablKC" style="width:105px">Шаблоны</button>
-                    <button title="Написать нарушение бизнес-процесса на менеджера" id="narushKC" style="width:105px">Нарушение БП</button>
-                    <button title="Учет рабочего времени КЦ" id="grafKC" style="width:105px">График</button>
+				<div id="audioPlayer" class="mainplayer">
+					<div id="audioControls">
+						<input type="text" id="audioUrl" style="text-align: center; border-radius: 10px;"
+							placeholder="Enter Radio URL">
+						<input type="text" id="audioName" style="text-align: center; border-radius: 10px; width:110px;"
+							placeholder="Enter Radio name">
+						<button id="addAudio">➕</button>
+						<button id="playAudio">▶</button>
+						<button id="pauseAudio">⏸</button>
+						<button id="volumeUp" onclick="document.getElementById('player').volume += 0.1">🔊+</button>
+						<button id="volumeDown" onclick="document.getElementById('player').volume -= 0.1">🔉-</button>
+						<button id="muteAudio" onclick="muteorunmute()">🔇Mute</button>
+					</div>
+					<ol id="audioList"></ol>
+					<audio id="player"></audio>
 				</div>
 			</span>
 	</span>
