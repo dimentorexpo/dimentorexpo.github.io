@@ -515,9 +515,9 @@ function checkforsoundplay() {
         if (takeTaskBtn.length > 0) {
             if (document.getElementsByClassName('mat-button-disabled').length == 0 && takeTaskBtn[13] && takeTaskBtn[13].innerText == 'Взять новую задачу') {
                 if (localStorage.getItem('repeatsound') == 0) {
-					soundintervalsetCRM = '';
-                    // if (!soundintervalsetCRM) {
-                        // soundintervalsetCRM = true
+					// soundintervalsetCRM = '';
+                    if (!soundintervalsetCRM) {
+                        soundintervalsetCRM = true
                         audioCRM.oncanplaythrough = (event) => {
                             var playedPromise1 = audioCRM.play();
                             if (playedPromise1) {
@@ -531,7 +531,7 @@ function checkforsoundplay() {
                                 });
                             }
                         }
-                    // }
+                    }
                 } else {
                     if (!soundintervalsetCRM) {
                         audioCRM.oncanplaythrough = (event) => {
@@ -558,14 +558,17 @@ function checkforsoundplay() {
                 }
                 if (soundintervalsetCRM == true) { soundintervalsetCRM = null }
             }
+		}
         } else {
             if (soundintervalsetCRM != null || soundintervalsetCRM != true) {
                 clearInterval(soundintervalsetCRM)
                 soundintervalsetCRM = null
             }
-            if (soundintervalsetCRM == true) { soundintervalsetCRM = null }
+			
+            if (soundintervalsetCRM == true) {
+				soundintervalsetCRM = null
+				}
         }
-    }
 }
 
 setInterval(checkforsoundplay, 1000);
