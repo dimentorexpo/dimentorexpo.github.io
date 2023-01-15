@@ -15,8 +15,8 @@
 						<button id="addAudio">➕</button>
 						<button id="playAudio">▶</button>
 						<button id="pauseAudio">⏸</button>
-						<button id="volumeUp" onclick="document.getElementById('player').volume += 0.1">🔊+</button>
-						<button id="volumeDown" onclick="document.getElementById('player').volume -= 0.1">🔉-</button>
+						<button id="volumeUp" onclick="document.getElementById('player').volume += 0.11">🔊+</button>
+						<button id="volumeDown" onclick="document.getElementById('player').volume -= 0.11">🔉-</button>
 						<button id="muteAudio" onclick="muteorunmute()">🔇Mute</button>
 					</div>
 					<ol id="audioList" style="width:570px;"></ol>
