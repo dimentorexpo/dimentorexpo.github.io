@@ -18,7 +18,7 @@
 						<button id="volumeDown" onclick="document.getElementById('player').volume -= 0.1">🔉-</button>
 						<button id="muteAudio" onclick="muteorunmute()">🔇Mute</button>
 					</div>
-					<ol id="audioList"></ol>
+					<ol id="audioList" style="width:570px;"></ol>
 					<audio id="player"></audio>
 				</div>
 			</span>
@@ -76,7 +76,7 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
             newAudio.setAttribute("name", "radiolist")
             let deleteBtn = document.createElement("button");
             deleteBtn.innerHTML = "❌";
-            deleteBtn.style = "margin: 5px; background: transparent; border: 1px solid darkslategrey; cursor:pointer; border-radius: 10px;";
+            deleteBtn.style = "margin: 5px; background: transparent !important; width:30px; border: 1px solid darkslategrey; cursor:pointer; border-radius: 10px;";
             deleteBtn.setAttribute('name', 'deleteline')
             newAudio.appendChild(deleteBtn);
             newAudio.appendChild(document.createTextNode(name));
