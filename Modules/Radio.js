@@ -120,12 +120,12 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
             audioList.appendChild(createAudioElement(url, name));
             audioUrl.value = "";
             audioName.value = "";
+			addClickListener();
         });
 
         if (audioUrls.length > 0) {
             for (let i = 0; i < audioUrls.length; i++) {
                 audioList.appendChild(createAudioElement(audioUrls[i], audioNames[i]));
-				addClickListener();
             }
         }
 
