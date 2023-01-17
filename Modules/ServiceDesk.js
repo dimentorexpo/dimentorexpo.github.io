@@ -579,51 +579,51 @@ document.getElementById('servDsk').onclick = function () { // функция о�
         lasttsk = '';
     } else
         document.getElementById('AF_ServDsk').style.display = ''
-	
+
     document.getElementById('idmymenu').style.display = 'none'
 
     checkjiraauth()
 
     // setTimeout(getprsuplasttask, 2000)
 
-const sdbtn = document.getElementsByClassName('sdbtn');
-for (let i = 0; i < sdbtn.length; i++) {
-	sdbtn[i].onclick = function () {
-		let activeBtnsd = document.getElementsByClassName('activebtnsd');
-		for (let j = 0; j < activeBtnsd.length; j++) {
-			activeBtnsd[j].classList.remove('activebtnsd');
-		}
-		this.classList.toggle('activebtnsd');
-		let index = i;
-		let elementId = otherOptions[index];
-		document.getElementById(elementId).style.display = "block";
+    const sdbtn = document.getElementsByClassName('sdbtn');
+    for (let i = 0; i < sdbtn.length; i++) {
+        sdbtn[i].onclick = function () {
+            let activeBtnsd = document.getElementsByClassName('activebtnsd');
+            for (let j = 0; j < activeBtnsd.length; j++) {
+                activeBtnsd[j].classList.remove('activebtnsd');
+            }
+            this.classList.toggle('activebtnsd');
+            let index = i;
+            let elementId = otherOptions[index];
+            document.getElementById(elementId).style.display = "block";
 
-		let otherElements = document.querySelectorAll(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', '));
-		for (let k = 0; k < otherElements.length; k++) {
-			otherElements[k].style.display = 'none';
-		}
+            let otherElements = document.querySelectorAll(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', '));
+            for (let k = 0; k < otherElements.length; k++) {
+                otherElements[k].style.display = 'none';
+            }
 
-		if (elementId === "academymobbugsoptions" || elementId === "mobbugsoptions") {
-			document.getElementById('prioritymbugs').style.display = '';
-			document.getElementById('custom_appinfo').style.display = '';
-			document.getElementById('custom_deviceinfo').style.display = '';
-		} else if (elementId === 'studcabmobbugskoptions') {
-			document.getElementById('prioritymbugs').style.display = 'none';
-			document.getElementById('custom_appinfo').style.display = '';
-			document.getElementById('custom_deviceinfo').style.display = '';
-		} else {
-			document.getElementById('prioritymbugs').style.display = 'none';
-			document.getElementById('custom_appinfo').style.display = 'none';
-			document.getElementById('custom_deviceinfo').style.display = 'none';
-		}
-	}
-}
+            if (elementId === "academymobbugsoptions" || elementId === "mobbugsoptions") {
+                document.getElementById('prioritymbugs').style.display = '';
+                document.getElementById('custom_appinfo').style.display = '';
+                document.getElementById('custom_deviceinfo').style.display = '';
+            } else if (elementId === 'studcabmobbugskoptions') {
+                document.getElementById('prioritymbugs').style.display = 'none';
+                document.getElementById('custom_appinfo').style.display = '';
+                document.getElementById('custom_deviceinfo').style.display = '';
+            } else {
+                document.getElementById('prioritymbugs').style.display = 'none';
+                document.getElementById('custom_appinfo').style.display = 'none';
+                document.getElementById('custom_deviceinfo').style.display = 'none';
+            }
+        }
+    }
 
-buttons.forEach(button => {
-	$(button).click(function () {
-		remres(this);
-	});
-});
+    buttons.forEach(button => {
+        $(button).click(function () {
+            remres(this);
+        });
+    });
 
 } // tested
 
@@ -647,9 +647,9 @@ document.getElementById('hideMeSrvDsk').onclick = function () { //форма hid
                 remres(this);
             });
         });
-		
-		document.getElementById('newtask').textContent = ''
-		lasttsk = '';
+
+        document.getElementById('newtask').textContent = ''
+        lasttsk = '';
 
         document.getElementById('AF_ServDsk').style.display = 'none'
     }
@@ -673,26 +673,26 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
     let idUser = document.getElementById('custom_id')
     let appInfo = document.getElementById('custom_appinfo')
     let deviceInfo = document.getElementById('custom_deviceinfo')
-    let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value.replace(/[\n\t\"]/g, function(match) {
-    if (match === '\n') return '<br>';
-    if (match === '\t') return '&emsp;';
-    if (match === '\"') return '&quot;';
-}))
-	let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value.replace(/[\n\t\"]/g, function(match) {
-    if (match === '\n') return '<br>';
-    if (match === '\t') return '&emsp;';
-    if (match === '\"') return '&quot;';
-}))
-	let expectedResult = encodeURIComponent(document.getElementById('custom_er').value.replace(/[\n\t\"]/g, function(match) {
-    if (match === '\n') return '<br>';
-    if (match === '\t') return '&emsp;';
-    if (match === '\"') return '&quot;';
-}))
-	let actualResult = encodeURIComponent(document.getElementById('custom_ar').value.replace(/[\n\t\"]/g, function(match) {
-    if (match === '\n') return '<br>';
-    if (match === '\t') return '&emsp;';
-    if (match === '\"') return '&quot;';
-}))
+    let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value.replace(/[\n\t\"]/g, function (match) {
+        if (match === '\n') return '<br>';
+        if (match === '\t') return '&emsp;';
+        if (match === '\"') return '&quot;';
+    }))
+    let stepsToReproduce = encodeURIComponent(document.getElementById('custom_str').value.replace(/[\n\t\"]/g, function (match) {
+        if (match === '\n') return '<br>';
+        if (match === '\t') return '&emsp;';
+        if (match === '\"') return '&quot;';
+    }))
+    let expectedResult = encodeURIComponent(document.getElementById('custom_er').value.replace(/[\n\t\"]/g, function (match) {
+        if (match === '\n') return '<br>';
+        if (match === '\t') return '&emsp;';
+        if (match === '\"') return '&quot;';
+    }))
+    let actualResult = encodeURIComponent(document.getElementById('custom_ar').value.replace(/[\n\t\"]/g, function (match) {
+        if (match === '\n') return '<br>';
+        if (match === '\t') return '&emsp;';
+        if (match === '\"') return '&quot;';
+    }))
     let activeButtons = document.querySelectorAll('.activebtn');
 
     if (priorityMobile.style.display == 'none' && appInfo.style.display == 'none' && deviceInfo.style.display == 'none') {
@@ -701,11 +701,15 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
             console.log(`Selected topic: ${button.innerText}`);
         }
     } else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '') {
-        sendRequestMobWithPriority(priorityMobile.value, idUser.value, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
-        console.log(`Selected topic: ${button.innerText}`);
+        for (const button of activeButtons) {
+            sendRequestMobWithPriority(priorityMobile.value, idUser.value, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+            console.log(`Selected topic: ${button.innerText}`);
+        }
     } else if (priorityMobile.style.display == 'none' && appInfo.style.display == '' && deviceInfo.style.display == '') {
-        sendRequestMobNoPriority(idUser.value, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
-        console.log(`Selected topic: ${button.innerText}`);
+        for (const button of activeButtons) {
+            sendRequestMobNoPriority(idUser.value, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+            console.log(`Selected topic: ${button.innerText}`);
+        }
     }
 
 });
