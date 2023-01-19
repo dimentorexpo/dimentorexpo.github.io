@@ -1508,27 +1508,6 @@ async function getStats() { // функция получения статист�
         th.textContent = columnNames[i]
     }
 
-    // var time = new Date()
-    // var time2 = new Date()
-    // time2.setTime(time - 24 * 60 * 60 * 1000)
-    // var date1 = time.getDate() < 10 ? '0' + time.getDate() : time.getDate()
-    // var date2 = time2.getDate() < 10 ? '0' + time2.getDate() : time2.getDate()
-    // var month1 = Number(time.getMonth() + 1) < 10 ? '0' + Number(time.getMonth() + 1) : Number(time.getMonth() + 1)
-    // var month2 = Number(time2.getMonth() + 1) < 10 ? '0' + Number(time2.getMonth() + 1) : Number(time2.getMonth() + 1)
-    // var str1 = time.getFullYear() + "-" + month1 + "-" + date1 + "T21:00:00Z"
-    // var str2 = time2.getFullYear() + "-" + month2 + "-" + date2 + "T21:00:00Z"
-    // var array = []
-    // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0] //определение отдела оператора
-    // console.log("Подразделение - " + opsection);
-    // await fetch("https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=" + str2 + "&dateTo=" + str1).then(response => b = response.json().then(b => b.rows.forEach(k => {
-    // if (k.operator.indexOf(opsection) != -1) {
-    // array.push(k)
-    // }
-    // })))
-    // array.sort(function (a, b) {
-    // return b.conversationClosed - a.conversationClosed;
-    // });
-
     const padStart = (string, targetLength, padString) => {
         return String(string).padStart(targetLength, padString);
     }
@@ -2662,6 +2641,7 @@ function refreshTimer() { //функция обновления таймера
             for (i = 0; i < idk; i++) {
                 if (tmrs[i][1] == name) {
                     btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
+					btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.remove('soonwillclose')
                     if (tmrs[i][0] == "00:00")
                         if (tmrs[i][2] == 1)
                             btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
@@ -2669,13 +2649,15 @@ function refreshTimer() { //функция обновления таймера
                             btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
                     else
                         btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].textContent = tmrs[i][4]
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
                     var cT = new Date();
                     var curT1 = tmrs[i][3]
                     var curT2 = Number(cT);
                     var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                    if (curT3 < 0)
+                    if (curT3 < 0) {
                         btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = localStorage.getItem('defaclschatcolor') // цвет окрашивания автозакрытия  сейчас сиреневый
+						btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.add('soonwillclose')
+					}
                 }
             }
             j++
@@ -4141,6 +4123,19 @@ function closeTerms() { // функция автоподтверждения у�
             document.getElementsByClassName('terms-popup-accept-button')[i].click()
         }
     }
+}
+
+function playbeforeclosechat() { // функция проигрывания звука при автозакрытии чата если какой то из чатов 
+	audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3"); 
+	audio2.volume = 0.05
+	for (let i=0;i<document.getElementsByClassName('ant-list-item').length;i++) {
+		if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('soonwillclose')) {
+			audio2.play()
+		} else if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('stopsound'))  { // подумать как добавлять этот класс чтобы для того чата не проигрывался звук
+			audio2.pause()
+			audio.currentTime = 0
+		}
+	}
 }
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
