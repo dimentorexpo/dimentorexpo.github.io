@@ -2626,89 +2626,43 @@ function addTimers() { // еще функция тоже добавления т
     }
 }
 
-// function refreshTimer() { //функция обновления таймера
-    // btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
-    // j = 0
-    // try {
-        // while (true) {
-            // if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
-                // break;
-            // if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
-                // break;
-            // if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
-                // addTimers()
-            // name = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
-            // for (i = 0; i < idk; i++) {
-                // if (tmrs[i][1] == name) {
-                    // btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
-					// btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.remove('soonwillclose')
-                    // if (tmrs[i][0] == "00:00")
-                        // if (tmrs[i][2] == 1)
-                            // btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
-                        // else
-                            // btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
-                    // else
-                        // btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
-                    // btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
-                    // var cT = new Date();
-                    // var curT1 = tmrs[i][3]
-                    // var curT2 = Number(cT);
-                    // var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                    // if (curT3 < 0) {
-                        // btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = localStorage.getItem('defaclschatcolor') // цвет окрашивания автозакрытия  сейчас сиреневый
-						// btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.add('soonwillclose')
-					// }
-                // }
-            // }
-            // j++
-        // }
-    // } catch (e) { console.error(e, e.stack); }
-// }
-
 function refreshTimer() { //функция обновления таймера
-btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
-j = 0
-try {
-    while (true) {
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
-            break;
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
-            break;
-        if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
-            addTimers()
-        name = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
-        for (i = 0; i < idk; i++) {
-            if (tmrs[i][1] == name) {
-                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
-                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
-                var stopSoundBtn = document.createElement("button");
-                stopSoundBtn.innerHTML = "Stop Sound";
-                stopSoundBtn.onclick = function () {
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.remove("soonwillclose");
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.add("stopsound");
-                }
-                btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].appendChild(stopSoundBtn);
-
-                if (tmrs[i][0] == "00:00")
-                    if (tmrs[i][2] == 1)
-                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
+    btns = document.getElementsByClassName('ant-list expert-sidebar-list ant-list-split')[0]
+    j = 0
+    try {
+        while (true) {
+            if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j] === undefined)
+                break;
+            if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].className === "ant-empty ant-empty-normal")
+                break;
+            if (btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2] == undefined)
+                addTimers()
+            name = btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].innerHTML
+            for (i = 0; i < idk; i++) {
+                if (tmrs[i][1] == name) {
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
+					btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.remove('soonwillclose')
+                    if (tmrs[i][0] == "00:00")
+                        if (tmrs[i][2] == 1)
+                            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
+                        else
+                            btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
                     else
                         btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
-
-                var cT = new Date();
-                var curT1 = tmrs[i][3]
-                var curT2 = Number(cT);
-                var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                if (curT3 < 0) {
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = localStorage.getItem('defaclschatcolor') // цвет окрашивания автозакрытия  сейчас сиреневый
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.add('soonwillclose')
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
+                    var cT = new Date();
+                    var curT1 = tmrs[i][3]
+                    var curT2 = Number(cT);
+                    var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
+                    if (curT3 < 0) {
+                        btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = localStorage.getItem('defaclschatcolor') // цвет окрашивания автозакрытия  сейчас сиреневый
+						btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.add('soonwillclose')
+					}
                 }
             }
+            j++
         }
-        j++;
-    }
-} catch (e) {
-}
+    } catch (e) { console.error(e, e.stack); }
 }
 
 function refreshTemplates() { // функция обновляет шаблоны которые загружены были с гугл таблицы и сформированы их в table
