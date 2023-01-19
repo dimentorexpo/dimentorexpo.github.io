@@ -5019,6 +5019,8 @@ setInterval(remandressl, 3000);
 
 setInterval(closeTerms, 500);
 
+//setInterval(playbeforeclosechat, 20000); //интервал вызова функции проигрывания закрытия чата
+
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     // Find the 'teacher' user type and get the user's id.
     const userTypeList = document.getElementsByClassName('expert-user_details-list')[1];
