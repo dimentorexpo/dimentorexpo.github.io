@@ -72,7 +72,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				} else if (flagtpkc == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
 					opstats.push(result.onOperator[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300' && result.unAssigned[j].kb != '121438' && result.unAssigned[j].kb != '121386' && result.unAssigned[j].kb != '121446' && result.unAssigned[j].kb != '121832' && result.unAssigned[j].kb != '121430' && result.unAssigned[j].kb != '121879' && result.unAssigned[j].kb != '121777' && result.unAssigned[j].kb != '121447' && result.unAssigned[j].kb != '121527' && result.unAssigned[j].kb != '121775' && result.unAssigned[j].kb != '121531' && result.unAssigned[j].kb != null) {
+						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300' && result.unAssigned[j].kb != '121438' && result.unAssigned[j].kb != '121386' && result.unAssigned[j].kb != '121446' && result.unAssigned[j].kb != '121832' && result.unAssigned[j].kb != '121430' && result.unAssigned[j].kb != '121879' && result.unAssigned[j].kb != '121777' && result.unAssigned[j].kb != '121447' && result.unAssigned[j].kb != '121527' && result.unAssigned[j].kb != '121775' && result.unAssigned[j].kb != '121531') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
@@ -110,7 +110,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 					}
 				} else if (flagtpkc == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300' && result.unAssigned[j].kb != '121438' && result.unAssigned[j].kb != '121446' && result.unAssigned[j].kb != '121832' && result.unAssigned[j].kb != '121430' && result.unAssigned[j].kb != '121879' && result.unAssigned[j].kb != '121777' && result.unAssigned[j].kb != '121447' && result.unAssigned[j].kb != '121527' && result.unAssigned[j].kb != '121531' && result.unAssigned[j].kb != '121775' && result.unAssigned[j].kb != null) {
+						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300' && result.unAssigned[j].kb != '121438' && result.unAssigned[j].kb != '121446' && result.unAssigned[j].kb != '121832' && result.unAssigned[j].kb != '121430' && result.unAssigned[j].kb != '121879' && result.unAssigned[j].kb != '121777' && result.unAssigned[j].kb != '121447' && result.unAssigned[j].kb != '121527' && result.unAssigned[j].kb != '121531' && result.unAssigned[j].kb != '121775') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}
