@@ -2545,9 +2545,10 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
 function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
     but = butName
+    let chatthemevalue
     msgFromTable(but) // вызов функции отправки сообщения
     if (document.getElementById('avariyalink').value !== null) { // проверка есть ли значение в поле ссылки
-        let linktostatsend = document.getElementById('avariyalink').value
+        let linktostatsend = document.getElementById('avariyalink').value.trim()
         sendComment(linktostatsend); // вызов функции отправки комента
         fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", { //записываем ссылку в поле "Ссылка на jira"
                     "headers": {
@@ -2559,7 +2560,13 @@ function servFromDoc(butName) { // отправка комента и сообщ
                     "credentials": "include"
                 })
     } 
-        
+    if (document.getElementById('avariyatema').children[0].selected == false) {
+        for (let i = 0; i < document.getElementById('avariyatema').children.length; i++) {
+            if (document.getElementById('avariyatema').children[i].selected == true)
+                chatthemevalue = encodeURIComponent(document.getElementById('avariyatema').children[i].value)
+			     newTag(chatthemevalue)
+        }
+    }   
 }
 
 function getText() { // функция обновления текста с шаблонов из документа
@@ -2776,9 +2783,66 @@ function refreshTemplates() { // функция обновляет шаблон�
                     newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
                     newInputAlink.autocomplete = 'off'
                     newInputAlink.type = 'text'
-                    newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+                    newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 7px'
 
                     newDiv.appendChild(newInputAlink)
+
+                    var newbtnclrlink = document.createElement('button')
+                    newbtnclrlink.textContent = "🧹"
+                    newbtnclrlink.title = "Очищает поле задачи серверных"
+                    newbtnclrlink.onclick = function () {document.getElementById('avariyalink').value = ""}
+                    
+                    newDiv.appendChild(newbtnclrlink)
+
+                    var newSelectAThemes = document.createElement('select')                    
+                    newSelectAThemes.id = 'avariyatema'
+                    newSelectAThemes.style = 'text-align: center; width: 300px; height: 26px; color: black; margin-left: 7px; margin-top: 5px'
+                    newSelectAThemes.type = 'text'
+
+                    var newthemeoption = document.createElement('option')
+                    newthemeoption.text = "Выбери тематику для серверных"
+                    newthemeoption.selected = true
+                    newthemeoption.disabled = true
+                    newthemeoption.value = "thenenotselect"
+                    newthemeoption.style = "background-color:orange; color:white;"
+                    newSelectAThemes.add(newthemeoption)
+										
+					///
+										
+					async function getAvariaThemes() {
+					let objSelAvariaThema = document.getElementById("avariyatema");
+					let avariatemacontainer;
+					let themesfromdoc;
+                    if (objSelAvariaThema && objSelAvariaThema.children.length == 1) {
+						clearInterval(getTms)
+						console.log("Test true")
+
+                        themesfromdoc = 'https://script.google.com/macros/s/AKfycbxNjuQ7EbZZkLEfC1_aSoK4ncsF0W0XSkjYttCj2nQ23BBzMEmDq-vqJL3MvwJk9Pnm_g/exec'
+                        await fetch(themesfromdoc).then(r => r.json()).then(r => avariatemadata = r)
+                        avariatemacontainer = avariatemadata.result;
+                        console.log(avariatemadata.result) //получим список проблем
+
+                        for (let i = 0; i < avariatemacontainer.length; i++) {
+                            addOption(objSelAvariaThema, `${avariatemacontainer[i][3]}`, `${avariatemacontainer[i][4]}`) // переиндексацию нужно будет сделать
+                       }
+
+                    } else {
+					   console.log('Test false')
+                    }
+					}
+				
+					let getTms = setInterval(getAvariaThemes, 4000)
+					
+					///
+
+                    newDiv.appendChild(newSelectAThemes)
+                    
+                    var newbtnclrtheme = document.createElement('button')
+                    newbtnclrtheme.textContent = "🧹"
+                    newbtnclrtheme.title = "Очищает поле тематики серверных"
+                    newbtnclrtheme.onclick = function () {document.getElementById('avariyatema').children[0].selected = true}
+                    
+                    newDiv.appendChild(newbtnclrtheme)
 
                     b.lastElementChild.appendChild(newDiv)
                     countOfStr++
