@@ -2794,7 +2794,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                     
                     newDiv.appendChild(newbtnclrlink)
 
-                    var newSelectAThemes = document.createElement('select')
+                    var newSelectAThemes = document.createElement('select')                    
                     newSelectAThemes.id = 'avariyatema'
                     newSelectAThemes.style = 'text-align: center; width: 300px; height: 26px; color: black; margin-left: 7px; margin-top: 5px'
                     newSelectAThemes.type = 'text'
@@ -2840,7 +2840,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                     var newbtnclrtheme = document.createElement('button')
                     newbtnclrtheme.textContent = "🧹"
                     newbtnclrtheme.title = "Очищает поле тематики серверных"
-                    newbtnclrtheme.onclick = function () {newthemeoption.children[0].selected = true}
+                    newbtnclrtheme.onclick = function () {document.getElementById('avariyatema').children[0].selected = true}
                     
                     newDiv.appendChild(newbtnclrtheme)
 
