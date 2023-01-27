@@ -2786,8 +2786,8 @@ function refreshTemplates() { // функция обновляет шаблон�
 
                     var newthemeoption = document.createElement('option')
                     newthemeoption.text = "Выбери тематику для серверных"
-                    newthemeoption.selected = true
-                    newthemeoption.disabled = ""
+                   // newthemeoption.selected = true
+                   // newthemeoption.disabled = ""
                     newthemeoption.value = "thenenotselect"
                     newthemeoption.style = "background-color:orange; color:white;"
                     newSelectAlink.add(newthemeoption)
