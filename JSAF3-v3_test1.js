@@ -2564,8 +2564,8 @@ function servFromDoc(butName) { // отправка комента и сообщ
         for (let i = 0; i < document.getElementById('avariyatema').children.length; i++) {
             if (document.getElementById('avariyatema').children[i].selected == true)
                 chatthemevalue = encodeURIComponent(document.getElementById('avariyatema').children[i].value)
+			     newTag(chatthemevalue)
         }
-        newTag(chatthemevalue)
     }   
 }
 
