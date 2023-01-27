@@ -2546,8 +2546,20 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
     but = butName
     msgFromTable(but) // вызов функции отправки сообщения
-    if (document.getElementById('avariyalink').value !== null) // проверка есть ли значение в поле ссылки
-        sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
+    if (document.getElementById('avariyalink').value !== null) { // проверка есть ли значение в поле ссылки
+        let linktostatsend = document.getElementById('avariyalink').value
+        sendComment(linktostatsend); // вызов функции отправки комента
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", { //записываем ссылку в поле "Ссылка на jira"
+                    "headers": {
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + linktostatsend + "\"}]}",
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                })
+    } 
+        
 }
 
 function getText() { // функция обновления текста с шаблонов из документа
