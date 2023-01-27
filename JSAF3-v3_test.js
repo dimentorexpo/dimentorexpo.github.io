@@ -2526,7 +2526,7 @@ function servFromDoc(butName) { // отправка комента и сообщ
     but = butName
     msgFromTable(but) // вызов функции отправки сообщения
     if (document.getElementById('avariyalink').value !== null) // проверка есть ли значение в поле ссылки
-        sendComment(document.getElementById('avariyalink').value); // вызов функции отправки комента
+        sendComment(document.getElementById('avariyalink').value.trim()); // вызов функции отправки комента
 }
 
 function getText() { // функция обновления текста с шаблонов из документа

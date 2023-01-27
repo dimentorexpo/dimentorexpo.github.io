@@ -2547,7 +2547,7 @@ function servFromDoc(butName) { // отправка комента и сообщ
     but = butName
     msgFromTable(but) // вызов функции отправки сообщения
     if (document.getElementById('avariyalink').value !== null) { // проверка есть ли значение в поле ссылки
-        let linktostatsend = document.getElementById('avariyalink').value
+        let linktostatsend = document.getElementById('avariyalink').value.trim()
         sendComment(linktostatsend); // вызов функции отправки комента
         fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", { //записываем ссылку в поле "Ссылка на jira"
                     "headers": {
@@ -2801,7 +2801,7 @@ function refreshTemplates() { // функция обновляет шаблон�
 					let themesfromdoc;
 					
 					async function getAvariaThemes() {
-                    if (objSelAvariaThema.children.length == 1) {
+                    if (objSelAvariaThema && objSelAvariaThema.children.length == 1) {
 						console.log("Test true")
 
                         themesfromdoc = 'https://script.google.com/macros/s/AKfycbxNjuQ7EbZZkLEfC1_aSoK4ncsF0W0XSkjYttCj2nQ23BBzMEmDq-vqJL3MvwJk9Pnm_g/exec'
