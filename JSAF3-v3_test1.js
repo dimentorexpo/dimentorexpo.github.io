@@ -2816,7 +2816,9 @@ function refreshTemplates() { // функция обновляет шаблон�
                     } else {
 					   console.log('Test false')
                     }
-                }
+					}
+				
+					getAvariaThemes();
 					
 					///
 
@@ -2880,7 +2882,6 @@ function refreshTemplates() { // функция обновляет шаблон�
                         newBut.style.marginRight = '4px'
                         newBut.setAttribute('onclick', 'servFromDoc(this.textContent)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
-						getAvariaThemes();
                         break
                     case 'ТемыМоб':
                         var newBut = document.createElement('button')
