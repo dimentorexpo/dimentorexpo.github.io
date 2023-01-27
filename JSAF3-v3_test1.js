@@ -2806,14 +2806,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                     newthemeoption.value = "thenenotselect"
                     newthemeoption.style = "background-color:orange; color:white;"
                     newSelectAThemes.add(newthemeoption)
-					
-                    var newbtnclrtheme = document.createElement('button')
-                    newbtnclrtheme.textContent = "🧹"
-                    newbtnclrtheme.title = "Очищает поле тематики серверных"
-                    newbtnclrtheme.onclick = function () {newthemeoption.children[0].selected = true}
-                    
-                    newDiv.appendChild(newbtnclrtheme)
-					
+										
 					///
 										
 					async function getAvariaThemes() {
@@ -2843,6 +2836,13 @@ function refreshTemplates() { // функция обновляет шаблон�
 					///
 
                     newDiv.appendChild(newSelectAThemes)
+                    
+                    var newbtnclrtheme = document.createElement('button')
+                    newbtnclrtheme.textContent = "🧹"
+                    newbtnclrtheme.title = "Очищает поле тематики серверных"
+                    newbtnclrtheme.onclick = function () {newthemeoption.children[0].selected = true}
+                    
+                    newDiv.appendChild(newbtnclrtheme)
 
                     b.lastElementChild.appendChild(newDiv)
                     countOfStr++
