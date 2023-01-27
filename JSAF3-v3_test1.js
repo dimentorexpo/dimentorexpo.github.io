@@ -2783,13 +2783,20 @@ function refreshTemplates() { // функция обновляет шаблон�
                     newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
                     newInputAlink.autocomplete = 'off'
                     newInputAlink.type = 'text'
-                    newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+                    newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 7px'
 
                     newDiv.appendChild(newInputAlink)
 
+                    var newbtnclrlink = document.createElement('button')
+                    newbtnclrlink.textContent = "🧹"
+                    newbtnclrlink.title = "Очищает поле задачи серверных"
+                    newbtnclrlink.onclick = function () {document.getElementById('avariyalink').value = ""}
+                    
+                    newDiv.appendChild(newbtnclrlink)
+
                     var newSelectAThemes = document.createElement('select')
                     newSelectAThemes.id = 'avariyatema'
-                    newSelectAThemes.style = 'text-align: center; width: 300px; color: black; margin-left: 20px; margin-top: 5px'
+                    newSelectAThemes.style = 'text-align: center; width: 300px; height: 26px; color: black; margin-left: 7px; margin-top: 5px'
                     newSelectAThemes.type = 'text'
 
                     var newthemeoption = document.createElement('option')
@@ -2800,6 +2807,12 @@ function refreshTemplates() { // функция обновляет шаблон�
                     newthemeoption.style = "background-color:orange; color:white;"
                     newSelectAThemes.add(newthemeoption)
 					
+                    var newbtnclrtheme = document.createElement('button')
+                    newbtnclrtheme.textContent = "🧹"
+                    newbtnclrtheme.title = "Очищает поле тематики серверных"
+                    newbtnclrtheme.onclick = function () {newthemeoption.children[0].selected = true}
+                    
+                    newDiv.appendChild(newbtnclrtheme)
 					
 					///
 										
