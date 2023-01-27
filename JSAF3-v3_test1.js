@@ -2545,6 +2545,7 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
 function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
     but = butName
+    let chatthemevalue
     msgFromTable(but) // вызов функции отправки сообщения
     if (document.getElementById('avariyalink').value !== null) { // проверка есть ли значение в поле ссылки
         let linktostatsend = document.getElementById('avariyalink').value.trim()
@@ -2558,8 +2559,14 @@ function servFromDoc(butName) { // отправка комента и сообщ
                     "mode": "cors",
                     "credentials": "include"
                 })
-    } 
-        
+    }
+    if (document.getElementById('avariyatema').children[0].selected == false) {
+        for (let i = 0; i < document.getElementById('avariyatema').children.length; i++) {
+            if (document.getElementById('avariyatema').children[i].selected == true)
+                chatthemevalue = encodeURIComponent(document.getElementById('avariyatema').children[i].value)
+        }
+        newTag(chatthemevalue)
+    }   
 }
 
 function getText() { // функция обновления текста с шаблонов из документа
