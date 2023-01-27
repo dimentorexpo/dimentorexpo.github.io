@@ -2780,12 +2780,19 @@ function refreshTemplates() { // функция обновляет шаблон�
 
                     newDiv.appendChild(newInputAlink)
 
-                    var newSelectAlink = document.createElement('select')
-                    newSelectAlink.id = 'avariyatema'
-                    newSelectAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+                    var newSelectAThemes = document.createElement('select')
+                    newSelectAThemes.id = 'avariyatema'
+                    newSelectAThemes.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
 
+                    var newthemeoption = document.createElement('option')
+                    newthemeoption.text = "Выбери тематику для серверных"
+                    newthemeoption.selected = true
+                    newthemeoption.disabled = ""
+                    newthemeoption.value = "thenenotselect"
+                    newthemeoption.style = "background-color:orange; color:white;"
+                    newSelectAlink.add(newthemeoption)
 
-                    newDiv.appendChild(newSelectAlink)
+                    newDiv.appendChild(newSelectAThemes)
 
                     b.lastElementChild.appendChild(newDiv)
                     countOfStr++
