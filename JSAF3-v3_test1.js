@@ -2770,7 +2770,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                     var newDiv = document.createElement('div')
                     newDiv.id = countOfPages + "page_" + countOfStr + "str"
                     newDiv.style.margin = "5px"
-
+					
                     var newInputAlink = document.createElement('input')
                     newInputAlink.id = 'avariyalink'
                     newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
@@ -2792,6 +2792,38 @@ function refreshTemplates() { // функция обновляет шаблон�
                     newthemeoption.value = "thenenotselect"
                     newthemeoption.style = "background-color:orange; color:white;"
                     newSelectAThemes.add(newthemeoption)
+					
+					
+					///
+					
+					let objSelAvariaLnk = document.getElementById("avariyalink");
+					let avarialinkcontainer;
+					
+					async function getAvariaThemes() {
+                    if (objSelIssue.children.length == 1) {
+						console.log("Test true")
+                        //.getElementById('send2doc').textContent = 'Загрузка'
+
+                        //themesfromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
+                       // await fetch(themesfromdoc).then(r => r.json()).then(r => avarialinkdata = r)
+                        //avarialinkcontainer = avarialinkdata.result;
+                        //console.log(avarialinkdata.result) //получим список проблем
+
+                        //for (let i = 0; i < avarialinkcontainer.length; i++) {
+                        //    addOption(objSelAvariaLnk, `${avarialinkcontainer[i][0]}`, `${avarialinkcontainer[i][0]}`) // переиндексацию нужно будет сделать
+                        }
+
+                       // document.getElementById('send2doc').textContent = 'Отправить'
+                    } else {
+                       // document.getElementById('send2doc').textContent = 'Отправить'
+					   console.log('Test false')
+                    }
+                }
+
+                getAvariaThemes();
+
+					
+					///
 
                     newDiv.appendChild(newSelectAThemes)
 
