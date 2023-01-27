@@ -2796,21 +2796,21 @@ function refreshTemplates() { // функция обновляет шаблон�
 					
 					///
 					
-					let objSelAvariaLnk = document.getElementById("avariyalink");
-					let avarialinkcontainer;
+					let objSelAvariaThema = document.getElementById("avariyatema");
+					let avariatemacontainer;
 					
 					async function getAvariaThemes() {
-                    if (objSelIssue.children.length == 1) {
+                    if (objSelAvariaThema.children.length == 1) {
 						console.log("Test true")
                         //.getElementById('send2doc').textContent = 'Загрузка'
 
                         //themesfromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
-                       // await fetch(themesfromdoc).then(r => r.json()).then(r => avarialinkdata = r)
-                        //avarialinkcontainer = avarialinkdata.result;
-                        //console.log(avarialinkdata.result) //получим список проблем
+                       // await fetch(themesfromdoc).then(r => r.json()).then(r => avariatemadata = r)
+                        //avariatemacontainer = avariatemadata.result;
+                        //console.log(avariatemadata.result) //получим список проблем
 
-                        //for (let i = 0; i < avarialinkcontainer.length; i++) {
-                        //    addOption(objSelAvariaLnk, `${avarialinkcontainer[i][0]}`, `${avarialinkcontainer[i][0]}`) // переиндексацию нужно будет сделать
+                        //for (let i = 0; i < avariatemacontainer.length; i++) {
+                        //    addOption(objSelAvariaLnk, `${avariatemacontainer[i][0]}`, `${avariatemacontainer[i][0]}`) // переиндексацию нужно будет сделать
                        // }
 
                        // document.getElementById('send2doc').textContent = 'Отправить'
