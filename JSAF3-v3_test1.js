@@ -2795,12 +2795,11 @@ function refreshTemplates() { // функция обновляет шаблон�
 					
 					
 					///
-					
+										
+					async function getAvariaThemes() {
 					let objSelAvariaThema = document.getElementById("avariyatema");
 					let avariatemacontainer;
 					let themesfromdoc;
-					
-					async function getAvariaThemes() {
                     if (objSelAvariaThema && objSelAvariaThema.children.length == 1) {
 						clearInterval(getTms)
 						console.log("Test true")
