@@ -2782,12 +2782,13 @@ function refreshTemplates() { // функция обновляет шаблон�
 
                     var newSelectAThemes = document.createElement('select')
                     newSelectAThemes.id = 'avariyatema'
-                    newSelectAThemes.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+                    newSelectAThemes.style = 'text-align: center; width: 300px; color: black; margin-left: 20px; margin-top: 5px'
+                    newSelectAThemes.type = 'text'
 
                     var newthemeoption = document.createElement('option')
                     newthemeoption.text = "Выбери тематику для серверных"
-                    //newthemeoption.selected = true
-                    newthemeoption.disabled = ""
+                    newthemeoption.selected = true
+                    newthemeoption.disabled = true
                     newthemeoption.value = "thenenotselect"
                     newthemeoption.style = "background-color:orange; color:white;"
                     newSelectAThemes.add(newthemeoption)
