@@ -2798,30 +2798,25 @@ function refreshTemplates() { // функция обновляет шаблон�
 					
 					let objSelAvariaThema = document.getElementById("avariyatema");
 					let avariatemacontainer;
+					let themesfromdoc;
 					
 					async function getAvariaThemes() {
                     if (objSelAvariaThema.children.length == 1) {
 						console.log("Test true")
-                        //.getElementById('send2doc').textContent = 'Загрузка'
 
-                        //themesfromdoc = 'https://script.google.com/macros/s/AKfycbyBl2CvdFSi2IXYDTkCroJJjlP63NMBfSsp6TwXYYGfwct0YT1_gnTumsdFbcTpR7KksA/exec'
-                       // await fetch(themesfromdoc).then(r => r.json()).then(r => avariatemadata = r)
-                        //avariatemacontainer = avariatemadata.result;
-                        //console.log(avariatemadata.result) //получим список проблем
+                        themesfromdoc = 'https://script.google.com/macros/s/AKfycbxNjuQ7EbZZkLEfC1_aSoK4ncsF0W0XSkjYttCj2nQ23BBzMEmDq-vqJL3MvwJk9Pnm_g/exec'
+                        await fetch(themesfromdoc).then(r => r.json()).then(r => avariatemadata = r)
+                        avariatemacontainer = avariatemadata.result;
+                        console.log(avariatemadata.result) //получим список проблем
 
-                        //for (let i = 0; i < avariatemacontainer.length; i++) {
-                        //    addOption(objSelAvariaLnk, `${avariatemacontainer[i][0]}`, `${avariatemacontainer[i][0]}`) // переиндексацию нужно будет сделать
-                       // }
+                        for (let i = 0; i < avariatemacontainer.length; i++) {
+                            addOption(objSelAvariaThema, `${avariatemacontainer[i][3]}`, `${avariatemacontainer[i][4}`) // переиндексацию нужно будет сделать
+                       }
 
-                       // document.getElementById('send2doc').textContent = 'Отправить'
                     } else {
-                       // document.getElementById('send2doc').textContent = 'Отправить'
 					   console.log('Test false')
                     }
                 }
-
-                getAvariaThemes();
-
 					
 					///
 
@@ -2885,6 +2880,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                         newBut.style.marginRight = '4px'
                         newBut.setAttribute('onclick', 'servFromDoc(this.textContent)')
                         b.lastElementChild.lastElementChild.appendChild(newBut)
+						getAvariaThemes();
                         break
                     case 'ТемыМоб':
                         var newBut = document.createElement('button')
