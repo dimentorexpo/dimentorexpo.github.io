@@ -2782,9 +2782,10 @@ function refreshTemplates() { // функция обновляет шаблон�
 
                     var newSelectAlink = document.createElement('select')
                     newSelectAlink.id = 'avariyatema'
+                    newSelectAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
 
 
-                    newDiv.appendChild(newInputAlink)
+                    newDiv.appendChild(newSelectAlink)
 
                     b.lastElementChild.appendChild(newDiv)
                     countOfStr++
