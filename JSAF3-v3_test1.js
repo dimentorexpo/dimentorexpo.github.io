@@ -2802,6 +2802,7 @@ function refreshTemplates() { // функция обновляет шаблон�
 					
 					async function getAvariaThemes() {
                     if (objSelAvariaThema && objSelAvariaThema.children.length == 1) {
+						clearInterval(getTms)
 						console.log("Test true")
 
                         themesfromdoc = 'https://script.google.com/macros/s/AKfycbxNjuQ7EbZZkLEfC1_aSoK4ncsF0W0XSkjYttCj2nQ23BBzMEmDq-vqJL3MvwJk9Pnm_g/exec'
@@ -2818,7 +2819,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                     }
 					}
 				
-					getAvariaThemes();
+					let getTms = setInterval(getAvariaThemes, 4000)
 					
 					///
 
