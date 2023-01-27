@@ -2780,6 +2780,12 @@ function refreshTemplates() { // функция обновляет шаблон�
 
                     newDiv.appendChild(newInputAlink)
 
+                    var newSelectAlink = document.createElement('select')
+                    newSelectAlink.id = 'avariyatema'
+
+
+                    newDiv.appendChild(newInputAlink)
+
                     b.lastElementChild.appendChild(newDiv)
                     countOfStr++
                 }
