@@ -2810,7 +2810,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                         console.log(avariatemadata.result) //получим список проблем
 
                         for (let i = 0; i < avariatemacontainer.length; i++) {
-                            addOption(objSelAvariaThema, `${avariatemacontainer[i][3]}`, `${avariatemacontainer[i][4}`) // переиндексацию нужно будет сделать
+                            addOption(objSelAvariaThema, `${avariatemacontainer[i][3]}`, `${avariatemacontainer[i][4]}`) // переиндексацию нужно будет сделать
                        }
 
                     } else {
