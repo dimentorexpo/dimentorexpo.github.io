@@ -2811,7 +2811,7 @@ function refreshTemplates() { // функция обновляет шаблон�
 
                         //for (let i = 0; i < avarialinkcontainer.length; i++) {
                         //    addOption(objSelAvariaLnk, `${avarialinkcontainer[i][0]}`, `${avarialinkcontainer[i][0]}`) // переиндексацию нужно будет сделать
-                        }
+                       // }
 
                        // document.getElementById('send2doc').textContent = 'Отправить'
                     } else {
