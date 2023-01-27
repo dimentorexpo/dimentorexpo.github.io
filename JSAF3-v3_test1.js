@@ -2790,7 +2790,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                    // newthemeoption.disabled = ""
                     newthemeoption.value = "thenenotselect"
                     newthemeoption.style = "background-color:orange; color:white;"
-                    newSelectAlink.add(newthemeoption)
+                    newSelectAThemes.add(newthemeoption)
 
                     newDiv.appendChild(newSelectAThemes)
 
