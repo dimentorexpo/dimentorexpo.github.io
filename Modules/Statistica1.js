@@ -1,3 +1,45 @@
+var win_StatisticaAF =  // описание формы чтобы не давала чату закрыться
+    `<div style="display: flex; width: 400px;">
+        <span style="width: 410px">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 395px;" id="froze_chat_header">
+                                <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
+								<button id="clearstatawindow">🧹</button>
+			    </span>
+                        </div>
+							<div id="outputstatafield">
+						</div>
+        </span>
+</div>`;
+
+if (localStorage.getItem('winTopStataAF') == null) { //начальное положение окна автоответа через время
+    localStorage.setItem('winTopStataAF', '120');
+    localStorage.setItem('winLeftStataAF', '295');
+}
+
+let wintStataAF = document.createElement('div'); // создание окна для заморозки чата
+document.body.append(wintStataAF);
+wintStataAF.style = 'min-height: 25px; width: 410px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStataAF.style.display = 'none';
+wintStataAF.setAttribute('id', 'AF_FrozeChat');
+wintStataAF.innerHTML = win_StatisticaAF;
+
+var listenerStataAF = function (e, a) { // сохранение позиции окна заморозки
+    wintStataAF.style.left = Number(e.clientX - myXStataAF) + "px";
+    wintStataAF.style.top = Number(e.clientY - myYStataAF) + "px";
+    localStorage.setItem('winTopStataAF', String(Number(e.clientY - myYStataAF)));
+    localStorage.setItem('winLeftStataAF', String(Number(e.clientX - myXStataAF)));
+};
+
+wintStataAF.onmousedown = function (a) {
+    if (checkelementtype(a)) {
+        window.myXStataAF = a.layerX;
+        window.myYStataAF = a.layerY;
+        document.addEventListener('mousemove', listenerStataAF);
+    }
+}
+wintStataAF.onmouseup = function () { document.removeEventListener('mousemove', listenerStataAF); }
+
 let activeopersId;
 
 buttonGetStat.onclick = function () { // по клику
