@@ -335,7 +335,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
                         if (r.operatorId == operatorId) {
                             clschatarr.push(test.items[i].conversationId)
                             if (r.messages[r.messages.length - 1].eventTpe == 'CloseConversation')
-                                aclosedchats.push('<span style="color: #6300ff; font-weight:700">&#5129;</span>' + " " + '<span name="aclsconv">' + test.items[i].conversationId + '</span>' + ' ' +
+                                aclosedchats.push('<span style="color: #dfd1f5; font-weight:700">&#5129;</span>' + " " + '<span name="aclsconv">' + test.items[i].conversationId + '</span>' + ' ' +
                                     '<span class = "lookaclschat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>')
                             if (r.payload == undefined || r.payload.tags == undefined || r.payload.tags.value == '')
                                 tagsarr.push('Нет тега!')
