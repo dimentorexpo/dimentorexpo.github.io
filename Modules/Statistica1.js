@@ -21,7 +21,7 @@ let wintStataAF = document.createElement('div'); // создание окна д
 document.body.append(wintStataAF);
 wintStataAF.style = 'min-height: 25px; width: 410px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintStataAF.style.display = 'none';
-wintStataAF.setAttribute('id', 'AF_FrozeChat');
+wintStataAF.setAttribute('id', 'AF_StataAF');
 wintStataAF.innerHTML = win_StatisticaAF;
 
 var listenerStataAF = function (e, a) { // сохранение позиции окна заморозки
