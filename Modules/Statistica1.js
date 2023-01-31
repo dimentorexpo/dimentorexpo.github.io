@@ -22,6 +22,9 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 						
 						<div id="csatandthemes" style="width:750px; color:bisque; display:none">
 						</div>
+
+						<div id="loadkctp" style="width:750px; color:bisque; display:none">
+						</div>
         </span>
 </div>`;
 
@@ -543,7 +546,7 @@ async function checkload(department, flag) { // функция проверки 
         }, 1000)
 
         setTimeout(function () {
-            document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+            document.getElementById("loadkctp").append(str)
             str.innerHTML = '<br>' + found;
         }, 1000)
 
