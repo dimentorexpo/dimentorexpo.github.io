@@ -14,7 +14,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 						<div id="outputstatafield" style="color:bisque;">
 						</div>
 						
-						<span id="msgloader" style="display"none">⏳ Загрузка...</span>
+						<span id="msgloader" style="color:bisque; display:none">⏳ Загрузка...</span>
 						
 						<div id="csatandthemes" style="width:750px; color:bisque; display:none">
 						</div>
