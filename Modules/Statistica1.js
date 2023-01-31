@@ -57,6 +57,11 @@ buttonGetStat.onclick = function () { // по клику
 	} else ocument.getElementById('AF_StataAF').style.display = 'none'
 	
 	document.getElementById('retreivestata').onclick = function() {
+		if (document.getElementById('csatandthemes').style.display == "") {
+			document.getElementById('csatandthemes').style.display = "none"
+			document.getElementById('outputstatafield').style.display = ""
+		}
+			
 		document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
 		getStats()
 	}
@@ -68,6 +73,11 @@ function getyesterdayandtoday() {
 
 document.getElementById('hidestatisticaaf').onclick = function() { // кнопка скрытия окна статистики
 	document.getElementById('AF_StataAF').style.display = 'none'
+}
+
+document.getElementById('clearstatawindow').onclick = function() { // кнопка очистки окошек
+	document.getElementById('csatandthemes').innerHTML = '';
+	document.getElementById('outputstatafield').innerHTML = '';
 }
 
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
