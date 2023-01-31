@@ -1,17 +1,20 @@
 var win_StatisticaAF =  // описание формы чтобы не давала чату закрыться
     `<div style="display: flex; width: 750px;">
-        <span style="width: 750px">
+        <span style="width: 750px; min-height: 70px; max-height:1000px; overflow-y:auto;">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 750px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
 			    </span>
                         </div>
-						<div style="width: 750px">
+						<div style="width: 750px;">
 							<button id="retreivestata" style="margin-left:40%">Получить статистику</button>
 						</div>
 						
 						<div id="outputstatafield" style="color:bisque;">
+						</div>
+						
+						<div id="csatandthemes" style="width:750px; display:none">
 						</div>
         </span>
 </div>`;
@@ -23,7 +26,7 @@ if (localStorage.getItem('winTopStataAF') == null) { //начальное пол
 
 let wintStataAF = document.createElement('div'); // создание окна для заморозки чата
 document.body.append(wintStataAF);
-wintStataAF.style = 'min-height: 30px; width: 750px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStataAF.style = 'min-height: 25px; width: 750px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintStataAF.style.display = 'none';
 wintStataAF.setAttribute('id', 'AF_StataAF');
 wintStataAF.innerHTML = win_StatisticaAF;
@@ -265,7 +268,10 @@ async function checkCSAT() { // функция проверки CSAT и чато
     if (document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+	documen.getElementById('outputstatafield').style.display = 'none'
+    documen.getElementById('csatandthemes').style.display = ''
+    documen.getElementById('csatandthemes').innerHtml = str
+    
 
     const padStart = (string, targetLength, padString) => {
         return String(string).padStart(targetLength, padString);
