@@ -1,6 +1,6 @@
 var win_StatisticaAF =  // описание формы чтобы не давала чату закрыться
     `<div style="display: flex; width: 750px;">
-        <span style="width: 750px; min-height: 70px; max-height:1000px; overflow-y:auto; overflow-x:hidden;">
+        <span style="width: 750px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 750px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
@@ -14,7 +14,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 						<div id="outputstatafield" style="color:bisque;">
 						</div>
 						
-						<div id="csatandthemes" style="width:750px; display:none">
+						<div id="csatandthemes" style="width:750px; color:bisque; display:none">
 						</div>
         </span>
 </div>`;
@@ -270,6 +270,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
 	document.getElementById('outputstatafield').style.display = 'none'
     document.getElementById('csatandthemes').style.display = ''
+    document.getElementById('csatandthemes').textContent = '⏳ Загрузка...'
     document.getElementById('csatandthemes').append(str)
     
 
@@ -420,6 +421,8 @@ async function checkCSAT() { // функция проверки CSAT и чато
 
                 let firstpart = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' + "Количество оценок: " + csatCount + ' из них: ' + '<br>'
                 let secondpart = stringChatsWithoutTopic + '<br>' + "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " + (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart + '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + 'Чаты, которые были автозакрыты, проверить потерявшиеся и необработанные чаты: ' + '<br>' + aclosedchats.join('<br>');
+				
+				str.innerHTML = '';
 
                 if (flagvbad == "" && flagbad == "" && flagmid == "")
                     str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
