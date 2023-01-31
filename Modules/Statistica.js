@@ -524,7 +524,7 @@ async function checkload(department, flag) { // функция проверки 
                         result.onOperator[i].operator.status = "🟡 Занят"
                     else if (result.onOperator[i].operator.status == "Pause")
                         result.onOperator[i].operator.status = "🔴 Перерыв"
-                    found += result.onOperator[i].operator.fullName + " | Чатов: " + result.onOperator[i].aCnt + " | Статус: " + result.onOperator[i].operator.status + '<br>';
+                    found += result.onOperator[i].operator.status + " | " + result.onOperator[i].operator.fullName + " | Чатов: " + result.onOperator[i].aCnt + '<br>';
                 }
             }
             if ((cntc - pausecnt - busycnt) != 0 && allcntc / (cntc - pausecnt - busycnt) <= 2.2)
