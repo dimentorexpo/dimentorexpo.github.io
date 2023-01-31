@@ -2,13 +2,13 @@ let activeopersId=[];
 
 
 buttonGetStat.onclick = function () { // по клику
-	if (this.textContent == 'Скрыть стату') {
+	if (this.textContent == '🕶Скрыть стату') {
 		if (this.getAttribute('disabled') != null)
 			return
 		if (document.getElementById('tableStats') != undefined) {
 			document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
 		}
-		this.textContent = 'Статистика'
+		this.textContent = '📊 Статистика'
 
 		document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
 
@@ -24,13 +24,13 @@ buttonGetStat.onclick = function () { // по клику
 		} else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
 			document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
 		} else {
-			this.textContent = 'Неверная страница'
+			this.textContent = '⛔ Неверная страница'
 			setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
 			return
 		}
 		getStats()
 		document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-		this.textContent = 'Загрузка'
+		this.textContent = '🧮 Загрузка'
 	}
 }
 
