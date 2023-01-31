@@ -7,7 +7,11 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 								<button id="clearstatawindow">🧹</button>
 			    </span>
                         </div>
-							<div id="outputstatafield" style="color:bisque;">
+						<div>
+							<button id="retreivestata">Получить статистику</button>
+						</div>
+						
+						<div id="outputstatafield" style="color:bisque;">
 						</div>
         </span>
 </div>`;
@@ -45,16 +49,19 @@ let activeopersId;
 buttonGetStat.onclick = function () { // по клику
 	if (document.getElementById('AF_StataAF').style.display == 'none') {
 		document.getElementById('AF_StataAF').style.display = ''
+	} else ocument.getElementById('AF_StataAF').style.display = 'none'
+	
+	document.getElementById('retreivestata').onclick = function() {
 		document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
 		getStats()
-	} else ocument.getElementById('AF_StataAF').style.display = 'none'
+	}
 }
 
 function getyesterdayandtoday() {
 	console.log("test")
 }
 
-document.getElementById('hidestatisticaaf').onclick = function() {
+document.getElementById('hidestatisticaaf').onclick = function() { // кнопка скрытия окна статистики
 	document.getElementById('AF_StataAF').style.display = 'none'
 }
 
@@ -250,15 +257,13 @@ async function getStats() { // функция получения статист�
     let sumchatclosed = document.createElement('div') // сумма закрытых чатов за сутки
     sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
     sumchatclosed.style.marginLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
+     document.getElementById('outputstatafield').lastElementChild.append(sumchatclosed)
 
     let sumchatcount = document.createElement('div') // сумма пощупанных чатов за сутки
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
+     document.getElementById('outputstatafield').lastElementChild.append(sumchatcount)
 
-    document.getElementById('buttonGetStat').textContent = '🕶 Скрыть стату'
-    document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
 async function checkCSAT() { // функция проверки CSAT и чатов без тематики
