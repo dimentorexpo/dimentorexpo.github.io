@@ -66,7 +66,7 @@ buttonGetStat.onclick = function () { // по клику
 	} else ocument.getElementById('AF_StataAF').style.display = 'none'
 	
 	document.getElementById('retreivestata').onclick = function() {
-		if (document.getElementById('csatandthemes').style.display == "") {
+		if (document.getElementById('csatandthemes').style.display == "" || document.getElementById('loadkctp').style.display == "" ) {
 			document.getElementById('csatandthemes').style.display = "none"
 			document.getElementById('loadkctp').style.display = 'none'
 			document.getElementById('outputstatafield').style.display = ""
