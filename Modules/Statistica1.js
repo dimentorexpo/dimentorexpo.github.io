@@ -2,7 +2,7 @@ let activeopersId=[];
 
 
 buttonGetStat.onclick = function () { // по клику
-	if (this.textContent == '🕶Скрыть стату') {
+	if (this.textContent == '🕶 Скрыть стату') {
 		if (this.getAttribute('disabled') != null)
 			return
 		if (document.getElementById('tableStats') != undefined) {
@@ -25,7 +25,7 @@ buttonGetStat.onclick = function () { // по клику
 			document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
 		} else {
 			this.textContent = '⛔ Неверная страница'
-			setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
+			setTimeout(function () { document.getElementById('buttonGetStat').textContent = "📊 Статистика" }, 500)
 			return
 		}
 		getStats()
@@ -236,7 +236,7 @@ async function getStats() { // функция получения статист�
     sumchatcount.style.marginLeft = '50px'
     document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
 
-    document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
+    document.getElementById('buttonGetStat').textContent = '🕶 Скрыть стату'
     document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
