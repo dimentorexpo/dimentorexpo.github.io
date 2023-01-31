@@ -150,7 +150,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				busycnt += 1;
 				divStyle = "opacity:0.8; color:Gold";
 				spanBackground = "gold";
-				spanText = "white";
+				spanText = "black";
 				break;
 			  case "Pause":
 				pausecnt += 1;
