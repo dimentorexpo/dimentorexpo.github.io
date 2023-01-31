@@ -5,6 +5,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
                         <div style="margin: 5px; width: 750px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
+								<input type="text" id="timeoutput" style="width:100px; disabled"></input>
 			    </span>
                         </div>
 						<div style="width: 750px;">
