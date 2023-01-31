@@ -68,6 +68,7 @@ buttonGetStat.onclick = function () { // по клику
 	document.getElementById('retreivestata').onclick = function() {
 		if (document.getElementById('csatandthemes').style.display == "") {
 			document.getElementById('csatandthemes').style.display = "none"
+			document.getElementById('loadkctp').style.display = 'none'
 			document.getElementById('outputstatafield').style.display = ""
 		}
 			
@@ -87,6 +88,7 @@ document.getElementById('hidestatisticaaf').onclick = function() { // кнопк
 document.getElementById('clearstatawindow').onclick = function() { // кнопка очистки окошек
 	document.getElementById('csatandthemes').innerHTML = '';
 	document.getElementById('outputstatafield').innerHTML = '';
+	document.getElementById('loadkctp').innerHTML = '';
 }
 
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
@@ -280,6 +282,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
     str.style.paddingLeft = '50px'
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
 	document.getElementById('outputstatafield').style.display = 'none'
+	document.getElementById('loadkctp').style.display = 'none'
     document.getElementById('csatandthemes').style.display = ''
     document.getElementById('msgloader').style.display = ''
     document.getElementById('csatandthemes').append(str)
