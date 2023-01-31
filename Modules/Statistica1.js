@@ -1,6 +1,6 @@
 var win_StatisticaAF =  // описание формы чтобы не давала чату закрыться
     `<div style="display: flex; width: 750px;">
-        <span style="width: 750px; min-height: 70px; max-height:1000px; overflow-y:auto;">
+        <span style="width: 750px; min-height: 70px; max-height:1000px; overflow-y:auto; overflow-x:hidden;">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 750px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
@@ -268,9 +268,9 @@ async function checkCSAT() { // функция проверки CSAT и чато
     if (document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
         document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
-	documen.getElementById('outputstatafield').style.display = 'none'
-    documen.getElementById('csatandthemes').style.display = ''
-    documen.getElementById('csatandthemes').append(str)
+	document.getElementById('outputstatafield').style.display = 'none'
+    document.getElementById('csatandthemes').style.display = ''
+    document.getElementById('csatandthemes').append(str)
     
 
     const padStart = (string, targetLength, padString) => {
