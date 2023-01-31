@@ -270,7 +270,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
 	documen.getElementById('outputstatafield').style.display = 'none'
     documen.getElementById('csatandthemes').style.display = ''
-    documen.getElementById('csatandthemes').innerHtml = str
+    documen.getElementById('csatandthemes').append(str)
     
 
     const padStart = (string, targetLength, padString) => {
