@@ -8,9 +8,11 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 								<input type="text" id="timeoutput" style="width:100px; disabled"></input>
 			    </span>
                         </div>
-						<div style="width: 750px;">
-							<button id="retreivestata" style="margin-left:30%">Получить статистику</button>
-							<button id="buttonCheckStats" onclick="checkCSAT()" style="margin-left:30%">Проверить CSAT + тематики</button>
+						<div style="width: 750px; display:flex; justify-content: space-evenly;">
+							<button id="retreivestata">Получить статистику</button>
+							<button id="buttonCheckStats" onclick="checkCSAT()">Проверить CSAT + тематики</button>
+							<button id="buttonKCpower" onclick="checkload(/КЦ/, 'КЦ')">Нагрузка КЦ</button>
+							<button id="buttonTPpower" onclick="checkload(/ТП/, 'ТП')">Нагрузка ТП</button>
 						</div>
 						
 						<div id="outputstatafield" style="color:bisque;">
@@ -226,23 +228,23 @@ async function getStats() { // функция получения статист�
 	document.getElementById('outputstatafield').innerHTML = ''
 	document.getElementById('outputstatafield').append(table)
 
-    let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
-    kcpower.textContent = 'Нагрузка КЦ'
-    kcpower.id = 'buttonKCpower'
-    kcpower.style.marginLeft = '10px'
-    kcpower.onclick = function () {
-        checkload(/КЦ/, 'КЦ')
-    }
-   document.getElementById('outputstatafield').append(kcpower)
+    // let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    // kcpower.textContent = 'Нагрузка КЦ'
+    // kcpower.id = 'buttonKCpower'
+    // kcpower.style.marginLeft = '10px'
+    // kcpower.onclick = function () {
+  
+    // }
+   // document.getElementById('outputstatafield').append(kcpower)
 
-    let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
-    tppower.textContent = 'Нагрузка ТП'
-    tppower.id = 'buttonTPpower'
-    tppower.style.marginLeft = '10px'
-    tppower.onclick = function () {
-        checkload(/ТП/, 'ТП')
-    }
-    document.getElementById('outputstatafield').append(tppower)
+    // let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
+    // tppower.textContent = 'Нагрузка ТП'
+    // tppower.id = 'buttonTPpower'
+    // tppower.style.marginLeft = '10px'
+    // tppower.onclick = function () {
+        // checkload(/ТП/, 'ТП')
+    // }
+    // document.getElementById('outputstatafield').append(tppower)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
