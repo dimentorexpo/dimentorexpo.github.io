@@ -61,6 +61,8 @@ let activeopersId;
 buttonGetStat.onclick = function () { // по клику
 	if (document.getElementById('AF_StataAF').style.display == 'none') {
 		document.getElementById('AF_StataAF').style.display = ''
+		if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-') == "ТПPrem")
+			document.getElementById('buttonTPpower').style.display = "none"
 	} else ocument.getElementById('AF_StataAF').style.display = 'none'
 	
 	document.getElementById('retreivestata').onclick = function() {
@@ -276,8 +278,6 @@ async function getStats() { // функция получения статист�
 async function checkCSAT() { // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
 	document.getElementById('outputstatafield').style.display = 'none'
     document.getElementById('csatandthemes').style.display = ''
@@ -504,8 +504,8 @@ async function checkCSAT() { // функция проверки CSAT и чато
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
-	document.getElementById("loadkctp").innerHTML = '';
 	document.getElementById("msgloader").style.dispay = '';
+	document.getElementById("loadkctp").innerHTML = '';
     let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
@@ -513,6 +513,10 @@ async function checkload(department, flag) { // функция проверки 
     let found = [];
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
+	
+	let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
+	if (opsection == 'ТПPrem')
+		department = "Prem"
 
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
