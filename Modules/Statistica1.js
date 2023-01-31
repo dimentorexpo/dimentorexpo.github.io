@@ -9,7 +9,8 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 			    </span>
                         </div>
 						<div style="width: 750px;">
-							<button id="retreivestata" style="margin-left:40%">Получить статистику</button>
+							<button id="retreivestata" style="margin-left:30%">Получить статистику</button>
+							<button id="buttonCheckStats" onclick="checkCSAT()" style="margin-left:30%">Проверить CSAT + тематики</button>
 						</div>
 						
 						<div id="outputstatafield" style="color:bisque;">
@@ -224,14 +225,6 @@ async function getStats() { // функция получения статист�
 
 	document.getElementById('outputstatafield').innerHTML = ''
 	document.getElementById('outputstatafield').append(table)
-
-
-    let str = document.createElement('button') // кнопка для запуска проверки КСАТ и тематики чатов
-    str.textContent = 'Проверить CSAT + тематики чатов'
-    str.id = 'buttonCheckStats'
-    str.style.marginLeft = '50px'
-    str.onclick = checkCSAT
-    document.getElementById('outputstatafield').append(str)
 
     let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     kcpower.textContent = 'Нагрузка КЦ'
