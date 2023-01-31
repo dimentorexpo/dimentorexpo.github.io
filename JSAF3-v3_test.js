@@ -4165,7 +4165,7 @@ butServ.classList.add('onlyfortp');
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
-butMarks.innerHTML = "📊Оценки"
+butMarks.innerHTML = "🎭 Оценки"
 butMarks.classList.add('inithide');
 
 let butChatHistory = document.createElement('div')
@@ -4180,7 +4180,7 @@ butFrozeChat.classList.add('onlyfortp', 'inithide');
 
 let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
 buttonGetStat.id = 'buttonGetStat';
-buttonGetStat.innerHTML = "Статистика";
+buttonGetStat.innerHTML = "📊 Статистика";
 buttonGetStat.classList.add('inithide');
 
 let butLessonInfo = document.createElement('div')

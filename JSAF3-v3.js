@@ -4307,7 +4307,7 @@ butServ.classList.add('onlyfortp');
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
-butMarks.innerHTML = "📊Оценки"
+butMarks.innerHTML = "🎭 Оценки"
 butMarks.classList.add('inithide');
 
 let butChatHistory = document.createElement('div')
