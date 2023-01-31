@@ -504,6 +504,8 @@ async function checkCSAT() { // функция проверки CSAT и чато
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
+	document.getElementById("loadkctp").innerHTML = '';
+	document.getElementById("msgloader").style.dispay = '';
     let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
@@ -547,6 +549,8 @@ async function checkload(department, flag) { // функция проверки 
 
         setTimeout(function () {
             document.getElementById("loadkctp").append(str)
+            document.getElementById("loadkctp").style.display = '';
+			document.getElementById("msgloader").style.dispay = 'none';
             str.innerHTML = '<br>' + found;
         }, 1000)
 
