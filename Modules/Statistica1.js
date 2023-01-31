@@ -8,7 +8,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 			    </span>
                         </div>
 						<div style="width: 750px">
-							<button id="retreivestata" style="margin-left:50%">Получить статистику</button>
+							<button id="retreivestata" style="margin-left:40%">Получить статистику</button>
 						</div>
 						
 						<div id="outputstatafield" style="color:bisque;">
@@ -231,7 +231,7 @@ async function getStats() { // функция получения статист�
     kcpower.onclick = function () {
         checkload(/КЦ/, 'КЦ')
     }
-   document.getElementById('outputstatafield').lastElementChild.append(kcpower)
+   document.getElementById('outputstatafield').append(kcpower)
 
     let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
     tppower.textContent = 'Нагрузка ТП'
@@ -240,7 +240,7 @@ async function getStats() { // функция получения статист�
     tppower.onclick = function () {
         checkload(/ТП/, 'ТП')
     }
-    document.getElementById('outputstatafield').lastElementChild.append(tppower)
+    document.getElementById('outputstatafield').append(tppower)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
@@ -257,12 +257,12 @@ async function getStats() { // функция получения статист�
     let sumchatclosed = document.createElement('div') // сумма закрытых чатов за сутки
     sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
     sumchatclosed.style.marginLeft = '50px'
-     document.getElementById('outputstatafield').lastElementChild.append(sumchatclosed)
+     document.getElementById('outputstatafield').append(sumchatclosed)
 
     let sumchatcount = document.createElement('div') // сумма пощупанных чатов за сутки
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
-     document.getElementById('outputstatafield').lastElementChild.append(sumchatcount)
+     document.getElementById('outputstatafield').append(sumchatcount)
 
 }
 
