@@ -1,3 +1,4 @@
+let activeopersId=[];
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
@@ -33,6 +34,7 @@ async function getStats() { // функция получения статист�
     const data = await response.json();
     const arrayvars = data.rows.filter(row => row.operator.indexOf(opSection) !== -1);
     arrayvars.sort((a, b) => b.conversationClosed - a.conversationClosed);
+	activeopersId = arrayvars.map(el => el.operatorId)
 
 
     var operatorId = []
