@@ -1,13 +1,17 @@
 var win_StatisticaAF =  // описание формы чтобы не давала чату закрыться
-    `<div style="display: flex; width: 400px;">
-        <span style="width: 410px">
+    `<div style="display: flex; width: 750px;">
+        <span style="width: 750px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 395px;" id="froze_chat_header">
+                        <div style="margin: 5px; width: 750px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
 			    </span>
                         </div>
-							<div id="outputstatafield" style="color:bisque;">
+						<div style="width: 750px">
+							<button id="retreivestata" style="margin-left:50%">Получить статистику</button>
+						</div>
+						
+						<div id="outputstatafield" style="color:bisque;">
 						</div>
         </span>
 </div>`;
@@ -19,7 +23,7 @@ if (localStorage.getItem('winTopStataAF') == null) { //начальное пол
 
 let wintStataAF = document.createElement('div'); // создание окна для заморозки чата
 document.body.append(wintStataAF);
-wintStataAF.style = 'min-height: 25px; width: 410px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStataAF.style = 'min-height: 25px; width: 750px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintStataAF.style.display = 'none';
 wintStataAF.setAttribute('id', 'AF_StataAF');
 wintStataAF.innerHTML = win_StatisticaAF;
@@ -45,16 +49,19 @@ let activeopersId;
 buttonGetStat.onclick = function () { // по клику
 	if (document.getElementById('AF_StataAF').style.display == 'none') {
 		document.getElementById('AF_StataAF').style.display = ''
+	} else ocument.getElementById('AF_StataAF').style.display = 'none'
+	
+	document.getElementById('retreivestata').onclick = function() {
 		document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
 		getStats()
-	} else ocument.getElementById('AF_StataAF').style.display = 'none'
+	}
 }
 
 function getyesterdayandtoday() {
 	console.log("test")
 }
 
-document.getElementById('hidestatisticaaf').onclick = function() {
+document.getElementById('hidestatisticaaf').onclick = function() { // кнопка скрытия окна статистики
 	document.getElementById('AF_StataAF').style.display = 'none'
 }
 
@@ -250,15 +257,13 @@ async function getStats() { // функция получения статист�
     let sumchatclosed = document.createElement('div') // сумма закрытых чатов за сутки
     sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
     sumchatclosed.style.marginLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
+     document.getElementById('outputstatafield').lastElementChild.append(sumchatclosed)
 
     let sumchatcount = document.createElement('div') // сумма пощупанных чатов за сутки
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
+     document.getElementById('outputstatafield').lastElementChild.append(sumchatcount)
 
-    document.getElementById('buttonGetStat').textContent = '🕶 Скрыть стату'
-    document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
 async function checkCSAT() { // функция проверки CSAT и чатов без тематики
