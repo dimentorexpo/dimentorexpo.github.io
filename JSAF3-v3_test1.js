@@ -3412,29 +3412,32 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
     var currentHours = data.getHours();
     var currentMinutes = data.getMinutes();
     var currentSeconds = data.getSeconds();
-    var setHours = JSON.parse(localStorage.getItem('setchas'));
-    var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
 
-    if (localStorage.getItem('chronostamp') === null) {
-        time = "00" + " : " + "00" + " : " + "00";
+    if (localStorage.getItem('setchas')){
+        var setHours = JSON.parse(localStorage.getItem('setchas'));
+        var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
+
+        if (localStorage.getItem('chronostamp') === null) {
+            time = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin").innerHTML = time;
+            return;
+        }
+
+        var remainingSeconds = (setHours - currentHours) * 3600 + (setMinutes - currentMinutes) * 60 - currentSeconds;
+        if (remainingSeconds <= 0) {
+            time = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin").innerHTML = time;
+            return;
+        }
+
+        var remainingMinutes = Math.floor(remainingSeconds / 60);
+        remainingSeconds = remainingSeconds % 60;
+        var remainingHours = Math.floor(remainingMinutes / 60);
+        remainingMinutes = remainingMinutes % 60;
+
+        time = (remainingHours < 10 ? "0" + remainingHours : remainingHours) + " : " + (remainingMinutes < 10 ? "0" + remainingMinutes : remainingMinutes) + " : " + (remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds);
         document.getElementById("clock_remin").innerHTML = time;
-        return;
     }
-
-    var remainingSeconds = (setHours - currentHours) * 3600 + (setMinutes - currentMinutes) * 60 - currentSeconds;
-    if (remainingSeconds <= 0) {
-        time = "00" + " : " + "00" + " : " + "00";
-        document.getElementById("clock_remin").innerHTML = time;
-        return;
-    }
-
-    var remainingMinutes = Math.floor(remainingSeconds / 60);
-    remainingSeconds = remainingSeconds % 60;
-    var remainingHours = Math.floor(remainingMinutes / 60);
-    remainingMinutes = remainingMinutes % 60;
-
-    time = (remainingHours < 10 ? "0" + remainingHours : remainingHours) + " : " + (remainingMinutes < 10 ? "0" + remainingMinutes : remainingMinutes) + " : " + (remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds);
-    document.getElementById("clock_remin").innerHTML = time;
 }
 
 
@@ -3443,29 +3446,32 @@ function clock_on_javascript_3() { //таймер отсчета до сраба
     var currentHours1 = data1.getHours();
     var currentMinutes1 = data1.getMinutes();
     var currentSeconds1 = data1.getSeconds();
-    var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
-    var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
 
-    if (localStorage.getItem('chronostamp1') === null) {
-        time1 = "00" + " : " + "00" + " : " + "00";
+    if (localStorage.getItem('setchas1')){
+        var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
+        var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
+
+        if (localStorage.getItem('chronostamp1') === null) {
+            time1 = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin1").innerHTML = time1;
+            return;
+        }
+
+        var remainingSeconds1 = (setHours1 - currentHours1) * 3600 + (setMinutes1 - currentMinutes1) * 60 - currentSeconds1;
+        if (remainingSeconds1 <= 0) {
+            time1 = "00" + " : " + "00" + " : " + "00";
+            document.getElementById("clock_remin1").innerHTML = time1;
+            return;
+        }
+
+        var remainingMinutes1 = Math.floor(remainingSeconds1 / 60);
+        remainingSeconds1 = remainingSeconds1 % 60;
+        var remainingHours1 = Math.floor(remainingMinutes1 / 60);
+        remainingMinutes1 = remainingMinutes1 % 60;
+
+        time1 = (remainingHours1 < 10 ? "0" + remainingHours1 : remainingHours1) + " : " + (remainingMinutes1 < 10 ? "0" + remainingMinutes1 : remainingMinutes1) + " : " + (remainingSeconds1 < 10 ? "0" + remainingSeconds1 : remainingSeconds1);
         document.getElementById("clock_remin1").innerHTML = time1;
-        return;
     }
-
-    var remainingSeconds1 = (setHours1 - currentHours1) * 3600 + (setMinutes1 - currentMinutes1) * 60 - currentSeconds1;
-    if (remainingSeconds1 <= 0) {
-        time1 = "00" + " : " + "00" + " : " + "00";
-        document.getElementById("clock_remin1").innerHTML = time1;
-        return;
-    }
-
-    var remainingMinutes1 = Math.floor(remainingSeconds1 / 60);
-    remainingSeconds1 = remainingSeconds1 % 60;
-    var remainingHours1 = Math.floor(remainingMinutes1 / 60);
-    remainingMinutes1 = remainingMinutes1 % 60;
-
-    time1 = (remainingHours1 < 10 ? "0" + remainingHours1 : remainingHours1) + " : " + (remainingMinutes1 < 10 ? "0" + remainingMinutes1 : remainingMinutes1) + " : " + (remainingSeconds1 < 10 ? "0" + remainingSeconds1 : remainingSeconds1);
-    document.getElementById("clock_remin1").innerHTML = time1;
 }
 
 function refreshTimerReminder() {
@@ -3524,9 +3530,13 @@ function setRemindAf(tsname) { //функция  при наступлении �
     if (tsname === 'chronostamp') {
         setchas.value = "";
         setminuta.value = "";
+        localStorage.removeItem('setchas');
+        localStorage.removeItem('setminuta');
     } else if (tsname === 'chronostamp1') {
         setchas1.value = "";
         setminuta1.value = "";
+        localStorage.removeItem('setchas1');
+        localStorage.removeItem('setminuta1');
     }
 }
 
@@ -5103,6 +5113,8 @@ document.getElementById('clock_remin').ondblclick = function () {		// Удале
         localStorage.removeItem('chronostamp2')
         setchas.value = ""
         setminuta.value = ""
+        localStorage.removeItem('setchas');
+        localStorage.removeItem('setminuta');
         alert("Будильник удален")
         document.getElementById('reminderstatus').textContent = "🔕";
     }
@@ -5115,6 +5127,8 @@ document.getElementById('clock_remin1').ondblclick = function () {		// Удал�
         localStorage.removeItem('chronostamp22')
         setchas1.value = ""
         setminuta1.value = ""
+        localStorage.removeItem('setchas1');
+        localStorage.removeItem('setminuta1');
         alert("Будильник удален")
         // document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
     }
