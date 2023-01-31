@@ -161,7 +161,7 @@ async function getStats() { // функция получения статист�
                 case 0:
                     td.textContent = arrayvars[i].operator;
                     if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent == arrayvars[i].operator) {
-                        td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
+                        td.style = 'text-align: left; padding-left: 5px; color: rgb(83 219 75); font-weight: 700; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
                     } else
                         td.style = 'text-align: left; padding-left: 5px'
                     break;
