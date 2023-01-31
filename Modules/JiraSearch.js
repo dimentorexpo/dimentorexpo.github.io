@@ -130,6 +130,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         let favissues = [];
         if (localStorage.getItem('bugsarray')) {
             favissues = JSON.parse(localStorage.getItem('bugsarray'));
+            document.getElementById('favouriteissuetable').innerHTML = favissues.join(" ");
         }
 
         document.getElementById('defaultQuery').onclick = function () { // если выбрана default
@@ -224,10 +225,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                 // favissues = JSON.parse(localStorage.getItem('bugsarray'))
                 // document.getElementById('favouriteissuetable').innerHTML = favissues;
                 // }
-
-                if (localStorage.getItem('bugsarray')) {
-                    document.getElementById('favouriteissuetable').innerHTML = favissues.join(" ");
-                }
 
                 for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
                     document.getElementsByName('removefromfavourites')[i].onclick = function () {
