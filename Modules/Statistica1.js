@@ -7,7 +7,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 								<button id="clearstatawindow">🧹</button>
 			    </span>
                         </div>
-							<div id="outputstatafield">
+							<div id="outputstatafield" style="color:bisque;">
 						</div>
         </span>
 </div>`;
@@ -43,36 +43,11 @@ wintStataAF.onmouseup = function () { document.removeEventListener('mousemove', 
 let activeopersId;
 
 buttonGetStat.onclick = function () { // по клику
-	if (this.textContent == '🕶 Скрыть стату') {
-		if (this.getAttribute('disabled') != null)
-			return
-		if (document.getElementById('tableStats') != undefined) {
-			document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
-		}
-		this.textContent = '📊 Статистика'
-
-		document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-
-		if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-			document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
-		}
-		if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-			document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
-		}
-	} else {
-		if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-			document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
-		} else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-			document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
-		} else {
-			this.textContent = '⛔ Неверная страница'
-			setTimeout(function () { document.getElementById('buttonGetStat').textContent = "📊 Статистика" }, 500)
-			return
-		}
+	if (document.getElementById('AF_StataAF').style.display == 'none') {
+		document.getElementById('AF_StataAF').style.display = ''
+		document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
 		getStats()
-		document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-		this.textContent = '🧮 Загрузка'
-	}
+	} else ocument.getElementById('AF_StataAF').style.display = 'none'
 }
 
 function getyesterdayandtoday() {
@@ -220,23 +195,23 @@ async function getStats() { // функция получения статист�
     table.append(trHead)
     table.append(tbody)
 
-    let newDivForStats = document.createElement('div')
-    newDivForStats.append(table)
-    document.getElementById('root').children[0].children[1].children[0].children[1].append(newDivForStats)
+	document.getElementById('outputstatafield').innerHTML = ''
+	document.getElementById('outputstatafield').append(table)
+
 
     let str = document.createElement('button') // кнопка для запуска проверки КСАТ и тематики чатов
     str.textContent = 'Проверить CSAT + тематики чатов'
     str.id = 'buttonCheckStats'
     str.style.marginLeft = '50px'
     str.onclick = checkCSAT
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+    document.getElementById('outputstatafield').append(str)
 
     let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
     quechatscount.textContent = 'Узнать кол-во чатов в очереди'
     quechatscount.id = 'buttonQueChatsCount'
     quechatscount.style.marginLeft = '10px'
     quechatscount.onclick = checkChatCountQue
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
+    document.getElementById('outputstatafield').append(quechatscount)
 
     let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     kcpower.textContent = 'Нагрузка КЦ'
@@ -245,7 +220,7 @@ async function getStats() { // функция получения статист�
     kcpower.onclick = function () {
         checkload(/КЦ/, 'КЦ')
     }
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
+   document.getElementById('outputstatafield').lastElementChild.append(kcpower)
 
     let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
     tppower.textContent = 'Нагрузка ТП'
@@ -254,7 +229,7 @@ async function getStats() { // функция получения статист�
     tppower.onclick = function () {
         checkload(/ТП/, 'ТП')
     }
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
+    document.getElementById('outputstatafield').lastElementChild.append(tppower)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
