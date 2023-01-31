@@ -195,6 +195,7 @@ async function getStats() { // функция получения статист�
     table.append(trHead)
     table.append(tbody)
 
+	document.getElementById('outputstatafield').innerHTML = ''
 	document.getElementById('outputstatafield').append(table)
 
 
