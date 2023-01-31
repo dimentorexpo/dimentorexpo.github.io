@@ -312,7 +312,7 @@ function mystyles() {
 			padding-left:5px;
 		}
 
-		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
+		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat, #buttonGetStat {
 			display:flex;
 			align-items:center;
 			cursor: pointer;
@@ -325,7 +325,7 @@ function mystyles() {
 			padding-left:5px;
 		}
 
-		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
 			font-weight:600;
@@ -441,9 +441,6 @@ function mystyles() {
 	}
 	.inithide {
 		display:none !important;
-	}
-	#buttonGetStat:hover {
-		background:DeepSkyBlue;
 	}
 	.teststudteach {
 		background: #3CB371;
@@ -4184,7 +4181,6 @@ butFrozeChat.classList.add('onlyfortp', 'inithide');
 let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
 buttonGetStat.id = 'buttonGetStat';
 buttonGetStat.innerHTML = "Статистика";
-buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
 buttonGetStat.classList.add('inithide');
 
 let butLessonInfo = document.createElement('div')
