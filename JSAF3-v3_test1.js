@@ -3412,9 +3412,12 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
     var currentHours = data.getHours();
     var currentMinutes = data.getMinutes();
     var currentSeconds = data.getSeconds();
-    var setHours = JSON.parse(localStorage.getItem('setchas'));
-    var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
 
+    if (localStorage.getItem('setchas')){
+        var setHours = JSON.parse(localStorage.getItem('setchas'));
+        var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
+    }
+    
     if (localStorage.getItem('chronostamp') === null) {
         time = "00" + " : " + "00" + " : " + "00";
         document.getElementById("clock_remin").innerHTML = time;
@@ -3443,8 +3446,11 @@ function clock_on_javascript_3() { //таймер отсчета до сраба
     var currentHours1 = data1.getHours();
     var currentMinutes1 = data1.getMinutes();
     var currentSeconds1 = data1.getSeconds();
-    var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
-    var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
+
+    if (localStorage.getItem('setchas1')){
+        var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
+        var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
+    }
 
     if (localStorage.getItem('chronostamp1') === null) {
         time1 = "00" + " : " + "00" + " : " + "00";
@@ -3524,9 +3530,13 @@ function setRemindAf(tsname) { //функция  при наступлении �
     if (tsname === 'chronostamp') {
         setchas.value = "";
         setminuta.value = "";
+        localStorage.removeItem('setchas');
+        localStorage.removeItem('setminuta');
     } else if (tsname === 'chronostamp1') {
         setchas1.value = "";
         setminuta1.value = "";
+        localStorage.removeItem('setchas1');
+        localStorage.removeItem('setminuta1');
     }
 }
 
@@ -5103,6 +5113,8 @@ document.getElementById('clock_remin').ondblclick = function () {		// Удале
         localStorage.removeItem('chronostamp2')
         setchas.value = ""
         setminuta.value = ""
+        localStorage.removeItem('setchas');
+        localStorage.removeItem('setminuta');
         alert("Будильник удален")
         document.getElementById('reminderstatus').textContent = "🔕";
     }
@@ -5115,6 +5127,8 @@ document.getElementById('clock_remin1').ondblclick = function () {		// Удал�
         localStorage.removeItem('chronostamp22')
         setchas1.value = ""
         setminuta1.value = ""
+        localStorage.removeItem('setchas1');
+        localStorage.removeItem('setminuta1');
         alert("Будильник удален")
         // document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
     }
