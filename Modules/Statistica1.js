@@ -1,5 +1,4 @@
-let activeopersId=[];
-
+let activeopersId;
 
 buttonGetStat.onclick = function () { // по клику
 	if (this.textContent == '🕶 Скрыть стату') {
@@ -39,6 +38,7 @@ function getyesterdayandtoday() {
 }
 
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
+	activeopersId = []
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
