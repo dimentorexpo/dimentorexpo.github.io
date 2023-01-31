@@ -61,7 +61,7 @@ let activeopersId;
 buttonGetStat.onclick = function () { // по клику
 	if (document.getElementById('AF_StataAF').style.display == 'none') {
 		document.getElementById('AF_StataAF').style.display = ''
-		if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-') == "ТПPrem")
+		if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "ТПPrem" || document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "Prem")
 			document.getElementById('buttonTPpower').style.display = "none"
 	} else ocument.getElementById('AF_StataAF').style.display = 'none'
 	
@@ -515,7 +515,7 @@ async function checkload(department, flag) { // функция проверки 
     str.style.paddingLeft = '50px'
 	
 	let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
-	if (opsection == 'ТПPrem')
+	if (opsection == 'ТПPrem' || opsection == 'Prem')
 		department = "Prem"
 
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
