@@ -1,8 +1,8 @@
 var win_StatisticaAF =  // описание формы чтобы не давала чату закрыться
-    `<div style="display: flex; width: 400px;">
-        <span style="width: 410px">
+    `<div style="display: flex; width: 800px;">
+        <span style="width: 800px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 395px;" id="froze_chat_header">
+                        <div style="margin: 5px; width: 800px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
 			    </span>
@@ -23,7 +23,7 @@ if (localStorage.getItem('winTopStataAF') == null) { //начальное пол
 
 let wintStataAF = document.createElement('div'); // создание окна для заморозки чата
 document.body.append(wintStataAF);
-wintStataAF.style = 'min-height: 25px; width: 410px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStataAF.style = 'min-height: 25px; width: 800px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintStataAF.style.display = 'none';
 wintStataAF.setAttribute('id', 'AF_StataAF');
 wintStataAF.innerHTML = win_StatisticaAF;
