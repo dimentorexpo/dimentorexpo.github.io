@@ -1359,7 +1359,8 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
-        "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
+        //"https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
+        "https://dimentorexpo.github.io/Modules/JiraSearch1.js", // тестовый модуль поиска по Jira
         "https://dimentorexpo.github.io/Modules/Suggest.js", // модуль формы пожеланий и предложений
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         //"https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ

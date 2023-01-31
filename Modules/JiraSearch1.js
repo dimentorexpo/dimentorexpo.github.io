@@ -128,6 +128,9 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
         document.getElementById('RefreshJiraStatus').onclick = checkJiraToken // функция повторной проверки авторизации в Jira
         let favissues = [];
+        if (localStorage.getItem('bugsarray')) {
+            favissues = JSON.parse(localStorage.getItem('bugsarray'));
+        }
 
         document.getElementById('defaultQuery').onclick = function () { // если выбрана default
             defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
@@ -223,7 +226,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                 // }
 
                 if (localStorage.getItem('bugsarray')) {
-                    favissues = JSON.parse(localStorage.getItem('bugsarray'));
                     document.getElementById('favouriteissuetable').innerHTML = favissues.join(" ");
                 }
 
