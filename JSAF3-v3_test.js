@@ -312,7 +312,7 @@ function mystyles() {
 			padding-left:5px;
 		}
 
-		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
+		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat, #buttonGetStat {
 			display:flex;
 			align-items:center;
 			cursor: pointer;
@@ -325,7 +325,7 @@ function mystyles() {
 			padding-left:5px;
 		}
 
-		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
 			font-weight:600;
@@ -441,9 +441,6 @@ function mystyles() {
 	}
 	.inithide {
 		display:none !important;
-	}
-	#buttonGetStat:hover {
-		background:DeepSkyBlue;
 	}
 	.teststudteach {
 		background: #3CB371;
@@ -1123,42 +1120,14 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
             btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
+            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[9])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[10])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[11])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[12])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[13])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[14])
         }, 2000)
 
-        // setTimeout(() => {
-        // let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-        // let menubutarea = document.createElement('div')
-        // menubutarea.style = 'margin-right:20px;'
-
-        // headmenulist.insertBefore(menubutarea, headmenulist.children[15])
-        // menubutarea.append(butmenu)
-        // headmenulist.insertBefore(menubar, headmenulist.children[15])
-        // menubar.append(document.getElementById('servDsk'))
-        // menubar.append(document.getElementById('JiraOpenForm'))
-        // menubar.append(document.getElementById('buttonOpenForm'))
-        // menubar.append(document.getElementById('butMarks'))
-        // menubar.append(document.getElementById('suggestform'))
-        // menubar.append(document.getElementById('otkaz'))
-        // menubar.append(document.getElementById('smartroomform'))
-        // menubar.append(document.getElementById('butLessonInfo'))
-        // menubar.append(document.getElementById('butChatHistory'))
-        // menubar.append(document.getElementById('butFrozeChat'))
-        // servDsk.classList.remove('inithide')
-        // JiraOpenForm.classList.remove('inithide')
-        // butopensugestform.classList.remove('inithide')
-        // butrefuse.classList.remove('inithide')
-        // butsmartroom.classList.remove('inithide')
-        // butLessonInfo.classList.remove('inithide')
-        // butChatHistory.classList.remove('inithide')
-        // butFrozeChat.classList.remove('inithide')
-        // butMarks.classList.remove('inithide')
-        // buttonOpenForm.classList.remove('inithide')
-        // }, 8000)
 
         function addElementsToList(elements, list) {
             elements.forEach((element) => {
@@ -1171,10 +1140,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
             const menubutarea = document.createElement('div');
             menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
+            headmenulist.insertBefore(menubutarea, headmenulist.children[16]);
             menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat];
+            headmenulist.insertBefore(menubar, headmenulist.children[16]);
+            const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 
             servDsk.classList.remove('inithide');
@@ -1185,6 +1154,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             butLessonInfo.classList.remove('inithide');
             butChatHistory.classList.remove('inithide');
             butFrozeChat.classList.remove('inithide');
+            buttonGetStat.classList.remove('inithide');
             butMarks.classList.remove('inithide');
             buttonOpenForm.classList.remove('inithide');
         }, 8000);
@@ -1353,7 +1323,7 @@ function prepTp() { //функция подготовки расширения �
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+        "https://dimentorexpo.github.io/Modules/Statistica1.js", // модуль кнопки "Статистика" и вложенных функций
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
         "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
@@ -3457,46 +3427,6 @@ function setRemindAf(tsname) { //функция  при наступлении �
     }
 }
 
-function Statbtnload() { // Добавление кнопки статистики
-    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
-    buttonGetStat.id = 'buttonGetStat';
-    buttonGetStat.innerHTML = "Статистика";
-    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
-    buttonGetStat.onclick = function () {
-        if (this.textContent == 'Скрыть стату') {
-            if (this.getAttribute('disabled') != null)
-                return
-            if (document.getElementById('tableStats') != undefined) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
-            }
-            this.textContent = 'Статистика'
-
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
-            }
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
-            }
-        } else {
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
-            } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
-            } else {
-                this.textContent = 'Неверная страница'
-                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
-                return
-            }
-            getStats()
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-            this.textContent = 'Загрузка'
-        }
-    }
-    document.getElementById('app-header').append(buttonGetStat)
-}
-
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv && localStorage.getItem('scriptAdr') != TPprem_addr && localStorage.getItem('scriptAdr') != TPprem_addrRzrv) {
@@ -3504,8 +3434,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     } else {
         prepTp()
     }
-
-    Statbtnload()
 
     if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
@@ -4249,6 +4177,11 @@ let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
 butFrozeChat.innerHTML = "❄ Auto Respond"
 butFrozeChat.classList.add('onlyfortp', 'inithide');
+
+let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
+buttonGetStat.id = 'buttonGetStat';
+buttonGetStat.innerHTML = "Статистика";
+buttonGetStat.classList.add('inithide');
 
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
