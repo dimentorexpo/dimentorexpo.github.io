@@ -144,13 +144,13 @@ async function operstatusleftbar() { // функция замены Script Packa
 			  case "Online":
 				operonlinecnt += 1;
 				spanBackground = "green";
-				spanText = "black";
+				spanText = "white";
 				break;
 			  case "Busy":
 				busycnt += 1;
 				divStyle = "opacity:0.8; color:Gold";
 				spanBackground = "gold";
-				spanText = "black";
+				spanText = "white";
 				break;
 			  case "Pause":
 				pausecnt += 1;
@@ -162,7 +162,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				continue;
 			}
 			moderresult += `<div class="${divClass}" style="${divStyle}" name="operrow" value="${operator.id}">` +
-			  `<span style="color: ${spanText}; font-size: 13px; text-shadow: rgb(191 125 125) 1px 0px 1px, rgb(191 125 125) 0px 1px 1px, rgb(191 125 125) -1px 0px 1px, rgb(191 125 125) 0px -1px 1px; background: ${spanBackground}; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">` + 
+			  `<span style="color: ${spanText}; font-size: 13px; background: ${spanBackground}; width: 25px; height: 25px; padding-top:2px; text-align: center; border-radius: 50%; border: 1px solid black;">` + 
 			  `${opstats[i].aCnt}` + 
 			  `</span>` + 
 			  `${operator.fullName}` + 
