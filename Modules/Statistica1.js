@@ -54,6 +54,10 @@ function getyesterdayandtoday() {
 	console.log("test")
 }
 
+document.getElementById('hidestatisticaaf').onclick = function() {
+	document.getElementById('AF_StataAF').style.display = 'none'
+}
+
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
 	activeopersId = []
     let table = document.createElement('table')
