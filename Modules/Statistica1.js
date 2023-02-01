@@ -637,8 +637,10 @@ async function checkload(department, flag) { // функция проверки 
 }
 
 let arrayofSLA;
+let filteredarray;
 async function getopersSLA() {
 	let operdata;
+	filteredarray = [];
 	arrayofSLA = [];
 	if (activeopersId) {
 		for (let i=0; i<activeopersId.length;i++) {
@@ -651,8 +653,15 @@ async function getopersSLA() {
 			  "mode": "cors",
 			  "credentials": "include"
 			}).then(r=>r.json()).then(r=>operdata=r)
-			arrayofSLA.push(operdata.total)
+				for (let j=0; j<operdata.items.length;j++) {
+					await fetch(operdata.items[j].conversationId).then(r=>r.json()).then(r=>fres=r)
+					if (fres.operatorId == activeopersId[i]) {
+						filteredarray.push(operdata.items[j].conversationId)
+					}
+				}
+			// arrayofSLA.push(operdata.total)
 		}
 		console.log(arrayofSLA)
+		console.log(filteredarray)
 	}
 }
