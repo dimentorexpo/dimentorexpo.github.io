@@ -317,7 +317,6 @@ async function checkCSAT() { // функция проверки CSAT и чато
 
     document.getElementById("timeoutput").value = timeReq;
 
-
     document.getElementById('retreivestata').classList.remove('active-stat-tab')
     document.getElementById('buttonCheckStats').classList.add('active-stat-tab')
     document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
@@ -327,6 +326,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
     document.getElementById('outputstatafield').style.display = 'none'
     document.getElementById('loadkctp').style.display = 'none'
     document.getElementById('csatandthemes').style.display = ''
+    document.getElementById('csatandthemes').innerHTML = ''
     document.getElementById('msgloader').style.display = ''
     document.getElementById('csatandthemes').append(str)
 
@@ -545,8 +545,6 @@ async function checkCSAT() { // функция проверки CSAT и чато
             chatHistorySearchButton.click();
         });
     });
-
-    document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
@@ -564,12 +562,16 @@ async function checkload(department, flag) { // функция проверки 
     let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
 
     document.getElementById("timeoutput").value = timeReq;
-
-
-
+ 
     document.getElementById('retreivestata').classList.remove('active-stat-tab')
     document.getElementById('buttonCheckStats').classList.remove('active-stat-tab')
-
+	if (flag == 'КЦ') {
+		document.getElementById('buttonKCpower').classList.add('active-stat-tab')
+		document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
+	} else if (flag == 'ТП') {
+		document.getElementById('buttonTPpower').classList.add('active-stat-tab')
+		document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+	}
 
     document.getElementById('outputstatafield').style.display = 'none'
     document.getElementById('csatandthemes').style.display = 'none'
@@ -627,12 +629,5 @@ async function checkload(department, flag) { // функция проверки 
             str.innerHTML = '<br>' + found;
         }, 1000)
 
-        if (flag == 'КЦ') {
-            document.getElementById('buttonKCpower').classList.add('active-stat-tab')
-            document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
-        } else if (flag == 'ТП') {
-            document.getElementById('buttonTPpower').classList.add('active-stat-tab')
-            document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
-        }
     })
 }
