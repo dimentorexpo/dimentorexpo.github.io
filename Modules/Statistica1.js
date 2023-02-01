@@ -14,12 +14,12 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 							<button id="buttonKCpower" onclick="checkload(/КЦ/, 'КЦ')">Нагрузка КЦ</button>
 							<button id="buttonTPpower" onclick="checkload(/ТП/, 'ТП')">Нагрузка ТП</button>
 						</div>
-						
+
 						<div id="outputstatafield" style="color:bisque;">
 						</div>
-						
+
 						<span id="msgloader" style="color:bisque; display:none">⏳ Загрузка...</span>
-						
+
 						<div id="csatandthemes" style="width:750px; color:bisque; display:none">
 						</div>
 
@@ -59,57 +59,61 @@ wintStataAF.onmouseup = function () { document.removeEventListener('mousemove', 
 let activeopersId;
 
 buttonGetStat.onclick = function () { // по клику
-	if (document.getElementById('AF_StataAF').style.display == 'none') {
-		document.getElementById('AF_StataAF').style.display = ''
-		if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "ТПPrem" || document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "Prem")
-			document.getElementById('buttonTPpower').style.display = "none"
-	} else ocument.getElementById('AF_StataAF').style.display = 'none'
-	
-	document.getElementById('retreivestata').onclick = function() {
-		if (document.getElementById('csatandthemes').style.display == "" || document.getElementById('loadkctp').style.display == "" ) {
-			document.getElementById('csatandthemes').style.display = "none"
-			document.getElementById('loadkctp').style.display = 'none'
-			document.getElementById('outputstatafield').style.display = ""
-		}
-			
-		document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
-		
-    let dateReq = new Date();
-    let hoursReq = dateReq.getHours();
-    let minutesReq = dateReq.getMinutes();
-    let secondsReq = dateReq.getSeconds();
+    if (document.getElementById('AF_StataAF').style.display == 'none') {
+        document.getElementById('AF_StataAF').style.display = ''
+        if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "ТПPrem" || document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "Prem")
+            document.getElementById('buttonTPpower').style.display = "none"
+    } else ocument.getElementById('AF_StataAF').style.display = 'none'
 
-    // Add a leading zero to hours, minutes, and seconds if they are less than 10
-    hoursReq = hoursReq < 10 ? "0" + hoursReq : hoursReq;
-    minutesReq = minutesReq < 10 ? "0" + minutesReq : minutesReq;
-    secondsReq = secondsReq < 10 ? "0" + secondsReq : secondsReq;
+    document.getElementById('retreivestata').onclick = function () {
+        if (document.getElementById('csatandthemes').style.display == "" || document.getElementById('loadkctp').style.display == "") {
+            document.getElementById('csatandthemes').style.display = "none"
+            document.getElementById('loadkctp').style.display = 'none'
+            document.getElementById('outputstatafield').style.display = ""
+        }
+        document.getElementById('retreivestata').classList.add('active-stat-tab')
+        document.getElementById('buttonCheckStats').classList.remove('active-stat-tab')
+        document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+        document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
 
-    // Concatenate the hours, minutes, and seconds into a single string
-    let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
+        document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
 
-    document.getElementById("timeoutput").value = timeReq;
-			
-		getStats()
-	}
+        let dateReq = new Date();
+        let hoursReq = dateReq.getHours();
+        let minutesReq = dateReq.getMinutes();
+        let secondsReq = dateReq.getSeconds();
+
+        // Add a leading zero to hours, minutes, and seconds if they are less than 10
+        hoursReq = hoursReq < 10 ? "0" + hoursReq : hoursReq;
+        minutesReq = minutesReq < 10 ? "0" + minutesReq : minutesReq;
+        secondsReq = secondsReq < 10 ? "0" + secondsReq : secondsReq;
+
+        // Concatenate the hours, minutes, and seconds into a single string
+        let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
+
+        document.getElementById("timeoutput").value = timeReq;
+
+        getStats()
+    }
 }
 
 function getyesterdayandtoday() {
-	console.log("test")
+    console.log("test")
 }
 
-document.getElementById('hidestatisticaaf').onclick = function() { // кнопка скрытия окна статистики
-	document.getElementById('AF_StataAF').style.display = 'none'
+document.getElementById('hidestatisticaaf').onclick = function () { // кнопка скрытия окна статистики
+    document.getElementById('AF_StataAF').style.display = 'none'
 }
 
-document.getElementById('clearstatawindow').onclick = function() { // кнопка очистки окошек
-	document.getElementById('csatandthemes').innerHTML = '';
-	document.getElementById('outputstatafield').innerHTML = '';
-	document.getElementById('loadkctp').innerHTML = '';
-	document.getElementById('timeoutput').value = ''
+document.getElementById('clearstatawindow').onclick = function () { // кнопка очистки окошек
+    document.getElementById('csatandthemes').innerHTML = '';
+    document.getElementById('outputstatafield').innerHTML = '';
+    document.getElementById('loadkctp').innerHTML = '';
+    document.getElementById('timeoutput').value = ''
 }
 
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
-	activeopersId = []
+    activeopersId = []
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
@@ -144,7 +148,7 @@ async function getStats() { // функция получения статист�
     const data = await response.json();
     const arrayvars = data.rows.filter(row => row.operator.indexOf(opSection) !== -1);
     arrayvars.sort((a, b) => b.conversationClosed - a.conversationClosed);
-	activeopersId = arrayvars.map(el => el.operatorId)
+    activeopersId = arrayvars.map(el => el.operatorId)
 
 
     var operatorId = []
@@ -249,24 +253,24 @@ async function getStats() { // функция получения статист�
     table.append(trHead)
     table.append(tbody)
 
-	document.getElementById('outputstatafield').innerHTML = ''
-	document.getElementById('outputstatafield').append(table)
+    document.getElementById('outputstatafield').innerHTML = ''
+    document.getElementById('outputstatafield').append(table)
 
     // let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
     // kcpower.textContent = 'Нагрузка КЦ'
     // kcpower.id = 'buttonKCpower'
     // kcpower.style.marginLeft = '10px'
     // kcpower.onclick = function () {
-  
+
     // }
-   // document.getElementById('outputstatafield').append(kcpower)
+    // document.getElementById('outputstatafield').append(kcpower)
 
     // let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
     // tppower.textContent = 'Нагрузка ТП'
     // tppower.id = 'buttonTPpower'
     // tppower.style.marginLeft = '10px'
     // tppower.onclick = function () {
-        // checkload(/ТП/, 'ТП')
+    // checkload(/ТП/, 'ТП')
     // }
     // document.getElementById('outputstatafield').append(tppower)
 
@@ -285,20 +289,20 @@ async function getStats() { // функция получения статист�
     let sumchatclosed = document.createElement('div') // сумма закрытых чатов за сутки
     sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
     sumchatclosed.style.marginLeft = '50px'
-     document.getElementById('outputstatafield').append(sumchatclosed)
+    document.getElementById('outputstatafield').append(sumchatclosed)
 
     let sumchatcount = document.createElement('div') // сумма пощупанных чатов за сутки
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
-     document.getElementById('outputstatafield').append(sumchatcount)
+    document.getElementById('outputstatafield').append(sumchatcount)
 
 }
 
 async function checkCSAT() { // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-	
-	let dateReq = new Date();
+
+    let dateReq = new Date();
     let hoursReq = dateReq.getHours();
     let minutesReq = dateReq.getMinutes();
     let secondsReq = dateReq.getSeconds();
@@ -312,14 +316,20 @@ async function checkCSAT() { // функция проверки CSAT и чато
     let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
 
     document.getElementById("timeoutput").value = timeReq;
-	
+
+
+    document.getElementById('retreivestata').classList.remove('active-stat-tab')
+    document.getElementById('buttonCheckStats').classList.add('active-stat-tab')
+    document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+    document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
+
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
-	document.getElementById('outputstatafield').style.display = 'none'
-	document.getElementById('loadkctp').style.display = 'none'
+    document.getElementById('outputstatafield').style.display = 'none'
+    document.getElementById('loadkctp').style.display = 'none'
     document.getElementById('csatandthemes').style.display = ''
     document.getElementById('msgloader').style.display = ''
     document.getElementById('csatandthemes').append(str)
-    
+
 
     const padStart = (string, targetLength, padString) => {
         return String(string).padStart(targetLength, padString);
@@ -468,8 +478,8 @@ async function checkCSAT() { // функция проверки CSAT и чато
 
                 let firstpart = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' + "Количество оценок: " + csatCount + ' из них: ' + '<br>'
                 let secondpart = stringChatsWithoutTopic + '<br>' + "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " + (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart + '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + 'Чаты, которые были автозакрыты, проверить потерявшиеся и необработанные чаты: ' + '<br>' + aclosedchats.join('<br>');
-				
-				document.getElementById('msgloader').style.display="none"
+
+                document.getElementById('msgloader').style.display = "none"
 
                 if (flagvbad == "" && flagbad == "" && flagmid == "")
                     str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
@@ -554,11 +564,17 @@ async function checkload(department, flag) { // функция проверки 
     let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
 
     document.getElementById("timeoutput").value = timeReq;
-	
-	document.getElementById('outputstatafield').style.display = 'none'
-	document.getElementById('csatandthemes').style.display = 'none'
-	document.getElementById("msgloader").style.dispay = '';
-	document.getElementById("loadkctp").innerHTML = '';
+
+
+
+    document.getElementById('retreivestata').classList.remove('active-stat-tab')
+    document.getElementById('buttonCheckStats').classList.remove('active-stat-tab')
+
+
+    document.getElementById('outputstatafield').style.display = 'none'
+    document.getElementById('csatandthemes').style.display = 'none'
+    document.getElementById("msgloader").style.dispay = '';
+    document.getElementById("loadkctp").innerHTML = '';
     let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
@@ -566,10 +582,10 @@ async function checkload(department, flag) { // функция проверки 
     let found = [];
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-	
-	let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
-	if (opsection == 'ТПPrem' || opsection == 'Prem')
-		department = "Prem"
+
+    let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
+    if (opsection == 'ТПPrem' || opsection == 'Prem')
+        department = "Prem"
 
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
@@ -607,13 +623,16 @@ async function checkload(department, flag) { // функция проверки 
         setTimeout(function () {
             document.getElementById("loadkctp").append(str)
             document.getElementById("loadkctp").style.display = '';
-			document.getElementById("msgloader").style.dispay = 'none';
+            document.getElementById("msgloader").style.dispay = 'none';
             str.innerHTML = '<br>' + found;
         }, 1000)
 
-        if (flag == 'КЦ')
-            document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
-        else if (flag == 'ТП')
-            document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
+        if (flag == 'КЦ') {
+            document.getElementById('buttonKCpower').classList.add('active-stat-tab')
+            document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
+        } else if (flag == 'ТП') {
+            document.getElementById('buttonTPpower').classList.add('active-stat-tab')
+            document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+        }
     })
 }
