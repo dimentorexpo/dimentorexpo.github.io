@@ -392,6 +392,14 @@ function mystyles() {
 			color: greenyellow;
 			transition: all 1s ease;
 		}
+		.active-stat-tab {
+			border-left:6px solid #1ff400;
+			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
+			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+			font-weight: 700;
+			color: #07ecc6;
+			transition: all 1s ease;
+		}
 	.radio {
 		width:15px;
 		height:15px;

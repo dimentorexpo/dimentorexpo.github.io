@@ -8,7 +8,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 								<input type="text" id="timeoutput" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
 			    </span>
                         </div>
-						<div style="width: 750px; display:flex; justify-content: space-evenly;">
+						<div style="width: 750px; display:flex; justify-content: space-evenly; margin-bottom:5px;">
 							<button id="retreivestata">Получить статистику</button>
 							<button id="buttonCheckStats" onclick="checkCSAT()">Проверить CSAT + тематики</button>
 							<button id="buttonKCpower" onclick="checkload(/КЦ/, 'КЦ')">Нагрузка КЦ</button>
