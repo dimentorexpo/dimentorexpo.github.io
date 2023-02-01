@@ -1,5 +1,120 @@
 let activeopersId=[];
+var win_StatisticaAF =  // описание формы чтобы не давала чату закрыться
+    `<div style="display: flex; width: 750px;">
+        <span style="width: 750px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
+                <span style="cursor: -webkit-grab;">
+                        <div style="margin: 5px; width: 750px;" id="froze_chat_header">
+                                <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
+								<button id="clearstatawindow">🧹</button>
+								<input type="text" id="timeoutput" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
+			    </span>
+                        </div>
+						<div style="width: 750px; display:flex; justify-content: space-evenly; margin-bottom:5px;">
+							<button id="retreivestata">Получить статистику</button>
+							<button id="buttonCheckStats" onclick="checkCSAT()">Проверить CSAT + тематики</button>
+							<button id="buttonKCpower" onclick="checkload(/КЦ/, 'КЦ')">Нагрузка КЦ</button>
+							<button id="buttonTPpower" onclick="checkload(/ТП/, 'ТП')">Нагрузка ТП</button>
+						</div>
+
+						<div id="outputstatafield" style="color:bisque;">
+						</div>
+
+						<span id="msgloader" style="color:bisque; display:none">⏳ Загрузка...</span>
+
+						<div id="csatandthemes" style="width:750px; color:bisque; display:none">
+						</div>
+
+						<div id="loadkctp" style="width:750px; color:bisque; display:none">
+						</div>
+        </span>
+</div>`;
+
+if (localStorage.getItem('winTopStataAF') == null) { //начальное положение окна автоответа через время
+    localStorage.setItem('winTopStataAF', '120');
+    localStorage.setItem('winLeftStataAF', '295');
+}
+
+let wintStataAF = document.createElement('div'); // создание окна для заморозки чата
+document.body.append(wintStataAF);
+wintStataAF.style = 'min-height: 25px; width: 750px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStataAF.style.display = 'none';
+wintStataAF.setAttribute('id', 'AF_StataAF');
+wintStataAF.innerHTML = win_StatisticaAF;
+
+var listenerStataAF = function (e, a) { // сохранение позиции окна заморозки
+    wintStataAF.style.left = Number(e.clientX - myXStataAF) + "px";
+    wintStataAF.style.top = Number(e.clientY - myYStataAF) + "px";
+    localStorage.setItem('winTopStataAF', String(Number(e.clientY - myYStataAF)));
+    localStorage.setItem('winLeftStataAF', String(Number(e.clientX - myXStataAF)));
+};
+
+wintStataAF.onmousedown = function (a) {
+    if (checkelementtype(a)) {
+        window.myXStataAF = a.layerX;
+        window.myYStataAF = a.layerY;
+        document.addEventListener('mousemove', listenerStataAF);
+    }
+}
+wintStataAF.onmouseup = function () { document.removeEventListener('mousemove', listenerStataAF); }
+
+let activeopersId;
+
+buttonGetStat.onclick = function () { // по клику
+    if (document.getElementById('AF_StataAF').style.display == 'none') {
+        document.getElementById('AF_StataAF').style.display = ''
+        if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "ТПPrem" || document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "Prem")
+            document.getElementById('buttonTPpower').style.display = "none"
+    } else ocument.getElementById('AF_StataAF').style.display = 'none'
+
+    document.getElementById('retreivestata').onclick = function () {
+        if (document.getElementById('csatandthemes').style.display == "" || document.getElementById('loadkctp').style.display == "") {
+            document.getElementById('csatandthemes').style.display = "none"
+            document.getElementById('loadkctp').style.display = 'none'
+            document.getElementById('outputstatafield').style.display = ""
+        }
+        document.getElementById('retreivestata').classList.add('active-stat-tab')
+        document.getElementById('buttonCheckStats').classList.remove('active-stat-tab')
+        document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+        document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
+
+        document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
+
+        let dateReq = new Date();
+        let hoursReq = dateReq.getHours();
+        let minutesReq = dateReq.getMinutes();
+        let secondsReq = dateReq.getSeconds();
+
+        // Add a leading zero to hours, minutes, and seconds if they are less than 10
+        hoursReq = hoursReq < 10 ? "0" + hoursReq : hoursReq;
+        minutesReq = minutesReq < 10 ? "0" + minutesReq : minutesReq;
+        secondsReq = secondsReq < 10 ? "0" + secondsReq : secondsReq;
+
+        // Concatenate the hours, minutes, and seconds into a single string
+        let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
+
+        document.getElementById("timeoutput").value = timeReq;
+
+        getStats()
+    }
+}
+
+function getyesterdayandtoday() {
+    console.log("test")
+}
+
+document.getElementById('hidestatisticaaf').onclick = function () { // кнопка скрытия окна статистики
+    document.getElementById('AF_StataAF').style.display = 'none'
+}
+
+document.getElementById('clearstatawindow').onclick = function () { // кнопка очистки окошек
+    document.getElementById('csatandthemes').innerHTML = '';
+    document.getElementById('outputstatafield').innerHTML = '';
+    document.getElementById('loadkctp').innerHTML = '';
+    document.getElementById('timeoutput').value = ''
+}
+
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
+    activeopersId = []
     let table = document.createElement('table')
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
@@ -34,7 +149,7 @@ async function getStats() { // функция получения статист�
     const data = await response.json();
     const arrayvars = data.rows.filter(row => row.operator.indexOf(opSection) !== -1);
     arrayvars.sort((a, b) => b.conversationClosed - a.conversationClosed);
-	activeopersId = arrayvars.map(el => el.operatorId)
+    activeopersId = arrayvars.map(el => el.operatorId)
 
 
     var operatorId = []
@@ -94,7 +209,7 @@ async function getStats() { // функция получения статист�
                 case 0:
                     td.textContent = arrayvars[i].operator;
                     if (document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent == arrayvars[i].operator) {
-                        td.style = 'text-align: center; padding-left: 5px; color: #ffffff; background: #13a55b; font-weight: 700; border-radius: 50px; box-shadow: 0px 2px 1px rgb(0 0 0 / 51%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
+                        td.style = 'text-align: left; padding-left: 5px; color: rgb(83 219 75); font-weight: 700; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);'
                     } else
                         td.style = 'text-align: left; padding-left: 5px'
                     break;
@@ -139,41 +254,26 @@ async function getStats() { // функция получения статист�
     table.append(trHead)
     table.append(tbody)
 
-    let newDivForStats = document.createElement('div')
-    newDivForStats.append(table)
-    document.getElementById('root').children[0].children[1].children[0].children[1].append(newDivForStats)
+    document.getElementById('outputstatafield').innerHTML = ''
+    document.getElementById('outputstatafield').append(table)
 
-    let str = document.createElement('button') // кнопка для запуска проверки КСАТ и тематики чатов
-    str.textContent = 'Проверить CSAT + тематики чатов'
-    str.id = 'buttonCheckStats'
-    str.style.marginLeft = '50px'
-    str.onclick = checkCSAT
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+    // let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
+    // kcpower.textContent = 'Нагрузка КЦ'
+    // kcpower.id = 'buttonKCpower'
+    // kcpower.style.marginLeft = '10px'
+    // kcpower.onclick = function () {
 
-    let quechatscount = document.createElement('button') // кнопка для запуска подсчета количества чатов в очереди ТП и КЦ
-    quechatscount.textContent = 'Узнать кол-во чатов в очереди'
-    quechatscount.id = 'buttonQueChatsCount'
-    quechatscount.style.marginLeft = '10px'
-    quechatscount.onclick = checkChatCountQue
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(quechatscount)
+    // }
+    // document.getElementById('outputstatafield').append(kcpower)
 
-    let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
-    kcpower.textContent = 'Нагрузка КЦ'
-    kcpower.id = 'buttonKCpower'
-    kcpower.style.marginLeft = '10px'
-    kcpower.onclick = function () {
-        checkload(/КЦ/, 'КЦ')
-    }
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(kcpower)
-
-    let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
-    tppower.textContent = 'Нагрузка ТП'
-    tppower.id = 'buttonTPpower'
-    tppower.style.marginLeft = '10px'
-    tppower.onclick = function () {
-        checkload(/ТП/, 'ТП')
-    }
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(tppower)
+    // let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
+    // tppower.textContent = 'Нагрузка ТП'
+    // tppower.id = 'buttonTPpower'
+    // tppower.style.marginLeft = '10px'
+    // tppower.onclick = function () {
+    // checkload(/ТП/, 'ТП')
+    // }
+    // document.getElementById('outputstatafield').append(tppower)
 
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
@@ -190,24 +290,47 @@ async function getStats() { // функция получения статист�
     let sumchatclosed = document.createElement('div') // сумма закрытых чатов за сутки
     sumchatclosed.textContent = 'Общая сумма закрытых чатов за сутки по отделу: ' + summclsd;
     sumchatclosed.style.marginLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatclosed)
+    document.getElementById('outputstatafield').append(sumchatclosed)
 
     let sumchatcount = document.createElement('div') // сумма пощупанных чатов за сутки
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(sumchatcount)
+    document.getElementById('outputstatafield').append(sumchatcount)
 
-    document.getElementById('buttonGetStat').textContent = 'Скрыть стату'
-    document.getElementById('buttonGetStat').removeAttribute('disabled')
 }
 
 async function checkCSAT() { // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonCheckStats').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+
+    let dateReq = new Date();
+    let hoursReq = dateReq.getHours();
+    let minutesReq = dateReq.getMinutes();
+    let secondsReq = dateReq.getSeconds();
+
+    // Add a leading zero to hours, minutes, and seconds if they are less than 10
+    hoursReq = hoursReq < 10 ? "0" + hoursReq : hoursReq;
+    minutesReq = minutesReq < 10 ? "0" + minutesReq : minutesReq;
+    secondsReq = secondsReq < 10 ? "0" + secondsReq : secondsReq;
+
+    // Concatenate the hours, minutes, and seconds into a single string
+    let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
+
+    document.getElementById("timeoutput").value = timeReq;
+
+    document.getElementById('retreivestata').classList.remove('active-stat-tab')
+    document.getElementById('buttonCheckStats').classList.add('active-stat-tab')
+    document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+    document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
+
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
-    document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+    document.getElementById('outputstatafield').style.display = 'none'
+    document.getElementById('loadkctp').style.display = 'none'
+    document.getElementById('csatandthemes').style.display = ''
+    document.getElementById('csatandthemes').innerHTML = ''
+    document.getElementById('msgloader').style.display = ''
+    document.getElementById('csatandthemes').append(str)
+
 
     const padStart = (string, targetLength, padString) => {
         return String(string).padStart(targetLength, padString);
@@ -270,7 +393,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
                         if (r.operatorId == operatorId) {
                             clschatarr.push(test.items[i].conversationId)
                             if (r.messages[r.messages.length - 1].eventTpe == 'CloseConversation')
-                                aclosedchats.push('<span style="color: #6300ff; font-weight:700">&#5129;</span>' + " " + '<span name="aclsconv">' + test.items[i].conversationId + '</span>' + ' ' +
+                                aclosedchats.push('<span style="color: #dfd1f5; font-weight:700">&#5129;</span>' + " " + '<span name="aclsconv">' + test.items[i].conversationId + '</span>' + ' ' +
                                     '<span class = "lookaclschat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>')
                             if (r.payload == undefined || r.payload.tags == undefined || r.payload.tags.value == '')
                                 tagsarr.push('Нет тега!')
@@ -357,6 +480,8 @@ async function checkCSAT() { // функция проверки CSAT и чато
                 let firstpart = 'Оценка: ' + Math.round(csatScore / csatCount * 100) / 100 + '<br>' + 'Чаты без тематики (по клику откроет безопасно в новой вкладке без необходимости перелогина): <br>' + "Количество оценок: " + csatCount + ' из них: ' + '<br>'
                 let secondpart = stringChatsWithoutTopic + '<br>' + "Чаты СЛА закрытия > 25 m: " + '<br>' + abovecloseslaarr + '<br>' + 'Количество просроченных чатов: ' + slacount + " SLA Закрытия: " + (100 - ((slacount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + "Чаты с просроченным АRT >2m: " + '<br>' + aboveart + '<br>' + 'Количество просроченных чатов: ' + artcount + " ART: " + (100 - ((artcount / clschatarr.length) * 100)).toFixed(1) + '%' + '<br>' + 'Чаты, которые были автозакрыты, проверить потерявшиеся и необработанные чаты: ' + '<br>' + aclosedchats.join('<br>');
 
+                document.getElementById('msgloader').style.display = "none"
+
                 if (flagvbad == "" && flagbad == "" && flagmid == "")
                     str.innerHTML = firstpart + 'Оценка 1 🤬: ' + count[1] + '<br>' + 'Оценка 2 🤢: ' + count[2] + '<br>' + 'Оценка 3 😐: ' + count[3] + '<br>' + 'Оценка 4 🥴: ' + count[4] + '<br>' + 'Оценка 5 😊: ' + count[5] + '<br>' + secondpart
                 else if (flagvbad == "" && flagbad == "" && flagmid != "")
@@ -421,81 +546,40 @@ async function checkCSAT() { // функция проверки CSAT и чато
             chatHistorySearchButton.click();
         });
     });
-
-    document.getElementById('buttonCheckStats').textContent = 'Повторить проверку'
-}
-
-async function checkChatCountQue() { // функция проверки количества чатов в очереди в КЦ и ТП
-    let str = document.createElement('p')
-    str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку' || document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
-    const padStart = (string, targetLength, padString) => {
-        return String(string).padStart(targetLength, padString);
-    }
-
-    const getFormattedDate = (date) => {
-        const year = date.getFullYear();
-        const month = padStart(date.getMonth() + 1, 2, '0');
-        const day = padStart(date.getDate(), 2, '0');
-        return `${year}-${month}-${day}T21:00:00.000z`;
-    }
-
-    const now = new Date();
-    const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
-
-    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
-    const firstDate = getFormattedDate(yesterday);
-
-    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-        "headers": {
-            "content-type": "application/json",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "referrer": "https://skyeng.autofaq.ai/logs",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDateN + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":10}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(r => r.text()).then(result => {
-        setTimeout(function () {
-            chatneraspcount = result.match(/total.*?(\d+).*/)[1];
-            //		str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + newres;
-        }, 1000)
-    })
-
-    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-        "headers": {
-            "content-type": "application/json",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin"
-        },
-        "referrer": "https://skyeng.autofaq.ai/logs",
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"usedAutoFaqKbIds\":[\"120181\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDateN + "\",\"usedStatuses\":[\"OnOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":200}",
-        "method": "POST",
-        "mode": "cors",
-        "credentials": "include"
-    }).then(r1 => r1.text()).then(result1 => {
-        setTimeout(function () {
-            chattpquecount = result1.match(/total.*?(\d+).*/)[1];
-            //		str2.innerHTML = 'Количество чатов в очереди ТП: ' + newres2;
-        }, 1000)
-    })
-
-    setTimeout(function () {
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
-        str.innerHTML = 'Количество чатов в нераспределенной очереди: ' + chatneraspcount + " " + '<br> Количество чатов в очереди ТП: ' + chattpquecount;
-    }, 1000)
-
-    document.getElementById('buttonQueChatsCount').textContent = 'Повторить проверку'
+	
+	document.getElementById('buttonCheckStats').textContent = 'Проверить CSAT + тематики'
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
+    let dateReq = new Date();
+    let hoursReq = dateReq.getHours();
+    let minutesReq = dateReq.getMinutes();
+    let secondsReq = dateReq.getSeconds();
+
+    // Add a leading zero to hours, minutes, and seconds if they are less than 10
+    hoursReq = hoursReq < 10 ? "0" + hoursReq : hoursReq;
+    minutesReq = minutesReq < 10 ? "0" + minutesReq : minutesReq;
+    secondsReq = secondsReq < 10 ? "0" + secondsReq : secondsReq;
+
+    // Concatenate the hours, minutes, and seconds into a single string
+    let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
+
+    document.getElementById("timeoutput").value = timeReq;
+ 
+    document.getElementById('retreivestata').classList.remove('active-stat-tab')
+    document.getElementById('buttonCheckStats').classList.remove('active-stat-tab')
+	if (flag == 'КЦ') {
+		document.getElementById('buttonKCpower').classList.add('active-stat-tab')
+		document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
+	} else if (flag == 'ТП') {
+		document.getElementById('buttonTPpower').classList.add('active-stat-tab')
+		document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+	}
+
+    document.getElementById('outputstatafield').style.display = 'none'
+    document.getElementById('csatandthemes').style.display = 'none'
+    document.getElementById("msgloader").style.dispay = '';
+    document.getElementById("loadkctp").innerHTML = '';
     let cntc = 0;
     let busycnt = 0;
     let pausecnt = 0;
@@ -503,8 +587,10 @@ async function checkload(department, flag) { // функция проверки 
     let found = [];
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
-    if (document.getElementById('buttonTPpower').textContent == 'Повторить проверку' || document.getElementById('buttonKCpower').textContent == 'Повторить проверку' || document.getElementById('buttonQueChatsCount').textContent == 'Повторить проверку')
-        document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.lastElementChild.remove()
+
+    let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
+    if (opsection == 'ТПPrem' || opsection == 'Prem')
+        department = "Prem"
 
     await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
@@ -540,13 +626,11 @@ async function checkload(department, flag) { // функция проверки 
         }, 1000)
 
         setTimeout(function () {
-            document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.append(str)
+            document.getElementById("loadkctp").append(str)
+            document.getElementById("loadkctp").style.display = '';
+            document.getElementById("msgloader").style.dispay = 'none';
             str.innerHTML = '<br>' + found;
         }, 1000)
 
-        if (flag == 'КЦ')
-            document.getElementById('buttonKCpower').textContent = 'Повторить проверку'
-        else if (flag == 'ТП')
-            document.getElementById('buttonTPpower').textContent = 'Повторить проверку'
     })
 }
