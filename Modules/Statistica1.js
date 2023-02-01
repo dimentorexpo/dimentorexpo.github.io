@@ -297,6 +297,22 @@ async function getStats() { // функция получения статист�
 async function checkCSAT() { // функция проверки CSAT и чатов без тематики
     let str = document.createElement('p')
     str.style.paddingLeft = '50px'
+	
+	let dateReq = new Date();
+    let hoursReq = dateReq.getHours();
+    let minutesReq = dateReq.getMinutes();
+    let secondsReq = dateReq.getSeconds();
+
+    // Add a leading zero to hours, minutes, and seconds if they are less than 10
+    hoursReq = hoursReq < 10 ? "0" + hoursReq : hoursReq;
+    minutesReq = minutesReq < 10 ? "0" + minutesReq : minutesReq;
+    secondsReq = secondsReq < 10 ? "0" + secondsReq : secondsReq;
+
+    // Concatenate the hours, minutes, and seconds into a single string
+    let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
+
+    document.getElementById("timeoutput").value = timeReq;
+	
     document.getElementById('buttonCheckStats').textContent = 'Загрузка'
 	document.getElementById('outputstatafield').style.display = 'none'
 	document.getElementById('loadkctp').style.display = 'none'
@@ -524,6 +540,21 @@ async function checkCSAT() { // функция проверки CSAT и чато
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
+    let dateReq = new Date();
+    let hoursReq = dateReq.getHours();
+    let minutesReq = dateReq.getMinutes();
+    let secondsReq = dateReq.getSeconds();
+
+    // Add a leading zero to hours, minutes, and seconds if they are less than 10
+    hoursReq = hoursReq < 10 ? "0" + hoursReq : hoursReq;
+    minutesReq = minutesReq < 10 ? "0" + minutesReq : minutesReq;
+    secondsReq = secondsReq < 10 ? "0" + secondsReq : secondsReq;
+
+    // Concatenate the hours, minutes, and seconds into a single string
+    let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
+
+    document.getElementById("timeoutput").value = timeReq;
+	
 	document.getElementById('outputstatafield').style.display = 'none'
 	document.getElementById('csatandthemes').style.display = 'none'
 	document.getElementById("msgloader").style.dispay = '';
