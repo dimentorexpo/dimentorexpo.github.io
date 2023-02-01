@@ -654,7 +654,7 @@ async function getopersSLA() {
 			  "credentials": "include"
 			}).then(r=>r.json()).then(r=>operdata=r)
 				for (let j=0; j<operdata.items.length;j++) {
-					await fetch(operdata.items[j].conversationId).then(r=>r.json()).then(r=>fres=r)
+					await fetch("https://skyeng.autofaq.ai/api/conversations/" + operdata.items[j].conversationId).then(r=>r.json()).then(r=>fres=r)
 					if (fres.operatorId == activeopersId[i]) {
 						filteredarray.push(operdata.items[j].conversationId)
 					}
