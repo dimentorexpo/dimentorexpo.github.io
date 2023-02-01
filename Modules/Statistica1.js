@@ -637,7 +637,7 @@ async function getopersSLA() {
 				for (let j=0; j<operdata.items.length;j++) {
 					await fetch("https://skyeng.autofaq.ai/api/conversations/" + operdata.items[j].conversationId).then(r=>r.json()).then(r=>fres=r)
 					if (fres.operatorId == activeopersId[i]) {
-						filteredarray.push({["operator"+[i+1]] : operdata.items[j].conversationId})
+						filteredarray.push({["operator"+[i+1]] : operdata.items[j].conversationId, ["duration"] : operdata.items[j].conversationDuration})
 					}
 				}
 			// arrayofSLA.push(operdata.total)
