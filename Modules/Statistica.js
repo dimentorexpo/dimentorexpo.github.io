@@ -1,4 +1,3 @@
-let activeopersId=[];
 var win_StatisticaAF =  // описание формы чтобы не давала чату закрыться
     `<div style="display: flex; width: 750px;">
         <span style="width: 750px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
