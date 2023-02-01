@@ -3417,7 +3417,6 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
     document.getElementById("clock_remin").innerHTML = time;
 }
 
-
 function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
     var data1 = new Date();
     var currentHours1 = data1.getHours();
