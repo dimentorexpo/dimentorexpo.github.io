@@ -545,6 +545,8 @@ async function checkCSAT() { // функция проверки CSAT и чато
             chatHistorySearchButton.click();
         });
     });
+	
+	document.getElementById('buttonCheckStats').textContent = 'Проверить CSAT + тематики'
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
