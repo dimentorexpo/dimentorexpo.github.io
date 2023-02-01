@@ -95,6 +95,7 @@ buttonGetStat.onclick = function () { // по клику
         document.getElementById("timeoutput").value = timeReq;
 
         getStats()
+		getopersSLA() // testim
     }
 }
 
@@ -635,9 +636,10 @@ async function checkload(department, flag) { // функция проверки 
     })
 }
 
-let arrayofSLA = [];
+let arrayofSLA;
 async function getopersSLA() {
-	
+	let operdata;
+	arrayofSLA = [];
 	if (activeopersId) {
 		for (let i=0; i<activeopersId.length;i++) {
 			fetch("https://skyeng.autofaq.ai/api/conversations/history", {
