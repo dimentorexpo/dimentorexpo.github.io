@@ -633,3 +633,34 @@ async function checkload(department, flag) { // функция проверки 
 
     })
 }
+
+let arrayofSLA = [];
+async function getopersSLA() {
+	
+	if (activeopersId) {
+		for (let i=0; i<activeopersId.length;i++) {
+			fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+			  "headers": {
+				"accept": "*/*",
+				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+				"cache-control": "max-age=0",
+				"content-type": "application/json",
+				"sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\"",
+				"sec-ch-ua-mobile": "?0",
+				"sec-ch-ua-platform": "\"Windows\"",
+				"sec-fetch-dest": "empty",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin"
+			  },
+			  "referrer": "https://skyeng.autofaq.ai/logs",
+			  "referrerPolicy": "strict-origin-when-cross-origin",
+			  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"2023-01-31T21:00:00.000Z\",\"tsTo\":\"2023-02-01T20:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":100}`,
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			}).then(r=>r.json()).then(r=>operdata=r)
+			arrayofSLA.push(operdata.total)
+		}
+		console.log(arrayofSLA)
+	}
+}
