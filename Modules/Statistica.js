@@ -63,7 +63,7 @@ buttonGetStat.onclick = function () { // по клику
         document.getElementById('AF_StataAF').style.display = ''
         if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "ТПPrem" || document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "Prem")
             document.getElementById('buttonTPpower').style.display = "none"
-    } else ocument.getElementById('AF_StataAF').style.display = 'none'
+    } else document.getElementById('AF_StataAF').style.display = 'none'
 
     document.getElementById('retreivestata').onclick = function () {
         if (document.getElementById('csatandthemes').style.display == "" || document.getElementById('loadkctp').style.display == "") {
