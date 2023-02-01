@@ -257,24 +257,6 @@ async function getStats() { // функция получения статист�
     document.getElementById('outputstatafield').innerHTML = ''
     document.getElementById('outputstatafield').append(table)
 
-    // let kcpower = document.createElement('button') // кнопка для проверки нагрузки КЦ
-    // kcpower.textContent = 'Нагрузка КЦ'
-    // kcpower.id = 'buttonKCpower'
-    // kcpower.style.marginLeft = '10px'
-    // kcpower.onclick = function () {
-
-    // }
-    // document.getElementById('outputstatafield').append(kcpower)
-
-    // let tppower = document.createElement('button') // кнопка для проверки нагрузки ТП
-    // tppower.textContent = 'Нагрузка ТП'
-    // tppower.id = 'buttonTPpower'
-    // tppower.style.marginLeft = '10px'
-    // tppower.onclick = function () {
-    // checkload(/ТП/, 'ТП')
-    // }
-    // document.getElementById('outputstatafield').append(tppower)
-
     let dcc = document.getElementsByClassName('chtcnt')
     let summcnt = 0;
     for (i = 0; i < dcc.length; i++) {
