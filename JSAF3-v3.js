@@ -450,9 +450,6 @@ function mystyles() {
 	.inithide {
 		display:none !important;
 	}
-	#buttonGetStat:hover {
-		background:DeepSkyBlue;
-	}
 	.teststudteach {
 		background: #3CB371;
 		margin-left: 5px;

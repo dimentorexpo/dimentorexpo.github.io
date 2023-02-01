@@ -1136,7 +1136,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(taskBut, btnAdd1.children[14])
         }, 2000)
 
-
         function addElementsToList(elements, list) {
             elements.forEach((element) => {
                 list.append(element);
@@ -1331,13 +1330,13 @@ function prepTp() { //функция подготовки расширения �
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/Modules/Statistica1.js", // модуль кнопки "Статистика" и вложенных функций
+		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
         "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
-        "https://dimentorexpo.github.io/Modules/JiraSearch1.js", // модуль поиска по Jira
+        "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
         "https://dimentorexpo.github.io/Modules/Suggest.js", // модуль формы пожеланий и предложений
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         //"https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
@@ -1952,9 +1951,28 @@ async function buttonsFromDoc(butName) { // функция отправки ша
 
 function servFromDoc(butName) { // отправка комента и сообщение со стораницы серверные
     but = butName
+    let chatthemevalue
     msgFromTable(but) // вызов функции отправки сообщения
-    if (document.getElementById('avariyalink').value !== null) // проверка есть ли значение в поле ссылки
-        sendComment(document.getElementById('avariyalink').value.trim()); // вызов функции отправки комента
+    if (document.getElementById('avariyalink').value !== null) { // проверка есть ли значение в поле ссылки
+        let linktostatsend = document.getElementById('avariyalink').value.trim()
+        sendComment(linktostatsend); // вызов функции отправки комента
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", { //записываем ссылку в поле "Ссылка на jira"
+                    "headers": {
+                        "content-type": "application/json",
+                    },
+                    "body": "{\"conversationId\":\"${splitter[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + linktostatsend + "\"}]}",
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                })
+    } 
+    if (document.getElementById('avariyatema').children[0].selected == false) {
+        for (let i = 0; i < document.getElementById('avariyatema').children.length; i++) {
+            if (document.getElementById('avariyatema').children[i].selected == true)
+                chatthemevalue = encodeURIComponent(document.getElementById('avariyatema').children[i].value)
+			     newTag(chatthemevalue)
+        }
+    }   
 }
 
 function getText() { // функция обновления текста с шаблонов из документа
@@ -2069,7 +2087,6 @@ function refreshTimer() { //функция обновления таймера
             for (i = 0; i < idk; i++) {
                 if (tmrs[i][1] == name) {
                     btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[0].childNodes[2].innerHTML = tmrs[i][0]
-					btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.remove('soonwillclose')
                     if (tmrs[i][0] == "00:00")
                         if (tmrs[i][2] == 1)
                             btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#ECEBBD"
@@ -2077,15 +2094,13 @@ function refreshTimer() { //функция обновления таймера
                             btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "#FBCEB1"
                     else
                         btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = "white"
-                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].innerText = tmrs[i][4]
+                    btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].childNodes[1].childNodes[3].textContent = tmrs[i][4]
                     var cT = new Date();
                     var curT1 = tmrs[i][3]
                     var curT2 = Number(cT);
                     var curT3 = ((localStorage.getItem('aclstime') - 2) * 60) - Math.floor((curT2 - curT1) / 1000); // таймер за 2 минуты окрашивания автозакрытия
-                    if (curT3 < 0) {
+                    if (curT3 < 0)
                         btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].style.backgroundColor = localStorage.getItem('defaclschatcolor') // цвет окрашивания автозакрытия  сейчас сиреневый
-						btns.childNodes[0].childNodes[0].childNodes[0].childNodes[j].childNodes[0].childNodes[0].classList.add('soonwillclose')
-					}
                 }
             }
             j++
@@ -2174,9 +2189,66 @@ function refreshTemplates() { // функция обновляет шаблон�
                     newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
                     newInputAlink.autocomplete = 'off'
                     newInputAlink.type = 'text'
-                    newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 20px'
+                    newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 7px'
 
                     newDiv.appendChild(newInputAlink)
+
+                    var newbtnclrlink = document.createElement('button')
+                    newbtnclrlink.textContent = "🧹"
+                    newbtnclrlink.title = "Очищает поле задачи серверных"
+                    newbtnclrlink.onclick = function () {document.getElementById('avariyalink').value = ""}
+                    
+                    newDiv.appendChild(newbtnclrlink)
+
+                    var newSelectAThemes = document.createElement('select')                    
+                    newSelectAThemes.id = 'avariyatema'
+                    newSelectAThemes.style = 'text-align: center; width: 300px; height: 26px; color: black; margin-left: 7px; margin-top: 5px'
+                    newSelectAThemes.type = 'text'
+
+                    var newthemeoption = document.createElement('option')
+                    newthemeoption.text = "Выбери тематику для серверных"
+                    newthemeoption.selected = true
+                    newthemeoption.disabled = true
+                    newthemeoption.value = "thenenotselect"
+                    newthemeoption.style = "background-color:orange; color:white;"
+                    newSelectAThemes.add(newthemeoption)
+										
+					///
+										
+					async function getAvariaThemes() {
+					let objSelAvariaThema = document.getElementById("avariyatema");
+					let avariatemacontainer;
+					let themesfromdoc;
+                    if (objSelAvariaThema && objSelAvariaThema.children.length == 1) {
+						clearInterval(getTms)
+						console.log("Test true")
+
+                        themesfromdoc = 'https://script.google.com/macros/s/AKfycbxNjuQ7EbZZkLEfC1_aSoK4ncsF0W0XSkjYttCj2nQ23BBzMEmDq-vqJL3MvwJk9Pnm_g/exec'
+                        await fetch(themesfromdoc).then(r => r.json()).then(r => avariatemadata = r)
+                        avariatemacontainer = avariatemadata.result;
+                        console.log(avariatemadata.result) //получим список проблем
+
+                        for (let i = 0; i < avariatemacontainer.length; i++) {
+                            addOption(objSelAvariaThema, `${avariatemacontainer[i][3]}`, `${avariatemacontainer[i][4]}`) // переиндексацию нужно будет сделать
+                       }
+
+                    } else {
+					   console.log('Test false')
+                    }
+					}
+				
+					let getTms = setInterval(getAvariaThemes, 4000)
+					
+					///
+
+                    newDiv.appendChild(newSelectAThemes)
+                    
+                    var newbtnclrtheme = document.createElement('button')
+                    newbtnclrtheme.textContent = "🧹"
+                    newbtnclrtheme.title = "Очищает поле тематики серверных"
+                    newbtnclrtheme.onclick = function () {document.getElementById('avariyatema').children[0].selected = true}
+                    
+                    newDiv.appendChild(newbtnclrtheme)
 
                     b.lastElementChild.appendChild(newDiv)
                     countOfStr++
@@ -3317,8 +3389,11 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
     var currentHours = data.getHours();
     var currentMinutes = data.getMinutes();
     var currentSeconds = data.getSeconds();
+
+    if (localStorage.getItem('setchas')){
     var setHours = JSON.parse(localStorage.getItem('setchas'));
     var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
+    }
 
     if (localStorage.getItem('chronostamp') === null) {
         time = "00" + " : " + "00" + " : " + "00";
@@ -3348,8 +3423,11 @@ function clock_on_javascript_3() { //таймер отсчета до сраба
     var currentHours1 = data1.getHours();
     var currentMinutes1 = data1.getMinutes();
     var currentSeconds1 = data1.getSeconds();
+
+    if (localStorage.getItem('setchas1')){
     var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
     var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
+    }
 
     if (localStorage.getItem('chronostamp1') === null) {
         time1 = "00" + " : " + "00" + " : " + "00";
@@ -3429,9 +3507,13 @@ function setRemindAf(tsname) { //функция  при наступлении �
     if (tsname === 'chronostamp') {
         setchas.value = "";
         setminuta.value = "";
+        localStorage.removeItem('setchas');
+        localStorage.removeItem('setminuta');
     } else if (tsname === 'chronostamp1') {
         setchas1.value = "";
         setminuta1.value = "";
+        localStorage.removeItem('setchas1');
+        localStorage.removeItem('setminuta1');
     }
 }
 
@@ -3509,19 +3591,6 @@ function closeTerms() { // функция автоподтверждения у�
             document.getElementsByClassName('terms-popup-accept-button')[i].click()
         }
     }
-}
-
-function playbeforeclosechat() { // функция проигрывания звука при автозакрытии чата если какой то из чатов 
-	audio2 = new Audio("https://dimentorexpo.github.io/Sounds/petuh.mp3"); 
-	audio2.volume = 0.05
-	for (let i=0;i<document.getElementsByClassName('ant-list-item').length;i++) {
-		if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('soonwillclose')) {
-			audio2.play()
-		} else if (document.getElementsByClassName('ant-list-item')[i].children[0].classList.contains('stopsound'))  { // подумать как добавлять этот класс чтобы для того чата не проигрывался звук
-			audio2.pause()
-			audio.currentTime = 0
-		}
-	}
 }
 
 if (localStorage.getItem('winTopAF') == null) { // началоное положение главного окна (если не задано ранее)
@@ -4410,8 +4479,6 @@ setInterval(remandressl, 3000);
 
 setInterval(closeTerms, 500);
 
-//setInterval(playbeforeclosechat, 20000); //интервал вызова функции проигрывания закрытия чата
-
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     // Find the 'teacher' user type and get the user's id.
     const userTypeList = document.getElementsByClassName('expert-user_details-list')[1];
@@ -4986,6 +5053,8 @@ document.getElementById('clock_remin').ondblclick = function () {		// Удале
         localStorage.removeItem('chronostamp2')
         setchas.value = ""
         setminuta.value = ""
+        localStorage.removeItem('setchas');
+        localStorage.removeItem('setminuta');
         alert("Будильник удален")
         document.getElementById('reminderstatus').textContent = "🔕";
     }
@@ -4998,6 +5067,8 @@ document.getElementById('clock_remin1').ondblclick = function () {		// Удал�
         localStorage.removeItem('chronostamp22')
         setchas1.value = ""
         setminuta1.value = ""
+        localStorage.removeItem('setchas1');
+        localStorage.removeItem('setminuta1');
         alert("Будильник удален")
         // document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
     }
