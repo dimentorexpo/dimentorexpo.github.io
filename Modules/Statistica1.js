@@ -74,18 +74,18 @@ buttonGetStat.onclick = function () { // по клику
 			
 		document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
 		
-    const dateRea = new Date();
-    let hoursReq = date.getHours();
-    let minutesReq = date.getMinutes();
-    let secondsReq = date.getSeconds();
+    let dateReq = new Date();
+    let hoursReq = dateReq.getHours();
+    let minutesReq = dateReq.getMinutes();
+    let secondsReq = dateReq.getSeconds();
 
     // Add a leading zero to hours, minutes, and seconds if they are less than 10
-    hoursReq = hours < 10 ? "0" + hours : hours;
-    minutesReq = minutes < 10 ? "0" + minutes : minutes;
-    secondsReq = seconds < 10 ? "0" + seconds : seconds;
+    hoursReq = hoursReq < 10 ? "0" + hoursReq : hoursReq;
+    minutesReq = minutesReq < 10 ? "0" + minutesReq : minutesReq;
+    secondsReq = secondsReq < 10 ? "0" + secondsReq : secondsReq;
 
     // Concatenate the hours, minutes, and seconds into a single string
-    const timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
+    let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
 
     document.getElementById("timeoutput").value = time;
 			
