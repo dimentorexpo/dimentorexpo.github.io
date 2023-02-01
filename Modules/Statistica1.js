@@ -5,7 +5,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
                         <div style="margin: 5px; width: 750px;" id="froze_chat_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
-								<input type="text" id="timeoutput" style="width:100px;" disabled></input>
+								<input type="text" id="timeoutput" style="width:100px; text-align:center;" disabled></input>
 			    </span>
                         </div>
 						<div style="width: 750px; display:flex; justify-content: space-evenly;">
@@ -87,7 +87,7 @@ buttonGetStat.onclick = function () { // по клику
     // Concatenate the hours, minutes, and seconds into a single string
     let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
 
-    document.getElementById("timeoutput").value = time;
+    document.getElementById("timeoutput").value = timeReq;
 			
 		getStats()
 	}
