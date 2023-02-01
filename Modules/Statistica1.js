@@ -95,7 +95,6 @@ buttonGetStat.onclick = function () { // по клику
         document.getElementById("timeoutput").value = timeReq;
 
         getStats()
-		getopersSLA() // testim
     }
 }
 
