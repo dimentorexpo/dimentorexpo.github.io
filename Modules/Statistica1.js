@@ -61,6 +61,7 @@ let activeopersId;
 buttonGetStat.onclick = function () { // по клику
     if (document.getElementById('AF_StataAF').style.display == 'none') {
         document.getElementById('AF_StataAF').style.display = ''
+		document.getElementById('idmymenu').style.display = 'none'
         if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "ТПPrem" || document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "Prem")
             document.getElementById('buttonTPpower').style.display = "none"
     } else document.getElementById('AF_StataAF').style.display = 'none'
