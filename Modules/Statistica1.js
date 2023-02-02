@@ -664,15 +664,15 @@ async function getopersSLA() {
                         });
                     }
                 }
-				console.log('stranica' + page)
+				console.log('stranica: ' + page)
                 page++;
                 maxpage = operdata.total / 100;
-				console.log('stranica new' + page)
-				console.log('stranica' + maxpage)
+				console.log('stranica new: ' + page)
+				console.log('stranica maxpage: ' + maxpage)
                 currentWidth += step;
                 progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
                 progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
-            } while (page < maxpage);
+            } while (page-1 < maxpage);
         }
     }
 			
