@@ -669,7 +669,7 @@ async function getopersSLA() {
                 currentWidth += step;
                 progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
                 progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
-            } while (page <= maxpage);
+            } while (page < maxpage);
         }
     }
 			
