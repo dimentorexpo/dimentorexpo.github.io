@@ -1394,6 +1394,7 @@ function prepKC() { //функция подготовки расширения �
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('head').append(lboxstyles)
         include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
+		include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
