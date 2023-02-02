@@ -73,10 +73,10 @@ async function operstatusleftbar() { // функция замены Script Packa
 					opstats.push(result.onOperator[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb == '121831') {
-							chatneraspcountleft += result.unAssigned[j].count
+							chatneraspcountleft = result.unAssigned[j].count
 						}
 						if (result.unAssigned[j].kb == null) {
-							chatneraspcountleft += result.unAssigned[j].count
+							chatneraspcountleft = result.unAssigned[j].count
 						}
 						
 					}	
@@ -115,10 +115,10 @@ async function operstatusleftbar() { // функция замены Script Packa
 				} else if (flagtpkc == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb == '121831') {
-							chatneraspcountleft += result.unAssigned[j].count
+							chatneraspcountleft = result.unAssigned[j].count
 						}
 						if (result.unAssigned[j].kb == null) {
-							chatneraspcountleft += result.unAssigned[j].count
+							chatneraspcountleft = result.unAssigned[j].count
 						}
 						
 					}
