@@ -2,11 +2,11 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
     `<div style="display: flex; width: 750px;">
         <span style="width: 750px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 750px;" id="froze_chat_header">
+                        <div style="margin: 5px; width: 750px; display:flex; justify-content:space-evenly;" id="stataaf_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
 								<input type="text" id="timeoutput" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
-								<div id="progress-bar" style="width: 0%; height: 20px; background-color: #e38118; text-align:center; font-weight:700; color:white;"></div>
+								<div style="width:450px"><div id="progress-bar" style="width: 0%; height: 20px; background-color: #e38118; border: 1px solid black; text-align:center; font-weight:700; color:white;"></div></div>
 			    </span>
                         </div>
 						<div style="width: 750px; display:flex; justify-content: space-evenly; margin-bottom:5px;">
