@@ -665,14 +665,14 @@ async function getopersSLA() {
                     }
                 }
                 page++;
-                maxpage = Math.floor(operdata.total / 100);
+                maxpage = operdata.total / 100;
                 currentWidth += step;
                 progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
                 progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
             } while (page <= maxpage);
         }
     }
-
+			
     console.log(arrayofSLA)
     console.log(filteredarray)
 
