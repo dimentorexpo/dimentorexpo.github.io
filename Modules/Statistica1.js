@@ -98,8 +98,25 @@ buttonGetStat.onclick = function () { // по клику
     }
 }
 
+let firstDate;
+let secondDateN;
 function getyesterdayandtoday() {
-    console.log("test")
+     const padStart = (string, targetLength, padString) => {
+        return String(string).padStart(targetLength, padString);
+    }
+
+    const getFormattedDate = (date) => {
+        const year = date.getFullYear();
+        const month = padStart(date.getMonth() + 1, 2, '0');
+        const day = padStart(date.getDate(), 2, '0');
+        return `${year}-${month}-${day}T21:00:00.000z`;
+    }
+
+    const now = new Date();
+    secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
+
+    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+    firstDate = getFormattedDate(yesterday);
 }
 
 document.getElementById('hidestatisticaaf').onclick = function () { // кнопка скрытия окна статистики
@@ -168,19 +185,7 @@ async function getStats() { // функция получения статист�
             }
     }))
 
-
-    const getFormattedDate = (date) => {
-        const year = date.getFullYear();
-        const month = padStart(date.getMonth() + 1, 2, '0');
-        const day = padStart(date.getDate(), 2, '0');
-        return `${year}-${month}-${day}T21:00:00.000z`;
-    }
-
-    const now = new Date();
-    const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
-
-    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
-    const firstDate = getFormattedDate(yesterday);
+	getyesterdayandtoday() 
 
     var operatorChatCount = []
     for (var l = 0; l < operatorId.length; l++) {
@@ -303,23 +308,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
     document.getElementById('msgloader').style.display = ''
     document.getElementById('csatandthemes').append(str)
 
-
-    const padStart = (string, targetLength, padString) => {
-        return String(string).padStart(targetLength, padString);
-    }
-
-    const getFormattedDate = (date) => {
-        const year = date.getFullYear();
-        const month = padStart(date.getMonth() + 1, 2, '0');
-        const day = padStart(date.getDate(), 2, '0');
-        return `${year}-${month}-${day}T21:00:00.000z`;
-    }
-
-    const now = new Date();
-    const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
-
-    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
-    const firstDate = getFormattedDate(yesterday);
+	getyesterdayandtoday() 
 
     try {
         page = 1
@@ -610,6 +599,7 @@ async function checkload(department, flag) { // функция проверки 
 let arrayofSLA;
 let filteredarray;
 async function getopersSLA() {
+	getyesterdayandtoday() 
 	let operdata;
 	filteredarray = [];
 	arrayofSLA = [];
@@ -619,7 +609,7 @@ async function getopersSLA() {
 			  "headers": {
 				"content-type": "application/json",
 			  },
-			  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"2023-01-31T21:00:00.000Z\",\"tsTo\":\"2023-02-01T20:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":100}`,
+			  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"${firstDate}\",\"tsTo\":\"${secondDateN}\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":100}`,
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
