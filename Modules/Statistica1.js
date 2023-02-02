@@ -612,12 +612,21 @@ async function checkload(department, flag) { // функция проверки 
 let arrayofSLA;
 let filteredarray;
 async function getopersSLA() {
+	let progressBar = document.getElementById("progress-bar");
+	
+	let currentWidth = 0;
+	
+	
 	getyesterdayandtoday() 
 	let operdata;
 	filteredarray = [];
 	arrayofSLA = [];
 	if (activeopersId) {
+		let step = 100 / activeopersId.length ;
 		for (let i=0; i<activeopersId.length;i++) {
+		  currentWidth += step;
+		  progressBar.style.width = currentWidth + "%";
+		  progressBar.textContent = currentWidth + "%";
 			await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 			  "headers": {
 				"content-type": "application/json",
