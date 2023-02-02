@@ -81,6 +81,9 @@ buttonGetStat.onclick = function () { // по клику
         document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
 
         document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
+        document.getElementById('progress-bar').innerHTML = ''
+        document.getElementById('progress-bar').style.width = '0'
+		 
 
         let dateReq = new Date();
         let hoursReq = dateReq.getHours();
