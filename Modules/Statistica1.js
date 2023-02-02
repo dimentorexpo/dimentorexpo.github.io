@@ -617,7 +617,7 @@ let filteredarray;
 async function getopersSLA() {
     let progressBar = document.getElementById("progress-bar");
     let currentWidth = 0;
-    let page = 1;
+    let page;
     let maxpage = 0;
 
     let slarows = document.getElementsByName('sladata');
@@ -664,8 +664,11 @@ async function getopersSLA() {
                         });
                     }
                 }
+				console.log('stranica' + page)
                 page++;
                 maxpage = operdata.total / 100;
+				console.log('stranica new' + page)
+				console.log('stranica' + maxpage)
                 currentWidth += step;
                 progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
                 progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
