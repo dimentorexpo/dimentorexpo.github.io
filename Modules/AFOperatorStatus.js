@@ -72,7 +72,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				} else if (flagtpkc == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
 					opstats.push(result.onOperator[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].groupId == "5ecdd2ab-b694-4d52-b734-5514f5600ecd") {
+						if (result.unAssigned[j].groupId == "5ecdd2ab-b694-4d52-b734-5514f5600ecd" ) {
 							chatneraspcountleft += result.unAssigned[j].count
 						}						
 					}	
@@ -104,20 +104,16 @@ async function operstatusleftbar() { // функция замены Script Packa
 					}	
 				} else if (flagtpkc == 'SC' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/SC\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].groupId == "5ecdd2ab-b694-4d52-b734-5514f5600ecd") {
+						if (result.unAssigned[j].kb == '121880' || result.unAssigned[j].kb == '121875' || result.unAssigned[j].kb == '121876' || result.unAssigned[j].kb != '121879' || result.unAssigned[j].kb == '121877' || result.unAssigned[j].kb == '121878') {
+							chatneraspcountleft = result.unAssigned[j].count
+						}
+					}
+				} else if (flagtpkc == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
+					for (let j=0; result.unAssigned[j] != undefined; j++) {
+						if (result.unAssigned[j].groupId == "5ecdd2ab-b694-4d52-b734-5514f5600ecd" ) {
 							chatneraspcountleft += result.unAssigned[j].count
 						}						
 					}	
-				} else if (flagtpkc == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
-					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb == '121831') {
-							chatneraspcountleft = result.unAssigned[j].count
-						}
-						if (result.unAssigned[j].kb == null) {
-							chatneraspcountleft = result.unAssigned[j].count
-						}
-						
-					}
 				} // end of if state small 	
 			} 
 			
