@@ -116,7 +116,7 @@ document.getElementById('clearstatawindow').onclick = function () { // кноп�
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     activeopersId = []
     let table = document.createElement('table')
-    table.style = 'table-layout: auto; width:750px;'
+    table.style = 'table-layout: auto; width:450px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
     let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов"]
@@ -677,6 +677,7 @@ async function getopersSLA() {
 				avgCsat[operatorIndex] = (totalChatScores[operatorIndex] / totalRates[operatorIndex]).toFixed(2)
 			else avgCsat[operatorIndex] = "no marks"
 		}
-		
+		console.log(avgCsat)
+        console.log(slaPercent)
 	}
 }
