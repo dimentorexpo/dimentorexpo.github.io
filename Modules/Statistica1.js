@@ -616,16 +616,19 @@ async function getopersSLA() {
 	let progressBar = document.getElementById("progress-bar");
 	let currentWidth = 0;
 	
+	let slarows = document.getElementsByName('sladata')
+	let csatrows = document.getElementsByName('csatdata')
+	
 	getyesterdayandtoday() 
 	let operdata;
 	filteredarray = [];
 	arrayofSLA = [];
 	if (activeopersId) {
-		let step = Number((100 / activeopersId.length).toFixed(1));
+		let step = 100 / activeopersId.length;
 		for (let i=0; i<activeopersId.length;i++) {
-		  currentWidth += step;
-		  progressBar.style.width = currentWidth + "%";
-		  progressBar.textContent = currentWidth + "%";
+		  currentWidth += step
+		  progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
+		  progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
 			await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
 			  "headers": {
 				"content-type": "application/json",
@@ -691,7 +694,7 @@ async function getopersSLA() {
                 slaPercent[operatorIndex] = "100%"
             }
 			
-			document.getElementsByName('sladata')[operatorIndex].innerText = slaPercent[operatorIndex]
+			slarows[operatorIndex].innerText = slaPercent[operatorIndex]
 
 			if (totalChatScores[operatorIndex] != "no marks") {
 				avgCsat[operatorIndex] = (totalChatScores[operatorIndex] / totalRates[operatorIndex]).toFixed(2)
@@ -699,7 +702,7 @@ async function getopersSLA() {
 				avgCsat[operatorIndex] = "no marks"
 			}
 			
-			document.getElementsByName('csatdata')[operatorIndex].innerText = avgCsat[operatorIndex]
+			csatrows[operatorIndex].innerText = avgCsat[operatorIndex]
 		}
 		console.log(avgCsat)
         console.log(slaPercent)
