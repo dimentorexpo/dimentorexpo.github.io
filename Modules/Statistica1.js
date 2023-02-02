@@ -625,7 +625,7 @@ async function getopersSLA() {
 	filteredarray = [];
 	arrayofSLA = [];
 	if (activeopersId) {
-		let step = (100 / activeopersId.length).toFixed(0) ;
+		let step = Number((100 / activeopersId.length).toFixed(0));
 		for (let i=0; i<activeopersId.length;i++) {
 		  currentWidth += step;
 		  progressBar.style.width = currentWidth + "%";
