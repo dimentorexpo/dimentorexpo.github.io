@@ -62,7 +62,7 @@ let activeopersId;
 buttonGetStat.onclick = function () { // по клику
     if (document.getElementById('AF_StataAF').style.display == 'none') {
         document.getElementById('AF_StataAF').style.display = ''
-		document.getElementById('idmymenu').style.display = 'none'
+        document.getElementById('idmymenu').style.display = 'none'
         if (document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "ТПPrem" || document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0] == "Prem")
             document.getElementById('buttonTPpower').style.display = "none"
     } else document.getElementById('AF_StataAF').style.display = 'none'
@@ -81,7 +81,7 @@ buttonGetStat.onclick = function () { // по клику
         document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
         document.getElementById('progress-bar').innerHTML = ''
         document.getElementById('progress-bar').style.width = '0'
-		 
+
 
         let dateReq = new Date();
         let hoursReq = dateReq.getHours();
@@ -105,7 +105,7 @@ buttonGetStat.onclick = function () { // по клику
 let firstDate;
 let secondDateN;
 function getyesterdayandtoday() {
-     const padStart = (string, targetLength, padString) => {
+    const padStart = (string, targetLength, padString) => {
         return String(string).padStart(targetLength, padString);
     }
 
@@ -132,7 +132,7 @@ document.getElementById('clearstatawindow').onclick = function () { // кноп�
     document.getElementById('outputstatafield').innerHTML = '';
     document.getElementById('loadkctp').innerHTML = '';
     document.getElementById('timeoutput').value = ''
-	document.getElementById('progress-bar').innerHTML = ''
+    document.getElementById('progress-bar').innerHTML = ''
     document.getElementById('progress-bar').style.width = '0'
 }
 
@@ -172,7 +172,7 @@ async function getStats() { // функция получения статист�
     const data = await response.json();
     const arrayvars = data.rows.filter(row => row.operator.indexOf(opSection) !== -1);
     arrayvars.sort((a, b) => b.conversationClosed - a.conversationClosed);
-	activeopersId = arrayvars.map(el => el.operatorId)
+    activeopersId = arrayvars.map(el => el.operatorId)
 
 
     var operatorId = []
@@ -191,7 +191,7 @@ async function getStats() { // функция получения статист�
             }
     }))
 
-	getyesterdayandtoday() 
+    getyesterdayandtoday()
 
     var operatorChatCount = []
     for (var l = 0; l < operatorId.length; l++) {
@@ -236,7 +236,7 @@ async function getStats() { // функция получения статист�
                     td.textContent = arrayvars[i].conversationClosed;
                     td.classList.add("chtclosed");
                     break;
-				case 3:
+                case 3:
                     td.textContent = "⏳ Loading";
                     td.setAttribute('name', 'sladata');
                     break;
@@ -287,8 +287,8 @@ async function getStats() { // функция получения статист�
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
     document.getElementById('outputstatafield').append(sumchatcount)
-	
-	getopersSLA();
+
+    getopersSLA();
 
 }
 
@@ -324,7 +324,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
     document.getElementById('msgloader').style.display = ''
     document.getElementById('csatandthemes').append(str)
 
-	getyesterdayandtoday() 
+    getyesterdayandtoday()
 
     try {
         page = 1
@@ -523,8 +523,8 @@ async function checkCSAT() { // функция проверки CSAT и чато
             chatHistorySearchButton.click();
         });
     });
-	
-	document.getElementById('buttonCheckStats').textContent = 'Проверить CSAT + тематики'
+
+    document.getElementById('buttonCheckStats').textContent = 'Проверить CSAT + тематики'
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
@@ -542,16 +542,16 @@ async function checkload(department, flag) { // функция проверки 
     let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
 
     document.getElementById("timeoutput").value = timeReq;
- 
+
     document.getElementById('retreivestata').classList.remove('active-stat-tab')
     document.getElementById('buttonCheckStats').classList.remove('active-stat-tab')
-	if (flag == 'КЦ') {
-		document.getElementById('buttonKCpower').classList.add('active-stat-tab')
-		document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
-	} else if (flag == 'ТП') {
-		document.getElementById('buttonTPpower').classList.add('active-stat-tab')
-		document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
-	}
+    if (flag == 'КЦ') {
+        document.getElementById('buttonKCpower').classList.add('active-stat-tab')
+        document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
+    } else if (flag == 'ТП') {
+        document.getElementById('buttonTPpower').classList.add('active-stat-tab')
+        document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+    }
 
     document.getElementById('outputstatafield').style.display = 'none'
     document.getElementById('csatandthemes').style.display = 'none'
@@ -615,126 +615,121 @@ async function checkload(department, flag) { // функция проверки 
 let arrayofSLA;
 let filteredarray;
 async function getopersSLA() {
-	let progressBar = document.getElementById("progress-bar");
-	let currentWidth = 0;
-	let page;
-	let maxpage = 0;
-	
-	let slarows = document.getElementsByName('sladata')
-	let csatrows = document.getElementsByName('csatdata')
-	
-	getyesterdayandtoday() 
-	let operdata;
-	filteredarray = [];
-	arrayofSLA = [];
-	if (activeopersId) {
-		page = 1;
-		let step = 100 / activeopersId.length;
-		for (let i=0; i<activeopersId.length;i++) {
-		  currentWidth += step
-		  progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
-		  progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
-			await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-			  "headers": {
-				"content-type": "application/json",
-			  },
-			  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"${firstDate}\",\"tsTo\":\"${secondDateN}\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":${page},\"limit\":100}`,
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			}).then(r=>r.json()).then(r=>operdata=r)
-				for (let j=0; j<operdata.items.length;j++) {
-					await fetch("https://skyeng.autofaq.ai/api/conversations/" + operdata.items[j].conversationId).then(r=>r.json()).then(r=>fres=r)
-					if (fres.operatorId == activeopersId[i]) {
-						filteredarray.push({["id"] : "operator"+[i+1],
-						["chatHashId"] : operdata.items[j].conversationId,
-						["Duration"] : operdata.items[j].stats.conversationDuration ? (operdata.items[j].stats.conversationDuration/1000/60).toFixed(1) : '0.0',
-						["Rate"] : operdata.items[j].stats.rate.rate ? operdata.items[j].stats.rate.rate : null })
-					}
-				}
-				if (operdata.total / 100 > 1) {
-					maxpage = Math.floor(operdata.total / 100)
-					if ((maxpage - page) != 0) {
-						page++
-						
-						await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
-						  "headers": {
-							"content-type": "application/json",
-						  },
-						  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"${firstDate}\",\"tsTo\":\"${secondDateN}\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":${page},\"limit\":100}`,
-						  "method": "POST",
-						  "mode": "cors",
-						  "credentials": "include"
-						}).then(r=>r.json()).then(r=>operdata=r)
-							for (let j=0; j<operdata.items.length;j++) {
-								await fetch("https://skyeng.autofaq.ai/api/conversations/" + operdata.items[j].conversationId).then(r=>r.json()).then(r=>fres=r)
-								if (fres.operatorId == activeopersId[i]) {
-									filteredarray.push({["id"] : "operator"+[i+1],
-									["chatHashId"] : operdata.items[j].conversationId,
-									["Duration"] : operdata.items[j].stats.conversationDuration ? (operdata.items[j].stats.conversationDuration/1000/60).toFixed(1) : '0.0',
-									["Rate"] : operdata.items[j].stats.rate.rate ? operdata.items[j].stats.rate.rate : null })
-								}
-							}
-					}
-				}
-		}
-		console.log(arrayofSLA)
-		console.log(filteredarray)
-		
-		let totalChatScores = []; // переменная массива для хранения общей суммы оценок по каждому оператору
-		let totalChatsClosed = []; // переменная массива для хранения общего количества закрытых чатов по каждому оператору
-		let overdueChats = []; // переменная массива для хранения количества чатов с просроченным SLA закрытия для дальнейших расчётов
-		let slaPercent = []; // переменная массива для хранения % SLA закрытия чатов по каждому оператору
-		let totalRates = []; // переменная массива для хранения количества оценок по каждому оператору для дальнейших расчётов
-		let avgCsat = []; // переменная массива для хранения усредненной оценки CSAT по каждому оператору
-		let closedChats; // вспомогательная переменная для подсчета чатов, закрытых оператором
-		let operatorOverdueChats; // вспомогательная переменная для подсчета количества просроченных по SLA закрытия чатов
-		let ratings; // вспомогательная переменная для подсчета количества оценок, полученных оператором
-		let operatorScore; // вспомогательная переменная для подсчета суммы оценок, полученных оператором
-		for (let operatorIndex = 0; operatorIndex < activeopersId.length; operatorIndex++) {
-			closedChats = 0;
-			operatorOverdueChats = 0;
-			operatorScore = 0;
-			ratings = 0;
-			totalChatScores[operatorIndex] = "no marks"
-			totalRates[operatorIndex] = "no marks"
-			for (let k = 0; k < filteredarray.length; k++) {
-				if (filteredarray[k].id == `operator${operatorIndex + 1}`) {
-					closedChats++
-					totalChatsClosed[operatorIndex] = closedChats
-					if (filteredarray[k].Duration >= 25) {
-						operatorOverdueChats++
-						overdueChats[operatorIndex] = operatorOverdueChats
-					}
-					if (filteredarray[k].Rate != null) {
-						operatorScore += filteredarray[k].Rate;
-						ratings++
-						totalChatScores[operatorIndex] = operatorScore
-						totalRates[operatorIndex] = ratings
-					}
-				}
+    let progressBar = document.getElementById("progress-bar");
+    let currentWidth = 0;
+    let page = 1;
+    let maxpage = 0;
 
-			}
+    let slarows = document.getElementsByName('sladata');
+    let csatrows = document.getElementsByName('csatdata');
 
-           // console.log(totalChatsClosed[operatorIndex])
-           // console.log(overdueChats[operatorIndex])
-            if (overdueChats[operatorIndex] != undefined) {
-			slaPercent[operatorIndex] = (((totalChatsClosed[operatorIndex] - overdueChats[operatorIndex]) / totalChatsClosed[operatorIndex]) * 100).toFixed(1) + '%'
-            } else {
-                slaPercent[operatorIndex] = "100%"
+    getyesterdayandtoday();
+    let operdata;
+    filteredarray = [];
+    arrayofSLA = [];
+    if (activeopersId) {
+        let step = 100 / activeopersId.length;
+        for (let i = 0; i < activeopersId.length; i++) {
+            page = 1;
+            do {
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"${firstDate}\",\"tsTo\":\"${secondDateN}\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":${page},\"limit\":100}`,
+                    method: "POST",
+                    mode: "cors",
+                    credentials: "include"
+                })
+                    .then((r) => r.json())
+                    .then((r) => (operdata = r));
+
+                for (let j = 0; j < operdata.items.length; j++) {
+                    await fetch(
+                        "https://skyeng.autofaq.ai/api/conversations/" +
+                        operdata.items[j].conversationId
+                    )
+                        .then((r) => r.json())
+                        .then((r) => (fres = r));
+                    if (fres.operatorId == activeopersId[i]) {
+                        filteredarray.push({
+                            ["id"]: "operator" + [i + 1],
+                            ["chatHashId"]: operdata.items[j].conversationId,
+                            ["Duration"]: operdata.items[j].stats.conversationDuration
+                                ? (operdata.items[j].stats.conversationDuration / 1000 / 60).toFixed(1)
+                                : "0.0",
+                            ["Rate"]: operdata.items[j].stats.rate.rate
+                                ? operdata.items[j].stats.rate.rate
+                                : null,
+                        });
+                    }
+                }
+                page++;
+                maxpage = Math.floor(operdata.total / 100);
+                currentWidth += step;
+                progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
+                progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
+            } while (page <= maxpage);
+        }
+    }
+
+    console.log(arrayofSLA)
+    console.log(filteredarray)
+
+    let totalChatScores = []; // переменная массива для хранения общей суммы оценок по каждому оператору
+    let totalChatsClosed = []; // переменная массива для хранения общего количества закрытых чатов по каждому оператору
+    let overdueChats = []; // переменная массива для хранения количества чатов с просроченным SLA закрытия для дальнейших расчётов
+    let slaPercent = []; // переменная массива для хранения % SLA закрытия чатов по каждому оператору
+    let totalRates = []; // переменная массива для хранения количества оценок по каждому оператору для дальнейших расчётов
+    let avgCsat = []; // переменная массива для хранения усредненной оценки CSAT по каждому оператору
+    let closedChats; // вспомогательная переменная для подсчета чатов, закрытых оператором
+    let operatorOverdueChats; // вспомогательная переменная для подсчета количества просроченных по SLA закрытия чатов
+    let ratings; // вспомогательная переменная для подсчета количества оценок, полученных оператором
+    let operatorScore; // вспомогательная переменная для подсчета суммы оценок, полученных оператором
+    for (let operatorIndex = 0; operatorIndex < activeopersId.length; operatorIndex++) {
+        closedChats = 0;
+        operatorOverdueChats = 0;
+        operatorScore = 0;
+        ratings = 0;
+        totalChatScores[operatorIndex] = "no marks"
+        totalRates[operatorIndex] = "no marks"
+        for (let k = 0; k < filteredarray.length; k++) {
+            if (filteredarray[k].id == `operator${operatorIndex + 1}`) {
+                closedChats++
+                totalChatsClosed[operatorIndex] = closedChats
+                if (filteredarray[k].Duration >= 25) {
+                    operatorOverdueChats++
+                    overdueChats[operatorIndex] = operatorOverdueChats
+                }
+                if (filteredarray[k].Rate != null) {
+                    operatorScore += filteredarray[k].Rate;
+                    ratings++
+                    totalChatScores[operatorIndex] = operatorScore
+                    totalRates[operatorIndex] = ratings
+                }
             }
-			
-			slarows[operatorIndex].innerText = slaPercent[operatorIndex]
 
-			if (totalChatScores[operatorIndex] != "no marks") {
-				avgCsat[operatorIndex] = (totalChatScores[operatorIndex] / totalRates[operatorIndex]).toFixed(2)
-			} else {
-				avgCsat[operatorIndex] = "no marks"
-			}
-			
-			csatrows[operatorIndex].innerText = avgCsat[operatorIndex]
-		}
-		console.log(avgCsat)
-        console.log(slaPercent)
-	}
+        }
+
+        // console.log(totalChatsClosed[operatorIndex])
+        // console.log(overdueChats[operatorIndex])
+        if (overdueChats[operatorIndex] != undefined) {
+            slaPercent[operatorIndex] = (((totalChatsClosed[operatorIndex] - overdueChats[operatorIndex]) / totalChatsClosed[operatorIndex]) * 100).toFixed(1) + '%'
+        } else {
+            slaPercent[operatorIndex] = "100%"
+        }
+
+        slarows[operatorIndex].innerText = slaPercent[operatorIndex]
+
+        if (totalChatScores[operatorIndex] != "no marks") {
+            avgCsat[operatorIndex] = (totalChatScores[operatorIndex] / totalRates[operatorIndex]).toFixed(2)
+        } else {
+            avgCsat[operatorIndex] = "no marks"
+        }
+
+        csatrows[operatorIndex].innerText = avgCsat[operatorIndex]
+    }
+    console.log(avgCsat)
+    console.log(slaPercent)
+}
 }
