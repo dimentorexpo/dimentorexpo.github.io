@@ -132,6 +132,8 @@ document.getElementById('clearstatawindow').onclick = function () { // кноп�
     document.getElementById('outputstatafield').innerHTML = '';
     document.getElementById('loadkctp').innerHTML = '';
     document.getElementById('timeoutput').value = ''
+	document.getElementById('progress-bar').innerHTML = ''
+    document.getElementById('progress-bar').style.width = '0'
 }
 
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
