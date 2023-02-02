@@ -133,7 +133,7 @@ document.getElementById('clearstatawindow').onclick = function () { // кноп�
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
     activeopersId = []
     let table = document.createElement('table')
-    table.style = 'table-layout: auto; width:450px;'
+    table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
     let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "%SLA закрытия", "AvgCSAT"]
