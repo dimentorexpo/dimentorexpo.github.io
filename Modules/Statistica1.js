@@ -281,6 +281,8 @@ async function getStats() { // функция получения статист�
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
     document.getElementById('outputstatafield').append(sumchatcount)
+	
+	getopersSLA();
 
 }
 
@@ -674,6 +676,7 @@ async function getopersSLA() {
            // console.log(overdueChats[operatorIndex])
             if (overdueChats[operatorIndex] != undefined) {
 			slaPercent[operatorIndex] = (((totalChatsClosed[operatorIndex] - overdueChats[operatorIndex]) / totalChatsClosed[operatorIndex]) * 100).toFixed(1) + '%'
+			document.getElementsByName('sladata')[operatorIndex].innerText = slaPercent[operatorIndex]
             } else {
                 slaPercent[operatorIndex] = "100%"
             }
@@ -681,6 +684,8 @@ async function getopersSLA() {
 			if (totalChatScores[operatorIndex] != "no marks")
 				avgCsat[operatorIndex] = (totalChatScores[operatorIndex] / totalRates[operatorIndex]).toFixed(2)
 			else avgCsat[operatorIndex] = "no marks"
+			
+			document.getElementsByName('csatdata')[operatorIndex].innerText = avgCsat[operatorIndex]
 		}
 		console.log(avgCsat)
         console.log(slaPercent)
