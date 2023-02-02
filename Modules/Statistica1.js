@@ -7,7 +7,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
 								<button id="clearstatawindow">🧹</button>
 								<input type="text" id="timeoutput" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
 								<span style="width:450px">
-									<div id="progress-bar" style="width: 0%; height: 20px; background-color: lightblue;"></div>
+									<div id="progress-bar" style="width: 0%; height: 20px; background-color: lightblue; text-align:center"></div>
 								</span>
 			    </span>
                         </div>
@@ -616,9 +616,7 @@ let arrayofSLA;
 let filteredarray;
 async function getopersSLA() {
 	let progressBar = document.getElementById("progress-bar");
-	
 	let currentWidth = 0;
-	
 	
 	getyesterdayandtoday() 
 	let operdata;
