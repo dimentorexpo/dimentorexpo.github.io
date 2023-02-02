@@ -732,4 +732,3 @@ async function getopersSLA() {
     console.log(avgCsat)
     console.log(slaPercent)
 }
-}
