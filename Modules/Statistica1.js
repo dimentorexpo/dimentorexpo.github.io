@@ -669,10 +669,10 @@ async function getopersSLA() {
                 maxpage = operdata.total / 100;
 				console.log('stranica new: ' + page)
 				console.log('stranica maxpage: ' + maxpage)
-                currentWidth += step;
-                progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
-                progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
             } while (page-1 < maxpage);
+			currentWidth += step;
+			progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
+			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
         }
     }
 			
