@@ -136,7 +136,7 @@ async function getStats() { // функция получения статист�
     table.style = 'table-layout: auto; width:450px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
-    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов"]
+    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "%SLA закрытия", "AvgCSAT"]
     let trHead = document.createElement('tr')
     for (let i = 0; i < columnNames.length; i++) {
         var th = document.createElement('th')
@@ -229,6 +229,14 @@ async function getStats() { // функция получения статист�
                 case 1:
                     td.textContent = arrayvars[i].conversationClosed;
                     td.classList.add("chtclosed");
+                    break;
+				case 3:
+                    td.textContent = "⏳ Loading";
+                    td.setAttribute('name', 'sladata');
+                    break;
+                case 4:
+                    td.textContent = "⏳ Loading";
+                    td.setAttribute('name', 'csatdata');
                     break;
             }
             tr.append(td)
