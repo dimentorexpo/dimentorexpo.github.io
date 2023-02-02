@@ -619,7 +619,7 @@ async function getopersSLA() {
 					if (fres.operatorId == activeopersId[i]) {
 						filteredarray.push({["id"] : "operator"+[i+1],
 						["chatHashId"] : operdata.items[j].conversationId,
-						["Duration"] : (operdata.items[j].stats.conversationDuration/1000/60).toFixed(1),
+						["Duration"] : operdata.items[j].stats.conversationDuration ? (operdata.items[j].stats.conversationDuration/1000/60).toFixed(1) : '0.0',
 						["Rate"] : operdata.items[j].stats.rate.rate ? operdata.items[j].stats.rate.rate : null })
 					}
 				}
@@ -661,7 +661,14 @@ async function getopersSLA() {
 				}
 
 			}
+
+           // console.log(totalChatsClosed[operatorIndex])
+           // console.log(overdueChats[operatorIndex])
+            if (overdueChats[operatorIndex] != undefined) {
 			slaPercent[operatorIndex] = (((totalChatsClosed[operatorIndex] - overdueChats[operatorIndex]) / totalChatsClosed[operatorIndex]) * 100).toFixed(1) + '%'
+            } else {
+                slaPercent[operatorIndex] = "100%"
+            }
 
 			if (totalChatScores[operatorIndex] != "no marks")
 				avgCsat[operatorIndex] = (totalChatScores[operatorIndex] / totalRates[operatorIndex]).toFixed(2)
