@@ -617,6 +617,7 @@ let filteredarray;
 async function getopersSLA() {
 	let progressBar = document.getElementById("progress-bar");
 	let currentWidth = 0;
+	let page = 1;
 	
 	let slarows = document.getElementsByName('sladata')
 	let csatrows = document.getElementsByName('csatdata')
@@ -635,7 +636,7 @@ async function getopersSLA() {
 			  "headers": {
 				"content-type": "application/json",
 			  },
-			  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"${firstDate}\",\"tsTo\":\"${secondDateN}\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":100}`,
+			  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"${firstDate}\",\"tsTo\":\"${secondDateN}\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":${page},\"limit\":100}`,
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
