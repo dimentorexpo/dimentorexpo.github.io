@@ -142,7 +142,7 @@ async function getStats() { // функция получения статист�
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
-    let columnNames = ["👨‍💻Оператор", "💪Закрыл запросов", "⚡Пощупал чатов", "🕒%SLA закрытия", "⚠AvgCSAT"]
+    let columnNames = ["👨‍💻Оператор", "💪Закрыл запросов", "⚡Пощупал чатов", "🕒SLA закрытия", "⚠AvgCSAT"]
     let trHead = document.createElement('tr')
     for (let i = 0; i < columnNames.length; i++) {
         var th = document.createElement('th')
@@ -617,7 +617,8 @@ let filteredarray;
 async function getopersSLA() {
 	let progressBar = document.getElementById("progress-bar");
 	let currentWidth = 0;
-	let page = 1;
+	let page;
+	let maxpage = 0;
 	
 	let slarows = document.getElementsByName('sladata')
 	let csatrows = document.getElementsByName('csatdata')
@@ -627,6 +628,7 @@ async function getopersSLA() {
 	filteredarray = [];
 	arrayofSLA = [];
 	if (activeopersId) {
+		page = 1;
 		let step = 100 / activeopersId.length;
 		for (let i=0; i<activeopersId.length;i++) {
 		  currentWidth += step
@@ -648,6 +650,31 @@ async function getopersSLA() {
 						["chatHashId"] : operdata.items[j].conversationId,
 						["Duration"] : operdata.items[j].stats.conversationDuration ? (operdata.items[j].stats.conversationDuration/1000/60).toFixed(1) : '0.0',
 						["Rate"] : operdata.items[j].stats.rate.rate ? operdata.items[j].stats.rate.rate : null })
+					}
+				}
+				if (operdata.total / 100 > 1) {
+					maxpage = Math.floor(operdata.total / 100)
+					if ((maxpage - page) != 0) {
+						page++
+						
+						await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+						  "headers": {
+							"content-type": "application/json",
+						  },
+						  "body": `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"${firstDate}\",\"tsTo\":\"${secondDateN}\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":${page},\"limit\":100}`,
+						  "method": "POST",
+						  "mode": "cors",
+						  "credentials": "include"
+						}).then(r=>r.json()).then(r=>operdata=r)
+							for (let j=0; j<operdata.items.length;j++) {
+								await fetch("https://skyeng.autofaq.ai/api/conversations/" + operdata.items[j].conversationId).then(r=>r.json()).then(r=>fres=r)
+								if (fres.operatorId == activeopersId[i]) {
+									filteredarray.push({["id"] : "operator"+[i+1],
+									["chatHashId"] : operdata.items[j].conversationId,
+									["Duration"] : operdata.items[j].stats.conversationDuration ? (operdata.items[j].stats.conversationDuration/1000/60).toFixed(1) : '0.0',
+									["Rate"] : operdata.items[j].stats.rate.rate ? operdata.items[j].stats.rate.rate : null })
+								}
+							}
 					}
 				}
 		}
