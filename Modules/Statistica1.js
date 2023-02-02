@@ -6,7 +6,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
 								<input type="text" id="timeoutput" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
-								<div style="width:450px"><div id="progress-bar" style="width: 0%; height: 20px; background-color: #e38118; border: 1px solid black; text-align:center; font-weight:700; color:white;"></div></div>
+								<div style="width:450px;ackground: maroon;height: 21px;"><div id="progress-bar" style="width: 0%; height: 20px; background-color: #e38118; border: 1px solid black; text-align:center; font-weight:700; color:white;"></div></div>
 			    </span>
                         </div>
 						<div style="width: 750px; display:flex; justify-content: space-evenly; margin-bottom:5px;">
@@ -664,11 +664,11 @@ async function getopersSLA() {
                         });
                     }
                 }
-				console.log('stranica: ' + page)
+				//console.log('stranica: ' + page)
                 page++;
                 maxpage = operdata.total / 100;
-				console.log('stranica new: ' + page)
-				console.log('stranica maxpage: ' + maxpage)
+				//console.log('stranica new: ' + page)
+			    //console.log('stranica maxpage: ' + maxpage)
             } while (page-1 < maxpage);
 			currentWidth += step;
 			progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
