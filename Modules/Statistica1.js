@@ -119,7 +119,7 @@ async function getStats() { // функция получения статист�
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
-    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "Среднее время ожидания", "Среднее время работы"]
+    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов"]
     let trHead = document.createElement('tr')
     for (let i = 0; i < columnNames.length; i++) {
         var th = document.createElement('th')
@@ -224,16 +224,6 @@ async function getStats() { // функция получения статист�
                 case 1:
                     td.textContent = arrayvars[i].conversationClosed;
                     td.classList.add("chtclosed");
-                    break;
-                case 3:
-                    var averageAnswerTime = Math.floor(arrayvars[i].averageAnswerTime / 1000)
-                    averageAnswerTime = averageAnswerTime < 60 ? '00:' + averageAnswerTime : Math.floor(averageAnswerTime / 60) + ':' + ((averageAnswerTime % 60) < 10 ? '0' + (averageAnswerTime % 60) : (averageAnswerTime % 60))
-                    td.textContent = averageAnswerTime;
-                    break;
-                case 4:
-                    var averageHandlingTime = Math.floor(arrayvars[i].averageHandlingTime / 1000)
-                    averageHandlingTime = averageHandlingTime < 60 ? averageHandlingTime : Math.floor(averageHandlingTime / 60) + ':' + ((averageHandlingTime % 60) < 10 ? '0' + (averageHandlingTime % 60) : (averageHandlingTime % 60))
-                    td.textContent = averageHandlingTime;
                     break;
             }
             tr.append(td)
@@ -643,9 +633,50 @@ async function getopersSLA() {
 						["Rate"] : operdata.items[j].stats.rate.rate ? operdata.items[j].stats.rate.rate : null })
 					}
 				}
-			// arrayofSLA.push(operdata.total)
 		}
 		console.log(arrayofSLA)
 		console.log(filteredarray)
+		
+		let totalChatScores = []; // переменная массива для хранения общей суммы оценок по каждому оператору
+		let totalChatsClosed = []; // переменная массива для хранения общего количества закрытых чатов по каждому оператору
+		let overdueChats = []; // переменная массива для хранения количества чатов с просроченным SLA закрытия для дальнейших расчётов
+		let slaPercent = []; // переменная массива для хранения % SLA закрытия чатов по каждому оператору
+		let totalRates = []; // переменная массива для хранения количества оценок по каждому оператору для дальнейших расчётов
+		let avgCsat = []; // переменная массива для хранения усредненной оценки CSAT по каждому оператору
+		let closedChats; // вспомогательная переменная для подсчета чатов, закрытых оператором
+		let operatorOverdueChats; // вспомогательная переменная для подсчета количества просроченных по SLA закрытия чатов
+		let ratings; // вспомогательная переменная для подсчета количества оценок, полученных оператором
+		let operatorScore; // вспомогательная переменная для подсчета суммы оценок, полученных оператором
+		for (let operatorIndex = 0; operatorIndex < activeopersId.length; operatorIndex++) {
+			closedChats = 0;
+			operatorOverdueChats = 0;
+			operatorScore = 0;
+			ratings = 0;
+			totalChatScores[operatorIndex] = "no marks"
+			totalRates[operatorIndex] = "no marks"
+			for (let k = 0; k < filteredarray.length; k++) {
+				if (filteredarray[k].id == `operator${operatorIndex + 1}`) {
+					closedChats++
+					totalChatsClosed[operatorIndex] = closedChats
+					if (filteredarray[k].Duration >= 25) {
+						operatorOverdueChats++
+						overdueChats[operatorIndex] = operatorOverdueChats
+					}
+					if (filteredarray[k].Rate != null) {
+						operatorScore += filteredarray[k].Rate;
+						ratings++
+						totalChatScores[operatorIndex] = operatorScore
+						totalRates[operatorIndex] = ratings
+					}
+				}
+
+			}
+			slaPercent[operatorIndex] = (((totalChatsClosed[operatorIndex] - overdueChats[operatorIndex]) / totalChatsClosed[operatorIndex]) * 100).toFixed(1) + '%'
+
+			if (totalChatScores[operatorIndex] != "no marks")
+				avgCsat[operatorIndex] = (totalChatScores[operatorIndex] / totalRates[operatorIndex]).toFixed(2)
+			else avgCsat[operatorIndex] = "no marks"
+		}
+		
 	}
 }
