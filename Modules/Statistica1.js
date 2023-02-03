@@ -631,6 +631,8 @@ async function getopersSLA() {
 	let arraycsatsumma = [];
 	let csatcount;
 	let csatsumma;
+	let overduecount;
+	let arrayoverdue=[];
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
@@ -647,6 +649,7 @@ async function getopersSLA() {
 			operclschatcount = 0;
 			csatcount = 0;
 			csatsumma = 0;
+			overduecount = 0;
             page = 1;
             do {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -692,6 +695,12 @@ async function getopersSLA() {
 							arraycsatcount[i] = csatcount
 							arraycsatsumma[i] = csatsumma
                         } 
+						
+						if (operdata.items[j].stats.conversationDuration operdata.items[j].stats.conversationDuration >= 25) {
+							overduecount++
+							arrayoverdue[i] = overduecount
+						} 
+						
                     }
                 }
 				//console.log('stranica: ' + page)
@@ -712,6 +721,11 @@ async function getopersSLA() {
 				csatrows[i].textContent = (arraycsatsumma[i] / arraycsatcount[i]).toFixed(2);
 			} else {
 				csatrows[i].textContent = "No marks!"
+			}
+			if (arrayoverdue[i]) {
+				slarows[i].textContent = (100 - (arrayoverdue[i] / arrayclschatcount[i])*100).toFixed(1) + '%'
+			} else {
+				slarows[i].textContent  = "100%"
 			}
         }
     }
