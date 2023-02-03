@@ -691,7 +691,11 @@ async function getopersSLA() {
 							csatsumma += operdata.items[j].stats.rate.rate
 							arraycsatcount[i] = csatcount
 							arraycsatsumma[i] = csatsumma
-                        } 
+                        } else {
+							csatsumma += 0
+							arraycsatsumma[i] += csatsumma;
+							arraycsatcount[i] += 0;
+						}
                     }
                 }
 				//console.log('stranica: ' + page)
@@ -706,7 +710,9 @@ async function getopersSLA() {
 			console.log("Massive closed chats of operator: " + arrayclschatcount)
 			console.log("Massive prosroch art chats of operator: " + arrayartcount)
 			artrows[i].textContent = (100 - (arrayartcount[i] / arrayclschatcount[i])*100).toFixed(1) + '%';
-			csatrows[i].textContent = ((arraycsatsumma[i] / arraycsatcount[i])*100).toFixed(2);
+			if (arraycsatcount[i] && arraycsatcount[i] !=0) {
+				csatrows[i].textContent = (arraycsatsumma[i] / arraycsatcount[i]).toFixed(2);
+			}
         }
     }
 /*			
