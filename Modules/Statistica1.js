@@ -696,7 +696,7 @@ async function getopersSLA() {
 							arraycsatsumma[i] = csatsumma
                         } 
 						
-						if (operdata.items[j].stats.conversationDuration  && operdata.items[j].stats.conversationDuration >= 25) {
+						if (operdata.items[j].stats.conversationDuration  && (operdata.items[j].stats.conversationDuration / 1000 / 60).toFixed(1) >= 25) {
 							overduecount++
 							arrayoverdue[i] = overduecount
 						} 
