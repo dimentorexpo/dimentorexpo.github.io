@@ -630,7 +630,7 @@ async function getopersSLA() {
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
-	let artrows = document.getElementById('artdata');
+	let artrows = document.getElementsByName('artdata');
 
     getyesterdayandtoday();
     let operdata;
