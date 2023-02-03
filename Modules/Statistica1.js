@@ -627,6 +627,10 @@ async function getopersSLA() {
 	let operclschatcount;
 	let arrayclschatcount=[];
 	let arrayartcount =[];
+	let arraycsatcount = [];
+	let arraycsatsumma = [];
+	let csatcount;
+	let csatsumma;
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
@@ -641,6 +645,8 @@ async function getopersSLA() {
         for (let i = 0; i < activeopersId.length; i++) {
 			operartcount = 0;
 			operclschatcount = 0;
+			csatcount = 0;
+			csatsumma = 0;
             page = 1;
             do {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -680,6 +686,12 @@ async function getopersSLA() {
 							arrayartcount[i] = 0;
 						}
 						
+						if (operdata.items[j].stats.rate.rate) {
+                            csatcount++;
+							csatsumma += operdata.items[j].stats.rate.rate
+							arraycsatcount[i] = csatcount
+							arraycsatsumma[i] = csatsumma
+                        } 
                     }
                 }
 				//console.log('stranica: ' + page)
@@ -693,10 +705,11 @@ async function getopersSLA() {
 			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
 			console.log("Massive closed chats of operator: " + arrayclschatcount)
 			console.log("Massive prosroch art chats of operator: " + arrayartcount)
-			artrows[i].textContent = (100 - (arrayartcount[i] / arrayclschatcount[i])*100).toFixed(1) + '%'
+			artrows[i].textContent = (100 - (arrayartcount[i] / arrayclschatcount[i])*100).toFixed(1) + '%';
+			csatrows[i].textContent = ((arraycsatsumma[i] / arraycsatcount[i])*100).toFixed(2);
         }
     }
-			
+/*			
     console.log(arrayofSLA)
     console.log(filteredarray)
 
@@ -755,4 +768,6 @@ async function getopersSLA() {
     }
     console.log(avgCsat)
     console.log(slaPercent)
+	
+	*/
 }
