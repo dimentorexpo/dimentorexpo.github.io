@@ -693,7 +693,7 @@ async function getopersSLA() {
 			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
 			console.log("Massive closed chats of operator: " + arrayclschatcount)
 			console.log("Massive prosroch art chats of operator: " + arrayartcount)
-			artrows[i].textContent = (100 - (arrayartcount / arrayclschatcount)*100).toFixed(1) + '%'
+			artrows[i].textContent = (100 - (arrayartcount[i] / arrayclschatcount[i])*100).toFixed(1) + '%'
         }
     }
 			
