@@ -142,7 +142,7 @@ async function getStats() { // функция получения статист�
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
-    let columnNames = ["👨‍💻Оператор", "💪Закрыл запросов", "⚡Пощупал чатов", "🕒SLA закрытия", "⚠AvgCSAT"]
+    let columnNames = ["👨‍💻Оператор", "💪Закрыл запросов", "⚡Пощупал чатов", "🕒SLA закрытия", "⚠AvgCSAT", "💬ART"]
     let trHead = document.createElement('tr')
     for (let i = 0; i < columnNames.length; i++) {
         var th = document.createElement('th')
@@ -214,7 +214,7 @@ async function getStats() { // функция получения статист�
     let tbody = document.createElement('tbody')
     for (let i = 0; i < arrayvars.length; i++) {
         var tr = document.createElement('tr')
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < 6; j++) {
             var td = document.createElement('td')
             switch (j) {
                 case 0:
@@ -243,6 +243,10 @@ async function getStats() { // функция получения статист�
                 case 4:
                     td.textContent = "⏳ Loading";
                     td.setAttribute('name', 'csatdata');
+                    break;
+				case 5:
+                    td.textContent = "⏳ Loading";
+                    td.setAttribute('name', 'artdata');
                     break;
             }
             tr.append(td)
@@ -619,6 +623,10 @@ async function getopersSLA() {
     let currentWidth = 0;
     let page;
     let maxpage = 0;
+	let operartcount;
+	let operclschatcount;
+	let arrayclschatcount=[];
+	let arrayartcount =[];
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
@@ -630,6 +638,8 @@ async function getopersSLA() {
     if (activeopersId) {
         let step = 100 / activeopersId.length;
         for (let i = 0; i < activeopersId.length; i++) {
+			operartcount = 0;
+			operclschatcount = 0;
             page = 1;
             do {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -645,13 +655,12 @@ async function getopersSLA() {
                     .then((r) => (operdata = r));
 
                 for (let j = 0; j < operdata.items.length; j++) {
-                    await fetch(
-                        "https://skyeng.autofaq.ai/api/conversations/" +
-                        operdata.items[j].conversationId
-                    )
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + operdata.items[j].conversationId)
                         .then((r) => r.json())
                         .then((r) => (fres = r));
                     if (fres.operatorId == activeopersId[i]) {
+						operclschatcount++;
+						arrayclschatcount[i] = operclschatcount;
                         filteredarray.push({
                             ["id"]: "operator" + [i + 1],
                             ["chatHashId"]: operdata.items[j].conversationId,
@@ -662,6 +671,12 @@ async function getopersSLA() {
                                 ? operdata.items[j].stats.rate.rate
                                 : null,
                         });
+						
+						if (operdata.items[j].stats.averageOperatorAnswerTime && ((operdata.items[j].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
+                            operartcount++;
+							arrayartcount[i] = operartcount
+                        }
+						
                     }
                 }
 				//console.log('stranica: ' + page)
@@ -673,6 +688,8 @@ async function getopersSLA() {
 			currentWidth += step;
 			progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
 			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
+			console.log("Massive closed chats of operator: " + arrayclschatcount)
+			console.log("Massive prosroch art chats of operator: " + arrayartcount)
         }
     }
 			
