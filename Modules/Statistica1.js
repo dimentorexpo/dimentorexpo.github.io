@@ -625,14 +625,14 @@ async function getopersSLA() {
     let maxpage = 0;
 	let operartcount;
 	let operclschatcount;
-	let arrayclschatcount=[];
+	let totalChatsClosed=[];
 	let arrayartcount =[];
 	let arraycsatcount = [];
 	let arraycsatsumma = [];
+	let operatorOverdueChats=[];
 	let csatcount;
 	let csatsumma;
 	let overduecount;
-	let arrayoverdue=[];
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
@@ -670,7 +670,7 @@ async function getopersSLA() {
                         .then((r) => (fres = r));
                     if (fres.operatorId == activeopersId[i]) {
 						operclschatcount++;
-						arrayclschatcount[i] = operclschatcount;
+						totalChatsClosed[i] = operclschatcount;
                         filteredarray.push({
                             ["id"]: "operator" + [i + 1],
                             ["chatHashId"]: operdata.items[j].conversationId,
@@ -698,7 +698,7 @@ async function getopersSLA() {
 						
 						if (operdata.items[j].stats.conversationDuration  && (operdata.items[j].stats.conversationDuration / 1000 / 60).toFixed(1) >= 25) {
 							overduecount++
-							arrayoverdue[i] = overduecount
+							operatorOverdueChats[i] = overduecount
 						} 
 						
                     }
@@ -712,83 +712,22 @@ async function getopersSLA() {
 			currentWidth += step;
 			progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
 			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
-			console.log("Massive closed chats of operator: " + arrayclschatcount)
+			console.log("Massive closed chats of operator: " + totalChatsClosed)
 			console.log("Massive prosroch art chats of operator: " + arrayartcount)
 			console.log("Massive CSAT summa of operator: " + arraycsatsumma)
 			console.log("Massive CSAT count of operator: " + arraycsatcount)
-			console.log("Massive prosrosch SLA count of operator: " + arrayoverdue)
-			artrows[i].textContent = (100 - (arrayartcount[i] / arrayclschatcount[i])*100).toFixed(1) + '%';
+			console.log("Massive prosrosch SLA count of operator: " + operatorOverdueChats)
+			artrows[i].textContent = (100 - (arrayartcount[i] / totalChatsClosed[i])*100).toFixed(1) + '%';
 			if (arraycsatcount[i] && arraycsatsumma[i]) {
 				csatrows[i].textContent = (arraycsatsumma[i] / arraycsatcount[i]).toFixed(2);
 			} else {
 				csatrows[i].textContent = "No marks!"
 			}
-			if (arrayoverdue[i]) {
-				slarows[i].textContent = (100 - (arrayoverdue[i] / arrayclschatcount[i])*100).toFixed(1) + '%'
+			if (operatorOverdueChats[i]) {
+				slarows[i].textContent = (100 - (operatorOverdueChats[i] / totalChatsClosed[i])*100).toFixed(1) + '%'
 			} else {
 				slarows[i].textContent  = "100%"
 			}
         }
     }
-/*			
-    console.log(arrayofSLA)
-    console.log(filteredarray)
-
-    let totalChatScores = []; // переменная массива для хранения общей суммы оценок по каждому оператору
-    let totalChatsClosed = []; // переменная массива для хранения общего количества закрытых чатов по каждому оператору
-    let overdueChats = []; // переменная массива для хранения количества чатов с просроченным SLA закрытия для дальнейших расчётов
-    let slaPercent = []; // переменная массива для хранения % SLA закрытия чатов по каждому оператору
-    let totalRates = []; // переменная массива для хранения количества оценок по каждому оператору для дальнейших расчётов
-    let avgCsat = []; // переменная массива для хранения усредненной оценки CSAT по каждому оператору
-    let closedChats; // вспомогательная переменная для подсчета чатов, закрытых оператором
-    let operatorOverdueChats; // вспомогательная переменная для подсчета количества просроченных по SLA закрытия чатов
-    let ratings; // вспомогательная переменная для подсчета количества оценок, полученных оператором
-    let operatorScore; // вспомогательная переменная для подсчета суммы оценок, полученных оператором
-    for (let operatorIndex = 0; operatorIndex < activeopersId.length; operatorIndex++) {
-        closedChats = 0;
-        operatorOverdueChats = 0;
-        operatorScore = 0;
-        ratings = 0;
-        totalChatScores[operatorIndex] = "no marks"
-        totalRates[operatorIndex] = "no marks"
-        for (let k = 0; k < filteredarray.length; k++) {
-            if (filteredarray[k].id == `operator${operatorIndex + 1}`) {
-                closedChats++
-                totalChatsClosed[operatorIndex] = closedChats
-                if (filteredarray[k].Duration >= 25) {
-                    operatorOverdueChats++
-                    overdueChats[operatorIndex] = operatorOverdueChats
-                }
-                if (filteredarray[k].Rate != null) {
-                    operatorScore += filteredarray[k].Rate;
-                    ratings++
-                    totalChatScores[operatorIndex] = operatorScore
-                    totalRates[operatorIndex] = ratings
-                }
-            }
-
-        }
-
-        // console.log(totalChatsClosed[operatorIndex])
-        // console.log(overdueChats[operatorIndex])
-        if (overdueChats[operatorIndex] != undefined) {
-            slaPercent[operatorIndex] = (((totalChatsClosed[operatorIndex] - overdueChats[operatorIndex]) / totalChatsClosed[operatorIndex]) * 100).toFixed(1) + '%'
-        } else {
-            slaPercent[operatorIndex] = "100%"
-        }
-
-        slarows[operatorIndex].innerText = slaPercent[operatorIndex]
-
-        if (totalChatScores[operatorIndex] != "no marks") {
-            avgCsat[operatorIndex] = (totalChatScores[operatorIndex] / totalRates[operatorIndex]).toFixed(2)
-        } else {
-            avgCsat[operatorIndex] = "no marks"
-        }
-
-        csatrows[operatorIndex].innerText = avgCsat[operatorIndex]
-    }
-    console.log(avgCsat)
-    console.log(slaPercent)
-	
-	*/
 }
