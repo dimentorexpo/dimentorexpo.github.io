@@ -691,11 +691,7 @@ async function getopersSLA() {
 							csatsumma += operdata.items[j].stats.rate.rate
 							arraycsatcount[i] = csatcount
 							arraycsatsumma[i] = csatsumma
-                        } else {
-							csatsumma += 0
-							arraycsatsumma[i] += csatsumma;
-							arraycsatcount[i] += 0;
-						}
+                        } 
                     }
                 }
 				//console.log('stranica: ' + page)
@@ -712,8 +708,10 @@ async function getopersSLA() {
 			console.log("Massive CSAT summa of operator: " + arraycsatsumma)
 			console.log("Massive CSAT count of operator: " + arraycsatcount)
 			artrows[i].textContent = (100 - (arrayartcount[i] / arrayclschatcount[i])*100).toFixed(1) + '%';
-			if (arraycsatcount[i] && arraycsatcount[i] !=0) {
+			if (arraycsatcount[i] && arraycsatsumma[i]) {
 				csatrows[i].textContent = (arraycsatsumma[i] / arraycsatcount[i]).toFixed(2);
+			} else {
+				csatrows[i].textContent = "No marks!"
 			}
         }
     }
