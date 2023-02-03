@@ -630,6 +630,7 @@ async function getopersSLA() {
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
+	let artrows = document.getElementById('artdata');
 
     getyesterdayandtoday();
     let operdata;
@@ -675,7 +676,9 @@ async function getopersSLA() {
 						if (operdata.items[j].stats.averageOperatorAnswerTime && ((operdata.items[j].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
                             operartcount++;
 							arrayartcount[i] = operartcount
-                        }
+                        } else {
+							arrayartcount[i] = 0;
+						}
 						
                     }
                 }
@@ -690,6 +693,7 @@ async function getopersSLA() {
 			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
 			console.log("Massive closed chats of operator: " + arrayclschatcount)
 			console.log("Massive prosroch art chats of operator: " + arrayartcount)
+			artrows[i].textContent = (100 - (arrayartcount / arrayclschatcount)*100).toFixed(1) + '%'
         }
     }
 			
