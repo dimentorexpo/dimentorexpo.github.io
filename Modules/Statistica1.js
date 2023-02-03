@@ -716,6 +716,7 @@ async function getopersSLA() {
 			console.log("Massive prosroch art chats of operator: " + arrayartcount)
 			console.log("Massive CSAT summa of operator: " + arraycsatsumma)
 			console.log("Massive CSAT count of operator: " + arraycsatcount)
+			console.log("Massive prosrosch SLA count of operator: " + arrayoverdue)
 			artrows[i].textContent = (100 - (arrayartcount[i] / arrayclschatcount[i])*100).toFixed(1) + '%';
 			if (arraycsatcount[i] && arraycsatsumma[i]) {
 				csatrows[i].textContent = (arraycsatsumma[i] / arraycsatcount[i]).toFixed(2);
