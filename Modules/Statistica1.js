@@ -298,7 +298,7 @@ async function getStats() { // функция получения статист�
 	document.getElementById('outputstatafield').append(averageCSATonGroup)
 
 	let averageSLAclsGroup = document.createElement('div')
-	averageSLAclsGroup.innerHTML = '%SLA закрытия по отделу: ' + '<span id ="SLAonGroup">⏳ Loading</span>';
+	averageSLAclsGroup.innerHTML = 'SLA закрытия по отделу: ' + '<span id ="SLAonGroup">⏳ Loading</span>';
 	averageSLAclsGroup.style.marginLeft = '50px'
 	document.getElementById('outputstatafield').append(averageSLAclsGroup)
 
