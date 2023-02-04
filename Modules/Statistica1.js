@@ -748,6 +748,6 @@ async function getopersSLA() {
 		for (let i= 0; i<document.getElementsByName('sladata').length ; i++) {
 			accumulator += Number(document.getElementsByName('sladata')[i].textContent.split('%')[0])
 		}
-		document.getElementById('SLAonGroup').textContent = accumulator / activeopersId.length + '%'
+		document.getElementById('SLAonGroup').textContent = (accumulator / activeopersId.length).toFixed(1) + '%'
     }
 }
