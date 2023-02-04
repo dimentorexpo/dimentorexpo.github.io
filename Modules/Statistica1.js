@@ -718,22 +718,14 @@ async function getopersSLA() {
 						
                     }
                 }
-				//console.log('stranica: ' + page)
                 page++;
                 maxpage = operdata.total / 100;
-				//console.log('stranica new: ' + page)
-			    //console.log('stranica maxpage: ' + maxpage)
             } while (page-1 < maxpage);
 			
 			currentWidth += step;
 			progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
 			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
 			
-			//console.log("Massive closed chats of operator: " + totalChatsClosed)
-			//console.log("Massive prosroch art chats of operator: " + arrayartcount)
-			//console.log("Massive CSAT summa of operator: " + arraycsatsumma)
-			//console.log("Massive CSAT count of operator: " + arraycsatcount)
-			//console.log("Massive prosrosch SLA count of operator: " + operatorOverdueChats)
 			artrows[i].textContent = (100 - (arrayartcount[i] / totalChatsClosed[i])*100).toFixed(1) + '%';
 			if (arraycsatcount[i] && arraycsatsumma[i]) {
 				csatrows[i].textContent = (arraycsatsumma[i] / arraycsatcount[i]).toFixed(2);
@@ -757,6 +749,5 @@ async function getopersSLA() {
 			accumulator += Number(document.getElementsByName('sladata')[i].textContent.split('%')[0])
 		}
 		document.getElementById('SLAonGroup').textContent = accumulator / activeopersId.length + '%'
-		//document.getElementById('SLAonGroup').textContent = (100 - (alloperSLAclsed / alloperChatsclsed)*100).toFixed(1);
     }
 }
