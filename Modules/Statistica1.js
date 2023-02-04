@@ -743,6 +743,8 @@ async function getopersSLA() {
 			}
 							
         }
+		console.log("CSAT SUMMA: " + alloperCSATsumma)
+		console.log("CSAT COUNT: " + alloperCSATcount)
 		document.getElementById('avgCsatonGroup').textContent = (alloperCSATsumma / alloperCSATcount).toFixed(2);
 		
 		for (let i= 0; i<document.getElementsByName('sladata').length ; i++) {
