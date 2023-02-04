@@ -647,6 +647,7 @@ async function getopersSLA() {
 	let alloperCSATcount = 0;
 	let alloperSLAclsed = 0;
 	let alloperChatsclsed = 0;
+	let accumulator = 0;
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
@@ -751,6 +752,11 @@ async function getopersSLA() {
 							
         }
 		document.getElementById('avgCsatonGroup').textContent = (alloperCSATsumma / alloperCSATcount).toFixed(2);
-		document.getElementById('SLAonGroup').textContent = (100 - (alloperSLAclsed / alloperChatsclsed)*100).toFixed(1);
+		
+		for (let i= 0; i<document.getElementsByName('sladata').length ; i++) {
+			accumulator += Number(document.getElementsByName('sladata')[i].textContent.split('%')[0])
+		}
+		document.getElementById('SLAonGroup').textContent = (accumulator / activeopersId.length) * 100 + '%'
+		//document.getElementById('SLAonGroup').textContent = (100 - (alloperSLAclsed / alloperChatsclsed)*100).toFixed(1);
     }
 }
