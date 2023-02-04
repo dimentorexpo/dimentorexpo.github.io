@@ -293,12 +293,12 @@ async function getStats() { // функция получения статист�
     document.getElementById('outputstatafield').append(sumchatcount)
 	
 	let averageCSATonGroup = document.createElement('div')
-	averageCSATonGroup.textContent = 'Средний CSAT по отделу: ' + '<span id ="avgCsatonGroup">⏳ Loading</span>';
+	averageCSATonGroup.innerHTML = 'Средний CSAT по отделу: ' + '<span id ="avgCsatonGroup">⏳ Loading</span>';
 	averageCSATonGroup.style.marginLeft = '50px'
 	document.getElementById('outputstatafield').append(averageCSATonGroup)
 
 	let averageSLAclsGroup = document.createElement('div')
-	averageSLAclsGroup.textContent = '%SLA закрытия по отделу: ' + '<span id ="SLAonGroup">⏳ Loading</span>';
+	averageSLAclsGroup.innerHTML = '%SLA закрытия по отделу: ' + '<span id ="SLAonGroup">⏳ Loading</span>';
 	averageSLAclsGroup.style.marginLeft = '50px'
 	document.getElementById('outputstatafield').append(averageSLAclsGroup)
 
@@ -643,6 +643,8 @@ async function getopersSLA() {
 	let csatcount;
 	let csatsumma;
 	let overduecount;
+	let alloperCSATsumma = 0;
+	let alloperCSATcount = 0;
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
@@ -719,17 +721,21 @@ async function getopersSLA() {
 				//console.log('stranica new: ' + page)
 			    //console.log('stranica maxpage: ' + maxpage)
             } while (page-1 < maxpage);
+			
 			currentWidth += step;
 			progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
 			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
-			console.log("Massive closed chats of operator: " + totalChatsClosed)
-			console.log("Massive prosroch art chats of operator: " + arrayartcount)
-			console.log("Massive CSAT summa of operator: " + arraycsatsumma)
-			console.log("Massive CSAT count of operator: " + arraycsatcount)
-			console.log("Massive prosrosch SLA count of operator: " + operatorOverdueChats)
+			
+			//console.log("Massive closed chats of operator: " + totalChatsClosed)
+			//console.log("Massive prosroch art chats of operator: " + arrayartcount)
+			//console.log("Massive CSAT summa of operator: " + arraycsatsumma)
+			//console.log("Massive CSAT count of operator: " + arraycsatcount)
+			//console.log("Massive prosrosch SLA count of operator: " + operatorOverdueChats)
 			artrows[i].textContent = (100 - (arrayartcount[i] / totalChatsClosed[i])*100).toFixed(1) + '%';
 			if (arraycsatcount[i] && arraycsatsumma[i]) {
 				csatrows[i].textContent = (arraycsatsumma[i] / arraycsatcount[i]).toFixed(2);
+				alloperCSATsumma += arraycsatsumma[i]
+				alloperCSATcount += arraycsatcount[i]
 			} else {
 				csatrows[i].textContent = "No marks!"
 			}
@@ -738,6 +744,8 @@ async function getopersSLA() {
 			} else {
 				slarows[i].textContent  = "100%"
 			}
+							
         }
+		document.getElementById('avgCsatonGroup').textContent = alloperCSATsumma / alloperCSATcount;
     }
 }
