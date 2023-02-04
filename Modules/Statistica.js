@@ -142,7 +142,7 @@ async function getStats() { // функция получения статист�
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
-    let columnNames = ["👨‍💻Оператор", "💪Закрыл запросов", "⚡Пощупал чатов", "🕒SLA закрытия", "⚠AvgCSAT", "💬ART"]
+    let columnNames = ["👨‍💻Оператор", "💪Закрыто", "⚡Пощупано", "🕒SLA закрытия", "⚠AvgCSAT", "💬ART"]
     let trHead = document.createElement('tr')
     for (let i = 0; i < columnNames.length; i++) {
         var th = document.createElement('th')
