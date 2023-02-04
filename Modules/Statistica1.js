@@ -291,6 +291,16 @@ async function getStats() { // функция получения статист�
     sumchatcount.textContent = 'Общая сумма пощупаных чатов за сутки по отделу: ' + summcnt;
     sumchatcount.style.marginLeft = '50px'
     document.getElementById('outputstatafield').append(sumchatcount)
+	
+	let averageCSATonGroup = = document.createElement('div')
+	averageCSATonGroup.textContent = 'Средний CSAT по отделу: ' + '<span id ="avgCsatonGroup">⏳ Loading</span>';
+	averageCSATonGroup.style.marginLeft = '50px'
+	document.getElementById('outputstatafield').append(averageCSATonGroup)
+
+	let averageSLAclsGroup = = document.createElement('div')
+	averageSLAclsGroup.textContent = '%SLA закрытия по отделу: ' + '<span id ="SLAonGroup">⏳ Loading</span>';
+	averageSLAclsGroup.style.marginLeft = '50px'
+	document.getElementById('outputstatafield').append(averageSLAclsGroup)
 
     getopersSLA();
 
