@@ -2,10 +2,11 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
     `<div style="display: flex; width: 750px;">
         <span style="width: 750px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 750px;" id="froze_chat_header">
+                        <div style="margin: 5px; width: 750px; display:flex; justify-content:space-evenly;" id="stataaf_header">
                                 <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
 								<input type="text" id="timeoutput" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
+								<div style="width:450px;background: #5f7875;height: 21px;"><div id="progress-bar" style="width: 0%; height: 20px; background-color: #e38118; border: 1px solid black; text-align:center; font-weight:700; color:white;"></div></div>
 			    </span>
                         </div>
 						<div style="width: 750px; display:flex; justify-content: space-evenly; margin-bottom:5px;">
@@ -78,6 +79,9 @@ buttonGetStat.onclick = function () { // по клику
         document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
 
         document.getElementById('outputstatafield').innerHTML = '⏳ Загрузка...'
+        document.getElementById('progress-bar').innerHTML = ''
+        document.getElementById('progress-bar').style.width = '0'
+
 
         let dateReq = new Date();
         let hoursReq = dateReq.getHours();
@@ -98,8 +102,25 @@ buttonGetStat.onclick = function () { // по клику
     }
 }
 
+let firstDate;
+let secondDateN;
 function getyesterdayandtoday() {
-    console.log("test")
+    const padStart = (string, targetLength, padString) => {
+        return String(string).padStart(targetLength, padString);
+    }
+
+    const getFormattedDate = (date) => {
+        const year = date.getFullYear();
+        const month = padStart(date.getMonth() + 1, 2, '0');
+        const day = padStart(date.getDate(), 2, '0');
+        return `${year}-${month}-${day}T21:00:00.000z`;
+    }
+
+    const now = new Date();
+    secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
+
+    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
+    firstDate = getFormattedDate(yesterday);
 }
 
 document.getElementById('hidestatisticaaf').onclick = function () { // кнопка скрытия окна статистики
@@ -111,6 +132,8 @@ document.getElementById('clearstatawindow').onclick = function () { // кноп�
     document.getElementById('outputstatafield').innerHTML = '';
     document.getElementById('loadkctp').innerHTML = '';
     document.getElementById('timeoutput').value = ''
+    document.getElementById('progress-bar').innerHTML = ''
+    document.getElementById('progress-bar').style.width = '0'
 }
 
 async function getStats() { // функция получения статистики за день (сколько чатов закрыто, пощупано, время работы)
@@ -119,7 +142,7 @@ async function getStats() { // функция получения статист�
     table.style = 'table-layout: auto; width:750px;'
     table.style.textAlign = 'center'
     table.id = 'tableStats'
-    let columnNames = ["Оператор", "Закрыл запросов", "Пощупал чатов", "Среднее время ожидания", "Среднее время работы"]
+    let columnNames = ["👨‍💻Оператор", "💪Закрыл запросов", "⚡Пощупал чатов", "🕒SLA закрытия", "⚠AvgCSAT", "💬ART"]
     let trHead = document.createElement('tr')
     for (let i = 0; i < columnNames.length; i++) {
         var th = document.createElement('th')
@@ -168,19 +191,7 @@ async function getStats() { // функция получения статист�
             }
     }))
 
-
-    const getFormattedDate = (date) => {
-        const year = date.getFullYear();
-        const month = padStart(date.getMonth() + 1, 2, '0');
-        const day = padStart(date.getDate(), 2, '0');
-        return `${year}-${month}-${day}T21:00:00.000z`;
-    }
-
-    const now = new Date();
-    const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
-
-    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
-    const firstDate = getFormattedDate(yesterday);
+    getyesterdayandtoday()
 
     var operatorChatCount = []
     for (var l = 0; l < operatorId.length; l++) {
@@ -203,7 +214,7 @@ async function getStats() { // функция получения статист�
     let tbody = document.createElement('tbody')
     for (let i = 0; i < arrayvars.length; i++) {
         var tr = document.createElement('tr')
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < 6; j++) {
             var td = document.createElement('td')
             switch (j) {
                 case 0:
@@ -226,14 +237,16 @@ async function getStats() { // функция получения статист�
                     td.classList.add("chtclosed");
                     break;
                 case 3:
-                    var averageAnswerTime = Math.floor(arrayvars[i].averageAnswerTime / 1000)
-                    averageAnswerTime = averageAnswerTime < 60 ? '00:' + averageAnswerTime : Math.floor(averageAnswerTime / 60) + ':' + ((averageAnswerTime % 60) < 10 ? '0' + (averageAnswerTime % 60) : (averageAnswerTime % 60))
-                    td.textContent = averageAnswerTime;
+                    td.textContent = "⏳ Loading";
+                    td.setAttribute('name', 'sladata');
                     break;
                 case 4:
-                    var averageHandlingTime = Math.floor(arrayvars[i].averageHandlingTime / 1000)
-                    averageHandlingTime = averageHandlingTime < 60 ? averageHandlingTime : Math.floor(averageHandlingTime / 60) + ':' + ((averageHandlingTime % 60) < 10 ? '0' + (averageHandlingTime % 60) : (averageHandlingTime % 60))
-                    td.textContent = averageHandlingTime;
+                    td.textContent = "⏳ Loading";
+                    td.setAttribute('name', 'csatdata');
+                    break;
+				case 5:
+                    td.textContent = "⏳ Loading";
+                    td.setAttribute('name', 'artdata');
                     break;
             }
             tr.append(td)
@@ -279,6 +292,8 @@ async function getStats() { // функция получения статист�
     sumchatcount.style.marginLeft = '50px'
     document.getElementById('outputstatafield').append(sumchatcount)
 
+    getopersSLA();
+
 }
 
 async function checkCSAT() { // функция проверки CSAT и чатов без тематики
@@ -313,23 +328,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
     document.getElementById('msgloader').style.display = ''
     document.getElementById('csatandthemes').append(str)
 
-
-    const padStart = (string, targetLength, padString) => {
-        return String(string).padStart(targetLength, padString);
-    }
-
-    const getFormattedDate = (date) => {
-        const year = date.getFullYear();
-        const month = padStart(date.getMonth() + 1, 2, '0');
-        const day = padStart(date.getDate(), 2, '0');
-        return `${year}-${month}-${day}T21:00:00.000z`;
-    }
-
-    const now = new Date();
-    const secondDateN = `${now.getFullYear()}-${padStart(now.getMonth() + 1, 2, '0')}-${padStart(now.getDate(), 2, '0')}T20:59:59.059z`;
-
-    const yesterday = new Date(now - 24 * 60 * 60 * 1000);
-    const firstDate = getFormattedDate(yesterday);
+    getyesterdayandtoday()
 
     try {
         page = 1
@@ -528,8 +527,8 @@ async function checkCSAT() { // функция проверки CSAT и чато
             chatHistorySearchButton.click();
         });
     });
-	
-	document.getElementById('buttonCheckStats').textContent = 'Проверить CSAT + тематики'
+
+    document.getElementById('buttonCheckStats').textContent = 'Проверить CSAT + тематики'
 }
 
 async function checkload(department, flag) { // функция проверки нагрузки на отделы ТП и КЦ по отдельности в зависимости от аргументов
@@ -547,16 +546,16 @@ async function checkload(department, flag) { // функция проверки 
     let timeReq = `${hoursReq} : ${minutesReq} : ${secondsReq}`;
 
     document.getElementById("timeoutput").value = timeReq;
- 
+
     document.getElementById('retreivestata').classList.remove('active-stat-tab')
     document.getElementById('buttonCheckStats').classList.remove('active-stat-tab')
-	if (flag == 'КЦ') {
-		document.getElementById('buttonKCpower').classList.add('active-stat-tab')
-		document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
-	} else if (flag == 'ТП') {
-		document.getElementById('buttonTPpower').classList.add('active-stat-tab')
-		document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
-	}
+    if (flag == 'КЦ') {
+        document.getElementById('buttonKCpower').classList.add('active-stat-tab')
+        document.getElementById('buttonTPpower').classList.remove('active-stat-tab')
+    } else if (flag == 'ТП') {
+        document.getElementById('buttonTPpower').classList.add('active-stat-tab')
+        document.getElementById('buttonKCpower').classList.remove('active-stat-tab')
+    }
 
     document.getElementById('outputstatafield').style.display = 'none'
     document.getElementById('csatandthemes').style.display = 'none'
@@ -615,4 +614,120 @@ async function checkload(department, flag) { // функция проверки 
         }, 1000)
 
     })
+}
+
+let arrayofSLA;
+let filteredarray;
+async function getopersSLA() {
+    let progressBar = document.getElementById("progress-bar");
+    let currentWidth = 0;
+    let page;
+    let maxpage = 0;
+	let operartcount;
+	let operclschatcount;
+	let totalChatsClosed=[];
+	let arrayartcount =[];
+	let arraycsatcount = [];
+	let arraycsatsumma = [];
+	let operatorOverdueChats=[];
+	let csatcount;
+	let csatsumma;
+	let overduecount;
+
+    let slarows = document.getElementsByName('sladata');
+    let csatrows = document.getElementsByName('csatdata');
+	let artrows = document.getElementsByName('artdata');
+
+    getyesterdayandtoday();
+    let operdata;
+    filteredarray = [];
+    arrayofSLA = [];
+    if (activeopersId) {
+        let step = 100 / activeopersId.length;
+        for (let i = 0; i < activeopersId.length; i++) {
+			operartcount = 0;
+			operclschatcount = 0;
+			csatcount = 0;
+			csatsumma = 0;
+			overduecount = 0;
+            page = 1;
+            do {
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: `{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"${activeopersId[i]}\"],\"tsFrom\":\"${firstDate}\",\"tsTo\":\"${secondDateN}\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":${page},\"limit\":100}`,
+                    method: "POST",
+                    mode: "cors",
+                    credentials: "include"
+                })
+                    .then((r) => r.json())
+                    .then((r) => (operdata = r));
+
+                for (let j = 0; j < operdata.items.length; j++) {
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + operdata.items[j].conversationId)
+                        .then((r) => r.json())
+                        .then((r) => (fres = r));
+                    if (fres.operatorId == activeopersId[i]) {
+						operclschatcount++;
+						totalChatsClosed[i] = operclschatcount;
+                        filteredarray.push({
+                            ["id"]: "operator" + [i + 1],
+                            ["chatHashId"]: operdata.items[j].conversationId,
+                            ["Duration"]: operdata.items[j].stats.conversationDuration
+                                ? (operdata.items[j].stats.conversationDuration / 1000 / 60).toFixed(1)
+                                : "0.0",
+                            ["Rate"]: operdata.items[j].stats.rate.rate
+                                ? operdata.items[j].stats.rate.rate
+                                : null,
+                        });
+						
+						if (operdata.items[j].stats.averageOperatorAnswerTime && ((operdata.items[j].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
+                            operartcount++;
+							arrayartcount[i] = operartcount
+                        } else {
+							arrayartcount[i] = 0;
+						}
+						
+						if (operdata.items[j].stats.rate.rate) {
+                            csatcount++;
+							csatsumma += operdata.items[j].stats.rate.rate
+							arraycsatcount[i] = csatcount
+							arraycsatsumma[i] = csatsumma
+                        } 
+						
+						if (operdata.items[j].stats.conversationDuration  && (operdata.items[j].stats.conversationDuration / 1000 / 60).toFixed(1) >= 25) {
+							overduecount++
+							operatorOverdueChats[i] = overduecount
+						} 
+						
+                    }
+                }
+				//console.log('stranica: ' + page)
+                page++;
+                maxpage = operdata.total / 100;
+				//console.log('stranica new: ' + page)
+			    //console.log('stranica maxpage: ' + maxpage)
+            } while (page-1 < maxpage);
+			currentWidth += step;
+			progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
+			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
+			console.log("Massive closed chats of operator: " + totalChatsClosed)
+			console.log("Massive prosroch art chats of operator: " + arrayartcount)
+			console.log("Massive CSAT summa of operator: " + arraycsatsumma)
+			console.log("Massive CSAT count of operator: " + arraycsatcount)
+			console.log("Massive prosrosch SLA count of operator: " + operatorOverdueChats)
+			artrows[i].textContent = (100 - (arrayartcount[i] / totalChatsClosed[i])*100).toFixed(1) + '%';
+			if (arraycsatcount[i] && arraycsatsumma[i]) {
+				csatrows[i].textContent = (arraycsatsumma[i] / arraycsatcount[i]).toFixed(2);
+			} else {
+				csatrows[i].textContent = "No marks!"
+			}
+			if (operatorOverdueChats[i]) {
+				slarows[i].textContent = (100 - (operatorOverdueChats[i] / totalChatsClosed[i])*100).toFixed(1) + '%'
+			} else {
+				slarows[i].textContent  = "100%"
+			}
+        }
+    }
 }
