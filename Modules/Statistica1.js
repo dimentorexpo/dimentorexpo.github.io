@@ -645,6 +645,8 @@ async function getopersSLA() {
 	let overduecount;
 	let alloperCSATsumma = 0;
 	let alloperCSATcount = 0;
+	let alloperSLAclsed = 0;
+	let alloperChatsclsed = 0;
 
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
@@ -740,12 +742,15 @@ async function getopersSLA() {
 				csatrows[i].textContent = "No marks!"
 			}
 			if (operatorOverdueChats[i]) {
+				alloperSLAclsed += operatorOverdueChats[i]
+				alloperChatsclsed += totalChatsClosed[i]
 				slarows[i].textContent = (100 - (operatorOverdueChats[i] / totalChatsClosed[i])*100).toFixed(1) + '%'
 			} else {
 				slarows[i].textContent  = "100%"
 			}
 							
         }
-		document.getElementById('avgCsatonGroup').textContent = alloperCSATsumma / alloperCSATcount;
+		document.getElementById('avgCsatonGroup').textContent = (alloperCSATsumma / alloperCSATcount).toFixed(2);
+		document.getElementById('SLAonGroup').textContent = (100 - (alloperSLAclsed / alloperChatsclsed)*100).toFixed(1);
     }
 }
