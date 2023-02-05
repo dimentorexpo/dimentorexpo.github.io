@@ -67,6 +67,7 @@ document.getElementById('datsyCalendar').onclick = function () {
 
 let responseslotsdata;
 document.getElementById('getCalendarData').onclick = function () {
+	responseslotsdata = '';
 	if (document.getElementsByName('slotRow').length > 0) {
 	  let elements = document.getElementsByName('slotRow');
 	  for (let i = elements.length - 1; i >= 0; i--) {
