@@ -67,6 +67,7 @@ document.getElementById('datsyCalendar').onclick = function () {
 
 let responseslotsdata;
 document.getElementById('getCalendarData').onclick = function () {
+	document.getElementById('outputcalendarfield').innerHTML = ''
 	let searchDate = document.getElementById('eventDate').value;
 	document.getElementById('responseTextarea1').value = '{}';
 	document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/main-events/?date=${searchDate}`;
@@ -96,7 +97,7 @@ document.getElementById('getCalendarData').onclick = function () {
 				document.getElementById('outputcalendarfield').append(tempor);
 				
 				if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 1 ) {
-					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:red; border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
+					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:rgb(171 65 62); border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
 				} else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 0) {
 					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:green; border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
 				} else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot > 0 && availableslotsentries[62][1].CountEvent / availableslotsentries[62][1].CountSlot <1) {
