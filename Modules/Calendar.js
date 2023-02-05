@@ -63,21 +63,10 @@ document.getElementById('datsyCalendar').onclick = function () {
 
 }
 
+let responseslotsdata;
 document.getElementById('getCalendarData').onclick = function () {
 	let searchDate = document.getElementById('eventDate').value;
-	document.getElementById('responseTextarea1').value = `{
-		"headers": {
-			"sec-fetch-dest": "empty",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-site"
-		  },
-		  "referrer": "https://datsy.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
-		  "body": null,
-		  "method": "GET",
-		  "mode": "cors",
-		  "credentials": "include"
-		  }`;
+	document.getElementById('responseTextarea1').value = '{}';
 	document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/main-events/?date=${searchDate}`;
 	document.getElementById('responseTextarea3').value = 'getslotsinfo';
 	
@@ -88,10 +77,11 @@ document.getElementById('getCalendarData').onclick = function () {
 	document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
 		// Get the 'getslotsinfo' attribute from the 'responseTextarea1' element
 		const responsevar = document.getElementById('responseTextarea1').getAttribute('getslotsinfo');
+		responseslotsdata = responsevar;
 
 		// Check if the 'getslotsinfo' attribute is not null
-		if (responsevar) {
-				console.log(responsevar)
+		if (responseslotsdata) {
+				console.log(responseslotsdata)
 
 			// Remove the 'getslotsinfo'
 			document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
