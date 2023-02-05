@@ -23,9 +23,11 @@ var win_Themes =  // описание элементов окна Тематик
 
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); letter-spacing: .5rem;">Теги</label>
-							<br>
-							<button id="multitag" style="width: 300px; margin-top:5px;">Мультитег</button>
 						</div>
+                        <div id="multitag_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
+                            <br>
+                            <button id="multitag" style="width: 300px; margin-top:5px;">Мультитег</button>
+                        </div>
                 </span>
         </span>
 </div>`;
@@ -188,11 +190,12 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
 
     function refreshThemesBtns() { // функция обновляет тематики которые загружены были с гугл таблицы и сформированы их в tableth
 
-        templatesAF = []
-        while (document.getElementById('pages').children[0] != undefined)
-            document.getElementById('pages').children[0].remove()
-        for (i = 0; document.getElementById(i + 'page') != undefined; i++)
-            document.getElementById(i + 'page').remove()
+        while (document.getElementById('themes_body').children[2] != undefined)
+            document.getElementById('themes_body').children[2].remove()
+        while (document.getElementById('tags_body').children[2] != undefined)
+            document.getElementById('tags_body').children[2].remove()
+        for (i = 0; document.getElementById(i + 'themesbtn') != undefined; i++)
+            document.getElementById(i + 'themesbtn').remove()
         while (document.getElementById('addTmp').children[0].children[0] != undefined)
             document.getElementById('addTmp').children[0].children[0].remove()
         countOfStr = 0
