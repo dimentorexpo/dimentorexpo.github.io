@@ -77,16 +77,15 @@ document.getElementById('getCalendarData').onclick = function () {
 	document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
 		// Get the 'getslotsinfo' attribute from the 'responseTextarea1' element
 		const responsevar = document.getElementById('responseTextarea1').getAttribute('getslotsinfo');
-		responseslotsdata = responsevar;
 
 		// Check if the 'getslotsinfo' attribute is not null
-		if (responseslotsdata) {
+		if (responsevar) {
+				responseslotsdata = responsevar;
 				console.log(responseslotsdata)
-
 			// Remove the 'getslotsinfo'
-			document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
 		}
 	})
+			document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
 }
 
 document.getElementById('hidecalendar').onclick = function () {
