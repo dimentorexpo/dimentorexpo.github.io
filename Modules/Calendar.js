@@ -113,6 +113,8 @@ document.getElementById('getCalendarData').onclick = function () {
 					tempor.setAttribute('style', 'width: 50%; height: 20px; color: white; font-weight:700; background:rgb(196 161 55); border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
 				} else if (availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == 0) {
 					tempor.setAttribute('style', 'width: 50%; height: 20px; color: white; font-weight:700; background:rgb(113 121 125); border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
+				} else if (availableslotsentries[i][1].AssignSlot == 0 && availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == availableslotsentries[i][1].FreeSlot) {
+					tempor.setAttribute('style', 'width: 50%; height: 20px; color: white; font-weight:700; background:rgb(113 121 125); border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
 				}
 
 				tempor.setAttribute('name', 'slotRow');
