@@ -67,7 +67,14 @@ document.getElementById('datsyCalendar').onclick = function () {
 
 let responseslotsdata;
 document.getElementById('getCalendarData').onclick = function () {
+	if(document.getElementsByName('slotRow').length>0)  {	
+		for (let i = document.getElementsByName('slotRow').length; i>0; i--) {
+		document.getElementsByName('slotRow')[i].remove()
+		}
+	} 
+
 	document.getElementById('outputcalendarfield').innerHTML = ''
+	let textvar = 0;
 	let searchDate = document.getElementById('eventDate').value;
 	document.getElementById('responseTextarea1').value = '{}';
 	document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/main-events/?date=${searchDate}`;
@@ -119,6 +126,10 @@ document.getElementById('hidecalendar').onclick = function () {
 }
 
 document.getElementById('clearcalendar').onclick = function () {
+	document.getElementById('outputcalendarfield').innerHTML = ''
+	for (let i = document.getElementsByName('slotRow').length; i>0; i--) {
+		document.getElementsByName('slotRow')[i].remove()
+	}
 	console.log("Clear")
 }
 
