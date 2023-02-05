@@ -92,11 +92,11 @@ document.getElementById('getCalendarData').onclick = function () {
 				console.log(availableslotsentries[i])
 				
 				textvar = availableslotsentries[i][0] + availableslotsentries[i][1].FreeSlot + '/' + availableslotsentries[i][1].CountSlot
-				let tempor = document.createElement('span');
+				let tempor = document.createElement('p');
 				document.getElementById('outputcalendarfield').append(tempor);
 				tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:12px; height:25px;');
 				tempor.setAttribute('wrap', 'soft');
-				tempor.value = textvar;
+				tempor.textContent = textvar;
 				
 				}
 			}	
