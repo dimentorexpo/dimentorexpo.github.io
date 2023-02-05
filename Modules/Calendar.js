@@ -80,7 +80,7 @@ document.getElementById('getCalendarData').onclick = function () {
 
 		// Check if the 'getslotsinfo' attribute is not null
 		if (responsevar) {
-				responseslotsdata = responsevar;
+				responseslotsdata = JSON.parse(responsevar);
 				console.log(responseslotsdata)
 			// Remove the 'getslotsinfo'
 		}
