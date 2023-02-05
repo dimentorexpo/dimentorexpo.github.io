@@ -73,7 +73,7 @@ document.getElementById('getCalendarData').onclick = function () {
 			"sec-fetch-site": "same-site"
 		  },
 		  "referrer": "https://datsy.ru/",
-		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "referrerPolicy": "same-origin",
 		  "body": null,
 		  "method": "GET",
 		  "mode": "cors",
