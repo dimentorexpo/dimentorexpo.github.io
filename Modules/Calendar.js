@@ -67,13 +67,12 @@ document.getElementById('getCalendarData').onclick = function () {
 	let searchDate = document.getElementById('eventDate').value;
 	document.getElementById('responseTextarea1').value = `{
 		"headers": {
-			"content-type": "application/x-www-form-urlencoded; charset=UTF-8",
 			"sec-fetch-dest": "empty",
 			"sec-fetch-mode": "cors",
 			"sec-fetch-site": "same-site"
 		  },
 		  "referrer": "https://datsy.ru/",
-		  "referrerPolicy": "same-origin",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
 		  "body": null,
 		  "method": "GET",
 		  "mode": "cors",
