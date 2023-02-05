@@ -107,7 +107,7 @@ document.getElementById('getCalendarData').onclick = function () {
 				document.getElementById('outputcalendarfield').append(tempor);
 				
 				if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 1 ) {
-					tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px;'');
+					tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px;');
 				} else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 0) {
 					tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(62 158 83); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px;'');
 				} else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot > 0 && availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot <1) {
