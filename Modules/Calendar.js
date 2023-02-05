@@ -75,7 +75,6 @@ document.getElementById('getCalendarData').onclick = function () {
 	  }
 	}
 
-	document.getElementById('outputcalendarfield').innerHTML = ''
 	let textvar = 0;
 	let searchDate = document.getElementById('eventDate').value;
 	document.getElementById('responseTextarea1').value = '{}';
@@ -92,6 +91,7 @@ document.getElementById('getCalendarData').onclick = function () {
 
 		// Check if the 'getslotsinfo' attribute is not null
 		if (responsevar) {
+				document.getElementById('outputcalendarfield').innerHTML = ''
 				responseslotsdata = JSON.parse(responsevar);
 				console.log(responseslotsdata)
 				document.getElementById('datenowtime').value = responseslotsdata.nowDateTime;
