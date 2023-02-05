@@ -91,10 +91,10 @@ document.getElementById('getCalendarData').onclick = function () {
 				if (availableslotsentries[i][0] != "00:00" && availableslotsentries[i][0] != "00:20" && availableslotsentries[i][0] != "00:40" && availableslotsentries[i][0] != "23:00" && availableslotsentries[i][0] != "23:20" && availableslotsentries[i][0] != "23:40" && availableslotsentries[i][0] != "01:00" && availableslotsentries[i][0] != "01:20" && availableslotsentries[i][0] != "01:40" && availableslotsentries[i][0] != "02:00" && availableslotsentries[i][0] != "02:20" && availableslotsentries[i][0] != "02:40" && availableslotsentries[i][0] != "03:00" && availableslotsentries[i][0] != "03:20" && availableslotsentries[i][0] != "03:40" && availableslotsentries[i][0] != "04:00" && availableslotsentries[i][0] != "04:20" && availableslotsentries[i][0] != "04:40" && availableslotsentries[i][0] != "05:00" && availableslotsentries[i][0] != "05:20" && availableslotsentries[i][0] != "05:40" && availableslotsentries[i][0] != "06:00" && availableslotsentries[i][0] != "06:20" && availableslotsentries[i][0] != "06:40" && availableslotsentries[i][0] != "07:00" && availableslotsentries[i][0] != "07:20" && availableslotsentries[i][0] != "07:40") {
 				console.log(availableslotsentries[i])
 				
-				textvar = availableslotsentries[i][0] 
-				let tempor = document.createElement('textarea');
+				textvar = availableslotsentries[i][0] + availableslotsentries[i][1].FreeSlot + '/' + availableslotsentries[i][1].CountSlot
+				let tempor = document.createElement('span');
 				document.getElementById('outputcalendarfield').append(tempor);
-				tempor.setAttribute('style', 'width: 99.4%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:13px; height:48px;');
+				tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background-color:#464451;border-style:double; font-size:12px; height:25px;');
 				tempor.setAttribute('wrap', 'soft');
 				tempor.value = textvar;
 				
