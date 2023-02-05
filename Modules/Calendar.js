@@ -55,13 +55,36 @@ document.getElementById('datsyCalendar').onclick = function () {
 		let year = getcurdate.getFullYear();
 		let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
 		let day = String(getcurdate.getDate()).padStart(2, "0");
-		document.getElementById("eventDate").value = `${year}-${month}-${day}`;
-		
+		document.getElementById("eventDate").value = `${year}-${month}-${day}`;	
 		
 	} else {
 		document.getElementById('AF_Calendar').style.display = "none"
 	}
 
+}
+
+document.getElementById('getCalendarData').onclick = function () {
+	let searchDate = document.getElementById('eventDate').value;
+	document.getElementById('responseTextarea1').value = '{}';
+	document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/main-events/?date=${searchDate}`;
+	document.getElementById('responseTextarea3').value = 'getslotsinfo';
+	
+				// Click the 'sendResponse' element to trigger the DOMSubtreeModified event
+	document.getElementById('sendResponse').click();
+
+	// Add an event listener for the DOMSubtreeModified event
+	document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+		// Get the 'getslotsinfo' attribute from the 'responseTextarea1' element
+		const responsevar = document.getElementById('responseTextarea1').getAttribute('getslotsinfo');
+
+		// Check if the 'getslotsinfo' attribute is not null
+		if (responsevar) {
+				console.log(responsevar)
+
+			// Remove the 'getslotsinfo'
+			document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
+		}
+	})
 }
 
 document.getElementById('hidecalendar').onclick = function () {
