@@ -67,11 +67,12 @@ document.getElementById('datsyCalendar').onclick = function () {
 
 let responseslotsdata;
 document.getElementById('getCalendarData').onclick = function () {
-	if(document.getElementsByName('slotRow').length>0)  {	
-		for (let i = document.getElementsByName('slotRow').length; i>0; i--) {
-		document.getElementsByName('slotRow')[i].remove()
-		}
-	} 
+	if (document.getElementsByName('slotRow').length > 0) {
+	  let elements = document.getElementsByName('slotRow');
+	  for (let i = elements.length - 1; i >= 0; i--) {
+		elements[i].remove();
+	  }
+	}
 
 	document.getElementById('outputcalendarfield').innerHTML = ''
 	let textvar = 0;
@@ -127,9 +128,12 @@ document.getElementById('hidecalendar').onclick = function () {
 
 document.getElementById('clearcalendar').onclick = function () {
 	document.getElementById('outputcalendarfield').innerHTML = ''
-	for (let i = document.getElementsByName('slotRow').length; i>0; i--) {
-		document.getElementsByName('slotRow')[i].remove()
-	}
+		if (document.getElementsByName('slotRow').length > 0) {
+		  let elements = document.getElementsByName('slotRow');
+		  for (let i = elements.length - 1; i >= 0; i--) {
+			elements[i].remove();
+		  }
+		}
 	console.log("Clear")
 }
 
