@@ -1,15 +1,18 @@
 var win_Calendar =  // описание формы чтобы не давала чату закрыться
-    `<div style="display: flex; width: 750px;">
+    `<div style="width: 750px;">
         <span style="width: 750px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 750px; display:flex; justify-content:space-evenly;" id="stataaf_header">
+                        <div style="margin: 5px; width: 750px;" id="stataaf_header">
                                 <button title="скрывает меню" id="hidecalendar" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearcalendar">🧹</button>
 								<button id="refreshcalendar">♻</button>
-								<input type="text" id="timeoutput" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
-								<button id="getCalendarData">Go</button>
 			    </span>
                         </div>
+						
+						<div>
+								<input type="date" id="eventDate" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
+								<button id="getCalendarData">Go</button>
+						</div>
 
 						<div id="outputcalendarfield" style="color:bisque;">
 						</div>
@@ -43,3 +46,24 @@ wintCalendar.onmousedown = function (a) {
     }
 }
 wintCalendar.onmouseup = function () { document.removeEventListener('mousemove', listenerCalendar); }
+
+document.getElementById('datsyCalendar').onclick = function () {
+	if (document.getElementById('AF_Calendar').style.display == "none") {
+		document.getElementById('AF_Calendar').style.display = ""
+	} else {
+		document.getElementById('AF_Calendar').style.display = "none"
+	}
+
+}
+
+document.getElementById('hidecalendar').onclick = function () {
+	document.getElementById('AF_Calendar').style.display = "none"
+}
+
+document.getElementById('clearcalendar').onclick = function () {
+	console.log("Clear")
+}
+
+document.getElementById('refreshcalendar').onclick = function () {
+	console.log("Refresh")
+}
