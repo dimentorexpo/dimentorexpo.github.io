@@ -17,7 +17,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 								<input type="text" id="datenowtime" style="text-align:center;" disabled></input>
 						</div>
 
-						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap;">
+						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap; justify-content: center; align-items: center;">
 						</div>
         </span>
 </div>`;
