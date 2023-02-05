@@ -17,7 +17,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 								<input type="text" id="datenowtime" style="text-align:center;" disabled></input>
 						</div>
 
-						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap; justify-content: center; align-items: center;">
+						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap; justify-content: center; align-items: center; padding-bottom: 5px;">
 						</div>
         </span>
 </div>`;
@@ -111,7 +111,7 @@ document.getElementById('getCalendarData').onclick = function () {
 				} else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 0) {
 					tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(62 158 83); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px');
 				} else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot > 0 && availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot <1) {
-					tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(196 161 55); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px');
+					tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(62 158 83); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px');
 				} else if (availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == 0) {
 					tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px');
 				} else if (availableslotsentries[i][1].AssignSlot == 0 && availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == availableslotsentries[i][1].FreeSlot) {
