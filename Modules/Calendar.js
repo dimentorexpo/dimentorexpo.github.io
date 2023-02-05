@@ -6,6 +6,7 @@ var win_Calendar =  // описание формы чтобы не давала 
                                 <button title="скрывает меню" id="hidecalendar" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearcalendar">🧹</button>
 								<button id="refreshcalendar">♻</button>
+								<button id="opendatsy">📅</button>
 			    </span>
                         </div>
 						
@@ -144,4 +145,8 @@ document.getElementById('clearcalendar').onclick = function () {
 
 document.getElementById('refreshcalendar').onclick = function () {
 	console.log("Refresh")
+}
+
+document.getElementById('opendatsy').onclick = function () {
+	window.open("https://datsy.ru/")
 }
