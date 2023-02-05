@@ -108,11 +108,11 @@ document.getElementById('getCalendarData').onclick = function () {
 				if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 1 ) {
 					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:rgb(171 65 62); border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
 				} else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 0) {
-					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:green; border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
+					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:rgb(62 158 83); border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
 				} else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot > 0 && availableslotsentries[62][1].CountEvent / availableslotsentries[62][1].CountSlot <1) {
-					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:gold; color: black; border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
+					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:rgb(196 161 55); color: black; border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
 				} else if (availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[62][1].CountSlot == 0) {
-					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:grey; color: black; border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
+					tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background:rgb(113 121 125); color: black; border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
 				}
 
 				tempor.setAttribute('name', 'slotRow');
