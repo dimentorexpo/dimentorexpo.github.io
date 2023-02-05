@@ -190,34 +190,31 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
 
     function refreshThemesBtns() { // функция обновляет тематики которые загружены были с гугл таблицы и сформированы их в tableth
 
-        while (document.getElementById('themes_body').children[2] != undefined)
+        while (document.getElementById('themes_body').children[2] != undefined) // удаляем кнопки страниц тематик
             document.getElementById('themes_body').children[2].remove()
-        while (document.getElementById('tags_body').children[2] != undefined)
+        while (document.getElementById('tags_body').children[2] != undefined) // удаляем кнопки тегов
             document.getElementById('tags_body').children[2].remove()
-        for (i = 0; document.getElementById(i + 'themesbtn') != undefined; i++)
+        for (i = 0; document.getElementById(i + 'themesbtn') != undefined; i++) // удаляем страницы тематик
             document.getElementById(i + 'themesbtn').remove()
-        while (document.getElementById('addTmp').children[0].children[0] != undefined)
-            document.getElementById('addTmp').children[0].children[0].remove()
-        countOfStr = 0
-        countOfPages = 0
-        pageName = ""
-        addTmpFlag = 0
-        b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
-        console.log(table)
-        for (i = 0; i < table.length; i++) {
-            c = table[i]
+        countOfthStr = 0
+        countOfthPages = 0
+        addTagFlag = 0
+        areaThbtns = document.getElementById('themes_body')
+        console.log(tableth)
+        for (i = 0; i < tableth.length; i++) {
+            c = tableth[i]
             switch (c[0]) {
                 case '':
-                    addTmpFlag = 0
-                    countOfStr++
+                    addTagFlag = 0
+                    countOfthStr++
                     var newStr = document.createElement('div')
                     newStr.style.margin = "5px"
-                    newStr.id = countOfPages + "page_" + countOfStr + "str"
-                    b.lastElementChild.appendChild(newStr)
+                    newStr.id = countOfthPages + "page_" + countOfthStr + "str"
+                    areaThbtns.lastElementChild.appendChild(newStr)
                     break
     
                 case 'Additional templates':
-                    addTmpFlag = 1
+                    addTagFlag = 1
                     break
                 case 'Страница':
                     var newPageBut = document.createElement('button')
@@ -225,96 +222,21 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                     pageType = c[2]
                     newPageBut.style.marginRight = '4px'
                     newPageBut.setAttribute('onclick', 'pageClick(this.id)')
-                    newPageBut.id = countOfPages + 'page_button'
-                    b.childNodes[3].appendChild(newPageBut)
+                    newPageBut.id = countOfthPages + 'page_button'
+                    areaThbtns.childNodes[3].appendChild(newPageBut)
     
                     var newPage = document.createElement('div')
-                    newPage.id = countOfPages + 'page'
-                    b.appendChild(newPage)
+                    newPage.id = countOfthPages + 'page'
+                    areaThbtns.appendChild(newPage)
     
-                    countOfPages++
+                    countOfthPages++
     
-                    countOfStr = 1
-    
-                    if (pageType == "Серверные") { // дорисоква инпута для ссылки на серверные
-                        var newDiv = document.createElement('div')
-                        newDiv.id = countOfPages + "page_" + countOfStr + "str"
-                        newDiv.style.margin = "5px"
-    
-                        var newInputAlink = document.createElement('input')
-                        newInputAlink.id = 'avariyalink'
-                        newInputAlink.placeholder = 'Ссылка на трэд или Jira северных'
-                        newInputAlink.autocomplete = 'off'
-                        newInputAlink.type = 'text'
-                        newInputAlink.style = 'text-align: center; width: 300px; color: black; margin-left: 7px'
-    
-                        newDiv.appendChild(newInputAlink)
-    
-                        var newbtnclrlink = document.createElement('button')
-                        newbtnclrlink.textContent = "🧹"
-                        newbtnclrlink.title = "Очищает поле задачи серверных"
-                        newbtnclrlink.onclick = function () {document.getElementById('avariyalink').value = ""}
-                        
-                        newDiv.appendChild(newbtnclrlink)
-    
-                        var newSelectAThemes = document.createElement('select')                    
-                        newSelectAThemes.id = 'avariyatema'
-                        newSelectAThemes.style = 'text-align: center; width: 300px; height: 26px; color: black; margin-left: 7px; margin-top: 5px'
-                        newSelectAThemes.type = 'text'
-    
-                        var newthemeoption = document.createElement('option')
-                        newthemeoption.text = "Выбери тематику для серверных"
-                        newthemeoption.selected = true
-                        newthemeoption.disabled = true
-                        newthemeoption.value = "thenenotselect"
-                        newthemeoption.style = "background-color:orange; color:white;"
-                        newSelectAThemes.add(newthemeoption)
-                                            
-                        ///
-                                            
-                        async function getAvariaThemes() {
-                        let objSelAvariaThema = document.getElementById("avariyatema");
-                        let avariatemacontainer;
-                        let themesfromdoc;
-                        if (objSelAvariaThema && objSelAvariaThema.children.length == 1) {
-                            clearInterval(getTms)
-                            console.log("Test true")
-    
-                            themesfromdoc = 'https://script.google.com/macros/s/AKfycbxNjuQ7EbZZkLEfC1_aSoK4ncsF0W0XSkjYttCj2nQ23BBzMEmDq-vqJL3MvwJk9Pnm_g/exec'
-                            await fetch(themesfromdoc).then(r => r.json()).then(r => avariatemadata = r)
-                            avariatemacontainer = avariatemadata.result;
-                            console.log(avariatemadata.result) //получим список проблем
-    
-                            for (let i = 0; i < avariatemacontainer.length; i++) {
-                                addOption(objSelAvariaThema, `${avariatemacontainer[i][3]}`, `${avariatemacontainer[i][4]}`) // переиндексацию нужно будет сделать
-                           }
-    
-                        } else {
-                           console.log('Test false')
-                        }
-                        }
-                    
-                        let getTms = setInterval(getAvariaThemes, 4000)
-                        
-                        ///
-    
-                        newDiv.appendChild(newSelectAThemes)
-                        
-                        var newbtnclrtheme = document.createElement('button')
-                        newbtnclrtheme.textContent = "🧹"
-                        newbtnclrtheme.title = "Очищает поле тематики серверных"
-                        newbtnclrtheme.onclick = function () {document.getElementById('avariyatema').children[0].selected = true}
-                        
-                        newDiv.appendChild(newbtnclrtheme)
-    
-                        b.lastElementChild.appendChild(newDiv)
-                        countOfStr++
-                    }
-    
+                    countOfthStr = 1
+        
                     var newStr = document.createElement('div')
                     newStr.style.margin = "5px"
-                    newStr.id = countOfPages + "page_" + countOfStr + "str"
-                    b.lastElementChild.appendChild(newStr)
+                    newStr.id = countOfthPages + "page_" + countOfthStr + "str"
+                    areaThbtns.lastElementChild.appendChild(newStr)
                     break
                 default:
                     switch (pageType) {
@@ -327,13 +249,13 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 var newBut = document.createElement('button')
                                 newBut.style.width = '20px'
                                 newBut.style.marginRight = '4px'
-                                newBut.id = countOfStr + 'str' + (j + 1)
+                                newBut.id = countOfthStr + 'str' + (j + 1)
                                 newBut.textContent = (j + 1)
                                 newBut.setAttribute('onclick', 'bagPageButtons(this.id)')
                                 newString.appendChild(newBut)
                             }
-                            countOfStr++
-                            b.lastElementChild.lastElementChild.appendChild(newString)
+                            countOfthStr++
+                            areaThbtns.lastElementChild.lastElementChild.appendChild(newString)
                             break
                         case 'Шаблоны':
                             var newBut = document.createElement('button')
@@ -346,8 +268,8 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 newBut.textContent = "ус+брауз"
                             if (newBut.textContent == 'ус+брауз (П)')
                                 continue
-                            if (addTmpFlag == 0)
-                                b.lastElementChild.lastElementChild.appendChild(newBut)
+                            if (addTagFlag == 0)
+                                areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             else {
                                 newBut.style.marginTop = '4px'
                                 document.getElementById('addTmp').children[0].appendChild(newBut)
@@ -357,35 +279,35 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                             var newBut = document.createElement('button')
                             newBut.textContent = c[0]
                             newBut.style.marginRight = '4px'
-                            b.lastElementChild.lastElementChild.appendChild(newBut)
+                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             break
                         case 'Серверные': // обработка нажатия на кнопку на странице серверные
                             var newBut = document.createElement('button')
                             newBut.textContent = c[0]
                             newBut.style.marginRight = '4px'
                             newBut.setAttribute('onclick', 'servFromDoc(this.textContent)')
-                            b.lastElementChild.lastElementChild.appendChild(newBut)
+                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             break
                         case 'ТемыМоб':
                             var newBut = document.createElement('button')
                             newBut.textContent = c[0]
                             newBut.style.marginRight = '4px'
                             newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
-                            b.lastElementChild.lastElementChild.appendChild(newBut)
+                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             break
                         case 'Темыadd':
                             var newBut = document.createElement('button')
                             newBut.textContent = c[0]
                             newBut.style.marginRight = '4px'
                             newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
-                            b.lastElementChild.lastElementChild.appendChild(newBut)
+                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             break
                         case 'Темы':
                             var newBut = document.createElement('button')
                             newBut.textContent = c[0]
                             newBut.style.marginRight = '4px'
                             newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
-                            b.lastElementChild.lastElementChild.appendChild(newBut)
+                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             break
                         default:
                             break
