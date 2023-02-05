@@ -12,6 +12,8 @@ var win_Calendar =  // описание формы чтобы не давала 
 						<div style="display: flex; justify-content: center;">
 								<input type="date" id="eventDate" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;"></input>
 								<button id="getCalendarData" style="margin-left: 10px; margin-bottom: 5px;">Go</button>
+								<label>Доступное время по состояниюб на: </label>
+								<input type="text" id="datenowtime"></input>
 						</div>
 
 						<div id="outputcalendarfield" style="color:bisque;">
@@ -82,7 +84,7 @@ document.getElementById('getCalendarData').onclick = function () {
 		if (responsevar) {
 				responseslotsdata = JSON.parse(responsevar);
 				console.log(responseslotsdata)
-			// Remove the 'getslotsinfo'
+				document.getElementById('datenowtime').value = responseslotsdata.nowDateTime;
 		}
 	})
 			document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
