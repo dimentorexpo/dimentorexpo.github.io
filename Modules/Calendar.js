@@ -95,7 +95,7 @@ document.getElementById('getCalendarData').onclick = function () {
 				let tempor = document.createElement('p');
 				document.getElementById('outputcalendarfield').append(tempor);
 				tempor.setAttribute('style', 'width: 50%; height: 20px; color: bisque; font-weight:500; background-color:#464451; border:1px solid; font-size:12px; height:25px; margin-bottom:2px; text-align:center;');
-				tempor.setAttribute('wrap', 'soft');
+				tempor.setAttribute('name', 'slotRow');
 				tempor.textContent = textvar;
 				
 				}
