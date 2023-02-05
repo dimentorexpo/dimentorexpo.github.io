@@ -50,6 +50,14 @@ wintCalendar.onmouseup = function () { document.removeEventListener('mousemove',
 document.getElementById('datsyCalendar').onclick = function () {
 	if (document.getElementById('AF_Calendar').style.display == "none") {
 		document.getElementById('AF_Calendar').style.display = ""
+		
+		let getcurdate = new Date();
+		let year = getcurdate.getFullYear();
+		let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
+		let day = String(getcurdate.getDate()).padStart(2, "0");
+		document.getElementById("eventDate").value = `${year}-${month}-${day}`;
+		
+		
 	} else {
 		document.getElementById('AF_Calendar').style.display = "none"
 	}
