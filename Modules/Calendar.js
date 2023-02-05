@@ -9,9 +9,9 @@ var win_Calendar =  // описание формы чтобы не давала 
 			    </span>
                         </div>
 						
-						<div>
-								<input type="date" id="eventDate" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
-								<button id="getCalendarData">Go</button>
+						<div style="display: flex; justify-content: center;">
+								<input type="date" id="eventDate" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;"></input>
+								<button id="getCalendarData" style="margin-left: 10px; margin-bottom: 5px;">Go</button>
 						</div>
 
 						<div id="outputcalendarfield" style="color:bisque;">

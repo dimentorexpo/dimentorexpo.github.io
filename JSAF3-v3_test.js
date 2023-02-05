@@ -472,7 +472,7 @@ function mystyles() {
 		transition: all 1s ease;
 	}
 
-	#opennewcat:hover , #crmopersstatuses:hover, #radioPlayer:hover  {
+	#opennewcat:hover , #crmopersstatuses:hover, #datsyCalendar:hover, #radioPlayer:hover  {
 		opacity: 1 !important;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
