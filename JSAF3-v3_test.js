@@ -1300,7 +1300,7 @@ function prepTp() { //функция подготовки расширения �
 	
 	let playerRadio = document.createElement('button')
     playerRadio.innerHTML = '📻'
-    playerRadio.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    playerRadio.style = 'position: fixed; top: 180px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     playerRadio.id = 'radioPlayer'
     playerRadio.title = 'Открывает радио проигрыватель'
     document.body.append(playerRadio)
