@@ -1289,7 +1289,15 @@ function prepTp() { //функция подготовки расширения �
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
     crmopers.classList = 'onlyfortp'
     document.body.append(crmopers) 
-
+	
+	let openCalendar = document.createElement('button')
+    openCalendar.innerHTML = '🗓'
+    openCalendar.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openCalendar.id = 'datsyCalendar'
+    openCalendar.title = 'Открывает календарь Datsy'
+	openCalendar.classList = 'onlyfortp'
+    document.body.append(openCalendar)
+	
 	let playerRadio = document.createElement('button')
     playerRadio.innerHTML = '📻'
     playerRadio.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
@@ -1331,6 +1339,7 @@ function prepTp() { //функция подготовки расширения �
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
 		"https://dimentorexpo.github.io/Modules/Statistica1.js", // модуль кнопки "Статистика" и вложенных функций
+		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Статистика" и вложенных функций
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
         "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
