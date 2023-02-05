@@ -65,7 +65,18 @@ document.getElementById('datsyCalendar').onclick = function () {
 
 document.getElementById('getCalendarData').onclick = function () {
 	let searchDate = document.getElementById('eventDate').value;
-	document.getElementById('responseTextarea1').value = '{}';
+	document.getElementById('responseTextarea1').value = `{
+		"headers": {
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-site"
+		  },
+		  "referrer": "https://datsy.ru/",
+		  "referrerPolicy": "strict-origin-when-cross-origin",
+		  "body": null,
+		  "method": "GET",
+		  "mode": "cors",
+		  "credentials": "include"
+		  }`;
 	document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/main-events/?date=${searchDate}`;
 	document.getElementById('responseTextarea3').value = 'getslotsinfo';
 	
