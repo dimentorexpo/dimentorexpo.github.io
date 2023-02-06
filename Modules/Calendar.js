@@ -77,10 +77,10 @@ document.getElementById('getCalendarData').onclick = function () {
 
     var dateCalend = new Date();
     var offsetCalend = 3; // Moscow Timezone Offset in hours
-    var utcHoursCalendar = date.getUTCHours();
+    var utcHoursCalendar = dateCalend.getUTCHours();
     var hoursCalendar = (utcHoursCalendar + offsetCalend) % 24;
-    hoursCalendar = hoursCalendar < 10 ? '0' + hours : hours;
-    var minutesCalendar = date.getMinutes();
+    hoursCalendar = hoursCalendar < 10 ? '0' + hoursCalendar : hoursCalendar;
+    var minutesCalendar = dateCalend.getMinutes();
     minutesCalendar = minutesCalendar < 10 ? '0' + minutesCalendar : minutesCalendar;
     var currentTimeCalendar = hoursCalendar + ':' + minutesCalendar;
 
