@@ -628,6 +628,23 @@ function mystyles() {
 		cursor: pointer;
 	}
 	
+	@media (min-width: 768px) {
+	  #outputcalendarfield {
+		flex-wrap: wrap;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	  }
+	  p[name="slotRow"]  {
+		width: calc(100% / 3);
+	  }
+	}
+	
+	#outputcalendarfield {
+		
+	}
+	
 	`
     mstl.innerHTML = style;
 }
