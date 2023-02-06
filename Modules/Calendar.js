@@ -141,7 +141,7 @@ document.getElementById('getCalendarData').onclick = function () {
                         tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px;');
                     }
 
-                    if (compareTimes(availableslotsentries[i][0], currentTimeCalendar) < 0 && eventDate == curentDate ) {
+                    if (compareTimes(availableslotsentries[i][0], currentTimeCalendar) <= 0 && eventDate == curentDate ) {
                         // document.getElementsByName('slotRow')[i].style.background = "rgb(171 65 62)";
 						 tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(126 113 113); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px;');
                     }
