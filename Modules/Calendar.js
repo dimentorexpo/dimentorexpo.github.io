@@ -74,7 +74,7 @@ document.getElementById('datsyCalendar').onclick = function () {
 
 let responseslotsdata;
 document.getElementById('getCalendarData').onclick = function () {
-
+	let eventDate = document.getElementById('eventDate').value
     var dateCalend = new Date();
     var offsetCalend = 3; // Moscow Timezone Offset in hours
     var utcHoursCalendar = dateCalend.getUTCHours();
@@ -83,6 +83,8 @@ document.getElementById('getCalendarData').onclick = function () {
     var minutesCalendar = dateCalend.getMinutes();
     minutesCalendar = minutesCalendar < 10 ? '0' + minutesCalendar : minutesCalendar;
     var currentTimeCalendar = hoursCalendar + ':' + minutesCalendar;
+	let curentDate = dateCalend.getFullYear() + '-' + ((+dateCalend.getMonth()+1) < 10 ? ("0" + (+dateCalend.getMonth()+1)) : dateCalend.getMonth()) + '-' + (dateCalend.getDate() < 10 ? "0" + dateCalend.getDate() : dateCalend.getDate() )
+
 
 
     responseslotsdata = '';
@@ -139,7 +141,7 @@ document.getElementById('getCalendarData').onclick = function () {
                         tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px;');
                     }
 
-                    if (compareTimes(availableslotsentries[i][0], currentTimeCalendar) < 0) {
+                    if (compareTimes(availableslotsentries[i][0], currentTimeCalendar) < 0 && eventDate == curentDate ) {
                         // document.getElementsByName('slotRow')[i].style.background = "rgb(171 65 62)";
 						 tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:2px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px;');
                     }
