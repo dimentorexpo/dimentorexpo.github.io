@@ -104,29 +104,29 @@ function getTimeSlots() {
                 if (availableslotsentries[i][0] != "00:00" && availableslotsentries[i][0] != "00:20" && availableslotsentries[i][0] != "00:40" && availableslotsentries[i][0] != "23:00" && availableslotsentries[i][0] != "23:20" && availableslotsentries[i][0] != "23:40" && availableslotsentries[i][0] != "01:00" && availableslotsentries[i][0] != "01:20" && availableslotsentries[i][0] != "01:40" && availableslotsentries[i][0] != "02:00" && availableslotsentries[i][0] != "02:20" && availableslotsentries[i][0] != "02:40" && availableslotsentries[i][0] != "03:00" && availableslotsentries[i][0] != "03:20" && availableslotsentries[i][0] != "03:40" && availableslotsentries[i][0] != "04:00" && availableslotsentries[i][0] != "04:20" && availableslotsentries[i][0] != "04:40" && availableslotsentries[i][0] != "05:00" && availableslotsentries[i][0] != "05:20" && availableslotsentries[i][0] != "05:40" && availableslotsentries[i][0] != "06:00" && availableslotsentries[i][0] != "06:20" && availableslotsentries[i][0] != "06:40" && availableslotsentries[i][0] != "07:00" && availableslotsentries[i][0] != "07:20" && availableslotsentries[i][0] != "07:40") {
                     console.log(availableslotsentries[i])
 
-                    textvar = availableslotsentries[i][0] + ' ' + document.getElementById('eventDate').value
+                    textvar = '<span style = "background: #ffbe5a; border-radius:10px;">' + availableslotsentries[i][0] + '</span>' + ' ' + document.getElementById('eventDate').value
                     let tempor = document.createElement('p');
                     document.getElementById('outputcalendarfield').append(tempor);
 
                     if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 1) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive;');
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
                     } else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 0) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(62 158 83); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive;');
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(62 158 83); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
                     } else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot > 0 && availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot < 1) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(62 158 83); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive;');
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(62 158 83); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
                         tempor.setAttribute('title', '⚠ Есть как занятые так и свободные слоты')
                     } else if (availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == 0) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive;');
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
                         tempor.setAttribute('title', '🚫 Свободных слотов изначально и не было')
                     } else if (availableslotsentries[i][1].AssignSlot == 0 && availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == availableslotsentries[i][1].FreeSlot) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive;');
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
                     } else if (availableslotsentries[i][1].FreeSlot < 0) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive;');
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(171 65 62); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
                     }
 
                     if (compareTimes(availableslotsentries[i][0], currentTimeCalendar) <= 0 && eventDate == curentDate ) {
                         // document.getElementsByName('slotRow')[i].style.background = "rgb(171 65 62)";
-						 tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(126 113 113); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive;');
+						 tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(126 113 113); border:1px solid; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
                     }
 					
                     tempor.setAttribute('name', 'slotRow');
