@@ -100,6 +100,7 @@ function getTimeSlots() {
 
         // Check if the 'getslotsinfo' attribute is not null
         if (responsevar) {
+			arrayOfEvents = [];
             document.getElementById('outputcalendarfield').innerHTML = ''
             responseslotsdata = JSON.parse(responsevar);
             console.log(responseslotsdata)
@@ -114,7 +115,9 @@ function getTimeSlots() {
 					if (availableslotsentries[i][1].EventList.length != 0) {
 					  for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
 						arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
-											'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text});
+											'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
+											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
+											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot});
 					  }
 					}
 					
