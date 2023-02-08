@@ -144,7 +144,7 @@ function getTimeSlots() {
 				
 				document.getElementById('slotList').innerHTML = ''
 				let testd = document.createElement('div')
-				testd.innerHTML = '<input style="width: 500px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
+				testd.innerHTML = '<input style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
 				document.getElementById('slotList').appendChild(testd)
 					
 					
