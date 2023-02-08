@@ -145,6 +145,11 @@ function getTimeSlots() {
 			allRows[i].onclick = function() {
 				if (document.getElementById('slotList').style.display == "none") {
 					document.getElementById('slotList').style.display = ""
+				} 
+				
+				document.getElementById('hideSlot').onclick = function() {
+					document.getElementById('slotList').style.display = "none"
+				}
 				
 				document.getElementById('slotData').innerHTML = ''
 				let testd = document.createElement('div')
@@ -152,8 +157,6 @@ function getTimeSlots() {
 				document.getElementById('slotData').appendChild(testd)
 				document.getElementById('chosenSlot').textContent = allRows[i].textContent	
 					
-				} else document.getElementById('slotList').style.display = "none"
-				
 			}
 		}
 			
