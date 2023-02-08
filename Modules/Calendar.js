@@ -130,7 +130,7 @@ function getTimeSlots() {
                     }
 					
                     tempor.setAttribute('name', 'slotRow');
-                    tempor.textContent = textvar;
+                    tempor.innerHTML = textvar;
 
                 }
             }
