@@ -20,9 +20,10 @@ var win_Calendar =  // описание формы чтобы не давала 
 						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap; justify-content: center; align-items: center; padding-bottom: 5px; margin-top: 5px">
 						</div>
 						
-						<div id="slotList" style="display:none; margin-bottom: 5px; margin-left: 5px;">
-							<span id="chosenSlot"></span>
-							<div id="slotData">
+						<div id="slotList">
+							<span id="chosenSlot" style="background: chartreuse; padding: 5px; margin-left: 39%; box-shadow: 0px 3px 1px rgb(0 0 0 / 55%); border-radius: 20px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700; color: darkblue; font-family: cursive;"></span>
+							<span id="hideSlot">⤴</span>
+							<div id="slotData" style="display:none; margin-bottom: 5px; margin-left: 5px;">
 							</div>
 						</div>
         </span>
