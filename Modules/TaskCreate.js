@@ -16,7 +16,7 @@ var win_taskform = //описание формы создания задач в 
                             <button id="critteacherno" style="height:25px; width: 133px;">🔴 👽П н.о.</button>
                             <br>
                             <button id="highsecondline" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">🗓 Календарь У/П</button>                
-                            <button id="lowkm" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">😡 КМ</button>
+                            <button id="lowkm" style="height:25px; width: 133px;">😡 КМ</button>
                             <button id="lowcontrol" style="height:25px; width: 133px;">🛂 Контроль</button>
                         </div>
 
