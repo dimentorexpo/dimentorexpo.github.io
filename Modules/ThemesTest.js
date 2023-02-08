@@ -200,6 +200,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         countOfthPages = 0
         addTagFlag = 0
         areaThbtns = document.getElementById('themes_body')
+        areaTagbtns = document.getElementById('themes_body')
         console.log(tableth)
         for (i = 0; i < tableth.length; i++) {
             c = tableth[i]
@@ -207,57 +208,39 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                 case '':
                     addTagFlag = 0
                     countOfthStr++
-                    var newStr = document.createElement('div')
-                    newStr.style.margin = "5px"
-                    newStr.id = countOfthPages + "page_" + countOfthStr + "str"
-                    areaThbtns.lastElementChild.appendChild(newStr)
+                    var newstrth = document.createElement('div')
+                    newstrth.style.margin = "5px"
+                    newstrth.id = countOfthPages + "pageth_" + countOfthStr + "strth"
+                    areaThbtns.lastElementChild.appendChild(newstrth)
                     break
     
-                case 'Additional templates':
+                case 'Тэги':
                     addTagFlag = 1
                     break
-                case 'Страница':
-                    var newPageBut = document.createElement('button')
-                    newPageBut.textContent = c[1]
-                    pageType = c[2]
-                    newPageBut.style.marginRight = '4px'
-                    newPageBut.setAttribute('onclick', 'pageClick(this.id)')
-                    newPageBut.id = countOfthPages + 'page_button'
-                    areaThbtns.childNodes[3].appendChild(newPageBut)
+                case 'Темы':
+                    var newpagethBut = document.createElement('button')
+                    newpagethBut.textContent = c[1]
+                    newpagethBut.style = "margin-left:2px; width:150px; height: 44px;"
+                    if (c[2] != '') { newpagethBut.title = c[2] } // если есть title добавляем его
+                    if (c[3] != '') { newpagethBut.style.fontSize = c[3]+ "px" } // если указан размер шрифта назначеем его
+                    newpagethBut.setAttribute('onclick', 'pagethClick(this.id)')
+                    newpagethBut.id = countOfthPages + 'pageth_button'
+                    areaThbtns.childNodes[3].appendChild(newpagethBut)
     
-                    var newPage = document.createElement('div')
-                    newPage.id = countOfthPages + 'page'
-                    areaThbtns.appendChild(newPage)
+                    var newpageth = document.createElement('div')
+                    newpageth.id = countOfthPages + 'pageth'
+                    areaThbtns.appendChild(newpageth)
     
                     countOfthPages++
     
                     countOfthStr = 1
         
-                    var newStr = document.createElement('div')
-                    newStr.style.margin = "5px"
-                    newStr.id = countOfthPages + "page_" + countOfthStr + "str"
-                    areaThbtns.lastElementChild.appendChild(newStr)
+                    var newstrth = document.createElement('div')
+                    newstrth.style.margin = "5px"
+                    newstrth.id = countOfthPages + "pageth_" + countOfthStr + "strth"
+                    areaThbtns.lastElementChild.appendChild(newstrth)
                     break
                 default:
-                    switch (pageType) {
-                        case 'Баги':
-                            var newString = document.createElement('p')
-                            newString.style.color = 'white'
-                            newString.style.margin = '0 0 5px 0'
-                            newString.textContent = c[0]
-                            for (j = 0; j < c[1]; j++) {
-                                var newBut = document.createElement('button')
-                                newBut.style.width = '20px'
-                                newBut.style.marginRight = '4px'
-                                newBut.id = countOfthStr + 'str' + (j + 1)
-                                newBut.textContent = (j + 1)
-                                newBut.setAttribute('onclick', 'bagPageButtons(this.id)')
-                                newString.appendChild(newBut)
-                            }
-                            countOfthStr++
-                            areaThbtns.lastElementChild.lastElementChild.appendChild(newString)
-                            break
-                        case 'Шаблоны':
                             var newBut = document.createElement('button')
                             newBut.textContent = c[0]
                             newBut.style.marginRight = '4px'
@@ -274,45 +257,6 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 newBut.style.marginTop = '4px'
                                 document.getElementById('addTmp').children[0].appendChild(newBut)
                             }
-                            break
-                        case 'Переводы':
-                            var newBut = document.createElement('button')
-                            newBut.textContent = c[0]
-                            newBut.style.marginRight = '4px'
-                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
-                            break
-                        case 'Серверные': // обработка нажатия на кнопку на странице серверные
-                            var newBut = document.createElement('button')
-                            newBut.textContent = c[0]
-                            newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', 'servFromDoc(this.textContent)')
-                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
-                            break
-                        case 'ТемыМоб':
-                            var newBut = document.createElement('button')
-                            newBut.textContent = c[0]
-                            newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
-                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
-                            break
-                        case 'Темыadd':
-                            var newBut = document.createElement('button')
-                            newBut.textContent = c[0]
-                            newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
-                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
-                            break
-                        case 'Темы':
-                            var newBut = document.createElement('button')
-                            newBut.textContent = c[0]
-                            newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', 'tagToChat(this.textContent)')
-                            areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
-                            break
-                        default:
-                            break
-                    }
-                    break
             }
         } document.getElementById('0page').ondblclick = function () {
             if (document.getElementById('addTmp').style.display == 'none') {
@@ -324,4 +268,16 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                 document.getElementById('addTmp').style.display = 'none';
         }
         document.getElementById('0page_button').click()
+    }
+
+    function pagethClick(pagethId) { // по клику переключает страницы с темами
+        areaThbtns = document.getElementById('themes_body')
+        for (i = 0; i < areaThbtns.childElementCount; i++) {
+            try {
+                areaThbtns.children[1].children[i].style = 'background-color:#768d87; border-top:0px;'
+                document.getElementById(i + "pageth").style.display = 'none'
+            } catch (e) { }
+        }
+        document.getElementById(pagethId).style = 'background-color: green; border-top:4px solid orange'
+        document.getElementById(pagethId[0] + "page").style.display = ''
     }

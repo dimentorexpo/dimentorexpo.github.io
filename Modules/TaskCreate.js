@@ -39,6 +39,7 @@ var win_taskform = //описание формы создания задач в 
 								<option value="outgoing_calls_crm2" style="background: white">Исходящие звонки</option>
 								<option value="tech_support_second_line_crm2" style="background: white">Техподдержка 2Л CRM</option>
                                 <option value="crisis_manager" style="background: white">Кризис менеджеры</option>
+                                <option value="tech_support_incoming_crm2" style="background: white">Техподдержка 1Л CRM (вход)</option>
 							</select>
 
 							<input id="taskserviceid" placeholder="🆔 ID услуги" style="width: 100%; height: 25px;">
