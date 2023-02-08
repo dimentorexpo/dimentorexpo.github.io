@@ -64,6 +64,7 @@ function compareTimes(time1, time2) {
 }
 
 function getTimeSlots() {
+	var arrayOfEvents = [];
 	let eventDate = document.getElementById('eventDate').value
     var dateCalend = new Date();
     var offsetCalend = 3; // Moscow Timezone Offset in hours
@@ -108,6 +109,15 @@ function getTimeSlots() {
             for (let i = 0; i < availableslotsentries.length; i++) {
                 if (availableslotsentries[i][0] != "00:00" && availableslotsentries[i][0] != "00:20" && availableslotsentries[i][0] != "00:40" && availableslotsentries[i][0] != "23:00" && availableslotsentries[i][0] != "23:20" && availableslotsentries[i][0] != "23:40" && availableslotsentries[i][0] != "01:00" && availableslotsentries[i][0] != "01:20" && availableslotsentries[i][0] != "01:40" && availableslotsentries[i][0] != "02:00" && availableslotsentries[i][0] != "02:20" && availableslotsentries[i][0] != "02:40" && availableslotsentries[i][0] != "03:00" && availableslotsentries[i][0] != "03:20" && availableslotsentries[i][0] != "03:40" && availableslotsentries[i][0] != "04:00" && availableslotsentries[i][0] != "04:20" && availableslotsentries[i][0] != "04:40" && availableslotsentries[i][0] != "05:00" && availableslotsentries[i][0] != "05:20" && availableslotsentries[i][0] != "05:40" && availableslotsentries[i][0] != "06:00" && availableslotsentries[i][0] != "06:20" && availableslotsentries[i][0] != "06:40" && availableslotsentries[i][0] != "07:00" && availableslotsentries[i][0] != "07:20" && availableslotsentries[i][0] != "07:40") {
                     console.log(availableslotsentries[i])
+					
+					
+					if (availableslotsentries[i][1].EventList.length != 0) {
+						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
+							arrayOfEvents.push(['eventId'] : Object.values(availableslotsentries[i][1].EventList)[k].id,
+							['eventText'] : bject.values(availableslotsentries[i][1].EventList)[k].text)
+						}
+					}
+					
 
                     textvar = '<span style = "background: #2058cb; border: 1px solid lightgrey; border-radius:10px; padding-left: 5px; padding-right: 5px;">' + availableslotsentries[i][0] + '</span>' + ' ' + document.getElementById('eventDate').value
                     let tempor = document.createElement('p');
