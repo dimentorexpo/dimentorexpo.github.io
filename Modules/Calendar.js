@@ -122,7 +122,7 @@ function getTimeSlots() {
 					}
 					
 
-                    textvar = '<span style = "background: #2058cb; border: 1px solid lightgrey; border-radius:10px; padding-left: 5px; padding-right: 5px;">' + availableslotsentries[i][0] + '</span>' + ' ' + document.getElementById('eventDate').value
+                    textvar = '<span style = "background: #2058cb; border-radius:10px; padding-left: 5px; padding-right: 5px;">' + availableslotsentries[i][0] + '</span>' + ' ' + document.getElementById('eventDate').value
                     let tempor = document.createElement('p');
                     document.getElementById('outputcalendarfield').append(tempor);
 
@@ -171,9 +171,19 @@ function getTimeSlots() {
 				for (let j=0; j<parseInt(allRows[i].getAttribute('dlina')); j++) {
 					let testd = document.createElement('div')
 					testd.style = "margin-top: 5px;"
-					testd.innerHTML = '<input style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
+					testd.innerHTML = '<input name="slotInfo" style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
 					document.getElementById('slotData').appendChild(testd)
 				}	
+				
+				for (let z = 0; z < arrayOfEvents.length; z++) {
+					if (arrayOfEvents[z].slotTime + ' ' + arrayOfEvents[z].slotDate == document.getElementById('chosenSlot').textContent) {
+						console.log(arrayOfEvents[z])
+					}
+)
+				}
+				
+				
+				
 			}
 		}
 			
