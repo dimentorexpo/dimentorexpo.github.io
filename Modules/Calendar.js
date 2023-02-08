@@ -191,15 +191,12 @@ function getTimeSlots() {
 				}
 				
 				let spisok = document.getElementsByName('slotInfo');
-				for (let m=0; m < spisok.length; m++) {
-					if (tempVarMatches.length != 0) {
-						spisok[m].value = tempVarMatches[m].eventText
-						spisok[m].title = tempVarMatches[m].eventId
-					} else { 
-						spisok[m].value = 'Slot was not used!'
+				if (tempVarMatches.length !=0) {
+					for (n=0; n < tempVarMatches.length; n++) {
+						spisok[n].value = tempVarMatches[n].eventText
+						spisok[n].title = tempVarMatches[n].eventId
 					}
-				}
-				
+				}				
 			}
 		}
 
