@@ -11,9 +11,9 @@ var win_taskform = //описание формы создания задач в 
                         </div>
 
                         <div id="addcreateformbtns">
-                            <button id="critteachertostudent" style="height:25px; width: 133px; margin-left:5px;">Крит 👽П -&gt; У👨‍🎓</button>
-                            <button id="critstudenttoteacher" style="height:25px; width: 133px;">Крит 👨‍🎓У -&gt; П👽</button>
-                            <button id="critteacherno" style="height:25px; width: 133px;">Крит н.о. 👽П</button>
+                            <button id="critteachertostudent" style="height:25px; width: 133px; margin-left:5px;">🔴 👽П -&gt; У👨‍🎓</button>
+                            <button id="critstudenttoteacher" style="height:25px; width: 133px;">🔴 👨‍🎓У -&gt; П👽</button>
+                            <button id="critteacherno" style="height:25px; width: 133px;">🔴 👽П н.о.</button>
                             <br>
                             <button id="highsecondline" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">🗓 Календарь У/П</button>
                             <button id="highteachersc" style="height:25px; width: 133px;">👽 Исход. звонки</button>
