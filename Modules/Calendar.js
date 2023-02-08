@@ -135,7 +135,7 @@ function getTimeSlots() {
                     }
 					
                     tempor.setAttribute('name', 'slotRow');
-					tempor.setAttribute('value',`${availableslotsentries[i][1].CountEvent}`)
+					tempor.setAttribute('value',`${availableslotsentries[i][1].CountSlot}`)
                     tempor.innerHTML = textvar;
 
                 }
@@ -152,7 +152,7 @@ function getTimeSlots() {
 					document.getElementById('slotList').style.display = "none"
 				}
 				
-								document.getElementById('chosenSlot').textContent = allRows[i].textContent	
+				document.getElementById('chosenSlot').textContent = allRows[i].textContent	
 				
 				document.getElementById('slotData').innerHTML = ''
 				for (let j=0; j<allRows[i].value<j++) {
