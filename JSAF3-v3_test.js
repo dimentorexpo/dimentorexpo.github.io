@@ -631,17 +631,22 @@ function mystyles() {
 	button[name="saveToCalend"] {
 		width: 110px;
 		background: #3389a3;
+		transition:all 0.5s ease;
 	}
 	
 	button[name="deleteFromCalend"] {
 		width: 110px;
 		background: #a55a58;
+		transition:all 0.5s ease;
 	}
 	
+	button[name="saveToCalend"]:hover, button[name="deleteFromCalend"]:hover {
+		box-shadow: 0px 0px 10px rgb(255 255 255);
+	}
+		
 	#hideSlot:hover {
-		font-size:24px;
+		font-size:24px !important;
 		text-shadow: -2px 3px 16px rgb(255 255 255);
-		transition: all 0.5s ease;
 	}
 		
 	`
