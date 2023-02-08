@@ -118,8 +118,9 @@ function getTimeSlots() {
 											'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
 											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
 											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot});
-					  }
-					} else {
+						}
+					} else { 					  
+						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
 						arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
 											'eventText': null,
 											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
