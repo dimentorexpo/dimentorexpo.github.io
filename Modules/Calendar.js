@@ -187,9 +187,7 @@ function getTimeSlots() {
 					if (arrayOfEvents[z].slotTime + ' ' + arrayOfEvents[z].slotDate == document.getElementById('chosenSlot').textContent) {
 						tempVarMatches.push(arrayOfEvents[z])
 						console.log(arrayOfEvents[z])
-					} else {
-						tempVarMatches.push(0)
-					}
+					} 
 				}
 				
 				let spisok = document.getElementsByName('slotInfo');
