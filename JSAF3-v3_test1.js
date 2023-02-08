@@ -312,7 +312,7 @@ function mystyles() {
 			padding-left:5px;
 		}
 
-		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat {
+		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat, #buttonGetStat {
 			display:flex;
 			align-items:center;
 			cursor: pointer;
@@ -325,7 +325,7 @@ function mystyles() {
 			padding-left:5px;
 		}
 
-		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover {
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat:hover {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
 			font-weight:600;
@@ -392,6 +392,14 @@ function mystyles() {
 			color: greenyellow;
 			transition: all 1s ease;
 		}
+		.active-stat-tab {
+			border-left:6px solid #1ff400;
+			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
+			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
+			font-weight: 700;
+			color: #07ecc6;
+			transition: all 1s ease;
+		}
 	.radio {
 		width:15px;
 		height:15px;
@@ -441,9 +449,6 @@ function mystyles() {
 	}
 	.inithide {
 		display:none !important;
-	}
-	#buttonGetStat:hover {
-		background:DeepSkyBlue;
 	}
 	.teststudteach {
 		background: #3CB371;
@@ -1123,42 +1128,13 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
             btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
+            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[9])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[10])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[11])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[12])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[13])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[14])
         }, 2000)
-
-        // setTimeout(() => {
-        // let headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-        // let menubutarea = document.createElement('div')
-        // menubutarea.style = 'margin-right:20px;'
-
-        // headmenulist.insertBefore(menubutarea, headmenulist.children[15])
-        // menubutarea.append(butmenu)
-        // headmenulist.insertBefore(menubar, headmenulist.children[15])
-        // menubar.append(document.getElementById('servDsk'))
-        // menubar.append(document.getElementById('JiraOpenForm'))
-        // menubar.append(document.getElementById('buttonOpenForm'))
-        // menubar.append(document.getElementById('butMarks'))
-        // menubar.append(document.getElementById('suggestform'))
-        // menubar.append(document.getElementById('otkaz'))
-        // menubar.append(document.getElementById('smartroomform'))
-        // menubar.append(document.getElementById('butLessonInfo'))
-        // menubar.append(document.getElementById('butChatHistory'))
-        // menubar.append(document.getElementById('butFrozeChat'))
-        // servDsk.classList.remove('inithide')
-        // JiraOpenForm.classList.remove('inithide')
-        // butopensugestform.classList.remove('inithide')
-        // butrefuse.classList.remove('inithide')
-        // butsmartroom.classList.remove('inithide')
-        // butLessonInfo.classList.remove('inithide')
-        // butChatHistory.classList.remove('inithide')
-        // butFrozeChat.classList.remove('inithide')
-        // butMarks.classList.remove('inithide')
-        // buttonOpenForm.classList.remove('inithide')
-        // }, 8000)
 
         function addElementsToList(elements, list) {
             elements.forEach((element) => {
@@ -1171,10 +1147,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
             const menubutarea = document.createElement('div');
             menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
+            headmenulist.insertBefore(menubutarea, headmenulist.children[16]);
             menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat];
+            headmenulist.insertBefore(menubar, headmenulist.children[16]);
+            const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 
             servDsk.classList.remove('inithide');
@@ -1185,6 +1161,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             butLessonInfo.classList.remove('inithide');
             butChatHistory.classList.remove('inithide');
             butFrozeChat.classList.remove('inithide');
+            buttonGetStat.classList.remove('inithide');
             butMarks.classList.remove('inithide');
             buttonOpenForm.classList.remove('inithide');
         }, 8000);
@@ -1360,12 +1337,12 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
-        //"https://dimentorexpo.github.io/Modules/JiraSearch1.js", // тестовый модуль поиска по Jira
         "https://dimentorexpo.github.io/Modules/Suggest.js", // модуль формы пожеланий и предложений
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         //"https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
+        //"https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/Modules/ThemesTest.js", // тестовый модуль выставления тегов и тематик
         "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
         "https://dimentorexpo.github.io/Modules/GrList.js", // модуль просмотра участников группы в L
         "https://dimentorexpo.github.io/Modules/TechSummary.js", // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
@@ -1382,7 +1359,7 @@ function prepTp() { //функция подготовки расширения �
         promiseData.push(create(info));
     });
     Promise.all(promiseData).then(function () {
-        console.log('%c\r\n   ______  __       ____    ____       _       ________   ______   _____  ____    ____                 _                  _          _                 _    \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | |_   _ `.|_   _||_   \\  \/   _|               \/ |_               | |        \/ |_              \/ |_  \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_|   | | `. \\ | |    |   \\\/   |  .---.  _ .--. `| |-\' .--.   _ .--.\\_|.--.   `| |-\'.---.  .--. `| |-\' \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|      | |  | | | |    | |\\  \/| | \/ \/__\\\\[ `.-. | | | \/ .\'`\\ \\[ `\/\'`\\] ( (`\\]   | | \/ \/__\\\\( (`\\] | |   \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_      _| |_.\' \/_| |_  _| |_\\\/_| |_| \\__., | | | | | |,| \\__. | | |      `\'.\'.   | |,| \\__., `\'.\'. | |,  \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    |______.\'|_____||_____||_____|\'.__.\'[___||__]\\__\/ \'.__.\' [___]    [\\__) )  \\__\/ \'.__.\'[\\__) )\\__\/  \r\n                                                                                                                                                            \r\n', 'color:Limegreen')
+        console.log('%c\r\n   ______  __       ____    ____       _       ________  \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_| \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|    \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_     \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    \r\n                                                         \r\n', 'color:Limegreen')
     }).catch(function (gfgData) {
         console.log(gfgData + " failed to load!");
     });
@@ -1418,6 +1395,7 @@ function prepKC() { //функция подготовки расширения �
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('head').append(lboxstyles)
         include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
+		include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
@@ -3415,10 +3393,10 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
     var currentSeconds = data.getSeconds();
 
     if (localStorage.getItem('setchas')){
-        var setHours = JSON.parse(localStorage.getItem('setchas'));
-        var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
+    var setHours = JSON.parse(localStorage.getItem('setchas'));
+    var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
     }
-    
+
     if (localStorage.getItem('chronostamp') === null) {
         time = "00" + " : " + "00" + " : " + "00";
         document.getElementById("clock_remin").innerHTML = time;
@@ -3449,8 +3427,8 @@ function clock_on_javascript_3() { //таймер отсчета до сраба
     var currentSeconds1 = data1.getSeconds();
 
     if (localStorage.getItem('setchas1')){
-        var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
-        var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
+    var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
+    var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
     }
 
     if (localStorage.getItem('chronostamp1') === null) {
@@ -3541,46 +3519,6 @@ function setRemindAf(tsname) { //функция  при наступлении �
     }
 }
 
-function Statbtnload() { // Добавление кнопки статистики
-    let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
-    buttonGetStat.id = 'buttonGetStat';
-    buttonGetStat.innerHTML = "Статистика";
-    buttonGetStat.style = "margin-left:15px; margin-right:5px; border: 1px solid #8080804a; padding: 8px; cursor:pointer";
-    buttonGetStat.onclick = function () {
-        if (this.textContent == 'Скрыть стату') {
-            if (this.getAttribute('disabled') != null)
-                return
-            if (document.getElementById('tableStats') != undefined) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].lastElementChild.remove()
-            }
-            this.textContent = 'Статистика'
-
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = ""
-            }
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = ""
-            }
-        } else {
-            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[1].style.display = "none"
-            } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') != -1) {
-                document.getElementById('root').children[0].children[1].children[0].children[1].children[0].style.display = "none"
-            } else {
-                this.textContent = 'Неверная страница'
-                setTimeout(function () { document.getElementById('buttonGetStat').textContent = "Статистика" }, 500)
-                return
-            }
-            getStats()
-            document.getElementById('buttonGetStat').setAttribute('disabled', 'disabled')
-            this.textContent = 'Загрузка'
-        }
-    }
-    document.getElementById('app-header').append(buttonGetStat)
-}
-
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
 
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv && localStorage.getItem('scriptAdr') != TPprem_addr && localStorage.getItem('scriptAdr') != TPprem_addrRzrv) {
@@ -3588,8 +3526,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     } else {
         prepTp()
     }
-
-    Statbtnload()
 
     if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
@@ -4308,7 +4244,7 @@ butServ.classList.add('onlyfortp');
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
-butMarks.innerHTML = "📊Оценки"
+butMarks.innerHTML = "🎭 Оценки"
 butMarks.classList.add('inithide');
 
 let butChatHistory = document.createElement('div')
@@ -4320,6 +4256,11 @@ let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
 butFrozeChat.innerHTML = "❄ Auto Respond"
 butFrozeChat.classList.add('onlyfortp', 'inithide');
+
+let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
+buttonGetStat.id = 'buttonGetStat';
+buttonGetStat.innerHTML = "📊 Статистика";
+buttonGetStat.classList.add('inithide');
 
 let butLessonInfo = document.createElement('div')
 butLessonInfo.id = "butLessonInfo"
