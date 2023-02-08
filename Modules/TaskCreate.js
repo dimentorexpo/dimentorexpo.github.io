@@ -15,9 +15,7 @@ var win_taskform = //описание формы создания задач в 
                             <button id="critstudenttoteacher" style="height:25px; width: 133px;">🔴 👨‍🎓У -&gt; П👽</button>
                             <button id="critteacherno" style="height:25px; width: 133px;">🔴 👽П н.о.</button>
                             <br>
-                            <button id="highsecondline" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">🗓 Календарь У/П</button>
-                            <button id="highteachersc" style="height:25px; width: 133px; display:none;">👽 Исход. звонки</button>
-                            <button id="highteachertc" style="height:25px; width: 133px; display:none;">👽 Teachers Care</button>                        
+                            <button id="highsecondline" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">🗓 Календарь У/П</button>                
                             <button id="lowkm" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">😡 КМ</button>
                             <button id="lowcontrol" style="height:25px; width: 133px;">🛂 Контроль</button>
                         </div>
@@ -336,7 +334,9 @@ document.getElementById('serviceinf').innerHTML = '';
 
             document.getElementById('taskserviceid').value = '';
         }
-
+        /*
+                                    <button id="highteachersc" style="height:25px; width: 133px; display:none;">👽 Исход. звонки</button>
+                                    <button id="highteachertc" style="height:25px; width: 133px; display:none;">👽 Teachers Care</button>        
         document.getElementById('highteachertc').onclick = function () {
             document.getElementById('priority').children[2].selected = true;
             document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
@@ -358,6 +358,7 @@ document.getElementById('serviceinf').innerHTML = '';
                     document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
             }
         }
+        */
 
         document.getElementById('lowkm').onclick = function () {
             document.getElementById('priority').children[1].selected = true;
