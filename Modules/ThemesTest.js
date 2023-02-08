@@ -1,4 +1,7 @@
 var tableth;
+var btnthstyls = "margin-left:2px; width:150px; height: 44px;";
+var btnTagstyles = "margin-left:2px; width:125px; height: 25px;";
+var chbxTagstyles = "margin: 2px; width: 20px;";
 
 var win_Themes =  // описание элементов окна Тематик
     `<div style="display: flex; width: 350px; padding-bottom:15px;">
@@ -220,15 +223,16 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                 case 'Темы':
                     var newpagethBut = document.createElement('button')
                     newpagethBut.textContent = c[1]
-                    newpagethBut.style = "margin-left:2px; width:150px; height: 44px;"
+                    newpagethBut.style = btnthstyls
                     if (c[2] != '') { newpagethBut.title = c[2] } // если есть title добавляем его
                     if (c[3] != '') { newpagethBut.style.fontSize = c[3]+ "px" } // если указан размер шрифта назначеем его
                     newpagethBut.setAttribute('onclick', 'pagethClick(this.id)')
-                    newpagethBut.id = countOfthPages + 'pageth_button'
+                    newpagethBut.id = countOfthPages + '_pageth_button'
                     areaThbtns.childNodes[3].appendChild(newpagethBut)
     
                     var newpageth = document.createElement('div')
                     newpageth.id = countOfthPages + 'pageth'
+                    newpageth.style.display = 'none'
                     areaThbtns.appendChild(newpageth)
     
                     countOfthPages++
@@ -236,7 +240,6 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                     countOfthStr = 1
         
                     var newstrth = document.createElement('div')
-                    newstrth.style.margin = "5px"
                     newstrth.id = countOfthPages + "pageth_" + countOfthStr + "strth"
                     areaThbtns.lastElementChild.appendChild(newstrth)
                     break
@@ -258,26 +261,18 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 document.getElementById('addTmp').children[0].appendChild(newBut)
                             }
             }
-        } document.getElementById('0page').ondblclick = function () {
-            if (document.getElementById('addTmp').style.display == 'none') {
-                document.getElementById('addTmp').style.display = '';
-                document.getElementById('set_bar').style.display = 'none'
-                document.getElementById('reminder_bar').style.display = 'none'
-            }
-            else
-                document.getElementById('addTmp').style.display = 'none';
         }
-        document.getElementById('0page_button').click()
     }
 
     function pagethClick(pagethId) { // по клику переключает страницы с темами
         areaThbtns = document.getElementById('themes_body')
+        pagethId = pagethId.split('_')[0]
         for (i = 0; i < areaThbtns.childElementCount; i++) {
             try {
-                areaThbtns.children[1].children[i].style = 'background-color:#768d87; border-top:0px;'
                 document.getElementById(i + "pageth").style.display = 'none'
+                document.getElementById(i + "_pageth_button").style.display = 'none'
             } catch (e) { }
         }
-        document.getElementById(pagethId).style = 'background-color: green; border-top:4px solid orange'
-        document.getElementById(pagethId[0] + "page").style.display = ''
+        document.getElementById(pagethId + "pageth").style.display = ''
+        document.getElementById(backtomenu).style.display = ''
     }
