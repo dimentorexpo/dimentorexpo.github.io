@@ -19,6 +19,9 @@ var win_Calendar =  // описание формы чтобы не давала 
 
 						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap; justify-content: center; align-items: center; padding-bottom: 5px; margin-top: 5px">
 						</div>
+						
+						<div id="slotList" style="display:none;">
+						</div>
         </span>
 </div>`;
 
@@ -57,7 +60,7 @@ function compareTimes(time1, time2) {
 }
 
 function getTimeSlots() {
-		let eventDate = document.getElementById('eventDate').value
+	let eventDate = document.getElementById('eventDate').value
     var dateCalend = new Date();
     var offsetCalend = 3; // Moscow Timezone Offset in hours
     var utcHoursCalendar = dateCalend.getUTCHours();
@@ -67,8 +70,6 @@ function getTimeSlots() {
     minutesCalendar = minutesCalendar < 10 ? '0' + minutesCalendar : minutesCalendar;
     var currentTimeCalendar = hoursCalendar + ':' + minutesCalendar;
 	let curentDate = dateCalend.getFullYear() + '-' + ((+dateCalend.getMonth()+1) < 10 ? ("0" + (+dateCalend.getMonth()+1)) : dateCalend.getMonth()) + '-' + (dateCalend.getDate() < 10 ? "0" + dateCalend.getDate() : dateCalend.getDate() )
-
-
 
     responseslotsdata = '';
     if (document.getElementsByName('slotRow').length > 0) {
@@ -137,6 +138,19 @@ function getTimeSlots() {
         }
     })
     document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
+	
+	let allRows = document.getElementsByName('slotRow')
+	for (let i = 0; i < allRows.length; i++) {
+		allRows[i].onclick = function() {
+			if (document.getElementById('slotList').style.display == "none") {
+				document.getElementById('slotList').style.display = ""
+			} else document.getElementById('slotList').style.display = "none"
+			
+			let testd = document.createElement('input')
+			document.getElementById('slotList').appendChild(testd)
+			
+		}
+	}
 }
 
 document.getElementById('datsyCalendar').onclick = function () {
