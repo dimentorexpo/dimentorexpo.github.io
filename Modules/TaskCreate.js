@@ -10,15 +10,18 @@ var win_taskform = //описание формы создания задач в 
 							<span id="statusuroka"></span>
                         </div>
 
-						<div id="addcreateformbtns">
-							<button id="critteachertostudent" style="height:25px; width: 197px; margin-left:10px;">Крит 👽П -> У👨‍🎓</button>
-							<button id="critstudenttoteacher" style="height:25px; width: 197px;">Крит 👨‍🎓У -> П👽</button>
-							<br>
-							<button id="highsecondline" style="height:25px; width: 97px; margin-left:10px; margin-top:3px;">🗓Калик У/П</button>
-							<button id="highteachersc" style="height:25px; width: 97px;">👽Исх. звонки</button>
-							<button id="highteachertc" style="height:25px; width: 97px;">👽 TC</button>
-                            <button id="lowkm" style="height:25px; width: 97px;">😡 КМ</button>
-						</div>
+                        <div id="addcreateformbtns">
+                            <button id="critteachertostudent" style="height:25px; width: 133px; margin-left:5px;">Крит 👽П -&gt; У👨‍🎓</button>
+                            <button id="critstudenttoteacher" style="height:25px; width: 133px;">Крит 👨‍🎓У -&gt; П👽</button>
+                            <button id="critteacherno" style="height:25px; width: 133px;">Крит н.о. 👽П</button>
+                            <br>
+                            <button id="highsecondline" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">🗓 Календарь У/П</button>
+                            <button id="highteachersc" style="height:25px; width: 133px;">👽 Исход. звонки</button>
+                            <button id="highteachertc" style="height:25px; width: 133px;">👽 Teachers Care</button>
+                            <br>                        
+                            <button id="lowkm" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">😡 КМ</button>
+                            <button id="lowcontrol" style="height:25px; width: 133px;">🛂 Контроль</button>
+                        </div>
 
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
                             <input disabled="" required id="chathashlnk" placeholder="Хэш чата" title="Хеш чата, из которого будет создано обращение в СРМ" autocomplete="off" type="text" style="text-align: center; width: 410px; color: black; margin-top: 5px; text-align:center;background:#cac1b1; width:100%">
@@ -306,6 +309,22 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
         }
 
+        document.getElementById('critteacherno').onclick = function () {
+            document.getElementById('priority').children[3].selected = true;
+            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[1].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                } else if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+                    document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                }
+            }
+
+            document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны П. в чате н.о. Пожалуйста, свяжитесь с П"
+        }
+
         document.getElementById('highsecondline').onclick = function () {
             document.getElementById('priority').children[2].selected = true;
             document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
@@ -368,6 +387,19 @@ document.getElementById('serviceinf').innerHTML = '';
                     }
                 }
             }
+        }
+
+        document.getElementById('lowcontrol').onclick = function () {
+            document.getElementById('priority').children[1].selected = true;
+            document.getElementById('priority').style = "color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[8].selected = true;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nКонтроль"
         }
 
         document.getElementById('createtask').onclick = function () {
