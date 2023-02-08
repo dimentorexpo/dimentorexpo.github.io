@@ -119,6 +119,12 @@ function getTimeSlots() {
 											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
 											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot});
 					  }
+					} else {
+						arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
+											'eventText': null,
+											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
+											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot});
+					  }
 					}
 
 
@@ -187,7 +193,7 @@ function getTimeSlots() {
 				
 				let spisok = document.getElementsByName('slotInfo');
 				for (let m=0; m < spisok.length; m++) {
-					if (tempVarMatches[m] != 0) {
+					if (tempVarMatches[m].eventText != null) {
 						spisok[m].value = tempVarMatches[m].eventText
 						spisok[m].title = tempVarMatches[m].eventId
 					} else { 
