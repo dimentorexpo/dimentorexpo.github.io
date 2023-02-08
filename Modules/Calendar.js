@@ -179,7 +179,6 @@ function getTimeSlots() {
 					if (arrayOfEvents[z].slotTime + ' ' + arrayOfEvents[z].slotDate == document.getElementById('chosenSlot').textContent) {
 						console.log(arrayOfEvents[z])
 					}
-)
 				}
 				
 				
