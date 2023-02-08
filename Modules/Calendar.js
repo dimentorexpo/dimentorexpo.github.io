@@ -22,6 +22,8 @@ var win_Calendar =  // описание формы чтобы не давала 
 						
 						<div id="slotList" style="display:none; margin-bottom: 5px; margin-left: 5px;">
 							<span id="chosenSlot"></span>
+							<div id="slotData">
+							</div>
 						</div>
         </span>
 </div>`;
@@ -143,10 +145,10 @@ function getTimeSlots() {
 				if (document.getElementById('slotList').style.display == "none") {
 					document.getElementById('slotList').style.display = ""
 				
-				document.getElementById('slotList').innerHTML = ''
+				document.getElementById('slotData').innerHTML = ''
 				let testd = document.createElement('div')
 				testd.innerHTML = '<input style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
-				document.getElementById('slotList').appendChild(testd)
+				document.getElementById('slotData').appendChild(testd)
 				document.getElementById('chosenSlot').textContent = allRows[i].textContent	
 					
 				} else document.getElementById('slotList').style.display = "none"
