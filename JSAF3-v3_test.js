@@ -627,6 +627,16 @@ function mystyles() {
 		background: #b66253;
 		cursor: pointer;
 	}
+	
+	button[name="saveToCalend"] {
+		width: 110px;
+		background: #3389a3;
+	}
+	
+	button[name="deleteFromCalend"] {
+		width: 110px;
+		background: #ab413e;
+	}
 		
 	`
     mstl.innerHTML = style;

@@ -20,7 +20,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap; justify-content: center; align-items: center; padding-bottom: 5px; margin-top: 5px">
 						</div>
 						
-						<div id="slotList" style="display:none;">
+						<div id="slotList" style="display:none; margin-bottom: 5px; margin-left: 5px;">
 						</div>
         </span>
 </div>`;
@@ -144,10 +144,14 @@ function getTimeSlots() {
 		allRows[i].onclick = function() {
 			if (document.getElementById('slotList').style.display == "none") {
 				document.getElementById('slotList').style.display = ""
-			} else document.getElementById('slotList').style.display = "none"
 			
-			let testd = document.createElement('input')
+			document.getElementById('slotList').innerHTML = ''
+			let testd = document.createElement('div')
+			testd.innerHTML = '<input style="width: 500px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
 			document.getElementById('slotList').appendChild(testd)
+				
+				
+			} else document.getElementById('slotList').style.display = "none"
 			
 		}
 	}
