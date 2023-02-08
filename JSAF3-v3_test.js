@@ -637,6 +637,12 @@ function mystyles() {
 		width: 110px;
 		background: #a55a58;
 	}
+	
+	#hideSlot:hover {
+		font-size:24px;
+		text-shadow: -2px 3px 16px rgb(255 255 255);
+		transition: all 0.5s ease;
+	}
 		
 	`
     mstl.innerHTML = style;
