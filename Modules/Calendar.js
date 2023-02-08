@@ -189,6 +189,7 @@ function getTimeSlots() {
 				for (let m=0; m < spisok.length; m++) {
 					if (tempVarMatches[m] != 0)
 					 spisok[m].value = tempVarMatches[m].eventText
+						spisok[m].title = tempVarMatches[m]. 
 					else spisok[m].value = 'Slot was not used!'
 				}
 				
