@@ -155,7 +155,6 @@ function getTimeSlots() {
 			}
 		}
 			
-			
         }
     })
     document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
