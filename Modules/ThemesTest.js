@@ -1,7 +1,7 @@
 var tableth;
-var btnthstyls = "margin-left:2px; width:150px; height: 44px;";
-var btnTagstyles = "margin-left:2px; width:125px; height: 25px;";
-var chbxTagstyles = "margin: 2px; width: 20px;";
+var btnthstyls = 'margin-left:2px; width:150px; height: 44px;';
+var btnTagstyles = 'margin-left:2px; width:125px; height: 25px;';
+var chbxTagstyles = 'margin: 2px; width: 20px;';
 
 var win_Themes =  // описание элементов окна Тематик
     `<div style="display: flex; width: 350px; padding-bottom:15px;">
@@ -34,6 +34,10 @@ var win_Themes =  // описание элементов окна Тематик
                 </span>
         </span>
 </div>`;
+
+if (localStorage.getItem('scriptAdrTH')) {
+    localStorage.setItem('scriptAdrTH') = "https://script.google.com/macros/s/AKfycbyVuAqd4ig0IxZl5Laxs4VcYnHJ8CyrFmoTfvQK5vXPFqVa5BCuUpqxTBcgMh0IaQVw/exec"
+}
 
 if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
     localStorage.setItem('winTopThemes', '120');
@@ -171,7 +175,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
     }
 
     function getTextThemes() { // функция обновления текста для тематик из документа
-        const appThemes = localStorage.getItem('scriptAdr');
+        const appThemes = localStorage.getItem('scriptAdrTH');
         const xhrThemes = new XMLHttpRequest();
         xhrThemes.open('GET', appThemes);
         xhrThemes.onreadystatechange = function () {
@@ -203,7 +207,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         countOfthPages = 0
         addTagFlag = 0
         areaThbtns = document.getElementById('themes_body')
-        areaTagbtns = document.getElementById('themes_body')
+        areaTagbtns = document.getElementById('tags_body')
         console.log(tableth)
         for (i = 0; i < tableth.length; i++) {
             c = tableth[i]
@@ -212,8 +216,8 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                     addTagFlag = 0
                     countOfthStr++
                     var newstrth = document.createElement('div')
-                    newstrth.style.margin = "5px"
-                    newstrth.id = countOfthPages + "pageth_" + countOfthStr + "strth"
+                    newstrth.style.margin = '5px'
+                    newstrth.id = countOfthPages + 'pageth_' + countOfthStr + 'strth'
                     areaThbtns.lastElementChild.appendChild(newstrth)
                     break
     
@@ -225,7 +229,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                     newpagethBut.textContent = c[1]
                     newpagethBut.style = btnthstyls
                     if (c[2] != '') { newpagethBut.title = c[2] } // если есть title добавляем его
-                    if (c[3] != '') { newpagethBut.style.fontSize = c[3]+ "px" } // если указан размер шрифта назначеем его
+                    if (c[3] != '') { newpagethBut.style.fontSize = c[3]+ 'px' } // если указан размер шрифта назначеем его
                     newpagethBut.setAttribute('onclick', 'pagethClick(this.id)')
                     newpagethBut.id = countOfthPages + '_pageth_button'
                     areaThbtns.childNodes[3].appendChild(newpagethBut)
@@ -240,25 +244,30 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                     countOfthStr = 1
         
                     var newstrth = document.createElement('div')
-                    newstrth.id = countOfthPages + "pageth_" + countOfthStr + "strth"
+                    newstrth.id = countOfthPages + 'pageth_' + countOfthStr + 'strth'
                     areaThbtns.lastElementChild.appendChild(newstrth)
                     break
                 default:
                             var newBut = document.createElement('button')
                             newBut.textContent = c[0]
-                            newBut.style.marginRight = '4px'
-                            newBut.setAttribute('onclick', 'buttonsFromDoc(this.textContent)')
-                            if (newBut.textContent == 'Урок NS')
-                                newBut.id = "NS"
-                            if (newBut.textContent == 'ус+брауз (У)')
-                                newBut.textContent = "ус+брауз"
-                            if (newBut.textContent == 'ус+брауз (П)')
-                                continue
-                            if (addTagFlag == 0)
+                            newBut.value = c[1]
+                            if (c[2] != '') { newBut.title = c[2] } // если есть title добавляем его
+                            if (c[3] != '') { newBut.style.fontSize = c[3] + 'px' } // если указан размер шрифта назначеем его
+                            if (addTagFlag == 0) {
+                                newBut.style = btnthstyls
+                                newBut.setAttribute('onclick', 'newTag(this.value)')
                                 areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
-                            else {
-                                newBut.style.marginTop = '4px'
-                                document.getElementById('addTmp').children[0].appendChild(newBut)
+                            } else {
+                                newBut.name = "tagssbtn"
+                                newBut.style = btnTagstyles
+                                newBut.setAttribute('onclick', 'newTaggg(this.value)')
+                                areaTagbtns.children[0].appendChild(newBut)
+
+                                var newChekB = document.createElement('input')
+                                newChekB.type = "checkbox" 
+                                newChekB.name= "tagcheck"
+                                newChekB.style = chbxTagstyles
+                                areaTagbtns.children[0].appendChild(newBut)
                             }
             }
         }
@@ -269,10 +278,10 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         pagethId = pagethId.split('_')[0]
         for (i = 0; i < areaThbtns.childElementCount; i++) {
             try {
-                document.getElementById(i + "pageth").style.display = 'none'
-                document.getElementById(i + "_pageth_button").style.display = 'none'
+                document.getElementById(i + 'pageth').style.display = 'none'
+                document.getElementById(i + '_pageth_button').style.display = 'none'
             } catch (e) { }
         }
-        document.getElementById(pagethId + "pageth").style.display = ''
+        document.getElementById(pagethId + 'pageth').style.display = ''
         document.getElementById(backtomenu).style.display = ''
     }
