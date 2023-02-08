@@ -642,6 +642,7 @@ function mystyles() {
 	
 	button[name="saveToCalend"]:hover, button[name="deleteFromCalend"]:hover {
 		box-shadow: 0px 0px 10px rgb(255 255 255);
+		cursor:pointer;
 	}
 		
 	#hideSlot:hover {
