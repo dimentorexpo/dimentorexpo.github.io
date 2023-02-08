@@ -148,6 +148,8 @@ document.getElementById('datsyCalendar').onclick = function () {
         let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
         let day = String(getcurdate.getDate()).padStart(2, "0");
         document.getElementById("eventDate").value = `${year}-${month}-${day}`;
+		
+		getTimeSlots()
 
     } else {
         document.getElementById('AF_Calendar').style.display = "none"
