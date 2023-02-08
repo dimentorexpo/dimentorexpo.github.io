@@ -20,8 +20,11 @@ var win_Calendar =  // описание формы чтобы не давала 
 						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap; justify-content: center; align-items: center; padding-bottom: 5px; margin-top: 5px">
 						</div>
 						
-						<div id="slotList" style="display:none; margin-bottom: 5px; margin-left: 5px;">
-						<span id="chosenSlot"></span>
+						<div id="slotList" style="display:none;">
+							<span id="chosenSlot" style="background: chartreuse; padding: 5px; margin-left: 39%; box-shadow: 0px 3px 1px rgb(0 0 0 / 55%); border-radius: 20px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700; color: darkblue; font-family: cursive;"></span>
+							<span id="hideSlot" style="font-size: 20px; cursor: pointer; transition:all 0.5s ease;">⤴</span>
+							<div id="slotData" style="margin-bottom: 5px; margin-left: 5px;">
+							</div>
 						</div>
         </span>
 </div>`;
@@ -132,6 +135,7 @@ function getTimeSlots() {
                     }
 					
                     tempor.setAttribute('name', 'slotRow');
+					tempor.setAttribute('dlina',`${availableslotsentries[i][1].CountSlot}`)
                     tempor.innerHTML = textvar;
 
                 }
@@ -142,16 +146,21 @@ function getTimeSlots() {
 			allRows[i].onclick = function() {
 				if (document.getElementById('slotList').style.display == "none") {
 					document.getElementById('slotList').style.display = ""
+				} 
 				
-				document.getElementById('slotList').innerHTML = ''
-				document.getElementById('chosenSlot').textContent = this.textContent
-				let testd = document.createElement('div')
-				testd.innerHTML = '<input style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
-				document.getElementById('slotList').appendChild(testd)
-					
-					
-				} else document.getElementById('slotList').style.display = "none"
+				document.getElementById('hideSlot').onclick = function() {
+					document.getElementById('slotList').style.display = "none"
+				}
 				
+				document.getElementById('chosenSlot').textContent = allRows[i].textContent	
+				
+				document.getElementById('slotData').innerHTML = ''
+				for (let j=0; j<parseInt(allRows[i].getAttribute('dlina')); j++) {
+					let testd = document.createElement('div')
+					testd.style = "margin-top: 5px;"
+					testd.innerHTML = '<input style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
+					document.getElementById('slotData').appendChild(testd)
+				}	
 			}
 		}
 			
