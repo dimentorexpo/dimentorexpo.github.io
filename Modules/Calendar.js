@@ -152,13 +152,15 @@ function getTimeSlots() {
 					document.getElementById('slotList').style.display = "none"
 				}
 				
+								document.getElementById('chosenSlot').textContent = allRows[i].textContent	
+				
 				document.getElementById('slotData').innerHTML = ''
-				let testd = document.createElement('div')
-				testd.style = "margin-top: 5px;"
-				testd.innerHTML = '<input style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
-				document.getElementById('slotData').appendChild(testd)
-				document.getElementById('chosenSlot').textContent = allRows[i].textContent	
-					
+				for (let j=0; j<allRows[i].value<j++) {
+					let testd = document.createElement('div')
+					testd.style = "margin-top: 5px;"
+					testd.innerHTML = '<input style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
+					document.getElementById('slotData').appendChild(testd)
+				}	
 			}
 		}
 			
