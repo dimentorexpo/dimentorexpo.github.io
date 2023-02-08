@@ -180,15 +180,16 @@ function getTimeSlots() {
 					if (arrayOfEvents[z].slotTime + ' ' + arrayOfEvents[z].slotDate == document.getElementById('chosenSlot').textContent) {
 						tempVarMatches.push(arrayOfEvents[z])
 						console.log(arrayOfEvents[z])
+					} else {
+						tempVarMatches.push(0)
 					}
 				}
 				
 				let spisok = document.getElementsByName('slotInfo');
 				for (let m=0; m < spisok.length; m++) {
-					if (tempVarMatches[m].eventText)
+					if (tempVarMatches[m] != 0)
 					 spisok[m].value = tempVarMatches[m].eventText
-					else
-					spisok[m].value = 'Slot was not used!'	
+					else spisok[m].value = 'Slot was not used!'
 				}
 				
 			}
