@@ -63,8 +63,8 @@ function compareTimes(time1, time2) {
     return date1.getTime() - date2.getTime();
 }
 
-function getTimeSlots() {
 	var arrayOfEvents = [];
+function getTimeSlots() {
 	let eventDate = document.getElementById('eventDate').value
     var dateCalend = new Date();
     var offsetCalend = 3; // Moscow Timezone Offset in hours
