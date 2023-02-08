@@ -19,7 +19,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 
 						<div id="outputcalendarfield" style="color:bisque; display:flex; flex-wrap:wrap; justify-content: center; align-items: center; padding-bottom: 5px; margin-top: 5px">
 						</div>
-						
+
 						<div id="slotList" style="display:none;">
 							<span id="chosenSlot" style="background: chartreuse; padding: 5px; margin-left: 39%; box-shadow: 0px 3px 1px rgb(0 0 0 / 55%); border-radius: 20px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700; color: darkblue; font-family: cursive;"></span>
 							<span id="hideSlot" style="font-size: 20px; cursor: pointer; transition:all 0.5s ease;">⤴</span>
@@ -110,8 +110,8 @@ function getTimeSlots() {
             for (let i = 0; i < availableslotsentries.length; i++) {
                 if (availableslotsentries[i][0] != "00:00" && availableslotsentries[i][0] != "00:20" && availableslotsentries[i][0] != "00:40" && availableslotsentries[i][0] != "23:00" && availableslotsentries[i][0] != "23:20" && availableslotsentries[i][0] != "23:40" && availableslotsentries[i][0] != "01:00" && availableslotsentries[i][0] != "01:20" && availableslotsentries[i][0] != "01:40" && availableslotsentries[i][0] != "02:00" && availableslotsentries[i][0] != "02:20" && availableslotsentries[i][0] != "02:40" && availableslotsentries[i][0] != "03:00" && availableslotsentries[i][0] != "03:20" && availableslotsentries[i][0] != "03:40" && availableslotsentries[i][0] != "04:00" && availableslotsentries[i][0] != "04:20" && availableslotsentries[i][0] != "04:40" && availableslotsentries[i][0] != "05:00" && availableslotsentries[i][0] != "05:20" && availableslotsentries[i][0] != "05:40" && availableslotsentries[i][0] != "06:00" && availableslotsentries[i][0] != "06:20" && availableslotsentries[i][0] != "06:40" && availableslotsentries[i][0] != "07:00" && availableslotsentries[i][0] != "07:20" && availableslotsentries[i][0] != "07:40") {
                     console.log(availableslotsentries[i])
-					
-					
+
+
 					if (availableslotsentries[i][1].EventList.length != 0) {
 					  for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
 						arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
@@ -120,7 +120,7 @@ function getTimeSlots() {
 											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot});
 					  }
 					}
-					
+
 
                     textvar = '<span style = "background: #2058cb; border-radius:10px; padding-left: 5px; padding-right: 5px;">' + availableslotsentries[i][0] + '</span>' + ' ' + document.getElementById('eventDate').value
                     let tempor = document.createElement('p');
@@ -146,51 +146,54 @@ function getTimeSlots() {
                         // document.getElementsByName('slotRow')[i].style.background = "rgb(171 65 62)";
 						 tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: white; font-weight:700; background:rgb(126 113 113); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
                     }
-					
+
                     tempor.setAttribute('name', 'slotRow');
 					tempor.setAttribute('dlina',`${availableslotsentries[i][1].CountSlot}`)
                     tempor.innerHTML = textvar;
 
                 }
             }
-			
+
 	let allRows = document.getElementsByName('slotRow')
 		for (let i = 0; i < allRows.length; i++) {
 			allRows[i].onclick = function() {
+				let tempVarMatches  = [];
 				if (document.getElementById('slotList').style.display == "none") {
 					document.getElementById('slotList').style.display = ""
-				} 
-				
+				}
+
 				document.getElementById('hideSlot').onclick = function() {
 					document.getElementById('slotList').style.display = "none"
 				}
-				
-				document.getElementById('chosenSlot').textContent = allRows[i].textContent	
-				
+
+				document.getElementById('chosenSlot').textContent = allRows[i].textContent
+
 				document.getElementById('slotData').innerHTML = ''
 				for (let j=0; j<parseInt(allRows[i].getAttribute('dlina')); j++) {
 					let testd = document.createElement('div')
 					testd.style = "margin-top: 5px;"
 					testd.innerHTML = '<input name="slotInfo" style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
 					document.getElementById('slotData').appendChild(testd)
-				}	
-				
+				}
+
 				for (let z = 0; z < arrayOfEvents.length; z++) {
 					if (arrayOfEvents[z].slotTime + ' ' + arrayOfEvents[z].slotDate == document.getElementById('chosenSlot').textContent) {
+						tempVarMatches.push(arrayOfEvents[z])
 						console.log(arrayOfEvents[z])
 					}
 				}
 				
-				
+				let spisok = document.getElementsByName('slotInfo');
+				for (let m=0; m < spisok.length; m++) {
+					spisok[m].value = tempVarMatches[m]
+				}
 				
 			}
 		}
-			
+
         }
     })
     document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
-	
-
 }
 
 document.getElementById('datsyCalendar').onclick = function () {
@@ -202,7 +205,7 @@ document.getElementById('datsyCalendar').onclick = function () {
         let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
         let day = String(getcurdate.getDate()).padStart(2, "0");
         document.getElementById("eventDate").value = `${year}-${month}-${day}`;
-		
+
 		getTimeSlots()
 
     } else {
