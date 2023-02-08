@@ -121,10 +121,10 @@ function getTimeSlots() {
 						}
 					} else { 					  
 						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
-						arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
+						arrayOfEvents.push({'eventId': null,
 											'eventText': null,
-											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
-											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot});
+											'slotTime' : null,
+											'slotDate' : null});
 					  }
 					}
 
