@@ -155,7 +155,7 @@ function getTimeSlots() {
 				document.getElementById('chosenSlot').textContent = allRows[i].textContent	
 				
 				document.getElementById('slotData').innerHTML = ''
-				for (let j=0; j<allRows[i].value;<j++) {
+				for (let j=0; j<allRows[i].value; j++) {
 					let testd = document.createElement('div')
 					testd.style = "margin-top: 5px;"
 					testd.innerHTML = '<input style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
