@@ -635,7 +635,7 @@ function mystyles() {
 	
 	button[name="deleteFromCalend"] {
 		width: 110px;
-		background: #ab413e;
+		background: #a55a58;
 	}
 		
 	`
