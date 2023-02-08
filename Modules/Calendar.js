@@ -185,7 +185,10 @@ function getTimeSlots() {
 				
 				let spisok = document.getElementsByName('slotInfo');
 				for (let m=0; m < spisok.length; m++) {
-					spisok[m].value = tempVarMatches[m].eventText
+					if (tempVarMatches[m].eventText)
+					 spisok[m].value = tempVarMatches[m].eventText
+					else
+					spisok[m].value = 'Slot was not used!'	
 				}
 				
 			}
