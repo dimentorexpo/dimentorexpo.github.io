@@ -56,25 +56,8 @@ function compareTimes(time1, time2) {
     return date1.getTime() - date2.getTime();
 }
 
-document.getElementById('datsyCalendar').onclick = function () {
-    if (document.getElementById('AF_Calendar').style.display == "none") {
-        document.getElementById('AF_Calendar').style.display = ""
-
-        let getcurdate = new Date();
-        let year = getcurdate.getFullYear();
-        let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
-        let day = String(getcurdate.getDate()).padStart(2, "0");
-        document.getElementById("eventDate").value = `${year}-${month}-${day}`;
-
-    } else {
-        document.getElementById('AF_Calendar').style.display = "none"
-    }
-
-}
-
-let responseslotsdata;
-document.getElementById('getCalendarData').onclick = function () {
-	let eventDate = document.getElementById('eventDate').value
+function getTimeSlots() {
+		let eventDate = document.getElementById('eventDate').value
     var dateCalend = new Date();
     var offsetCalend = 3; // Moscow Timezone Offset in hours
     var utcHoursCalendar = dateCalend.getUTCHours();
@@ -156,6 +139,25 @@ document.getElementById('getCalendarData').onclick = function () {
     document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
 }
 
+document.getElementById('datsyCalendar').onclick = function () {
+    if (document.getElementById('AF_Calendar').style.display == "none") {
+        document.getElementById('AF_Calendar').style.display = ""
+
+        let getcurdate = new Date();
+        let year = getcurdate.getFullYear();
+        let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
+        let day = String(getcurdate.getDate()).padStart(2, "0");
+        document.getElementById("eventDate").value = `${year}-${month}-${day}`;
+
+    } else {
+        document.getElementById('AF_Calendar').style.display = "none"
+    }
+
+}
+
+let responseslotsdata;
+document.getElementById('getCalendarData').onclick = getTimeSlots;
+
 document.getElementById('hidecalendar').onclick = function () {
     document.getElementById('AF_Calendar').style.display = "none"
 }
@@ -172,6 +174,7 @@ document.getElementById('clearcalendar').onclick = function () {
 }
 
 document.getElementById('refreshcalendar').onclick = function () {
+	getTimeSlots()
     console.log("Refresh")
 }
 
