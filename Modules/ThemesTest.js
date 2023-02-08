@@ -36,7 +36,7 @@ var win_Themes =  // описание элементов окна Тематик
 </div>`;
 
 if (localStorage.getItem('scriptAdrTH')) {
-    localStorage.setItem('scriptAdrTH') = "https://script.google.com/macros/s/AKfycbyVuAqd4ig0IxZl5Laxs4VcYnHJ8CyrFmoTfvQK5vXPFqVa5BCuUpqxTBcgMh0IaQVw/exec"
+    localStorage.setItem('scriptAdrTH', 'https://script.google.com/macros/s/AKfycbyVuAqd4ig0IxZl5Laxs4VcYnHJ8CyrFmoTfvQK5vXPFqVa5BCuUpqxTBcgMh0IaQVw/exec')
 }
 
 if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
@@ -232,7 +232,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                     if (c[3] != '') { newpagethBut.style.fontSize = c[3]+ 'px' } // если указан размер шрифта назначеем его
                     newpagethBut.setAttribute('onclick', 'pagethClick(this.id)')
                     newpagethBut.id = countOfthPages + '_pageth_button'
-                    areaThbtns.childNodes[3].appendChild(newpagethBut)
+                    areaThbtns.childNodes[4].appendChild(newpagethBut)
     
                     var newpageth = document.createElement('div')
                     newpageth.id = countOfthPages + 'pageth'
@@ -267,7 +267,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 newChekB.type = "checkbox" 
                                 newChekB.name= "tagcheck"
                                 newChekB.style = chbxTagstyles
-                                areaTagbtns.children[0].appendChild(newBut)
+                                areaTagbtns.children[1].appendChild(newBut)
                             }
             }
         }
