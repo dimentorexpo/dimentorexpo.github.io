@@ -185,7 +185,7 @@ function getTimeSlots() {
 				
 				let spisok = document.getElementsByName('slotInfo');
 				for (let m=0; m < spisok.length; m++) {
-					spisok[m].value = tempVarMatches[m].text
+					spisok[m].value = tempVarMatches[m].eventText
 				}
 				
 			}
