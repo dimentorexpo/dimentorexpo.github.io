@@ -135,6 +135,7 @@ function getTimeSlots() {
                     }
 					
                     tempor.setAttribute('name', 'slotRow');
+					tempor.setAttribute('value',`${availableslotsentries[i][1].CountEvent}`)
                     tempor.innerHTML = textvar;
 
                 }
