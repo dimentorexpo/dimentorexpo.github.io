@@ -7,7 +7,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 								<button id="clearcalendar">🧹</button>
 								<button id="refreshcalendar">♻</button>
 								<button id="opendatsy">📅</button>
-								<label title="Включение и отключение автоматического обновления информации в слотах" class="checkbox-audio">
+								<label title="Включение и отключение автоматического обновления информации в слотах с интервалом 30 секунд" class="checkbox-audio">
 									<input id="autorefreshswitcher" type="checkbox" checked="">
 										<span class="checkbox-audio-switch"></span>
 								</label>
@@ -341,6 +341,17 @@ document.getElementById('datsyCalendar').onclick = function () {
         let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
         let day = String(getcurdate.getDate()).padStart(2, "0");
         document.getElementById("eventDate").value = `${year}-${month}-${day}`;
+		
+		if (localStorage.getItem('refreshCalend') == '1') {
+
+				if (!refreshintervalset) {
+					refreshintervalset = setInterval(() => { getTimeSlots() }, 30000)
+				
+			} else {
+				clearInterval(refreshintervalset)
+				refreshintervalset = null
+			}
+		}
 
     } else {
         document.getElementById('AF_Calendar').style.display = "none"
@@ -374,7 +385,7 @@ document.getElementById('nowDay').onclick = function() { // обработчик
 }
 
 document.getElementsByClassName('checkbox-audio-switch')[1].onclick = function () {  // функция переключатели автообновления
-	if (localStorage.getItem('refreshCalend')) {
+	if (localStorage.getItem('refreshCalend') != null) {
 		if (localStorage.getItem('refreshCalend') == '0') {
 			document.getElementById('autorefreshswitcher').checked = false;
 			localStorage.setItem('refreshCalend', '1');
