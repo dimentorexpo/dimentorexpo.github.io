@@ -86,7 +86,7 @@ function checkAuth() { //функция проверки авторизации 
 				getTimeSlots()
 			} 
 		}
-		
+
 		document.getElementById('responseTextarea1').removeAttribute('getAuthData')
 	})
 }
