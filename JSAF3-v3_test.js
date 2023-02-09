@@ -649,6 +649,24 @@ function mystyles() {
 		font-size:24px !important;
 		text-shadow: -2px 3px 16px rgb(255 255 255);
 	}
+	
+	.glowing-border-animation {
+	  animation: glowing-border 2s ease-in-out infinite;
+	  border: 2px solid blue;
+	}
+
+	@keyframes glowing-border {
+	  0% {
+		box-shadow: 0 0 10px blue;
+	  }
+	  50% {
+		box-shadow: 0 0 20px blue;
+	  }
+	  100% {
+		box-shadow: 0 0 10px blue;
+	  }
+	}
+
 		
 	`
     mstl.innerHTML = style;
