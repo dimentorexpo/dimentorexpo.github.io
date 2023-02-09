@@ -342,6 +342,26 @@ document.getElementById('datsyCalendar').onclick = function () {
 
 }
 
+document.getElementById('nextDay').onclick = function() { // обработчик нажатия на кнопку следующего дня
+    let dateInput = document.getElementById('eventDate').value;
+    let date = new Date(dateInput);
+    date.setDate(date.getDate() + 1);
+    let newDate = date.toISOString().split('T')[0];
+    document.getElementById('eventDate').value = newDate;
+	getTimeSlots()
+}
+
+document.getElementById('prevDay').onclick = function() { // обработчик нажатия на кнопку предыдущего дня
+    let dateInput = document.getElementById('eventDate').value;
+    let date = new Date(dateInput);
+    date.setDate(date.getDate() - 1);
+    let newDate = date.toISOString().split('T')[0];
+    document.getElementById('eventDate').value = newDate;
+	getTimeSlots()
+}
+
+
+
 let responseslotsdata;
 document.getElementById('getCalendarData').onclick = getTimeSlots;
 
