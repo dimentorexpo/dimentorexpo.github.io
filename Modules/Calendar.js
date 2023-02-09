@@ -255,7 +255,7 @@ function getTimeSlots() {
 							  },
 							  "referrer": "https://datsy.ru/",
 							  "referrerPolicy": "strict-origin-when-cross-origin",
-							  "body": "&deleteslot=${spisok[v].title}",
+							  "body": "&deleteslot=${spisok[f].title}",
 							  "method": "POST",
 							  "mode": "cors",
 							  "credentials": "include"
