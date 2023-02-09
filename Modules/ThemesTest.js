@@ -201,13 +201,14 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
 
         while (document.getElementById('themes_body').children[2] != undefined) // удаляем кнопки страниц тематик
             document.getElementById('themes_body').children[2].remove()
-        while (document.getElementById('tags_body').children[2] != undefined) // удаляем кнопки тегов
-            document.getElementById('tags_body').children[2].remove()
+        while (document.getElementById('tags_body').children[1] != undefined) // удаляем кнопки тегов
+            document.getElementById('tags_body').children[1].remove()
         for (i = 0; document.getElementById(i + 'themesbtn') != undefined; i++) // удаляем страницы тематик
             document.getElementById(i + 'themesbtn').remove()
         countOfthStr = 0
         countOfthPages = 0
         addTagFlag = 0
+        addFontFlag = 0
         areaThbtns = document.getElementById('themes_body')
         areaTagbtns = document.getElementById('tags_body')
         console.log(tableth)
@@ -254,14 +255,16 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                             newBut.textContent = c[0]
                             newBut.value = c[1]
                             if (c[2] != '') { newBut.title = c[2] } // если есть title добавляем его
-                            if (c[3] != '') { newBut.style.fontSize = c[3] + 'px;' } // если указан размер шрифта назначеем его
+                            if (c[3] != '') { addFontFlag = 1 } else { addFontFlag = 0 } // проверяем указан ли размер шрифта
                             if (addTagFlag == 0) {
-                                newBut.style = newBut.style + btnthstyls
+                                newBut.style = btnthstyls
+                                if (addFontFlag == 1) {newBut.style.fontSize = c[3]+ 'px'} // если указан размер шрифта назначеем его
                                 newBut.setAttribute('onclick', 'newTag(this.value)')
                                 areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             } else {
+                                newBut.style = btnTagstyles
+                                if (addFontFlag == 1) {newBut.style.fontSize = c[3]+ 'px'} // если указан размер шрифта назначеем его
                                 newBut.name = "tagssbtn"
-                                newBut.style = newBut.style + btnTagstyles
                                 newBut.setAttribute('onclick', 'newTaggg(this.value)')
                                 areaTagbtns.appendChild(newBut)
 
