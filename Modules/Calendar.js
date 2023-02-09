@@ -361,7 +361,7 @@ document.getElementById('prevDay').onclick = function() { // обработчи�
 	getTimeSlots()
 }
 
-document.getElementById('nowDate').onclick = function() { // обработчик нажатия на кнопку "сегодня"
+document.getElementById('nowDay').onclick = function() { // обработчик нажатия на кнопку "сегодня"
     let now = new Date();
     let newDate = now.toISOString().split('T')[0];
     document.getElementById('eventDate').value = newDate;
