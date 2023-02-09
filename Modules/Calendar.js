@@ -373,6 +373,20 @@ document.getElementById('nowDay').onclick = function() { // обработчик
 	getTimeSlots()
 }
 
+document.getElementsByClassName('checkbox-audio-switch')[1].onclick = function () {  // функция переключатели автообновления
+	if (localStorage.getItem('refreshCalend')) {
+		if (localStorage.getItem('refreshCalend') == '0') {
+			document.getElementById('autorefreshswitcher').checked = false;
+			localStorage.setItem('refreshCalend', '1');
+		} else if (localStorage.getItem('audio') == '1') {
+			document.getElementById('autorefreshswitcher').checked = true;
+			localStorage.setItem('refreshCalend', '0');
+		}
+	} else {
+		localStorage.setItem('refreshCalend', '1');
+	}
+}
+
 document.getElementById('hidecalendar').onclick = function () {
     document.getElementById('AF_Calendar').style.display = "none"
 }
