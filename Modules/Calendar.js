@@ -338,6 +338,7 @@ document.getElementById('hidecalendar').onclick = function () {
 }
 
 document.getElementById('clearcalendar').onclick = function () {
+	document.getElementById('slotList').style.display = "none"
     document.getElementById('outputcalendarfield').innerHTML = ''
     if (document.getElementsByName('slotRow').length > 0) {
         let elements = document.getElementsByName('slotRow');
@@ -350,7 +351,7 @@ document.getElementById('clearcalendar').onclick = function () {
 
 document.getElementById('refreshcalendar').onclick = function () {
 		checkAuth()
-		
+		document.getElementById('slotList').style.display = "none"
     console.log("Refresh")
 }
 
