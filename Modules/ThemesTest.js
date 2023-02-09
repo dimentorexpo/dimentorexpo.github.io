@@ -1,5 +1,5 @@
 var tableth;
-var btnthstyls = 'margin-left:2px; width:150px; height: 45px; font-size: 13px;';
+var btnthstyls = 'margin-left:2px; width:150px; height: 44px;';
 var btnTagstyles = 'margin-left:2px; width:125px; height: 25px;';
 var chbxTagstyles = 'margin: 2px; width: 20px;';
 
@@ -239,7 +239,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
     
                     var newpageth = document.createElement('div')
                     newpageth.id = countOfthPages + 'pageth'
-                    newpageth.style.display = 'none'
+                    newpageth.style = 'flex-wrap:wrap;display:none;'
                     areaThbtns.appendChild(newpageth)
     
                     countOfthPages++
@@ -248,6 +248,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         
                     var newstrth = document.createElement('div')
                     newstrth.id = countOfthPages + 'pageth_' + countOfthStr + 'strth'
+                    newstrth.style = 'flex-wrap:wrap;display:flex;'
                     areaThbtns.lastElementChild.appendChild(newstrth)
                     break
                 default:
@@ -288,7 +289,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                 document.getElementById(i + '_pageth_button').style.display = 'none'
             } catch (e) { }
         }
-        document.getElementById(pagethId + 'pageth').style.display = ''
+        document.getElementById(pagethId + 'pageth').style.display = 'flex'
     }
 
     document.getElementById('backtomenu').onclick = function () {
