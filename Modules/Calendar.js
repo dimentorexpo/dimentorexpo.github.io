@@ -7,6 +7,10 @@ var win_Calendar =  // описание формы чтобы не давала 
 								<button id="clearcalendar">🧹</button>
 								<button id="refreshcalendar">♻</button>
 								<button id="opendatsy">📅</button>
+								<label title="Включение и отключение автоматического обновления информации в слотах" class="checkbox-audio">
+									<input id="autorefreshswitcher" type="checkbox" checked="">
+										<span class="checkbox-audio-switch"></span>
+								</label>
 			    </span>
                         </div>
 
