@@ -253,7 +253,6 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                             newBut.textContent = c[0]
                             newBut.value = c[1]
                             if (c[2] != '') { newBut.title = c[2] } // если есть title добавляем его
-                            if (c[3] != '') { newBut.style.fontSize = c[3] + 'px' } // если указан размер шрифта назначеем его
                             if (addTagFlag == 0) {
                                 newBut.style = btnthstyls
                                 newBut.setAttribute('onclick', 'newTag(this.value)')
@@ -268,8 +267,9 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 newChekB.type = "checkbox" 
                                 newChekB.name= "tagcheck"
                                 newChekB.style = chbxTagstyles
-                                areaTagbtns.appendChild(newBut)
+                                areaTagbtns.appendChild(newChekB)
                             }
+                            if (c[3] != '') { newBut.style.fontSize = c[3] + 'px' } // если указан размер шрифта назначеем его
             }
         }
     }
