@@ -194,6 +194,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         };
         xhrThemes.send();
     }
+    getTextThemes()
 
     function refreshThemesBtns() { // функция обновляет тематики которые загружены были с гугл таблицы и сформированы их в tableth
 
