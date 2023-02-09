@@ -395,6 +395,7 @@ document.getElementsByClassName('checkbox-audio-switch')[1].onclick = function (
 		} else if (localStorage.getItem('audio') == '1') {
 			document.getElementById('autorefreshswitcher').checked = true;
 			localStorage.setItem('refreshCalend', '0');
+			refreshintervalset = setInterval(() => { getTimeSlots() }, 30000)
 		}
 	} else {
 		localStorage.setItem('refreshCalend', '1');
