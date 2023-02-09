@@ -240,14 +240,33 @@ function getTimeSlots() {
 							document.getElementById('responseTextarea3').value = '';
 							document.getElementById('sendResponse').click();
 						}
-						
-						console.log([v])
 					}
 				}
 				
 				for (let f=0; f<deleteBtns.length; f++) {
 					deleteBtns[f].onclick  = function() {
-						console.log([f])
+						if (spisok[v].title !='') {
+							document.getElementById('responseTextarea1').value = `{
+							  "headers": {
+								"content-type": "application/x-www-form-urlencoded",
+								"sec-fetch-dest": "empty",
+								"sec-fetch-mode": "cors",
+								"sec-fetch-site": "same-site"
+							  },
+							  "referrer": "https://datsy.ru/",
+							  "referrerPolicy": "strict-origin-when-cross-origin",
+							  "body": "&deleteslot=${spisok[v].title}",
+							  "method": "POST",
+							  "mode": "cors",
+							  "credentials": "include"
+							}`;
+							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/delete.php`;
+							document.getElementById('responseTextarea3').value = '';
+							document.getElementById('sendResponse').click();
+							
+							spisok[v].title = ''
+							spisok[v].value = ''
+						}
 					}
 				}
 
