@@ -200,8 +200,47 @@ function getTimeSlots() {
 				
 				let saveBtns = document.getElementsByName('saveToCalend')
 				let deleteBtns = document.getElementsByName('deleteFromCalend')
+				let curSlotTime = document.getElementById('chosenSlot').textContent.split(' ')[0]
+				let curSlotDate = document.getElementById('chosenSlot').textContent.split(' ')[1]
 				for (let v=0; v<saveBtns.length; v++) {
 					saveBtns[v].onclick  = function() {
+						
+						if (spisok[v].value == '' && spisok[v].title =='') {
+							document.getElementById('responseTextarea1').value = `{
+								"headers": {
+									"content-type": "application/x-www-form-urlencoded",
+									"sec-fetch-mode": "cors",
+									"sec-fetch-site": "same-site"
+								  },
+								  "referrer": "https://datsy.ru/",
+								  "referrerPolicy": "strict-origin-when-cross-origin",
+								  "body": "addinput=${spisok[v].value}&slotname=${curSlotTime}&date=${curSlotDate}",
+								  "method": "POST",
+								  "mode": "cors",
+								  "credentials": "include"
+							}`;
+							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/add.php"`;
+							document.getElementById('responseTextarea3').value = '';
+							document.getElementById('sendResponse').click();				
+						} else if (spisok[v].value !='' && spisok[v].title !='') {
+							document.getElementById('responseTextarea1').value = `{
+								 "headers": {
+									"content-type": "application/x-www-form-urlencoded",
+									"sec-fetch-mode": "cors",
+									"sec-fetch-site": "same-site"
+								  },
+								  "referrer": "https://datsy.ru/",
+								  "referrerPolicy": "strict-origin-when-cross-origin",
+								  "body": "event-text=${spisok[v].value}&save-slot=${spisok[v].title}",
+								  "method": "POST",
+								  "mode": "cors",
+								  "credentials": "include"
+							}`;
+							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/save.php`;
+							document.getElementById('responseTextarea3').value = '';
+							document.getElementById('sendResponse').click();
+						}
+						
 						console.log([v])
 					}
 				}
