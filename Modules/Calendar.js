@@ -11,7 +11,9 @@ var win_Calendar =  // описание формы чтобы не давала 
                         </div>
 
 						<div style="display: flex; justify-content: center;">
+								<button id="prevDay">◀</button>
 								<input type="date" id="eventDate" onChange="getTimeSlots()" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700; border-radius: 20px;"></input>
+								<button id="nextDay">▶</button>
 								<button id="getCalendarData" style="margin-left: 10px; margin-bottom: 5px;">🔎</button>
 								<label style="margin-left: 5px; margin-right: 5px; margin-top: 5px; color: bisque;">Доступное время по состоянию на: </label>
 								<input type="text" id="datenowtime" style="text-align:center; background: cornsilk; border-radius: 20px;" disabled></input>
@@ -134,7 +136,7 @@ function getTimeSlots() { //функция получения информаци
 			arrayOfEvents = [];
             document.getElementById('outputcalendarfield').innerHTML = ''
             responseslotsdata = JSON.parse(responsevar);
-            console.log(responseslotsdata)
+            // console.log(responseslotsdata)
             document.getElementById('datenowtime').value = responseslotsdata.nowDateTime;
 
             let availableslotsentries = Object.entries(responseslotsdata.DataTimeSlot)
