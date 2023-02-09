@@ -248,6 +248,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         
                     var newstrth = document.createElement('div')
                     newstrth.id = countOfthPages + 'pageth_' + countOfthStr + 'strth'
+                    newstrth.style = 'flex-wrap:wrap;display:flex;'
                     areaThbtns.lastElementChild.appendChild(newstrth)
                     break
                 default:
