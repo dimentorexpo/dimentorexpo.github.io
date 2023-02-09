@@ -199,9 +199,16 @@ function getTimeSlots() {
 				}
 				
 				let saveBtns = document.getElementsByName('saveToCalend')
+				let deleteBtns = document.getElementsByName('deleteFromCalend')
 				for (let v=0; v<saveBtns.length; v++) {
 					saveBtns[v].onclick  = function() {
 						console.log([v])
+					}
+				}
+				
+				for (let f=0; f<deleteBtns.length; f++) {
+					deleteBtns[f].onclick  = function() {
+						console.log([f])
 					}
 				}
 
