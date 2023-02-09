@@ -79,7 +79,8 @@ function checkAuth() { //функция проверки авторизации 
 		if (responsevar) {
 			parsedData = JSON.parse(responsevar)
 			if (parsedData['value-status'] == "Не авторизован") {
-				alert("Вы не авторизованы на datsy.ru Проверьте, пожалуйста, авторизацию и повторите попытку, иначе слоты могут не добавляться!")
+				alert("Вы не авторизованы на datsy.ru Проверьте, пожалуйста, авторизацию и повторите попытку после переоткрытия виджета в расширении или кнопкой обновить ♻, иначе слоты могут не добавляться!")
+				window.open("https://datsy.ru/")
 			} else {
 				console.log("Вы авторизованы, смело продолжайте работу с календарем")
 				getTimeSlots()
@@ -316,7 +317,7 @@ document.getElementById('datsyCalendar').onclick = function () {
     if (document.getElementById('AF_Calendar').style.display == "none") {
         document.getElementById('AF_Calendar').style.display = ""
 		checkAuth()
-
+		
         let getcurdate = new Date();
         let year = getcurdate.getFullYear();
         let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
@@ -348,7 +349,8 @@ document.getElementById('clearcalendar').onclick = function () {
 }
 
 document.getElementById('refreshcalendar').onclick = function () {
-	getTimeSlots()
+		checkAuth()
+		
     console.log("Refresh")
 }
 
