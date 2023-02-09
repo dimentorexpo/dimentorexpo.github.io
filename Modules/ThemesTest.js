@@ -1,4 +1,7 @@
 var tableth;
+var btnthstyls = 'margin-left:2px; width:150px; height: 44px;';
+var btnTagstyles = 'margin-left:2px; width:125px; height: 25px;';
+var chbxTagstyles = 'margin: 2px; width: 20px;';
 
 var win_Themes =  // описание элементов окна Тематик
     `<div style="display: flex; width: 350px; padding-bottom:15px;">
@@ -205,6 +208,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         countOfthStr = 0
         countOfthPages = 0
         addTagFlag = 0
+        addFontFlag = 0
         areaThbtns = document.getElementById('themes_body')
         areaTagbtns = document.getElementById('tags_body')
         console.log(tableth)
@@ -226,9 +230,9 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                 case 'Темы':
                     var newpagethBut = document.createElement('button')
                     newpagethBut.textContent = c[1]
-                    newpagethBut.style = 'margin-left:2px; width:150px; height: 44px;'
+                    newpagethBut.style = btnthstyls
                     if (c[2] != '') { newpagethBut.title = c[2] } // если есть title добавляем его
-                    if (c[3] != '') { newpagethBut.style.fontSize = c[3] + 'px' } // если указан размер шрифта назначеем его
+                    if (c[3] != '') { newpagethBut.style.fontSize = c[3]+ 'px' } // если указан размер шрифта назначеем его
                     newpagethBut.setAttribute('onclick', 'pagethClick(this.id)')
                     newpagethBut.id = countOfthPages + '_pageth_button'
                     areaThbtns.appendChild(newpagethBut)
@@ -251,20 +255,15 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                             newBut.textContent = c[0]
                             newBut.value = c[1]
                             if (c[2] != '') { newBut.title = c[2] } // если есть title добавляем его
+                            if (c[3] != '') { addFontFlag = 1 } else { addFontFlag = 0 } // проверяем указан ли размер шрифта
                             if (addTagFlag == 0) {
-                                if (c[3] != '') {  // если указан размер шрифта назначеем его
-                                    newBut.style = 'margin-left:2px; width:150px; height: 44px; fontSize: ' + c[3] + 'px;'
-                                } else {
-                                    newBut.style = 'margin-left:2px; width:150px; height: 44px;'
-                                }
+                                newBut.style = btnthstyls
+                                if (addFontFlag == 1) {newBut.style.fontSize = c[3]+ 'px'} // если указан размер шрифта назначеем его
                                 newBut.setAttribute('onclick', 'newTag(this.value)')
                                 areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             } else {
-                                if (c[3] != '') {  // если указан размер шрифта назначеем его
-                                    newBut.style = 'margin-left:2px; width:125px; height: 25px; fontSize: ' + c[3] + 'px;'
-                                } else {
-                                    newBut.style = 'margin-left:2px; width:125px; height: 25px;'
-                                }
+                                newBut.style = btnTagstyles
+                                if (addFontFlag == 1) {newBut.style.fontSize = c[3]+ 'px'} // если указан размер шрифта назначеем его
                                 newBut.name = "tagssbtn"
                                 newBut.setAttribute('onclick', 'newTaggg(this.value)')
                                 areaTagbtns.appendChild(newBut)
@@ -272,7 +271,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 var newChekB = document.createElement('input')
                                 newChekB.type = "checkbox" 
                                 newChekB.name= "tagcheck"
-                                newChekB.style = 'margin: 2px; width: 20px;'
+                                newChekB.style = chbxTagstyles
                                 areaTagbtns.appendChild(newChekB)
                             }
             }
