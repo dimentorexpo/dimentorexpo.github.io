@@ -1379,7 +1379,8 @@ function prepTp() { //функция подготовки расширения �
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
 		"https://dimentorexpo.github.io/Modules/Statistica1.js", // модуль кнопки "Статистика" и вложенных функций
-		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Статистика" и вложенных функций
+		// "https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Статистика" и вложенных функций
+		"https://grumstv.github.io/Modules/Calendar.js", // модуль кнопки "Статистика" и вложенных функций
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
         "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
