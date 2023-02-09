@@ -245,7 +245,7 @@ function getTimeSlots() {
 				
 				for (let f=0; f<deleteBtns.length; f++) {
 					deleteBtns[f].onclick  = function() {
-						if (spisok[v].title !='') {
+						if (spisok[f].title !='') {
 							document.getElementById('responseTextarea1').value = `{
 							  "headers": {
 								"content-type": "application/x-www-form-urlencoded",
