@@ -196,7 +196,16 @@ function getTimeSlots() {
 						spisok[n].value = tempVarMatches[n].eventText
 						spisok[n].title = tempVarMatches[n].eventId
 					}
-				}				
+				}
+				
+				let saveBtns = document.getElementsByName('saveToCalend')
+				for (let v=0; v<saveBtns.length; v++) {
+					saveBtns[v].onclick  = function() {
+						console.log([v])
+					}
+				}
+
+				
 			}
 		}
 
