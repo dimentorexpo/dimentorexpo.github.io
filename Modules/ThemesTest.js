@@ -268,7 +268,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 newChekB.type = "checkbox" 
                                 newChekB.name= "tagcheck"
                                 newChekB.style = chbxTagstyles
-                                areaTagbtns.children[1].appendChild(newBut)
+                                areaTagbtns.appendChild(newBut)
                             }
             }
         }
