@@ -82,6 +82,7 @@ function checkAuth() { //функция проверки авторизации 
 				alert("Вы не авторизованы на datsy.ru Проверьте, пожалуйста, авторизацию и повторите попытку после переоткрытия виджета в расширении, иначе слоты могут не добавляться!")
 			} else {
 				console.log("Вы авторизованы, смело продолжайте работу с календарем")
+				getTimeSlots()
 			} 
 		}
 		
@@ -316,8 +317,6 @@ document.getElementById('datsyCalendar').onclick = function () {
         document.getElementById('AF_Calendar').style.display = ""
 		checkAuth()
 		
-		getTimeSlots()
-
         let getcurdate = new Date();
         let year = getcurdate.getFullYear();
         let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
@@ -350,10 +349,6 @@ document.getElementById('clearcalendar').onclick = function () {
 
 document.getElementById('refreshcalendar').onclick = function () {
 		checkAuth()
-		
-		if (authFlag == 1) {
-			getTimeSlots()
-		}
 		
     console.log("Refresh")
 }
