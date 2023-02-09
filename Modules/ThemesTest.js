@@ -262,13 +262,13 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                                 newBut.name = "tagssbtn"
                                 newBut.style = btnTagstyles
                                 newBut.setAttribute('onclick', 'newTaggg(this.value)')
-                                areaTagbtns.children[0].appendChild(newBut)
+                                areaTagbtns.appendChild(newBut)
 
                                 var newChekB = document.createElement('input')
                                 newChekB.type = "checkbox" 
                                 newChekB.name= "tagcheck"
                                 newChekB.style = chbxTagstyles
-                                areaTagbtns.children[1].appendChild(newBut)
+                                areaTagbtns.appendChild(newBut)
                             }
             }
         }
@@ -294,4 +294,5 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                 document.getElementById(i + '_pageth_button').style.display = ''
             } catch (e) { }
         }
+        document.getElementById('backtomenu').style.display = 'none'
     }
