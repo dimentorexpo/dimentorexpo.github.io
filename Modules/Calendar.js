@@ -14,8 +14,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 								<button id="prevDay" style="border-radius: 20px; padding: 5px; padding-top: 6px;">◀</button>
 								<input type="date" id="eventDate" onChange="getTimeSlots()" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700; border-radius: 20px;"></input>
 								<button id="nextDay" style="border-radius: 20px; padding: 5px; padding-top: 6px;">▶</button>
-								<button id="nowDay">Сегодня</button>
-								<button id="getCalendarData" style="margin-left: 10px; padding: 5px; font-size: 16px; width: 32px; height: 36px;">🔎</button>
+								<button id="nowDay" style="margin-left: 5px;">Сегодня</button>
 								<label style="margin-left: 5px; margin-right: 5px; margin-top: 5px; color: bisque;">Доступное время по состоянию на: </label>
 								<input type="text" id="datenowtime" style="text-align:center; background: cornsilk; border-radius: 20px;" disabled></input>
 						</div>
@@ -94,6 +93,8 @@ function checkAuth() { //функция проверки авторизации 
 	})
 }
 
+
+let responseslotsdata;
 	var arrayOfEvents = [];
 function getTimeSlots() { //функция получения информации по временным слотам
 	if (document.getElementById('slotList').style.display == "") {
@@ -245,8 +246,8 @@ function getTimeSlots() { //функция получения информаци
 				for (let v=0; v<saveBtns.length; v++) {
 					saveBtns[v].onclick  = function() {
 						
-						if (spisok[v].title =='') {
-							document.getElementById('responseTextarea1').value = `{
+						if (spisok[v].title =='') { // функция добавления нового слота
+							document.getElementById('responseTextarea1').value = `{ 
 								"headers": {
 									"content-type": "application/x-www-form-urlencoded",
 									"sec-fetch-mode": "cors",
@@ -265,7 +266,7 @@ function getTimeSlots() { //функция получения информаци
 
 							getTimeSlots()
 							
-						} else if (spisok[v].title !='') {
+						} else if (spisok[v].title !='') { //функция модификации информации в слоте
 							document.getElementById('responseTextarea1').value = `{
 								 "headers": {
 									"content-type": "application/x-www-form-urlencoded",
@@ -289,7 +290,7 @@ function getTimeSlots() { //функция получения информаци
 				}
 				
 				for (let f=0; f<deleteBtns.length; f++) {
-					deleteBtns[f].onclick  = function() {
+					deleteBtns[f].onclick  = function() { // функция удаления слота из календаря
 						if (spisok[f].title !='') {
 							document.getElementById('responseTextarea1').value = `{
 							  "headers": {
@@ -367,10 +368,6 @@ document.getElementById('nowDay').onclick = function() { // обработчик
     document.getElementById('eventDate').value = newDate;
 	getTimeSlots()
 }
-
-
-let responseslotsdata;
-document.getElementById('getCalendarData').onclick = getTimeSlots;
 
 document.getElementById('hidecalendar').onclick = function () {
     document.getElementById('AF_Calendar').style.display = "none"
