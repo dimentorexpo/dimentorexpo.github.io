@@ -1,5 +1,5 @@
 var tableth;
-var btnthstyls = 'margin-left:2px; width:150px; height: 45px;';
+var btnthstyls = 'margin-left:2px; width:150px; height: 45px; font-size:13px;';
 var btnTagstyles = 'margin-left:2px; width:125px; height: 25px;';
 var chbxTagstyles = 'margin: 2px; width: 20px;';
 
@@ -300,5 +300,5 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         }
         document.getElementById('backtomenu').style.display = 'none'
     }
-    
+
     document.getElementById('getnewthdata').onclick = getTextThemes // по клику на кнопку сработает функция обновления тематик из документа
