@@ -300,4 +300,5 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         }
         document.getElementById('backtomenu').style.display = 'none'
     }
+    
     document.getElementById('getnewthdata').onclick = getTextThemes // по клику на кнопку сработает функция обновления тематик из документа
