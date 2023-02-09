@@ -164,6 +164,7 @@ function getTimeSlots() {
 	let allRows = document.getElementsByName('slotRow')
 		for (let i = 0; i < allRows.length; i++) {
 			allRows[i].onclick = function() {
+				allRows[i].classList.toggle('water-wheel-animation')
 				let tempVarMatches  = [];
 				if (document.getElementById('slotList').style.display == "none") {
 					document.getElementById('slotList').style.display = ""

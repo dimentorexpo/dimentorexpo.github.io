@@ -649,6 +649,21 @@ function mystyles() {
 		font-size:24px !important;
 		text-shadow: -2px 3px 16px rgb(255 255 255);
 	}
+	
+	.water-wheel-animation {
+	  animation: water-wheel 2s linear infinite;
+	}
+
+	@keyframes water-wheel {
+	  0% {
+		border-color: blue;
+		transform: rotate(0deg);
+	  }
+	  100% {
+		border-color: blue;
+		transform: rotate(360deg);
+	  }
+	}
 		
 	`
     mstl.innerHTML = style;
