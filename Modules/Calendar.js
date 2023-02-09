@@ -164,6 +164,11 @@ function getTimeSlots() {
 	let allRows = document.getElementsByName('slotRow')
 		for (let i = 0; i < allRows.length; i++) {
 			allRows[i].onclick = function() {
+				
+				  for (let j = 0; j < allRows.length; j++) {
+					allRows[j].classList.remove('glowing-border-animation');
+				  }
+				
 				allRows[i].classList.toggle('glowing-border-animation')
 				let tempVarMatches  = [];
 				if (document.getElementById('slotList').style.display == "none") {
