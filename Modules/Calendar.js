@@ -205,7 +205,7 @@ function getTimeSlots() {
 				for (let v=0; v<saveBtns.length; v++) {
 					saveBtns[v].onclick  = function() {
 						
-						if (spisok[v].value == '' && spisok[v].title =='') {
+						if (spisok[v].title =='') {
 							document.getElementById('responseTextarea1').value = `{
 								"headers": {
 									"content-type": "application/x-www-form-urlencoded",
@@ -222,7 +222,7 @@ function getTimeSlots() {
 							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/add.php"`;
 							document.getElementById('responseTextarea3').value = '';
 							document.getElementById('sendResponse').click();				
-						} else if (spisok[v].value !='' && spisok[v].title !='') {
+						} else if (spisok[v].title !='') {
 							document.getElementById('responseTextarea1').value = `{
 								 "headers": {
 									"content-type": "application/x-www-form-urlencoded",
