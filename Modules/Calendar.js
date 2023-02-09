@@ -79,8 +79,8 @@ function checkAuth() {
 		if (responsevar) {
 			parsedData = JSON.parse(responsevar)
 			if (parsedData['value-status'] == "Не авторизован") {
-				alert("Вы не авторизованы на datsy.ru. Проверьте, пожалуйста, авторизацию и повторите попытку, иначе слоты могут не добавляться!")
-			}
+				alert("Вы не авторизованы на datsy.ru Проверьте, пожалуйста, авторизацию и повторите попытку, иначе слоты могут не добавляться!")
+			} else console.log("Вы авторизованы, смело продолжайте работу с календарем")
 		}
 		
 		document.getElementById('responseTextarea1').removeAttribute('getAuthData')
