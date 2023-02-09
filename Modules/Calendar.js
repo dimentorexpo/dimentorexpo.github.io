@@ -80,6 +80,7 @@ function checkAuth() { //функция проверки авторизации 
 			parsedData = JSON.parse(responsevar)
 			if (parsedData['value-status'] == "Не авторизован") {
 				alert("Вы не авторизованы на datsy.ru Проверьте, пожалуйста, авторизацию и повторите попытку после переоткрытия виджета в расширении или кнопкой обновить ♻, иначе слоты могут не добавляться!")
+				window.open("https://datsy.ru/")
 			} else {
 				console.log("Вы авторизованы, смело продолжайте работу с календарем")
 				getTimeSlots()
