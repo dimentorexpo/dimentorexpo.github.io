@@ -650,20 +650,23 @@ function mystyles() {
 		text-shadow: -2px 3px 16px rgb(255 255 255);
 	}
 	
-	.water-wheel-animation {
-	  animation: water-wheel 2s linear infinite;
+	.glowing-border-animation {
+	  animation: glowing-border 2s ease-in-out infinite;
+	  border: 2px solid blue;
 	}
 
-	@keyframes water-wheel {
+	@keyframes glowing-border {
 	  0% {
-		border-color: blue;
-		transform: rotate(0deg);
+		box-shadow: 0 0 10px blue;
+	  }
+	  50% {
+		box-shadow: 0 0 20px blue;
 	  }
 	  100% {
-		border-color: blue;
-		transform: rotate(360deg);
+		box-shadow: 0 0 10px blue;
 	  }
 	}
+
 		
 	`
     mstl.innerHTML = style;
