@@ -256,12 +256,12 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                             if (c[2] != '') { newBut.title = c[2] } // если есть title добавляем его
                             if (c[3] != '') { newBut.style.fontSize = c[3] + 'px;' } // если указан размер шрифта назначеем его
                             if (addTagFlag == 0) {
-                                newBut.style.append(btnthstyls)
+                                newBut.style = newBut.style + btnthstyls
                                 newBut.setAttribute('onclick', 'newTag(this.value)')
                                 areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             } else {
                                 newBut.name = "tagssbtn"
-                                newBut.style.append(btnTagstyles)
+                                newBut.style = newBut.style + btnTagstyles
                                 newBut.setAttribute('onclick', 'newTaggg(this.value)')
                                 areaTagbtns.appendChild(newBut)
 
