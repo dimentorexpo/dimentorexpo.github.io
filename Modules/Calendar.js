@@ -63,6 +63,30 @@ function compareTimes(time1, time2) {
     return date1.getTime() - date2.getTime();
 }
 
+let parsedData;
+function checkAuth() {
+	document.getElementById('responseTextarea1').value = '{}';
+    document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/auth/check.php`;
+    document.getElementById('responseTextarea3').value = 'getAuthData';
+
+    // Click the 'sendResponse' element to trigger the DOMSubtreeModified event
+    document.getElementById('sendResponse').click();
+
+    // Add an event listener for the DOMSubtreeModified event
+    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+        // Get the 'getslotsinfo' attribute from the 'responseTextarea1' element
+        const responsevar = document.getElementById('responseTextarea1').getAttribute('getAuthData');
+		if (responsevar) {
+			parsedData = JSON.parse(responsevar)
+			if (parsedData['value-status'] == "Не авторизован") {
+				alert("Вы не авторизованы на datsy.ru. Проверьте, пожалуйста, авторизацию и повторите попытку, иначе слоты могут не добавляться!")
+			}
+		}
+		
+		document.getElementById('responseTextarea1').removeAttribute('getAuthData')
+	})
+}
+
 	var arrayOfEvents = [];
 function getTimeSlots() {
 	let eventDate = document.getElementById('eventDate').value
