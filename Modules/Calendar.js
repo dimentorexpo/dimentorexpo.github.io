@@ -93,6 +93,9 @@ function checkAuth() { //функция проверки авторизации 
 
 	var arrayOfEvents = [];
 function getTimeSlots() { //функция получения информации по временным слотам
+	if (document.getElementById('slotList').style.display == "") {
+		document.getElementById('slotList').style.display = "none"
+	}
 	let eventDate = document.getElementById('eventDate').value
     var dateCalend = new Date();
     var offsetCalend = 3; // Moscow Timezone Offset in hours
@@ -255,7 +258,10 @@ function getTimeSlots() { //функция получения информаци
 							}`;
 							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/add.php`;
 							document.getElementById('responseTextarea3').value = '';
-							document.getElementById('sendResponse').click();				
+							document.getElementById('sendResponse').click();
+
+							getTimeSlots()
+							
 						} else if (spisok[v].title !='') {
 							document.getElementById('responseTextarea1').value = `{
 								 "headers": {
@@ -273,6 +279,8 @@ function getTimeSlots() { //функция получения информаци
 							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/save.php`;
 							document.getElementById('responseTextarea3').value = '';
 							document.getElementById('sendResponse').click();
+							
+							getTimeSlots()
 						}
 					}
 				}
@@ -300,6 +308,8 @@ function getTimeSlots() { //функция получения информаци
 							
 							spisok[f].title = ''
 							spisok[f].value = ''
+							
+							getTimeSlots()
 						}
 					}
 				}
