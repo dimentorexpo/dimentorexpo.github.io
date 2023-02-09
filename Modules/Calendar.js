@@ -11,10 +11,11 @@ var win_Calendar =  // описание формы чтобы не давала 
                         </div>
 
 						<div style="display: flex; justify-content: center;">
-								<button id="prevDay">◀</button>
+								<button id="prevDay" style="border-radius: 20px; padding: 5px; padding-top: 6px;">◀</button>
 								<input type="date" id="eventDate" onChange="getTimeSlots()" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700; border-radius: 20px;"></input>
-								<button id="nextDay">▶</button>
-								<button id="getCalendarData" style="margin-left: 10px; margin-bottom: 5px;">🔎</button>
+								<button id="nextDay" style="border-radius: 20px; padding: 5px; padding-top: 6px;">▶</button>
+								<button id="nowDay">Сегодня</button>
+								<button id="getCalendarData" style="margin-left: 10px; padding: 5px; font-size: 16px; width: 32px; height: 36px;">🔎</button>
 								<label style="margin-left: 5px; margin-right: 5px; margin-top: 5px; color: bisque;">Доступное время по состоянию на: </label>
 								<input type="text" id="datenowtime" style="text-align:center; background: cornsilk; border-radius: 20px;" disabled></input>
 						</div>
@@ -360,6 +361,12 @@ document.getElementById('prevDay').onclick = function() { // обработчи�
 	getTimeSlots()
 }
 
+document.getElementById('nowDate').onclick = function() { // обработчик нажатия на кнопку "сегодня"
+    let now = new Date();
+    let newDate = now.toISOString().split('T')[0];
+    document.getElementById('eventDate').value = newDate;
+	getTimeSlots()
+}
 
 
 let responseslotsdata;
