@@ -14,7 +14,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 								<button id="prevDay" style="border-radius: 20px; padding: 5px; padding-top: 6px;">◀</button>
 								<input type="date" id="eventDate" onChange="getTimeSlots()" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700; border-radius: 20px;"></input>
 								<button id="nextDay" style="border-radius: 20px; padding: 5px; padding-top: 6px;">▶</button>
-								<button id="nowDay" style="margin-left: 5px;">Сегодня</button>
+								<button id="nowDay" style="margin-left: 5px; padding: 5px;">Сегодня</button>
 								<label style="margin-left: 5px; margin-right: 5px; margin-top: 5px; color: bisque;">Доступное время по состоянию на: </label>
 								<input type="text" id="datenowtime" style="text-align:center; background: cornsilk; border-radius: 20px;" disabled></input>
 						</div>
