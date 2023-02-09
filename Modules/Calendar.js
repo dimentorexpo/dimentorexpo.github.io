@@ -245,7 +245,7 @@ function getTimeSlots() {
 				
 				for (let f=0; f<deleteBtns.length; f++) {
 					deleteBtns[f].onclick  = function() {
-						if (spisok[v].title !='') {
+						if (spisok[f].title !='') {
 							document.getElementById('responseTextarea1').value = `{
 							  "headers": {
 								"content-type": "application/x-www-form-urlencoded",
@@ -255,7 +255,7 @@ function getTimeSlots() {
 							  },
 							  "referrer": "https://datsy.ru/",
 							  "referrerPolicy": "strict-origin-when-cross-origin",
-							  "body": "&deleteslot=${spisok[v].title}",
+							  "body": "&deleteslot=${spisok[f].title}",
 							  "method": "POST",
 							  "mode": "cors",
 							  "credentials": "include"
@@ -264,8 +264,8 @@ function getTimeSlots() {
 							document.getElementById('responseTextarea3').value = '';
 							document.getElementById('sendResponse').click();
 							
-							spisok[v].title = ''
-							spisok[v].value = ''
+							spisok[f].title = ''
+							spisok[f].value = ''
 						}
 					}
 				}
