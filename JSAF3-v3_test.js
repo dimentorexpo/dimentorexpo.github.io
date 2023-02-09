@@ -648,7 +648,7 @@ function mystyles() {
 	#hideSlot:hover {
 		font-size:24px !important;
 		text-shadow: -2px 3px 16px rgb(255 255 255);
-	}
+	} 
 	
 	.glowing-border-animation {
 	  animation: glowing-border 2s ease-in-out infinite;

@@ -160,7 +160,7 @@ function getTimeSlots() {
 
                 }
             }
-
+ 
 	let allRows = document.getElementsByName('slotRow')
 		for (let i = 0; i < allRows.length; i++) {
 			allRows[i].onclick = function() {
