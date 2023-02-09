@@ -331,6 +331,7 @@ function getTimeSlots() { //функция получения информаци
     document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
 }
 
+let refreshintervalset;
 document.getElementById('datsyCalendar').onclick = function () {
     if (document.getElementById('AF_Calendar').style.display == "none") {
         document.getElementById('AF_Calendar').style.display = ""
@@ -344,7 +345,7 @@ document.getElementById('datsyCalendar').onclick = function () {
 		
 		if (localStorage.getItem('refreshCalend') == '1') {
 
-				if (!refreshintervalset) {
+			if (!refreshintervalset) {
 					refreshintervalset = setInterval(() => { getTimeSlots() }, 30000)
 				
 			} else {
