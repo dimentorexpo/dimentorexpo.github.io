@@ -11,6 +11,7 @@ var win_Themes =  // описание элементов окна Тематик
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
 								<button id="ClearSmartroomData" title="Очищает выбранные тэги">🧹</button>
 								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px; display:none">🔙</button>
+                                <button id="getnewthdata" title="Обновляет шаблоны из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
 								<button id="themesinstr" style="float:right;" title="Инструкция по этой форме">❓</button>
                         </div>
 
@@ -253,14 +254,15 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                             newBut.textContent = c[0]
                             newBut.value = c[1]
                             if (c[2] != '') { newBut.title = c[2] } // если есть title добавляем его
-                            if (c[3] != '') { newBut.style.fontSize = c[3] + 'px !important;' } // если указан размер шрифта назначеем его
                             if (addTagFlag == 0) {
                                 newBut.style = btnthstyls
+                                if (c[3] != '') { newBut.style.fontSize = c[3] + 'px;' } // если указан размер шрифта назначеем его
                                 newBut.setAttribute('onclick', 'newTag(this.value)')
                                 areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                             } else {
                                 newBut.name = "tagssbtn"
                                 newBut.style = btnTagstyles
+                                if (c[3] != '') { newBut.style.fontSize = c[3] + 'px;' } // если указан размер шрифта назначеем его
                                 newBut.setAttribute('onclick', 'newTaggg(this.value)')
                                 areaTagbtns.appendChild(newBut)
 
@@ -296,3 +298,4 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
         }
         document.getElementById('backtomenu').style.display = 'none'
     }
+    document.getElementById('getnewthdata').onclick = getTextThemes() // по клику на кнопку сработает функция обновления тематик из документа
