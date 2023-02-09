@@ -264,8 +264,8 @@ function getTimeSlots() {
 							document.getElementById('responseTextarea3').value = '';
 							document.getElementById('sendResponse').click();
 							
-							spisok[v].title = ''
-							spisok[v].value = ''
+							spisok[f].title = ''
+							spisok[f].value = ''
 						}
 					}
 				}
