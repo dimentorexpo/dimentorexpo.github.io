@@ -64,6 +64,7 @@ function compareTimes(time1, time2) { //функция сравнения вре
 }
 
 let parsedData;
+let authFlag;
 function checkAuth() { //функция проверки авторизации на datsy.ru
 	document.getElementById('responseTextarea1').value = '{}';
     document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/auth/check.php`;
@@ -80,9 +81,10 @@ function checkAuth() { //функция проверки авторизации 
 			parsedData = JSON.parse(responsevar)
 			if (parsedData['value-status'] == "Не авторизован") {
 				alert("Вы не авторизованы на datsy.ru Проверьте, пожалуйста, авторизацию и повторите попытку, иначе слоты могут не добавляться!")
+				authFlag = 0;
 			} else {
 				console.log("Вы авторизованы, смело продолжайте работу с календарем")
-				getTimeSlots()
+				authFlag = 1;
 			} 
 		}
 		
@@ -316,6 +318,10 @@ document.getElementById('datsyCalendar').onclick = function () {
     if (document.getElementById('AF_Calendar').style.display == "none") {
         document.getElementById('AF_Calendar').style.display = ""
 		checkAuth()
+		
+		if (authFlag == 1) {
+			getTimeSlots()
+		}
 
         let getcurdate = new Date();
         let year = getcurdate.getFullYear();
@@ -348,7 +354,12 @@ document.getElementById('clearcalendar').onclick = function () {
 }
 
 document.getElementById('refreshcalendar').onclick = function () {
-	getTimeSlots()
+		checkAuth()
+		
+		if (authFlag == 1) {
+			getTimeSlots()
+		}
+		
     console.log("Refresh")
 }
 
