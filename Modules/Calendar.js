@@ -219,7 +219,7 @@ function getTimeSlots() {
 								  "mode": "cors",
 								  "credentials": "include"
 							}`;
-							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/add.php"`;
+							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/add.php`;
 							document.getElementById('responseTextarea3').value = '';
 							document.getElementById('sendResponse').click();				
 						} else if (spisok[v].title !='') {
