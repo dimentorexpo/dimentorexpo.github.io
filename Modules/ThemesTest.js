@@ -232,7 +232,7 @@ document.getElementById('AF_Themes').ondblclick = function (a) { // скрыти
                     if (c[3] != '') { newpagethBut.style.fontSize = c[3]+ 'px' } // если указан размер шрифта назначеем его
                     newpagethBut.setAttribute('onclick', 'pagethClick(this.id)')
                     newpagethBut.id = countOfthPages + '_pageth_button'
-                    areaThbtns.childNodes[4].appendChild(newpagethBut)
+                    areaThbtns.appendChild(newpagethBut)
     
                     var newpageth = document.createElement('div')
                     newpageth.id = countOfthPages + 'pageth'
