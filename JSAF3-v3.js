@@ -472,7 +472,7 @@ function mystyles() {
 		transition: all 1s ease;
 	}
 
-	#opennewcat:hover , #crmopersstatuses:hover, #radioPlayer:hover  {
+	#opennewcat:hover , #crmopersstatuses:hover, #datsyCalendar:hover, #radioPlayer:hover  {
 		opacity: 1 !important;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
@@ -628,6 +628,46 @@ function mystyles() {
 		cursor: pointer;
 	}
 	
+	button[name="saveToCalend"] {
+		width: 110px;
+		background: #3389a3;
+		transition:all 0.5s ease;
+	}
+	
+	button[name="deleteFromCalend"] {
+		width: 110px;
+		background: #a55a58;
+		transition:all 0.5s ease;
+	}
+	
+	button[name="saveToCalend"]:hover, button[name="deleteFromCalend"]:hover {
+		box-shadow: 0px 0px 10px rgb(255 255 255);
+		cursor:pointer;
+	}
+		
+	#hideSlot:hover {
+		font-size:24px !important;
+		text-shadow: -2px 3px 16px rgb(255 255 255);
+	} 
+	
+	.glowing-border-animation {
+	  animation: glowing-border 2s ease-in-out infinite;
+	  border: 2px solid blue;
+	}
+
+	@keyframes glowing-border {
+	  0% {
+		box-shadow: 0 0 10px limegreen;
+	  }
+	  50% {
+		box-shadow: 0 0 20px yellow;
+	  }
+	  100% {
+		box-shadow: 0 0 10px orange;
+	  }
+	}
+
+		
 	`
     mstl.innerHTML = style;
 }
@@ -1289,10 +1329,18 @@ function prepTp() { //функция подготовки расширения �
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
     crmopers.classList = 'onlyfortp'
     document.body.append(crmopers) 
-
+	
+	let openCalendar = document.createElement('button')
+    openCalendar.innerHTML = '🗓'
+    openCalendar.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openCalendar.id = 'datsyCalendar'
+    openCalendar.title = 'Открывает календарь Datsy'
+	openCalendar.classList = 'onlyfortp'
+    document.body.append(openCalendar)
+	
 	let playerRadio = document.createElement('button')
     playerRadio.innerHTML = '📻'
-    playerRadio.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    playerRadio.style = 'position: fixed; top: 180px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     playerRadio.id = 'radioPlayer'
     playerRadio.title = 'Открывает радио проигрыватель'
     document.body.append(playerRadio)
@@ -1331,6 +1379,7 @@ function prepTp() { //функция подготовки расширения �
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
 		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Календарь"
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
         "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
@@ -1394,7 +1443,7 @@ function prepKC() { //функция подготовки расширения �
         lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
         document.querySelector('head').append(lboxstyles)
         include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
-		include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций
+        include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций 
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
@@ -3417,7 +3466,6 @@ function clock_on_javascript_2() { //таймер отсчета до сраба
     time = (remainingHours < 10 ? "0" + remainingHours : remainingHours) + " : " + (remainingMinutes < 10 ? "0" + remainingMinutes : remainingMinutes) + " : " + (remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds);
     document.getElementById("clock_remin").innerHTML = time;
 }
-
 
 function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
     var data1 = new Date();
