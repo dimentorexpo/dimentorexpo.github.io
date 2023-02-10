@@ -667,6 +667,9 @@ function mystyles() {
 	  }
 	}
 
+	#chosenSlot:hover {
+		background: #efe05e;
+	}
 		
 	`
     mstl.innerHTML = style;
