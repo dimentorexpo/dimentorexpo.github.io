@@ -6,7 +6,7 @@ var win_BankInfo =  // описание элементов окна Списка
                                 <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						<div>
-                        <input id="carddigits" placeholder="6 первых цифр карты" title="Введите 6 первых цифр карты" autocomplete="off" type="text" style="text-align: center; width: 160px; color: black;margin-left:5px; position:relative; left:30%;">
+                        <input oninput="onlyNumbers(this)" required id="carddigits" placeholder="6 первых цифр карты" title="Введите 6 первых цифр карты" autocomplete="off" type="text" style="text-align: center; width: 160px; color: black;margin-left:5px; position:relative; left:30%;">
 							<button title="Запуск получения информации о карте" id="getBankInfoData" style="position:relative; left:30%;">Get info</button>
 						</div>
 				</span>
@@ -61,10 +61,12 @@ document.getElementById('AF_BankCheck').ondblclick = function (a) { // скры�
 
     document.getElementById('getBankInfoData').onclick = async function () {
 
-        document.getElementById('cardInfoData').innerHTML = "Загрузка...";
         let tempgrid = document.getElementById('carddigits').value;
-
-		const options = {
+		
+		if (tempgrid != '' ) {
+			document.getElementById('cardInfoData').innerHTML = "Загрузка...";
+					
+			const options = {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -80,5 +82,8 @@ document.getElementById('AF_BankCheck').ondblclick = function (a) { // скры�
 			.catch(err => console.error(err));
 			
 			document.getElementById('cardInfoData').innerHTML =  'Имя банка: ' + cardData.BIN.issuer.name + '<br>' + 'Схема карты: ' + cardData.BIN.scheme + '<br>' + 'Страна: ' + cardData.BIN.country.country +   '<br>' + 'Тип карты: ' + cardData.BIN.type + '<br>' + 'Валюта: ' + cardData.BIN.currency
+		}  else alert("Вы не ввели 6 цифр в поле для ввода. Пожалуйста, введите и повторите попытку!")
+
+
 
         }
