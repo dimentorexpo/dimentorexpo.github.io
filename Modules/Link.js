@@ -11,7 +11,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar">📋</button>
 					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" class="uplinksbar">💼</button>
 					<button title="Открывает инструкцию по пробникам" id="probnikinstr" class="uplinksbar">🗃</button>
-					<button title="Открывает менюшку для просмотра списка ГУ" id="grouplist" class="uplinksbar">👩‍👧‍👧</button>
+					<button title="Открывает менюшку для просмотра информации по BIN банка, чтобы узнать тип карты, страну происхождения, название банка" id="bankCheck" class="uplinksbar">💳</button>
                     <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px" class="uplinksbar">🐞</button>
 				</div>
 				<div style="margin: 5px; width: 550px;" id="links_but">
@@ -347,11 +347,11 @@ document.getElementById('probniki').addEventListener('click', function () { // �
     window.open("https://docs.google.com/spreadsheets/d/1Lj1CKSavSWTx_-z3TwxJBUb1fFoVI0Lt7j-BA3OU96s/edit?pli=1#gid=0")    
 })
 
-document.getElementById('grouplist').addEventListener('click', function () { // открывает окно просмотра информации о групповых уроков
-    if (document.getElementById('AF_GrList').style.display == '')
-        document.getElementById('AF_GrList').style.display = 'none'
+document.getElementById('bankCheck').addEventListener('click', function () { // открывает окно просмотра информации о групповых уроков
+    if (document.getElementById('AF_BankCheck').style.display == '')
+        document.getElementById('AF_BankCheck').style.display = 'none'
     else
-        document.getElementById('AF_GrList').style.display = ''
+        document.getElementById('AF_BankCheck').style.display = ''
 })
 
 document.getElementById('probnikinstr').addEventListener('click', function () { // открывает график пробников и там же ссылки на них будут
