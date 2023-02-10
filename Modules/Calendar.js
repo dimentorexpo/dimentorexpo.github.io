@@ -27,7 +27,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 						</div>
 
 						<div id="slotList" style="display:none;">
-							<span id="chosenSlot" style="background: chartreuse; padding: 5px; margin-left: 39%; box-shadow: 0px 3px 1px rgb(0 0 0 / 55%); border-radius: 20px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700; color: darkblue; font-family: cursive;"></span>
+							<span id="chosenSlot" style="background: chartreuse; padding: 5px; margin-left: 39%; box-shadow: 0px 3px 1px rgb(0 0 0 / 55%); border-radius: 20px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700; color: darkblue; font-family: cursive; cursor:pointer;" title="При клике на поле копирует в буфер обмена дату и время"></span>
 							<span id="hideSlot" style="font-size: 20px; cursor: pointer; transition:all 0.5s ease;">⤴</span>
 							<div id="slotData" style="margin-bottom: 5px; margin-left: 5px;">
 							</div>
@@ -217,8 +217,11 @@ function getTimeSlots() { //функция получения информаци
 				document.getElementById('hideSlot').onclick = function() {
 					document.getElementById('slotList').style.display = "none"
 				}
-
+				
 				document.getElementById('chosenSlot').textContent = allRows[i].textContent
+				document.getElementById('chosenSlot').onclick = function() { copyToClipboard1(document.getElementById('chosenSlot').textContent) }
+				
+				
 
 				document.getElementById('slotData').innerHTML = ''
 				for (let j=0; j<parseInt(allRows[i].getAttribute('dlina')); j++) {
