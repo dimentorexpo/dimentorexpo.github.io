@@ -668,7 +668,7 @@ function mystyles() {
 	}
 
 	#chosenSlot:hover {
-		background: #efe05e;
+		background: #efe05e !important;
 	}
 		
 	`
