@@ -666,7 +666,10 @@ function mystyles() {
 		box-shadow: 0 0 10px orange;
 	  }
 	}
-
+	
+	#chosenSlot:hover {
+		background: #efe05e !important;
+	}
 		
 	`
     mstl.innerHTML = style;
