@@ -79,6 +79,6 @@ document.getElementById('AF_BankCheck').ondblclick = function (a) { // скры�
 			.then(response => cardData = response)
 			.catch(err => console.error(err));
 			
-			document.getElementById('cardInfoData').innerHTML =  'Bank name: ' + cardData.BIN.issuer.name + '<br>' + 'Card scheme: ' + cardData.BIN.brand + '<br>' + 'Country: ' + cardData.BIN.country.country +   '<br>' + 'Card Type: ' + cardData.BIN.type + '<br>'
+			document.getElementById('cardInfoData').innerHTML =  'Имя банка: ' + cardData.BIN.issuer.name + '<br>' + 'Схема карты: ' + cardData.BIN.scheme + '<br>' + 'Страна: ' + cardData.BIN.country.country +   '<br>' + 'Тип карты: ' + cardData.BIN.type + '<br>' + 'Валюта: ' + cardData.BIN.currency
 
         }
