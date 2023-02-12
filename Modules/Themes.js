@@ -296,9 +296,14 @@ document.getElementById('multitag').onclick = function () { // откправк�
 
 document.getElementById('linktojirasend').onclick = function () { // добавленгие ссылки на Jira
     let getval = document.getElementById('linktojiracoment').value;
+    let chatId = ''
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+        chatId = document.location.pathname.split('/')[3]
+    else
+        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
     if (getval != '') {
         sendComment(getval);
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", {
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },
