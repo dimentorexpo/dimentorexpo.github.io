@@ -1,3 +1,4 @@
+let flagRemember = '';
 var win_Calendar =  // описание формы чтобы не давала чату закрыться
     `<div style="width: 600px;">
         <span style="width: 600px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
@@ -101,178 +102,28 @@ function checkAuth() { //функция проверки авторизации 
 	})
 }
 
-let responseslotsdata;
-	var arrayOfEvents = [];
-	var arrayOfMyEvents = [];
-	let uniqueEvents;
-function getTimeSlots() { //функция получения информации по временным слотам
-	if (document.getElementById('slotList').style.display == "") {
-		document.getElementById('slotList').style.display = "none"
-	}
-	let eventDate = document.getElementById('eventDate').value
-    var dateCalend = new Date();
-    var offsetCalend = 3; // Moscow Timezone Offset in hours
-    var utcHoursCalendar = dateCalend.getUTCHours();
-    var hoursCalendar = (utcHoursCalendar + offsetCalend) % 24;
-    hoursCalendar = hoursCalendar < 10 ? '0' + hoursCalendar : hoursCalendar;
-    var minutesCalendar = dateCalend.getMinutes();
-    minutesCalendar = minutesCalendar < 10 ? '0' + minutesCalendar : minutesCalendar;
-    var currentTimeCalendar = hoursCalendar + ':' + minutesCalendar;
-	let curentDate = dateCalend.getFullYear() + '-' + ((+dateCalend.getMonth()+1) < 10 ? ("0" + (+dateCalend.getMonth()+1)) : dateCalend.getMonth()) + '-' + (dateCalend.getDate() < 10 ? "0" + dateCalend.getDate() : dateCalend.getDate() )
-
-    responseslotsdata = '';
-    if (document.getElementsByName('slotRow').length > 0) {
-        let elements = document.getElementsByName('slotRow');
-        for (let i = elements.length - 1; i >= 0; i--) {
-            elements[i].remove();
-        }
-    }
-
-    let textvar = 0;
-    let searchDate = document.getElementById('eventDate').value;
-    document.getElementById('responseTextarea1').value = '{}';
-    document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/main-events/?date=${searchDate}`;
-    document.getElementById('responseTextarea3').value = 'getslotsinfo';
-
-    // Click the 'sendResponse' element to trigger the DOMSubtreeModified event
-    document.getElementById('sendResponse').click();
-
-    // Add an event listener for the DOMSubtreeModified event
-    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        // Get the 'getslotsinfo' attribute from the 'responseTextarea1' element
-        const responsevar = document.getElementById('responseTextarea1').getAttribute('getslotsinfo');
-
-        // Check if the 'getslotsinfo' attribute is not null
-        if (responsevar) {
-			arrayOfEvents = [];
-            document.getElementById('outputcalendarfield').innerHTML = ''
-			arrayOfMyEvents = [];
-			uniqueEvents = new Set();
-            responseslotsdata = JSON.parse(responsevar);
-            // console.log(responseslotsdata)
-            document.getElementById('datenowtime').value = responseslotsdata.nowDateTime;
-
-            let availableslotsentries = Object.entries(responseslotsdata.DataTimeSlot)
-            for (let i = 0; i < availableslotsentries.length; i++) {
-                if (availableslotsentries[i][0] != "00:00" && availableslotsentries[i][0] != "00:20" && availableslotsentries[i][0] != "00:40" && availableslotsentries[i][0] != "23:00" && availableslotsentries[i][0] != "23:20" && availableslotsentries[i][0] != "23:40" && availableslotsentries[i][0] != "01:00" && availableslotsentries[i][0] != "01:20" && availableslotsentries[i][0] != "01:40" && availableslotsentries[i][0] != "02:00" && availableslotsentries[i][0] != "02:20" && availableslotsentries[i][0] != "02:40" && availableslotsentries[i][0] != "03:00" && availableslotsentries[i][0] != "03:20" && availableslotsentries[i][0] != "03:40" && availableslotsentries[i][0] != "04:00" && availableslotsentries[i][0] != "04:20" && availableslotsentries[i][0] != "04:40" && availableslotsentries[i][0] != "05:00" && availableslotsentries[i][0] != "05:20" && availableslotsentries[i][0] != "05:40" && availableslotsentries[i][0] != "06:00" && availableslotsentries[i][0] != "06:20" && availableslotsentries[i][0] != "06:40" && availableslotsentries[i][0] != "07:00" && availableslotsentries[i][0] != "07:20" && availableslotsentries[i][0] != "07:40") {
-                    // console.log(availableslotsentries[i])
 
 
-					if (availableslotsentries[i][1].EventList.length != 0) {
-					  // for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
-						// arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
-											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
-											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
-											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
-											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
-											
-							// if(operNamesAF[0] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name || operNamesAF[1] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name) {
-								// arrayOfMyEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
-											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
-											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
-											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
-											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
-							// }
-						// }
-						
-						for (let k = 0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
-						  const event = Object.values(availableslotsentries[i][1].EventList)[k];
-
-						  if (!uniqueEvents.has(event.id)) {
-							arrayOfEvents.push({
-							  'eventId': event.id,
-							  'eventText': event.text,
-							  'slotTime': event.slot,
-							  'slotDate': event.new_date_slot,
-							  'createdBy': event.created_by_name
-							});
-
-							uniqueEvents.add(event.id);
-
-							if (
-							  operNamesAF[0] == event.created_by_name ||
-							  operNamesAF[1] == event.created_by_name
-							) {
-							  arrayOfMyEvents.push({
-								'eventId': event.id,
-								'eventText': event.text,
-								'slotTime': event.slot,
-								'slotDate': event.new_date_slot,
-								'createdBy': event.created_by_name
-							  });
-							}
-						  }
-						}
-					} else { 					  
-						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
-						arrayOfEvents.push({'eventId': null,
-											'eventText': null,
-											'slotTime' : null,
-											'slotDate' : null,
-											'createdBy': null});
-					  }
-					}
-					
-                    textvar = '<span style = "background: #2058cb; border-radius:10px; padding-left: 5px; padding-right: 5px;">' + availableslotsentries[i][0] + '</span>' + ' ' + document.getElementById('eventDate').value
-                    let tempor = document.createElement('p');
-                    document.getElementById('outputcalendarfield').append(tempor);
-
-                    if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 1) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(171 65 62); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
-                    } else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 0) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(62 158 83); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
-                    } else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot > 0 && availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot < 1) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(62 158 83); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
-                        tempor.setAttribute('title', '⚠ Есть как занятые так и свободные слоты')
-                    } else if (availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == 0) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(171 65 62); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
-                        tempor.setAttribute('title', '🚫 Свободных слотов изначально и не было')
-                    } else if (availableslotsentries[i][1].AssignSlot == 0 && availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == availableslotsentries[i][1].FreeSlot) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(171 65 62); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
-                    } else if (availableslotsentries[i][1].FreeSlot < 0) {
-                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(171 65 62); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
-                    }
-
-                    if (compareTimes(availableslotsentries[i][0], currentTimeCalendar) <= 0 && eventDate == curentDate ) {
-                        // document.getElementsByName('slotRow')[i].style.background = "rgb(171 65 62)";
-						 tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #cbcbcb; font-weight:700; background:rgb(126 113 113); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
-                    }
-
-                    tempor.setAttribute('name', 'slotRow');
-					tempor.setAttribute('dlina',`${availableslotsentries[i][1].CountSlot}`)
-                    tempor.innerHTML = textvar;
-
-                }
-            }
-		console.log(arrayOfMyEvents)
-			
-			
- 
-	let allRows = document.getElementsByName('slotRow')
-		for (let i = 0; i < allRows.length; i++) {
-			allRows[i].onclick = function() {
-				
-				  for (let j = 0; j < allRows.length; j++) {
-					allRows[j].classList.remove('glowing-border-animation');
-				  }
-				
-				allRows[i].classList.toggle('glowing-border-animation')
+function getSlotData(name) {
+		let allRows = document.getElementsByName('slotRow')
+			allRows[name].classList.toggle('glowing-border-animation')
+		
 				let tempVarMatches  = [];
 				if (document.getElementById('slotList').style.display == "none") {
 					document.getElementById('slotList').style.display = ""
 				}
 
 				document.getElementById('hideSlot').onclick = function() {
+					allRows[name].classList.toggle('glowing-border-animation')
+					flagRemember = ''
 					document.getElementById('slotList').style.display = "none"
 				}
 				
-				document.getElementById('chosenSlot').textContent = allRows[i].textContent
+				document.getElementById('chosenSlot').textContent = allRows[name].textContent
 				document.getElementById('chosenSlot').onclick = function() { copyToClipboard1(document.getElementById('chosenSlot').textContent) }
 				
-				
-
 				document.getElementById('slotData').innerHTML = ''
-				for (let j=0; j<parseInt(allRows[i].getAttribute('dlina')); j++) {
+				for (let j=0; j<parseInt(allRows[name].getAttribute('dlina')); j++) {
 					let testd = document.createElement('div')
 					testd.style = "margin-top: 5px;"
 					testd.innerHTML = '<input name="slotInfo" style="width: 478px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
@@ -388,8 +239,161 @@ function getTimeSlots() { //функция получения информаци
 
 					}
 				}
+}
 
+let responseslotsdata;
+	var arrayOfEvents = [];
+	var arrayOfMyEvents = [];
+	let uniqueEvents;
+function getTimeSlots() { //функция получения информации по временным слотам
+		
+	let eventDate = document.getElementById('eventDate').value
+    var dateCalend = new Date();
+    var offsetCalend = 3; // Moscow Timezone Offset in hours
+    var utcHoursCalendar = dateCalend.getUTCHours();
+    var hoursCalendar = (utcHoursCalendar + offsetCalend) % 24;
+    hoursCalendar = hoursCalendar < 10 ? '0' + hoursCalendar : hoursCalendar;
+    var minutesCalendar = dateCalend.getMinutes();
+    minutesCalendar = minutesCalendar < 10 ? '0' + minutesCalendar : minutesCalendar;
+    var currentTimeCalendar = hoursCalendar + ':' + minutesCalendar;
+	let curentDate = dateCalend.getFullYear() + '-' + ((+dateCalend.getMonth()+1) < 10 ? ("0" + (+dateCalend.getMonth()+1)) : dateCalend.getMonth()) + '-' + (dateCalend.getDate() < 10 ? "0" + dateCalend.getDate() : dateCalend.getDate() )
+
+    responseslotsdata = '';
+
+    let textvar = 0;
+    let searchDate = document.getElementById('eventDate').value;
+    document.getElementById('responseTextarea1').value = '{}';
+    document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/main-events/?date=${searchDate}`;
+    document.getElementById('responseTextarea3').value = 'getslotsinfo';
+
+    // Click the 'sendResponse' element to trigger the DOMSubtreeModified event
+    document.getElementById('sendResponse').click();
+
+    // Add an event listener for the DOMSubtreeModified event
+    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+        // Get the 'getslotsinfo' attribute from the 'responseTextarea1' element
+        const responsevar = document.getElementById('responseTextarea1').getAttribute('getslotsinfo');
+
+        // Check if the 'getslotsinfo' attribute is not null
+        if (responsevar) {
+			arrayOfEvents = [];
+            document.getElementById('outputcalendarfield').innerHTML = ''
+			arrayOfMyEvents = [];
+			uniqueEvents = new Set();
+            responseslotsdata = JSON.parse(responsevar);
+            // console.log(responseslotsdata)
+            document.getElementById('datenowtime').value = responseslotsdata.nowDateTime;
+
+            let availableslotsentries = Object.entries(responseslotsdata.DataTimeSlot)
+            for (let i = 0; i < availableslotsentries.length; i++) {
+                if (availableslotsentries[i][0] != "00:00" && availableslotsentries[i][0] != "00:20" && availableslotsentries[i][0] != "00:40" && availableslotsentries[i][0] != "23:00" && availableslotsentries[i][0] != "23:20" && availableslotsentries[i][0] != "23:40" && availableslotsentries[i][0] != "01:00" && availableslotsentries[i][0] != "01:20" && availableslotsentries[i][0] != "01:40" && availableslotsentries[i][0] != "02:00" && availableslotsentries[i][0] != "02:20" && availableslotsentries[i][0] != "02:40" && availableslotsentries[i][0] != "03:00" && availableslotsentries[i][0] != "03:20" && availableslotsentries[i][0] != "03:40" && availableslotsentries[i][0] != "04:00" && availableslotsentries[i][0] != "04:20" && availableslotsentries[i][0] != "04:40" && availableslotsentries[i][0] != "05:00" && availableslotsentries[i][0] != "05:20" && availableslotsentries[i][0] != "05:40" && availableslotsentries[i][0] != "06:00" && availableslotsentries[i][0] != "06:20" && availableslotsentries[i][0] != "06:40" && availableslotsentries[i][0] != "07:00" && availableslotsentries[i][0] != "07:20" && availableslotsentries[i][0] != "07:40") {
+                    // console.log(availableslotsentries[i])
+
+
+					if (availableslotsentries[i][1].EventList.length != 0) {
+					  // for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
+						// arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
+											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
+											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
+											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
+											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
+											
+							// if(operNamesAF[0] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name || operNamesAF[1] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name) {
+								// arrayOfMyEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
+											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
+											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
+											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
+											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
+							// }
+						// }
+						
+						for (let k = 0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
+						  const event = Object.values(availableslotsentries[i][1].EventList)[k];
+
+						  if (!uniqueEvents.has(event.id)) {
+							arrayOfEvents.push({
+							  'eventId': event.id,
+							  'eventText': event.text,
+							  'slotTime': event.slot,
+							  'slotDate': event.new_date_slot,
+							  'createdBy': event.created_by_name
+							});
+
+							uniqueEvents.add(event.id);
+
+							if (
+							  operNamesAF[0] == event.created_by_name ||
+							  operNamesAF[1] == event.created_by_name
+							) {
+							  arrayOfMyEvents.push({
+								'eventId': event.id,
+								'eventText': event.text,
+								'slotTime': event.slot,
+								'slotDate': event.new_date_slot,
+								'createdBy': event.created_by_name
+							  });
+							}
+						  }
+						}
+					} else { 					  
+						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
+						arrayOfEvents.push({'eventId': null,
+											'eventText': null,
+											'slotTime' : null,
+											'slotDate' : null,
+											'createdBy': null});
+					  }
+					}
+					
+                    textvar = '<span style = "background: #2058cb; border-radius:10px; padding-left: 5px; padding-right: 5px;">' + availableslotsentries[i][0] + '</span>' + ' ' + document.getElementById('eventDate').value
+                    let tempor = document.createElement('p');
+                    document.getElementById('outputcalendarfield').append(tempor);
+
+                    if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 1) {
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(171 65 62); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
+                    } else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot == 0) {
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(62 158 83); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
+                    } else if (availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot > 0 && availableslotsentries[i][1].CountEvent / availableslotsentries[i][1].CountSlot < 1) {
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(62 158 83); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
+                        tempor.setAttribute('title', '⚠ Есть как занятые так и свободные слоты')
+                    } else if (availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == 0) {
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(171 65 62); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px;padding-top:2px; font-family: cursive; margin-right:5px;');
+                        tempor.setAttribute('title', '🚫 Свободных слотов изначально и не было')
+                    } else if (availableslotsentries[i][1].AssignSlot == 0 && availableslotsentries[i][1].CountEvent == 0 && availableslotsentries[i][1].CountSlot == availableslotsentries[i][1].FreeSlot) {
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(171 65 62); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
+                    } else if (availableslotsentries[i][1].FreeSlot < 0) {
+                        tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #ececec; font-weight:700; background:rgb(171 65 62); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
+                    }
+
+                    if (compareTimes(availableslotsentries[i][0], currentTimeCalendar) <= 0 && eventDate == curentDate ) {
+						 tempor.setAttribute('style', 'width: 32%; cursor:pointer; color: #cbcbcb; font-weight:700; background:rgb(126 113 113); border:1px solid black; font-size:14px; height:25px; margin-bottom:6px; text-align:center; text-shadow:rgb(0 0 0 / 75%) 1px 2px 5px; padding-top:2px; font-family: cursive; margin-right:5px;');
+                    }
+
+                    tempor.setAttribute('name', 'slotRow');
+					tempor.setAttribute('dlina',`${availableslotsentries[i][1].CountSlot}`)
+                    tempor.innerHTML = textvar;
+
+                }
+            }
+		console.log(arrayOfMyEvents)
+			
+	let allRows = document.getElementsByName('slotRow')
+	
+	if (flagRemember != '') {
+		getSlotData(flagRemember)
+		
+	}
+	
+		for (let i = 0; i < allRows.length; i++) {
+			allRows[i].onclick = function() {
 				
+				flagRemember = i;
+				
+			    for (let j = 0; j < allRows.length; j++) {
+			    	allRows[j].classList.remove('glowing-border-animation');
+			    }				
+					getSlotData(i)
+								
 			}
 		}
 				refreshActiveOperSlots()
