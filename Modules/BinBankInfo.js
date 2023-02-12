@@ -6,8 +6,9 @@ var win_BankInfo =  // описание элементов окна Списка
                                 <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						<div>
-                        <input oninput="onlyNumbers(this)" required id="carddigits" placeholder="6 первых цифр карты" title="Введите 6 первых цифр карты" autocomplete="off" type="text" style="text-align: center; width: 160px; color: black;margin-left:5px; position:relative; left:30%;">
-							<button title="Запуск получения информации о карте" id="getBankInfoData" style="position:relative; left:30%;">Get info</button>
+                        <input oninput="onlyNumbers(this)" required id="carddigits" placeholder="6 первых цифр карты" title="Введите 6 первых цифр карты" autocomplete="off" type="text" style="text-align: center; width: 160px; color: black;margin-left:5px; position:relative; left:20%;">
+							<button title="Запуск получения информации о карте" id="getBankInfoData" style="position:relative; left:20%;">Get info</button>
+							<button title="Открыть сайт с просмотром информации по введеному ID" id="openSiteBin" style="position:relative; left:20%;">Look on site</button>
 						</div>
 				</span>
 						<div id="grlstdiv">
@@ -84,6 +85,11 @@ document.getElementById('AF_BankCheck').ondblclick = function (a) { // скры�
 			document.getElementById('cardInfoData').innerHTML =  'Имя банка: ' + cardData.BIN.issuer.name + '<br>' + 'Схема карты: ' + cardData.BIN.scheme + '<br>' + 'Страна: ' + cardData.BIN.country.country +   '<br>' + 'Тип карты: ' + cardData.BIN.type + '<br>' + 'Валюта: ' + cardData.BIN.currency
 		}  else alert("Вы не ввели 6 цифр в поле для ввода. Пожалуйста, введите и повторите попытку!")
 
-
-
-        }
+     }
+	 
+	 document.getElementById('openSiteBin').onclick = function() {
+         let tempgrid = document.getElementById('carddigits').value;
+		 if (tempgrid !='') {
+			 window.open('https://bincheck.io/ru/details/'+tempgrid)
+		} 
+	 }
