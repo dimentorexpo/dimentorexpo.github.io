@@ -11,8 +11,8 @@ var win_Themes =  // описание элементов окна Тематик
                                 <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
 								<button id="ClearSmartroomData" title="Очищает выбранные тэги">🧹</button>
 								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px; display:none">🔙</button>
-                                <button id="getnewthdata" title="Обновляет шаблоны из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
 								<button id="themesinstr" style="float:right;" title="Инструкция по этой форме">❓</button>
+                                <button id="getnewthdata" title="Обновляет тематики из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
                         </div>
 
 						<div>
