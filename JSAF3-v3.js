@@ -79,7 +79,7 @@ function mystyles() {
 	.selchatact {
 		border-left: 6px solid DeepSkyBlue;
 	}
-		.checkbox-audio {
+		.checkbox-audio, .checkbox-refresh {
 			display: inline-block;
 			height: 28px;
 			line-height: 28px;
@@ -89,7 +89,7 @@ function mystyles() {
 			font-size: 14px;
 			user-select: none;
 		}
-		.checkbox-audio .checkbox-audio-switch {
+		.checkbox-audio .checkbox-audio-switch, .checkbox-refresh .checkbox-refresh-switch {
 			position: relative;
 			display: inline-block;
 			box-sizing: border-box;
@@ -101,7 +101,7 @@ function mystyles() {
 			background: #eee;
 			transition: .2s;
 		}
-		.checkbox-audio .checkbox-audio-switch:before {
+		.checkbox-audio .checkbox-audio-switch:before  {
 			content: '🔈';
 			position: absolute;
 			top: 1px;
@@ -114,7 +114,23 @@ function mystyles() {
 			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 			transition: .15s;
 		}
-		.checkbox-audio input[type=checkbox] {
+		
+		.checkbox-refresh .checkbox-refresh-switch:before  {
+			content: '⭕';
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			background: white;
+			text-align: center;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+			transition: .15s;
+		}
+		
+		.checkbox-audio input[type=checkbox], .checkbox-refresh input[type=checkbox] {
 			display: block;
 			width: 0;
 			height: 0;
@@ -122,16 +138,23 @@ function mystyles() {
 			z-index: -1;
 			opacity: 0;
 		}
-		.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before {
+		.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before, .checkbox-refresh input[type=checkbox]:not(:disabled):active + .checkbox-refresh-switch:before {
 			box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
 		}
-		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch {
+		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch, .checkbox-refresh input[type=checkbox]:checked + .checkbox-refresh-switch {
 			background: limegreen;
 		}
 		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
 			content: '🔊';
 			transform:translateX(28px);
 		}
+		
+		.checkbox-refresh input[type=checkbox]:checked + .checkbox-refresh-switch:before {
+			content: '♻';
+			transform:translateX(28px);
+			text-align: center;
+		}
+		
 		#buttonOpenForm {
 			height:50px;
 		}
@@ -666,7 +689,7 @@ function mystyles() {
 		box-shadow: 0 0 10px orange;
 	  }
 	}
-	
+
 	#chosenSlot:hover {
 		background: #efe05e !important;
 	}

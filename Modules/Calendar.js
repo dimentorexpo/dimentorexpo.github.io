@@ -7,9 +7,9 @@ var win_Calendar =  // описание формы чтобы не давала 
 								<button id="clearcalendar">🧹</button>
 								<button id="refreshcalendar">♻</button>
 								<button id="opendatsy">📅</button>
-								<label title="Включение и отключение автоматического обновления информации в слотах с интервалом 30 секунд" class="checkbox-audio">
+								<label title="Включение и отключение автоматического обновления информации в слотах с интервалом 30 секунд" class="checkbox-refresh">
 									<input id="autorefreshswitcher" type="checkbox" checked="">
-										<span class="checkbox-audio-switch"></span>
+										<span class="checkbox-refresh-switch"></span>
 								</label>
 			    </span>
                         </div>
@@ -456,7 +456,7 @@ document.getElementById('nowDay').onclick = function() { // обработчик
 	getTimeSlots()
 }
 
-document.getElementsByClassName('checkbox-audio-switch')[1].onclick = function () {  // функция переключатели автообновления
+document.getElementsByClassName('checkbox-refresh-switch')[0].onclick = function () {  // функция переключатели автообновления
 	if (localStorage.getItem('refreshCalend') != null) {
 		if (localStorage.getItem('refreshCalend') == '0') {
 			document.getElementById('autorefreshswitcher').checked = false;
