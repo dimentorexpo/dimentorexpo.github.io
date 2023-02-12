@@ -4,15 +4,15 @@ var win_Calendar =  // описание формы чтобы не давала 
         <span style="width: 600px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 600px;" id="stataaf_header">
-                                <button title="скрывает меню" id="hidecalendar" style="width:50px; background: #228B22;">hide</button>
-								<button id="clearcalendar">🧹</button>
-								<button id="refreshcalendar">♻</button>
-								<button id="opendatsy">📅</button>
+                                <button title="Скрывает меню" id="hidecalendar" style="width:50px; background: #228B22;">hide</button>
+								<button title="Очищает окно календаря" id="clearcalendar">🧹</button>
+								<button title="Обновляет информацию о слотах выбранной даты" id="refreshcalendar">♻</button>
+								<button title="Открывает сайт Datsy.ru" id="opendatsy">📅</button>
 								<label title="Включение и отключение автоматического обновления информации в слотах с интервалом 30 секунд" class="checkbox-refresh">
 									<input id="autorefreshswitcher" type="checkbox" checked="">
 										<span class="checkbox-refresh-switch"></span>
 								</label>
-								<button id="showOperActiveSlots" title="Открывает боковое дополнительное окно, чтобы просмотреть все добавленные за сегодня слоты">📑</button>
+								<button id="showOperActiveSlots" title="Открывает боковое дополнительное окно, чтобы просмотреть все добавленные за выбранную дату">📑</button>
 			    </span>
                         </div>
 
