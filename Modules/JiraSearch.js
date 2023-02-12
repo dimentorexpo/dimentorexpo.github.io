@@ -239,10 +239,14 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
                 for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
                     document.getElementsByName('addtonotesbug')[j].onclick = function () {
-                        sendComment('https://jira.skyeng.tech/browse/' + favissues[j].match(/browse.(\S+)"/)[1])
-
-                        let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        let chatId = ''
+                        if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
+                            chatId = document.location.pathname.split('/')[3]
+                            sendComment('https://jira.skyeng.tech/browse/' + favissues[j].match(/browse.(\S+)"/)[1])
+                        } else {
+                            chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+                        }
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",
@@ -250,7 +254,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/${favissues[j].match(/browse.(\S+)"/)[1]}\"}]}`,
+                            "body": `{\"conversationId\":\"${chatId}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/${favissues[j].match(/browse.(\S+)"/)[1]}\"}]}`,
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
@@ -451,7 +455,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                                     "sec-fetch-mode": "cors",
                                     "sec-fetch-site": "same-origin"
                                 },
-                                "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
+                                "body": "{\"conversationId\":\"${chatId}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
                                 "method": "POST",
                                 "mode": "cors",
                                 "credentials": "include"
@@ -571,9 +575,14 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
                     let barray = document.querySelector('.jiraissues');
                     barray.onclick = function () {
-                        sendComment(rezissuetable[0].items[0].url)
-                        let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        let chatId = ''
+                        if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
+                            chatId = document.location.pathname.split('/')[3]
+                            sendComment(rezissuetable[0].items[0].url)
+                        } else {
+                            chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+                        }
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",
@@ -581,7 +590,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
+                            "body": "{\"conversationId\":\"${chatId}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
