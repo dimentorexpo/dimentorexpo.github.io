@@ -36,8 +36,8 @@ var win_Themes =  // описание элементов окна Тематик
         </span>
 </div>`;
 
-if (localStorage.getItem('scriptAdrTH')) {
-    localStorage.setItem('scriptAdrTH', 'https://script.google.com/macros/s/AKfycbyVuAqd4ig0IxZl5Laxs4VcYnHJ8CyrFmoTfvQK5vXPFqVa5BCuUpqxTBcgMh0IaQVw/exec')
+if (!localStorage.getItem('scriptAdrTH')) {
+    localStorage.setItem('scriptAdrTH', 'https://script.google.com/macros/s/AKfycbzgGszbjUND_GUDNFbKlRrpjrGtEFuCK-mMprFCADI8VFrQxCe01WZ_tXfnxsdEx4EB5w/exec')
 }
 
 if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
@@ -67,7 +67,6 @@ wintThemes.onmousedown = function (a) { // изменение позиции о�
     }
 }
 wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); } // прекращение изменения позиции окна Тематик
-
 
 document.getElementById('AF_Themes').ondblclick = function (a) { // скрытие окна Тематик и тегов по двойному клику
     if (checkelementtype(a)) { document.getElementById('hideMeThemes').click(); }
