@@ -120,7 +120,24 @@ function getSlotData(name) {
 				}
 				
 				document.getElementById('chosenSlot').textContent = allRows[name].textContent
-				document.getElementById('chosenSlot').onclick = function() { copyToClipboard1(document.getElementById('chosenSlot').textContent) }
+				document.getElementById('chosenSlot').onclick = function() { 
+				
+				let dateString = document.getElementById('chosenSlot').textContent
+				// Split the date and time into separate variables
+				let parts = dateString.split(" ");
+				let time = parts[0];
+				let originalDate = parts[1];
+
+				// Create a Date object from the original date string
+				let date = new Date(originalDate);
+
+				// Format the date as desired
+				let formattedDate = `${("0" + date.getDate()).slice(-2)}-${("0" + (date.getMonth() + 1)).slice(-2)}-${date.getFullYear()} ${time}`;
+				
+				copyToClipboard1(formattedDate)
+
+
+				}
 				
 				document.getElementById('slotData').innerHTML = ''
 				for (let j=0; j<parseInt(allRows[name].getAttribute('dlina')); j++) {
