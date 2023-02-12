@@ -100,6 +100,8 @@ function checkAuth() { //функция проверки авторизации 
 
 let responseslotsdata;
 	var arrayOfEvents = [];
+	var arrayOfMyEvents = [];
+	let uniqueEvents;
 function getTimeSlots() { //функция получения информации по временным слотам
 	if (document.getElementById('slotList').style.display == "") {
 		document.getElementById('slotList').style.display = "none"
@@ -141,6 +143,8 @@ function getTimeSlots() { //функция получения информаци
         if (responsevar) {
 			arrayOfEvents = [];
             document.getElementById('outputcalendarfield').innerHTML = ''
+			arrayOfMyEvents = [];
+			uniqueEvents = new Set();
             responseslotsdata = JSON.parse(responsevar);
             // console.log(responseslotsdata)
             document.getElementById('datenowtime').value = responseslotsdata.nowDateTime;
@@ -152,13 +156,54 @@ function getTimeSlots() { //функция получения информаци
 
 
 					if (availableslotsentries[i][1].EventList.length != 0) {
-					  for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
-						arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
-											'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
-											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
-											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
-											'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
+					  // for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
+						// arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
+											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
+											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
+											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
+											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
+											
+							// if(operNamesAF[0] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name || operNamesAF[1] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name) {
+								// arrayOfMyEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
+											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
+											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
+											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
+											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
+							// }
+						// }
+						
+						for (let k = 0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
+						  const event = Object.values(availableslotsentries[i][1].EventList)[k];
+
+						  if (!uniqueEvents.has(event.id)) {
+							arrayOfEvents.push({
+							  'eventId': event.id,
+							  'eventText': event.text,
+							  'slotTime': event.slot,
+							  'slotDate': event.new_date_slot,
+							  'createdBy': event.created_by_name
+							});
+
+							uniqueEvents.add(event.id);
+
+							if (
+							  operNamesAF[0] == event.created_by_name ||
+							  operNamesAF[1] == event.created_by_name
+							) {
+							  arrayOfMyEvents.push({
+								'eventId': event.id,
+								'eventText': event.text,
+								'slotTime': event.slot,
+								'slotDate': event.new_date_slot,
+								'createdBy': event.created_by_name
+							  });
+							}
+						  }
 						}
+
+						
+						
+						console.log(arrayOfMyEvents)
 					} else { 					  
 						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
 						arrayOfEvents.push({'eventId': null,
@@ -250,6 +295,14 @@ function getTimeSlots() { //функция получения информаци
 							spisok[n].style.background = "#afdbaf"
 						}
 					}
+				}
+				
+				for (let b=0; b<spisok.length;b++) {
+						spisok[b].ondblclick = function() {
+							if (spisok[b].value !='') {
+								window.open(spisok[b].value.match(/(https?:\/\/[^\s]+)/g)[0])
+							}
+						}
 				}
 				
 				let saveBtns = document.getElementsByName('saveToCalend')
