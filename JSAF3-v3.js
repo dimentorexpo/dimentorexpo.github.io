@@ -3647,7 +3647,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
     button1.innerHTML = "Скрипт";
-    button1.style = "margin-right:15px;";
+    button1.style = "margin-right:15px; cursor:pointer;";
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
@@ -4313,7 +4313,7 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
-hashBut.style.marginRight = "15px";
+hashBut.style = "margin-right:15px; cursor:pointer;";
 
 let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
