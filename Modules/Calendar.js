@@ -13,6 +13,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 										<span class="checkbox-refresh-switch"></span>
 								</label>
 								<button id="showOperActiveSlots" title="Открывает боковое дополнительное окно, чтобы просмотреть все добавленные за выбранную дату">📑</button>
+								<span id="availableActiveSlots" style="display:none; position: absolute; top: -4px; left: 210px;" class="">⚠</span>
 			    </span>
                         </div>
 
@@ -308,22 +309,7 @@ function getTimeSlots() { //функция получения информаци
 
 
 					if (availableslotsentries[i][1].EventList.length != 0) {
-					  // for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
-						// arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
-											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
-											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
-											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
-											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
-											
-							// if(operNamesAF[0] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name || operNamesAF[1] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name) {
-								// arrayOfMyEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
-											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
-											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
-											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
-											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
-							// }
-						// }
-						
+					
 						for (let k = 0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
 						  const event = Object.values(availableslotsentries[i][1].EventList)[k];
 
@@ -457,6 +443,7 @@ document.getElementById('datsyCalendar').onclick = function () {
 function refreshActiveOperSlots() { // функция обновления инфы в боковом доп окошке по активным слотам на операторе
 	document.getElementById('operatorActiveSlots').innerHTML = '';
 	if (arrayOfMyEvents.length != 0) {
+		document.getElementById('availableActiveSlots').style.display=''
 		for (let i=0; i <arrayOfMyEvents.length;i++) {
 			document.getElementById('operatorActiveSlots').innerHTML += '<div style="margin-left:5px; margin-top:5px; background: darkgray;">'+ '<span style="background: #2058cb; padding: 6px; margin-top: 5px; padding-bottom: 8px; color: white; font-weight: 700;">' + arrayOfMyEvents[i].slotTime + '</span>' + '<span style="background: darkseagreen; padding: 5px; font-weight: 700;">' + arrayOfMyEvents[i].slotDate + '</span>' + `<input name="slotToDelete" title="${arrayOfMyEvents[i].eventId}" value="${arrayOfMyEvents[i].eventText.match(/\d{4,9}/)[0]}" style="width: 80px; text-align: center;">` +  '<button name="deleMySlot">❌</button>' + '</div>'
 		}
@@ -493,6 +480,7 @@ function refreshActiveOperSlots() { // функция обновления ин�
 		}
 	} else {
 		document.getElementById('operatorActiveSlots').innerHTML = '<span style="color:bisque; font-weight:700">В этот день слоты не были заняты!</span>'
+		document.getElementById('availableActiveSlots').style.display='none'
 	}
 }
 
