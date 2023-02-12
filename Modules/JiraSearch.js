@@ -436,9 +436,14 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                     let barray = document.querySelectorAll('.jiraissues');
                     for (let j = 0; j < barray.length; j++) {
                         barray[j].onclick = function () {
-                            sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j]);
-                            let b = document.URL.split('/')
-                            fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                            let chatId = ''
+                            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
+                                chatId = document.location.pathname.split('/')[3]
+                                sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
+                            } else {
+                                chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
+                            }
+                            fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
                                 "headers": {
                                     "accept": "*/*",
                                     "content-type": "application/json",
