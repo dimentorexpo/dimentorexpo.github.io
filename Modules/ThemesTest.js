@@ -262,10 +262,10 @@ document.getElementById('multitag').onclick = function () { // откправк�
     for (let i = 0; i < allcheckboxtags.length; i++) {
         if (allcheckboxtags[i].checked) {
             tagsvaluesarr.push('\"' + alltagsbtns[i].value + '\"')
-            if (allcheckboxtags[i].value == 'refusal_of_help' && document.getElementById('AF_Refuseformnew').style.display == 'none') {
+            if (alltagsbtns[i].value == 'refusal_of_help' && document.getElementById('AF_Refuseformnew').style.display == 'none') {
                 document.getElementById('otkaz').click()
             }
-            if (allcheckboxtags[i].value == 'smartroom' && document.getElementById('AF_Smartroomform').style.display == 'none') {
+            if (alltagsbtns[i].value == 'smartroom' && document.getElementById('AF_Smartroomform').style.display == 'none') {
                 document.getElementById('smartroomform').click()
             }
         }
