@@ -699,7 +699,7 @@ function mystyles() {
 }
 
 var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: none; width: 351px;">
+    `<div style="width: 351px;">
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
