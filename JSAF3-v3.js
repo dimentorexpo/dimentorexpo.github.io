@@ -652,13 +652,13 @@ function mystyles() {
 	}
 	
 	button[name="saveToCalend"] {
-		width: 110px;
+		width: 50px;
 		background: #3389a3;
 		transition:all 0.5s ease;
 	}
 	
 	button[name="deleteFromCalend"] {
-		width: 110px;
+		width: 50px;
 		background: #a55a58;
 		transition:all 0.5s ease;
 	}
@@ -1341,35 +1341,40 @@ function prepTp() { //функция подготовки расширения �
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
+	let sidePanel = document.createElement('div')
+	sidePanel.id = "rightPanel"
+	sidePanel.style = 'position: fixed; top: 45px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; transition: all 0.5s ease;'
+	document.body.append(sidePanel)
+
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
-    openchhis.style = '    position: fixed; top: 45px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     openchhis.id = 'opennewcat'
     openchhis.title = 'Открывает виджет просмотра истории чатов'
-    document.body.append(openchhis)
+	document.getElementById('rightPanel').appendChild(openchhis)
 
     let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
-    crmopers.style = 'position: fixed; top: 90px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    crmopers.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     crmopers.id = 'crmopersstatuses'
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
     crmopers.classList = 'onlyfortp'
-    document.body.append(crmopers) 
+	document.getElementById('rightPanel').appendChild(crmopers)
 	
 	let openCalendar = document.createElement('button')
-    openCalendar.innerHTML = '🗓'
-    openCalendar.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
-    openCalendar.id = 'datsyCalendar'
+    openCalendar.innerHTML = '📅'
+    openCalendar.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+     openCalendar.id = 'datsyCalendar'
     openCalendar.title = 'Открывает календарь Datsy'
 	openCalendar.classList = 'onlyfortp'
-    document.body.append(openCalendar)
+	document.getElementById('rightPanel').appendChild(openCalendar)
 	
 	let playerRadio = document.createElement('button')
     playerRadio.innerHTML = '📻'
-    playerRadio.style = 'position: fixed; top: 180px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    playerRadio.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     playerRadio.id = 'radioPlayer'
     playerRadio.title = 'Открывает радио проигрыватель'
-    document.body.append(playerRadio)
+	document.getElementById('rightPanel').appendChild(playerRadio)
 
     openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
