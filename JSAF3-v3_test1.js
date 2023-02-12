@@ -3725,9 +3725,9 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
-if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
-    document.getElementById('AF_helper').style.display = 'none';
-}
+//if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+//    document.getElementById('AF_helper').style.display = 'none';
+//}
 
 var listenerAF = function (e, a) { // сохранение позиции главного окна
     wintAF.style.left = Number(e.clientX - myX2) + "px";
