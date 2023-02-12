@@ -238,7 +238,10 @@ function SmartBtnTag(BtnValue) { // при теге smartroom открывает
     newTaggg(BtnValue)
 }
 
-document.getElementById('getnewthdata').onclick = getTextThemes // по клику на кнопку сработает функция обновления тематик из документа
+document.getElementById('getnewthdata').onclick = function () {  // по клику на кнопку сработает функция обновления тематик из документа
+    document.getElementById('backtomenu').style.display = 'none'
+    getTextThemes()
+}
 
 document.getElementById('ClearSmartroomData').onclick = function () { // очистка чекбоксов мультитэг
     let allcheckboxtags = document.getElementsByName('tagcheck')
