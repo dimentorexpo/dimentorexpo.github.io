@@ -1343,7 +1343,7 @@ function prepTp() { //функция подготовки расширения �
 
 	let sidePanel = document.createElement('div')
 	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 45px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; transition: all 0.5s ease;'
+	sidePanel.style = 'position: fixed; top: 45px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
 	document.body.append(sidePanel)
 
     let openchhis = document.createElement('button')
