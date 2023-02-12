@@ -1,15 +1,15 @@
 var win_Calendar =  // описание формы чтобы не давала чату закрыться
-    `<div style="width: 750px;">
-        <span style="width: 750px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
+    `<div style="width: 600px;">
+        <span style="width: 600px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 750px;" id="stataaf_header">
+                        <div style="margin: 5px; width: 600px;" id="stataaf_header">
                                 <button title="скрывает меню" id="hidecalendar" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearcalendar">🧹</button>
 								<button id="refreshcalendar">♻</button>
 								<button id="opendatsy">📅</button>
-								<label title="Включение и отключение автоматического обновления информации в слотах с интервалом 30 секунд" class="checkbox-audio">
+								<label title="Включение и отключение автоматического обновления информации в слотах с интервалом 30 секунд" class="checkbox-refresh">
 									<input id="autorefreshswitcher" type="checkbox" checked="">
-										<span class="checkbox-audio-switch"></span>
+										<span class="checkbox-refresh-switch"></span>
 								</label>
 			    </span>
                         </div>
@@ -19,7 +19,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 								<input type="date" id="eventDate" onChange="getTimeSlots()" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700; border-radius: 20px;"></input>
 								<button id="nextDay" style="border-radius: 20px; padding: 5px; padding-top: 6px;">▶</button>
 								<button id="nowDay" style="margin-left: 5px; padding: 5px;">Сегодня</button>
-								<label style="margin-left: 5px; margin-right: 5px; margin-top: 5px; color: bisque;">Доступное время по состоянию на: </label>
+								<label style="margin-left: 5px; margin-right: 5px; margin-top: 5px; color: bisque;">Слоты по состоянию на: </label>
 								<input type="text" id="datenowtime" style="text-align:center; background: cornsilk; border-radius: 20px;" disabled></input>
 						</div>
 
@@ -27,7 +27,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 						</div>
 
 						<div id="slotList" style="display:none;">
-							<span id="chosenSlot" style="background: chartreuse; padding: 5px; margin-left: 39%; box-shadow: 0px 3px 1px rgb(0 0 0 / 55%); border-radius: 20px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700; color: darkblue; font-family: cursive; cursor:pointer;" title="При клике на поле копирует в буфер обмена дату и время"></span>
+							<span id="chosenSlot" style="background: chartreuse; padding: 5px; margin-left: 36%; box-shadow: 0px 3px 1px rgb(0 0 0 / 55%); border-radius: 20px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700; color: darkblue; font-family: cursive; cursor:pointer;" title="При клике на поле копирует в буфер обмена дату и время"></span>
 							<span id="hideSlot" style="font-size: 20px; cursor: pointer; transition:all 0.5s ease;">⤴</span>
 							<div id="slotData" style="margin-bottom: 5px; margin-left: 5px;">
 							</div>
@@ -42,7 +42,7 @@ if (localStorage.getItem('winTopCalendar') == null) { //начальное по�
 
 let wintCalendar = document.createElement('div'); // создание окна для заморозки чата
 document.body.append(wintCalendar);
-wintCalendar.style = 'min-height: 25px; width: 750px; background: #464451; top: ' + localStorage.getItem('winTopCalendar') + 'px; left: ' + localStorage.getItem('winLeftCalendar') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintCalendar.style = 'min-height: 25px; width: 600px; background: #464451; top: ' + localStorage.getItem('winTopCalendar') + 'px; left: ' + localStorage.getItem('winLeftCalendar') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintCalendar.style.display = 'none';
 wintCalendar.setAttribute('id', 'AF_Calendar');
 wintCalendar.innerHTML = win_Calendar;
@@ -100,6 +100,8 @@ function checkAuth() { //функция проверки авторизации 
 
 let responseslotsdata;
 	var arrayOfEvents = [];
+	var arrayOfMyEvents = [];
+	let uniqueEvents;
 function getTimeSlots() { //функция получения информации по временным слотам
 	if (document.getElementById('slotList').style.display == "") {
 		document.getElementById('slotList').style.display = "none"
@@ -141,6 +143,8 @@ function getTimeSlots() { //функция получения информаци
         if (responsevar) {
 			arrayOfEvents = [];
             document.getElementById('outputcalendarfield').innerHTML = ''
+			arrayOfMyEvents = [];
+			uniqueEvents = new Set();
             responseslotsdata = JSON.parse(responsevar);
             // console.log(responseslotsdata)
             document.getElementById('datenowtime').value = responseslotsdata.nowDateTime;
@@ -152,13 +156,54 @@ function getTimeSlots() { //функция получения информаци
 
 
 					if (availableslotsentries[i][1].EventList.length != 0) {
-					  for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
-						arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
-											'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
-											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
-											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
-											'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
+					  // for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
+						// arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
+											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
+											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
+											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
+											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
+											
+							// if(operNamesAF[0] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name || operNamesAF[1] == Object.values(availableslotsentries[i][1].EventList)[k].created_by_name) {
+								// arrayOfMyEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
+											// 'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
+											// 'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
+											// 'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
+											// 'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
+							// }
+						// }
+						
+						for (let k = 0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
+						  const event = Object.values(availableslotsentries[i][1].EventList)[k];
+
+						  if (!uniqueEvents.has(event.id)) {
+							arrayOfEvents.push({
+							  'eventId': event.id,
+							  'eventText': event.text,
+							  'slotTime': event.slot,
+							  'slotDate': event.new_date_slot,
+							  'createdBy': event.created_by_name
+							});
+
+							uniqueEvents.add(event.id);
+
+							if (
+							  operNamesAF[0] == event.created_by_name ||
+							  operNamesAF[1] == event.created_by_name
+							) {
+							  arrayOfMyEvents.push({
+								'eventId': event.id,
+								'eventText': event.text,
+								'slotTime': event.slot,
+								'slotDate': event.new_date_slot,
+								'createdBy': event.created_by_name
+							  });
+							}
+						  }
 						}
+
+						
+						
+						console.log(arrayOfMyEvents)
 					} else { 					  
 						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
 						arrayOfEvents.push({'eventId': null,
@@ -229,7 +274,7 @@ function getTimeSlots() { //функция получения информаци
 				for (let j=0; j<parseInt(allRows[i].getAttribute('dlina')); j++) {
 					let testd = document.createElement('div')
 					testd.style = "margin-top: 5px;"
-					testd.innerHTML = '<input name="slotInfo" style="width: 505px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
+					testd.innerHTML = '<input name="slotInfo" style="width: 478px;">' + ' ' + '<button name="saveToCalend">💾</button>' + ' ' + '<button name="deleteFromCalend">❌</button>'
 					document.getElementById('slotData').appendChild(testd)
 				}
 
@@ -250,6 +295,14 @@ function getTimeSlots() { //функция получения информаци
 							spisok[n].style.background = "#afdbaf"
 						}
 					}
+				}
+				
+				for (let b=0; b<spisok.length;b++) {
+						spisok[b].ondblclick = function() {
+							if (spisok[b].value !='') {
+								window.open(spisok[b].value.match(/(https?:\/\/[^\s]+)/g)[0])
+							}
+						}
 				}
 				
 				let saveBtns = document.getElementsByName('saveToCalend')
@@ -403,7 +456,7 @@ document.getElementById('nowDay').onclick = function() { // обработчик
 	getTimeSlots()
 }
 
-document.getElementsByClassName('checkbox-audio-switch')[1].onclick = function () {  // функция переключатели автообновления
+document.getElementsByClassName('checkbox-refresh-switch')[0].onclick = function () {  // функция переключатели автообновления
 	if (localStorage.getItem('refreshCalend') != null) {
 		if (localStorage.getItem('refreshCalend') == '0') {
 			document.getElementById('autorefreshswitcher').checked = false;
