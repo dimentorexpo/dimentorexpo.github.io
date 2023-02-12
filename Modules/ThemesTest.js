@@ -37,7 +37,7 @@ var win_Themes =  // описание элементов окна Тематик
 </div>`;
 
 if (!localStorage.getItem('scriptAdrTH')) {
-    localStorage.setItem('scriptAdrTH', 'https://script.google.com/macros/s/AKfycbyVuAqd4ig0IxZl5Laxs4VcYnHJ8CyrFmoTfvQK5vXPFqVa5BCuUpqxTBcgMh0IaQVw/exec')
+    localStorage.setItem('scriptAdrTH', 'https://script.google.com/macros/s/AKfycbzgGszbjUND_GUDNFbKlRrpjrGtEFuCK-mMprFCADI8VFrQxCe01WZ_tXfnxsdEx4EB5w/exec')
 }
 
 if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
