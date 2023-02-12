@@ -305,29 +305,33 @@ function getTimeSlots() { //функция получения информаци
 				for (let f=0; f<deleteBtns.length; f++) {
 					deleteBtns[f].onclick  = function() { // функция удаления слота из календаря
 						if (spisok[f].title !='') {
-							document.getElementById('responseTextarea1').value = `{
-							  "headers": {
-								"content-type": "application/x-www-form-urlencoded",
-								"sec-fetch-dest": "empty",
-								"sec-fetch-mode": "cors",
-								"sec-fetch-site": "same-site"
-							  },
-							  "referrer": "https://datsy.ru/",
-							  "referrerPolicy": "strict-origin-when-cross-origin",
-							  "body": "&deleteslot=${spisok[f].title}",
-							  "method": "POST",
-							  "mode": "cors",
-							  "credentials": "include"
-							}`;
-							document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/delete.php`;
-							document.getElementById('responseTextarea3').value = '';
-							document.getElementById('sendResponse').click();
+							let podtvudal = confirm("Вы действительно хотите удалить этот слот из календаря?")
+							if (podtvudal) {
+								document.getElementById('responseTextarea1').value = `{
+								  "headers": {
+									"content-type": "application/x-www-form-urlencoded",
+									"sec-fetch-dest": "empty",
+									"sec-fetch-mode": "cors",
+									"sec-fetch-site": "same-site"
+								  },
+								  "referrer": "https://datsy.ru/",
+								  "referrerPolicy": "strict-origin-when-cross-origin",
+								  "body": "&deleteslot=${spisok[f].title}",
+								  "method": "POST",
+								  "mode": "cors",
+								  "credentials": "include"
+								}`;
+								document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/delete.php`;
+								document.getElementById('responseTextarea3').value = '';
+								document.getElementById('sendResponse').click();
 							
 							spisok[f].title = ''
 							spisok[f].value = ''
 							
 							getTimeSlots()
+							}
 						}
+
 					}
 				}
 
