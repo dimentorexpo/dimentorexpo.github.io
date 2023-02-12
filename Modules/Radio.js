@@ -15,8 +15,7 @@
 						<button id="addAudio">➕</button>
 						<button id="playAudio">▶</button>
 						<button id="pauseAudio">⏸</button>
-						<button id="volumeUp" onclick="document.getElementById('player').volume += 0.11">🔊+</button>
-						<button id="volumeDown" onclick="document.getElementById('player').volume -= 0.11">🔉-</button>
+						<input id="changeRadioVolume" min="0" max="1" value="1.0" step="0.11" type="range">
 						<button id="muteAudio" onclick="muteorunmute()">🔇Mute</button>
 					</div>
 					<ol id="audioList" style="width:570px;"></ol>
@@ -170,3 +169,14 @@ wintRadio.onmouseup = function () { document.removeEventListener('mousemove', li
 		document.getElementById('hideMeRadio').onclick = function() {
 			document.getElementById('AF_Radio').style.display = 'none'
 		}
+		
+		let volRange = document.getElementById('changeRadioVolume');
+        volRange.value = localStorage.getItem('volume');
+
+
+        volRange.onchange = function () {
+            if (localStorage.getItem('volume') != null) {
+                player.volume = this.value;
+                localStorage.setItem('volume', player.volume);
+            } else localStorage.setItem('volume', this.value);
+        }
