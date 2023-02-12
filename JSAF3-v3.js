@@ -705,7 +705,7 @@ function mystyles() {
 }
 
 var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: flex; width: 351px;">
+    `<div style="width: 351px;">
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
@@ -3647,7 +3647,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
     button1.innerHTML = "Скрипт";
-    button1.style = "margin-right:15px; display:none";
+    button1.style = "margin-right:15px;";
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
@@ -3712,7 +3712,7 @@ if (localStorage.getItem('scriptAdr') == null) {
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
-wintAF.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
+wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 var chatsArray = []
@@ -3731,9 +3731,9 @@ wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
 
-if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
-    document.getElementById('AF_helper').style.display = 'none';
-}
+//if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+//    document.getElementById('AF_helper').style.display = 'none';
+//}
 
 var listenerAF = function (e, a) { // сохранение позиции главного окна
     wintAF.style.left = Number(e.clientX - myX2) + "px";
