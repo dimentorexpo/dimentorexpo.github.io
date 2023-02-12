@@ -699,7 +699,7 @@ function mystyles() {
 }
 
 var win_AFhelper =  // описание элементов главного окна
-    `<div style="display: flex; width: 351px;">
+    `<div style="display: none; width: 351px;">
         <span style="width: 351px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
@@ -3641,7 +3641,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
     button1.innerHTML = "Скрипт";
-    button1.style = "margin-right:15px; display:none";
+    button1.style = "margin-right:15px;";
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
