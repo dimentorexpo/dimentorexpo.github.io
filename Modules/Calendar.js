@@ -148,7 +148,7 @@ function getTimeSlots() { //функция получения информаци
             let availableslotsentries = Object.entries(responseslotsdata.DataTimeSlot)
             for (let i = 0; i < availableslotsentries.length; i++) {
                 if (availableslotsentries[i][0] != "00:00" && availableslotsentries[i][0] != "00:20" && availableslotsentries[i][0] != "00:40" && availableslotsentries[i][0] != "23:00" && availableslotsentries[i][0] != "23:20" && availableslotsentries[i][0] != "23:40" && availableslotsentries[i][0] != "01:00" && availableslotsentries[i][0] != "01:20" && availableslotsentries[i][0] != "01:40" && availableslotsentries[i][0] != "02:00" && availableslotsentries[i][0] != "02:20" && availableslotsentries[i][0] != "02:40" && availableslotsentries[i][0] != "03:00" && availableslotsentries[i][0] != "03:20" && availableslotsentries[i][0] != "03:40" && availableslotsentries[i][0] != "04:00" && availableslotsentries[i][0] != "04:20" && availableslotsentries[i][0] != "04:40" && availableslotsentries[i][0] != "05:00" && availableslotsentries[i][0] != "05:20" && availableslotsentries[i][0] != "05:40" && availableslotsentries[i][0] != "06:00" && availableslotsentries[i][0] != "06:20" && availableslotsentries[i][0] != "06:40" && availableslotsentries[i][0] != "07:00" && availableslotsentries[i][0] != "07:20" && availableslotsentries[i][0] != "07:40") {
-                    console.log(availableslotsentries[i])
+                    // console.log(availableslotsentries[i])
 
 
 					if (availableslotsentries[i][1].EventList.length != 0) {
@@ -156,14 +156,16 @@ function getTimeSlots() { //функция получения информаци
 						arrayOfEvents.push({'eventId': Object.values(availableslotsentries[i][1].EventList)[k].id,
 											'eventText': Object.values(availableslotsentries[i][1].EventList)[k].text,
 											'slotTime' : Object.values(availableslotsentries[i][1].EventList)[k].slot,
-											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot});
+											'slotDate' : Object.values(availableslotsentries[i][1].EventList)[k].new_date_slot,
+											'createdBy' : Object.values(availableslotsentries[i][1].EventList)[k].created_by_name});
 						}
 					} else { 					  
 						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
 						arrayOfEvents.push({'eventId': null,
 											'eventText': null,
 											'slotTime' : null,
-											'slotDate' : null});
+											'slotDate' : null,
+											'createdBy': null});
 					  }
 					}
 
@@ -238,11 +240,15 @@ function getTimeSlots() { //функция получения информаци
 					} 
 				}
 				
-				let spisok = document.getElementsByName('slotInfo');
+				let spisok = document.getElementsByName('slotInfo'); //заполнение строк полей информацией об уже внесенных значениях
 				if (tempVarMatches.length !=0) {
 					for (n=0; n < tempVarMatches.length; n++) {
 						spisok[n].value = tempVarMatches[n].eventText
 						spisok[n].title = tempVarMatches[n].eventId
+						spisok[n].setAttribute('createdByOperator', `${tempVarMatches[n].createdBy}`)
+						if (spisok[n].getAttribute('createdByOperator') == operNamesAF[0] || spisok[n].getAttribute('createdByOperator') == operNamesAF[1]) {
+							spisok[n].style.background = "#afdbaf"
+						}
 					}
 				}
 				
@@ -333,11 +339,14 @@ function getTimeSlots() { //функция получения информаци
     })
     document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
 }
-
+let operNamesAF = []
 let refreshintervalset;
 document.getElementById('datsyCalendar').onclick = function () {
     if (document.getElementById('AF_Calendar').style.display == "none") {
         document.getElementById('AF_Calendar').style.display = ""
+		let operNameAF = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[1]
+		operNamesAF = [operNameAF, operNameAF.split(" ").reverse().join(" ")];
+		console.log(operNamesAF)
 		checkAuth()
 		
         let getcurdate = new Date();
@@ -347,14 +356,16 @@ document.getElementById('datsyCalendar').onclick = function () {
         document.getElementById("eventDate").value = `${year}-${month}-${day}`;
 		
 		if (localStorage.getItem('refreshCalend') == '1') {
-
+				document.getElementById('autorefreshswitcher').checked = true;
 			if (!refreshintervalset) {
-					refreshintervalset = setInterval(() => { getTimeSlots() }, 30000)
-				
+				refreshintervalset = setInterval(() => { getTimeSlots() }, 30000)
+
 			} else {
 				clearInterval(refreshintervalset)
 				refreshintervalset = null
 			}
+		} else if (localStorage.getItem('refreshCalend') == '0') {
+			document.getElementById('autorefreshswitcher').checked = false
 		}
 
     } else {
