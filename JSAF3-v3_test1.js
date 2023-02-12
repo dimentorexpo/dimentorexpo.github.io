@@ -1886,6 +1886,7 @@ function resetFlags() { //функция обнуления флагов
 
 function pageClick(pageId) { // по клику переключает страницы с шаблонами
     b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
+    pageId = pageId.split('_')[0]
     for (i = 0; i < b.childElementCount; i++) {
         try {
             b.children[1].children[i].style = 'background-color:#768d87; border-top:0px;'
@@ -1893,7 +1894,7 @@ function pageClick(pageId) { // по клику переключает стра�
         } catch (e) { }
     }
     document.getElementById(pageId).style = 'background-color: green; border-top:4px solid orange'
-    document.getElementById(pageId[0] + "page").style.display = ''
+    document.getElementById(pageId + "page").style.display = ''
 }
 
 function bagPageButtons(butId) {  //с шаблонами тоже фукнкция связана
@@ -2222,7 +2223,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                 pageType = c[2]
                 newPageBut.style.marginRight = '4px'
                 newPageBut.setAttribute('onclick', 'pageClick(this.id)')
-                newPageBut.id = countOfPages + 'page_button'
+                newPageBut.id = countOfPages + '_page_button'
                 b.childNodes[3].appendChild(newPageBut)
 
                 var newPage = document.createElement('div')
@@ -2398,7 +2399,7 @@ function refreshTemplates() { // функция обновляет шаблон�
         else
             document.getElementById('addTmp').style.display = 'none';
     }
-    document.getElementById('0page_button').click()
+    document.getElementById('0_page_button').click()
 }
 
 function tagToChat(btnName) { // функция отправляет тематику в чат, список тематик хранится в спец доке где шаблоны
