@@ -79,7 +79,7 @@ function mystyles() {
 	.selchatact {
 		border-left: 6px solid DeepSkyBlue;
 	}
-		.checkbox-audio {
+		.checkbox-audio, .checkbox-refresh {
 			display: inline-block;
 			height: 28px;
 			line-height: 28px;
@@ -89,7 +89,7 @@ function mystyles() {
 			font-size: 14px;
 			user-select: none;
 		}
-		.checkbox-audio .checkbox-audio-switch {
+		.checkbox-audio .checkbox-audio-switch, .checkbox-refresh .checkbox-refresh-switch {
 			position: relative;
 			display: inline-block;
 			box-sizing: border-box;
@@ -114,7 +114,23 @@ function mystyles() {
 			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 			transition: .15s;
 		}
-		.checkbox-audio input[type=checkbox] {
+		
+		.checkbox-refresh .checkbox-refresh-switch:before  {
+			content: '⭕';
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			background: white;
+			text-align: center;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+			transition: .15s;
+		}
+		
+		.checkbox-audio input[type=checkbox], .checkbox-refresh input[type=checkbox] {
 			display: block;
 			width: 0;
 			height: 0;
@@ -122,16 +138,23 @@ function mystyles() {
 			z-index: -1;
 			opacity: 0;
 		}
-		.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before {
+		.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before, .checkbox-refresh input[type=checkbox]:not(:disabled):active + .checkbox-refresh-switch:before {
 			box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
 		}
-		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch {
+		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch, .checkbox-refresh input[type=checkbox]:checked + .checkbox-refresh-switch {
 			background: limegreen;
 		}
 		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
 			content: '🔊';
 			transform:translateX(28px);
 		}
+		
+		.checkbox-refresh input[type=checkbox]:checked + .checkbox-refresh-switch:before {
+			content: '♻';
+			transform:translateX(28px);
+			text-align: center;
+		}
+		
 		#buttonOpenForm {
 			height:50px;
 		}
@@ -629,13 +652,13 @@ function mystyles() {
 	}
 	
 	button[name="saveToCalend"] {
-		width: 110px;
+		width: 50px;
 		background: #3389a3;
 		transition:all 0.5s ease;
 	}
 	
 	button[name="deleteFromCalend"] {
-		width: 110px;
+		width: 50px;
 		background: #a55a58;
 		transition:all 0.5s ease;
 	}
@@ -1318,35 +1341,40 @@ function prepTp() { //функция подготовки расширения �
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
+	let sidePanel = document.createElement('div')
+	sidePanel.id = "rightPanel"
+	sidePanel.style = 'position: fixed; top: 45px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; transition: all 0.5s ease;'
+	document.body.append(sidePanel)
+
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
-    openchhis.style = '    position: fixed; top: 45px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     openchhis.id = 'opennewcat'
     openchhis.title = 'Открывает виджет просмотра истории чатов'
-    document.body.append(openchhis)
+	document.getElementById('rightPanel').appendChild(openchhis)
 
     let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
-    crmopers.style = 'position: fixed; top: 90px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    crmopers.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     crmopers.id = 'crmopersstatuses'
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
     crmopers.classList = 'onlyfortp'
-    document.body.append(crmopers) 
+	document.getElementById('rightPanel').appendChild(crmopers)
 
 	let openCalendar = document.createElement('button')
-    openCalendar.innerHTML = '🗓'
-    openCalendar.style = 'position: fixed; top: 135px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openCalendar.innerHTML = '📅'
+    openCalendar.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     openCalendar.id = 'datsyCalendar'
     openCalendar.title = 'Открывает календарь Datsy'
 	openCalendar.classList = 'onlyfortp'
-    document.body.append(openCalendar)
+	document.getElementById('rightPanel').appendChild(openCalendar)
 	
 	let playerRadio = document.createElement('button')
     playerRadio.innerHTML = '📻'
-    playerRadio.style = 'position: fixed; top: 180px; right: 0px; z-index: 5; width: 40px; height: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    playerRadio.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     playerRadio.id = 'radioPlayer'
     playerRadio.title = 'Открывает радио проигрыватель'
-    document.body.append(playerRadio)
+	document.getElementById('rightPanel').appendChild(playerRadio)
 
     openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
@@ -1393,10 +1421,9 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         //"https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-        //"https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
-        "https://dimentorexpo.github.io/Modules/ThemesTest.js", // тестовый модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
         "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
-        "https://dimentorexpo.github.io/Modules/GrList.js", // модуль просмотра участников группы в L
+        "https://dimentorexpo.github.io/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
         "https://dimentorexpo.github.io/Modules/TechSummary.js", // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
@@ -1498,7 +1525,7 @@ function noDoubts(object) { // функция для разрешения вво
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' && elem.className != "checkbox-audio-switch") {
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != "checkbox-audio-switch" && elem.className != "checkbox-refresh-switch") {
         return true;
     }
     return false;
