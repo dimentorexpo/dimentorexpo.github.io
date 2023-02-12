@@ -68,7 +68,6 @@ wintThemes.onmousedown = function (a) { // изменение позиции о�
 }
 wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); } // прекращение изменения позиции окна Тематик
 
-
 document.getElementById('AF_Themes').ondblclick = function (a) { // скрытие окна Тематик и тегов по двойному клику
     if (checkelementtype(a)) { document.getElementById('hideMeThemes').click(); }
 }
