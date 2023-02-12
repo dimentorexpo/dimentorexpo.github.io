@@ -656,14 +656,20 @@ function mystyles() {
 		background: #3389a3;
 		transition:all 0.5s ease;
 	}
-	
+		
 	button[name="deleteFromCalend"] {
 		width: 50px;
 		background: #a55a58;
 		transition:all 0.5s ease;
 	}
 	
-	button[name="saveToCalend"]:hover, button[name="deleteFromCalend"]:hover {
+	 button[name="deleMySlot"] {
+		width: 80px;
+		background: #a55a58;
+		transition:all 0.5s ease;
+	}
+	
+	button[name="saveToCalend"]:hover, button[name="deleteFromCalend"]:hover, button[name="deleMySlot"]:hover {
 		box-shadow: 0px 0px 10px rgb(255 255 255);
 		cursor:pointer;
 	}

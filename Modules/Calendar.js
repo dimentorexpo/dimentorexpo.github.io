@@ -11,6 +11,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 									<input id="autorefreshswitcher" type="checkbox" checked="">
 										<span class="checkbox-refresh-switch"></span>
 								</label>
+								<button id="showOperActiveSlots" title="Открывает боковое дополнительное окно, чтобы просмотреть все добавленные за сегодня слоты">📑</button>
 			    </span>
                         </div>
 
@@ -31,6 +32,9 @@ var win_Calendar =  // описание формы чтобы не давала 
 							<span id="hideSlot" style="font-size: 20px; cursor: pointer; transition:all 0.5s ease;">⤴</span>
 							<div id="slotData" style="margin-bottom: 5px; margin-left: 5px;">
 							</div>
+						</div>
+						
+						<div id="operatorActiveSlots" style="display:none; position:absolute; top:-1px; left:599px; background:#464451; width: 300px; height:300px;">
 						</div>
         </span>
 </div>`;
@@ -96,7 +100,6 @@ function checkAuth() { //функция проверки авторизации 
 		document.getElementById('responseTextarea1').removeAttribute('getAuthData')
 	})
 }
-
 
 let responseslotsdata;
 	var arrayOfEvents = [];
@@ -200,10 +203,6 @@ function getTimeSlots() { //функция получения информаци
 							}
 						  }
 						}
-
-						
-						
-						console.log(arrayOfMyEvents)
 					} else { 					  
 						for(let k=0; k < Object.keys(availableslotsentries[i][1].EventList).length; k++) {
 						arrayOfEvents.push({'eventId': null,
@@ -213,8 +212,7 @@ function getTimeSlots() { //функция получения информаци
 											'createdBy': null});
 					  }
 					}
-
-
+					
                     textvar = '<span style = "background: #2058cb; border-radius:10px; padding-left: 5px; padding-right: 5px;">' + availableslotsentries[i][0] + '</span>' + ' ' + document.getElementById('eventDate').value
                     let tempor = document.createElement('p');
                     document.getElementById('outputcalendarfield').append(tempor);
@@ -246,6 +244,9 @@ function getTimeSlots() { //функция получения информаци
 
                 }
             }
+		console.log(arrayOfMyEvents)
+			
+			
  
 	let allRows = document.getElementsByName('slotRow')
 		for (let i = 0; i < allRows.length; i++) {
@@ -391,11 +392,12 @@ function getTimeSlots() { //функция получения информаци
 				
 			}
 		}
-
+				refreshActiveOperSlots()
         }
     })
     document.getElementById('responseTextarea1').removeAttribute('getslotsinfo');
 }
+
 let operNamesAF = []
 let refreshintervalset;
 document.getElementById('datsyCalendar').onclick = function () {
@@ -429,6 +431,48 @@ document.getElementById('datsyCalendar').onclick = function () {
         document.getElementById('AF_Calendar').style.display = "none"
     }
 
+}
+
+function refreshActiveOperSlots() { // функция обновления инфы в боковом доп окошке по активным слотам на операторе
+	document.getElementById('operatorActiveSlots').innerHTML = '';
+	if (arrayOfMyEvents.length != 0) {
+		for (let i=0; i <arrayOfMyEvents.length;i++) {
+			document.getElementById('operatorActiveSlots').innerHTML += '<div style="margin-left:5px; margin-top:5px; background: darkgray;">'+ '<span style="background: #2058cb; padding: 6px; margin-top: 5px; padding-bottom: 8px; color: white; font-weight: 700;">' + arrayOfMyEvents[i].slotTime + '</span>' + '<span style="background: darkseagreen; padding: 5px; font-weight: 700;">' + arrayOfMyEvents[i].slotDate + '</span>' + `<input name="slotToDelete" title="${arrayOfMyEvents[i].eventId}" value="${arrayOfMyEvents[i].eventText.match(/\d{4,9}/)[0]}" style="width: 80px; text-align: center;">` +  '<button name="deleMySlot">❌</button>' + '</div>'
+		}
+		
+		let allDelBtns = document.getElementsByName('deleMySlot');
+		let allSlotsToDelete =  document.getElementsByName('slotToDelete')
+		for (let j=0; j<allDelBtns.length;j++) {
+			allDelBtns[j].onclick = function() {
+				if (allSlotsToDelete[j].title !='') {
+					let podtvudal = confirm("Вы действительно хотите удалить этот слот из календаря?")
+					if (podtvudal) {
+						document.getElementById('responseTextarea1').value = `{
+						  "headers": {
+							"content-type": "application/x-www-form-urlencoded",
+							"sec-fetch-dest": "empty",
+							"sec-fetch-mode": "cors",
+							"sec-fetch-site": "same-site"
+						  },
+						  "referrer": "https://datsy.ru/",
+						  "referrerPolicy": "strict-origin-when-cross-origin",
+						  "body": "&deleteslot=${allSlotsToDelete[j].title}",
+						  "method": "POST",
+						  "mode": "cors",
+						  "credentials": "include"
+						}`;
+						document.getElementById('responseTextarea2').value = `https://api.datsy.ru/api/slot-event/delete.php`;
+						document.getElementById('responseTextarea3').value = '';
+						document.getElementById('sendResponse').click();
+
+					getTimeSlots()
+					}
+				}
+			}
+		}
+	} else {
+		document.getElementById('operatorActiveSlots').innerHTML = '<span style="color:bisque; font-weight:700">В этот день слоты не были заняты!</span>'
+	}
 }
 
 document.getElementById('nextDay').onclick = function() { // обработчик нажатия на кнопку следующего дня
@@ -491,6 +535,7 @@ document.getElementById('clearcalendar').onclick = function () {
 
 document.getElementById('refreshcalendar').onclick = function () {
 		checkAuth()
+		refreshActiveOperSlots()
 		document.getElementById('slotList').style.display = "none"
     console.log("Refresh")
 }
@@ -499,3 +544,10 @@ document.getElementById('opendatsy').onclick = function () {
     window.open("https://datsy.ru/")
 }
 
+document.getElementById('showOperActiveSlots').onclick = function() {
+	if (document.getElementById('operatorActiveSlots').style.display =='none') {
+		document.getElementById('operatorActiveSlots').style.display = ''
+		refreshActiveOperSlots()
+
+	} else document.getElementById('operatorActiveSlots').style.display ='none'
+}
