@@ -2,6 +2,10 @@ var tableth;
 var btnthstyls = 'margin-left:2px; width:150px; height: 44px;';
 var btnTagstyles = 'margin-left:2px; width:125px; height: 25px;';
 var chbxTagstyles = 'margin: 2px; width: 20px;';
+var TP_addrth = 'https://script.google.com/macros/s/AKfycbzgGszbjUND_GUDNFbKlRrpjrGtEFuCK-mMprFCADI8VFrQxCe01WZ_tXfnxsdEx4EB5w/exec';
+var KC_addrth = 'https://script.google.com/macros/s/AKfycbwwSfk_Y4xCsi3jI-TiBxb5ODKGes4vV_dgwnmMBPRTPiCR64AzMzAzIWgxkpbvmO7raQ/exec';
+var scriptAdrTH = localStorage.getItem('scriptAdrTH');
+var KCThemesFlag = 0;
 
 var win_Themes =  // описание элементов окна Тематик
     `<div style="display: flex; width: 350px; padding-bottom:15px;">
@@ -15,7 +19,7 @@ var win_Themes =  // описание элементов окна Тематик
                                 <button id="getnewthdata" title="Обновляет тематики из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
                         </div>
 
-						<div>
+						<div class="onlyfortp">
 							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira" style="margin-left: 20px; width: 78%; text-align: center; margin-bottom:5px;">
 							<button id="linktojirasend" title="Отправить введеную ссылку в комментарий чата и в поле Ссылка на Jira в АФ">🚀</button>
 						</div>
@@ -28,7 +32,7 @@ var win_Themes =  // описание элементов окна Тематик
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); letter-spacing: .5rem;">Теги</label>
 						</div>
-                        <div id="multitag_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
+                        <div id="multitag_body" class="onlyfortp" style="margin-left:20px;display:flex; flex-wrap:wrap;">
                             <br>
                             <button id="multitag" style="width: 300px; margin-top:5px;">Мультитег</button>
                         </div>
@@ -36,9 +40,16 @@ var win_Themes =  // описание элементов окна Тематик
         </span>
 </div>`;
 
-if (!localStorage.getItem('scriptAdrTH')) { 
-    localStorage.setItem('scriptAdrTH', 'https://script.google.com/macros/s/AKfycbzgGszbjUND_GUDNFbKlRrpjrGtEFuCK-mMprFCADI8VFrQxCe01WZ_tXfnxsdEx4EB5w/exec')
+if (scriptAdr === TP_addr || scriptAdr === TP_addrRzrv || scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
+    scriptAdrTH = TP_addrth;
+} else if (scriptAdr === KC_addr || scriptAdr === KC_addrRzrv) {
+    scriptAdrTH = KC_addrth;
+    KCThemesFlag = 1;
+} else if (!scriptAdrTH) { 
+    scriptAdrTH = TP_addrth;
 }
+
+localStorage.setItem('scriptAdrTH', scriptAdrTH);
 
 if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
     localStorage.setItem('winTopThemes', '120');
@@ -238,10 +249,7 @@ function SmartBtnTag(BtnValue) { // при теге smartroom открывает
     newTaggg(BtnValue)
 }
 
-document.getElementById('getnewthdata').onclick = function () {  // по клику на кнопку сработает функция обновления тематик из документа
-    document.getElementById('backtomenu').style.display = 'none'
-    getTextThemes()
-}
+document.getElementById('getnewthdata').onclick = getTextThemes // по клику на кнопку сработает функция обновления тематик из документа
 
 document.getElementById('ClearSmartroomData').onclick = function () { // очистка чекбоксов мультитэг
     let allcheckboxtags = document.getElementsByName('tagcheck')
@@ -296,15 +304,9 @@ document.getElementById('multitag').onclick = function () { // откправк�
 
 document.getElementById('linktojirasend').onclick = function () { // добавленгие ссылки на Jira
     let getval = document.getElementById('linktojiracoment').value;
-    let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
-        chatId = document.location.pathname.split('/')[3]
-        sendComment(getval)
-    } else {
-        chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    }
     if (getval != '') {
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        sendComment(getval);
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },
