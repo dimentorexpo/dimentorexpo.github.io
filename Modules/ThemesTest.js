@@ -103,7 +103,7 @@ document.getElementById('themes').onclick = function () { // открытие о
 }
 
 function getTextThemes() { // функция обновления текста для тематик из документа
-    const appThemes = localStorage.getItem('scriptAdrTH');
+    const appThemes = scriptAdrTH;
     const xhrThemes = new XMLHttpRequest();
     xhrThemes.open('GET', appThemes);
     xhrThemes.onreadystatechange = function () {
