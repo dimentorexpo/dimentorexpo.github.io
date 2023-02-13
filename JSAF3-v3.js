@@ -1253,7 +1253,7 @@ function timerHideButtons() { //функция добавления скрыти
         // if (opsection == "ТП") {
         // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
         // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-        // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)")
+        // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (будние 08:00-22:50,сб/вс - 08:00-22:00)")
         // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
 
         // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
@@ -1284,7 +1284,7 @@ function timerHideButtons() { //функция добавления скрыти
                     'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
                     'Уроки V2',
                     'Группа КМ (работает ежедневно с 8:00 до 21:55)',
-                    'Обратная связь ТП (работает ежедневно с 08:00-22:50)'
+                    'Обратная связь ТП (будние 08:00-22:50,сб/вс - 08:00-22:00)'
                 ]);
             } else if (heading === 'Закрыть запрос?') {
                 hideElements(modalContent, [
