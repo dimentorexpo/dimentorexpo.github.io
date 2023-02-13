@@ -1,6 +1,7 @@
 var tableth;
 var btnthstyls = 'margin-left:2px; width:150px; height: 44px;';
-var btnTagstyles = 'margin-left:2px; width:125px; height: 25px;';
+var btnTagsTPtyles = 'margin-left:2px; width:125px; height: 25px;';
+var btnTagsKCtyles = 'margin-left:2px; width:150px; height: 25px;';
 var chbxTagstyles = 'margin: 2px; width: 20px;';
 var TP_addrth = 'https://script.google.com/macros/s/AKfycbzgGszbjUND_GUDNFbKlRrpjrGtEFuCK-mMprFCADI8VFrQxCe01WZ_tXfnxsdEx4EB5w/exec';
 var KC_addrth = 'https://script.google.com/macros/s/AKfycbwwSfk_Y4xCsi3jI-TiBxb5ODKGes4vV_dgwnmMBPRTPiCR64AzMzAzIWgxkpbvmO7raQ/exec';
@@ -143,6 +144,7 @@ function refreshThemesBtns() { // функция обновляет темати
     areaThbtns = document.getElementById('themes_body')
     areaTagbtns = document.getElementById('tags_body')
     console.log(tableth)
+    if (KCThemesFlag == 1) {document.getElementById('tags_body').children[0].style.marginBottom = '5px'}
     for (i = 0; i < tableth.length; i++) {
         c = tableth[i]
         switch (c[0]) {
@@ -194,7 +196,11 @@ function refreshThemesBtns() { // функция обновляет темати
                     newBut.setAttribute('onclick', 'newTag(this.value)')
                     areaThbtns.lastElementChild.lastElementChild.appendChild(newBut)
                 } else {
-                    newBut.style = btnTagstyles
+                    if (KCThemesFlag == 1) {
+                        newBut.style = btnTagsKCtyles
+                    } else {
+                        newBut.style = btnTagsTPtyles
+                    }
                     if (addFontFlag == 1) {newBut.style.fontSize = c[3]+ 'px'} // если указан размер шрифта назначеем его
                     newBut.name = "tagssbtn"
                     if (newBut.value == 'refusal_of_help'){
@@ -206,11 +212,13 @@ function refreshThemesBtns() { // функция обновляет темати
                     }
                     areaTagbtns.appendChild(newBut)
 
-                    var newChekB = document.createElement('input')
-                    newChekB.type = "checkbox" 
-                    newChekB.name= "tagcheck"
-                    newChekB.style = chbxTagstyles
-                    areaTagbtns.appendChild(newChekB)
+                    if (KCThemesFlag == 0) {
+                        var newChekB = document.createElement('input')
+                        newChekB.type = "checkbox" 
+                        newChekB.name= "tagcheck"
+                        newChekB.style = chbxTagstyles
+                        areaTagbtns.appendChild(newChekB)
+                    }
                 }
         }
     }
