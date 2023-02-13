@@ -151,7 +151,7 @@ function getSlotData(name) {
 				for (let z = 0; z < arrayOfEvents.length; z++) {
 					if (arrayOfEvents[z].slotTime + ' ' + arrayOfEvents[z].slotDate == document.getElementById('chosenSlot').textContent) {
 						tempVarMatches.push(arrayOfEvents[z])
-						console.log(arrayOfEvents[z])
+						// console.log(arrayOfEvents[z])
 					} 
 				}
 				
@@ -378,7 +378,7 @@ function getTimeSlots() { //функция получения информаци
 
                 }
             }
-		console.log(arrayOfMyEvents)
+		// console.log(arrayOfMyEvents)
 			
 	let allRows = document.getElementsByName('slotRow')
 	
