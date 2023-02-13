@@ -1277,19 +1277,6 @@ function timerHideButtons() { //функция добавления скрыти
             }
         }
 
-
-        // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки
-        // let selectorList = document.querySelectorAll('.sc-fzokOt');
-        // if (selectorList.length > 5) {
-        // for (let i = 0; i < selectorList.length; i++) {
-        // if (selectorList[i].textContent == "Техподдержка исход crm2")
-        // selectorList[i].style.backgroundColor = 'red'
-        // if (selectorList[i].textContent == "Техподдержка 2-я линия crm2")
-        // selectorList[i].style.backgroundColor = 'green'
-        // }
-        // }
-        // }
-
         let modalContent = document.querySelector('.ant-modal-content');
 
         const setBackgroundColors = (selectorList, valuesToColor) => {
