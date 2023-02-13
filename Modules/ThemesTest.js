@@ -20,7 +20,7 @@ var win_Themes =  // описание элементов окна Тематик
                                 <button id="getnewthdata" title="Обновляет тематики из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
                         </div>
 
-						<div class="onlyfortp">
+						<div class="thonlyfortp">
 							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira" style="margin-left: 20px; width: 78%; text-align: center; margin-bottom:5px;">
 							<button id="linktojirasend" title="Отправить введеную ссылку в комментарий чата и в поле Ссылка на Jira в АФ">🚀</button>
 						</div>
@@ -33,7 +33,7 @@ var win_Themes =  // описание элементов окна Тематик
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); letter-spacing: .5rem;">Теги</label>
 						</div>
-                        <div id="multitag_body" class="onlyfortp" style="margin-left:20px;display:flex; flex-wrap:wrap;">
+                        <div id="multitag_body" class="thonlyfortp" style="margin-left:20px;display:flex; flex-wrap:wrap;">
                             <br>
                             <button id="multitag" style="width: 300px; margin-top:5px;">Мультитег</button>
                         </div>
@@ -58,6 +58,7 @@ if (localStorage.getItem('winTopThemes') == null) { // начальное пол
     localStorage.setItem('winTopThemes', '120');
     localStorage.setItem('winLeftThemes', '295');
 }
+
 
 let wintThemes = document.createElement('div'); // создание окна ServiceDesk
 document.body.append(wintThemes);
@@ -319,5 +320,11 @@ document.getElementById('linktojirasend').onclick = function () { // добав�
             "credentials": "include"
         })
         document.getElementById('linktojiracoment').value = "";
+    }
+}
+if (KCThemesFlag == 1){
+    let needtohide = document.getElementsByClassName('thonlyfortp')
+    for (i = 0; i < needtohide.length; i++) {
+        needtohide[i].style.display = 'none'
     }
 }
