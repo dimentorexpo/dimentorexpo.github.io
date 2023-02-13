@@ -1222,7 +1222,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
             headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
+            const elements = [JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 
             // servDsk.classList.remove('inithide');
