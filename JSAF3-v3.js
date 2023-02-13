@@ -1251,31 +1251,41 @@ function timerHideButtons() { //функция добавления скрыти
         // NeuralNetwork Version
         let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
 
-        const hideElements = (modalContent, valuesToHide) => {
-            for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
-                if (!valuesToHide.includes(modalContent.children[2].children[i].textContent)) {
-                    modalContent.children[2].children[i].style.display = 'none';
-                }
-            }
-        }
+		const hideElements = (modalContent, valuesToHide) => {
+			for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
+				let text = modalContent.children[2].children[i].textContent;
+				let found = false;
+				for (let j = 0; j < valuesToHide.length; j++) {
+					let value = valuesToHide[j];
+					if (text.includes(value)) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
+					modalContent.children[2].children[i].style.display = 'none';
+				}
+			}
+		}
 
-        if (opsection === 'ТП') {
-            let modalContent = document.querySelector('.ant-modal-content');
-            const heading = modalContent.children[1].children[0].childNodes[0].textContent;
-            if (heading === 'Указать тему') {
-                hideElements(modalContent, [
-                    'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
-                    'Уроки V2',
-                    'Группа КМ (работает ежедневно с 8:00 до 21:55)',
-                    'Обратная связь ТП (будние 08:00-22:50,сб/вс - 08:00-22:00)'
-                ]);
-            } else if (heading === 'Закрыть запрос?') {
-                hideElements(modalContent, [
-                    'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
-                    'Закрыть'
-                ]);
-            }
-        }
+		if (opsection === 'ТП') {
+			let modalContent = document.querySelector('.ant-modal-content');
+			const heading = modalContent.children[1].children[0].childNodes[0].textContent;
+			if (heading === 'Указать тему') {
+				hideElements(modalContent, [
+					'Техподдержка V1',
+					'Уроки V2',
+					'Группа КМ',
+					'Обратная связь ТП'
+				]);
+			} else if (heading === 'Закрыть запрос?') {
+				hideElements(modalContent, [
+					'Техподдержка V1',
+					'Закрыть'
+				]);
+			}
+		}
+
 
         let modalContent = document.querySelector('.ant-modal-content');
 
