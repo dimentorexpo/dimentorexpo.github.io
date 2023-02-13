@@ -410,7 +410,7 @@ let refreshintervalset;
 document.getElementById('datsyCalendar').onclick = function () {
     if (document.getElementById('AF_Calendar').style.display == "none") {
         document.getElementById('AF_Calendar').style.display = ""
-		let operNameAF = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[1]
+		let operNameAF = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[1].trim()
 		operNamesAF = [operNameAF, operNameAF.split(" ").reverse().join(" ")];
 		console.log(operNamesAF)
 		checkAuth()
