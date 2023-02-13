@@ -1192,20 +1192,20 @@ function firstLoadPage() { //первичаня загрузка страниц�
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
-            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
-            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
-            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
-            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
-            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[9])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[10])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[11])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[12])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[13])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[14])
+            // btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[1])
+            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[2])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
+            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
+            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
         }, 2000)
 
         function addElementsToList(elements, list) {
@@ -1219,13 +1219,13 @@ function firstLoadPage() { //первичаня загрузка страниц�
             const menubutarea = document.createElement('div');
             menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[16]);
+            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[16]);
+            headmenulist.insertBefore(menubar, headmenulist.children[15]);
             const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 
-            servDsk.classList.remove('inithide');
+            // servDsk.classList.remove('inithide');
             JiraOpenForm.classList.remove('inithide');
             butopensugestform.classList.remove('inithide');
             butrefuse.classList.remove('inithide');
@@ -1399,7 +1399,7 @@ function prepTp() { //функция подготовки расширения �
 		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Календарь"
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
+        // "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
@@ -4333,11 +4333,11 @@ butLessonInfo.title = "Открывает меню для просмотра с�
 butLessonInfo.innerHTML = "🎓 Lesson Info"
 butLessonInfo.classList.add('inithide');
 
-let servDsk = document.createElement('div')
-servDsk.id = "servDsk"
-servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.classList.add('onlyfortp');
-servDsk.classList.add('inithide');
+// let servDsk = document.createElement('div')
+// servDsk.id = "servDsk"
+// servDsk.innerHTML = "🛠ServiceDesk"
+// servDsk.classList.add('onlyfortp');
+// servDsk.classList.add('inithide');
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
