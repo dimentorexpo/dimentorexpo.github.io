@@ -4359,7 +4359,7 @@ let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn', 'onlyfortp')
+//butThemes.classList.add('ant-btn', 'onlyfortp')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
