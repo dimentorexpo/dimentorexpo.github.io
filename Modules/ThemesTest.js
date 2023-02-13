@@ -41,6 +41,7 @@ var win_Themes =  // описание элементов окна Тематик
         </span>
 </div>`;
 
+// модуль проверки адреса загрузки тематик
 if (scriptAdrChek === TP_addr || scriptAdrChek === TP_addrRzrv || scriptAdrChek === TPprem_addr || scriptAdrChek === TPprem_addrRzrv) {
     scriptAdrTH = TP_addrth;
 } else if (scriptAdrChek === KC_addr || scriptAdrChek === KC_addrRzrv) {
@@ -51,6 +52,7 @@ if (scriptAdrChek === TP_addr || scriptAdrChek === TP_addrRzrv || scriptAdrChek 
 }
 
 localStorage.setItem('scriptAdrTH', scriptAdrTH);
+// конец модуля
 
 if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
     localStorage.setItem('winTopThemes', '120');
