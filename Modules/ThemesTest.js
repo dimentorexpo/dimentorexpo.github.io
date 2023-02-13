@@ -2,6 +2,11 @@ var tableth;
 var btnthstyls = 'margin-left:2px; width:150px; height: 44px;';
 var btnTagstyles = 'margin-left:2px; width:125px; height: 25px;';
 var chbxTagstyles = 'margin: 2px; width: 20px;';
+var TP_addrth = 'https://script.google.com/macros/s/AKfycbzgGszbjUND_GUDNFbKlRrpjrGtEFuCK-mMprFCADI8VFrQxCe01WZ_tXfnxsdEx4EB5w/exec';
+var KC_addrth = 'https://script.google.com/macros/s/AKfycbwwSfk_Y4xCsi3jI-TiBxb5ODKGes4vV_dgwnmMBPRTPiCR64AzMzAzIWgxkpbvmO7raQ/exec';
+var scriptAdrTH = localStorage.getItem('scriptAdrTH');
+var scriptAdrChek = localStorage.getItem('scriptAdr');
+var KCThemesFlag = 0;
 
 var win_Themes =  // описание элементов окна Тематик
     `<div style="display: flex; width: 350px; padding-bottom:15px;">
@@ -15,7 +20,7 @@ var win_Themes =  // описание элементов окна Тематик
                                 <button id="getnewthdata" title="Обновляет тематики из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
                         </div>
 
-						<div>
+						<div class="onlyfortp">
 							<input id="linktojiracoment" placeholder="Ссылка на Jira" title="Введите сюда ссылку на Jira, чтобы по нажатию на ракету добавить ее и в заметки в чат и в поле АФ ссылка на Jira" style="margin-left: 20px; width: 78%; text-align: center; margin-bottom:5px;">
 							<button id="linktojirasend" title="Отправить введеную ссылку в комментарий чата и в поле Ссылка на Jira в АФ">🚀</button>
 						</div>
@@ -28,7 +33,7 @@ var win_Themes =  // описание элементов окна Тематик
 						<div id="tags_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
 							<label style="color: #87ff5e; width:300px;text-align: center;border: 1px solid black;border-radius: 10px;margin-top: 5px;background: darkgray;font-weight: 700; font-size: 17px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); letter-spacing: .5rem;">Теги</label>
 						</div>
-                        <div id="multitag_body" style="margin-left:20px;display:flex; flex-wrap:wrap;">
+                        <div id="multitag_body" class="onlyfortp" style="margin-left:20px;display:flex; flex-wrap:wrap;">
                             <br>
                             <button id="multitag" style="width: 300px; margin-top:5px;">Мультитег</button>
                         </div>
@@ -36,9 +41,16 @@ var win_Themes =  // описание элементов окна Тематик
         </span>
 </div>`;
 
-if (!localStorage.getItem('scriptAdrTH')) { 
-    localStorage.setItem('scriptAdrTH', 'https://script.google.com/macros/s/AKfycbzgGszbjUND_GUDNFbKlRrpjrGtEFuCK-mMprFCADI8VFrQxCe01WZ_tXfnxsdEx4EB5w/exec')
+if (scriptAdrChek === TP_addr || scriptAdrChek === TP_addrRzrv || scriptAdrChek === TPprem_addr || scriptAdrChek === TPprem_addrRzrv) {
+    scriptAdrTH = TP_addrth;
+} else if (scriptAdrChek === KC_addr || scriptAdrChek === KC_addrRzrv) {
+    scriptAdrTH = KC_addrth;
+    KCThemesFlag = 1;
+} else if (!scriptAdrTH) { 
+    scriptAdrTH = TP_addrth;
 }
+
+localStorage.setItem('scriptAdrTH', scriptAdrTH);
 
 if (localStorage.getItem('winTopThemes') == null) { // начальное положение окна Themes
     localStorage.setItem('winTopThemes', '120');
@@ -92,7 +104,7 @@ document.getElementById('themes').onclick = function () { // открытие о
 }
 
 function getTextThemes() { // функция обновления текста для тематик из документа
-    const appThemes = localStorage.getItem('scriptAdrTH');
+    const appThemes = scriptAdrTH;
     const xhrThemes = new XMLHttpRequest();
     xhrThemes.open('GET', appThemes);
     xhrThemes.onreadystatechange = function () {

@@ -663,7 +663,13 @@ function mystyles() {
 		transition:all 0.5s ease;
 	}
 	
-	button[name="saveToCalend"]:hover, button[name="deleteFromCalend"]:hover {
+	 button[name="deleMySlot"] {
+		width: 80px;
+		background: #a55a58;
+		transition:all 0.5s ease;
+	}
+	
+	button[name="saveToCalend"]:hover, button[name="deleteFromCalend"]:hover, button[name="deleMySlot"]:hover {
 		box-shadow: 0px 0px 10px rgb(255 255 255);
 		cursor:pointer;
 	}
@@ -710,8 +716,8 @@ var win_AFhelper =  // описание элементов главного ок
 					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
 					<button id="getnewtmpldata" title="Обновляет шаблоны из документа с шаблонами без необходимости обновлять страницу для актуализации" style="width:27px; float: right; margin-right: 5px">🔄</button>
 					<button id="reminderstatus" title="Статус будильника 🔔 - вкл, 🔕 - выкл" style="width:25px; float: right; margin-right: 5px"></button>
-					<input id ="phone_tr" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
-                    <input id ="email_tr" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
+					<input id ="phone_tr" class="onlyfortp" placeholder="Телефон" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;"></input>
+                    <input id ="email_tr" class="onlyfortp" placeholder="Почта" autocomplete="off" type="text" style = "text-align: center; width: 150px; color: black; margin-left: 12px; margin-top: 5px;"></input>
 				</div>
 				<div style="margin-left: 5px; margin-right: 5px; margin-bottom:5px;" id="pages">
 				</div>
@@ -1186,20 +1192,20 @@ function firstLoadPage() { //первичаня загрузка страниц�
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
-            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[3])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[4])
-            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[5])
-            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[6])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[7])
-            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[8])
-            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[9])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[10])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[11])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[12])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[13])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[14])
+            // btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[1])
+            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[2])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
+            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
+            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
         }, 2000)
 
         function addElementsToList(elements, list) {
@@ -1213,13 +1219,13 @@ function firstLoadPage() { //первичаня загрузка страниц�
             const menubutarea = document.createElement('div');
             menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[16]);
+            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[16]);
+            headmenulist.insertBefore(menubar, headmenulist.children[15]);
             const elements = [servDsk, JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 
-            servDsk.classList.remove('inithide');
+            // servDsk.classList.remove('inithide');
             JiraOpenForm.classList.remove('inithide');
             butopensugestform.classList.remove('inithide');
             butrefuse.classList.remove('inithide');
@@ -1242,29 +1248,21 @@ function timerHideButtons() { //функция добавления скрыти
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
 
-
-        // let opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0] //определение отдела оператора
-        // if (opsection == "ТП") {
-        // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Указать тему')
-        // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-        // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Уроки V2" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Группа КМ (работает ежедневно с 8:00 до 21:55)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Обратная связь ТП (работает ежедневно с 08:00-22:50)")
-        // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
-
-        // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Закрыть запрос?')
-        // for (i = 1; i < document.getElementsByClassName('ant-modal-content')[0].children[2].childElementCount - 1; i++)
-        // if (document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Техподдержка V1 (работает ежедневно с 07:00-23:50)" && document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent != "Закрыть") {
-        // // console.log("Скрываем - " + document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].textContent)
-        // document.getElementsByClassName('ant-modal-content')[0].children[2].children[i].style.display = 'none'
-        // }
-        // }
-
-
         // NeuralNetwork Version
         let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
 
         const hideElements = (modalContent, valuesToHide) => {
             for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
-                if (!valuesToHide.includes(modalContent.children[2].children[i].textContent)) {
+				let text = modalContent.children[2].children[i].textContent;
+				let found = false;
+				for (let j = 0; j < valuesToHide.length; j++) {
+					let value = valuesToHide[j];
+					if (text.includes(value)) {
+						found = true;
+						break;
+					}
+				}
+				if (!found) {
                     modalContent.children[2].children[i].style.display = 'none';
                 }
             }
@@ -1275,31 +1273,19 @@ function timerHideButtons() { //функция добавления скрыти
             const heading = modalContent.children[1].children[0].childNodes[0].textContent;
             if (heading === 'Указать тему') {
                 hideElements(modalContent, [
-                    'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
+					'Техподдержка V1',
                     'Уроки V2',
-                    'Группа КМ (работает ежедневно с 8:00 до 21:55)',
-                    'Обратная связь ТП (работает ежедневно с 08:00-22:50)'
+					'Группа КМ',
+					'Обратная связь ТП'
                 ]);
             } else if (heading === 'Закрыть запрос?') {
                 hideElements(modalContent, [
-                    'Техподдержка V1 (работает ежедневно с 07:00-23:50)',
+					'Техподдержка V1',
                     'Закрыть'
                 ]);
             }
         }
 
-
-        // if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') { // обращение к функции подсветки
-        // let selectorList = document.querySelectorAll('.sc-fzokOt');
-        // if (selectorList.length > 5) {
-        // for (let i = 0; i < selectorList.length; i++) {
-        // if (selectorList[i].textContent == "Техподдержка исход crm2")
-        // selectorList[i].style.backgroundColor = 'red'
-        // if (selectorList[i].textContent == "Техподдержка 2-я линия crm2")
-        // selectorList[i].style.backgroundColor = 'green'
-        // }
-        // }
-        // }
 
         let modalContent = document.querySelector('.ant-modal-content');
 
@@ -1343,7 +1329,7 @@ function prepTp() { //функция подготовки расширения �
 
 	let sidePanel = document.createElement('div')
 	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 45px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; border-radius: 50%; transition: all 0.5s ease;'
+	sidePanel.style = 'position: fixed; top: 45px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
 	document.body.append(sidePanel)
 
     let openchhis = document.createElement('button')
@@ -1413,7 +1399,7 @@ function prepTp() { //функция подготовки расширения �
 		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Календарь"
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
+        // "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
@@ -1421,7 +1407,8 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         //"https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
+        //"https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/Modules/ThemesTest.js", // Тестовый модуль выставления тегов и тематик
         "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
         "https://dimentorexpo.github.io/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
         "https://dimentorexpo.github.io/Modules/TechSummary.js", // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
@@ -3641,7 +3628,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     let button1 = document.createElement('div');
     button1.id = 'scriptBut';
     button1.innerHTML = "Скрипт";
-    button1.style = "margin-right:15px;";
+    button1.style = "margin-right:15px; cursor:pointer;";
     button1.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
@@ -4307,7 +4294,7 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
 let hashBut = document.createElement('div')
 hashBut.id = "hashBut"
 hashBut.innerHTML = "Хэш"
-hashBut.style.marginRight = "15px";
+hashBut.style = "margin-right:15px; cursor:pointer;";
 
 let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
@@ -4347,11 +4334,11 @@ butLessonInfo.title = "Открывает меню для просмотра с�
 butLessonInfo.innerHTML = "🎓 Lesson Info"
 butLessonInfo.classList.add('inithide');
 
-let servDsk = document.createElement('div')
-servDsk.id = "servDsk"
-servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.classList.add('onlyfortp');
-servDsk.classList.add('inithide');
+// let servDsk = document.createElement('div')
+// servDsk.id = "servDsk"
+// servDsk.innerHTML = "🛠ServiceDesk"
+// servDsk.classList.add('onlyfortp');
+// servDsk.classList.add('inithide');
 
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
