@@ -5,6 +5,7 @@ var chbxTagstyles = 'margin: 2px; width: 20px;';
 var TP_addrth = 'https://script.google.com/macros/s/AKfycbzgGszbjUND_GUDNFbKlRrpjrGtEFuCK-mMprFCADI8VFrQxCe01WZ_tXfnxsdEx4EB5w/exec';
 var KC_addrth = 'https://script.google.com/macros/s/AKfycbwwSfk_Y4xCsi3jI-TiBxb5ODKGes4vV_dgwnmMBPRTPiCR64AzMzAzIWgxkpbvmO7raQ/exec';
 var scriptAdrTH = localStorage.getItem('scriptAdrTH');
+var scriptAdrChek = localStorage.getItem('scriptAdr');
 var KCThemesFlag = 0;
 
 var win_Themes =  // описание элементов окна Тематик
@@ -40,9 +41,9 @@ var win_Themes =  // описание элементов окна Тематик
         </span>
 </div>`;
 
-if (scriptAdr === TP_addr || scriptAdr === TP_addrRzrv || scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
+if (scriptAdrChek === TP_addr || scriptAdrChek === TP_addrRzrv || scriptAdrChek === TPprem_addr || scriptAdrChek === TPprem_addrRzrv) {
     scriptAdrTH = TP_addrth;
-} else if (scriptAdr === KC_addr || scriptAdr === KC_addrRzrv) {
+} else if (scriptAdrChek === KC_addr || scriptAdrChek === KC_addrRzrv) {
     scriptAdrTH = KC_addrth;
     KCThemesFlag = 1;
 } else if (!scriptAdrTH) { 
