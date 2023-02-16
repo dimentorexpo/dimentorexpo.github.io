@@ -29,18 +29,38 @@ recognition.addEventListener('result', (event) => {
 	case command.includes('плоги') || command.includes('логи препод') || command.includes('препод логии') || command.includes('логи п') || command.includes('logipe') || command.includes('п логи'):
       openUrl('ПТШ', "https://video-trouble-shooter.skyeng.ru/?userId=");
       break;
+    case command.includes('ТУ') || command.includes('тест') || command.includes('ту'):
+      openUrl('ТУ', "https://api-english.skyeng.ru/admin/tech-support-room/create");
+      break;
     default:
       console.log("No matching command found");
   }
 });
 
-document.getElementById('pushToTalk').addEventListener('click', () => {
+// document.getElementById('pushToTalk').addEventListener('click', () => {
+  // recognition.start();
+  // document.getElementById('pushToTalk').classList.add('active');
+  // setTimeout(() => {
+    // document.getElementById('pushToTalk').classList.remove('active');
+    // recognition.stop();
+  // }, 5000);
+// });
+
+let isRecording = false;
+
+
+document.getElementById('pushToTalk').addEventListener('mousedown', () => {
+  isRecording = true;
   recognition.start();
   document.getElementById('pushToTalk').classList.add('active');
-  setTimeout(() => {
+});
+
+document.getElementById('pushToTalk').addEventListener('mouseup', () => {
+  if (isRecording) {
+    isRecording = false;
     document.getElementById('pushToTalk').classList.remove('active');
     recognition.stop();
-  }, 5000);
+  }
 });
 
 function openUrl(flagName, link) {
@@ -80,6 +100,9 @@ function openUrl(flagName, link) {
               break;
             }
           }
+		case 'ТУ':
+		  window.open(`${link}`);
+          break;
       }
       break;
     }
