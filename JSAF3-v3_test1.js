@@ -1466,7 +1466,7 @@ function prepKC() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
-        include("https://dimentorexpo.github.io/Modules/ThemesTest.js") // Тестовый модуль выставления тегов и тематик
+        include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
     }, 2000)
 
     setTimeout(function () {
@@ -4360,8 +4360,7 @@ let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-//butThemes.classList.add('ant-btn', 'onlyfortp')
-butThemes.classList.add('ant-btn')
+butThemes.classList.add('ant-btn', 'onlyfortp')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
