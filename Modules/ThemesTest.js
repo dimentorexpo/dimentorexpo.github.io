@@ -60,7 +60,6 @@ if (localStorage.getItem('winTopThemes') == null) { // начальное пол
     localStorage.setItem('winLeftThemes', '295');
 }
 
-
 let wintThemes = document.createElement('div'); // создание окна ServiceDesk
 document.body.append(wintThemes);
 wintThemes.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopThemes') + 'px; left: ' + localStorage.getItem('winLeftThemes') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
