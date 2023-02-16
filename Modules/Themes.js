@@ -178,6 +178,8 @@ function refreshThemesBtns() { // функция обновляет темати
 
                 countOfthStr = 1
 
+                addTagFlag = 0
+
                 var newstrth = document.createElement('div')
                 newstrth.id = countOfthPages + 'pageth_' + countOfthStr + 'strth'
                 newstrth.style = 'flex-wrap:wrap;display:flex;'
