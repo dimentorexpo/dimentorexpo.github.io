@@ -480,7 +480,7 @@ function mystyles() {
 		cursor: pointer;
 		width: 24px;
 	}
-	.teststudteach.active {
+	.teststudteach.active, #pushToTalk.active {
 		background: coral;
 	}
 
@@ -1399,6 +1399,7 @@ function prepTp() { //функция подготовки расширения �
 		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Календарь"
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
+		"https://grumstv.github.io/Modules/VoiceHelper.js", // модуль голосового помощника
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
@@ -3751,6 +3752,13 @@ wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousem
 addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
 loginer = document.getElementById('testUsers')
 loginer.appendChild(addInfoUser)
+
+let voiceBtn = document.createElement('button')
+voiceBtn.textContent = '🎤'
+voiceBtn.id = "pushToTalk"
+voiceBtn.style = "cursor:pointer; margin:5px;"
+voiceBtn.title = "Нажми и сразу произноси команду для выполнения"
+document.getElementById('testUsers').children[0].children[0].append(voiceBtn)
 
 var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
     loginer.style.left = Number(e.clientX - myXloginer) + "px";
