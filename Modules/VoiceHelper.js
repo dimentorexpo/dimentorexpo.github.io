@@ -23,10 +23,10 @@ recognition.addEventListener('result', (event) => {
     case command.includes('трамва') || command.includes('трм'):
       openUrl('TRM', "https://trm.skyeng.ru/teacher/");
       break;
-	case command.includes('улоги') || command.includes('логиу') || command.includes('локиу') || command.includes('логи у'):
+	case command.includes('улоги') || command.includes('логиу') || command.includes('локиу') || command.includes('логи у') || command.includes('тшу'):
       openUrl('УТШ', "https://video-trouble-shooter.skyeng.ru/?userId=");
       break;
-	case command.includes('плоги') || command.includes('логи препод') || command.includes('препод логии') || command.includes('логи п') || command.includes('logipe') || command.includes('п логи'):
+	case command.includes('плоги') || command.includes('логи препод') || command.includes('препод логии') || command.includes('логи п') || command.includes('logipe') || command.includes('п логи') || command.includes('тшп'):
       openUrl('ПТШ', "https://video-trouble-shooter.skyeng.ru/?userId=");
       break;
     case command.includes('ТУ') || command.includes('тест') || command.includes('ту'):
