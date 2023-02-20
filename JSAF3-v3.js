@@ -5160,7 +5160,9 @@ setInterval(clock_on_javascript_3, 1000);
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'reminder_bar', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd'];
     elements.forEach(function (element) {
-        document.getElementById(element).style.display = 'none';
+		if (document.getElementById(element)) {
+			document.getElementById(element).style.display = 'none';
+		}
     });
     document.getElementById('scriptBut').style.display = '';
 }
