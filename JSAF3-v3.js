@@ -1459,6 +1459,11 @@ function prepKC() { //функция подготовки расширения �
     openchhis.id = 'opennewcat'
     openchhis.title = 'Открывает виджет просмотра истории чатов'
 	document.getElementById('rightPanel').appendChild(openchhis)
+	
+	openchhis.onclick = () => {
+        if (document.getElementById('AF_ChatHis').style.display == 'none')
+            document.getElementById('butChatHistory').click()
+    }
 
     flagLangBut = 1
     customTemplates()
