@@ -1473,6 +1473,7 @@ function prepKC() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций 
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
+        include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
