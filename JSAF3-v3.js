@@ -1447,6 +1447,18 @@ function prepKC() { //функция подготовки расширения �
     for (i = 0; i < needtoopen.length; i++) {
         needtoopen[i].style.display = ''
     }
+	
+	let sidePanel = document.createElement('div')
+	sidePanel.id = "rightPanel"
+	sidePanel.style = 'position: fixed; top: 45px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+	document.body.append(sidePanel)
+
+    let openchhis = document.createElement('button')
+    openchhis.innerHTML = '☢'
+    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openchhis.id = 'opennewcat'
+    openchhis.title = 'Открывает виджет просмотра истории чатов'
+	document.getElementById('rightPanel').appendChild(openchhis)
 
     flagLangBut = 1
     customTemplates()
