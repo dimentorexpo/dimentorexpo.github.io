@@ -1411,7 +1411,6 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
         "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
         "https://dimentorexpo.github.io/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
-        "https://dimentorexpo.github.io/Modules/TechSummary.js", // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
