@@ -3784,7 +3784,6 @@ voiceout.id = "voicetext";
 voiceout.style='color:bisque; width:110px; text-align:center;'
 document.getElementById('testUsers').children[0].children[0].append(voiceout)
 
-
 var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
     loginer.style.left = Number(e.clientX - myXloginer) + "px";
     loginer.style.top = Number(e.clientY - myYloginer) + "px";
