@@ -660,12 +660,14 @@ function mystyles() {
 	button[name="deleteFromCalend"] {
 		width: 50px;
 		background: #a55a58;
+		text-shadow: rgb(0 0 0) 1px 0px 1px, rgb(0 0 0) 0px 1px 1px, rgb(0 0 0) -1px 0px 1px, rgb(0 0 0) 0px -1px 1px;
 		transition:all 0.5s ease;
 	}
 	
 	 button[name="deleMySlot"] {
 		width: 80px;
 		background: #a55a58;
+		text-shadow: rgb(0 0 0) 1px 0px 1px, rgb(0 0 0) 0px 1px 1px, rgb(0 0 0) -1px 0px 1px, rgb(0 0 0) 0px -1px 1px;
 		transition:all 0.5s ease;
 	}
 	
