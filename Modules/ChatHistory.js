@@ -46,7 +46,7 @@ var win_Chathis =  // описание элементов окна Истори�
 						<button id="hidecmtfield" title="скрывает эту менюшку небольшую" style="position:fixed;right:40vh; top:53vh; height:24px; width:25px; padding:0;">&gt;</button>
 			</div>
 
-			<div id="infofield" style="color:bisque; margin-left:10px;margin-top:5px width:410px; height:77vh; overflow-x:hidden;">
+			<div id="infofield" style="color:bisque; margin-left:10px;margin-top:5px width:410px; height:75vh; overflow-x:hidden;">
 			</div>
 
 			<div id="bottommenuchhis" style="width: 410px; position:absolute; display:none;">
