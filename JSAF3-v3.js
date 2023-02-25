@@ -3766,8 +3766,6 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
 
-
-
 addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
 loginer = document.getElementById('testUsers')
 loginer.appendChild(addInfoUser)
@@ -3778,6 +3776,12 @@ voiceBtn.id = "pushToTalk"
 voiceBtn.style = "cursor:pointer; margin:5px;"
 voiceBtn.title = "Нажми и сразу произноси команду для выполнения"
 document.getElementById('testUsers').children[0].children[0].append(voiceBtn)
+
+let voiceout = document.createElement('div')
+voiceout.id = "voicetext";
+voiceout.style='color:bisque; width:110px; text-align:center;'
+document.getElementById('testUsers').children[0].children[0].append(voiceout)
+
 
 var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
     loginer.style.left = Number(e.clientX - myXloginer) + "px";

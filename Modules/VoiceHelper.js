@@ -10,41 +10,68 @@ recognition.addEventListener('result', (event) => {
   switch (true) {
     case command.includes('CRM'):
       openUrl('CRM', "https://crm2.skyeng.ru/persons/");
+	    document.getElementById('voicetext').textContent = command + ' ✔';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
       break;
     case command.includes('ТТ'):
       window.open("https://timetable.skyeng.ru/");
+	  	    document.getElementById('voicetext').textContent = command + ' ✔';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
       break;
     case command.includes('админка'):
       openUrl('админка', "https://id.skyeng.ru/admin/users/");
+	  	    document.getElementById('voicetext').textContent = command + ' ✔';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
       break;
     case command.includes('платёж'):
       window.open("https://accounting.skyeng.ru/userpayment/search/transaction");
+	  	    document.getElementById('voicetext').textContent = command + ' ✔';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
       break;
     case command.includes('трамва') || command.includes('трм'):
       openUrl('TRM', "https://trm.skyeng.ru/teacher/");
+	  	    document.getElementById('voicetext').textContent = command + ' ✔';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
       break;
 	case command.includes('улоги') || command.includes('логиу') || command.includes('локиу') || command.includes('логи у') || command.includes('тшу'):
       openUrl('УТШ', "https://video-trouble-shooter.skyeng.ru/?userId=");
+	  	    document.getElementById('voicetext').textContent = command + ' ✔';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
       break;
-	case command.includes('плоги') || command.includes('логи препод') || command.includes('препод логии') || command.includes('логи п') || command.includes('logipe') || command.includes('п логи') || command.includes('тшп'):
+	case command.includes('плоги') || command.includes('логи препод') || command.includes('препод логи') || command.includes('логи п') || command.includes('logipe') || command.includes('п логи') || command.includes('тшп'):
       openUrl('ПТШ', "https://video-trouble-shooter.skyeng.ru/?userId=");
+	  	    document.getElementById('voicetext').textContent = command + ' ✔';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
       break;
     case command.includes('ТУ') || command.includes('тест') || command.includes('ту'):
       openUrl('ТУ', "https://api-english.skyeng.ru/admin/tech-support-room/create");
+	  	    document.getElementById('voicetext').textContent = command + ' ✔';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
       break;
     default:
       console.log("No matching command found");
+	  	    document.getElementById('voicetext').textContent = command + '❌';
+		  setTimeout(function(){
+			  document.getElementById('voicetext').textContent = ''
+		  },10000)
   }
 });
-
-// document.getElementById('pushToTalk').addEventListener('click', () => {
-  // recognition.start();
-  // document.getElementById('pushToTalk').classList.add('active');
-  // setTimeout(() => {
-    // document.getElementById('pushToTalk').classList.remove('active');
-    // recognition.stop();
-  // }, 5000);
-// });
 
 let isRecording = false;
 
