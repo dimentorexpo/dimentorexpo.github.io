@@ -36,7 +36,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 							</div>
 						</div>
 						
-						<div id="operatorActiveSlots" style="display:none; position:absolute; top:-1px; left:599px; background:#464451; width: 300px; height:300px;">
+						<div id="operatorActiveSlots" style="display:none; position:absolute; top:-1px; left:599px; background:#464451; width: 308px; height:300px;">
 						</div>
         </span>
 </div>`;
@@ -444,9 +444,32 @@ function refreshActiveOperSlots() { // функция обновления ин�
 	document.getElementById('operatorActiveSlots').innerHTML = '';
 	if (arrayOfMyEvents.length != 0) {
 		document.getElementById('availableActiveSlots').style.display=''
-		for (let i=0; i <arrayOfMyEvents.length;i++) {
-			document.getElementById('operatorActiveSlots').innerHTML += '<div style="margin-left:5px; margin-top:5px; background: darkgray;">'+ '<span style="background: #2058cb; padding: 6px; margin-top: 5px; padding-bottom: 8px; color: white; font-weight: 700;">' + arrayOfMyEvents[i].slotTime + '</span>' + '<span style="background: darkseagreen; padding: 5px; font-weight: 700;">' + arrayOfMyEvents[i].slotDate + '</span>' + `<input name="slotToDelete" title="${arrayOfMyEvents[i].eventId}" value="${arrayOfMyEvents[i].eventText.match(/\d{4,9}/)[0]}" style="width: 80px; text-align: center;">` +  '<button name="deleMySlot">❌</button>' + '</div>'
+		// for (let i=0; i <arrayOfMyEvents.length;i++) {
+			// document.getElementById('operatorActiveSlots').innerHTML += '<div style="margin-left:5px; margin-top:5px; background: darkgray;">'+ '<span style="background: #2058cb; padding: 6px; margin-top: 5px; padding-bottom: 8px; color: white; font-weight: 700;">' + arrayOfMyEvents[i].slotTime + '</span>' + '<span style="background: darkseagreen; padding: 5px; font-weight: 700;">' + arrayOfMyEvents[i].slotDate + '</span>' + `<input name="slotToDelete" title="${arrayOfMyEvents[i].eventId}" value="${arrayOfMyEvents[i].eventText.match(/\d{4,9}/)[0]}" style="width: 80px; text-align: center;">` +  '<button name="deleMySlot">❌</button>' + `<input value="${arrayOfMyEvents[i].eventText.match(/бронь/g)[0]} == 'бронь' ? <span style="background:green">Бронь</span> : ➰">` + '</div>'
+		// }
+		
+		for (let i=0; i <arrayOfMyEvents.length; i++) {
+		  const slotDate = arrayOfMyEvents[i].slotDate;
+		  const eventId = arrayOfMyEvents[i].eventId;
+		  const eventText = arrayOfMyEvents[i].eventText;
+		  const slotTime = arrayOfMyEvents[i].slotTime;
+		  const isReserved = eventText.includes('бронь');
+		  const slotToDelete = eventText.match(/\d{4,9}/)[0];
+		  const statusLabel = isReserved ? '<span style="background:#ffdb00; padding:5px;" title="слово бронь было найдено в поле с занятым слотом, значит было бронирование">Бронь</span>' : '<span style="background:coral; padding: 5px; padding-right: 15px; padding-left: 15px;" title="слово бронь не встречалось в поле с занятым слотом, значит не бронировался">➰</span>';
+
+		  const slotDiv = `
+			<div style="margin-left:5px; margin-top:5px; background: darkgray;">
+			  <span style="background: #2058cb; padding: 6px; margin-top: 5px; padding-bottom: 8px; color: white; font-weight: 700;">${slotTime}</span>
+			  <span style="background: darkseagreen; padding: 5px; font-weight: 700;">${slotDate}</span>
+			  <input name="slotToDelete" title="${eventId}" value="${slotToDelete}" style="width: 80px; text-align: center;">
+			  <button name="deleteMySlot">❌</button>
+			  <span style="width: 90px;">${statusLabel}</span>
+			</div>
+		  `;
+
+		  document.getElementById('operatorActiveSlots').innerHTML += slotDiv;
 		}
+
 		
 		let allDelBtns = document.getElementsByName('deleMySlot');
 		let allSlotsToDelete =  document.getElementsByName('slotToDelete')
