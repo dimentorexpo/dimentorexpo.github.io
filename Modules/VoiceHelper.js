@@ -3,7 +3,7 @@ recognition.lang = 'ru-RU';
 
 // Listen for the result event to get the user's voice input
 recognition.addEventListener('result', (event) => {
-  const command = event.results[0][0].transcript;
+  const command = event.results[0][0].transcript.toLowerCase();
   console.log(command);
 
   // Check the command and execute the appropriate action
