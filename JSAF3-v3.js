@@ -3992,23 +3992,49 @@ document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
 
-btnsid.onclick = function () { // копирует в буфер логиннер для У
+btnsid.addEventListener("click", (event) => { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
         logginerfortests(teststudid)
-        document.getElementById('sidcode').classList.add('active')
-        setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000)
-
+        document.getElementById('sidcode').classList.add('active');
+        setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000);
     } else alert("Введите ID тестового ученика в настройках ⚙");
-}
+});
 
-btntid.onclick = function () { // копирует в буфер логиннер для П
+btnsid.addEventListener("contextmenu", (event) => { // копирует в буфер id У
+    event.preventDefault();
+    let teststudid = localStorage.getItem('test_stud');
+    if (teststudid != null || teststudid != '') {
+        copyToClipboard1(teststudid)
+        document.getElementById('sidcode').classList.add('active');
+        setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000);
+    } else alert("Введите ID тестового ученика в настройках ⚙");
+});
+
+btntid.addEventListener("click", (event) => { // копирует в буфер логиннер для П
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         logginerfortests(testteachid)
-        document.getElementById('tidcode').classList.add('active')
-        setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000)
+        document.getElementById('tidcode').classList.add('active');
+        setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000);
+    } else alert("Введите ID тестового преподавателя в настройках ⚙");
+});
 
+btntid.addEventListener("contextmenu", (event) => { // копирует в буфер id П
+    event.preventDefault();
+    let testteachid = localStorage.getItem('test_teach');
+    if (testteachid != null || testteachid != '') {
+        copyToClipboard1(testteachid)
+        document.getElementById('tidcode').classList.add('active');
+        setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000);
+    } else alert("Введите ID тестового преподавателя в настройках ⚙");
+});
+
+btntid.contextmenu = function () { // копирует в буфер логиннер для П
+    let testteachid = localStorage.getItem('test_teach');
+    if (testteachid != null || testteachid != '') {
+        copyToClipboard1(testteachid)
+        return false;
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
