@@ -4546,8 +4546,12 @@ document.getElementById('hideMenuMain').onclick = function () { // кнопка 
 }
 
 document.addEventListener('oncontextmenu', function (e) {
+    console.log(e)
     var clickedEl = (e==null) ? event.srcElement.tagName : e.target.tagName;
+    console.log(clickedEl)
 	if (clickedEl == "BUTTON") {
-		return false;
+		console.log('Return false')
+        return false;
+
 	}
 });
