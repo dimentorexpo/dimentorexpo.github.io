@@ -4,37 +4,8 @@ var win_Links =  // описание элементов окна ссылок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 550;" id="links_1str">
 					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
-					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar">ℹ</button>
-					<button title="Открывает раздел для формирования заявки на удаленине персональных данных" id="deleteaclnk" class="uplinksbar">🗑</button>
-					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" class="uplinksbar">📚</button>
-					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" class="uplinksbar">📆</button>
-					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar">📋</button>
-					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" class="uplinksbar">💼</button>
-					<button title="Открывает инструкцию по пробникам" id="probnikinstr" class="uplinksbar">🗃</button>
-					<button title="Открывает менюшку для просмотра информации по BIN банка, чтобы узнать тип карты, страну происхождения, название банка" id="bankCheck" class="uplinksbar">💳</button>
-                    <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px" class="uplinksbar">🐞</button>
 				</div>
 				<div style="margin: 5px; width: 550px;" id="links_but">
-					<button title="Открывает Timetable" id="timetable" style="width:105px">TimeTable</button>
-					<button title="Открывает админку Talks для поиска по ID П ID У , с которым идет урок" id="talksadm" style="width:105px">Talks</button>
-					<button title="Открывает начислятор билинга для просмотра реального баланса у ученика и зависших уроков не на той STK" id="billingadm" style="width:105px">Начислятор</button>
-					<button title="Открывает раздел для создания операции компенсации ученику" id="compens" style="width:105px">Компенсация</button>
-					<button title="Открывает CMS хранилище материалов уроков" id="CMS" style="width:105px">CMS</button>
-					<button title="Открывает админку пользователей" id="useradm" style="width:105px; margin-top: 3px">Админка</button>
-					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
-					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
-					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
-					<button title="Открывает CMS детских предметов" id="kidscms" style="width:105px; margin-top: 3px">Kids CMS</button>
-					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
-					<button title="Открывает билинг для просмотра и редактирования подписок" id="subscribebilling" style="width:105px; margin-top: 3px">$Подписки</button>
-					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
-					<button title="Открывает сайт BrowserStack" id="browserstack" style="width:105px; margin-top: 3px">BrowserStaсk</button>
-					<button title="Открывает сайт для поиска записей уроков" id="lesrecords" style="width:105px; margin-top: 3px">LessonRecords</button>
-					<button title="Открывает раздел для проверки сертификата" id="certificates" style="width:105px; margin-top: 3px">Сертификаты</button>
-					<button title="Открывает раздел для проверки промокодов" id="promocodes" style="width:105px; margin-top: 3px">Промокоды</button>
-					<button title="Открывает Help Centr для учеников" id="helpocentrstud" style="width:105px; margin-top: 3px">Help Center У</button>
-					<button title="Открывает Help Centr для преподавателей" id="helpocentrteach" style="width:105px; margin-top: 3px">Help Center П</button>	
-					<button title="Открывает сайт для просмотра ошибок и логов в комнате" id="trshoothing" style="width:105px; margin-top: 3px">Troubleshooting</button>
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_box">
 					<input id="cpuname" placeholder="CPU name" title="вводим название процессора, чтобы сразу перейти на сайт с проверкой рейтинга CPU" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">

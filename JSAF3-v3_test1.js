@@ -42,667 +42,6 @@ if (localStorage.getItem('defaclschatcolor') == null || localStorage.getItem('de
 
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var modulesarray = [];
-function mystyles() {
-    let mstl = document.createElement('style');
-    document.body.append(mstl);
-    var style = `
-	button {
-		background:#768d87;
-		border-radius:5px;
-		border:1px solid #566963;
-		color:#ffffff;
-		padding:2px 2px;
-		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
-	}
-	button:hover {
-		background: #6A5ACD;
-	}
-	.activebtn {
-		background-color: #1e90ff;
-	}
-	.activebtnsd {
-		background-color: #ff6347;
-	}
-    .usinfoops{
-        margin-left: 5px;
-        width: 25.23px;
-    }
-    .uplinksbar {
-        width:50px;
-    }
-    .sdcustfieldformlines {
-        width: 420px;
-    }
-    .sdexpecactual {
-        width: 420px;
-    }
-	.selchatact {
-		border-left: 6px solid DeepSkyBlue;
-	}
-		.checkbox-audio, .checkbox-refresh {
-			display: inline-block;
-			height: 28px;
-			line-height: 28px;
-			margin-right: 10px;
-			position: relative;
-			vertical-align: middle;
-			font-size: 14px;
-			user-select: none;
-		}
-		.checkbox-audio .checkbox-audio-switch, .checkbox-refresh .checkbox-refresh-switch {
-			position: relative;
-			display: inline-block;
-			box-sizing: border-box;
-			width: 56px;
-			height: 28px;
-			border: 1px solid rgba(0, 0, 0, .1);
-			border-radius: 25%/50%;
-			vertical-align: top;
-			background: #eee;
-			transition: .2s;
-		}
-		.checkbox-audio .checkbox-audio-switch:before {
-			content: '🔈';
-			position: absolute;
-			top: 1px;
-			left: 1px;
-			display: inline-block;
-			width: 24px;
-			height: 24px;
-			border-radius: 50%;
-			background: white;
-			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-			transition: .15s;
-		}
-		
-		.checkbox-refresh .checkbox-refresh-switch:before  {
-			content: '⭕';
-			position: absolute;
-			top: 1px;
-			left: 1px;
-			display: inline-block;
-			width: 24px;
-			height: 24px;
-			border-radius: 50%;
-			background: white;
-			text-align: center;
-			box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-			transition: .15s;
-		}
-		
-		.checkbox-audio input[type=checkbox], .checkbox-refresh input[type=checkbox] {
-			display: block;
-			width: 0;
-			height: 0;
-			position: absolute;
-			z-index: -1;
-			opacity: 0;
-		}
-		.checkbox-audio input[type=checkbox]:not(:disabled):active + .checkbox-audio-switch:before, .checkbox-refresh input[type=checkbox]:not(:disabled):active + .checkbox-refresh-switch:before {
-			box-shadow: inset 0 0 2px rgba(0, 0, 0, .3);
-		}
-		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch, .checkbox-refresh input[type=checkbox]:checked + .checkbox-refresh-switch {
-			background: limegreen;
-		}
-		.checkbox-audio input[type=checkbox]:checked + .checkbox-audio-switch:before {
-			content: '🔊';
-			transform:translateX(28px);
-		}
-		
-		.checkbox-refresh input[type=checkbox]:checked + .checkbox-refresh-switch:before {
-			content: '♻';
-			transform:translateX(28px);
-			text-align: center;
-		}
-		
-		#buttonOpenForm {
-			height:50px;
-		}
-		.question-event {
-			background:#1890FF26;
-			min-width:280px;
-			max-width:290px;
-			margin-left: 10px;
-			margin-bottom: 5px;
-			padding: 5px 5px;
-			float:left;
-		}
-		.question-event-name {
-			color:#00BFFF;
-			font-weight:700;
-			font-size:12px;
-			float:left;
-			margin-right:5px;
-			padding-left:5px;
-		}
-		.question-event-date {
-			color: #C0C0C0;
-			float: right;
-			max-width: 333px;
-			font-size: 12px;
-		}
-		.question-event-text {
-			color:white;
-			word-wrap: break-word;
-			padding-left:5px;
-		}
-		.event-container  {
-			float: left;
-			color: white;
-			text-align: center;
-			width: 380px;
-			font-size: 12px;
-		}
-		.event-name {
-			float: left;
-			color: white;
-			text-align: center;
-			width: 380px;
-			font-size: 12px;
-		}
-		.event-date {
-			float:right;
-		}
-		.event-other-date {
-			float:right;
-			font-size:12px;
-		}
-		.answer-bot-container {
-			background: #52C41A26;
-			min-width: 280px;
-			max-width: 300px;
-			float: right;
-			margin-bottom: 5px;
-			margin-right: 15px;
-			padding: 5px 5px;
-		}
-		.answer-bot-name {
-			color:#9ACD32;
-			float:left;
-			font-size:12px;
-			font-weight:700;
-			margin-right:5px;
-			padding-left:5px;
-		}
-		.answer-bot-date {
-			font-size:12px;
-			color:#C0C0C0;
-			float:right;
-			max-width:400px;
-		}
-		.answer-oper-container {
-			background: #FADA5E26;
-			min-width: 280px;
-			max-width: 320px;
-			float: right;
-			margin-bottom: 5px;
-			margin-right: 15px;
-			padding: 5px 5px;
-		}
-		.answer-oper-name {
-			color:bisque;
-			float:left;
-			font-size:12px;
-			padding-left:5px;
-		}
-		.oper-comment-container {
-			background:#80808054;
-			width:355px;
-			float:left;
-			margin-bottom:5px;
-			margin-left: 10px;
-			padding: 5px 5px;
-		}
-		.oper-comment-name {
-			color:#C0C0C0;
-			float:left;
-			font-size:12px;"
-		}
-		.oper-comment-operator {
-			color:#3eade5;
-			float:left;
-			font-size:12px;
-		}
-		.event-name.light {
-			color: #999999 !important;
-		}
-		.question-event-text.light {
-			color: #000 !important;
-		}
-		.question-event-name.light {
-			color: #23609E !important;
-		}
-		.event-container.light {
-			color: #999999 !important;
-		}
-		.oper-comment-container.light {
-			background: #80808026 !important;
-		}
-		.oper-comment-name.light {
-			color: #808080 !important;
-		}
-		.oper-comment-operator.light {
-			color: #2a8ed9 !important;
-		}
-		.question-event-date.light {
-			color: #999999 !important;
-		}
-		.answer-bot-date.light {
-			color: #999999 !important;
-		}
-		.answer-oper-name.light {
-			color: #b8860b  !important;
-		}
-		.answer-bot-name.light {
-			color: #388C11 !important;
-		}
-		.chatlist.light {
-			color:#000 !important;
-		}
-		.copyserviceid {
-			margin-left: 5px;
-			cursor: pointer;
-		}
-		.underline-service {
-			width:260px; border: 1px dotted #ff0000;
-			border-style: none none dotted;
-			color: #fff;
-			background-color: #fff;
-		}
-		.img-chat-history {
-			width:160px;
-			transition: all 0.5s ease-out;
-		}
-		.img-chat-history:hover {
-			transform: scale(1.5);
-			width: 300px;
-			margin-left: 50px;
-			z-index: 9999;
-		}
-		.cursor-userinfobtns {
-			cursor:pointer;
-			font-weight:700;
-		}
-
-		#servDsk {
-			cursor: pointer;
-			display:flex;
-			align-items:center;
-			font-size: 14px;
-			border: 1px solid black;
-			height: 36px;
-			min-width: 100px;
-			padding-left:5px;
-		}
-
-		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat, #buttonGetStat {
-			display:flex;
-			align-items:center;
-			cursor: pointer;
-			font-size: 14px;
-			min-width: 100px;
-			border-bottom: 1px solid black;
-			border-left: 1px solid black;
-			border-right: 1px solid black;
-			height: 36px;
-			padding-left:5px;
-		}
-
-		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat:hover {
-			background:DeepSkyBlue;
-			color:#ffffffe6;
-			font-weight:600;
-			font-size:16px;
-			box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
-			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
-			height:45px;
-		}
-
-		.hyperlnk {
-			height:0px;
-			opacity:0;
-			visibility: hidden;
-			transition: 1s;
-		}
-		.hyper-active {
-			opacity:1;
-			height: 32px;
-			visibility: visible;
-			transition: 1s;
-		}
-		.sugops {
-		margin-left:5px;
-		color:bisque;
-		font-size: 16px;
-		transition: all 0.5s ease;
-		}
-		.sugops:hover {
-			font-size:18px;
-			color: SteelBlue;
-			font-weight: 600;
-		}
-		.catsmartroom {
-			color: bisque;
-			font-size: 16px;
-			transition: all 0.5s ease;
-		}
-		.catsmartroom:hover {
-			font-size:18px;
-			color: SteelBlue;
-			font-weight: 600;
-		}
-		.otherfieldoff {
-			text-align: center;
-			width: 400px;
-			color: black;
-			margin-top: 5px;
-			background:lightgrey;
-			cursor:wait;
-		}
-		.otherfieldon{
-			text-align: center;
-			width: 400px;
-			color: black;
-			margin-top: 5px;
-			background:white;
-			cursor:text;
-		}
-		.active-query {
-			border-left:6px solid #1ff400;
-			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
-			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
-			font-weight: 700;
-			color: greenyellow;
-			transition: all 1s ease;
-		}
-		.active-stat-tab {
-			border-left:6px solid #1ff400;
-			box-shadow: 0px 5px 5px rgb(0 0 0 / 55%);
-			text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
-			font-weight: 700;
-			color: #07ecc6;
-			transition: all 1s ease;
-		}
-	.radio {
-		width:15px;
-		height:15px;
-		transition: all 0.5s ease;
-	}
-	.radio:hover {
-		transform: scale(1.5);
-		font-weight: 600;
-	}
-	.widthofsd {
-		width:420px;
-	}
-	.switch-btn {
-		display: inline-block;
-		width: 62px; /* ширина переключателя */
-		height: 24px; /* высота переключателя */
-		border-radius: 12px; /* радиус скругления */
-		background: #bfbfbf; /* цвет фона */
-		z-index: 0;
-		margin: 0;
-		padding: 0;
-		border: none;
-		cursor: pointer;
-		position: relative;
-		transition-duration: 300ms; /* анимация */
-	}
-	.switch-btn::after {
-		content: "";
-		height: 36px; /* высота кнопки */
-		width: 36px; /* ширина кнопки */
-		border-radius: 18px; /* радиус кнопки */
-		background: #fff; /* цвет кнопки */
-		top: -6px; /* положение кнопки по вертикали относительно основы */
-		left: -6px; /* положение кнопки по горизонтали относительно основы */
-		transition-duration: 300ms; /* анимация */
-		box-shadow: 0 0 10px 0 #999999; /* тень */
-		position: absolute;
-		z-index: 1;
-	}
-	.switch-on {
-		background: #fff;
-		box-shadow: inset 0 0 10px 0 #999999; /* тень */
-	}
-	.switch-on::after {
-		left: 30px;
-		background: #118c4e;
-	}
-	.inithide {
-		display:none !important;
-	}
-	.teststudteach {
-		background: #3CB371;
-		margin-left: 5px;
-		margin:5px;
-		cursor: pointer;
-		width: 24px;
-	}
-	.teststudteach.active {
-		background: coral;
-	}
-
-	.msgtype {
-		border-left: 8px solid #4ce479;
-		width: 80px;
-		margin-left: 20px;
-		transition: all 1s ease;
-	}
-	.msgtype.notes {
-		border-left: 8px solid #b4b4b4;
-		transition: all 1s ease;
-	}
-
-	#opennewcat:hover , #crmopersstatuses:hover, #datsyCalendar:hover, #radioPlayer:hover  {
-		opacity: 1 !important;
-		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
-		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
-		width:45px !important;
-		height:45px !important;
-		font-size:23px !important;
-	}
-
-	.leftbaropers {
-		display:flex;
-		align-items:center;
-		font-size: 13.5px;
-		cursor:pointer;
-	}
-	.leftbaropers:hover {
-		background: MediumSeaGreen;
-		color:white;
-		font-weight:700;
-		font-size:15px;
-	}
-
-	#clicktounhidestatuses:hover {
-		background:DeepSkyBlue;
-		color:white !important;
-		font-weight:700;
-	}
-	
-	.mainplayer {
-		width: 625px;
-		border: 1px solid black;
-		padding: 5px;
-		background: #464451;
-		color: bisque;
-		max-height: 510px;
-		overflow-y: auto;
-	}
-
-	#audioControls {
-		display: flex;
-		justify-content: space-evenly;
-	}
-
-	li.active {
-		background: #3cbb56;
-		border-radius: 10px;
-		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
-		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
-	}
-
-	.radiolist:hover {
-		background: #373c67;
-		border-radius: 10px;
-	}
-
-	#audioList {
-		margin-top:5px;
-		width: 515px;
-		border: 1px solid black;
-		background: #768d87;
-		border-radius: 10px;
-		margin-left: 20px;
-	}
-
-	#player {
-		width: 550px;
-		margin-left: 25px;
-	}
-
-	.deleteline:hover {
-		background: red !important;
-		font-weight: 700 !important;
-	}
-
-	#pauseAudio {
-		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-		background: #bd4b37;
-		color: #fff;
-		padding: 5px;
-		border-radius: 5px;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		font-weight: bold;
-		font-size: 16px;
-		transition: background 0.2s ease-in-out;
-	}
-
-	#playAudio {
-		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-		background: #3cbb56;
-		color: #fff;
-		padding: 5px;
-		border-radius: 5px;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		font-weight: bold;
-		font-size: 16px;
-		transition: background 0.2s ease-in-out;
-	}
-
-	#addAudio {
-		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-		background: #ffbb00;
-		color: #fff;
-		padding: 5px;
-		border-radius: 5px;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		font-weight: bold;
-		font-size: 16px;
-		transition: background 0.2s ease-in-out;
-	}
-
-	#volumeUp,
-	#volumeDown {
-		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-		background: #85ac8c;
-		color: #fff;
-		padding: 5px;
-		border-radius: 5px;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		font-weight: bold;
-		font-size: 16px;
-		width: 50px;
-		transition: background 0.2s ease-in-out;
-	}
-
-	#muteAudio {
-		font-family: sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, NotoEmoji, Twemoji;
-		background: #85ac8c;
-		color: #fff;
-		padding: 5px;
-		border-radius: 5px;
-		letter-spacing: 1px;
-		transition: background 0.2s ease-in-out;
-	}
-
-	#playAudio:hover,
-	#volumeUp:hover,
-	#muteAudio:hover {
-		background: #4ecc6e;
-		cursor: pointer;
-	}
-
-	#addAudio:hover {
-		background: #e6c772;
-		cursor: pointer;
-	}
-
-	#pauseAudio:hover,
-	#volumeDown:hover {
-		background: #b66253;
-		cursor: pointer;
-	}
-	
-	button[name="saveToCalend"] {
-		width: 50px;
-		background: #3389a3;
-		transition:all 0.5s ease;
-	}
-	
-	button[name="deleteFromCalend"] {
-		width: 50px;
-		background: #a55a58;
-		transition:all 0.5s ease;
-	}
-	
-	 button[name="deleMySlot"] {
-		width: 80px;
-		background: #a55a58;
-		transition:all 0.5s ease;
-	}
-	
-	button[name="saveToCalend"]:hover, button[name="deleteFromCalend"]:hover, button[name="deleMySlot"]:hover {
-		box-shadow: 0px 0px 10px rgb(255 255 255);
-		cursor:pointer;
-	}
-		
-	#hideSlot:hover {
-		font-size:24px !important;
-		text-shadow: -2px 3px 16px rgb(255 255 255);
-	} 
-	
-	.glowing-border-animation {
-	  animation: glowing-border 2s ease-in-out infinite;
-	  border: 2px solid blue;
-	}
-
-	@keyframes glowing-border {
-	  0% {
-		box-shadow: 0 0 10px limegreen;
-	  }
-	  50% {
-		box-shadow: 0 0 20px yellow;
-	  }
-	  100% {
-		box-shadow: 0 0 10px orange;
-	  }
-	}
-	
-	#chosenSlot:hover {
-		background: #efe05e !important;
-	}
-		
-	`
-    mstl.innerHTML = style;
-}
 
 var win_AFhelper =  // описание элементов главного окна
     `<div style="width: 351px;">
@@ -1177,7 +516,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
         document.getElementById('testUsers').style.display = 'none';
         // document.getElementById('AF_Links').style.display = 'none';
     } else {
-        mystyles()
+        let mystyles = document.createElement('link')
+		mystyles.rel = 'stylesheet'
+		mystyles.href = "https://dimentorexpo.github.io/CSS/styles.css" // подключаем модуль стилей 
+		document.querySelector('head').append(mystyles)
 
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
@@ -1329,7 +671,7 @@ function prepTp() { //функция подготовки расширения �
 
 	let sidePanel = document.createElement('div')
 	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 45px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
 	document.body.append(sidePanel)
 
     let openchhis = document.createElement('button')
@@ -1399,7 +741,7 @@ function prepTp() { //функция подготовки расширения �
 		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Календарь"
         "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
         "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        // "https://dimentorexpo.github.io/Modules/ServiceDesk.js", // модуль Service Desk , с 1  тестовая версия
+		"https://dimentorexpo.github.io/Modules/VoiceHelper.js", // модуль голосового помощника
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
@@ -1407,16 +749,13 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         //"https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-        //"https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
-        "https://dimentorexpo.github.io/Modules/ThemesTest.js", // Тестовый модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
         "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
         "https://dimentorexpo.github.io/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
-        "https://dimentorexpo.github.io/Modules/TechSummary.js", // модуль просмотра в Userinfo Tech Summary пользователя об устройстве с которого обратился
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
         "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
-        // "https://dimentorexpo.github.io/Modules/TestStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
@@ -1451,6 +790,23 @@ function prepKC() { //функция подготовки расширения �
         needtoopen[i].style.display = ''
     }
 
+	let sidePanel = document.createElement('div')
+	sidePanel.id = "rightPanel"
+	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+	document.body.append(sidePanel)
+
+    let openchhis = document.createElement('button')
+    openchhis.innerHTML = '☢'
+    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openchhis.id = 'opennewcat'
+    openchhis.title = 'Открывает виджет просмотра истории чатов'
+	document.getElementById('rightPanel').appendChild(openchhis)
+	
+	openchhis.onclick = () => {
+        if (document.getElementById('AF_ChatHis').style.display == 'none')
+            document.getElementById('butChatHistory').click()
+    }
+
     flagLangBut = 1
     customTemplates()
     setTimeout(whoAmI, 2000)
@@ -1463,7 +819,9 @@ function prepKC() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
 		include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
+		include("https://dimentorexpo.github.io/Modules/AFOperatorStatus.js") // подключаем модуль статусов операторов и количества чатов на них
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
+        include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
         include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
@@ -3750,11 +3108,21 @@ wintRefuseFormNew.onmousedown = function (a) { // изменение позиц�
 
 wintRefuseFormNew.onmouseup = function () { document.removeEventListener('mousemove', listenerRefuseForm); } // прекращение изменения позиции окна отказов
 
-
-
 addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
 loginer = document.getElementById('testUsers')
 loginer.appendChild(addInfoUser)
+
+let voiceBtn = document.createElement('button')
+voiceBtn.textContent = '🎤'
+voiceBtn.id = "pushToTalk"
+voiceBtn.style = "cursor:pointer; margin:5px;"
+voiceBtn.title = "Нажми и сразу произноси команду для выполнения. Список команд: \n 1) ту - открывает админку для создания ТУ по англ языку \n 2) платёж - открывает админку поиска платежа \n 3) CRM - открывает CRM обратившегося пользователя \n 4) ТТ - открывает Timetable (произносить лучше тэтэ) \n 5) админка - открывает общую админку по пользователю 6) тшу / тшп - просмотр ТШ по У или П которые обратились \n 7) трамвай - открывает TRM 2.0"
+document.getElementById('testUsers').children[0].children[0].append(voiceBtn)
+
+let voiceout = document.createElement('div')
+voiceout.id = "voicetext";
+voiceout.style='color:bisque; width:110px; text-align:center;'
+document.getElementById('testUsers').children[0].children[0].append(voiceout)
 
 var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
     loginer.style.left = Number(e.clientX - myXloginer) + "px";
@@ -4360,7 +3728,7 @@ let butThemes = document.createElement('div')
 butThemes.id = "themes"
 butThemes.innerHTML = "Темы"
 butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn', 'onlyfortp')
+butThemes.classList.add('ant-btn')
 
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
@@ -5156,7 +4524,9 @@ setInterval(clock_on_javascript_3, 1000);
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'reminder_bar', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd'];
     elements.forEach(function (element) {
+		if (document.getElementById(element)) {
         document.getElementById(element).style.display = 'none';
+		}
     });
     document.getElementById('scriptBut').style.display = '';
 }
