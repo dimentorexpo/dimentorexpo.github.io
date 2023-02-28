@@ -64,8 +64,29 @@ recognition.addEventListener('result', (event) => {
 			  document.getElementById('voicetext').textContent = ''
 		  },10000)
       break;
-      case command.includes('id у') || command.includes('idу') || command.includes('айдиу') || command.includes('айди у') || command.includes('ID у') || command.includes('IDу'):
+      case command.includes('id у') || command.includes('idу') || command.includes('айдиу') || command.includes('айди у'):
         copyToClipboard1(localStorage.getItem('test_stud'));
+            document.getElementById('voicetext').textContent = command + ' ✔';
+        setTimeout(function(){
+          document.getElementById('voicetext').textContent = ''
+        },10000)
+        break;
+      case command.includes('id п') || command.includes('idп') || command.includes('айдип') || command.includes('айди п'):
+        copyToClipboard1(localStorage.getItem('test_teach'));
+            document.getElementById('voicetext').textContent = command + ' ✔';
+        setTimeout(function(){
+          document.getElementById('voicetext').textContent = ''
+        },10000)
+        break;
+      case command.includes('логинер п') || command.includes('логинерп') || command.includes('логинп') || command.includes('логин п'):
+        logginerfortests(localStorage.getItem('test_teach'));
+            document.getElementById('voicetext').textContent = command + ' ✔';
+        setTimeout(function(){
+          document.getElementById('voicetext').textContent = ''
+        },10000)
+        break;
+      case command.includes('логинер у') || command.includes('логинеру') || command.includes('логину') || command.includes('логин у'):
+        logginerfortests(localStorage.getItem('test_stud'));
             document.getElementById('voicetext').textContent = command + ' ✔';
         setTimeout(function(){
           document.getElementById('voicetext').textContent = ''
