@@ -4002,7 +4002,7 @@ btnsid.addEventListener("mousedown", (event) => { // копирует в буф�
             logginerfortests(teststudid)
         } else if (event.button == 2){
             copyToClipboard1(teststudid)
-	        btnsid.oncontextmenu = false
+	        document.oncontextmenu = false
         }
     } else alert("Введите ID тестового ученика в настройках ⚙");
 });
@@ -4016,7 +4016,7 @@ btntid.addEventListener("mousedown", (event) => { // копирует в буф�
         logginerfortests(testteachid)
     } else if (event.button == 2){
         copyToClipboard1(testteachid)
-        btntid.oncontextmenu = false
+        document.oncontextmenu = false
     }        
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 });
