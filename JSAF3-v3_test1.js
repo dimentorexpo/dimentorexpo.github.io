@@ -4548,7 +4548,9 @@ document.getElementById('hideMenuMain').onclick = function () { // кнопка 
 document.oncontextmenu = disablecontext;
 
 function disablecontext(e) {
-    if (e.id =='sidcode' || e.id =='tidcode'){
-        return false;
-    }
+	var clickedEl = (e==null) ? event.srcElement.tagName : e.target.tagName;
+	if (clickedEl == "BUTTON") {
+		alert(errorMsg);
+		return false;
+	}
 }
