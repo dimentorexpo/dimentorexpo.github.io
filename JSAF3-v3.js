@@ -4030,14 +4030,6 @@ btntid.addEventListener("contextmenu", (event) => { // копирует в бу�
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 });
 
-btntid.contextmenu = function () { // копирует в буфер логиннер для П
-    let testteachid = localStorage.getItem('test_teach');
-    if (testteachid != null || testteachid != '') {
-        copyToClipboard1(testteachid)
-        return false;
-    } else alert("Введите ID тестового преподавателя в настройках ⚙");
-}
-
 if (localStorage.getItem('msg') != null) {
     document.getElementById('msg').innerHTML = localStorage.getItem('msg')
     if (localStorage.getItem('msg') == 'Чат')
