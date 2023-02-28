@@ -3994,7 +3994,6 @@ document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
 
 btnsid.addEventListener("mousedown", (event) => { // копирует в буфер логиннер для У
-    document.getElementById('sidcode').oncontextmenu = false;
     let teststudid = localStorage.getItem('test_stud');
     document.getElementById('sidcode').classList.add('active');
     setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000);
@@ -4008,7 +4007,6 @@ btnsid.addEventListener("mousedown", (event) => { // копирует в буф�
 });
 
 btntid.addEventListener("mousedown", (event) => { // копирует в буфер логиннер для П
-    document.getElementById('tidcode').oncontextmenu = false;
     let testteachid = localStorage.getItem('test_teach');
     document.getElementById('tidcode').classList.add('active');
     setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000);
@@ -4545,4 +4543,12 @@ document.getElementById('hideMenuMain').onclick = function () { // кнопка 
 		}
     });
     document.getElementById('scriptBut').style.display = '';
+}
+
+document.oncontextmenu = disablecontext;
+
+function disablecontext(e) {
+    if (e.id =='sidcode' || e.id =='tidcode'){
+        return false;
+    }
 }
