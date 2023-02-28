@@ -660,99 +660,195 @@ function postuderdatatologin() { // логгинер для У П , перера
     })
 }
 
+// let getcrmstatusinfo;
+// let crmresponseinfo;
+
+// function crmstatus() { // получить статус задача в СРМ в решении или в ожидании
+    // let tempvarcrm = document.getElementById('idstudent').value;
+    // tempvarcrm = tempvarcrm.trim();
+
+    // let flagtpout = 0;
+    // let flagtp = 0;
+    // let flagnottp = 0;
+    // let flagstatuswait;
+    // let flagstatusprocessing;
+    // let opername = "";
+    // document.getElementById('getcurrentstatus').style.display = "none";
+
+    // document.getElementById('CrmStatus').style.display = "none";
+
+    // document.getElementById('responseTextarea1').value = `{}`
+    // document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
+    // document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
+    // document.getElementById('sendResponse').click()
+
+    // document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
+        // crmresponseinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+        // if (crmresponseinfo != null) {
+            // getcrmstatusinfo = JSON.parse(crmresponseinfo);
+
+            // if (getcrmstatusinfo.data.length > 0) {
+                // for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                    // if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
+                        // flagtpout = 1;
+                    // } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
+                        // flagtp = 1;
+                    // } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
+                        // flagnottp = 1;
+                    // }
+                // }
+
+                // for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
+                    // if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
+                        // flagstatuswait = 1;
+                    // } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
+                        // flagstatusprocessing = 1;
+                        // opername = getcrmstatusinfo.data[i].operator.name;
+                    // }
+                // }
+
+                // if (flagstatuswait == 1) {
+                    // document.getElementById('getcurrentstatus').style.display = "";
+                    // document.getElementById('getcurrentstatus').innerText = "В ожидании";
+                    // document.getElementById('getcurrentstatus').style.backgroundColor = "#1E90FF";
+                // } else if (flagstatusprocessing == 1) {
+                    // document.getElementById('getcurrentstatus').style.display = "";
+                    // document.getElementById('getcurrentstatus').innerText = "Решается";
+                    // document.getElementById('getcurrentstatus').title = opername;
+                    // document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
+                // }
+
+                // if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
+                    // document.getElementById('CrmStatus').style.display = "";
+                    // document.getElementById('CrmStatus').innerText = "💥";
+                    // console.log("Есть активные задачи");
+                // } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
+                    // document.getElementById('CrmStatus').style.display = "";
+                    // document.getElementById('CrmStatus').innerText = "🛠";
+                    // console.log("Входящий звонок или с др отдела на ТП была создана задача");
+                // } else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
+                    // document.getElementById('CrmStatus').style.display = "";
+                    // document.getElementById('CrmStatus').innerText = "📵";
+                    // console.log("Нет активных задач по ТП линии");
+                // } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
+                    // document.getElementById('CrmStatus').style.display = "";
+                    // document.getElementById('CrmStatus').innerText = "💥";
+                    // console.log("Есть активные задачи на исход и на ТП 1 линии");
+                // } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
+                    // document.getElementById('CrmStatus').style.display = "";
+                    // document.getElementById('CrmStatus').innerText = "💥";
+                    // console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
+                // } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
+                    // document.getElementById('CrmStatus').style.display = "";
+                    // document.getElementById('CrmStatus').innerText = "🛠";
+                    // console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
+                // }
+
+            // } else {
+                // document.getElementById('CrmStatus').style.display = "";
+                // document.getElementById('CrmStatus').innerText = "📵";
+                // console.log("No DATA");
+            // }
+            // document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+        // }
+    // })
+// }
+
+
 let getcrmstatusinfo;
 let crmresponseinfo;
 
-function crmstatus() { // получить статус задача в СРМ в решении или в ожидании
-    let tempvarcrm = document.getElementById('idstudent').value;
-    tempvarcrm = tempvarcrm.trim();
+function crmstatus() {
+  const tempvarcrm = document.getElementById('idstudent').value.trim();
 
-    let flagtpout = 0;
-    let flagtp = 0;
-    let flagnottp = 0;
-    let flagstatuswait;
-    let flagstatusprocessing;
-    let opername = "";
-    document.getElementById('getcurrentstatus').style.display = "none";
+  let flagtpout = false;
+  let flagtp = false;
+  let flagnottp = false;
+  let flagstatuswait = false;
+  let flagstatusprocessing = false;
+  let opername = '';
 
-    document.getElementById('CrmStatus').style.display = "none";
+  document.getElementById('getcurrentstatus').style.display = 'none';
+  document.getElementById('CrmStatus').style.display = 'none';
 
-    document.getElementById('responseTextarea1').value = `{}`
-    document.getElementById('responseTextarea2').value = "https://customer-support.skyeng.ru/task/user/" + tempvarcrm;
-    document.getElementById('responseTextarea3').value = 'getcrmtaskinfo'
-    document.getElementById('sendResponse').click()
+  document.getElementById('responseTextarea1').value = '{}';
+  document.getElementById('responseTextarea2').value = `https://customer-support.skyeng.ru/task/user/${tempvarcrm}`;
+  document.getElementById('responseTextarea3').value = 'getcrmtaskinfo';
+  document.getElementById('sendResponse').click();
 
-    document.getElementById("responseTextarea1").addEventListener("DOMSubtreeModified", function () {
-        crmresponseinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
-        if (crmresponseinfo != null) {
-            getcrmstatusinfo = JSON.parse(crmresponseinfo);
+  document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', function () {
+    crmresponseinfo = document.getElementById('responseTextarea1').getAttribute('getcrmtaskinfo');
+    if (crmresponseinfo) {
+      getcrmstatusinfo = JSON.parse(crmresponseinfo);
 
-            if (getcrmstatusinfo.data.length > 0) {
-                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing") {
-                        flagtpout = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_first_line") {
-                        flagtp = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_outgoing" && getcrmstatusinfo.data[i].operatorGroup.name != "technical_support_first_line") {
-                        flagnottp = 1;
-                    }
-                }
-
-                for (let i = 0; i < getcrmstatusinfo.data.length; i++) {
-                    if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "waiting") {
-                        flagstatuswait = 1;
-                    } else if (getcrmstatusinfo.data[i].operatorGroup.name == "technical_support_outgoing" && getcrmstatusinfo.data[i].status == "processing") {
-                        flagstatusprocessing = 1;
-                        opername = getcrmstatusinfo.data[i].operator.name;
-                    }
-                }
-
-                if (flagstatuswait == 1) {
-                    document.getElementById('getcurrentstatus').style.display = "";
-                    document.getElementById('getcurrentstatus').innerText = "В ожидании";
-                    document.getElementById('getcurrentstatus').style.backgroundColor = "#1E90FF";
-                } else if (flagstatusprocessing == 1) {
-                    document.getElementById('getcurrentstatus').style.display = "";
-                    document.getElementById('getcurrentstatus').innerText = "Решается";
-                    document.getElementById('getcurrentstatus').title = opername;
-                    document.getElementById('getcurrentstatus').style.backgroundColor = "#DC143C";
-                }
-
-                if (flagtpout == 1 && flagtp == 0 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи");
-                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "🛠";
-                    console.log("Входящий звонок или с др отдела на ТП была создана задача");
-                } else if (flagtpout == 0 && flagtp == 0 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "📵";
-                    console.log("Нет активных задач по ТП линии");
-                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 0) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи на исход и на ТП 1 линии");
-                } else if (flagtpout == 1 && flagtp == 1 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "💥";
-                    console.log("Есть активные задачи на исход и на ТП 1 линии и на др отделы");
-                } else if (flagtpout == 0 && flagtp == 1 && flagnottp == 1) {
-                    document.getElementById('CrmStatus').style.display = "";
-                    document.getElementById('CrmStatus').innerText = "🛠";
-                    console.log("Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел");
-                }
-
-            } else {
-                document.getElementById('CrmStatus').style.display = "";
-                document.getElementById('CrmStatus').innerText = "📵";
-                console.log("No DATA");
+      for (const data of getcrmstatusinfo.data) {
+        switch (data.operatorGroup.name) {
+          case 'technical_support_outgoing':
+            flagtpout = true;
+            if (data.status === 'waiting') flagstatuswait = true;
+            if (data.status === 'processing') {
+              flagstatusprocessing = true;
+              opername = data.operator.name;
             }
-            document.getElementById('responseTextarea1').removeAttribute('getcrmtaskinfo')
+            break;
+          case 'technical_support_first_line':
+            flagtp = true;
+            break;
+          default:
+            flagnottp = true;
+            break;
         }
-    })
-}
+      }
+
+      if (flagstatuswait) {
+        document.getElementById('getcurrentstatus').style.display = '';
+        document.getElementById('getcurrentstatus').innerText = 'В ожидании';
+        document.getElementById('getcurrentstatus').style.backgroundColor = '#1E90FF';
+      } else if (flagstatusprocessing) {
+        document.getElementById('getcurrentstatus').style.display = '';
+        document.getElementById('getcurrentstatus').innerText = 'Решается';
+        document.getElementById('getcurrentstatus').title = opername;
+        document.getElementById('getcurrentstatus').style.backgroundColor = '#DC143C';
+      }
+
+      if (flagtpout && !flagtp && !flagnottp) {
+        document.getElementById('CrmStatus').style.display = '';
+        document.getElementById('CrmStatus').innerText = '💥';
+        console.log('Есть активные задачи');
+      } else if (!flagtpout && flagtp && !flagnottp) {
+        document.getElementById('CrmStatus').style.display = '';
+        document.getElementById('CrmStatus').innerText = '🛠';
+        console.log('Входящий звонок или с др отдела на ТП была создана задача');
+      } else if (!flagtpout && !flagtp && flagnottp) {
+        document.getElementById('CrmStatus').style.display = '';
+        document.getElementById('CrmStatus').innerText = '📵';
+        console.log('Нет активных задач по ТП линии');
+      } else if (flagtpout && flagtp && !flagnottp) {
+        document.getElementById('CrmStatus').style.display = '';
+        document.getElementById('CrmStatus').innerText = '💥';
+        console.log('Есть активные задачи на исход и на ТП 1 линии')
+	  } else if (flagtpout && flagtp && flagnottp) {
+			document.getElementById('CrmStatus').style.display = '';
+			document.getElementById('CrmStatus').innerText = '💥';
+			console.log('Есть активные задачи на исход и на ТП 1 линии и на др отделы');
+	  } else if (flagtp == true && flagnottp == true && flagtpout == false) {
+		  document.getElementById('CrmStatus').style.display = '';
+			document.getElementById('CrmStatus').innerText = '🛠';
+			console.log('Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел');
+			} else {
+			document.getElementById('CrmStatus').style.display = '';
+			document.getElementById('CrmStatus').innerText = '📵';
+			console.log('No DATA');
+			}
+			}
+			});
+			}
+
+
+
+
+
+
 
     let servicearr = "";
     let srvparsed = "";
