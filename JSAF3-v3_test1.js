@@ -4001,6 +4001,7 @@ btnsid.addEventListener("mousedown", (event) => { // копирует в буф�
         if (event.button == 0){
             logginerfortests(teststudid)
         } else if (event.button == 2){
+            event.preventDefault()
             copyToClipboard1(teststudid)
         }
     } else alert("Введите ID тестового ученика в настройках ⚙");
@@ -4014,6 +4015,7 @@ btntid.addEventListener("mousedown", (event) => { // копирует в буф�
         if (event.button == 0){
         logginerfortests(testteachid)
     } else if (event.button == 2){
+        event.preventDefault()
         copyToClipboard1(testteachid)
     }        
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
@@ -4544,14 +4546,3 @@ document.getElementById('hideMenuMain').onclick = function () { // кнопка 
     });
     document.getElementById('scriptBut').style.display = '';
 }
-
-document.addEventListener('oncontextmenu', function (e) {
-    console.log(e)
-    var clickedEl = (e==null) ? event.srcElement.tagName : e.target.tagName;
-    console.log(clickedEl)
-	if (clickedEl == "BUTTON") {
-		console.log('Return false')
-        return false;
-
-	}
-});
