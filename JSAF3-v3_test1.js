@@ -4006,6 +4006,7 @@ btnsid.contextmenu = function () { // копирует в буфер логин�
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
         copyToClipboard1(teststudid)
+        return false;
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
 
@@ -4022,6 +4023,7 @@ btntid.contextmenu = function () { // копирует в буфер логин�
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         copyToClipboard1(testteachid)
+        return false;
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
