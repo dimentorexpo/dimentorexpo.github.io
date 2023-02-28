@@ -3993,7 +3993,7 @@ document.getElementById('testMath').replaceWith();
 document.getElementById('testStudent').replaceWith(btnsid);
 document.getElementById('testTeacher').replaceWith(btntid);
 
-btnsid.addEventListener("click", (event) =>  { // копирует в буфер логиннер для У
+btnsid.addEventListener("mousedown", (event) =>  { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
         if (event.which == 1){
@@ -4006,7 +4006,7 @@ btnsid.addEventListener("click", (event) =>  { // копирует в буфер
     } else alert("Введите ID тестового ученика в настройках ⚙");
 });
 
-btntid.addEventListener("click", (event) =>  { // копирует в буфер логиннер для П
+btntid.addEventListener("mousedown", (event) =>  { // копирует в буфер логиннер для П
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
         if (event.which == 1){
