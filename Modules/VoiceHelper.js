@@ -64,7 +64,7 @@ recognition.addEventListener('result', (event) => {
 			  document.getElementById('voicetext').textContent = ''
 		  },10000)
       break;
-      case command.includes('id у') || command.includes('idу') || command.includes('айдиу') || command.includes('айди у'):
+      case command.includes('id у') || command.includes('idу') || command.includes('айдиу') || command.includes('айди у') || command.includes('ID у') || command.includes('IDу'):
         copyToClipboard1(localStorage.getItem('test_stud'));
             document.getElementById('voicetext').textContent = command + ' ✔';
         setTimeout(function(){
