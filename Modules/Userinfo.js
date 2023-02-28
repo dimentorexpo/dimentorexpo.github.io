@@ -740,7 +740,11 @@ function crmstatus() {
         document.getElementById('CrmStatus').style.display = '';
         document.getElementById('CrmStatus').innerText = '🛠';
         console.log('Входящий звонок или с др отдела на ТП была создана задача. И есть задача на др отдел');
-      } else {
+      } else if (flagtp == false && flagnottp == true && flagtpout == true) {
+        document.getElementById('CrmStatus').style.display = '';
+        document.getElementById('CrmStatus').innerText = '💥';
+        console.log('Есть задача на ТП Исход. И есть задача на др отдел');
+	  }	else {
         document.getElementById('CrmStatus').style.display = '';
         document.getElementById('CrmStatus').innerText = '📵';
         console.log('No DATA');
