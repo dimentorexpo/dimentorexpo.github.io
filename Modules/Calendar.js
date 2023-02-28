@@ -36,7 +36,7 @@ var win_Calendar =  // описание формы чтобы не давала 
 							</div>
 						</div>
 						
-						<div id="operatorActiveSlots" style="display:none; position:absolute; top:-1px; left:599px; background:#464451; width: 308px; height:300px;">
+						<div id="operatorActiveSlots" style="display:none; position:absolute; top:-1px; left:599px; background:#464451; width: 362px; height:300px;">
 						</div>
         </span>
 </div>`;
