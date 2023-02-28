@@ -10,14 +10,14 @@ recognition.addEventListener('result', (event) => {
 
   // Check the command and execute the appropriate action
   switch (true) {
-    case command.includes('CRM'):
+    case command.includes('crm'):
       openUrl('CRM', "https://crm2.skyeng.ru/persons/");
 	    document.getElementById('voicetext').textContent = command + ' ✔';
 		  setTimeout(function(){
 			  document.getElementById('voicetext').textContent = ''
 		  },10000)
       break;
-    case command.includes('ТТ'):
+    case command.includes('тт'):
       window.open("https://timetable.skyeng.ru/");
 	  	    document.getElementById('voicetext').textContent = command + ' ✔';
 		  setTimeout(function(){
