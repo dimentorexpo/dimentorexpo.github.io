@@ -462,7 +462,7 @@ function refreshActiveOperSlots() { // функция обновления ин�
 			  <span style="background: #2058cb; padding: 6px; margin-top: 5px; padding-bottom: 8px; color: white; font-weight: 700;">${slotTime}</span>
 			  <span style="background: darkseagreen; padding: 5px; font-weight: 700;">${slotDate}</span>
 			  <input name="slotToDelete" title="${eventId}" value="${slotToDelete}" style="width: 80px; text-align: center;">
-			  <button name="deleteMySlot">❌</button>
+			  <button name="deleMySlot">❌</button>
 			  <span style="width: 90px;">${statusLabel}</span>
 			</div>
 		  `;
