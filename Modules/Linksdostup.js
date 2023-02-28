@@ -26,6 +26,8 @@ var win_linksd =  // описание элементов окна доступо
                             <button id="rpayidbut">🔎</button>
  							<input id="UserActions" placeholder="ID У/П действ" title="Вводим id пользователя для открытия информации о действиях в личном кабинете" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="GetUserActions">🔎</button>
+							<input id="essayHashRoom" placeholder="Эссе Hash" title="Вводим хеш комнаты с эссе на открывшейся странице не забываем изменить дату" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
+                            <button id="getUserEssay">🔎</button>
                             <p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">Grafana</p>
                             <input id="WidgetLessonStatus" placeholder="ID У/П виджет" title="Вводим id пользователя для открытия информации об отображении виджета входа на урок" autocomplete="off" type="text" style="text-align: center; width: 103px; color: black; margin-top: 5px">
                             <button id="GetWidgetLessonStatus">🔎</button>
@@ -163,6 +165,15 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
             window.open("https://redash.skyeng.ru/queries/30681?p_end_at=d_now&p_id=" + UserActions.value + "&p_start_at=d_yesterday");
         };
         UserActions.value = "";
+    } 
+
+	document.getElementById('getUserEssay').onclick = function () { // Редаш логи эссе
+        if (essayHashRoom.value == "") {
+            console.log('Введите hash комнаты в поле')
+        } else {
+            window.open("https://redash.skyeng.ru/queries/41043?p_fromDate=2023-02-15&p_roomHash=" + essayHashRoom.value);
+        };
+        essayHashRoom.value = "";
     }
 	
 	// Остальные сервисы
