@@ -4002,6 +4002,12 @@ btnsid.onclick = function () { // копирует в буфер логинне�
 
     } else alert("Введите ID тестового ученика в настройках ⚙");
 }
+btnsid.ondblclick = function () { // копирует в буфер id тестового У
+    let teststudid = localStorage.getItem('test_stud');
+    if (teststudid != null || teststudid != '') {
+        copyToClipboard(teststudid)
+    } else alert("Введите ID тестового ученика в настройках ⚙");
+}
 
 btntid.onclick = function () { // копирует в буфер логиннер для П
     let testteachid = localStorage.getItem('test_teach');
@@ -4010,6 +4016,13 @@ btntid.onclick = function () { // копирует в буфер логинне�
         document.getElementById('tidcode').classList.add('active')
         setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000)
 
+    } else alert("Введите ID тестового преподавателя в настройках ⚙");
+}
+
+btntid.ondblclick = function () { // копирует в буфер id тестового П
+    let testteachid = localStorage.getItem('test_teach');
+    if (testteachid != null || testteachid != '') {
+        copyToClipboard(testteachid)
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 }
 
