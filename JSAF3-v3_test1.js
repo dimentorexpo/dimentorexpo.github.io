@@ -4545,12 +4545,9 @@ document.getElementById('hideMenuMain').onclick = function () { // кнопка 
     document.getElementById('scriptBut').style.display = '';
 }
 
-document.oncontextmenu = disablecontext;
-
-function disablecontext(e) {
-	var clickedEl = (e==null) ? event.srcElement.tagName : e.target.tagName;
+document.addEventListener('oncontextmenu', function (e) {
+    var clickedEl = (e==null) ? event.srcElement.tagName : e.target.tagName;
 	if (clickedEl == "BUTTON") {
-		alert(errorMsg);
 		return false;
 	}
-}
+});
