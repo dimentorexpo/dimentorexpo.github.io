@@ -2149,6 +2149,15 @@ function requestsRed() { //функция окрашивает в красный
     }
 }
 
+function getTextContentByClassName(className, index) {
+    const elements = document.getElementsByClassName(className);
+    if (elements.length > index && elements[index].textContent) {
+        return elements[index].textContent;
+    }
+    console.log(`Класс ${className} не найден или у элемента с индексом ${index} нет текстового содержимого`);
+    return null;
+}
+
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
 
     try {
