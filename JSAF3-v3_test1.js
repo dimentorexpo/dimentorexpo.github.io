@@ -2185,7 +2185,7 @@ async function checkthemestatus() { //функция проверки выста
                 uslugstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[0].textContent
             }
             
-            if (pldata.payload.topicId.value == "" && (themstr1 == "Выбор темы/подтемы:" || themstr2 == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+            if (pldata.payload.topicId.value == "" && themstr == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
                 const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
 
@@ -2203,7 +2203,7 @@ async function checkthemestatus() { //функция проверки выста
                     }
                 }
 
-            } else if (pldata.payload.topicId.value != "" && (themstr1 == "Выбор темы/подтемы:" || themstr2 == "Выбор темы/подтемы:")) {
+            } else if (pldata.payload.topicId.value != "" && 1 == "Выбор темы/подтемы:") {
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
