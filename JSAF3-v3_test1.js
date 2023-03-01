@@ -2150,25 +2150,6 @@ function requestsRed() { //функция окрашивает в красный
 }
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
-    let uslugstr
-            let themstr1
-            let themstr2
-            
-            if (document.getElementsByClassName('sc-fznWqX dAkvW').length == 0){
-                console.log('Класс sc-fznWqX dAkvW не найден')
-            } else if (document.getElementsByClassName('sc-fznWqX dAkvW').length > 0){
-                uslugstr = document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent
-                themstr1 = document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent
-                themstr2 = document.getElementsByClassName('sc-fznWqX dAkvW')[4].textContent
-            }
-
-            if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length == 0){
-                console.log('Класс sc-fzoyTs jZUSDr не найден')
-            } else if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length > 0){
-                uslugstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[0].textContent
-                themstr1 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[2].textContent
-                themstr2 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[3].textContent
-            }
 
     try {
         if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
@@ -2179,6 +2160,30 @@ async function checkthemestatus() { //функция проверки выста
 
             //            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
             //                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
+            let uslugstr
+            let themstr
+            
+            if (document.getElementsByClassName('sc-fznWqX dAkvW').length == 0){
+                console.log('Класс sc-fznWqX dAkvW не найден')
+            } else if (document.getElementsByClassName('sc-fznWqX dAkvW').length > 0){
+                if (!document.getElementsByClassName('sc-fznWqX dAkvW')[4].textContent){
+                    themstr = document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent
+                } else {
+                    themstr = document.getElementsByClassName('sc-fznWqX dAkvW')[4].textContent
+                }
+                uslugstr = document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent
+            }
+
+            if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length == 0){
+                console.log('Класс sc-fzoyTs jZUSDr не найден')
+            } else if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length > 0){
+                if (!document.getElementsByClassName('sc-fzoyTs jZUSDr')[3].textContent){
+                    themstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[2].textContent
+                } else {
+                    themstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[3].textContent
+                }
+                uslugstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[0].textContent
+            }
             
             if (pldata.payload.topicId.value == "" && (themstr1 == "Выбор темы/подтемы:" || themstr2 == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
