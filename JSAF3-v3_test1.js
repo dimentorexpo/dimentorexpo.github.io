@@ -2150,11 +2150,14 @@ function requestsRed() { //функция окрашивает в красный
 }
 
 function checkEducationServiceInput() {
+    let flagusluga = false
     const elements = document.getElementsByTagName('span');
     for (i = 0; i < elements.length; i++){
-        if (elements[i].textContent = 'Выбор услуги:'){ return true }
+        if (elements[i].textContent = 'Выбор услуги:'){ 
+            flagusluga = true 
+        }
     }
-    return false;
+    return flagusluga
 }
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
