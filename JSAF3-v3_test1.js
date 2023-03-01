@@ -2203,7 +2203,7 @@ async function checkthemestatus() { //функция проверки выста
                     }
                 }
 
-            } else if (pldata.payload.topicId.value != "" && 1 == "Выбор темы/подтемы:") {
+            } else if (pldata.payload.topicId.value != "" && themstr == "Выбор темы/подтемы:") {
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
