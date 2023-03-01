@@ -2168,7 +2168,7 @@ async function checkthemestatus() { //функция проверки выста
 
             //            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
             //                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
-            let uslugstr
+            /* let uslugstr
             let themstr
             
             uslugstr = getTextContentByClassName('sc-fznWqX dAkvW', 1) || getTextContentByClassName('sc-fzoyTs jZUSDr', 0)
@@ -2176,9 +2176,9 @@ async function checkthemestatus() { //функция проверки выста
             if (!themstr) {
                 themstr = getTextContentByClassName('sc-fznWqX dAkvW', 3) || getTextContentByClassName('sc-fzoyTs jZUSDr', 2);
             }
-            
-            if (pldata.payload.topicId.value == "" && themstr == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
-
+            */
+            //if (pldata.payload.topicId.value == "" && themstr == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+            if (pldata.payload.topicId.value == ""){
                 const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
 
                 if (button) {
@@ -2195,8 +2195,8 @@ async function checkthemestatus() { //функция проверки выста
                     }
                 }
 
-            } else if (pldata.payload.topicId.value != "" && themstr == "Выбор темы/подтемы:") {
-
+            //} else if (pldata.payload.topicId.value != "" && themstr == "Выбор темы/подтемы:") {
+            } else if (pldata.payload.topicId.value != "") {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
