@@ -2150,16 +2150,7 @@ function requestsRed() { //функция окрашивает в красный
 }
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
-    try {
-        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
-            //            drevo = '';
-            let temparr = document.location.pathname.split('/')[3];
-            await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
-            }).then(r => r.json()).then(r => pldata = r)
-
-            //            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
-            //                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
-            let uslugstr
+    let uslugstr
             let themstr1
             let themstr2
             
@@ -2179,6 +2170,16 @@ async function checkthemestatus() { //функция проверки выста
                 themstr2 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[3].textContent
             }
 
+    try {
+        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
+            //            drevo = '';
+            let temparr = document.location.pathname.split('/')[3];
+            await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
+            }).then(r => r.json()).then(r => pldata = r)
+
+            //            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
+            //                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
+            
             if (pldata.payload.topicId.value == "" && (themstr1 == "Выбор темы/подтемы:" || themstr2 == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
                 const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
