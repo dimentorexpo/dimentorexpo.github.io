@@ -2149,13 +2149,12 @@ function requestsRed() { //функция окрашивает в красный
     }
 }
 
-function getTextContentByClassName(className, index) {
-    const elements = document.getElementsByClassName(className);
-    if (elements.length > index && elements[index].textContent) {
-        return elements[index].textContent;
+function checkEducationServiceInput() {
+    const elements = document.getElementsByTagName('span');
+    for (i = 0; i < elements.length; i++){
+        if (elements[i].textContent = 'Выбор услуги:'){ return true }
     }
-    //console.log(`Класс ${className} не найден или у элемента с индексом ${index} нет текстового содержимого`); спамит в консоль, пока отключил.
-    return null;
+    return false;
 }
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
@@ -2166,18 +2165,9 @@ async function checkthemestatus() { //функция проверки выста
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
 
-            //            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
-            //                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
-            /* let uslugstr
-            let themstr
-            
-            uslugstr = getTextContentByClassName('sc-fznWqX dAkvW', 1) || getTextContentByClassName('sc-fzoyTs jZUSDr', 0)
-            themstr = getTextContentByClassName('sc-fznWqX dAkvW', 4) || getTextContentByClassName('sc-fzoyTs jZUSDr', 3)
-            if (!themstr) {
-                themstr = getTextContentByClassName('sc-fznWqX dAkvW', 3) || getTextContentByClassName('sc-fzoyTs jZUSDr', 2);
-            }
-            */
-            //if (pldata.payload.topicId.value == "" && themstr == "Выбор темы/подтемы:") { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+            let uslugstr
+            uslugstr = checkEducationServiceInput
+
             if (pldata.payload.topicId.value == ""){
                 const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
 
@@ -2195,7 +2185,6 @@ async function checkthemestatus() { //функция проверки выста
                     }
                 }
 
-            //} else if (pldata.payload.topicId.value != "" && themstr == "Выбор темы/подтемы:") {
             } else if (pldata.payload.topicId.value != "") {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -2212,12 +2201,12 @@ async function checkthemestatus() { //функция проверки выста
                 }
             }
 
-            if (uslugstr != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && uslugstr == 'Выбор тегов ТП:') {
+            if (!uslugstr && pldata.payload.educationServiceId == undefined) {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                 txtbar.childNodes[1].childNodes[5].textContent = "";
             }
 
-            if (uslugstr != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && uslugstr == 'Выбор услуги:') {
+            if (uslugstr && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
@@ -2231,7 +2220,7 @@ async function checkthemestatus() { //функция проверки выста
                         txtbar.childNodes[1].childNodes[5].style.color = 'red';
                     }
                 }
-            } else if (uslugstr != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && uslugstr == 'Выбор услуги:') {
+            } else if (uslugstr && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
