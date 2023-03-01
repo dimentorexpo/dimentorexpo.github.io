@@ -747,7 +747,6 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
         "https://dimentorexpo.github.io/Modules/Suggest.js", // модуль формы пожеланий и предложений
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
-        //"https://dimentorexpo.github.io/Modules/TaskTest.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
         "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
@@ -2160,9 +2159,27 @@ async function checkthemestatus() { //функция проверки выста
 
             //            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
             //                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
+            let uslugstr
+            let themstr1
+            let themstr2
+            
+            if (document.getElementsByClassName('sc-fznWqX dAkvW').length <= 0){
+                console.log('Класс sc-fznWqX dAkvW не найден')
+            } else if (document.getElementsByClassName('sc-fznWqX dAkvW').length > 0){
+                uslugstr = document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent;
+                themstr1 = document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent;
+                themstr2 = document.getElementsByClassName('sc-fznWqX dAkvW')[4].textContent;
+            }
 
+            if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length <= 0){
+                console.log('Класс sc-fzoyTs jZUSDr не найден')
+            } else if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length > 0){
+                uslugstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[0].textContent;
+                themstr1 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[2].textContent;
+                themstr2 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[3].textContent;
+            }
 
-            if (pldata.payload.topicId.value == "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].textContent == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
+            if (pldata.payload.topicId.value == "" && (themstr1 == "Выбор темы/подтемы:" || themstr2 == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
 
                 const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
 
@@ -2180,7 +2197,7 @@ async function checkthemestatus() { //функция проверки выста
                     }
                 }
 
-            } else if (pldata.payload.topicId.value != "" && (document.getElementsByClassName('sc-fznWqX dAkvW')[2].textContent == "Выбор темы/подтемы:" || document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent == "Выбор темы/подтемы:")) {
+            } else if (pldata.payload.topicId.value != "" && (themstr1 == "Выбор темы/подтемы:" || themstr2 == "Выбор темы/подтемы:")) {
 
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
@@ -2197,12 +2214,12 @@ async function checkthemestatus() { //функция проверки выста
                 }
             }
 
-            if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent == 'Выбор тегов ТП:') {
+            if (uslugstr.textContent != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && uslugstr.textContent == 'Выбор тегов ТП:') {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                 txtbar.childNodes[1].childNodes[5].textContent = "";
             }
 
-            if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent == 'Выбор услуги:') {
+            if (uslugstr.textContent != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && uslugstr.textContent == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
@@ -2216,7 +2233,7 @@ async function checkthemestatus() { //функция проверки выста
                         txtbar.childNodes[1].childNodes[5].style.color = 'red';
                     }
                 }
-            } else if (document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent == 'Выбор услуги:') {
+            } else if (uslugstr.textContent != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && uslugstr.textContent == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
@@ -4030,14 +4047,6 @@ btntid.addEventListener("contextmenu", (event) => { // копирует в бу�
         setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000);
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
 });
-
-btntid.contextmenu = function () { // копирует в буфер логиннер для П
-    let testteachid = localStorage.getItem('test_teach');
-    if (testteachid != null || testteachid != '') {
-        copyToClipboard1(testteachid)
-        return false;
-    } else alert("Введите ID тестового преподавателя в настройках ⚙");
-}
 
 if (localStorage.getItem('msg') != null) {
     document.getElementById('msg').innerHTML = localStorage.getItem('msg')
