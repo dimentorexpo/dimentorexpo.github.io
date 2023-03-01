@@ -2163,7 +2163,7 @@ async function checkthemestatus() { //функция проверки выста
             let themstr1
             let themstr2
             
-            if (document.getElementsByClassName('sc-fznWqX dAkvW').length <= 0){
+            if (document.getElementsByClassName('sc-fznWqX dAkvW').length == 0){
                 console.log('Класс sc-fznWqX dAkvW не найден')
             } else if (document.getElementsByClassName('sc-fznWqX dAkvW').length > 0){
                 uslugstr = document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent
@@ -2171,7 +2171,7 @@ async function checkthemestatus() { //функция проверки выста
                 themstr2 = document.getElementsByClassName('sc-fznWqX dAkvW')[4].textContent
             }
 
-            if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length <= 0){
+            if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length == 0){
                 console.log('Класс sc-fzoyTs jZUSDr не найден')
             } else if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length > 0){
                 uslugstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[0].textContent
