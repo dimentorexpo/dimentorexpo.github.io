@@ -211,13 +211,24 @@ document.getElementById('clearall').onclick = function () {
 	
 	    document.getElementById('getStats').onclick = function () { // открытие Статистики
 
-		let getcurdate = new Date();
-		let year = getcurdate.getFullYear();
-		let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
-		let day = String(getcurdate.getDate()).padStart(2, "0");
+let getcurdate = new Date();
+let year = getcurdate.getFullYear();
+let month = String(getcurdate.getMonth() + 1).padStart(2, "0");
+let day = String(getcurdate.getDate()).padStart(2, "0");
 
-		document.getElementById("dateFrom").value = `${year}-${month}-${String(Number(day) - 1).padStart(2, "0")}`;
-		document.getElementById("dateTo").value = `${year}-${month}-${day}`;
+let lastDayOfPrevMonth = new Date(year, getcurdate.getMonth(), 0).getDate();
+let fromDate = new Date(year, getcurdate.getMonth(), day - 1);
+let toDate = new Date(year, getcurdate.getMonth(), day);
+
+if (day === "01") {
+  // set date range to previous month
+  fromDate = new Date(year, getcurdate.getMonth() - 1, lastDayOfPrevMonth);
+  toDate = new Date(year, getcurdate.getMonth(), 1);
+}
+
+document.getElementById("dateFrom").value = `${fromDate.getFullYear()}-${String(fromDate.getMonth() + 1).padStart(2, "0")}-${String(fromDate.getDate()).padStart(2, "0")}`;
+document.getElementById("dateTo").value = `${toDate.getFullYear()}-${String(toDate.getMonth() + 1).padStart(2, "0")}-${String(toDate.getDate()).padStart(2, "0")}`;
+
 
 
         document.querySelector('#chatcommentsdata').style.display = "none"
