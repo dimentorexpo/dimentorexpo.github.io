@@ -65,14 +65,25 @@ document.getElementById('hideMeLessonStatus').onclick = function () { // скр�
 }
 
 function renewdate() { // функция обновления даты
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = (now.getMonth() + 1).toString().padStart(2, '0');
-  let day = now.getDate().toString().padStart(2, '0');
+	// get current date
+	const now = new Date();
 
-  const prevDay = (day - 1).toString().padStart(2, '0');
-  document.getElementById('dateFromLS').value = `${year}-${month}-${prevDay}`;
-  document.getElementById('dateToLS').value = `${year}-${month}-${day}`;
+	// get current year, month and day
+	const curYear = now.getFullYear();
+	const curMonth = String(now.getMonth() + 1).padStart(2, "0");
+	const curDay = String(now.getDate()).padStart(2, "0");
+
+	// calculate previous day
+	const prevDate = new Date(now);
+	prevDate.setDate(prevDate.getDate() - 1);
+	const prevYear = prevDate.getFullYear();
+	const prevMonth = String(prevDate.getMonth() + 1).padStart(2, "0");
+	const prevDay = String(prevDate.getDate()).padStart(2, "0");
+
+	// set date values in form inputs
+	document.getElementById("dateFromLS").value = `${prevYear}-${prevMonth}-${prevDay}`;
+	document.getElementById("dateToLS").value = `${curYear}-${curMonth}-${curDay}`;
+
   document.getElementById('statustable').innerText = "";
   document.getElementById('idteacherforsearch').value = "";
   document.getElementById('idstudentforsearch').value = "";
