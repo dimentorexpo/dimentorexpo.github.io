@@ -2160,11 +2160,11 @@ async function checkthemestatus() { //функция проверки выста
 
             //            if (pldata.messages[0].txt != undefined && pldata.messages[0].txt != null)
             //                drevo = pldata.messages[0].txt.match(/Здравствуйте! Я виртуальный помощник Skyeng/)
-            let uslugstr;
-            let themstr;
+            let uslugstr
+            let themstr
             
-            uslugstr = getTextContentByClassName('sc-fznWqX dAkvW', 1) || getTextContentByClassName('sc-fzoyTs jZUSDr', 0);
-            themstr = getTextContentByClassName('sc-fznWqX dAkvW', 4) || getTextContentByClassName('sc-fzoyTs jZUSDr', 3);
+            uslugstr = getTextContentByClassName('sc-fznWqX dAkvW', 1) || getTextContentByClassName('sc-fzoyTs jZUSDr', 0)
+            themstr = getTextContentByClassName('sc-fznWqX dAkvW', 4) || getTextContentByClassName('sc-fzoyTs jZUSDr', 3)
             if (!themstr) {
                 themstr = getTextContentByClassName('sc-fznWqX dAkvW', 3) || getTextContentByClassName('sc-fzoyTs jZUSDr', 2);
             }
