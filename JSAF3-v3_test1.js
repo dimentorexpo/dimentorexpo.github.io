@@ -2166,17 +2166,17 @@ async function checkthemestatus() { //функция проверки выста
             if (document.getElementsByClassName('sc-fznWqX dAkvW').length <= 0){
                 console.log('Класс sc-fznWqX dAkvW не найден')
             } else if (document.getElementsByClassName('sc-fznWqX dAkvW').length > 0){
-                uslugstr = document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent;
-                themstr1 = document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent;
-                themstr2 = document.getElementsByClassName('sc-fznWqX dAkvW')[4].textContent;
+                uslugstr = document.getElementsByClassName('sc-fznWqX dAkvW')[1].textContent
+                themstr1 = document.getElementsByClassName('sc-fznWqX dAkvW')[3].textContent
+                themstr2 = document.getElementsByClassName('sc-fznWqX dAkvW')[4].textContent
             }
 
             if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length <= 0){
                 console.log('Класс sc-fzoyTs jZUSDr не найден')
             } else if (document.getElementsByClassName('sc-fzoyTs jZUSDr').length > 0){
-                uslugstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[0].textContent;
-                themstr1 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[2].textContent;
-                themstr2 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[3].textContent;
+                uslugstr = document.getElementsByClassName('sc-fzoyTs jZUSDr')[0].textContent
+                themstr1 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[2].textContent
+                themstr2 = document.getElementsByClassName('sc-fzoyTs jZUSDr')[3].textContent
             }
 
             if (pldata.payload.topicId.value == "" && (themstr1 == "Выбор темы/подтемы:" || themstr2 == "Выбор темы/подтемы:")) { // блок и ниже условия для вывода в список активных чатов выставлена ли тема и услуга
@@ -2214,12 +2214,12 @@ async function checkthemestatus() { //функция проверки выста
                 }
             }
 
-            if (uslugstr.textContent != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && uslugstr.textContent == 'Выбор тегов ТП:') {
+            if (uslugstr != 'Выбор услуги:' && pldata.payload.educationServiceId == undefined && uslugstr == 'Выбор тегов ТП:') {
                 let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                 txtbar.childNodes[1].childNodes[5].textContent = "";
             }
 
-            if (uslugstr.textContent != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && uslugstr.textContent == 'Выбор услуги:') {
+            if (uslugstr != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '' && uslugstr == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
@@ -2233,7 +2233,7 @@ async function checkthemestatus() { //функция проверки выста
                         txtbar.childNodes[1].childNodes[5].style.color = 'red';
                     }
                 }
-            } else if (uslugstr.textContent != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && uslugstr.textContent == 'Выбор услуги:') {
+            } else if (uslugstr != 'Выбор тегов ТП:' && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '' && uslugstr == 'Выбор услуги:') {
                 if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
                     let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
                     let theme = document.createElement('div')
