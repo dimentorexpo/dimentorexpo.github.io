@@ -622,53 +622,52 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
 
         flagsearch = ''
 
-		let getdateset = new Date();
-		let getyearLS = getdateset.getFullYear();
-		let getcurmonthLS = getdateset.getMonth() + 1;
+let getdateset = new Date();
+let getyearLS = getdateset.getFullYear();
+let getcurmonthLS = getdateset.getMonth() + 1;
 
-		// Set the number of days in the current month
-		let numDaysInCurrentMonth;
-		if (getcurmonthLS == 2) {
-		  numDaysInCurrentMonth = 28;
-		} else if (getcurmonthLS == 4 || getcurmonthLS == 6 || getcurmonthLS == 9 || getcurmonthLS == 11) {
-		  numDaysInCurrentMonth = 30;
-		} else {
-		  numDaysInCurrentMonth = 31;
-		}
+// Set the number of days in the current month
+let numDaysInCurrentMonth;
+if (getcurmonthLS == 2) {
+  numDaysInCurrentMonth = 28;
+} else if (getcurmonthLS == 4 || getcurmonthLS == 6 || getcurmonthLS == 9 || getcurmonthLS == 11) {
+  numDaysInCurrentMonth = 30;
+} else {
+  numDaysInCurrentMonth = 31;
+}
 
-		let fromMonthLS = getcurmonthLS - 1;
-		let toMonthLS = getcurmonthLS;
-		let getyearFromLS;
+let fromMonthLS = getcurmonthLS - 1;
+let toMonthLS = getcurmonthLS;
+let getyearFromLS = getyearLS;
 
-		// Set the number of days in the fromMonthLS and toMonthLS months
-		let numDaysInFromMonth, numDaysInToMonth;
-		if (fromMonthLS == 2) {
-		  numDaysInFromMonth = 28;
-		} else if (fromMonthLS == 4 || fromMonthLS == 6 || fromMonthLS == 9 || fromMonthLS == 11) {
-		  numDaysInFromMonth = 30;
-		} else if (fromMonthLS == 0) {
-		  numDaysInFromMonth = 31;
-		  fromMonthLS = "12";
-		  getyearFromLS = getyearLS - 1;
-		} else {
-		  numDaysInFromMonth = 31;
-		  getyearFromLS = getyearLS;
-		}
+// Set the number of days in the fromMonthLS and toMonthLS months
+let numDaysInFromMonth, numDaysInToMonth;
+if (fromMonthLS == 2) {
+  numDaysInFromMonth = 28;
+} else if (fromMonthLS == 4 || fromMonthLS == 6 || fromMonthLS == 9 || fromMonthLS == 11) {
+  numDaysInFromMonth = 30;
+} else if (fromMonthLS == 0) {
+  numDaysInFromMonth = 31;
+  fromMonthLS = "12";
+  getyearFromLS = getyearLS - 1;
+} else {
+  numDaysInFromMonth = 31;
+}
 
-		if (toMonthLS == 2) {
-		  numDaysInToMonth = 28;
-		} else if (toMonthLS == 4 || toMonthLS == 6 || toMonthLS == 9 || toMonthLS == 11) {
-		  numDaysInToMonth = 30;
-		} else {
-		  numDaysInToMonth = 31;
-		}
+if (toMonthLS == 2) {
+  numDaysInToMonth = 28;
+} else if (toMonthLS == 4 || toMonthLS == 6 || toMonthLS == 9 || toMonthLS == 11) {
+  numDaysInToMonth = 30;
+} else {
+  numDaysInToMonth = 31;
+}
 
-		// Set today's day to the last day of the month if it is greater than the number of days in the month
-		let todayLSFrom = getFormattedDateComponent(Math.min(getdateset.getDate(), numDaysInFromMonth));
-		let todayLSTo = getFormattedDateComponent(Math.min(getdateset.getDate(), numDaysInToMonth));
+// Set today's day to the last day of the month if it is greater than the number of days in the month
+let todayLSFrom = getFormattedDateComponent(Math.min(getdateset.getDate(), numDaysInFromMonth));
+let todayLSTo = getFormattedDateComponent(Math.min(getdateset.getDate(), numDaysInToMonth));
 
-		document.getElementById('dateFromChHis').value = getyearFromLS + "-" + getFormattedDateComponent(fromMonthLS) + "-" + todayLSFrom;
-		document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDateComponent(toMonthLS) + "-" + todayLSTo;
+document.getElementById('dateFromChHis').value = getyearFromLS + "-" + getFormattedDateComponent(fromMonthLS) + "-" + todayLSFrom;
+document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDateComponent(toMonthLS) + "-" + todayLSTo;
 
         let radiobtnsarray = document.getElementsByName('chatornotes')
         let radiobtnsarray1 = document.getElementsByName('chatornotes1')
