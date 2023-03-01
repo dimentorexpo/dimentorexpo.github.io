@@ -870,7 +870,7 @@ function noDoubts(object) { // функция для разрешения вво
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != "checkbox-audio-switch" && elem.className != "checkbox-refresh-switch") {
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != "checkbox-audio-switch" && elem.className != "checkbox-refresh-switch" && elem.className != "srvhhelpnomove") {
         return true;
     }
     return false;
@@ -2154,12 +2154,11 @@ function getTextContentByClassName(className, index) {
     if (elements.length > index && elements[index].textContent) {
         return elements[index].textContent;
     }
-    console.log(`Класс ${className} не найден или у элемента с индексом ${index} нет текстового содержимого`);
+    //console.log(`Класс ${className} не найден или у элемента с индексом ${index} нет текстового содержимого`); спамит в консоль, пока отключил.
     return null;
 }
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
-
     try {
         if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
             //            drevo = '';
