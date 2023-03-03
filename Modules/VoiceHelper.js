@@ -15,91 +15,91 @@ recognition.addEventListener('result', (event) => {
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('тт'):
       window.open("https://timetable.skyeng.ru/");
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('админка'):
       openUrl('админка', "https://id.skyeng.ru/admin/users/");
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('платёж'):
       window.open("https://accounting.skyeng.ru/userpayment/search/transaction");
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('трамва') || command.includes('трм'):
       openUrl('TRM', "https://trm.skyeng.ru/teacher/");
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('улоги') || command.includes('логиу') || command.includes('локиу') || command.includes('логи у') || command.includes('тшу'):
       openUrl('УТШ', "https://video-trouble-shooter.skyeng.ru/?userId=");
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('плоги') || command.includes('логи препод') || command.includes('препод логи') || command.includes('логи п') || command.includes('logipe') || command.includes('п логи') || command.includes('тшп'):
       openUrl('ПТШ', "https://video-trouble-shooter.skyeng.ru/?userId=");
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('ТУ') || command.includes('тест') || command.includes('ту'):
       openUrl('ТУ', "https://api-english.skyeng.ru/admin/tech-support-room/create");
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('id у') || command.includes('idу') || command.includes('айдиу') || command.includes('айди у'):
       copyToClipboard1(test_stud_spech);
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('id п') || command.includes('idп') || command.includes('айдип') || command.includes('айди п') || command.includes('idp'):
       copyToClipboard1(test_teach_spech)
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('логинер п') || command.includes('логинерп') || command.includes('логинп') || command.includes('логин п'):
       logginerfortests(test_teach_spech);
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     case command.includes('логинер у') || command.includes('логинеру') || command.includes('логину') || command.includes('логин у'):
       document.getElementById('voicetext').textContent = command + ' ✔';
       logginerfortests(test_stud_spech);
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
       break;
     default:
       console.log("No matching command found");
       document.getElementById('voicetext').textContent = command + '❌';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
-      }, 10000)
+      }, 5000)
   }
 });
 
