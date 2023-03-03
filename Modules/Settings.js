@@ -33,6 +33,7 @@ var win_Settings =  // описание элементов окна ссылок
 
 					<div class="onlyfortp" style="margin-top: 5px; width: 500px">
 						<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+						<button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:90px;">Shift</button>
 						<br>
 						<label id="defaulcolorclschat" style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
 						<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
@@ -40,7 +41,7 @@ var win_Settings =  // описание элементов окна ссылок
 						<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 						<button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
 					</div>
-					
+
 					<div style="margin-top: 5px; width: 500px">
 						<span style="color:bisque; position: relative; left: 30%;">Выберите отдел:</span>
 						<span style="position: relative; left: 30%; background: green; color: white; padding: 5px; border-radius: 5px;" id="operdepout"></span>
@@ -53,7 +54,7 @@ var win_Settings =  // описание элементов окна ссылок
 						<button onclick="WeAreTheChempionsPrem()" id="set_TPPrem" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
 						<br>
 					</div>
-					
+
 						<button id="savesettingstofile" title="Сохраняет все настройки из localstorage в отдельный .json файл" style="color: #e5ece6; margin-top: 5px">💾 Сохранить настройки</button>
 						<input type="file" id="fileinput" title="Загружает все настройки в localstorage из ранее сохраненного файла настроек в формте .json" style="display:none;">
 						<label style="color: #e5ece6; background: #768d87; padding: 5px; border-radius: 5px; border: 1px solid #566963;" for="fileinput">⤵ Загрузить настройки</label>
@@ -91,94 +92,94 @@ wintSettings.onmousedown = function (a) { // изменение позиции �
 wintSettings.onmouseup = function () { document.removeEventListener('mousemove', listenerSettings); } // прекращение изменения позиции окна ссылок
 
 function ShowMustGoOn() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ
-    localStorage.setItem('scriptAdr', KC_addr)
-    location.reload()
+  localStorage.setItem('scriptAdr', KC_addr)
+  location.reload()
 }
 
 function WeAreTheChempions() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП
-    localStorage.setItem('scriptAdr', TP_addr)
-    localStorage.setItem('tpflag', 'ТП')
-    location.reload()
+  localStorage.setItem('scriptAdr', TP_addr)
+  localStorage.setItem('tpflag', 'ТП')
+  location.reload()
 }
 
 function WeAreTheChempionsPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП
-    localStorage.setItem('scriptAdr', TPprem_addr)
-    localStorage.setItem('tpflag', 'ТПPrem')
-    location.reload()
+  localStorage.setItem('scriptAdr', TPprem_addr)
+  localStorage.setItem('tpflag', 'ТПPrem')
+  location.reload()
 }
 
 function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
-    localStorage.setItem('scriptAdr', TP_addrRzrv)
-    localStorage.setItem('tpflag', 'ТП')
-    location.reload()
+  localStorage.setItem('scriptAdr', TP_addrRzrv)
+  localStorage.setItem('tpflag', 'ТП')
+  location.reload()
 }
 
 function AFthePieceofShitPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП резервных тестовых
-    localStorage.setItem('scriptAdr', TPprem_addrRzrv)
-    localStorage.setItem('tpflag', 'ТПPrem')
-    location.reload()
+  localStorage.setItem('scriptAdr', TPprem_addrRzrv)
+  localStorage.setItem('tpflag', 'ТПPrem')
+  location.reload()
 }
 
 function AFthePieceofShitKC() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ резервных тестовых
-    localStorage.setItem('scriptAdr', KC_addrRzrv)
-    location.reload()
+  localStorage.setItem('scriptAdr', KC_addrRzrv)
+  location.reload()
 }
 
 function getLocalstorageToFile(fileName) { //функция сохранения содержимого localstorage в файл на компьютере
 
-    /* dump local storage to string */
+  /* dump local storage to string */
 
-    var a = {};
-    for (var i = 0; i < localStorage.length; i++) {
-        var k = localStorage.key(i);
-        var v = localStorage.getItem(k);
-        a[k] = v;
-    }
+  var a = {};
+  for (var i = 0; i < localStorage.length; i++) {
+    var k = localStorage.key(i);
+    var v = localStorage.getItem(k);
+    a[k] = v;
+  }
 
-    /* save as blob */
+  /* save as blob */
 
-    var textToSave = JSON.stringify(a)
-    var textToSaveAsBlob = new Blob([textToSave], {
-        type: "application/json"
-    });
-    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+  var textToSave = JSON.stringify(a)
+  var textToSaveAsBlob = new Blob([textToSave], {
+    type: "application/json"
+  });
+  var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
 
-    /* download without button hack */
+  /* download without button hack */
 
-    var downloadLink = document.createElement("a");
-    downloadLink.download = fileName;
-    downloadLink.innerHTML = "Download File";
-    downloadLink.href = textToSaveAsURL;
-    downloadLink.onclick = function () {
-        document.body.removeChild(event.target);
-    };
-    downloadLink.style.display = "none";
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
+  var downloadLink = document.createElement("a");
+  downloadLink.download = fileName;
+  downloadLink.innerHTML = "Download File";
+  downloadLink.href = textToSaveAsURL;
+  downloadLink.onclick = function () {
+    document.body.removeChild(event.target);
+  };
+  downloadLink.style.display = "none";
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
 
 }
 
 
 function changesoundaddr() { //функция изменения адреса звука
-    let objSoundList = document.getElementById('soundlistaddr')
+  let objSoundList = document.getElementById('soundlistaddr')
 
-    if (objSoundList.length > 1) {
-        for (let i = 1; i < objSoundList.length; i++) {
-            if (objSoundList[i].selected == true) {
-                if (objSoundList[i].value == "othersound") {
-                    document.getElementById('sound_adr').style.display = ''
-                    document.getElementById('sound_save').style.display = ''
-                } else {
-                    document.getElementById('sound_adr').style.display = 'none'
-                    document.getElementById('sound_save').style.display = 'none'
-                    document.getElementById('sound_adr').value = ""
-                    console.log(objSoundList[i].textContent + ' ' + objSoundList[i].value)
-                    localStorage.setItem('sound_str', objSoundList[i].value)
-                    audio = new Audio(localStorage.getItem('sound_str'))
-                }
-            }
+  if (objSoundList.length > 1) {
+    for (let i = 1; i < objSoundList.length; i++) {
+      if (objSoundList[i].selected == true) {
+        if (objSoundList[i].value == "othersound") {
+          document.getElementById('sound_adr').style.display = ''
+          document.getElementById('sound_save').style.display = ''
+        } else {
+          document.getElementById('sound_adr').style.display = 'none'
+          document.getElementById('sound_save').style.display = 'none'
+          document.getElementById('sound_adr').value = ""
+          console.log(objSoundList[i].textContent + ' ' + objSoundList[i].value)
+          localStorage.setItem('sound_str', objSoundList[i].value)
+          audio = new Audio(localStorage.getItem('sound_str'))
         }
+      }
     }
+  }
 }
 
 // Блок настроек и взаимодействия с ними
@@ -186,322 +187,341 @@ function changesoundaddr() { //функция изменения адреса з
 const soundTestBtn = document.getElementById('sound_test');
 
 soundTestBtn.onclick = function () { // кнопка тест звука
-    const isPlaying = soundTestBtn.innerHTML == '▶';
-    soundTestBtn.innerHTML = isPlaying ? '⏹' : '▶';
-    soundTestBtn.title = isPlaying ? 'Остановить воспроизведение' : 'Проверка звука при добавленной ссылке';
-    if (isPlaying) {
-        audio.play();
-        setTimeout(() => {
-            soundTestBtn.innerHTML = '▶';
-            soundTestBtn.title = 'Проверка звука при добавленной ссылке';
-        }, Number(audio.duration * 1000 + 1).toFixed(0));
-    } else {
-        audio.pause();
-        audio.currentTime = 0;
-    }
+  const isPlaying = soundTestBtn.innerHTML == '▶';
+  soundTestBtn.innerHTML = isPlaying ? '⏹' : '▶';
+  soundTestBtn.title = isPlaying ? 'Остановить воспроизведение' : 'Проверка звука при добавленной ссылке';
+  if (isPlaying) {
+    audio.play();
+    setTimeout(() => {
+      soundTestBtn.innerHTML = '▶';
+      soundTestBtn.title = 'Проверка звука при добавленной ссылке';
+    }, Number(audio.duration * 1000 + 1).toFixed(0));
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+  }
 }
 
 
 if (localStorage.getItem('audiovol') != null) {
-    audio.volume = localStorage.getItem('audiovol');
+  audio.volume = localStorage.getItem('audiovol');
 } else localStorage.setItem('audiovol', 1);
 
 document.getElementById('getnewtmpldata').onclick = getText // по клику на кнопку сработает функция обновления шаблонов из документа
 
 document.getElementById('setting').onclick = function () { // открывает параметры
-    if (document.getElementById('AF_Settings').style.display == '')
-        document.getElementById('AF_Settings').style.display = 'none'
-    else {
-        document.getElementById('AF_Settings').style.display = ''
-        document.getElementById('reminder_bar').style.display = 'none'
-        document.getElementById('addTmp').style.display = 'none'
+  if (document.getElementById('AF_Settings').style.display == '')
+    document.getElementById('AF_Settings').style.display = 'none'
+  else {
+    document.getElementById('AF_Settings').style.display = ''
+    document.getElementById('reminder_bar').style.display = 'none'
+    document.getElementById('addTmp').style.display = 'none'
 
-        if (localStorage.getItem('defaclschatcolor') != null || localStorage.getItem('defaclschatcolor') != undefined) {
-            document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
-        } else {
-            localStorage.setItem('defaclschatcolor', '#FF47CA')
-            document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
-        }
-
-        document.getElementById('aclstimepicker').onchange = function () {
-            localStorage.setItem('defaclschatcolor', this.value)
-        }
-
-        document.getElementById('defaulcolorclschat').ondblclick = function () {
-            localStorage.setItem('defaclschatcolor', '#FF47CA')
-            document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
-        }
-
-        // скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
-
-        const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-        const setTPrezerv = document.getElementById('set_TPrezerv');
-        const setTP = document.getElementById('set_TP');
-        const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
-        const setTPPrem = document.getElementById('set_TPPrem');
-        const operdepout = document.getElementById('operdepout');
-
-        if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
-            setTPrezerv.style.display = "none";
-            setTP.style.display = "none";
-            setPremTPrezerv.style.display = "none";
-            setTPPrem.style.display = "none";
-        } else {
-            setTPrezerv.style.display = "";
-            setTP.style.display = "";
-            setPremTPrezerv.style.display = "";
-            setTPPrem.style.display = "";
-        }
-
-        switch (localStorage.getItem('scriptAdr')) {
-            case TP_addr:
-                operdepout.innerHTML = 'ТП';
-                break;
-            case TP_addrRzrv:
-                operdepout.innerHTML = 'ТП резерв';
-                break;
-            case TPprem_addr:
-                operdepout.innerHTML = 'ТП прем';
-                break;
-            case TPprem_addrRzrv:
-                operdepout.innerHTML = 'ТП прем резерв';
-                break;
-            case KC_addr:
-                operdepout.innerHTML = 'КЦ';
-                break;
-            case KC_addrRzrv:
-                operdepout.innerHTML = 'КЦ резерв';
-                break;
-            default:
-                break;
-        }
-        //
-
-        let objSoundList = document.getElementById('soundlistaddr')
-        let soundsfromdoc;
-        let soundsconteiner;
-
-        async function getsoundsfromdoc() { // загрузка списка звуков из файла
-            const soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec';
-            const response = await fetch(soundsfromdoc);
-            const soundsdata = await response.json();
-            const soundsconteiner = soundsdata.result;
-            console.log(soundsdata.result) //получим список звуков
-            soundsconteiner.forEach((sound) => {
-                if (sound[0] !== '') {
-                    addOption(objSoundList, `${sound[0]}`, `${sound[1]}`)
-                }
-            });
-            Array.prototype.forEach.call(objSoundList.children, (option) => { // проверяем какой звук выбран
-                if (option.value === localStorage.getItem('sound_str')) {
-                    option.selected = true;
-                }
-            });
-            if (objSoundList.children[0].selected) {
-                objSoundList.children[1].selected = true;
-                document.getElementById('sound_adr').style.display = '';
-                document.getElementById('sound_save').style.display = '';
-                document.getElementById('sound_adr').value = localStorage.getItem('sound_str');
-            }
-        }
-
-        if (objSoundList.length < 3) {
-            getsoundsfromdoc()
-        }
-
-        if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
-            document.getElementById('test_std').value = localStorage.getItem('test_stud');
-        } else document.getElementById('test_std').value = "";
-
-        if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
-            document.getElementById('test_teach').value = localStorage.getItem('test_teach');
-        } else document.getElementById('test_teach').value = "";
-
-        //Для таймера автозакрытия
-        if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
-            document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-        } else {
-            localStorage.setItem('aclstime', 12);
-            document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
-        }
-
-        //для таймера autoclose
-
-        document.getElementById('setautoclosetime').onclick = function () {
-            if (document.getElementById('autoclosetime').value != '') {
-                localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
-            } else console.log("Базовое значение равно 12 минут")
-        }
-
-        //Для интервала между воспроизведением звука
-        if (localStorage.getItem('splinter') != null || localStorage.getItem('splinter') != "") {
-            document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
-        } else {
-            localStorage.setItem('splinter', 3);
-            document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
-        }
-
-        document.getElementById('setsoundplayinterval').onclick = function () {
-            if (document.getElementById('soundplayinterval').value != '') {
-                localStorage.setItem('splinter', document.getElementById('soundplayinterval').value);
-            } else console.log("Базовое значение равно 3 секунды")
-        }
-
-        document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
-            localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
-            if (document.getElementById('sound_adr').value == "")
-                audio = new Audio("https://grumstv.github.io/Sounds/msg.mp3");
-            else {
-                audio = new Audio(document.getElementById('sound_adr').value);
-                document.getElementById('sound_save').textContent = "✅";
-                setTimeout(function () {
-                    document.getElementById('sound_save').textContent = "💾";
-                }, 3000);
-            }
-        }
-
-        if (flagLangBut == 0) {
-            document.getElementById('languageAF').onclick = function () {
-                if (this.innerHTML == "Русский") {
-                    this.innerHTML = "Английский";
-                    document.getElementById('AF_helper').style.background = "#EBC7DF"
-                } else {
-                    this.innerHTML = "Русский";
-                    document.getElementById('AF_helper').style.background = "#464451"
-                }
-            }
-        }
-
-        //
-
-        let range = document.getElementById('range');
-        range.value = localStorage.getItem('audiovol');
-
-
-        range.onchange = function () {
-            if (localStorage.getItem('audiovol') != null) {
-                audio.volume = this.value;
-                localStorage.setItem('audiovol', audio.volume);
-            } else localStorage.setItem('audiovol', this.value);
-        }
-
-        //Скрыть окно Л П МВУ
-        let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
-        var lpmboxstatus = document.getElementById('hidelpmwindow');
-        lpmboxstatus.onclick = function () {
-
-            if (!lpmboxstatus.checked) {
-                document.getElementById('testUsers').style.display = "";
-                flaglpm = 0;
-                localStorage.setItem('disablelpmwindow', flaglpm)
-            } else {   // поставить checked, если он не установлен
-                document.getElementById('testUsers').style.display = "none";
-                flaglpm = 1;
-                localStorage.setItem('disablelpmwindow', flaglpm)
-            }
-        }
-
-        if (localStorage.getItem('disablelpmwindow') == 1) {
-            document.getElementById('testUsers').style.display = "none";
-            lpmboxstatus.checked = true;
-        } else {
-            lpmboxstatus.checked = false;
-        }
-
-        document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
-            if (document.getElementById('test_std').value != '') {
-                localStorage.setItem('test_stud', document.getElementById('test_std').value);
-            } else console.log("Ведите ID тестового ученика")
-        }
-
-        document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
-            if (document.getElementById('test_teach').value != '') {
-                localStorage.setItem('test_teach', document.getElementById('test_teach').value);
-            } else console.log("Ведите ID тестового преподавателя")
-        }
-
-        document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
-            getLocalstorageToFile('settings-af')
-        }
-
-        document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
-            let fileInput = document.getElementById('fileinput');
-            let jsonparsed;
-
-            fileInput.addEventListener('change', function (e) {
-                let file = fileInput.files[0];
-                let textType = /.json/;
-
-                if (file.type.match(textType)) {
-                    let reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        console.log(reader.result)
-                        jsonparsed = JSON.parse(reader.result)
-                        console.log(jsonparsed)
-                        console.log(Object.keys(jsonparsed).length)
-                        for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
-                            localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
-                        }
-                        alert("Настройки расширения в localstorage загружены успешно!")
-                    }
-
-                    reader.readAsText(file);
-                } else {
-                    console.log("File not supported!")
-                }
-            });
-        }
-
-        //Скрыть окно выбора языка
-        let flaglng = 0;   // функция чекбокса вкл и откл  информационного окна
-        var lngbtnonoff = document.getElementById('hidelngselector');
-        lngbtnonoff.onclick = function () {
-
-            if (!lngbtnonoff.checked) {
-                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
-                flaglng = 0;
-                localStorage.setItem('disablelngpmwindow', flaglng)
-            } else {   // поставить checked, если он не установлен
-                document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-                flaglng = 1;
-                localStorage.setItem('disablelngpmwindow', flaglng)
-            }
-        }
-
-        if (localStorage.getItem('disablelngpmwindow') == 1) {
-            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-            lngbtnonoff.checked = true;
-        } else {
-            lngbtnonoff.checked = false;
-        }
-
-        if (localStorage.getItem('audio') == '0')
-            document.getElementById('audioswitcher').checked = false;
-        else
-            document.getElementById('audioswitcher').checked = true;
-
-        document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
-
-            if (localStorage.getItem('audio') != null) {
-                if (localStorage.getItem('audio') == '0') {
-                    document.getElementById('audioswitcher').checked = false;
-                    localStorage.setItem('audio', '1');
-                } else if (localStorage.getItem('audio') == '1') {
-                    document.getElementById('audioswitcher').checked = true;
-                    localStorage.setItem('audio', '0');
-                    if (soundintervalset != null) {
-                        clearInterval(soundintervalset)
-                        soundintervalset = null
-                    }
-                }
-            }
-        }
+    let pushToTalkButton = document.getElementById('activateVoiceCommands');
+    if (localStorage.getItem('pushToTalkKeyName')) {
+      pushToTalkButton.textContent = localStorage.getItem('pushToTalkKeyName')
+    } else {
+      localStorage.setItem('pushToTalkKeyCode', 16)
     }
+
+    pushToTalkButton.addEventListener('click', () => {
+      pushToTalkButton.textContent = 'Press a key...';
+      document.addEventListener('keydown', (event) => {
+        pushToTalkButton.textContent = event.code;
+        let pushToTalkValue = event.code;
+        let pushToTalkKeyCode = event.keyCode;
+        localStorage.setItem('pushToTalkKeyName', pushToTalkValue);
+        localStorage.setItem('pushToTalkKeyCode', pushToTalkKeyCode)
+        document.removeEventListener('keydown', event);
+      }, { once: true });
+    });
+
+    if (localStorage.getItem('defaclschatcolor') != null || localStorage.getItem('defaclschatcolor') != undefined) {
+      document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+    } else {
+      localStorage.setItem('defaclschatcolor', '#FF47CA')
+      document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+    }
+
+    document.getElementById('aclstimepicker').onchange = function () {
+      localStorage.setItem('defaclschatcolor', this.value)
+    }
+
+    document.getElementById('defaulcolorclschat').ondblclick = function () {
+      localStorage.setItem('defaclschatcolor', '#FF47CA')
+      document.getElementById('aclstimepicker').value = localStorage.getItem('defaclschatcolor')
+    }
+
+    // скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
+
+    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    const setTPrezerv = document.getElementById('set_TPrezerv');
+    const setTP = document.getElementById('set_TP');
+    const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
+    const setTPPrem = document.getElementById('set_TPPrem');
+    const operdepout = document.getElementById('operdepout');
+
+    if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
+      setTPrezerv.style.display = "none";
+      setTP.style.display = "none";
+      setPremTPrezerv.style.display = "none";
+      setTPPrem.style.display = "none";
+    } else {
+      setTPrezerv.style.display = "";
+      setTP.style.display = "";
+      setPremTPrezerv.style.display = "";
+      setTPPrem.style.display = "";
+    }
+
+    switch (localStorage.getItem('scriptAdr')) {
+      case TP_addr:
+        operdepout.innerHTML = 'ТП';
+        break;
+      case TP_addrRzrv:
+        operdepout.innerHTML = 'ТП резерв';
+        break;
+      case TPprem_addr:
+        operdepout.innerHTML = 'ТП прем';
+        break;
+      case TPprem_addrRzrv:
+        operdepout.innerHTML = 'ТП прем резерв';
+        break;
+      case KC_addr:
+        operdepout.innerHTML = 'КЦ';
+        break;
+      case KC_addrRzrv:
+        operdepout.innerHTML = 'КЦ резерв';
+        break;
+      default:
+        break;
+    }
+    //
+
+    let objSoundList = document.getElementById('soundlistaddr')
+    let soundsfromdoc;
+    let soundsconteiner;
+
+    async function getsoundsfromdoc() { // загрузка списка звуков из файла
+      const soundsfromdoc = 'https://script.google.com/macros/s/AKfycbyD1l-oLcE-BBmyN1QmcHKoi0rwVfCwWjE6cfTqw6Y9QQGAju-9inKbwSOfHCI6qBEjtg/exec';
+      const response = await fetch(soundsfromdoc);
+      const soundsdata = await response.json();
+      const soundsconteiner = soundsdata.result;
+      console.log(soundsdata.result) //получим список звуков
+      soundsconteiner.forEach((sound) => {
+        if (sound[0] !== '') {
+          addOption(objSoundList, `${sound[0]}`, `${sound[1]}`)
+        }
+      });
+      Array.prototype.forEach.call(objSoundList.children, (option) => { // проверяем какой звук выбран
+        if (option.value === localStorage.getItem('sound_str')) {
+          option.selected = true;
+        }
+      });
+      if (objSoundList.children[0].selected) {
+        objSoundList.children[1].selected = true;
+        document.getElementById('sound_adr').style.display = '';
+        document.getElementById('sound_save').style.display = '';
+        document.getElementById('sound_adr').value = localStorage.getItem('sound_str');
+      }
+    }
+
+    if (objSoundList.length < 3) {
+      getsoundsfromdoc()
+    }
+
+    if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
+      document.getElementById('test_std').value = localStorage.getItem('test_stud');
+    } else document.getElementById('test_std').value = "";
+
+    if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
+      document.getElementById('test_teach').value = localStorage.getItem('test_teach');
+    } else document.getElementById('test_teach').value = "";
+
+    //Для таймера автозакрытия
+    if (localStorage.getItem('aclstime') != null || localStorage.getItem('aclstime') != "") {
+      document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+    } else {
+      localStorage.setItem('aclstime', 12);
+      document.getElementById('autoclosetime').value = localStorage.getItem('aclstime');
+    }
+
+    //для таймера autoclose
+
+    document.getElementById('setautoclosetime').onclick = function () {
+      if (document.getElementById('autoclosetime').value != '') {
+        localStorage.setItem('aclstime', document.getElementById('autoclosetime').value);
+      } else console.log("Базовое значение равно 12 минут")
+    }
+
+    //Для интервала между воспроизведением звука
+    if (localStorage.getItem('splinter') != null || localStorage.getItem('splinter') != "") {
+      document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
+    } else {
+      localStorage.setItem('splinter', 3);
+      document.getElementById('soundplayinterval').value = localStorage.getItem('splinter');
+    }
+
+    document.getElementById('setsoundplayinterval').onclick = function () {
+      if (document.getElementById('soundplayinterval').value != '') {
+        localStorage.setItem('splinter', document.getElementById('soundplayinterval').value);
+      } else console.log("Базовое значение равно 3 секунды")
+    }
+
+    document.getElementById('sound_save').onclick = function () { //функция сохранения адреса звукового уведомления о входящем чате в АФ
+      localStorage.setItem('sound_str', document.getElementById('sound_adr').value);
+      if (document.getElementById('sound_adr').value == "")
+        audio = new Audio("https://grumstv.github.io/Sounds/msg.mp3");
+      else {
+        audio = new Audio(document.getElementById('sound_adr').value);
+        document.getElementById('sound_save').textContent = "✅";
+        setTimeout(function () {
+          document.getElementById('sound_save').textContent = "💾";
+        }, 3000);
+      }
+    }
+
+    if (flagLangBut == 0) {
+      document.getElementById('languageAF').onclick = function () {
+        if (this.innerHTML == "Русский") {
+          this.innerHTML = "Английский";
+          document.getElementById('AF_helper').style.background = "#EBC7DF"
+        } else {
+          this.innerHTML = "Русский";
+          document.getElementById('AF_helper').style.background = "#464451"
+        }
+      }
+    }
+
+    //
+
+    let range = document.getElementById('range');
+    range.value = localStorage.getItem('audiovol');
+
+
+    range.onchange = function () {
+      if (localStorage.getItem('audiovol') != null) {
+        audio.volume = this.value;
+        localStorage.setItem('audiovol', audio.volume);
+      } else localStorage.setItem('audiovol', this.value);
+    }
+
+    //Скрыть окно Л П МВУ
+    let flaglpm = 0;   // функция чекбокса вкл и откл  информационного окна
+    var lpmboxstatus = document.getElementById('hidelpmwindow');
+    lpmboxstatus.onclick = function () {
+
+      if (!lpmboxstatus.checked) {
+        document.getElementById('testUsers').style.display = "";
+        flaglpm = 0;
+        localStorage.setItem('disablelpmwindow', flaglpm)
+      } else {   // поставить checked, если он не установлен
+        document.getElementById('testUsers').style.display = "none";
+        flaglpm = 1;
+        localStorage.setItem('disablelpmwindow', flaglpm)
+      }
+    }
+
+    if (localStorage.getItem('disablelpmwindow') == 1) {
+      document.getElementById('testUsers').style.display = "none";
+      lpmboxstatus.checked = true;
+    } else {
+      lpmboxstatus.checked = false;
+    }
+
+    document.getElementById('setteststd').onclick = function () { // сохраняется ID в настройках расширения тестового ученика в localstorage
+      if (document.getElementById('test_std').value != '') {
+        localStorage.setItem('test_stud', document.getElementById('test_std').value);
+      } else console.log("Ведите ID тестового ученика")
+    }
+
+    document.getElementById('settestteach').onclick = function () { // сохраняется ID в настройках расширения тестового учителя в localstorage
+      if (document.getElementById('test_teach').value != '') {
+        localStorage.setItem('test_teach', document.getElementById('test_teach').value);
+      } else console.log("Ведите ID тестового преподавателя")
+    }
+
+    document.getElementById('savesettingstofile').onclick = function () {  // по клику на кнопку Сохранить настройки сохраянется на жесткомм диске файл с содержимым localstorage
+      getLocalstorageToFile('settings-af')
+    }
+
+    document.getElementById('fileinput').onclick = function () { // по клику на кнопку Загрузить настройки предлагает выбрать файл настроек, добавлять при этом ранее сохраненный в формате .json
+      let fileInput = document.getElementById('fileinput');
+      let jsonparsed;
+
+      fileInput.addEventListener('change', function (e) {
+        let file = fileInput.files[0];
+        let textType = /.json/;
+
+        if (file.type.match(textType)) {
+          let reader = new FileReader();
+
+          reader.onload = function (e) {
+            console.log(reader.result)
+            jsonparsed = JSON.parse(reader.result)
+            console.log(jsonparsed)
+            console.log(Object.keys(jsonparsed).length)
+            for (let i = 0; i < Object.keys(jsonparsed).length; i++) {
+              localStorage.setItem(Object.keys(jsonparsed)[i], Object.values(jsonparsed)[i])
+            }
+            alert("Настройки расширения в localstorage загружены успешно!")
+          }
+
+          reader.readAsText(file);
+        } else {
+          console.log("File not supported!")
+        }
+      });
+    }
+
+    //Скрыть окно выбора языка
+    let flaglng = 0;   // функция чекбокса вкл и откл  информационного окна
+    var lngbtnonoff = document.getElementById('hidelngselector');
+    lngbtnonoff.onclick = function () {
+
+      if (!lngbtnonoff.checked) {
+        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
+        flaglng = 0;
+        localStorage.setItem('disablelngpmwindow', flaglng)
+      } else {   // поставить checked, если он не установлен
+        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+        flaglng = 1;
+        localStorage.setItem('disablelngpmwindow', flaglng)
+      }
+    }
+
+    if (localStorage.getItem('disablelngpmwindow') == 1) {
+      document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
+      lngbtnonoff.checked = true;
+    } else {
+      lngbtnonoff.checked = false;
+    }
+
+    if (localStorage.getItem('audio') == '0')
+      document.getElementById('audioswitcher').checked = false;
+    else
+      document.getElementById('audioswitcher').checked = true;
+
+    document.getElementsByClassName('checkbox-audio-switch')[0].onclick = function () {  // функция переключатели звука ВКЛ и ВЫКЛ
+
+      if (localStorage.getItem('audio') != null) {
+        if (localStorage.getItem('audio') == '0') {
+          document.getElementById('audioswitcher').checked = false;
+          localStorage.setItem('audio', '1');
+        } else if (localStorage.getItem('audio') == '1') {
+          document.getElementById('audioswitcher').checked = true;
+          localStorage.setItem('audio', '0');
+          if (soundintervalset != null) {
+            clearInterval(soundintervalset)
+            soundintervalset = null
+          }
+        }
+      }
+    }
+  }
 }
 
-document.getElementById('hideMeSettings').onclick = function() {
-	document.getElementById('AF_Settings').style.display ='none'
+document.getElementById('hideMeSettings').onclick = function () {
+  document.getElementById('AF_Settings').style.display = 'none'
 }
 
 // конец блока настроек
