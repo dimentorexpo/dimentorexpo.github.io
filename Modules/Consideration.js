@@ -14,7 +14,7 @@ var win_Infoconsid =  // описание элементов окна ссыло
 
 let wintInfoconsid = document.createElement('div'); // создание окна ссылок
 wintInfoconsid.style.display = 'none';
-wintInfoconsid.innerHTML = win_Infoconsid;
+wintInfoconsid.append(win_Infoconsid);
 
 function startchecking(){
     if (document.URL == 'https://billing-marketing.skyeng.ru/accrual-operations/create') {
