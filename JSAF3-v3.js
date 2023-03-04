@@ -1,5 +1,4 @@
 ﻿let pldata;
-//let drevo;
 let afopername; // переменная фамилии, имени оператора при переборе общего списка операторов
 let foundarr;
 let flagsearch;
@@ -958,10 +957,6 @@ async function buttonsFromDoc(butName) { // функция отправки ша
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
         if (document.getElementById('languageAF').innerHTML == "Русский") {
-            /*if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Я виртуальный помощник Skyeng' && document.getElementById('msg1').innerHTML == "Доработать") {
-                // console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
-                txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-            } else*/ // отключил проверку общался до нас бот или нет.
             if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
                 txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
             else
@@ -1771,7 +1766,6 @@ function checkEducationServiceInput() {
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
         if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
-            //            drevo = '';
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
