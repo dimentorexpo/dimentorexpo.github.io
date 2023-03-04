@@ -30,7 +30,7 @@ function addinformationform() {
     let TPcomp = document.getElementsByClassName('card-header')
     for (y = 0; y < TPcomp.length; y++) {
         if (TPcomp[y].innerText == 'Компенсация за технические проблемы') {
-            formtoin = document.getElementsByClassName('ng-untouched ng-pristine ng-invalid')[0]
+            formtoin = document.getElementsByClassName('card-body')[0]
             formtoin.insertBefore(wintInfoconsid, formtoin.children[0])
             wintInfoconsid.style.display = ''
         }
