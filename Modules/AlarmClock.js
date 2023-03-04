@@ -47,6 +47,157 @@ wintAlarmclock.onmousedown = function (a) { // изменение позиции
 }
 wintAlarmclock.onmouseup = function () { document.removeEventListener('mousemove', listenerAlarmclock); } // прекращение изменения позиции окна будильника
 
+function clock_on_javascript_1() {  //таймер обычного отсчета текущего времени
+    // Get the current date and time
+    const date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
+
+    // Add a leading zero to hours, minutes, and seconds if they are less than 10
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    // Concatenate the hours, minutes, and seconds into a single string
+    const time = `${hours} : ${minutes} : ${seconds}`;
+
+    // Set the text content of the clock_js element to the time string
+    document.getElementById("clock_js").textContent = time;
+}
+
+function clock_on_javascript_2() { //таймер отсчета до срабатывания будильника #1
+    var data = new Date();
+    var currentHours = data.getHours();
+    var currentMinutes = data.getMinutes();
+    var currentSeconds = data.getSeconds();
+
+    if (localStorage.getItem('setchas')){
+    var setHours = JSON.parse(localStorage.getItem('setchas'));
+    var setMinutes = JSON.parse(localStorage.getItem('setminuta'));
+    }
+
+    if (localStorage.getItem('chronostamp') === null) {
+        time = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin").innerHTML = time;
+        return;
+    }
+
+    var remainingSeconds = (setHours - currentHours) * 3600 + (setMinutes - currentMinutes) * 60 - currentSeconds;
+    if (remainingSeconds <= 0) {
+        time = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin").innerHTML = time;
+        return;
+    }
+
+    var remainingMinutes = Math.floor(remainingSeconds / 60);
+    remainingSeconds = remainingSeconds % 60;
+    var remainingHours = Math.floor(remainingMinutes / 60);
+    remainingMinutes = remainingMinutes % 60;
+
+    time = (remainingHours < 10 ? "0" + remainingHours : remainingHours) + " : " + (remainingMinutes < 10 ? "0" + remainingMinutes : remainingMinutes) + " : " + (remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds);
+    document.getElementById("clock_remin").innerHTML = time;
+}
+
+function clock_on_javascript_3() { //таймер отсчета до срабатывания будильника #2
+    var data1 = new Date();
+    var currentHours1 = data1.getHours();
+    var currentMinutes1 = data1.getMinutes();
+    var currentSeconds1 = data1.getSeconds();
+
+    if (localStorage.getItem('setchas1')){
+    var setHours1 = JSON.parse(localStorage.getItem('setchas1'));
+    var setMinutes1 = JSON.parse(localStorage.getItem('setminuta1'));
+    }
+
+    if (localStorage.getItem('chronostamp1') === null) {
+        time1 = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin1").innerHTML = time1;
+        return;
+    }
+
+    var remainingSeconds1 = (setHours1 - currentHours1) * 3600 + (setMinutes1 - currentMinutes1) * 60 - currentSeconds1;
+    if (remainingSeconds1 <= 0) {
+        time1 = "00" + " : " + "00" + " : " + "00";
+        document.getElementById("clock_remin1").innerHTML = time1;
+        return;
+    }
+
+    var remainingMinutes1 = Math.floor(remainingSeconds1 / 60);
+    remainingSeconds1 = remainingSeconds1 % 60;
+    var remainingHours1 = Math.floor(remainingMinutes1 / 60);
+    remainingMinutes1 = remainingMinutes1 % 60;
+
+    time1 = (remainingHours1 < 10 ? "0" + remainingHours1 : remainingHours1) + " : " + (remainingMinutes1 < 10 ? "0" + remainingMinutes1 : remainingMinutes1) + " : " + (remainingSeconds1 < 10 ? "0" + remainingSeconds1 : remainingSeconds1);
+    document.getElementById("clock_remin1").innerHTML = time1;
+}
+
+function refreshTimerReminder() {
+    if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+        setchas.value = localStorage.getItem('setchas');
+        setminuta.value = localStorage.getItem('setminuta');
+        var timearr = new Date();
+        var chronostamp2 = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp2', chronostamp2);
+        abortTimeOut = setTimeout(function () {
+            setRemindAf('chronostamp')
+        }, localStorage.getItem('chronostamp2'));
+    } else if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+        document.getElementById('reminderstatus').textContent = "🔔";
+        setchas1.value = localStorage.getItem('setchas1');
+        setminuta1.value = localStorage.getItem('setminuta1');
+        var timearr1 = new Date();
+        var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+        localStorage.setItem('chronostamp22', chronostamp22);
+		abortTimeOut1 = setTimeout(function () {
+		setRemindAf('chronostamp1')
+		}, localStorage.getItem('chronostamp22'));
+		} else {
+		clearTimeout(abortTimeOut);
+		clearTimeout(abortTimeOut1);
+		document.getElementById('reminderstatus').textContent = "🔕";
+		}
+}
+
+function setRemindAf(tsname) { //функция  при наступлении времени перевода в статус занят Будильник №1
+    const data = {
+        command: "DO_SET_OPERATOR_STATUS",
+        status: "Busy",
+        source: "Operator"
+    };
+
+    fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+        mode: "cors",
+        credentials: "include"
+    });
+
+    alert("Время ставить занят! :D");
+    localStorage.removeItem(tsname);
+
+    const reminderstatus = document.getElementById('reminderstatus');
+    if (!localStorage.getItem('chronostamp') && !localStorage.getItem('chronostamp1')) {
+        reminderstatus.textContent = "🔕";
+    } else {
+        reminderstatus.textContent = "🔔";
+    }
+
+    if (tsname === 'chronostamp') {
+        setchas.value = "";
+        setminuta.value = "";
+        localStorage.removeItem('setchas');
+        localStorage.removeItem('setminuta');
+    } else if (tsname === 'chronostamp1') {
+        setchas1.value = "";
+        setminuta1.value = "";
+        localStorage.removeItem('setchas1');
+        localStorage.removeItem('setminuta1');
+    }
+}
+
 // блок работы с будильником
 document.getElementById('reminderstatus').onclick = function () { // открывает настройки будильника
     if (document.getElementById('AF_AlarmClock').style.display == '')
