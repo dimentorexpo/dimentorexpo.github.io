@@ -25,8 +25,7 @@ function startchecking(){
 }
 
 function addinformationform() {
-    let TPcomp = document.getElementsByClassName('card-header')
-    
+    let TPcomp = document.getElementsByClassName('card-header')    
     for (y = 0; y < TPcomp.length; y++) {
         if (TPcomp[y].innerText == 'Компенсация за технические проблемы') {
             if (flaginsert == 0){
