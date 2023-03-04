@@ -1,3 +1,22 @@
+if (localStorage.getItem('defaclschatcolor')) {
+		localStorage.setItem('defaclschatcolor', '#FF47CA')
+	}
+	
+//Для таймера автозакрытия
+if (localStorage.getItem('aclstime') == null) {
+    localStorage.setItem('aclstime', 12);
+}
+
+//Для интервала воспроизведения звука
+if (localStorage.getItem('splinter') == null) {
+    localStorage.setItem('splinter', 3);
+}
+
+// Для переключателя вкл/выкл звук
+if (localStorage.getItem('audio') == null) {
+    localStorage.setItem('audio', 1);
+}
+
 var win_Settings =  // описание элементов окна ссылок
   `<span style="width: 500px">
 			<span style="cursor: -webkit-grab;">

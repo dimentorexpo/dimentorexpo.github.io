@@ -33,16 +33,12 @@ var operatorsarray = []; //массив операторов , который п
 var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
 var abortTimeOut1 = ''
+var modulesarray = [];
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }						// перменная для отмены будильника 2
 
-if (localStorage.getItem('defaclschatcolor') == null || localStorage.getItem('defaclschatcolor') == undefined)
-    localStorage.setItem('defaclschatcolor', '#FF47CA')
-
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
-var modulesarray = [];
-
 var win_AFhelper =  // описание элементов главного окна
     `<div style="width: 351px;">
         <span style="width: 351px">
@@ -830,7 +826,7 @@ async function sendComment(txt) { // функция отправки комме�
     });
 }
 
-function logginerfortests(polzovatel) {
+function logginerfortests(polzovatel) { // функция логинера для тестовых У/П
     const requestBody = `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}`;
     const requestHeaders = {
         'content-type': 'application/x-www-form-urlencoded',
@@ -2415,21 +2411,6 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
     localStorage.setItem('winLeftRefuseNew', '295');
 }
 
-//Для таймера автозакрытия
-if (localStorage.getItem('aclstime') == null) {
-    localStorage.setItem('aclstime', 12);
-}
-
-//Для интервала воспроизведения звука
-if (localStorage.getItem('splinter') == null) {
-    localStorage.setItem('splinter', 3);
-}
-
-// Для переключателя вкл/выкл звук
-if (localStorage.getItem('audio') == null) {
-    localStorage.setItem('audio', 1);
-}
-
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
@@ -2455,10 +2436,6 @@ wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; 
 wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
-
-//if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
-//    document.getElementById('AF_helper').style.display = 'none';
-//}
 
 var listenerAF = function (e, a) { // сохранение позиции главного окна
     wintAF.style.left = Number(e.clientX - myX2) + "px";
@@ -2705,7 +2682,6 @@ buttonservstud.onclick = function () { //открывает окно вензе�
     }
 }
 
-
 nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
     const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
     Array.prototype.forEach.call(userDetailsList.childNodes, (node) => {
@@ -2832,7 +2808,6 @@ butmenu.onclick = () => { // кнопка открытия Меню
     }
 }
 
-
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
 maskBack.innerHTML = "Вернуть"
@@ -2865,7 +2840,6 @@ maskBack.onclick = function () { // кнопка свернуть
         setTimeout(function () { maskBack.innerHTML = "Вернуть"; }, 3000);
     }
 };
-
 
 let maskBackHide = document.createElement('span')
 maskBackHide.id = "maskBackHide"
@@ -2965,14 +2939,12 @@ document.getElementById('testUsers').ondblclick = function (a) {
 };
 
 setInterval(screenshots, 5000)
-
 setInterval(setactivechatstyle, 1000)
-
 setInterval(addbuttonsintegration, 1000)
-
 setInterval(remandressl, 3000);
-
 setInterval(closeTerms, 500);
+setInterval(checJiraF, 1000);
+setInterval(checkthemestatus, 3000);
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     // Find the 'teacher' user type and get the user's id.
@@ -3027,11 +2999,6 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
         copyToClipboard1(getservidst);
     }
 }
-
-
-setInterval(checJiraF, 1000);
-
-setInterval(checkthemestatus, 3000);
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
@@ -3148,8 +3115,6 @@ document.getElementById('snd').onclick = function () { //функция отпр
     if (phoneTr) phoneTr.value = '';
     if (emailTr) emailTr.value = '';
 };
-
-
 
 document.getElementById('opandclsbarhyper').onclick = function () { // функция открытия формы для добавления гиперссылки
     if (document.getElementById('hyperlnk').classList.contains('hyper-active') == false) {
@@ -3505,7 +3470,6 @@ let intervalotak = setInterval(function () {
     }
 
 }, 1000)
-
 
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd'];
