@@ -2150,14 +2150,13 @@ function requestsRed() { //функция окрашивает в красный
 }
 
 function checkEducationServiceInput() {
-    let flagusluga = false
     const elements = document.getElementsByTagName('span');
     for (i = 0; i < elements.length; i++){
         if (elements[i].textContent = 'Выбор услуги:'){ 
-            flagusluga = true 
+            return true 
         }
     }
-    return flagusluga
+    return false
 }
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
@@ -2169,7 +2168,7 @@ async function checkthemestatus() { //функция проверки выста
             }).then(r => r.json()).then(r => pldata = r)
 
             let uslugstr
-            uslugstr = checkEducationServiceInput
+            uslugstr = checkEducationServiceInput()
 
             if (pldata.payload.topicId.value == ""){
                 const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
