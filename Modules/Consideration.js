@@ -12,7 +12,8 @@ var win_Infoconsid =  // описание элементов окна ссыло
                 <p style="color:red"><b> Обязательно добавь ссылку на задачу в Jira </b></p>
             </div>
         </div>
-    </span>`;
+    </span>
+    <br>`;
 
 let wintInfoconsid = document.createElement('div'); // создание окна ссылок
 document.body.append(wintInfoconsid);
