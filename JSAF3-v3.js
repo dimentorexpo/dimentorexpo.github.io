@@ -446,7 +446,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
-        // document.getElementById('AF_Links').style.display = 'none';
+        /* if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
+            include("https://dimentorexpo.github.io/Modules/Consideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
+        } */
     } else {
         let mystyles = document.createElement('link')
 		mystyles.rel = 'stylesheet'
