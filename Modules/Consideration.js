@@ -1,19 +1,16 @@
 var win_Infoconsid =  // описание элементов окна ссылок
-    `<span style="width: 800px">
-        <div style="width: 800px; font-size: 0.8rem;">
-            <div style="width: 49%; float: left;">
-                <p><b>Если передаешь компенсацию урока из-за серверных</b></p>
-                <p style="color:red"><b> •Добавь ссылку на disaster или ссылку на трэд<br>
-                •Напиши дату и время урока<br>
-                •Укажи какой статус урока выставлен</b></p>
-            </div>
-            <div style="width: 49%;float: right">
-                <p><b>Если делаешь запрос на компенсацию “повторное обращение по багу в мобильном приложении”</b></p> 
-                <p style="color:red"><b> Обязательно добавь ссылку на задачу в Jira </b></p>
-            </div>
+    `<div style="width: 800px; font-size: 0.8rem;">
+        <div style="width: 49%; float: left;">
+            <p><b>Если передаешь компенсацию урока из-за серверных</b></p>
+            <p style="color:red"><b> •Добавь ссылку на disaster или ссылку на трэд<br>
+            •Напиши дату и время урока<br>
+            •Укажи какой статус урока выставлен</b></p>
         </div>
-    </span>
-    <br>`;
+        <div style="width: 49%;float: right">
+            <p><b>Если делаешь запрос на компенсацию “повторное обращение по багу в мобильном приложении”</b></p> 
+            <p style="color:red"><b> Обязательно добавь ссылку на задачу в Jira </b></p>
+        </div>
+    </div>`;
 
 let wintInfoconsid = document.createElement('div'); // создание окна ссылок
 document.body.append(wintInfoconsid);
