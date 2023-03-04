@@ -182,6 +182,54 @@ function changesoundaddr() { //функция изменения адреса з
   }
 }
 
+function paintstatus() { //функция перекрашивания статуса оператора онлайн зеленый, занят желтый, офлайн и перерыв красные
+    const statusElem = document.querySelectorAll('.user_menu-status-name')[1];
+    const buttonElems = document.querySelectorAll('.ant-btn');
+    if (!statusElem) {
+        return;
+    }
+
+    let color;
+    let text;
+    switch (statusElem.textContent) {
+        case "Офлайн":
+            color = "red";
+            text = "Офлайн";
+            break;
+        case "Перерыв":
+            color = "red";
+            text = "Перерыв";
+            break;
+        case "Онлайн":
+            color = "green";
+            text = "Онлайн";
+            break;
+        case "Занят":
+            color = "yellow";
+            text = "Занят";
+            break;
+    }
+
+    if (color) {
+        let style = `background: ${color}; color: white; font-weight: 700`;
+        if (color === "yellow") {
+            style += "; color: black";
+        }
+        statusElem.style = style;
+
+        let buttonElem;
+        if (document.URL === "https://skyeng.autofaq.ai/tickets/archive") {
+            buttonElem = buttonElems[5];
+        } else {
+            buttonElem = buttonElems[4];
+        }
+
+        if (buttonElem && buttonElem.textContent === text) {
+            buttonElem.style.background = color;
+        }
+    }
+}
+
 // Блок настроек и взаимодействия с ними
 
 const soundTestBtn = document.getElementById('sound_test');
@@ -525,3 +573,5 @@ document.getElementById('hideMeSettings').onclick = function () {
 }
 
 // конец блока настроек
+
+setInterval(paintstatus, 5000); //  вызов функции перекрашивания статуса в котором оператор находится

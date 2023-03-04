@@ -2192,54 +2192,6 @@ async function remandressl() { // функция добавляения масс
 
 }
 
-function paintstatus() { //функция перекрашивания статуса оператора онлайн зеленый, занят желтый, офлайн и перерыв красные
-    const statusElem = document.querySelectorAll('.user_menu-status-name')[1];
-    const buttonElems = document.querySelectorAll('.ant-btn');
-    if (!statusElem) {
-        return;
-    }
-
-    let color;
-    let text;
-    switch (statusElem.textContent) {
-        case "Офлайн":
-            color = "red";
-            text = "Офлайн";
-            break;
-        case "Перерыв":
-            color = "red";
-            text = "Перерыв";
-            break;
-        case "Онлайн":
-            color = "green";
-            text = "Онлайн";
-            break;
-        case "Занят":
-            color = "yellow";
-            text = "Занят";
-            break;
-    }
-
-    if (color) {
-        let style = `background: ${color}; color: white; font-weight: 700`;
-        if (color === "yellow") {
-            style += "; color: black";
-        }
-        statusElem.style = style;
-
-        let buttonElem;
-        if (document.URL === "https://skyeng.autofaq.ai/tickets/archive") {
-            buttonElem = buttonElems[5];
-        } else {
-            buttonElem = buttonElems[4];
-        }
-
-        if (buttonElem && buttonElem.textContent === text) {
-            buttonElem.style.background = color;
-        }
-    }
-}
-
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
     if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
@@ -3080,8 +3032,6 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
 setInterval(checJiraF, 1000);
 
 setInterval(checkthemestatus, 3000);
-
-setInterval(paintstatus, 5000);
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
