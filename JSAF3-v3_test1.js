@@ -1,5 +1,4 @@
 ﻿let pldata;
-//let drevo;
 let afopername; // переменная фамилии, имени оператора при переборе общего списка операторов
 let foundarr;
 let flagsearch;
@@ -33,16 +32,12 @@ var operatorsarray = []; //массив операторов , который п
 var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
 var abortTimeOut1 = ''
+var modulesarray = [];
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }						// перменная для отмены будильника 2
 
-if (localStorage.getItem('defaclschatcolor') == null || localStorage.getItem('defaclschatcolor') == undefined)
-    localStorage.setItem('defaclschatcolor', '#FF47CA')
-
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
-var modulesarray = [];
-
 var win_AFhelper =  // описание элементов главного окна
     `<div style="width: 351px;">
         <span style="width: 351px">
@@ -446,9 +441,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
-        /* if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
+        if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
             include("https://dimentorexpo.github.io/Modules/Consideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
-        } */
+        }
     } else {
         let mystyles = document.createElement('link')
 		mystyles.rel = 'stylesheet'
@@ -582,8 +577,6 @@ function timerHideButtons() { //функция добавления скрыти
                 });
             }
         }
-
-
     }
 }
 
@@ -702,7 +695,6 @@ function prepTp() { //функция подготовки расширения �
     }).catch(function (gfgData) {
         console.log(gfgData + " failed to load!");
     });
-
 }
 
 function prepKC() { //функция подготовки расширения КЦ
@@ -764,10 +756,8 @@ function prepKC() { //функция подготовки расширения �
     }, 2000)
 
     setTimeout(function () {
-
         include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 		customTemplates()
-
     }, 4000)
 }
 
@@ -830,7 +820,7 @@ async function sendComment(txt) { // функция отправки комме�
     });
 }
 
-function logginerfortests(polzovatel) {
+function logginerfortests(polzovatel) { // функция логинера для тестовых У/П
     const requestBody = `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}`;
     const requestHeaders = {
         'content-type': 'application/x-www-form-urlencoded',
@@ -962,10 +952,6 @@ async function buttonsFromDoc(butName) { // функция отправки ша
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
 
         if (document.getElementById('languageAF').innerHTML == "Русский") {
-            /*if (drevo != null && drevo != undefined && drevo[0] == 'Здравствуйте! Я виртуальный помощник Skyeng' && document.getElementById('msg1').innerHTML == "Доработать") {
-                // console.log("Проверка, что бот писал Здравствуйте пройдена!", drevo[0])
-                txt = "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
-            } else*/ // отключил проверку общался до нас бот или нет.
             if (cyrillicPattern.test(a[0]) && a[0] != "Неизвестный" && document.getElementById('msg1').innerHTML == "Доработать")
                 txt = "Здравствуйте, " + a[0] + "!" + '\r\n' + "Просматриваю информацию по вашему запросу. Вернусь с ответом или за уточнениями через несколько минут."
             else
@@ -1775,7 +1761,6 @@ function checkEducationServiceInput() {
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
         if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
-            //            drevo = '';
             let temparr = document.location.pathname.split('/')[3];
             await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
@@ -2192,54 +2177,6 @@ async function remandressl() { // функция добавляения масс
 
 }
 
-function paintstatus() { //функция перекрашивания статуса оператора онлайн зеленый, занят желтый, офлайн и перерыв красные
-    const statusElem = document.querySelectorAll('.user_menu-status-name')[1];
-    const buttonElems = document.querySelectorAll('.ant-btn');
-    if (!statusElem) {
-        return;
-    }
-
-    let color;
-    let text;
-    switch (statusElem.textContent) {
-        case "Офлайн":
-            color = "red";
-            text = "Офлайн";
-            break;
-        case "Перерыв":
-            color = "red";
-            text = "Перерыв";
-            break;
-        case "Онлайн":
-            color = "green";
-            text = "Онлайн";
-            break;
-        case "Занят":
-            color = "yellow";
-            text = "Занят";
-            break;
-    }
-
-    if (color) {
-        let style = `background: ${color}; color: white; font-weight: 700`;
-        if (color === "yellow") {
-            style += "; color: black";
-        }
-        statusElem.style = style;
-
-        let buttonElem;
-        if (document.URL === "https://skyeng.autofaq.ai/tickets/archive") {
-            buttonElem = buttonElems[5];
-        } else {
-            buttonElem = buttonElems[4];
-        }
-
-        if (buttonElem && buttonElem.textContent === text) {
-            buttonElem.style.background = color;
-        }
-    }
-}
-
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
     if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
@@ -2463,21 +2400,6 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
     localStorage.setItem('winLeftRefuseNew', '295');
 }
 
-//Для таймера автозакрытия
-if (localStorage.getItem('aclstime') == null) {
-    localStorage.setItem('aclstime', 12);
-}
-
-//Для интервала воспроизведения звука
-if (localStorage.getItem('splinter') == null) {
-    localStorage.setItem('splinter', 3);
-}
-
-// Для переключателя вкл/выкл звук
-if (localStorage.getItem('audio') == null) {
-    localStorage.setItem('audio', 1);
-}
-
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
@@ -2503,10 +2425,6 @@ wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; 
 wintRefuseFormNew.style.display = 'none';
 wintRefuseFormNew.setAttribute('id', 'AF_Refuseformnew');
 wintRefuseFormNew.innerHTML = win_refusefrom;
-
-//if (window.location.href.indexOf('autofaq') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
-//    document.getElementById('AF_helper').style.display = 'none';
-//}
 
 var listenerAF = function (e, a) { // сохранение позиции главного окна
     wintAF.style.left = Number(e.clientX - myX2) + "px";
@@ -2753,7 +2671,6 @@ buttonservstud.onclick = function () { //открывает окно вензе�
     }
 }
 
-
 nextuserinfo.onclick = function () { // открывает просмотр инфо о пользователе взаимодействуя со скриптом Script Package
     const userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
     Array.prototype.forEach.call(userDetailsList.childNodes, (node) => {
@@ -2880,7 +2797,6 @@ butmenu.onclick = () => { // кнопка открытия Меню
     }
 }
 
-
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
 maskBack.innerHTML = "Вернуть"
@@ -2913,7 +2829,6 @@ maskBack.onclick = function () { // кнопка свернуть
         setTimeout(function () { maskBack.innerHTML = "Вернуть"; }, 3000);
     }
 };
-
 
 let maskBackHide = document.createElement('span')
 maskBackHide.id = "maskBackHide"
@@ -3013,14 +2928,12 @@ document.getElementById('testUsers').ondblclick = function (a) {
 };
 
 setInterval(screenshots, 5000)
-
 setInterval(setactivechatstyle, 1000)
-
 setInterval(addbuttonsintegration, 1000)
-
 setInterval(remandressl, 3000);
-
 setInterval(closeTerms, 500);
+setInterval(checJiraF, 1000);
+setInterval(checkthemestatus, 3000);
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     // Find the 'teacher' user type and get the user's id.
@@ -3075,13 +2988,6 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
         copyToClipboard1(getservidst);
     }
 }
-
-
-setInterval(checJiraF, 1000);
-
-setInterval(checkthemestatus, 3000);
-
-setInterval(paintstatus, 5000);
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
@@ -3198,8 +3104,6 @@ document.getElementById('snd').onclick = function () { //функция отпр
     if (phoneTr) phoneTr.value = '';
     if (emailTr) emailTr.value = '';
 };
-
-
 
 document.getElementById('opandclsbarhyper').onclick = function () { // функция открытия формы для добавления гиперссылки
     if (document.getElementById('hyperlnk').classList.contains('hyper-active') == false) {
@@ -3555,7 +3459,6 @@ let intervalotak = setInterval(function () {
     }
 
 }, 1000)
-
 
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd'];
