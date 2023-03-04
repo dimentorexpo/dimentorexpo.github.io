@@ -2815,12 +2815,6 @@ butLessonInfo.title = "Открывает меню для просмотра с�
 butLessonInfo.innerHTML = "🎓 Lesson Info"
 butLessonInfo.classList.add('inithide');
 
-// let servDsk = document.createElement('div')
-// servDsk.id = "servDsk"
-// servDsk.innerHTML = "🛠ServiceDesk"
-// servDsk.classList.add('onlyfortp');
-// servDsk.classList.add('inithide');
-
 let butopensugestform = document.createElement('div')
 butopensugestform.id = "suggestform"
 butopensugestform.innerHTML = "📝Предложения"
