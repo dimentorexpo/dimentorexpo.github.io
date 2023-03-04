@@ -2,9 +2,11 @@ let infoconsideration  = document.createElement('p');
 infoconsideration.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
 infoconsideration.style.display = 'none';
 
-if (document.URL == 'https://billing-marketing.skyeng.ru/accrual-operations/create') {
-    document.getElementById('selectedOperation').addEventListener("change", checkforaddinform)
 
+function startchecking(){
+    if (document.URL == 'https://billing-marketing.skyeng.ru/accrual-operations/create') {
+        document.getElementById('selectedOperation').addEventListener("change", checkforaddinform)
+    }   
 }
 
 function checkforaddinform() {
@@ -17,3 +19,5 @@ function checkforaddinform() {
 function addinformationform(){
     console.log('Вижу')
 }
+
+startchecking()
