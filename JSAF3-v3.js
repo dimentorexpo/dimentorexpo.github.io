@@ -577,8 +577,6 @@ function timerHideButtons() { //функция добавления скрыти
                 });
             }
         }
-
-
     }
 }
 
@@ -619,7 +617,7 @@ function prepTp() { //функция подготовки расширения �
 	let openCalendar = document.createElement('button')
     openCalendar.innerHTML = '📅'
     openCalendar.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
-     openCalendar.id = 'datsyCalendar'
+    openCalendar.id = 'datsyCalendar'
     openCalendar.title = 'Открывает календарь Datsy'
 	openCalendar.classList = 'onlyfortp'
 	document.getElementById('rightPanel').appendChild(openCalendar)
@@ -697,7 +695,6 @@ function prepTp() { //функция подготовки расширения �
     }).catch(function (gfgData) {
         console.log(gfgData + " failed to load!");
     });
-
 }
 
 function prepKC() { //функция подготовки расширения КЦ
@@ -759,10 +756,8 @@ function prepKC() { //функция подготовки расширения �
     }, 2000)
 
     setTimeout(function () {
-
         include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
 		customTemplates()
-
     }, 4000)
 }
 
@@ -868,7 +863,7 @@ function resetFlags() { //функция обнуления флагов
 
 function pageClick(pageId) { // по клику переключает страницы с шаблонами
     b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
-    let pageNum = pageId.split('_')[0]
+	let pageNum = pageId.split('_')[0]
     for (i = 0; i < b.childElementCount; i++) {
         try {
             b.children[1].children[i].style = 'background-color:#768d87; border-top:0px;'
