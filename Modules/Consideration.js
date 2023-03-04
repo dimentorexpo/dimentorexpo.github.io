@@ -12,13 +12,9 @@ var win_Infoconsid =  // описание элементов окна ссыло
         </div>
     </div>`;
 
-let TPcomp = document.getElementsByClassName('card-header')
-let formtoin = document.getElementsByClassName('card-body')[0]
-
 let wintInfoconsid = document.createElement('div'); // создание окна ссылок
 wintInfoconsid.style.display = 'none';
 wintInfoconsid.innerHTML = win_Infoconsid;
-formtoin.insertBefore(wintInfoconsid, formtoin.children[0]);
 
 function startchecking(){
     if (document.URL == 'https://billing-marketing.skyeng.ru/accrual-operations/create') {
@@ -27,7 +23,9 @@ function startchecking(){
 }
 
 function addinformationform() {
-    
+    let TPcomp = document.getElementsByClassName('card-header')
+    let formtoin = document.getElementsByClassName('card-body')[0]
+    formtoin.insertBefore(wintInfoconsid, formtoin.children[0]);
     for (y = 0; y < TPcomp.length; y++) {
         if (TPcomp[y].innerText == 'Компенсация за технические проблемы') {
             wintInfoconsid.style.display = ''
