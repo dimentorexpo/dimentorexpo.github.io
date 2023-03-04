@@ -462,6 +462,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
         document.getElementById('testUsers').style.display = 'none';
+        if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
+            include("https://dimentorexpo.github.io/Modules/Consideration.js") // подключаем модуль вывода подсказок в компенсации
+        }
         // document.getElementById('AF_Links').style.display = 'none';
     } else {
         let mystyles = document.createElement('link')
@@ -706,7 +709,6 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://dimentorexpo.github.io/Modules/Consideration.js", // подключаем модуль вывода подсказок в компенсации
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     let promiseData = [];
     gfgScript.forEach(function (info) {
