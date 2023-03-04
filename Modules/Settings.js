@@ -1,6 +1,6 @@
-if (localStorage.getItem('defaclschatcolor')) {
-		localStorage.setItem('defaclschatcolor', '#FF47CA')
-	}
+if (localStorage.getItem('defaclschatcolor') == null || localStorage.getItem('defaclschatcolor') == undefined) {
+    localStorage.setItem('defaclschatcolor', '#FF47CA')
+}
 	
 //Для таймера автозакрытия
 if (localStorage.getItem('aclstime') == null) {
