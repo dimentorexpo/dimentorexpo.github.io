@@ -31,6 +31,7 @@ function addinformationform() {
         if (TPcomp[y].innerText == 'Компенсация за технические проблемы') {
             formtoin = document.getElementsByClassName('ng-untouched ng-pristine ng-invalid')[0]
             formtoin.insertBefore(wintInfoconsid, formtoin.children[0])
+            wintInfoconsid.style.display = ''
         }
     }
 }
