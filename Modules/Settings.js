@@ -319,10 +319,10 @@ document.getElementById('setting').onclick = function () { // открывает
     // скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
 
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-    const setTPrezerv = document.getElementById('set_TPrezerv');
-    const setTP = document.getElementById('set_TP');
-    const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
-    const setTPPrem = document.getElementById('set_TPPrem');
+    //const setTPrezerv = document.getElementById('set_TPrezerv');
+    //const setTP = document.getElementById('set_TP');
+    //const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
+    //const setTPPrem = document.getElementById('set_TPPrem');
     const operdepout = document.getElementById('operdepout');
     let needtohide = document.getElementsByClassName('onlyfortp');
 
