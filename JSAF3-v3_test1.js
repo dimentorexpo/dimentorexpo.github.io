@@ -466,7 +466,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             document.getElementById('idlogin').style.display = 'none';
         }
         
-        checktemplatelink()
+        setTimeout(checktemplatelink(),1000)
 
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
@@ -2401,31 +2401,27 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 function checktemplatelink() {
     if (localStorage.getItem('scriptAdr') == null) {
-        try {
-            const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-        } catch (e) {
-            checktemplatelink()
-        } finally {
-            switch (opsection) {
-                case 'КЦ':
-                    localStorage.setItem('scriptAdr', KC_addr)
-                    scriptAdr = KC_addr;
-                    break
-                case 'ТП':
-                    localStorage.setItem('scriptAdr', TP_addr)
-                    scriptAdr = TP_addr;
-                    break
-                case 'ТПPrem':
-                    localStorage.setItem('scriptAdr', TPprem_addr)
-                    localStorage.setItem('tpflag', 'ТПPrem')
-                    scriptAdr = TPprem_addr;
-                    break
-                default:
-                    break
-            };
-            setTimeout(move_again_AF, 3500)
-        }
-    } else {setTimeout(move_again_AF, 3500)}
+        const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+        checktemplatelink()
+        switch (opsection) {
+            case 'КЦ':
+                localStorage.setItem('scriptAdr', KC_addr)
+                scriptAdr = KC_addr;
+                break
+            case 'ТП':
+                localStorage.setItem('scriptAdr', TP_addr)
+                scriptAdr = TP_addr;
+                break
+            case 'ТПPrem':
+                localStorage.setItem('scriptAdr', TPprem_addr)
+                localStorage.setItem('tpflag', 'ТПPrem')
+                scriptAdr = TPprem_addr;
+                break
+            default:
+                break
+        };
+        setTimeout(move_again_AF, 3500)
+    }
 }
 
 let wintAF = document.createElement('div'); // создание главного окна
