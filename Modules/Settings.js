@@ -49,28 +49,25 @@ var win_Settings =  // описание элементов окна ссылок
 						<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
 						<br>
 						<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
-
-					<div class="onlyfortp" style="margin-top: 5px; width: 500px">
-						<label style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+						<label class="onlyfortp" style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
 						<button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:90px;">Shift</button>
 						<br>
 						<label id="defaulcolorclschat" style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
-						<input id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
-						<button id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
-						<input id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
-						<button id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
-					</div>
+						<input class="onlyfortp" id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
+						<button class="onlyfortp" id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
+						<input class="onlyfortp" id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
+						<button class="onlyfortp" id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
 
 					<div style="margin-top: 5px; width: 500px">
 						<span style="color:bisque; position: relative; left: 30%;">Выберите отдел:</span>
 						<span style="position: relative; left: 30%; background: green; color: white; padding: 5px; border-radius: 5px;" id="operdepout"></span>
 						<br>
-						<button onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
-						<button onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
+						<button class="onlyfortp" onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
+						<button class="onlyfortp" onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
 						<button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
 						<button onclick="AFthePieceofShitKC()" id="set_KCrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
-						<button onclick="AFthePieceofShitPrem()" id="set_PremTPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
-						<button onclick="WeAreTheChempionsPrem()" id="set_TPPrem" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
+						<button class="onlyfortp" onclick="AFthePieceofShitPrem()" id="set_PremTPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
+						<button class="onlyfortp" onclick="WeAreTheChempionsPrem()" id="set_TPPrem" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
 						<br>
 					</div>
 
@@ -329,10 +326,15 @@ document.getElementById('setting').onclick = function () { // открывает
     const operdepout = document.getElementById('operdepout');
 
     if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
-      setTPrezerv.style.display = "none";
+      /*setTPrezerv.style.display = "none";
       setTP.style.display = "none";
       setPremTPrezerv.style.display = "none";
       setTPPrem.style.display = "none";
+      */
+      let needtohide = document.getElementsByClassName('onlyfortp')
+      for (i = 0; i < needtohide.length; i++) {
+          needtohide[i].style.display = 'none'
+      }
     } else {
       setTPrezerv.style.display = "";
       setTP.style.display = "";
