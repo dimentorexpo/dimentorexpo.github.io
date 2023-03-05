@@ -1743,7 +1743,7 @@ function requestsRed() { //функция окрашивает в красный
 function checkEducationServiceInput() {
     const elements = document.getElementsByTagName('span');
     for (i = 0; i < elements.length; i++){
-        if (elements[i].textContent = 'Выбор услуги:'){ 
+        if (elements[i].textContent == 'Выбор услуги:'){ 
             return true 
         }
     }
