@@ -514,7 +514,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             butMarks.classList.remove('inithide');
         }, 8000);
 
-
         setInterval(startTimer, 1000)
     }
     setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
