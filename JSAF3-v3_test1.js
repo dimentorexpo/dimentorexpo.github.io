@@ -2328,7 +2328,7 @@ function addOption(oListbox, text, value) {  //функция добавлени
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
 
-    if (lstoradr == TPlinks && opsection == "КЦ"){
+    if (scriptAdr == TPlinks && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
         scriptAdr = KC_addr
     }
