@@ -689,7 +689,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-        //"https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
+        "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
