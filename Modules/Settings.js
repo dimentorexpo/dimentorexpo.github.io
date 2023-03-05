@@ -278,8 +278,6 @@ document.getElementById('setting').onclick = function () { // открывает
     document.getElementById('AF_Settings').style.display = 'none'
   else {
     document.getElementById('AF_Settings').style.display = ''
-    document.getElementById('reminder_bar').style.display = 'none'
-    document.getElementById('addTmp').style.display = 'none'
 
     let pushToTalkButton = document.getElementById('activateVoiceCommands');
     if (localStorage.getItem('pushToTalkKeyName')) {
