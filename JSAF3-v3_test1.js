@@ -501,9 +501,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             menubutarea.append(butmenu);
             headmenulist.insertBefore(menubar, headmenulist.children[15]);
             var elements = [JiraOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
-            if (scriptAdr == KC_addr || scriptAdr == KC_addrRzrv){
-                elements.push(buttonOpenForm)
-            }
             addElementsToList(elements, menubar);
 
             JiraOpenForm.classList.remove('inithide');
@@ -515,9 +512,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             butFrozeChat.classList.remove('inithide');
             buttonGetStat.classList.remove('inithide');
             butMarks.classList.remove('inithide');
-            if (scriptAdr == KC_addr || scriptAdr == KC_addrRzrv){
-                buttonOpenForm.classList.remove('inithide');
-            }
         }, 8000);
 
 
@@ -694,7 +688,6 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-        //"https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
@@ -764,7 +757,6 @@ function prepKC() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
     }, 2000)
 
