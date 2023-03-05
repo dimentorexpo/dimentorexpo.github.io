@@ -2330,7 +2330,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         scriptAdr = KC_addr
     }
 
-    if (scriptAdr != TP_addr || scriptAdr != TP_addrRzrv || scriptAdr != TPprem_addr || scriptAdr != TPprem_addrRzrv) {
+    if (scriptAdr != TP_addr && scriptAdr != TP_addrRzrv && scriptAdr != TPprem_addr && scriptAdr != TPprem_addrRzrv) {
         prepKC()
     } else {
         prepTp()
