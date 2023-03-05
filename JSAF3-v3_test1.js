@@ -2315,6 +2315,13 @@ function addOption(oListbox, text, value) {  //функция добавлени
 }
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
+    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    const TPlinks = [TP_addr, TP_addrRzrv, TPprem_addr, TPprem_addrRzrv];
+    let lstoradr = localStorage.getItem('scriptAdr');
+
+    if (lstoradr == TPlinks && opsection == 'КЦ'){
+        localStorage.setItem('scriptAdr', KC_addr)
+    }
 
     if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv && localStorage.getItem('scriptAdr') != TPprem_addr && localStorage.getItem('scriptAdr') != TPprem_addrRzrv) {
         prepKC()
