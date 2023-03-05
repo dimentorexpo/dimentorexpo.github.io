@@ -466,7 +466,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             document.getElementById('idlogin').style.display = 'none';
         }
         
-        setTimeout(checktemplatelink(),1000)
+        checktemplatelink()
 
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
@@ -2402,7 +2402,6 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 function checktemplatelink() {
     if (localStorage.getItem('scriptAdr') == null) {
         const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-        checktemplatelink()
         switch (opsection) {
             case 'КЦ':
                 localStorage.setItem('scriptAdr', KC_addr)
@@ -3000,7 +2999,7 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
     }
 }
 
-firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
+document.addEventListener("DOMContentLoaded", firstLoadPage); //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
 let btnsid = document.createElement('button')
 btnsid.textContent = "У";
