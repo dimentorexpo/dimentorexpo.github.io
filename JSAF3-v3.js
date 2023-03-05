@@ -2942,12 +2942,12 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
 let btnsid = document.createElement('button')
-btnsid.textContent = "У";
+btnsid.textContent = "👨‍🎓";
 btnsid.id = "sidcode";
 btnsid.classList = 'teststudteach'
 
 let btntid = document.createElement('button')
-btntid.textContent = "П";
+btntid.textContent = "👽";
 btntid.id = "tidcode";
 btntid.classList = 'teststudteach'
 
