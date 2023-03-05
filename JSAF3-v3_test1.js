@@ -2327,7 +2327,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
-        scriptAdr = KC_addr
+        location.reload()
+    }
+    if ((scriptAdr == KC_addr || scriptAdr == KC_addrRzrv) && opsection == "ТП"){
+        localStorage.setItem('scriptAdr', TP_addr)
+        location.reload()
     }
 
     if (scriptAdr != TP_addr && scriptAdr != TP_addrRzrv && scriptAdr != TPprem_addr && scriptAdr != TPprem_addrRzrv) {
@@ -2424,7 +2428,6 @@ if (localStorage.getItem('scriptAdr') == null) {
             break
         case 'ТП':
             localStorage.setItem('scriptAdr', TP_addr)
-            localStorage.setItem('tpflag', 'ТП')
             scriptAdr = TP_addr;
             break
         case 'ТПPrem':
