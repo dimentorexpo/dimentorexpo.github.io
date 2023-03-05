@@ -2402,26 +2402,6 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 if (localStorage.getItem('scriptAdr') == null) {
     localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
-/*if (localStorage.getItem('scriptAdr') == null) {
-    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-    switch (opsection) {
-        case 'КЦ':
-            localStorage.setItem('scriptAdr', KC_addr)
-            scriptAdr = KC_addr;
-            break
-        case 'ТП':
-            localStorage.setItem('scriptAdr', TP_addr)
-            scriptAdr = TP_addr;
-            break
-        case 'ТПPrem':
-            localStorage.setItem('scriptAdr', TPprem_addr)
-            localStorage.setItem('tpflag', 'ТПPrem')
-            scriptAdr = TPprem_addr;
-            break
-        default:
-            break
-    }
-} */
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
