@@ -324,22 +324,28 @@ document.getElementById('setting').onclick = function () { // открывает
     const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
     const setTPPrem = document.getElementById('set_TPPrem');
     const operdepout = document.getElementById('operdepout');
+    let needtohide = document.getElementsByClassName('onlyfortp');
 
     if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
-      /*setTPrezerv.style.display = "none";
+      /*
+      setTPrezerv.style.display = "none";
       setTP.style.display = "none";
       setPremTPrezerv.style.display = "none";
       setTPPrem.style.display = "none";
       */
-      let needtohide = document.getElementsByClassName('onlyfortp')
       for (i = 0; i < needtohide.length; i++) {
           needtohide[i].style.display = 'none'
       }
     } else {
+      /*
       setTPrezerv.style.display = "";
       setTP.style.display = "";
       setPremTPrezerv.style.display = "";
       setTPPrem.style.display = "";
+      */
+      for (i = 0; i < needtohide.length; i++) {
+          needtohide[i].style.display = ''
+      }
     }
 
     switch (localStorage.getItem('scriptAdr')) {
