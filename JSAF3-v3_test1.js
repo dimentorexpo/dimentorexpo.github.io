@@ -43,6 +43,7 @@ const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTl
 const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
 const RzrvLinks = [TP_addrRzrv, TPprem_addrRzrv,KC_addrRzrv];
 const TPlinks = [TP_addr, TP_addrRzrv, TPprem_addr, TPprem_addrRzrv];
+const Premlinks = [TPprem_addr, TPprem_addrRzrv]
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }						// перменная для отмены будильника 2
@@ -2418,7 +2419,15 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
-    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
+    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    if (opsection == "КЦ"){
+        localStorage.setItem('scriptAdr', KC_addr);
+        scriptAdr = KC_addr;
+    } else {
+        localStorage.setItem('scriptAdr', TP_addr);
+        scriptAdr = TP_addr;
+    }
+    
 }
 
 let wintAF = document.createElement('div'); // создание главного окна
@@ -2908,7 +2917,7 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     } else {
         if (scriptAdr === TS_addr) {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-18/' + chatId;
-        } else if (scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
+        } else if (scriptAdr === Premlinks) {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-26/' + chatId;
         } else {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
