@@ -41,9 +41,6 @@ const TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx
 const TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec';
 const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec';
 const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
-const RzrvLinks = [TP_addrRzrv, TPprem_addrRzrv,KC_addrRzrv];
-const TPlinks = [TP_addr, TP_addrRzrv, TPprem_addr, TPprem_addrRzrv];
-const Premlinks = [TPprem_addr, TPprem_addrRzrv]
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }						// перменная для отмены будильника 2
@@ -293,7 +290,7 @@ function startTimer() { // большая функция по таймеру а�
 
     }
 
-    if (scriptAdr == TPlinks.forEach) {
+    if (scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list').length != 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
@@ -392,7 +389,7 @@ function startTimer() { // большая функция по таймеру а�
         }
     }
 
-    if (scriptAdr == TPlinks.forEach && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
@@ -2189,7 +2186,7 @@ async function remandressl() { // функция добавляения масс
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if (scriptAdr == TPlinks.forEach && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
@@ -2328,18 +2325,18 @@ function addOption(oListbox, text, value) {  //функция добавлени
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
 
-    if (scriptAdr == TPlinks.forEach && opsection == "КЦ"){
+    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
         scriptAdr = KC_addr
     }
 
-    if (scriptAdr !== TPlinks.forEach) {
+    if (scriptAdr != TP_addr || scriptAdr != TP_addrRzrv || scriptAdr != TPprem_addr || scriptAdr != TPprem_addrRzrv) {
         prepKC()
     } else {
         prepTp()
     }
 
-    if (scriptAdr == RzrvLinks.forEach) {
+    if (scriptAdr == TP_addrRzrv || scriptAdr == KC_addrRzrv || scriptAdr == TPprem_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
         document.getElementById('pages').title = 'Включены резервные шаблоны, если в АФ нет сбоя в работе Баз знаний - переключи на обычные шаблоны'
         languageAF.addEventListener('click', function () {
@@ -2917,7 +2914,7 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     } else {
         if (scriptAdr === TS_addr) {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-18/' + chatId;
-        } else if (scriptAdr === Premlinks.forEach) {
+        } else if (scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-26/' + chatId;
         } else {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
