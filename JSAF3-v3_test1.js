@@ -2404,7 +2404,7 @@ function checktemplatelink() {
         try {
             const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
         } catch (e) {
-            console.log(e);
+            
         } finally {
             switch (opsection) {
                 case 'КЦ':
@@ -2423,9 +2423,9 @@ function checktemplatelink() {
                 default:
                     break
             };
+            checktemplatelink()
         }
-    }
-    setTimeout(move_again_AF, 3500)
+    } else {setTimeout(move_again_AF, 3500)}
 }
 
 let wintAF = document.createElement('div'); // создание главного окна
