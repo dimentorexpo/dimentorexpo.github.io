@@ -293,7 +293,7 @@ function startTimer() { // большая функция по таймеру а�
 
     }
 
-    if (scriptAdr == TPlinks) {
+    if (scriptAdr == TPlinks.forEach) {
         if (document.getElementsByClassName('expert-user_details-list').length != 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
@@ -392,7 +392,7 @@ function startTimer() { // большая функция по таймеру а�
         }
     }
 
-    if (scriptAdr == TPlinks && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if (scriptAdr == TPlinks.forEach && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
@@ -2189,7 +2189,7 @@ async function remandressl() { // функция добавляения масс
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if (scriptAdr == TPlinks && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+    if (scriptAdr == TPlinks.forEach && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
@@ -2328,18 +2328,18 @@ function addOption(oListbox, text, value) {  //функция добавлени
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
 
-    if (scriptAdr == TPlinks && opsection == "КЦ"){
+    if (scriptAdr == TPlinks.forEach && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
         scriptAdr = KC_addr
     }
 
-    if (scriptAdr != TPlinks) {
+    if (scriptAdr !== TPlinks.forEach) {
         prepKC()
     } else {
         prepTp()
     }
 
-    if (scriptAdr == RzrvLinks) {
+    if (scriptAdr == RzrvLinks.forEach) {
         document.getElementById('pages').style.background = 'red'
         document.getElementById('pages').title = 'Включены резервные шаблоны, если в АФ нет сбоя в работе Баз знаний - переключи на обычные шаблоны'
         languageAF.addEventListener('click', function () {
@@ -2917,7 +2917,7 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     } else {
         if (scriptAdr === TS_addr) {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-18/' + chatId;
-        } else if (scriptAdr === Premlinks) {
+        } else if (scriptAdr === Premlinks.forEach) {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-26/' + chatId;
         } else {
             hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
