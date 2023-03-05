@@ -500,7 +500,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
             headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
             headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
+            var elements = [JiraOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
+            if (scriptAdr == KC_addr || scriptAdr == KC_addrRzrv){
+                elements.push(buttonOpenForm)
+            }
             addElementsToList(elements, menubar);
 
             JiraOpenForm.classList.remove('inithide');
@@ -512,7 +515,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             butFrozeChat.classList.remove('inithide');
             buttonGetStat.classList.remove('inithide');
             butMarks.classList.remove('inithide');
-            buttonOpenForm.classList.remove('inithide');
+            if (scriptAdr == KC_addr || scriptAdr == KC_addrRzrv){
+                buttonOpenForm.classList.remove('inithide');
+            }
         }, 8000);
 
 
@@ -689,7 +694,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-        "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
+        //"https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
