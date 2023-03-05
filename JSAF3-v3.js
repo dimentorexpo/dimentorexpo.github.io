@@ -33,6 +33,14 @@ var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
 var abortTimeOut1 = ''
 var modulesarray = [];
+var scriptAdr = localStorage.getItem('scriptAdr');
+const TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec';
+const KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec';
+const KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec';
+const TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec';
+const TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec';
+const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec';
+const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }
@@ -282,7 +290,7 @@ function startTimer() { // большая функция по таймеру а�
 
     }
 
-    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
+    if (scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list').length != 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
@@ -381,7 +389,7 @@ function startTimer() { // большая функция по таймеру а�
         }
     }
 
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
@@ -492,7 +500,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
             headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
+            const elements = [JiraOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 			
             JiraOpenForm.classList.remove('inithide');
@@ -504,7 +512,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             butFrozeChat.classList.remove('inithide');
             buttonGetStat.classList.remove('inithide');
             butMarks.classList.remove('inithide');
-            buttonOpenForm.classList.remove('inithide');
         }, 8000);
 
 
@@ -681,7 +688,6 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-        "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
@@ -751,7 +757,6 @@ function prepKC() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
     }, 2000)
 
@@ -992,7 +997,7 @@ function servFromDoc(butName) { // отправка комента и сообщ
 }
 
 function getText() { // функция обновления текста с шаблонов из документа
-    const app = localStorage.getItem('scriptAdr');
+    const app = scriptAdr;
     const xhr = new XMLHttpRequest();
     xhr.open('GET', app);
     xhr.onreadystatechange = function () {
@@ -2166,7 +2171,7 @@ async function remandressl() { // функция добавляения масс
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
@@ -2303,14 +2308,20 @@ function addOption(oListbox, text, value) {  //функция добавлени
 }
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
+    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
 
-    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv && localStorage.getItem('scriptAdr') != TPprem_addr && localStorage.getItem('scriptAdr') != TPprem_addrRzrv) {
+    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
+        localStorage.setItem('scriptAdr', KC_addr)
+        location.reload()
+    }
+
+    if (scriptAdr != TP_addr && scriptAdr != TP_addrRzrv && scriptAdr != TPprem_addr && scriptAdr != TPprem_addrRzrv) {
         prepKC()
     } else {
         prepTp()
     }
 
-    if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
+    if (scriptAdr == TP_addrRzrv || scriptAdr == KC_addrRzrv || scriptAdr == TPprem_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
         document.getElementById('pages').title = 'Включены резервные шаблоны, если в АФ нет сбоя в работе Баз знаний - переключи на обычные шаблоны'
         languageAF.addEventListener('click', function () {
@@ -2390,7 +2401,24 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
-    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
+    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    switch (opsection) {
+        case 'КЦ':
+            localStorage.setItem('scriptAdr', KC_addr)
+            scriptAdr = KC_addr;
+            break
+        case 'ТП':
+            localStorage.setItem('scriptAdr', TP_addr)
+            scriptAdr = TP_addr;
+            break
+        case 'ТПPrem':
+            localStorage.setItem('scriptAdr', TPprem_addr)
+            localStorage.setItem('tpflag', 'ТПPrem')
+            scriptAdr = TPprem_addr;
+            break
+        default:
+            break
+    }
 }
 
 let wintAF = document.createElement('div'); // создание главного окна
@@ -2399,13 +2427,6 @@ wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #4
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 var chatsArray = []
-var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
-var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec'
-var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
-var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
-var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
-var TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec'
-var TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec'
 
 let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
 document.body.append(wintRefuseFormNew);
@@ -2870,7 +2891,6 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     const adr1 = document.location.pathname;
     const adrPathArray = adr1.split('/');
     const chatId = adrPathArray[3];
-    const scriptAdr = localStorage.getItem('scriptAdr');
     const hashBut = document.getElementById('hashBut');
     let hash;
 

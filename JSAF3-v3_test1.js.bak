@@ -43,7 +43,7 @@ const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTl
 const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
-}
+}						// перменная для отмены будильника 2
 
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var win_AFhelper =  // описание элементов главного окна
@@ -786,6 +786,18 @@ function include(url) { // функция подключения дополни�
 function maxLengthCheck(object) { // функция ограничения кол-ва символов в полях
     if (object.value.length > object.maxLength)
         object.value = object.value.slice(0, object.maxLength)
+}
+
+function onlyNumber(object) { // функция для разрешения ввода только цифр и знака -
+    object.value = object.value.replace(/[^0-9-]/g, '');
+}
+
+function onlyNumbers(object) { // функция для разрешения ввода только цифр
+    object.value = object.value.replace(/[^0-9]/g, '');
+}
+
+function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
+    object.value = object.value.replace(/["'\\]/gi, '');
 }
 
 function checkelementtype(a) { // проверка на какой элемент нажали
@@ -3469,7 +3481,7 @@ let intervalotak = setInterval(function () {
 }, 1000)
 
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
-    var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd', 'AF_Settings'];
+    var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd'];
     elements.forEach(function (element) {
 		if (document.getElementById(element)) {
         document.getElementById(element).style.display = 'none';

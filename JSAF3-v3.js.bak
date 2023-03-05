@@ -33,14 +33,6 @@ var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
 var abortTimeOut1 = ''
 var modulesarray = [];
-var scriptAdr = localStorage.getItem('scriptAdr');
-const TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec';
-const KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec';
-const KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec';
-const TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec';
-const TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec';
-const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec';
-const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }
@@ -290,7 +282,7 @@ function startTimer() { // большая функция по таймеру а�
 
     }
 
-    if (scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list').length != 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
@@ -389,7 +381,7 @@ function startTimer() { // большая функция по таймеру а�
         }
     }
 
-    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementById('continue_chat_button') == null && document.getElementsByClassName('expert-user_info_panel-footer-inner')[0] != undefined) {
         let btn1 = document.createElement('span');
         btn1.id = 'continue_chat_button'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn1)
@@ -500,9 +492,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
             headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [JiraOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
+            const elements = [JiraOpenForm, buttonOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
-
+			
             JiraOpenForm.classList.remove('inithide');
             butopensugestform.classList.remove('inithide');
             butrefuse.classList.remove('inithide');
@@ -512,6 +504,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             butFrozeChat.classList.remove('inithide');
             buttonGetStat.classList.remove('inithide');
             butMarks.classList.remove('inithide');
+            buttonOpenForm.classList.remove('inithide');
         }, 8000);
 
 
@@ -527,8 +520,8 @@ function timerHideButtons() { //функция добавления скрыти
         // NeuralNetwork Version
         let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
 
-        const hideElements = (modalContent, valuesToHide) => {
-            for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
+		const hideElements = (modalContent, valuesToHide) => {
+			for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
 				let text = modalContent.children[2].children[i].textContent;
 				let found = false;
 				for (let j = 0; j < valuesToHide.length; j++) {
@@ -539,28 +532,28 @@ function timerHideButtons() { //функция добавления скрыти
 					}
 				}
 				if (!found) {
-                    modalContent.children[2].children[i].style.display = 'none';
-                }
-            }
-        }
+					modalContent.children[2].children[i].style.display = 'none';
+				}
+			}
+		}
 
-        if (opsection === 'ТП') {
-            let modalContent = document.querySelector('.ant-modal-content');
-            const heading = modalContent.children[1].children[0].childNodes[0].textContent;
-            if (heading === 'Указать тему') {
-                hideElements(modalContent, [
+		if (opsection === 'ТП') {
+			let modalContent = document.querySelector('.ant-modal-content');
+			const heading = modalContent.children[1].children[0].childNodes[0].textContent;
+			if (heading === 'Указать тему') {
+				hideElements(modalContent, [
 					'Техподдержка V1',
-                    'Уроки V2',
+					'Уроки V2',
 					'Группа КМ',
 					'Обратная связь ТП'
-                ]);
-            } else if (heading === 'Закрыть запрос?') {
-                hideElements(modalContent, [
+				]);
+			} else if (heading === 'Закрыть запрос?') {
+				hideElements(modalContent, [
 					'Техподдержка V1',
-                    'Закрыть'
-                ]);
-            }
-        }
+					'Закрыть'
+				]);
+			}
+		}
 
 
         let modalContent = document.querySelector('.ant-modal-content');
@@ -620,7 +613,7 @@ function prepTp() { //функция подготовки расширения �
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
     crmopers.classList = 'onlyfortp'
 	document.getElementById('rightPanel').appendChild(crmopers)
-
+	
 	let openCalendar = document.createElement('button')
     openCalendar.innerHTML = '📅'
     openCalendar.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
@@ -688,6 +681,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
+        "https://dimentorexpo.github.io/Modules/unsub.js", // подключаем модуль unsub
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
@@ -696,8 +690,8 @@ function prepTp() { //функция подготовки расширения �
         promiseData.push(create(info));
     });
     Promise.all(promiseData).then(function () {
-        console.log('%c\r\n   ______  __       ____    ____       _       ________   ______   _____  ____    ____                 _                  _          _                 _    \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | |_   _ `.|_   _||_   \\  \/   _|               \/ |_               | |        \/ |_              \/ |_  \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_|   | | `. \\ | |    |   \\\/   |  .---.  _ .--. `| |-\' .--.   _ .--.\\_|.--.   `| |-\'.---.  .--. `| |-\' \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|      | |  | | | |    | |\\  \/| | \/ \/__\\\\[ `.-. | | | \/ .\'`\\ \\[ `\/\'`\\] ( (`\\]   | | \/ \/__\\\\( (`\\] | |   \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_      _| |_.\' \/_| |_  _| |_\\\/_| |_| \\__., | | | | | |,| \\__. | | |      `\'.\'.   | |,| \\__., `\'.\'. | |,  \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    |______.\'|_____||_____||_____|\'.__.\'[___||__]\\__\/ \'.__.\' [___]    [\\__) )  \\__\/ \'.__.\'[\\__) )\\__\/  \r\n                                                                                                                                                            ', 'color:Limegreen')
-        customTemplates()
+        console.log('%c\r\n   ______  __       ____    ____       _       ________  \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_| \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|    \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_     \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    \r\n                                                         \r\n', 'color:Limegreen')
+		customTemplates()
     }).catch(function (gfgData) {
         console.log(gfgData + " failed to load!");
     });
@@ -721,7 +715,7 @@ function prepKC() { //функция подготовки расширения �
     for (i = 0; i < needtoopen.length; i++) {
         needtoopen[i].style.display = ''
     }
-
+	
 	let sidePanel = document.createElement('div')
 	sidePanel.id = "rightPanel"
 	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
@@ -751,12 +745,13 @@ function prepKC() { //функция подготовки расширения �
         include("https://dimentorexpo.github.io/Modules/AlarmClock.js") // модуль будильника
         include("https://dimentorexpo.github.io/Modules/CustomTemplates.js") // модуль кастомных собственных шаблонов
         include("https://dimentorexpo.github.io/Modules/Settings.js") // модуль настроек расширения
-		include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций
+        include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций 
         include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
 		include("https://dimentorexpo.github.io/Modules/AFOperatorStatus.js") // подключаем модуль статусов операторов и количества чатов на них
         include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
         include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
         include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+        include("https://dimentorexpo.github.io/Modules/unsub.js") // подключаем модуль unsub валентина
         include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
     }, 2000)
 
@@ -856,7 +851,7 @@ function resetFlags() { //функция обнуления флагов
 
 function pageClick(pageId) { // по клику переключает страницы с шаблонами
     b = document.getElementById('AF_helper').childNodes[0].childNodes[1].childNodes[1]
-    let pageNum = pageId.split('_')[0]
+	let pageNum = pageId.split('_')[0]
     for (i = 0; i < b.childElementCount; i++) {
         try {
             b.children[1].children[i].style = 'background-color:#768d87; border-top:0px;'
@@ -997,7 +992,7 @@ function servFromDoc(butName) { // отправка комента и сообщ
 }
 
 function getText() { // функция обновления текста с шаблонов из документа
-    const app = scriptAdr;
+    const app = localStorage.getItem('scriptAdr');
     const xhr = new XMLHttpRequest();
     xhr.open('GET', app);
     xhr.onreadystatechange = function () {
@@ -1760,7 +1755,7 @@ async function checkthemestatus() { //функция проверки выста
 
             let uslugstr
             uslugstr = checkEducationServiceInput()
-
+            
             if (pldata.payload.topicId.value == ""){
                 const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
 
@@ -2171,7 +2166,7 @@ async function remandressl() { // функция добавляения масс
 }
 
 function addbuttonsintegration() { // добавляет подсветку при создании задачи зеленым цветом 2лтп, красным тп исхода 1 линии
-    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
+    if ((localStorage.getItem('scriptAdr') == TP_addr || localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addr || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) && document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         if (document.getElementsByClassName('ant-modal-content')[0].children[1].children[0].childNodes[0].textContent == 'Создать задачу') {
             let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')
             //let categorylist = document.querySelectorAll('.ant-form-item-control-input-content')[4].children[0].childNodes[1];
@@ -2308,20 +2303,14 @@ function addOption(oListbox, text, value) {  //функция добавлени
 }
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
-    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
 
-    if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
-        localStorage.setItem('scriptAdr', KC_addr)
-        location.reload()
-    }
-
-    if (scriptAdr != TP_addr && scriptAdr != TP_addrRzrv && scriptAdr != TPprem_addr && scriptAdr != TPprem_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') != TP_addr && localStorage.getItem('scriptAdr') != TP_addrRzrv && localStorage.getItem('scriptAdr') != TPprem_addr && localStorage.getItem('scriptAdr') != TPprem_addrRzrv) {
         prepKC()
     } else {
         prepTp()
     }
 
-    if (scriptAdr == TP_addrRzrv || scriptAdr == KC_addrRzrv || scriptAdr == TPprem_addrRzrv) {
+    if (localStorage.getItem('scriptAdr') == TP_addrRzrv || localStorage.getItem('scriptAdr') == KC_addrRzrv || localStorage.getItem('scriptAdr') == TPprem_addrRzrv) {
         document.getElementById('pages').style.background = 'red'
         document.getElementById('pages').title = 'Включены резервные шаблоны, если в АФ нет сбоя в работе Баз знаний - переключи на обычные шаблоны'
         languageAF.addEventListener('click', function () {
@@ -2401,24 +2390,7 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
-    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-    switch (opsection) {
-        case 'КЦ':
-            localStorage.setItem('scriptAdr', KC_addr)
-            scriptAdr = KC_addr;
-            break
-        case 'ТП':
-            localStorage.setItem('scriptAdr', TP_addr)
-            scriptAdr = TP_addr;
-            break
-        case 'ТПPrem':
-            localStorage.setItem('scriptAdr', TPprem_addr)
-            localStorage.setItem('tpflag', 'ТПPrem')
-            scriptAdr = TPprem_addr;
-            break
-        default:
-            break
-    }
+    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
 
 let wintAF = document.createElement('div'); // создание главного окна
@@ -2427,6 +2399,13 @@ wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #4
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 var chatsArray = []
+var TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec'
+var KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec'
+var KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec'
+var TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec'
+var TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec'
+var TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec'
+var TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec'
 
 let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
 document.body.append(wintRefuseFormNew);
@@ -2891,6 +2870,7 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     const adr1 = document.location.pathname;
     const adrPathArray = adr1.split('/');
     const chatId = adrPathArray[3];
+    const scriptAdr = localStorage.getItem('scriptAdr');
     const hashBut = document.getElementById('hashBut');
     let hash;
 
@@ -3472,7 +3452,7 @@ document.getElementById('hideMenuMain').onclick = function () { // кнопка 
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd', 'AF_Settings'];
     elements.forEach(function (element) {
 		if (document.getElementById(element)) {
-        document.getElementById(element).style.display = 'none';
+			document.getElementById(element).style.display = 'none';
 		}
     });
     document.getElementById('scriptBut').style.display = '';
