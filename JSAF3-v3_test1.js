@@ -2427,7 +2427,7 @@ if (localStorage.getItem('scriptAdr') == null) {
         localStorage.setItem('scriptAdr', TP_addr);
         scriptAdr = TP_addr;
     }
-    
+    location.reload()
 }
 
 let wintAF = document.createElement('div'); // создание главного окна
