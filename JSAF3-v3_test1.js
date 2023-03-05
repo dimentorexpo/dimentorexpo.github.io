@@ -2417,14 +2417,24 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-    if (opsection == "КЦ"){
-        localStorage.setItem('scriptAdr', KC_addr);
-        scriptAdr = KC_addr;
-    } else {
-        localStorage.setItem('scriptAdr', TP_addr);
-        scriptAdr = TP_addr;
+    switch (opsection) {
+        case 'КЦ':
+            localStorage.setItem('scriptAdr', KC_addr)
+            scriptAdr = KC_addr;
+            break
+        case 'ТП':
+            localStorage.setItem('scriptAdr', TP_addr)
+            localStorage.setItem('tpflag', 'ТП')
+            scriptAdr = TP_addr;
+            break
+        case 'ТПPrem':
+            localStorage.setItem('scriptAdr', TPprem_addr)
+            localStorage.setItem('tpflag', 'ТПPrem')
+            scriptAdr = TPprem_addr;
+            break
+        default:
+            break
     }
-    location.reload()
 }
 
 let wintAF = document.createElement('div'); // создание главного окна
