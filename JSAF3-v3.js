@@ -783,18 +783,6 @@ function maxLengthCheck(object) { // функция ограничения ко�
         object.value = object.value.slice(0, object.maxLength)
 }
 
-function onlyNumber(object) { // функция для разрешения ввода только цифр и знака -
-    object.value = object.value.replace(/[^0-9-]/g, '');
-}
-
-function onlyNumbers(object) { // функция для разрешения ввода только цифр
-    object.value = object.value.replace(/[^0-9]/g, '');
-}
-
-function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
-    object.value = object.value.replace(/["'\\]/gi, '');
-}
-
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
