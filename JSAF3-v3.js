@@ -35,7 +35,7 @@ var abortTimeOut1 = ''
 var modulesarray = [];
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
-}						// перменная для отмены будильника 2
+}
 
 document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var win_AFhelper =  // описание элементов главного окна
