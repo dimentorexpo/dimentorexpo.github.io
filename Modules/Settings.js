@@ -172,9 +172,7 @@ function getLocalstorageToFile(fileName) { //функция сохранения
   downloadLink.style.display = "none";
   document.body.appendChild(downloadLink);
   downloadLink.click();
-
 }
-
 
 function changesoundaddr() { //функция изменения адреса звука
   let objSoundList = document.getElementById('soundlistaddr')
@@ -278,7 +276,6 @@ document.getElementById('setting').onclick = function () { // открывает
     document.getElementById('AF_Settings').style.display = 'none'
   else {
     document.getElementById('AF_Settings').style.display = ''
-
     let pushToTalkButton = document.getElementById('activateVoiceCommands');
     if (localStorage.getItem('pushToTalkKeyName')) {
       pushToTalkButton.textContent = localStorage.getItem('pushToTalkKeyName')
