@@ -33,6 +33,7 @@ var flagLangBut = 0;
 var abortTimeOut = ''								// перменная для отмены будильника 1
 var abortTimeOut1 = ''
 var modulesarray = [];
+var chatsArray = [];
 var scriptAdr = localStorage.getItem('scriptAdr');
 const TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec';
 const KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec';
@@ -290,7 +291,7 @@ function startTimer() { // большая функция по таймеру а�
 
     }
 
-    if (scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) {
+	if (scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) {
         if (document.getElementsByClassName('expert-user_details-list').length != 0) {
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
@@ -1831,23 +1832,6 @@ async function checkthemestatus() { //функция проверки выста
     } catch (e) { }
 }
 
-function dosetclasswork(subject) {     // функция перезапуска урока в зависимости от предмета так как разные API
-    fetch(subject + document.URL.split('/')[6], {
-        "headers": {
-            "accept": "application/json",
-            "content-type": "application/json",
-        },
-        "body": "{\"status\":\"classwork\",\"name\":\"\"}",
-        "method": "PATCH",
-        "mode": "cors",
-        "credentials": "include"
-    });
-
-    document.getElementById('clwbtn').textContent = "Done!"
-
-    setTimeout(() => { document.getElementById('clwbtn').textContent = "Classwork" }, 3000)
-}
-
 function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
     let chatId = ''
     if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
@@ -2015,6 +1999,23 @@ async function remandressl() { // функция добавляения масс
             }
         }
     }
+	
+	function dosetclasswork(subject) {     // функция перезапуска урока в зависимости от предмета так как разные API
+		fetch(subject + document.URL.split('/')[6], {
+			"headers": {
+				"accept": "application/json",
+				"content-type": "application/json",
+			},
+			"body": "{\"status\":\"classwork\",\"name\":\"\"}",
+			"method": "PATCH",
+			"mode": "cors",
+			"credentials": "include"
+		});
+
+		document.getElementById('clwbtn').textContent = "Done!"
+
+		setTimeout(() => { document.getElementById('clwbtn').textContent = "Classwork" }, 3000)
+	}
 
     let classworkbtn = document.createElement('div') // создание кнопки Classwork
     classworkbtn.id = "clwbtn"
@@ -2408,8 +2409,6 @@ document.body.append(wintAF);
 wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
-var chatsArray = []
-
 let wintRefuseFormNew = document.createElement('div'); // создание окна отказов
 document.body.append(wintRefuseFormNew);
 wintRefuseFormNew.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopRefuseNew') + 'px; left: ' + localStorage.getItem('winLeftRefuseNew') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
