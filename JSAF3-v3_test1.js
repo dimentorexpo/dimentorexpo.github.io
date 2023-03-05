@@ -2329,10 +2329,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         localStorage.setItem('scriptAdr', KC_addr)
         location.reload()
     }
-    if ((scriptAdr == KC_addr || scriptAdr == KC_addrRzrv) && opsection == "ТП"){
-        localStorage.setItem('scriptAdr', TP_addr)
-        location.reload()
-    }
 
     if (scriptAdr != TP_addr && scriptAdr != TP_addrRzrv && scriptAdr != TPprem_addr && scriptAdr != TPprem_addrRzrv) {
         prepKC()
