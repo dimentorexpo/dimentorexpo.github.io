@@ -2400,6 +2400,9 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
 if (localStorage.getItem('scriptAdr') == null) {
+    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
+}
+/*if (localStorage.getItem('scriptAdr') == null) {
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
     switch (opsection) {
         case 'КЦ':
@@ -2418,7 +2421,7 @@ if (localStorage.getItem('scriptAdr') == null) {
         default:
             break
     }
-}
+} */
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
