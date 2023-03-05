@@ -466,7 +466,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             document.getElementById('idlogin').style.display = 'none';
         }
         
-        setTimeout(checktemplatelink(),2000)
+        setTimeout(move_again_AF, 3500)
 
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
@@ -2399,28 +2399,8 @@ if (localStorage.getItem('winTopRefuseNew') == null) { //начальное по
 }
 
 //Подключаем скрипт App Script с гугл таблиц, где содержаться шщаблоны, которыми пользуемся
-function checktemplatelink() {
     if (localStorage.getItem('scriptAdr') == null) {
-        const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-        switch (opsection) {
-            case 'КЦ':
-                localStorage.setItem('scriptAdr', KC_addr)
-                scriptAdr = KC_addr;
-                break
-            case 'ТП':
-                localStorage.setItem('scriptAdr', TP_addr)
-                scriptAdr = TP_addr;
-                break
-            case 'ТПPrem':
-                localStorage.setItem('scriptAdr', TPprem_addr)
-                localStorage.setItem('tpflag', 'ТПPrem')
-                scriptAdr = TPprem_addr;
-                break
-            default:
-                break
-        };
-        setTimeout(move_again_AF, 3500)
-    }
+    localStorage.setItem('scriptAdr', 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx9iv9Vz3eyiQ9QO81HEnlr0K2DKqy6zvi7IYu77GB6EMU/exec');
 }
 
 let wintAF = document.createElement('div'); // создание главного окна
@@ -2999,7 +2979,7 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
     }
 }
 
-firstLoadPage(); //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
+firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
 let btnsid = document.createElement('button')
 btnsid.textContent = "У";
