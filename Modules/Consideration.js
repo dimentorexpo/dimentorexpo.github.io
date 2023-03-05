@@ -1,16 +1,17 @@
 var win_Infoconsid =  // описание элементов окна ссылок
-    `<div style="width: 800px; font-size: 0.8rem; margin: 5px; min-height: 110px">
-        <div style="width: 49%; float: left;">
-            <p><b>Если передаешь компенсацию урока из-за серверных</b></p>
-            <p style="color:red"><b> •Добавь ссылку на disaster или ссылку на трэд<br>
-            •Напиши дату и время урока<br>
-            •Укажи какой статус урока выставлен</b></p>
-        </div>
-        <div style="width: 49%;float: right">
-            <p><b>Если делаешь запрос на компенсацию “повторное обращение по багу в мобильном приложении”</b></p> 
-            <p style="color:red"><b> Обязательно добавь ссылку на задачу в Jira </b></p>
-        </div>
-    </div>`;
+    `<div style="width: 800px; font-size: 0.8rem; margin: 5px; min-height: 140px">
+    <div style="width: 49%; float: left;">
+        <p><b>Если передаешь компенсацию урока из-за серверных</b></p>
+        <p style="color:red"><b> •Добавь ссылку на disaster или ссылку на трэд<br>
+        •Напиши дату и время урока<br>
+        •Укажи какой статус урока выставлен</b></p>
+        <p><b>Вся информация о компенсациях находится <a href="https://confluence.skyeng.tech/pages/viewpage.action?pageId=144871997" target="_blank" rel="noopener">тут</a></b></p> 
+    </div>
+    <div style="width: 49%;float: right">
+        <p><b>Если делаешь запрос на компенсацию “повторное обращение по багу в мобильном приложении”</b></p> 
+        <p style="color:red"><b> Обязательно добавь ссылку на задачу в Jira </b></p>
+    </div>
+</div>`;
 
 let flaginsert = 0;
 
