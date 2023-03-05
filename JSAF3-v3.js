@@ -3461,7 +3461,7 @@ let intervalotak = setInterval(function () {
 }, 1000)
 
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
-    var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd'];
+    var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd', 'AF_Settings'];
     elements.forEach(function (element) {
 		if (document.getElementById(element)) {
 			document.getElementById(element).style.display = 'none';
