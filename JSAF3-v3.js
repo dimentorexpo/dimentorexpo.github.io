@@ -1761,14 +1761,6 @@ document.getElementById('testUsers').ondblclick = function (a) {
     }
 };
 
-setInterval(screenshots, 5000)
-setInterval(setactivechatstyle, 1000)
-setInterval(addbuttonsintegration, 1000)
-setInterval(remandressl, 3000);
-setInterval(closeTerms, 500);
-setInterval(checJiraF, 1000);
-setInterval(checkthemestatus, 3000);
-
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     // Find the 'teacher' user type and get the user's id.
     const userTypeList = document.getElementsByClassName('expert-user_details-list')[1];
@@ -1822,6 +1814,14 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
         copyToClipboard1(getservidst);
     }
 }
+
+setInterval(screenshots, 5000)
+setInterval(setactivechatstyle, 1000)
+setInterval(addbuttonsintegration, 1000)
+setInterval(remandressl, 3000);
+setInterval(closeTerms, 500);
+setInterval(checJiraF, 1000);
+setInterval(checkthemestatus, 3000);
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
