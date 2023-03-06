@@ -176,6 +176,18 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
 
 // Конец блока горячих клавиш
 
+function onlyNumber(object) { // функция для разрешения ввода только цифр и знака -
+    object.value = object.value.replace(/[^0-9-]/g, '');
+}
+
+function onlyNumbers(object) { // функция для разрешения ввода только цифр
+    object.value = object.value.replace(/[^0-9]/g, '');
+}
+
+function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
+    object.value = object.value.replace(/["'\\]/gi, '');
+}
+
 async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
     const a = await fetch('https://skyeng.autofaq.ai/api/operators/statistic/currentState', {
         credentials: 'include',

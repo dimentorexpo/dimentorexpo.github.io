@@ -87,10 +87,6 @@ wintChatHis.style.display = 'none';
 wintChatHis.setAttribute('id', 'AF_ChatHis');
 wintChatHis.innerHTML = win_Chathis;
 
-function onlyNumbers(object) { // функция для разрешения ввода только цифр
-    object.value = object.value.replace(/[^0-9]/g, '');
-}
-
 function fillchatbox() { //функция наполнения элемента, где выводится история чатов
 
     document.getElementById('infofield').innerHTML = ''
