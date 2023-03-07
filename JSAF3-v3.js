@@ -305,6 +305,7 @@ function timerHideButtons() { //функция добавления скрыти
         }
     }
 }
+
 function loadmoduls(gfgScript){
     let lboxstyles = document.createElement('link')
     lboxstyles.rel = 'stylesheet'
