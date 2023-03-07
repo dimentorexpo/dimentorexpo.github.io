@@ -117,10 +117,6 @@ const fetchOptions = {
     credentials: 'include',
 };
 
-function setDisplayStyle(element, value){
-    element.style.display = value;
-}
-
 function changeStatus(status) { // функция изменения статуса оператора
     fetchOptions.body = `{ "command": "DO_SET_OPERATOR_STATUS", "status": "${status}", "source": "Operator" }`;
     fetch(API_ENDPOINT, fetchOptions)
@@ -1072,6 +1068,9 @@ function addOption(oListbox, text, value) {  //функция добавлени
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    const setDisplayStyle = (element, value) => {
+        element.style.display = value;
+    }
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
     let sidePanel = document.createElement('div')
