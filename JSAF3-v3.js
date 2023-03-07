@@ -42,6 +42,11 @@ const TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx
 const TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec';
 const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec';
 const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
+const testUsers = document.getElementById('testUsers');
+const languageSwitcher = document.querySelector('.user_menu-language_switcher');
+const setDisplayStyle = (element, value) => {
+        element.style.display = value;
+    }
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }
@@ -76,7 +81,7 @@ var win_AFhelper =  // описание элементов главного ок
 				<button title="Переключение для выбора отправить или доработать сообщение" id="msg1" style="width:100px;">Доработать</button>
 				<button id="opandclsbarhyper" style="width:  30px; margin: 0; padding: 2px; text-align: center;" title="Открывает форму для прикрепления ссылки в текст">🔗</button>
                 <button title="Отправить текст от имени бота" id="sndbot" style="width: 30px; margin-left: 5px">🤖</button>
-				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 5px">send</button>
+				<button title="Отправить текст" id="snd" style="width:50px; margin-left: 10px">send</button>
 				<button title="Переключает между отправкой текста в заметки или в чат пользователю" class="msgtype" id="msg">Чат</button>
 			</div>
 		<div style="border: 2px double black; display: none; background-color: #464451" id="addTmp">
@@ -305,32 +310,43 @@ function timerHideButtons() { //функция добавления скрыти
         }
     }
 }
+function loadmoduls(gfgScript){
+    let lboxstyles = document.createElement('link')
+    lboxstyles.rel = 'stylesheet'
+    lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+    document.querySelector('head').append(lboxstyles)
+
+    let create = (info) => {
+        return new Promise(function (resolve, reject) {
+            let gfgData = document.createElement("script");
+            gfgData.src = info;
+            gfgData.async = false;
+            gfgData.onload = () => {
+                resolve(info);
+            };
+            gfgData.onerror = () => {
+                reject(info);
+            };
+            document.body.appendChild(gfgData);
+        });
+    };
+
+    let promiseData = [];
+    gfgScript.forEach(function (info) {
+        promiseData.push(create(info));
+    });
+    Promise.all(promiseData).then(function () {
+        console.log('%c\r\n   ______  __       ____    ____       _       ________  \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_| \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|    \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_     \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    \r\n                                                         \r\n', 'color:Limegreen')
+        customTemplates()
+		getText()
+		setInterval(startTimer, 1000)
+    }).catch(function (gfgData) {
+        console.log(gfgData + " failed to load!");
+    });
+}
 
 function prepTp() { //функция подготовки расширения ТП
-    document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '10px'
-
-    const testUsers = document.getElementById('testUsers');
-    const languageSwitcher = document.querySelector('.user_menu-language_switcher');
-
-    const setDisplayStyle = (element, value) => {
-        element.style.display = value;
-    }
-
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
-    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
-
-	let sidePanel = document.createElement('div')
-	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
-	document.body.append(sidePanel)
-
-    let openchhis = document.createElement('button')
-    openchhis.innerHTML = '☢'
-    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
-    openchhis.id = 'opennewcat'
-    openchhis.title = 'Открывает виджет просмотра истории чатов'
-	document.getElementById('rightPanel').appendChild(openchhis)
 
     let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
@@ -355,35 +371,11 @@ function prepTp() { //функция подготовки расширения �
     playerRadio.title = 'Открывает радио проигрыватель'
 	document.getElementById('rightPanel').appendChild(playerRadio)
 
-    openchhis.onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == 'none')
-            document.getElementById('butChatHistory').click()
-    }
+    
 
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
     setInterval(timerHideButtons, 300)
-
-    // include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-    let lboxstyles = document.createElement('link')
-    lboxstyles.rel = 'stylesheet'
-    lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-    document.querySelector('head').append(lboxstyles)
-
-    let create = (info) => {
-        return new Promise(function (resolve, reject) {
-            let gfgData = document.createElement("script");
-            gfgData.src = info;
-            gfgData.async = false;
-            gfgData.onload = () => {
-                resolve(info);
-            };
-            gfgData.onerror = () => {
-                reject(info);
-            };
-            document.body.appendChild(gfgData);
-        });
-    };
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
@@ -412,82 +404,43 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
-    let promiseData = [];
-    gfgScript.forEach(function (info) {
-        promiseData.push(create(info));
-    });
-    Promise.all(promiseData).then(function () {
-        console.log('%c\r\n   ______  __       ____    ____       _       ________  \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_| \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|    \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_     \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    \r\n                                                         \r\n', 'color:Limegreen')
-		customTemplates()
-		getText()
-		setInterval(startTimer, 1000)
-    }).catch(function (gfgData) {
-        console.log(gfgData + " failed to load!");
-    });
+    loadmoduls(gfgScript)
 }
 
 function prepKC() { //функция подготовки расширения КЦ
-    document.getElementById('msg1').style.display = ''
-    document.getElementById('snd').style.marginLeft = '10px'
-    document.getElementById('testUsers').style.display = 'none'
+    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
+    setDisplayStyle(testUsers, 'none');
 
-    if (localStorage.getItem('disablelngpmwindow') == 1)
-        document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
-    else document.getElementsByClassName('user_menu-language_switcher')[0].style.display = ''
 
     let needtohide = document.getElementsByClassName('onlyfortp')
     for (i = 0; i < needtohide.length; i++) {
-        needtohide[i].style.display = 'none'
+        setDisplayStyle(needtohide[i], 'none')
     }
 
     let needtoopen = document.getElementsByClassName('onlyforkc')
     for (i = 0; i < needtoopen.length; i++) {
-        needtoopen[i].style.display = ''
+        setDisplayStyle(needtoopen[i], 'none')
     }
 	
-	let sidePanel = document.createElement('div')
-	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
-	document.body.append(sidePanel)
-
-    let openchhis = document.createElement('button')
-    openchhis.innerHTML = '☢'
-    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
-    openchhis.id = 'opennewcat'
-    openchhis.title = 'Открывает виджет просмотра истории чатов'
-	document.getElementById('rightPanel').appendChild(openchhis)
 	
-	openchhis.onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == 'none')
-            document.getElementById('butChatHistory').click()
-    }
 
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
 
-    setTimeout(function () {
-        let lboxstyles = document.createElement('link')
-        lboxstyles.rel = 'stylesheet'
-        lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-        document.querySelector('head').append(lboxstyles)
-        include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
-        include("https://dimentorexpo.github.io/Modules/TemplatesFuncs.js") // модуль с функциями при работе с шаблонами
-        include("https://dimentorexpo.github.io/Modules/AlarmClock.js") // модуль будильника
-        include("https://dimentorexpo.github.io/Modules/CustomTemplates.js") // модуль кастомных собственных шаблонов
-        include("https://dimentorexpo.github.io/Modules/Settings.js") // модуль настроек расширения
-        include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций 
-        include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
-		include("https://dimentorexpo.github.io/Modules/AFOperatorStatus.js") // подключаем модуль статусов операторов и количества чатов на них
-        include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
-        include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
-        include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
-    }, 2000)
-
-    setTimeout(function () {
-        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
-		customTemplates()
-    }, 4000)
+    let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
+        "https://dimentorexpo.github.io/Modules/LinkKC.js", // модуль ссылкера (L)inks
+        "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
+	    "https://dimentorexpo.github.io/Modules/AlarmClock.js", // модуль будильника
+        "https://dimentorexpo.github.io/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+        "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
+        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
+        "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
+    loadmoduls(gfgScript)
 }
 
 const copyToClipboard1 = str => { // функция копирования в буфер обмена
@@ -1118,6 +1071,24 @@ function addOption(oListbox, text, value) {  //функция добавлени
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
+
+    let sidePanel = document.createElement('div')
+	sidePanel.id = "rightPanel"
+	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+	document.body.append(sidePanel)
+
+    let openchhis = document.createElement('button')
+    openchhis.innerHTML = '☢'
+    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openchhis.id = 'opennewcat'
+    openchhis.title = 'Открывает виджет просмотра истории чатов'
+	document.getElementById('rightPanel').appendChild(openchhis)
+
+    openchhis.onclick = () => {
+        if (document.getElementById('AF_ChatHis').style.display == 'none')
+            document.getElementById('butChatHistory').click()
+    }
 
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
@@ -1172,9 +1143,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         //скрывает окна при выбранно опции скрытия КОД
         if (localStorage.getItem('disablelpmwindow') == 1)
             document.getElementById('testUsers').style.display = "none";
-
-        if (localStorage.getItem('disablelngpmwindow') == 1)
-            document.getElementsByClassName('user_menu-language_switcher')[0].style.display = 'none'
 
         if (localStorage.getItem('disableomelchenkowindow') == 1)
             document.getElementById('main_easy_win').style.display = "none";
