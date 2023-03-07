@@ -371,10 +371,7 @@ function prepTp() { //функция подготовки расширения �
     playerRadio.title = 'Открывает радио проигрыватель'
 	document.getElementById('rightPanel').appendChild(playerRadio)
 
-    openchhis.onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == 'none')
-            document.getElementById('butChatHistory').click()
-    }
+    
 
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
@@ -425,10 +422,7 @@ function prepKC() { //функция подготовки расширения �
         setDisplayStyle(needtoopen[i], 'none')
     }
 	
-	openchhis.onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == 'none')
-            document.getElementById('butChatHistory').click()
-    }
+	
 
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
@@ -1090,6 +1084,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     openchhis.id = 'opennewcat'
     openchhis.title = 'Открывает виджет просмотра истории чатов'
 	document.getElementById('rightPanel').appendChild(openchhis)
+
+    openchhis.onclick = () => {
+        if (document.getElementById('AF_ChatHis').style.display == 'none')
+            document.getElementById('butChatHistory').click()
+    }
 
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
