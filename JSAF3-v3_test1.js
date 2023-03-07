@@ -314,18 +314,6 @@ function timerHideButtons() { //функция добавления скрыти
 function prepTp() { //функция подготовки расширения ТП
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
 
-	let sidePanel = document.createElement('div')
-	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
-	document.body.append(sidePanel)
-
-    let openchhis = document.createElement('button')
-    openchhis.innerHTML = '☢'
-    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
-    openchhis.id = 'opennewcat'
-    openchhis.title = 'Открывает виджет просмотра истории чатов'
-	document.getElementById('rightPanel').appendChild(openchhis)
-
     let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
     crmopers.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
@@ -426,26 +414,16 @@ function prepKC() { //функция подготовки расширения �
 
 
     let needtohide = document.getElementsByClassName('onlyfortp')
-    for (i = 0; i < needtohide.length; i++) {
+    needtohide.forEach(setDisplayStyle(element,'none'))
+    /*for (i = 0; i < needtohide.length; i++) {
         needtohide[i].style.display = 'none'
-    }
+    }*/
 
     let needtoopen = document.getElementsByClassName('onlyforkc')
-    for (i = 0; i < needtoopen.length; i++) {
+    needtoopen.forEach(setDisplayStyle(element,''))
+    /*for (i = 0; i < needtoopen.length; i++) {
         needtoopen[i].style.display = ''
-    }
-
-	let sidePanel = document.createElement('div')
-	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
-	document.body.append(sidePanel)
-
-    let openchhis = document.createElement('button')
-    openchhis.innerHTML = '☢'
-    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
-    openchhis.id = 'opennewcat'
-    openchhis.title = 'Открывает виджет просмотра истории чатов'
-	document.getElementById('rightPanel').appendChild(openchhis)
+    }*/
 	
 	openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
@@ -1109,6 +1087,18 @@ function addOption(oListbox, text, value) {  //функция добавлени
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
+
+    let sidePanel = document.createElement('div')
+	sidePanel.id = "rightPanel"
+	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+	document.body.append(sidePanel)
+
+    let openchhis = document.createElement('button')
+    openchhis.innerHTML = '☢'
+    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+    openchhis.id = 'opennewcat'
+    openchhis.title = 'Открывает виджет просмотра истории чатов'
+	document.getElementById('rightPanel').appendChild(openchhis)
 
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
