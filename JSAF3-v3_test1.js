@@ -310,6 +310,40 @@ function timerHideButtons() { //функция добавления скрыти
         }
     }
 }
+function loadmoduls(gfgScript){
+    let lboxstyles = document.createElement('link')
+    lboxstyles.rel = 'stylesheet'
+    lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+    document.querySelector('head').append(lboxstyles)
+
+    let create = (info) => {
+        return new Promise(function (resolve, reject) {
+            let gfgData = document.createElement("script");
+            gfgData.src = info;
+            gfgData.async = false;
+            gfgData.onload = () => {
+                resolve(info);
+            };
+            gfgData.onerror = () => {
+                reject(info);
+            };
+            document.body.appendChild(gfgData);
+        });
+    };
+
+    let promiseData = [];
+    gfgScript.forEach(function (info) {
+        promiseData.push(create(info));
+    });
+    Promise.all(promiseData).then(function () {
+        console.log('%c\r\n   ______  __       ____    ____       _       ________   ______   _____  ____    ____                 _                  _          _                 _    \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | |_   _ `.|_   _||_   \\  \/   _|               \/ |_               | |        \/ |_              \/ |_  \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_|   | | `. \\ | |    |   \\\/   |  .---.  _ .--. `| |-\' .--.   _ .--.\\_|.--.   `| |-\'.---.  .--. `| |-\' \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|      | |  | | | |    | |\\  \/| | \/ \/__\\\\[ `.-. | | | \/ .\'`\\ \\[ `\/\'`\\] ( (`\\]   | | \/ \/__\\\\( (`\\] | |   \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_      _| |_.\' \/_| |_  _| |_\\\/_| |_| \\__., | | | | | |,| \\__. | | |      `\'.\'.   | |,| \\__., `\'.\'. | |,  \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    |______.\'|_____||_____||_____|\'.__.\'[___||__]\\__\/ \'.__.\' [___]    [\\__) )  \\__\/ \'.__.\'[\\__) )\\__\/  \r\n                                                                                                                                                            ', 'color:Limegreen')
+        customTemplates()
+		getText()
+		setInterval(startTimer, 1000)
+    }).catch(function (gfgData) {
+        console.log(gfgData + " failed to load!");
+    });
+}
 
 function prepTp() { //функция подготовки расширения ТП
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
@@ -346,27 +380,6 @@ function prepTp() { //функция подготовки расширения �
     setTimeout(whoAmI, 2000)
     setInterval(timerHideButtons, 300)
 
-    // include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-    let lboxstyles = document.createElement('link')
-    lboxstyles.rel = 'stylesheet'
-    lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-    document.querySelector('head').append(lboxstyles)
-
-    let create = (info) => {
-        return new Promise(function (resolve, reject) {
-            let gfgData = document.createElement("script");
-            gfgData.src = info;
-            gfgData.async = false;
-            gfgData.onload = () => {
-                resolve(info);
-            };
-            gfgData.onerror = () => {
-                reject(info);
-            };
-            document.body.appendChild(gfgData);
-        });
-    };
-
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
@@ -394,18 +407,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
-    let promiseData = [];
-    gfgScript.forEach(function (info) {
-        promiseData.push(create(info));
-    });
-    Promise.all(promiseData).then(function () {
-        console.log('%c\r\n   ______  __       ____    ____       _       ________   ______   _____  ____    ____                 _                  _          _                 _    \r\n .\' ___  |[  |     |_   \\  \/   _|     \/ \\     |_   __  | |_   _ `.|_   _||_   \\  \/   _|               \/ |_               | |        \/ |_              \/ |_  \r\n\/ .\'   \\_| | |--.    |   \\\/   |      \/ _ \\      | |_ \\_|   | | `. \\ | |    |   \\\/   |  .---.  _ .--. `| |-\' .--.   _ .--.\\_|.--.   `| |-\'.---.  .--. `| |-\' \r\n| |        | .-. |   | |\\  \/| |     \/ ___ \\     |  _|      | |  | | | |    | |\\  \/| | \/ \/__\\\\[ `.-. | | | \/ .\'`\\ \\[ `\/\'`\\] ( (`\\]   | | \/ \/__\\\\( (`\\] | |   \r\n\\ `.___.\'\\ | | | |  _| |_\\\/_| |_  _\/ \/   \\ \\_  _| |_      _| |_.\' \/_| |_  _| |_\\\/_| |_| \\__., | | | | | |,| \\__. | | |      `\'.\'.   | |,| \\__., `\'.\'. | |,  \r\n `.____ .\'[___]|__]|_____||_____||____| |____||_____|    |______.\'|_____||_____||_____|\'.__.\'[___||__]\\__\/ \'.__.\' [___]    [\\__) )  \\__\/ \'.__.\'[\\__) )\\__\/  \r\n                                                                                                                                                            ', 'color:Limegreen')
-        customTemplates()
-		getText()
-		setInterval(startTimer, 1000)
-    }).catch(function (gfgData) {
-        console.log(gfgData + " failed to load!");
-    });
+    loadmoduls(gfgScript)
 }
 
 function prepKC() { //функция подготовки расширения КЦ
@@ -414,16 +416,14 @@ function prepKC() { //функция подготовки расширения �
 
 
     let needtohide = document.getElementsByClassName('onlyfortp')
-    needtohide.forEach(setDisplayStyle(element,'none'))
-    /*for (i = 0; i < needtohide.length; i++) {
-        needtohide[i].style.display = 'none'
-    }*/
+    for (i = 0; i < needtohide.length; i++) {
+        setDisplayStyle(needtohide[i], 'none')
+    }
 
     let needtoopen = document.getElementsByClassName('onlyforkc')
-    needtoopen.forEach(setDisplayStyle(element,''))
-    /*for (i = 0; i < needtoopen.length; i++) {
-        needtoopen[i].style.display = ''
-    }*/
+    for (i = 0; i < needtoopen.length; i++) {
+        setDisplayStyle(needtoopen[i], 'none')
+    }
 	
 	openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
@@ -433,29 +433,20 @@ function prepKC() { //функция подготовки расширения �
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
 
-    setTimeout(function () {
-        let lboxstyles = document.createElement('link')
-        lboxstyles.rel = 'stylesheet'
-        lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
-        document.querySelector('head').append(lboxstyles)
-        include("https://dimentorexpo.github.io/Modules/LinkKC.js") // модуль ссылкера (L)inks
-        include("https://dimentorexpo.github.io/Modules/TemplatesFuncs.js") // модуль с функциями при работе с шаблонами
-        include("https://dimentorexpo.github.io/Modules/AlarmClock.js") // модуль будильника
-        include("https://dimentorexpo.github.io/Modules/CustomTemplates.js") // модуль кастомных собственных шаблонов
-        include("https://dimentorexpo.github.io/Modules/Settings.js") // модуль настроек расширения
-		include("https://dimentorexpo.github.io/Modules/Statistica.js") // модуль кнопки "Статистика" и вложенных функций
-        include("https://dimentorexpo.github.io/Modules/Marks.js") // модуль просмотра оценок пользователя
-		include("https://dimentorexpo.github.io/Modules/AFOperatorStatus.js") // подключаем модуль статусов операторов и количества чатов на них
-        include("https://dimentorexpo.github.io/Modules/LessonStatus.js") // модуль просмотра статуса уроков по П или по П и У
-        include("https://dimentorexpo.github.io/Modules/ChatHistory.js") // модуль просмотра истории чатов
-        include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
-        include("https://dimentorexpo.github.io/Modules/Themes.js") // модуль выставления тегов и тематик
-    }, 2000)
-
-    setTimeout(function () {
-        include("https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js") // подключаем библиотеку обработки изображений при клике на них
-		customTemplates()
-    }, 4000)
+    let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
+        "https://dimentorexpo.github.io/Modules/LinkKC.js", // модуль ссылкера (L)inks
+        "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
+	    "https://dimentorexpo.github.io/Modules/AlarmClock.js", // модуль будильника
+        "https://dimentorexpo.github.io/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+        "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
+        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
+        "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
+    loadmoduls(gfgScript)
 }
 
 const copyToClipboard1 = str => { // функция копирования в буфер обмена
