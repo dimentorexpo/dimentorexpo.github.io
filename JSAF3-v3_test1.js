@@ -204,7 +204,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
             btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[13])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
             btnAdd1.insertBefore(taskBut, btnAdd1.children[14])
         }, 2000)
 
@@ -219,9 +219,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             const menubutarea = document.createElement('div');
             menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[12]);
+            headmenulist.insertBefore(menubutarea, headmenulist.children[13]);
             menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[12]);
+            headmenulist.insertBefore(menubar, headmenulist.children[13]);
             const elements = [JiraOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 
