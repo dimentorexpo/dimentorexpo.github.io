@@ -42,11 +42,6 @@ const TP_addr = 'https://script.google.com/macros/s/AKfycbzsf72GllYQdCGg-L4Jw1qx
 const TP_addrRzrv = 'https://script.google.com/macros/s/AKfycbyL2uTpWRlajHmtRXpjUq2yiPw6f_t-tHoBglkG-ojoA7ksnqMXr0_BXzhZFk31qV7jmQ/exec';
 const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTlgVRZtLR8GWKgzrSiwUt-u8UpSoWX4MswkLRbB7valrYFbSPtnQ/exec';
 const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
-const testUsers = document.getElementById('testUsers');
-const languageSwitcher = document.querySelector('.user_menu-language_switcher');
-const setDisplayStyle = (element, value) => {
-    element.style.display = value;
-}
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }
@@ -346,7 +341,15 @@ function loadmoduls(gfgScript){
 }
 
 function prepTp() { //функция подготовки расширения ТП
+    const testUsers = document.getElementById('testUsers');
+    const languageSwitcher = document.querySelector('.user_menu-language_switcher');
+
+    const setDisplayStyle = (element, value) => {
+        element.style.display = value;
+    }
+
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
+    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
     let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
@@ -408,21 +411,25 @@ function prepTp() { //функция подготовки расширения �
 }
 
 function prepKC() { //функция подготовки расширения КЦ
+    const testUsers = document.getElementById('testUsers');
+    const languageSwitcher = document.querySelector('.user_menu-language_switcher');
+
+    const setDisplayStyle = (element, value) => {
+        element.style.display = value;
+    }
+
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(testUsers, 'none');
 
-
     let needtohide = document.getElementsByClassName('onlyfortp')
     for (i = 0; i < needtohide.length; i++) {
-        setDisplayStyle(needtohide[i], 'none')
+        needtohide[i].style.display = 'none'
     }
 
     let needtoopen = document.getElementsByClassName('onlyforkc')
     for (i = 0; i < needtoopen.length; i++) {
-        setDisplayStyle(needtoopen[i], 'none')
+        needtoopen[i].style.display = ''
     }
-	
-	
 
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
@@ -1071,7 +1078,6 @@ function addOption(oListbox, text, value) {  //функция добавлени
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
     let sidePanel = document.createElement('div')
 	sidePanel.id = "rightPanel"
