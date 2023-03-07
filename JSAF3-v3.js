@@ -343,6 +343,8 @@ function loadmoduls(gfgScript){
     }).catch(function (gfgData) {
         console.log(gfgData + " failed to load!");
     });
+    
+    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 }
 
 function prepTp() { //функция подготовки расширения ТП
@@ -408,7 +410,6 @@ function prepTp() { //функция подготовки расширения �
 }
 
 function prepKC() { //функция подготовки расширения КЦ
-    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(testUsers, 'none');
 
 
@@ -1071,7 +1072,6 @@ function addOption(oListbox, text, value) {  //функция добавлени
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-    setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
     let sidePanel = document.createElement('div')
 	sidePanel.id = "rightPanel"
