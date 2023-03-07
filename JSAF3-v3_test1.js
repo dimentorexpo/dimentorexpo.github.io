@@ -45,8 +45,8 @@ const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0O
 const testUsers = document.getElementById('testUsers');
 const languageSwitcher = document.querySelector('.user_menu-language_switcher');
 const setDisplayStyle = (element, value) => {
-        element.style.display = value;
-    }
+    element.style.display = value;
+}
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }

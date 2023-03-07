@@ -44,6 +44,9 @@ const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTl
 const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
 const testUsers = document.getElementById('testUsers');
 const languageSwitcher = document.querySelector('.user_menu-language_switcher');
+const setDisplayStyle = (element, value) => {
+    element.style.display = value;
+}
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }
@@ -1068,9 +1071,6 @@ function addOption(oListbox, text, value) {  //функция добавлени
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-    const setDisplayStyle = (element, value) => {
-        element.style.display = value;
-    }
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
     let sidePanel = document.createElement('div')
