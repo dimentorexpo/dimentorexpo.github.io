@@ -44,9 +44,6 @@ const TPprem_addr = 'https://script.google.com/macros/s/AKfycbzQqFYAZHtpTsK10HTl
 const TPprem_addrRzrv = 'https://script.google.com/macros/s/AKfycbwOO6ptnyDnIH0OWBZ4dH64Jm7C8zZbS0sBncqyXjhvPqxAn2V2RaphDwGSVmYwktx_oA/exec';
 const testUsers = document.getElementById('testUsers');
 const languageSwitcher = document.querySelector('.user_menu-language_switcher');
-const setDisplayStyle = (element, value) => {
-        element.style.display = value;
-    }
 if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == undefined)) {
     localStorage.setItem('tpflag', 'ТП')
 }
@@ -119,6 +116,10 @@ const fetchOptions = {
     mode: 'cors',
     credentials: 'include',
 };
+
+function setDisplayStyle(element, value){
+    element.style.display = value;
+}
 
 function changeStatus(status) { // функция изменения статуса оператора
     fetchOptions.body = `{ "command": "DO_SET_OPERATOR_STATUS", "status": "${status}", "source": "Operator" }`;
