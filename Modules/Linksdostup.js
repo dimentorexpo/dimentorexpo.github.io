@@ -195,5 +195,5 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
     }
 
     document.getElementById('kpiteachersdashboard').addEventListener('click', function () {
-        window.open("https://tableau.skyeng.ru/#/views/-_16291119357240/sheet18?:iid=1")    // копируем открываем дашборд КПИ тичерсов
+        window.open("https://tableau.skyeng.ru/#/views/_16582100612920/KPI_1?:iid=1")    // копируем открываем дашборд КПИ тичерсов
     })
