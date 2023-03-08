@@ -7,7 +7,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Отображает актуальные креды к BrowserStack" id="creds" class="uplinksbar">ℹ</button>
 					<button title="Открывает раздел для формирования заявки на удаленине персональных данных" id="deleteaclnk" class="uplinksbar">🗑</button>
 					<button title="Открывает Базу знаний в Confluence" id="knoweledgebase" class="uplinksbar">📚</button>
-					<button title="Открывает календарь для планирования проверки со 2ЛТП" id="datsyurl" class="uplinksbar">📆</button>
+					<button title="Открывает админку с эссе для перезакрепления за П" id="essayadmin" class="uplinksbar">📝</button>
 					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar">📋</button>
 					<button title="Открывает сайт со списком пробников по экзаменам ОГЭ/ЕГЭ" id="probniki" class="uplinksbar">💼</button>
 					<button title="Открывает инструкцию по пробникам" id="probnikinstr" class="uplinksbar">🗃</button>
@@ -24,7 +24,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает поиск платежа по данным карте, сумме, дате платежа" id="transactions" style="width:105px; margin-top: 3px">Поиск $</button>
 					<button title="Открывает форму передачи предложений от пользователей" id="suggestions" style="width:105px; margin-top: 3px">Предложения</button>
 					<button title="Открывает раздел с проверкой фичей(кругов), подключенных пользователю и добавление/удаление их" id="userfeatures" style="width:105px; margin-top: 3px">User Фичи</button>
-					<button title="Открывает CMS детских предметов" id="kidscms" style="width:105px; margin-top: 3px">Kids CMS</button>
+					<button title="Открывает  CMS детских предметов" id="kidscms" style="width:105px; margin-top: 3px">Kids CMS</button>
 					<button title="Открывает раздел в Confluence по созданию тестовых комнат" id="testroom" style="width:105px; margin-top: 3px">TestRooms</button>
 					<button title="Открывает билинг для просмотра и редактирования подписок" id="subscribebilling" style="width:105px; margin-top: 3px">$Подписки</button>
 					<button title="Открывает форму по аппеляциям аудита" id="apelation" style="width:105px; margin-top: 3px">Апелляции</button>
@@ -128,8 +128,8 @@ document.getElementById('knoweledgebase').onclick = function () { // откры�
     window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
 }
 
-document.getElementById('datsyurl').onclick = function () { // открытие Календаря
-    window.open("https://datsy.ru/")
+document.getElementById('essayadmin').onclick = function () { // открытие админки эссе
+    window.open("https://api-english.skyeng.ru/admin/platform/openanswer/list")
 }
 
 document.getElementById('timetable').addEventListener('click', function () { // копируем в буфер ссылку на Timetable
