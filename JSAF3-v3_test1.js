@@ -104,7 +104,7 @@ Object.keys(localStorage).forEach(function (key) { // чистка localstorage 
 localStorage.setItem('SMART_TABLE_SORTED_INFO(/tickets/archive)', '{\"columnKey\":\"ts\",\"order\":\"descend\"}')
 
 function setDisplayStyle(element, value){
-    element.style.display = value;
+    if(element){ element.style.display = value; }
 }
 
 // Блок горячих клавиш
