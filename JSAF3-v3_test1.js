@@ -36,6 +36,7 @@ var modulesarray = [];
 var chatsArray = [];
 var scriptAdr = localStorage.getItem('scriptAdr');
 const testUsers = document.getElementById('testUsers');
+testUsers.style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 const TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec';
 const KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec';
 const KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec';
@@ -47,7 +48,6 @@ if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == u
     localStorage.setItem('tpflag', 'ТП')
 }
 
-document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var win_AFhelper =  // описание элементов главного окна
     `<div style="width: 351px;">
         <span style="width: 351px">
@@ -175,7 +175,7 @@ async function whoAmI() { // функция получения айди опер
 function firstLoadPage() { //первичаня загрузка страницы
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
-        document.getElementById('testUsers').style.display = 'none';
+//        document.getElementById('testUsers').style.display = 'none';
         if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
             include("https://dimentorexpo.github.io/Modules/Consideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
         }
@@ -185,8 +185,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
 		mystyles.href = "https://dimentorexpo.github.io/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
-        if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
+//        setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
 
         if (localStorage.getItem('Hidetestid') == 0) {
             document.getElementById('testid').style.display = 'none';
@@ -415,7 +414,7 @@ function prepKC() { //функция подготовки расширения �
     const languageSwitcher = document.querySelector('.user_menu-language_switcher');
 
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
-    setDisplayStyle(testUsers, 'none');
+//    setDisplayStyle(testUsers, 'none');
 
     let needtohide = document.getElementsByClassName('onlyfortp')
     for (i = 0; i < needtohide.length; i++) {
@@ -1143,8 +1142,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
         //скрывает окна при выбранно опции скрытия КОД
-        if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
+//        setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
 
         if (localStorage.getItem('disableomelchenkowindow') == 1)
             document.getElementById('main_easy_win').style.display = "none";
