@@ -36,6 +36,7 @@ var modulesarray = [];
 var chatsArray = [];
 var scriptAdr = localStorage.getItem('scriptAdr');
 const testUsers = document.getElementById('testUsers');
+testUsers.classList = 'onlyfortp'
 testUsers.style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 const TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec';
 const KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec';
@@ -414,17 +415,12 @@ function prepKC() { //функция подготовки расширения �
     const languageSwitcher = document.querySelector('.user_menu-language_switcher');
 
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
-//    setDisplayStyle(testUsers, 'none');
 
-    let needtohide = document.getElementsByClassName('onlyfortp')
-    for (i = 0; i < needtohide.length; i++) {
-        needtohide[i].style.display = 'none'
-    }
+    let needtohide = Array.from(document.getElementsByClassName('onlyfortp'));
+    needtohide.forEach(e => setDisplayStyle(e, 'none'));
 
-    let needtoopen = document.getElementsByClassName('onlyforkc')
-    for (i = 0; i < needtoopen.length; i++) {
-        needtoopen[i].style.display = ''
-    }
+    let needtoopen = Array.from(document.getElementsByClassName('onlyforkc'));
+    needtoopen.forEach(e => setDisplayStyle(e, ''));
 
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
@@ -1134,11 +1130,11 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     // создание кнопки скрипт + начало тандема
-    let button1 = document.createElement('div');
-    button1.id = 'scriptBut';
-    button1.innerHTML = "Скрипт";
-    button1.style = "margin-right:15px; cursor:pointer;";
-    button1.onclick = function () {
+    let ScriptBut = document.createElement('div');
+    ScriptBut.id = 'scriptBut';
+    ScriptBut.innerHTML = "Скрипт";
+    ScriptBut.style = "margin-right:15px; cursor:pointer;";
+    ScriptBut.onclick = function () {
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
         //скрывает окна при выбранно опции скрытия КОД
@@ -1150,7 +1146,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-    btnAdd.insertBefore(button1, btnAdd.children[0]) // добавление кнопки скрипт на строку с основными кнопками в верхней части экрана
+    btnAdd.insertBefore(ScriptBut, btnAdd.children[0]) // добавление кнопки скрипт на строку с основными кнопками в верхней части экрана
     // конец тандема
 
     user = "student"
@@ -1887,10 +1883,6 @@ document.getElementById('sndbot').onclick = async function () { //отправи
 
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd', 'AF_Settings'];
-    elements.forEach(function (element) {
-		if (document.getElementById(element)) {
-        document.getElementById(element).style.display = 'none';
-		}
-    });
-    document.getElementById('scriptBut').style.display = '';
+    elements.forEach(e => setDisplayStyle(e, 'none'));
+    ScriptBut.style.display = '';
 }
