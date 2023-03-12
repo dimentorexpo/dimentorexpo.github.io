@@ -1883,6 +1883,7 @@ document.getElementById('sndbot').onclick = async function () { //отправи
 
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = [wintAF, cstmTmp, wintLinks, wintAlarmclock, wintStat, wintLessonStatus, wintLinksd, wintSettings];
+    elements.push(Array.from(document.getElementById('cstmTmplates')));
     elements.forEach(e => setDisplayStyle(e, 'none'));
     ScriptBut.style.display = '';
 }
