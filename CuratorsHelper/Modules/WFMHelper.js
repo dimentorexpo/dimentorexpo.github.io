@@ -100,28 +100,6 @@ document.getElementById('hideWFMHelper').onclick = function() {
 	document.getElementById('Curators_WFM').style.display = "none"
 }
 
-// let output = [];
-// function generateOutput() {
-  // const startDate = new Date(document.getElementById("dateFirst").value);
-  // const endDate = new Date(startDate.getFullYear(), startDate.getMonth() + 1, 0);
-  
-
-  // for (let i = startDate.getDate(); i <= endDate.getDate(); i++) {
-    // if ((i - startDate.getDate()) % 4 === 0 || (i - startDate.getDate()) % 4 === 1) {
-      // output.push(`${i}.${startDate.getMonth() + 1}.${startDate.getFullYear()}`);
-    // }
-  // }
-
-  // document.getElementById("output").innerHTML = output.join("<br>");
-// }
-
-// document.getElementById('addToOperatorsArrayDay').onclick = function() {
-	// const startDate = new Date(document.getElementById("dateFirst").value);
-	// output.push(`${startDate.getDate()}.${startDate.getMonth() + 1}.${startDate.getFullYear()}`);
-// }
-
-// document.getElementById('addToOperatorsArrayMonth').onclick = generateOutput;
-
       let output = [];
 	  let output_1day = [];
 
@@ -181,10 +159,20 @@ function showCalendar() {
     }
   }
   
-  let headListCells =  document.getElementsByTagName('tr')[0].children
-  for (let i = 0; i <headListCells.length; i++) {
-	  headListCells[i].style = "background: #8799c9; font-weight:800";
+const weekdays = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"];
+const tableRows = document.getElementsByTagName("tr");
+
+for (let i = 0; i < tableRows.length; i++) {
+  for (let j = 0; j < tableRows[i].cells.length; j++) {
+    const cell = tableRows[i].cells[j];
+    const cellText = cell.textContent;
+
+    if (weekdays.includes(cellText)) {
+      cell.style.background = "#8799c9";
+      cell.style.fontWeight = 800;
+    }
   }
+}
   
 }
 
@@ -245,10 +233,21 @@ function showCalendar2() {
     }
   }
 
-  let headListCells = document.getElementsByTagName("tr")[0].children;
-  for (let i = 0; i < headListCells.length; i++) {
-    headListCells[i].style = "background: #8799c9; font-weight:800";
+const weekdays = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"];
+const tableRows = document.getElementsByTagName("tr");
+
+for (let i = 0; i < tableRows.length; i++) {
+  for (let j = 0; j < tableRows[i].cells.length; j++) {
+    const cell = tableRows[i].cells[j];
+    const cellText = cell.textContent;
+
+    if (weekdays.includes(cellText)) {
+      cell.style.background = "#8799c9";
+      cell.style.fontWeight = 800;
+    }
   }
+}
+
 }
       document.getElementById('addToOperatorsArrayDay').onclick = function() {
 		output_1day = [];
