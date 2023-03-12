@@ -1109,10 +1109,13 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     }
 
     document.getElementById('butServ').onclick = function () { //открывает вензель user info
+        setDisplayStyle(document.getElementById('AF_Service'), document.getElementById('AF_Service').style.display === '' ? 'none' : '');
+        /*
         if (document.getElementById('AF_Service').style.display == '')
             document.getElementById('AF_Service').style.display = 'none'
         else
             document.getElementById('AF_Service').style.display = ''
+        */
     } 
 
     window.onkeydown = function (e) {
