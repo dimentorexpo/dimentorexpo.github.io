@@ -1144,8 +1144,8 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         //скрывает окна при выбранно опции скрытия КОД
 //        setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
 
-        if (localStorage.getItem('disableomelchenkowindow') == 1)
-            document.getElementById('main_easy_win').style.display = "none";
+//        if (localStorage.getItem('disableomelchenkowindow') == 1)
+//            document.getElementById('main_easy_win').style.display = "none";
 
     }
 
