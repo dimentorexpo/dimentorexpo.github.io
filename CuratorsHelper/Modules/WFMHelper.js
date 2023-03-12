@@ -90,6 +90,7 @@ wintWFMHelper.onmousedown = function (a) {
 wintWFMHelper.onmouseup = function () { document.removeEventListener('mousemove', listenerWFM); }
 
 document.getElementById('openWFMHelper').onclick = function() {
+	document.getElementById('Curators_MainMenu').style.display = "none"
 	let tmpWFM = document.getElementById('Curators_WFM')
 	if(tmpWFM.style.display == "none") {
 		tmpWFM.style.display = ""
