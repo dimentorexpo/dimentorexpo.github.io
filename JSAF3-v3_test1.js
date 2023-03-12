@@ -35,6 +35,8 @@ var abortTimeOut1 = ''
 var modulesarray = [];
 var chatsArray = [];
 var scriptAdr = localStorage.getItem('scriptAdr');
+const testUsers = document.getElementById('testUsers');
+testUsers.style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 const TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec';
 const KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec';
 const KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec';
@@ -46,7 +48,6 @@ if (localStorage.getItem('tpflag') == null || localStorage.getItem('tpflag' == u
     localStorage.setItem('tpflag', 'ТП')
 }
 
-document.getElementById('testUsers').style.display = 'none'; // скрываю плавающее окно при загрузке страницы
 var win_AFhelper =  // описание элементов главного окна
     `<div style="width: 351px;">
         <span style="width: 351px">
@@ -100,6 +101,10 @@ Object.keys(localStorage).forEach(function (key) { // чистка localstorage 
 });
 
 localStorage.setItem('SMART_TABLE_SORTED_INFO(/tickets/archive)', '{\"columnKey\":\"ts\",\"order\":\"descend\"}')
+
+function setDisplayStyle(element, value){
+    element.style.display = value;
+}
 
 // Блок горячих клавиш
 const API_ENDPOINT = 'https://skyeng.autofaq.ai/api/reason8/operator/status';
@@ -170,7 +175,7 @@ async function whoAmI() { // функция получения айди опер
 function firstLoadPage() { //первичаня загрузка страницы
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
-        document.getElementById('testUsers').style.display = 'none';
+//        document.getElementById('testUsers').style.display = 'none';
         if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
             include("https://dimentorexpo.github.io/Modules/Consideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
         }
@@ -180,8 +185,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
 		mystyles.href = "https://dimentorexpo.github.io/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
-        if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
+//        setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
 
         if (localStorage.getItem('Hidetestid') == 0) {
             document.getElementById('testid').style.display = 'none';
@@ -205,7 +209,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
             btnAdd1.insertBefore(butServ, btnAdd1.children[11])
             btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[14])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
         }, 2000)
 
         function addElementsToList(elements, list) {
@@ -219,9 +223,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             const menubutarea = document.createElement('div');
             menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[13]);
+            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[13]);
+            headmenulist.insertBefore(menubar, headmenulist.children[15]);
             const elements = [JiraOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 
@@ -305,6 +309,7 @@ function timerHideButtons() { //функция добавления скрыти
         }
     }
 }
+
 function loadmoduls(gfgScript){
     let lboxstyles = document.createElement('link')
     lboxstyles.rel = 'stylesheet'
@@ -341,12 +346,7 @@ function loadmoduls(gfgScript){
 }
 
 function prepTp() { //функция подготовки расширения ТП
-    const testUsers = document.getElementById('testUsers');
     const languageSwitcher = document.querySelector('.user_menu-language_switcher');
-
-    const setDisplayStyle = (element, value) => {
-        element.style.display = value;
-    }
 
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
@@ -411,15 +411,10 @@ function prepTp() { //функция подготовки расширения �
 }
 
 function prepKC() { //функция подготовки расширения КЦ
-    const testUsers = document.getElementById('testUsers');
     const languageSwitcher = document.querySelector('.user_menu-language_switcher');
 
-    const setDisplayStyle = (element, value) => {
-        element.style.display = value;
-    }
-
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
-    setDisplayStyle(testUsers, 'none');
+//    setDisplayStyle(testUsers, 'none');
 
     let needtohide = document.getElementsByClassName('onlyfortp')
     for (i = 0; i < needtohide.length; i++) {
@@ -1147,11 +1142,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
         //скрывает окна при выбранно опции скрытия КОД
-        if (localStorage.getItem('disablelpmwindow') == 1)
-            document.getElementById('testUsers').style.display = "none";
+//        setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
 
-        if (localStorage.getItem('disableomelchenkowindow') == 1)
-            document.getElementById('main_easy_win').style.display = "none";
+//        if (localStorage.getItem('disableomelchenkowindow') == 1)
+//            document.getElementById('main_easy_win').style.display = "none";
 
     }
 
