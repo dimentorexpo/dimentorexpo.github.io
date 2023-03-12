@@ -112,7 +112,7 @@
 		padding: 0;
 	}
 	
-	 table {
+	 #calendarTable {
         border-collapse: collapse;
 		margin-left:20%;
 		position: absolute;
@@ -121,7 +121,7 @@
 		width: 300px;
       }
 
-      td {
+      #calendarTable td {
         border: 1px solid black;
         width: 50px;
         height: 50px;
@@ -129,6 +129,6 @@
 		background: antiquewhite;
       }
 
-      .highlight {
+      #calendarTable td.highlight {
         background-color: #ff6c00;
       }
