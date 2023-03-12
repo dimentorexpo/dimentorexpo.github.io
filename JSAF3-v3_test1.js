@@ -1884,5 +1884,5 @@ document.getElementById('sndbot').onclick = async function () { //отправи
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd', 'AF_Settings'];
     elements.forEach(e => {if (document.getElementById(e)){setDisplayStyle(document.getElementById(e), 'none')}});
-    ScriptBut.style.display = '';
+    document.getElementById('scriptBut').style.display = '';
 }
