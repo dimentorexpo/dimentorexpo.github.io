@@ -104,7 +104,7 @@ Object.keys(localStorage).forEach(function (key) { // чистка localstorage 
 localStorage.setItem('SMART_TABLE_SORTED_INFO(/tickets/archive)', '{\"columnKey\":\"ts\",\"order\":\"descend\"}')
 
 function setDisplayStyle(element, value){
-    if(element){ element.style.display = value; }
+    element.style.display = value;
 }
 
 // Блок горячих клавиш
@@ -1882,8 +1882,7 @@ document.getElementById('sndbot').onclick = async function () { //отправи
 }
 
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
-    var elements = [wintAF, wintLinks, wintAlarmclock, wintStat, wintLessonStatus, wintLinksd, wintSettings];
-    elements.push(Array.from(document.getElementById('cstmTmplates')));
-    elements.forEach(e => setDisplayStyle(e, 'none'));
+    var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd', 'AF_Settings'];
+    elements.forEach(e => {if (document.getElementById(e)){setDisplayStyle(document.getElementById(e), 'none')}});
     ScriptBut.style.display = '';
 }
