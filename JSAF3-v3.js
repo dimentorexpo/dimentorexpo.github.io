@@ -1714,6 +1714,16 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
     }
 }
 
+buttoncontactstudent.onclick = function() {
+	copyToClipboard1('Обратился П. Связаться с У');
+	sendComment('Обратился П. Связаться с У')
+}
+
+buttoncontactteacher.onclick = function() {
+	copyToClipboard1('Обратился У. Связаться с П');
+	sendComment('Обратился У. Связаться с П')
+}
+
 setInterval(screenshots, 5000)
 setInterval(setactivechatstyle, 1000)
 setInterval(addbuttonsintegration, 1000)
