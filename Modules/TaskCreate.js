@@ -53,7 +53,15 @@ var win_taskform = //описание формы создания задач в 
 							<textarea required id="taskcomment" placeholder="Комментарий" title="Укажите комментарий к задаче, что было сделано, что требуется сделать" autocomplete="off" type="text" style="text-align: center; width: 100%; color: black; margin-top: 5px" data-gramm="false" wt-ignore-input="true"></textarea>
 
 							<br>
-							<button title="Создает задачу на СРМ2 на выранный отдел и приоритет" id="createtask" style="width:105px; position: relative; left: 50%; margin-top: 5px; transform: translate(-50%, 0);">Отправить</button>
+							<button id="studcontact" style="width: 115px;position: relative;left: 15%;margin-top: 5px;transform: translate(-50%, 0);">Обр П, связь с У</button>
+							<button id="teachcontact" style="width: 115px;position: relative;left: 15%;margin-top: 5px;transform: translate(-50%, 0);">Обр У, связь с П</button>
+							<button id="nrteacher" style="width: 80px;position: relative;left: 11%;margin-top: 5px;transform: translate(-50%, 0);">Крит П Н.О</button>
+							<button id="nrstudent" style="width: 80px;position: relative;left: 11%;margin-top: 5px;transform: translate(-50%, 0);">Крит У Н.О</button>
+							
+							<div>
+								<button title="Создает задачу на СРМ2 на выранный отдел и приоритет" id="createtask" style="width: 80px;position: relative;left: 50%;margin-top: 5px;transform: translate(-50%, 0); background: chocolate;">Отправить</button>
+							</div>
+							
 						</div>
 		</span>
         </span>
@@ -109,9 +117,7 @@ document.getElementById('serviceinf').innerHTML = '';
 	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
         document.getElementById('AF_Createtask').style.display = ''
-		
-
-		
+				
 		document.getElementById('responseTextarea1').value = `{}`
 		document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
 		document.getElementById('responseTextarea3').value = 'arrayofservicesnew'
@@ -273,6 +279,9 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
+			
+				copyToClipboard1('Обратился П. Связаться с У.');
+				sendComment('Обратился П. Связаться с У.')
         }
 
         document.getElementById('critstudenttoteacher').onclick = function () {
@@ -304,6 +313,9 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
+			
+				copyToClipboard1('Обратился У. Связаться с П.');
+				sendComment('Обратился У. Связаться с П.')
         }
 
         document.getElementById('critteacherno').onclick = function () {
@@ -334,31 +346,6 @@ document.getElementById('serviceinf').innerHTML = '';
 
             document.getElementById('taskserviceid').value = '';
         }
-        /*
-                                    <button id="highteachersc" style="height:25px; width: 133px; display:none;">👽 Исход. звонки</button>
-                                    <button id="highteachertc" style="height:25px; width: 133px; display:none;">👽 Teachers Care</button>        
-        document.getElementById('highteachertc').onclick = function () {
-            document.getElementById('priority').children[2].selected = true;
-            document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-            document.getElementById('customerservice').children[2].selected = true;
-
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-            }
-        }
-
-
-        document.getElementById('highteachersc').onclick = function () {
-            document.getElementById('priority').children[2].selected = true;
-            document.getElementById('customerservice').children[5].selected = true;
-
-            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-            }
-        }
-        */
 
         document.getElementById('lowkm').onclick = function () {
             document.getElementById('priority').children[1].selected = true;
@@ -532,5 +519,25 @@ document.getElementById('serviceinf').innerHTML = '';
             "credentials": "include"
         });
     }
+	
+	studcontact.onclick = function() {
+		copyToClipboard1('Обратился П. Связаться с У');
+		sendComment('Обратился П. Связаться с У')
+	}
+
+	teachcontact.onclick = function() {
+		copyToClipboard1('Обратился У. Связаться с П');
+		sendComment('Обратился У. Связаться с П')
+	}
+
+	nrstudent.onclick = function() {
+		copyToClipboard1('Крит Н.О. У');
+		sendComment('Крит Н.О. У')
+	}
+
+	nrteacher.onclick = function() {
+		copyToClipboard1('Крит Н.О. П');
+		sendComment('Крит Н.О. П')
+	}
 
 }
