@@ -121,7 +121,7 @@ document.getElementById('hideMe').onclick = function () { // скрытие ок
 }	
 	
 document.getElementById('creds').onclick = function () { // разная полезная актуальная информация
-    alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: ]daWeezOSaYqq0GF>xM");
+    alert("Актуальные креды для BrowserStack:                                                     login: skyeng.infra@gmail.com , pwd: d=lgQu0Cv7wko8rTSC10yPO");
 }
 
 document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
