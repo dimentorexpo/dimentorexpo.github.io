@@ -250,6 +250,32 @@ function startTimer() { // большая функция по таймеру а�
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
         btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
         btn8.setAttribute('onClick', 'newTaggg("queue");')
+		
+		let btn9 = document.createElement('span');
+        btn9.id = 'svyazsU'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn9)
+        btn9.innerHTML = '<a style="float: left;margin-right: 5px;margin-top: 10px;color: ##1e90ff;cursor: pointer;font-weight: 700;">П->связь У</a>';
+        btn9.setAttribute('onClick', 'sendComment("Обратился П, связаться с У");')
+
+		let btn10 = document.createElement('span');
+        btn10.id = 'svyazsP'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn10)
+        btn10.innerHTML = '<a style="float: left;margin-right: 5px;margin-top: 10px;color: #c92e52;cursor: pointer;font-weight: 700;">У->связь П</a>';
+        btn10.setAttribute('onClick', 'sendComment("Обратился У, связаться с П");')
+		
+		let btn11 = document.createElement('span');
+        btn11.id = 'PNO'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn11)
+        btn11.innerHTML = '<a style="float: left;margin-right: 5px;margin-top: 10px;color: ##1e90ff;cursor: pointer;font-weight: 700;">П НО</a>';
+        btn11.setAttribute('onClick', 'sendComment("Крит Н.О. П");')
+
+		let btn12 = document.createElement('span');
+        btn12.id = 'UNO'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn12)
+        btn12.innerHTML = '<a style="float: left;margin-right: 5px;margin-top: 10px;color: #c92e52;cursor: pointer;font-weight: 700;">У НО</a>';
+        btn12.setAttribute('onClick', 'sendComment("Крит Н.О. У");')
+
+
     }
 }
 
