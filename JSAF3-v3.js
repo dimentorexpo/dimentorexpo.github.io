@@ -940,6 +940,8 @@ function addbuttonsintegration() { // добавляет подсветку пр
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonservid)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttoncontactstudent)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttoncontactteacher)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(teachneotv)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(studneotv)
             for (let i = 0; i < categorylist.length; i++) {
                 if (categorylist[i].textContent == "Техподдержка исход crm2") {
                     categorylist[i].style = "color: red; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em red";
@@ -1281,6 +1283,16 @@ let buttoncontactteacher = document.createElement('button');
 buttoncontactteacher.id = 'contactteachero';
 buttoncontactteacher.innerHTML = "Обратился У, связаться с П.";
 buttoncontactteacher.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let teachneotv = document.createElement('button');
+teachneotv.id = 'tneotv';
+teachneotv.innerHTML = "Крит П Н.О";
+teachneotv.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let studneotv = document.createElement('button');
+studneotv.id = 'sneotv';
+studneotv.innerHTML = "Крит У Н.О";
+studneotv.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
@@ -1722,6 +1734,16 @@ buttoncontactstudent.onclick = function() {
 buttoncontactteacher.onclick = function() {
 	copyToClipboard1('Обратился У. Связаться с П');
 	sendComment('Обратился У. Связаться с П')
+}
+
+teachneotv.onclick = function() {
+	copyToClipboard1('Крит Н.О. П');
+	sendComment('Крит Н.О. П')
+}
+
+studneotv.onclick = function() {
+	copyToClipboard1('Крит Н.О. У');
+	sendComment('Крит Н.О. У')
 }
 
 setInterval(screenshots, 5000)
