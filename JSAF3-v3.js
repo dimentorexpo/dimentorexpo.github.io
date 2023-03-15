@@ -938,6 +938,8 @@ function addbuttonsintegration() { // добавляет подсветку пр
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butstdid)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachidfstd)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonservid)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttoncontactstudent)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttoncontactteacher)
             for (let i = 0; i < categorylist.length; i++) {
                 if (categorylist[i].textContent == "Техподдержка исход crm2") {
                     categorylist[i].style = "color: red; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em red";
@@ -1268,7 +1270,17 @@ butteachidfstd.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1p
 let buttonservid = document.createElement('button');
 buttonservid.id = 'servidstudento';
 buttonservid.innerHTML = "ID услуги У (крит)";
-buttonservid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+buttonservid.style = 'width:160px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let buttoncontactstudent = document.createElement('button');
+buttoncontactstudent.id = 'contactstudento';
+buttoncontactstudent.innerHTML = "Обратился П, связаться с У.";
+buttoncontactstudent.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let buttoncontactteacher = document.createElement('button');
+buttoncontactteacher.id = 'contactteachero';
+buttoncontactteacher.innerHTML = "Обратился У, связаться с П.";
+buttoncontactteacher.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
