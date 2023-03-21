@@ -274,6 +274,18 @@ function startTimer() { // большая функция по таймеру а�
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn12)
         btn12.innerHTML = '<a style="float: left;margin-right: 5px;margin-top: 10px;color: #c92e52;cursor: pointer;font-weight: 700;">У НО</a>';
         btn12.setAttribute('onClick', 'sendComment("Крит Н.О. У");')
+		
+		let btn13 = document.createElement('span');
+        btn13.id = 'wanoanswer'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn13)
+        btn13.innerHTML = '<a style="float: left;margin-right: 5px;margin-top: 10px;color: #ff18da;cursor: pointer;font-weight: 700;">WA_NotAns</a>';
+        btn13.setAttribute('onClick', 'newTaggg("#wanoanswer");')
+		
+		let btn14 = document.createElement('span');
+        btn14.id = 'wafirstlesson'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn14)
+        btn14.innerHTML = '<a style="float: left;margin-right: 5px;margin-top: 10px;color: #ff18da;cursor: pointer;font-weight: 700;">WA_First</a>';
+        btn14.setAttribute('onClick', 'newTaggg("#wafirstlesson");')
 
 
     }
