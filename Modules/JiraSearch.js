@@ -82,9 +82,9 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         document.getElementById('AF_Jira').style.display = ''
         document.getElementById('idmymenu').style.display = 'none'
 
-        let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+        let defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
         document.getElementById('JQLquery').innerText = defqueryitem;
-        let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+        let frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
         let customquery = '';
         let iosbugsqueryitem = '';
         let androidbugsqueryitem = '';
@@ -134,7 +134,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         }
 
         document.getElementById('defaultQuery').onclick = function () { // если выбрана default
-            defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+            defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
             document.getElementById('JQLquery').value = defqueryitem;
             document.getElementById('testJira').value = ""
             this.classList.toggle('active-query')
@@ -180,7 +180,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         }
 
         document.getElementById('freshQuery').onclick = function () {  // если выбрана fresh
-            frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+            frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
             document.getElementById('JQLquery').value = frqueryitem;
             document.getElementById('testJira').value = ""
             this.classList.toggle('active-query')
@@ -239,14 +239,10 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
                 for (let j = 0; j < document.getElementsByName('addtonotesbug').length; j++) {
                     document.getElementsByName('addtonotesbug')[j].onclick = function () {
-                        let chatId = ''
-                        if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
-                            chatId = document.location.pathname.split('/')[3]
-                            sendComment('https://jira.skyeng.tech/browse/' + favissues[j].match(/browse.(\S+)"/)[1])
-                        } else {
-                            chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-                        }
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+                        sendComment('https://jira.skyeng.tech/browse/' + favissues[j].match(/browse.(\S+)"/)[1])
+
+                        let b = document.URL.split('/')
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",
@@ -254,7 +250,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": `{\"conversationId\":\"${chatId}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/${favissues[j].match(/browse.(\S+)"/)[1]}\"}]}`,
+                            "body": `{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/${favissues[j].match(/browse.(\S+)"/)[1]}\"}]}`,
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
@@ -368,14 +364,14 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
             }
 
             if (document.getElementById('defaultQuery').classList.contains('active-query')) {
-                defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
+                defqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
                 defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
                 document.getElementById('responseTextarea1').value = `{${optionsforfetch(defqueryitem)}}`
 
             } else if (document.getElementById('freshQuery').classList.contains('active-query')) {
-                frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                frqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports >= 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                 document.getElementById('JQLquery').value = frqueryitem;
                 frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
@@ -389,14 +385,14 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                 document.getElementById('responseTextarea1').value = `{${optionsforfetch(customquery)}}`
 
             } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
-                iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                iosbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                 document.getElementById('JQLquery').value = iosbugsqueryitem;
                 iosbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
                 document.getElementById('responseTextarea1').value = `{${optionsforfetch(iosbugsqueryitem)}}`
 
             } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
-                androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KG, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
+                androidbugsqueryitem = `project in (VIM, MP, MV, KIDS, TS, ADULT, AUTH, BILL, COMM, KIDSMOB, MATH, MOBACK, MOBT, SS, ST, SMMOB, STUDCAB, ESM, VID, SL) AND issuetype = Bug AND status != closed AND Reports > 0 AND resolution in (Unresolved, Incomplete, "Cannot Reproduce") AND text ~ "${testJira.value}" ORDER BY Created`
                 document.getElementById('JQLquery').value = androidbugsqueryitem;
                 androidbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
@@ -455,7 +451,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                                     "sec-fetch-mode": "cors",
                                     "sec-fetch-site": "same-origin"
                                 },
-                                "body": "{\"conversationId\":\"${chatId}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
+                                "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
                                 "method": "POST",
                                 "mode": "cors",
                                 "credentials": "include"
@@ -575,14 +571,9 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
                     let barray = document.querySelector('.jiraissues');
                     barray.onclick = function () {
-                        let chatId = ''
-                        if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
-                            chatId = document.location.pathname.split('/')[3]
-                            sendComment(rezissuetable[0].items[0].url)
-                        } else {
-                            chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-                        }
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+                        sendComment(rezissuetable[0].items[0].url)
+                        let b = document.URL.split('/')
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",
@@ -590,7 +581,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                                 "sec-fetch-mode": "cors",
                                 "sec-fetch-site": "same-origin"
                             },
-                            "body": "{\"conversationId\":\"${chatId}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
+                            "body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"" + rezissuetable[0].items[0].url + "\"}]}",
                             "method": "POST",
                             "mode": "cors",
                             "credentials": "include"
