@@ -393,7 +393,6 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
-        "https://dimentorexpo.github.io/Modules/Suggest.js", // модуль формы пожеланий и предложений
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
