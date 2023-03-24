@@ -40,7 +40,7 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #butopensugestformCRM:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
+	#jirafinder:hover, #buttonUnsub:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
 		background:DeepSkyBlue;
 		color:#ffffffe6;
 		font-weight:600;
@@ -48,7 +48,7 @@ function mystyles() {
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 	}
-	#buttonUnsub, #butopensugestformCRM, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnAlarmclock, #btnSettingsApp {
+	#buttonUnsub, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnAlarmclock, #btnSettingsApp {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -387,14 +387,6 @@ buttonOpenForm.textContent = "📧Unsub";
 document.getElementById('idmymenucrm').append(buttonOpenForm)
 
 include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
-
-let butopensugestformCRM = document.createElement('div') //suggest common
-butopensugestformCRM.id = "butopensugestformCRM"
-butopensugestformCRM.innerHTML = "📝Suggestions"
-
-document.getElementById('idmymenucrm').append(butopensugestformCRM)
-
-include("https://dimentorexpo.github.io/ModulesCRM/Suggest.js")
 
 let butsmartroomCRM = document.createElement('div') // smartroom sugest
 butsmartroomCRM.id = "smartroomformCRM"
