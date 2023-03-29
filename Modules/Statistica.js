@@ -628,6 +628,8 @@ async function checkload(department, flag) { // функция проверки 
 
 let arrayofSLA;
 let filteredarray;
+let alloperSLAclsed = 0;
+let alloperChatsclsed = 0;
 async function getopersSLA() {
     let progressBar = document.getElementById("progress-bar");
     let currentWidth = 0;
@@ -645,14 +647,12 @@ async function getopersSLA() {
 	let overduecount;
 	let alloperCSATsumma = 0;
 	let alloperCSATcount = 0;
-	let alloperSLAclsed = 0;
-	let alloperChatsclsed = 0;
 	let accumulator = 0;
-
+	alloperSLAclsed = 0;
+	alloperChatsclsed = 0;
     let slarows = document.getElementsByName('sladata');
     let csatrows = document.getElementsByName('csatdata');
 	let artrows = document.getElementsByName('artdata');
-
     getyesterdayandtoday();
     let operdata;
     filteredarray = [];
@@ -748,6 +748,7 @@ async function getopersSLA() {
 		for (let i= 0; i<document.getElementsByName('sladata').length ; i++) {
 			accumulator += Number(document.getElementsByName('sladata')[i].textContent.split('%')[0])
 		}
-		document.getElementById('SLAonGroup').textContent = (accumulator / activeopersId.length).toFixed(1) + '%'
+		// document.getElementById('SLAonGroup').textContent = (accumulator / activeopersId.length).toFixed(1) + '%'
+		document.getElementById('SLAonGroup').textContent = (100 - (alloperSLAclsed / alloperChatsclsed) * 100).toFixed(1) + '%'
     }
 }
