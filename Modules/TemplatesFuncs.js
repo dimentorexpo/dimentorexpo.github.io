@@ -249,7 +249,13 @@ function startTimer() { // большая функция по таймеру а�
         btn8.id = 'ochered'
         document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn8)
         btn8.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Очередь</a>';
-        btn8.setAttribute('onClick', 'newTaggg("queue");')
+        btn8.setAttribute('onClick', 'newTaggg("queue");')   
+
+		let btn15 = document.createElement('span');
+        btn15.id = 'ochered'
+        document.getElementsByClassName('expert-user_info_panel-footer-inner')[0].append(btn15)
+        btn15.innerHTML = '<a style="float: left; margin-right: 5px; margin-top: 10px; color: black; cursor: pointer;">Сброскорп📨</a>';
+        btn15.setAttribute('onClick', 'newTaggg("#corpmail");')
 		
 		let btn9 = document.createElement('span');
         btn9.id = 'svyazsU'
