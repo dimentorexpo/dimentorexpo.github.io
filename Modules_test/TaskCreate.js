@@ -275,7 +275,7 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('customerservice').style.background = '';
         }
 
-        NoteNoticeText.onclick = NoteNoticeClear();
+        document.getElementById('NoteNoticeText').ondblclick = NoteNoticeClear();
 
         document.getElementById('critteachertostudent').onclick = function () {
             document.getElementById('priority').children[3].selected = true;
