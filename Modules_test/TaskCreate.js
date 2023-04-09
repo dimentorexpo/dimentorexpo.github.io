@@ -52,8 +52,7 @@ var win_taskform = //описание формы создания задач в 
 							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
 							<br>
                             <span id="NoteNotice" style="color:bisque; display:none;">Будет добавлена заметка: </span>
-                            <span id="NoteNoticeText" style="background:#69a4c7; color:#fff;  font-weight:300; border:1px solid black; display:none;"></span>
-                            <button id="NoteNoticebtn" title="Отменить отправку заметки" style="display:none; margin-right:5px; float: right;">🚫</button>
+                            <span id="NoteNoticeText" title="Нажми для отмены отправки заметки" style="background:#69a4c7; color:#fff;  font-weight:300; border:1px solid black; display:none;"></span>
 							<label style="color:bisque; display:none;">Используйте кнопку ниже для открытия создания задачи в СРМ на техподдержку 2 линии с обязательным выбором Темы обращения "Запланированная связь с пользователем" и время открытия задачи, которое забронировали на datsy.ru . Другие задачи на 2ЛТП передаем в прежнем режиме через это окно.</label>
 							<br>
 							<button style="margin-left: 70px; display:none;" id="taskcreate2linecrm">Создать задачу на 2ЛТП по календарю</button>
@@ -261,7 +260,6 @@ document.getElementById('serviceinf').innerHTML = '';
 
         document.getElementById('priority').onchange = changeprioritycolor;
 
-        document.getElementById('NoteNoticebtn').onclick = NoteNoticeClear;
         document.getElementById('NoteNoticeText').onclick = NoteNoticeClear;
 
         document.getElementById('clearcreateform').onclick = function () {
@@ -639,13 +637,11 @@ document.getElementById('serviceinf').innerHTML = '';
         document.getElementById('NoteNoticeText').innerText = NoteText;
         document.getElementById('NoteNotice').style.display = '';
         document.getElementById('NoteNoticeText').style.display = '';
-        document.getElementById('NoteNoticebtn').style.display = '';
     }
 
     function NoteNoticeClear(){
         document.getElementById('NoteNotice').style.display = 'none';
         document.getElementById('NoteNoticeText').style.display = 'none';
-        document.getElementById('NoteNoticebtn').style.display = 'none';
         document.getElementById('NoteNoticeText').innerText = '';
         NoteText = '';
         NoteFlag = 0;
