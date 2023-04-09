@@ -578,7 +578,7 @@ document.getElementById('serviceinf').innerHTML = '';
                 }
 				
                 if (NoteFlag == 1) {
-                    setTimeout(sendComment(NoteText), 1000);
+                    sendComment(NoteText);
                     NoteNoticeClear();
                 }
 
