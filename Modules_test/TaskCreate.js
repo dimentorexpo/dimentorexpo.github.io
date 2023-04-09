@@ -273,6 +273,7 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('priority').style = "color:#000;font-weight:400;width: 100%; height: 25px; text-align: center;"
             document.getElementById('customerservice').children[0].selected = true
             document.getElementById('customerservice').style.background = '';
+            NoteNoticeClear();
         }
 
         document.getElementById('NoteNoticeText').ondblclick = NoteNoticeClear();
