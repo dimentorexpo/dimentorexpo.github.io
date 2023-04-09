@@ -51,6 +51,8 @@ var win_taskform = //описание формы создания задач в 
 							<br>
 							<input required id="taskuserid" placeholder="🆔 ID пользователя" style="width: 100%; height: 25px;">
 							<br>
+                            <span id="NoteNotice" style="color:bisque; display:none;">Будет добавлена заметка: </span>
+                            <span id="NoteNoticeText" style="background:#69a4c7; color:#fff;  font-weight:300; border:1px solid black; display:none;"></span>
 							<label style="color:bisque; display:none;">Используйте кнопку ниже для открытия создания задачи в СРМ на техподдержку 2 линии с обязательным выбором Темы обращения "Запланированная связь с пользователем" и время открытия задачи, которое забронировали на datsy.ru . Другие задачи на 2ЛТП передаем в прежнем режиме через это окно.</label>
 							<br>
 							<button style="margin-left: 70px; display:none;" id="taskcreate2linecrm">Создать задачу на 2ЛТП по календарю</button>
@@ -77,7 +79,8 @@ var win_taskform = //описание формы создания задач в 
 			</div>
 </div>`;
 
-var NoteFlag = null; // флаг отправлять заметку или нет
+var NoteFlag = 0; // флаг отправлять заметку или нет
+var NoteText = ''; // какой текст отправим в заметку
 
 if (localStorage.getItem('winTopTaskCreate') == null) { //начальное положение окна Создания задач на СРМ
     localStorage.setItem('winTopTaskCreate', '295');
@@ -272,6 +275,8 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('customerservice').style.background = '';
         }
 
+        NoteNoticeText.onclick = NoteNoticeClear();
+
         document.getElementById('critteachertostudent').onclick = function () {
             document.getElementById('priority').children[3].selected = true;
             document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
@@ -287,7 +292,9 @@ document.getElementById('serviceinf').innerHTML = '';
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
 			
-            NoteFlag = 'crittechtostu'
+            NoteFlag = 1
+            NoteText = 'Обратился П. Связаться с У.'
+            NoteNoticeSet();
         }
 
         document.getElementById('critstudenttoteacher').onclick = function () {
@@ -320,7 +327,9 @@ document.getElementById('serviceinf').innerHTML = '';
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
 			
-            NoteFlag = 'critstutotech'
+            NoteFlag = 1
+            NoteText = 'Обратился У. Связаться с П.'
+            NoteNoticeSet();
         }
 
         document.getElementById('critteacherno').onclick = function () {
@@ -338,7 +347,9 @@ document.getElementById('serviceinf').innerHTML = '';
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны П. в чате н.о. Пожалуйста, свяжитесь с П"
 
-            NoteFlag = 'crittechno'
+            NoteFlag = 1
+            NoteText = 'Крит Н.О. П'
+            NoteNoticeSet();
         }
 
         document.getElementById('critstudentno').onclick = function () {
@@ -371,7 +382,9 @@ document.getElementById('serviceinf').innerHTML = '';
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны У. в чате н.о. Пожалуйста, свяжитесь с У"
 
-            NoteFlag = 'critstuno'
+            NoteFlag = 1
+            NoteText = 'Крит Н.О. У'
+            NoteNoticeSet();
         }
 
         document.getElementById('highsecondline').onclick = function () {
@@ -385,6 +398,7 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskserviceid').value = '';
+            NoteNoticeClear()
         }
 
         document.getElementById('highteachertc').onclick = function () {
@@ -398,6 +412,7 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskserviceid').value = '';
+            NoteNoticeClear()
         }
 
 
@@ -409,6 +424,7 @@ document.getElementById('serviceinf').innerHTML = '';
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                     document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
             }
+            NoteNoticeClear()
         }
 
         document.getElementById('lowkm').onclick = function () {
@@ -438,6 +454,7 @@ document.getElementById('serviceinf').innerHTML = '';
                     }
                 }
             }
+            NoteNoticeClear()
         }
 
         document.getElementById('lowcontrol').onclick = function () {
@@ -451,6 +468,7 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nКонтроль"
+            NoteNoticeClear()
         }
 
         document.getElementById('createtask').onclick = function () {
@@ -553,22 +571,9 @@ document.getElementById('serviceinf').innerHTML = '';
                     });
                 }
 				
-                if (NoteFlag) {
-                    switch (NoteFlag){
-                        case 'crittechtostu':
-                            sendComment('Обратился П. Связаться с У.');
-                        break;
-                        case 'critstutotech':
-                            sendComment('Обратился У. Связаться с П.');
-                        break;
-                        case 'crittechno':
-                            sendComment('Крит Н.О. П');
-                        break;
-                        case 'critstuno':
-                            sendComment('Крит Н.О. У');
-                        break;
-                    }
-                    NoteFlag = null;
+                if (NoteFlag == 1) {
+                    setTimeout(sendComment(NoteText), 1000);
+                    NoteNoticeClear();
                 }
 
                 document.getElementById('taskcomment').value = '';
@@ -621,5 +626,19 @@ document.getElementById('serviceinf').innerHTML = '';
 		copyToClipboard1('Крит Н.О. П');
 		sendComment('Крит Н.О. П')
 	}
+
+    function NoteNoticeSet(){
+        NoteNoticeText.innerText = NoteText;
+        NoteNotice.style.display = '';
+        NoteNoticeText.style.display = '';
+    }
+
+    function NoteNoticeClear(){
+        NoteNotice.style.display = 'none';
+        NoteNoticeText.style.display = 'none';
+        NoteNoticeText.innerText = '';
+        NoteText = '';
+        NoteFlag = 0;
+    }
 
 }
