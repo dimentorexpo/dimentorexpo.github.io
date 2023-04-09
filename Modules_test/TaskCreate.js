@@ -262,6 +262,7 @@ document.getElementById('serviceinf').innerHTML = '';
         document.getElementById('priority').onchange = changeprioritycolor;
 
         document.getElementById('NoteNoticebtn').onclick = NoteNoticeClear;
+        document.getElementById('NoteNoticeText').onclick = NoteNoticeClear;
 
         document.getElementById('clearcreateform').onclick = function () {
             document.getElementById('chathashlnk').style.background = '#cac1b1';
