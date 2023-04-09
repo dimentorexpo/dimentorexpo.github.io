@@ -11,16 +11,18 @@ var win_taskform = //описание формы создания задач в 
                         </div>
 
                         <div id="addcreateformbtns">
-                            <button id="critteachertostudent" style="height:25px; width: 133px; margin-left:5px;">🔴 👽П -&gt; У👨‍🎓</button>
-                            <button id="critstudenttoteacher" style="height:25px; width: 133px;">🔴 👨‍🎓У -&gt; П👽</button>
-                            <button id="critteacherno" style="height:25px; width: 133px;">🔴 👽П н.о.</button>
+                            <button id="critteachertostudent" style="height:25px; width: 48%; margin-left:5px;">🔴 👽П -&gt; У👨‍🎓</button>
+                            <button id="critstudenttoteacher" style="height:25px; width: 48%;">🔴 👨‍🎓У -&gt; П👽</button>
                             <br>
-                            <button id="highsecondline" style="height:25px; width: 133px; margin-left:5px; margin-top:3px;">🗓 Календарь У/П</button>                
-                            <button id="lowkm" style="height:25px; width: 133px;">😡 КМ</button>
-                            <button id="lowcontrol" style="height:25px; width: 133px;">🛂 Контроль</button>
+                            <button id="critteacherno" style="height:25px; width: 48%; margin-left:5px; margin-top:3px;">🔴 👽П н.о.</button>
+                            <button id="critstudentno" style="height:25px; width: 48%;">🔴 👨‍🎓У н.о.</button>
                             <br>
-                            <button id="highteachersc" style="height:25px; width: 97px;">👽Исх. звонки</button>
-							<button id="highteachertc" style="height:25px; width: 97px;">👽 TC</button>
+                            <button id="highteachersc" style="height:25px; width: 48%; margin-left:5px; margin-top:3px;">👽Исх. звонки</button>
+							<button id="highteachertc" style="height:25px; width: 48%;">👽 TC</button>
+                            <br>
+                            <button id="highsecondline" style="height:25px; width: 32%; margin-left:5px; margin-top:3px;">🗓 Календарь У/П</button>                
+                            <button id="lowkm" style="height:25px; width: 32%;">😡 КМ</button>
+                            <button id="lowcontrol" style="height:25px; width: 32%;">🛂 Контроль</button>
                         </div>
 
                         <div style="margin: 5px; margin-top: 0px; width: 410px" id="create_form_menu">
@@ -335,6 +337,37 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны П. в чате н.о. Пожалуйста, свяжитесь с П"
+        }
+
+        document.getElementById('critstudentno').onclick = function () {
+            document.getElementById('priority').children[3].selected = true;
+            document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
+            document.getElementById('customerservice').children[1].selected = true;
+
+            let services;
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+                    document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+            }
+
+            for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "services") {
+                    services = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.match(/service-\d+/gm)
+                }
+            }
+
+            if (services.length == 1) {
+                document.getElementById('taskserviceid').value = services[0].replace('service-', '')
+            } else {
+                for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+                    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-educationServiceId") {
+                        document.getElementById('taskserviceid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
+                    }
+                }
+            }
+
+            document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны У. в чате н.о. Пожалуйста, свяжитесь с У"
         }
 
         document.getElementById('highsecondline').onclick = function () {
