@@ -198,18 +198,17 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
             btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[1])
-            btnAdd1.insertBefore(butopensugestform, btnAdd1.children[2])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
-            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
-            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
-            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
-            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[2])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[3])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[4])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
+            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[6])
+            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[7])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[8])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[9])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[10])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[11])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[12])
         }, 2000)
 
         function addElementsToList(elements, list) {
@@ -226,11 +225,10 @@ function firstLoadPage() { //первичаня загрузка страниц�
             headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
             headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [JiraOpenForm, butMarks, suggestform, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
+            const elements = [JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 
             JiraOpenForm.classList.remove('inithide');
-            butopensugestform.classList.remove('inithide');
             butrefuse.classList.remove('inithide');
             butsmartroom.classList.remove('inithide');
             butLessonInfo.classList.remove('inithide');
@@ -396,7 +394,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
         "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
         "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
-        "https://dimentorexpo.github.io/Modules_test/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
+        "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
         "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
         "https://dimentorexpo.github.io/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
@@ -937,6 +935,10 @@ function addbuttonsintegration() { // добавляет подсветку пр
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butstdid)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(butteachidfstd)
             document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttonservid)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttoncontactstudent)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(buttoncontactteacher)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(teachneotv)
+            document.getElementsByClassName('ant-modal-content')[0].childNodes[2].appendChild(studneotv)
             for (let i = 0; i < categorylist.length; i++) {
                 if (categorylist[i].textContent == "Техподдержка исход crm2") {
                     categorylist[i].style = "color: red; font-weight: 600; text-shadow: 1px 1px 1px black, 0 0 1em red";
@@ -1267,7 +1269,27 @@ butteachidfstd.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1p
 let buttonservid = document.createElement('button');
 buttonservid.id = 'servidstudento';
 buttonservid.innerHTML = "ID услуги У (крит)";
-buttonservid.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+buttonservid.style = 'width:160px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let buttoncontactstudent = document.createElement('button');
+buttoncontactstudent.id = 'contactstudento';
+buttoncontactstudent.innerHTML = "Обратился П, связаться с У.";
+buttoncontactstudent.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let buttoncontactteacher = document.createElement('button');
+buttoncontactteacher.id = 'contactteachero';
+buttoncontactteacher.innerHTML = "Обратился У, связаться с П.";
+buttoncontactteacher.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let teachneotv = document.createElement('button');
+teachneotv.id = 'tneotv';
+teachneotv.innerHTML = "Крит П Н.О";
+teachneotv.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
+
+let studneotv = document.createElement('button');
+studneotv.id = 'sneotv';
+studneotv.innerHTML = "Крит У Н.О";
+studneotv.style = 'width:150px; cursor:pointer; margin-left:2px; border: 1px solid black; border-radius:  10px; margin-top:5px;'
 
 let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
@@ -1454,11 +1476,6 @@ butLessonInfo.id = "butLessonInfo"
 butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
 butLessonInfo.innerHTML = "🎓 Lesson Info"
 butLessonInfo.classList.add('inithide');
-
-let butopensugestform = document.createElement('div')
-butopensugestform.id = "suggestform"
-butopensugestform.innerHTML = "📝Предложения"
-butopensugestform.classList.add('onlyfortp', 'inithide');
 
 let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
@@ -1699,6 +1716,26 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
         getservidst = serviceIdNode.childNodes[1].textContent;
         copyToClipboard1(getservidst);
     }
+}
+
+buttoncontactstudent.onclick = function() {
+	copyToClipboard1('Обратился П. Связаться с У');
+	sendComment('Обратился П. Связаться с У')
+}
+
+buttoncontactteacher.onclick = function() {
+	copyToClipboard1('Обратился У. Связаться с П');
+	sendComment('Обратился У. Связаться с П')
+}
+
+teachneotv.onclick = function() {
+	copyToClipboard1('Крит Н.О. П');
+	sendComment('Крит Н.О. П')
+}
+
+studneotv.onclick = function() {
+	copyToClipboard1('Крит Н.О. У');
+	sendComment('Крит Н.О. У')
 }
 
 setInterval(screenshots, 5000)
