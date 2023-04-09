@@ -11,17 +11,17 @@ var win_taskform = //описание формы создания задач в 
                         </div>
 
                         <div id="addcreateformbtns">
-                            <button id="critteachertostudent" style="height:25px; width: 48%; margin-left:5px;">🔴 👽П -&gt; У👨‍🎓</button>
+                            <button id="critteachertostudent" style="height:25px; width: 48%; margin-left:8px;">🔴 👽П -&gt; У👨‍🎓</button>
                             <button id="critstudenttoteacher" style="height:25px; width: 48%;">🔴 👨‍🎓У -&gt; П👽</button>
                             <br>
-                            <button id="critteacherno" style="height:25px; width: 48%; margin-left:5px; margin-top:3px;">🔴 👽П н.о.</button>
+                            <button id="critteacherno" style="height:25px; width: 48%; margin-left:8px; margin-top:3px;">🔴 👽П н.о.</button>
                             <button id="critstudentno" style="height:25px; width: 48%;">🔴 👨‍🎓У н.о.</button>
                             <br>
-                            <button id="highteachersc" style="height:25px; width: 48%; margin-left:5px; margin-top:3px;">👽Исх. звонки</button>
-							<button id="highteachertc" style="height:25px; width: 48%;">👽 TC</button>
+                            <button id="highteachersc" style="height:25px; width: 48%; margin-left:8px; margin-top:3px;">👽 Исх. звонки (SC)</button>
+							<button id="highteachertc" style="height:25px; width: 48%;">👽 Teachers Care</button>
                             <br>
-                            <button id="highsecondline" style="height:25px; width: 32%; margin-left:5px; margin-top:3px;">🗓 Календарь У/П</button>                
-                            <button id="lowkm" style="height:25px; width: 32%;">😡 КМ</button>
+                            <button id="highsecondline" style="height:25px; width: 32%; margin-left:8px; margin-top:3px;">🗓 Календарь У/П</button>                
+                            <button id="lowkm" style="height:25px; width: 31%;">😡 КМ</button>
                             <button id="lowcontrol" style="height:25px; width: 32%;">🛂 Контроль</button>
                         </div>
 
@@ -76,6 +76,8 @@ var win_taskform = //описание формы создания задач в 
 				<p id="serviceinf"></p>
 			</div>
 </div>`;
+
+var NoteFlag = null; // флаг отправлять заметку или нет
 
 if (localStorage.getItem('winTopTaskCreate') == null) { //начальное положение окна Создания задач на СРМ
     localStorage.setItem('winTopTaskCreate', '295');
@@ -285,8 +287,7 @@ document.getElementById('serviceinf').innerHTML = '';
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
 			
-				copyToClipboard1('Обратился П. Связаться с У.');
-				sendComment('Обратился П. Связаться с У.')
+            NoteFlag = 'crittechtostu'
         }
 
         document.getElementById('critstudenttoteacher').onclick = function () {
@@ -319,8 +320,7 @@ document.getElementById('serviceinf').innerHTML = '';
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
 			
-				copyToClipboard1('Обратился У. Связаться с П.');
-				sendComment('Обратился У. Связаться с П.')
+            NoteFlag = 'critstutotech'
         }
 
         document.getElementById('critteacherno').onclick = function () {
@@ -337,6 +337,8 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны П. в чате н.о. Пожалуйста, свяжитесь с П"
+
+            NoteFlag = 'crittechno'
         }
 
         document.getElementById('critstudentno').onclick = function () {
@@ -368,6 +370,8 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны У. в чате н.о. Пожалуйста, свяжитесь с У"
+
+            NoteFlag = 'critstuno'
         }
 
         document.getElementById('highsecondline').onclick = function () {
@@ -386,7 +390,7 @@ document.getElementById('serviceinf').innerHTML = '';
         document.getElementById('highteachertc').onclick = function () {
             document.getElementById('priority').children[2].selected = true;
             document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
-            document.getElementById('customerservice').children[6].selected = true;
+            document.getElementById('customerservice').children[2].selected = true;
 
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
@@ -549,6 +553,24 @@ document.getElementById('serviceinf').innerHTML = '';
                     });
                 }
 				
+                if (NoteFlag) {
+                    switch (NoteFlag){
+                        case 'crittechtostu':
+                            sendComment('Обратился П. Связаться с У.');
+                        break;
+                        case 'critstutotech':
+                            sendComment('Обратился У. Связаться с П.');
+                        break;
+                        case 'crittechno':
+                            sendComment('Крит Н.О. П');
+                        break;
+                        case 'critstuno':
+                            sendComment('Крит Н.О. У');
+                        break;
+                    }
+                    NoteFlag = null;
+                }
+
                 document.getElementById('taskcomment').value = '';
                 document.getElementById('taskserviceid').value = '';
                 document.getElementById('taskuserid').value = '';
