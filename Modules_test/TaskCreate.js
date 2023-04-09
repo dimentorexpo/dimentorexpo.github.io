@@ -628,17 +628,16 @@ document.getElementById('serviceinf').innerHTML = '';
 	}
 
     function NoteNoticeSet(){
-        NoteNoticeText.innerText = NoteText;
-        NoteNotice.style.display = '';
-        NoteNoticeText.style.display = '';
+        document.getElementById('NoteNoticeText').innerText = NoteText;
+        document.getElementById('NoteNotice').style.display = '';
+        document.getElementById('NoteNoticeText').style.display = '';
     }
 
     function NoteNoticeClear(){
-        NoteNotice.style.display = 'none';
-        NoteNoticeText.style.display = 'none';
-        NoteNoticeText.innerText = '';
+        document.getElementById('NoteNotice').style.display = 'none';
+        document.getElementById('NoteNoticeText').style.display = 'none';
+        document.getElementById('NoteNoticeText').innerText = '';
         NoteText = '';
         NoteFlag = 0;
     }
-
 }
