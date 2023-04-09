@@ -283,6 +283,10 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
             document.getElementById('customerservice').children[1].selected = true;
 
+            NoteFlag = 1
+            NoteText = 'Обратился П. Связаться с У.'
+            NoteNoticeSet();
+
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
                     document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText
@@ -292,16 +296,16 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с П, все ок, свяжитесь с У!"
-			
-            NoteFlag = 1
-            NoteText = 'Обратился П. Связаться с У.'
-            NoteNoticeSet();
         }
 
         document.getElementById('critstudenttoteacher').onclick = function () {
             document.getElementById('priority').children[3].selected = true;
             document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
             document.getElementById('customerservice').children[1].selected = true;
+
+            NoteFlag = 1
+            NoteText = 'Обратился У. Связаться с П.'
+            NoteNoticeSet();
 
             let services;
 
@@ -327,16 +331,16 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nПроверил связь с У, все ок, свяжитесь с П!"
-			
-            NoteFlag = 1
-            NoteText = 'Обратился У. Связаться с П.'
-            NoteNoticeSet();
         }
 
         document.getElementById('critteacherno').onclick = function () {
             document.getElementById('priority').children[3].selected = true;
             document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
             document.getElementById('customerservice').children[1].selected = true;
+
+            NoteFlag = 1
+            NoteText = 'Крит Н.О. П'
+            NoteNoticeSet();
 
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "nextClass-studentId") {
@@ -347,16 +351,16 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны П. в чате н.о. Пожалуйста, свяжитесь с П"
-
-            NoteFlag = 1
-            NoteText = 'Крит Н.О. П'
-            NoteNoticeSet();
         }
 
         document.getElementById('critstudentno').onclick = function () {
             document.getElementById('priority').children[3].selected = true;
             document.getElementById('priority').style = "color:red;font-weight:600;width: 100%;  height: 25px; text-align: center;"
             document.getElementById('customerservice').children[1].selected = true;
+
+            NoteFlag = 1
+            NoteText = 'Крит Н.О. У'
+            NoteNoticeSet();
 
             let services;
 
@@ -382,10 +386,6 @@ document.getElementById('serviceinf').innerHTML = '';
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nНеполадка со стороны У. в чате н.о. Пожалуйста, свяжитесь с У"
-
-            NoteFlag = 1
-            NoteText = 'Крит Н.О. У'
-            NoteNoticeSet();
         }
 
         document.getElementById('highsecondline').onclick = function () {
@@ -393,13 +393,14 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
             document.getElementById('customerservice').children[6].selected = true;
 
+            NoteNoticeClear()
+
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                     document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
             }
 
             document.getElementById('taskserviceid').value = '';
-            NoteNoticeClear()
         }
 
         document.getElementById('highteachertc').onclick = function () {
@@ -407,13 +408,14 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('priority').style = "color:orange;font-weight:600; width: 100%; height: 25px; text-align: center;"
             document.getElementById('customerservice').children[2].selected = true;
 
+            NoteNoticeClear()
+
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                     document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
             }
 
             document.getElementById('taskserviceid').value = '';
-            NoteNoticeClear()
         }
 
 
@@ -421,17 +423,20 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('priority').children[2].selected = true;
             document.getElementById('customerservice').children[5].selected = true;
 
+            NoteNoticeClear()
+
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                     document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
             }
-            NoteNoticeClear()
         }
 
         document.getElementById('lowkm').onclick = function () {
             document.getElementById('priority').children[1].selected = true;
             document.getElementById('priority').style = "color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
             document.getElementById('customerservice').children[7].selected = true;
+
+            NoteNoticeClear()
 
             let serviceskm;
 
@@ -455,7 +460,6 @@ document.getElementById('serviceinf').innerHTML = '';
                     }
                 }
             }
-            NoteNoticeClear()
         }
 
         document.getElementById('lowcontrol').onclick = function () {
@@ -463,13 +467,14 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('priority').style = "color:green;font-weight:600; width: 100%; height: 25px; text-align: center;"
             document.getElementById('customerservice').children[8].selected = true;
 
+            NoteNoticeClear()
+
             for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
                     document.getElementById('taskuserid').value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
             }
 
             document.getElementById('taskcomment').value = document.getElementById('taskcomment').value + "\nКонтроль"
-            NoteNoticeClear()
         }
 
         document.getElementById('createtask').onclick = function () {
