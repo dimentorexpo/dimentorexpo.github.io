@@ -1,6 +1,6 @@
 let linkstyles = document.createElement('link')
 linkstyles.rel = 'stylesheet'
-linkstyles.href = "https://dimentorexpo.github.io/CuratorsHelper/CSS/styles.css" // подключаем модуль стилей 
+linkstyles.href = "https://grumstv.github.io/CuratorsHelper/CSS/styles.css" // подключаем модуль стилей 
 document.querySelector('head').append(linkstyles)
 
 let sidePanel = document.createElement('div')
@@ -51,6 +51,7 @@ function loadmodules(gfgScript){
     });
 }
 
-    let gfgScript = ["https://dimentorexpo.github.io/CuratorsHelper/Modules/MainMenu.js", // подключаем модуль главного меню скрипта
-	"https://dimentorexpo.github.io/CuratorsHelper/Modules/WFMHelper.js"]; // подключаем модуль для помощи  с WFM
+    let gfgScript = ["https://grumstv.github.io/CuratorsHelper/Modules/MainMenu.js", // подключаем модуль главного меню скрипта
+	"https://grumstv.github.io/CuratorsHelper/Modules/WFMOperCount.js", // подключаем модуль для помощи  с WFM при получении количества операторов, которые уже внесены в WFM
+	"https://grumstv.github.io/CuratorsHelper/Modules/WFMHelper.js"]; // подключаем модуль для помощи  с WFM при построении графика
     loadmodules(gfgScript)

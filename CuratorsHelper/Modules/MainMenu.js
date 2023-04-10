@@ -7,16 +7,16 @@ var win_mainMenu = `<div style="display: flex;">
 						<div id="mainmenu" style="display:block">
 							<button id="openWFMHelper" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">📊</span> WFM</button>
 							<br>
-							<button id="none1" style="display:none; margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🚫</span> In Dev</button>
+							<button id="birthdaylist" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🎂</span> Birthday</button>
 							<br>
-							<button id="none2" style="display:none; margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🚫</span> In Dev</button>
+							<button id="wfmopercounter" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🧮</span> WFM Count</button>
 							<br>
 							<button id="none3" style="display:none; margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🚫</span> In Dev</button>
 							<br>
 							<button id="none4" title = "" style="display:none; margin: 5px 5px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🚫</span> In Dev</button>
 						</div>
 
-						<div id="studentsmenu" style="display:none">
+						<div id="asdasdwqeqwe" style="display:none">
 							<button id="lkpskysmart" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🎓</span> Smartroom</button>
 							<br>
 							<button id="lkpadult" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🅰</span> Aduls</button>
@@ -24,7 +24,7 @@ var win_mainMenu = `<div style="display: flex;">
 							<button id="backtomainfromstudmenu" style="margin: 5px 0px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🔙</span> Back</button>
 						</div>
 
-						<div id="exercisesmenu" style="display:none">
+						<div id="exercqweqweasdisesmenu" style="display:none">
 							<button id="exercisekysmart" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🎓</span> Smartroom</button>
 							<br>
 							<button id="exercisesttc" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="btn-main dobigger"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">👽</span> TTC</button>
@@ -50,7 +50,7 @@ wintMainMenu.innerHTML = win_mainMenu;
 function checkelementt(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT') {
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' && elem.nodeName != 'TH' && elem.nodeName != 'TD') {
         return true;
     }
     return false;
