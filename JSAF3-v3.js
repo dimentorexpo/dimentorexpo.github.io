@@ -265,23 +265,23 @@ function timerHideButtons() { //функция добавления скрыти
 			}
 		}
 
-		if (opsection === 'ТП') {
-			let modalContent = document.querySelector('.ant-modal-content');
-			const heading = modalContent.children[1].children[0].childNodes[0].textContent;
-			if (heading === 'Указать тему') {
-				hideElements(modalContent, [
-					'Техподдержка V1',
-					'Уроки V2',
-					'Группа КМ',
-					'Обратная связь ТП'
-				]);
-			} else if (heading === 'Закрыть запрос?') {
-				hideElements(modalContent, [
-					'Техподдержка V1',
-					'Закрыть'
-				]);
-			}
-		}
+		// if (opsection === 'ТП') {
+			// let modalContent = document.querySelector('.ant-modal-content');
+			// const heading = modalContent.children[1].children[0].childNodes[0].textContent;
+			// if (heading === 'Указать тему') {
+				// hideElements(modalContent, [
+					// 'Техподдержка V1',
+					// 'Уроки V2',
+					// 'Группа КМ',
+					// 'Обратная связь ТП'
+				// ]);
+			// } else if (heading === 'Закрыть запрос?') {
+				// hideElements(modalContent, [
+					// 'Техподдержка V1',
+					// 'Закрыть'
+				// ]);
+			// }
+		// }
 
 
         let modalContent = document.querySelector('.ant-modal-content');
