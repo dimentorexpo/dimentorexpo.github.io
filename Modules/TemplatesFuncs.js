@@ -372,7 +372,7 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
 }
 
 async function buttonsFromDoc(butName) { // функция отправки шаблона в зависимости от нажатой кнопки и также взаимодействут с другими функциями
-    if (butName == "ус+брауз")
+    if (butName == "ус+бра")
         if (user == 'student')
             butName = "ус+брауз (У)"
         else
@@ -750,7 +750,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                         if (newBut.textContent == 'Урок NS')
                             newBut.id = "NS"
                         if (newBut.textContent == 'ус+брауз (У)')
-                            newBut.textContent = "ус+брауз"
+                            newBut.textContent = "ус+бра"
                         if (newBut.textContent == 'ус+брауз (П)')
                             continue
                         if (addTmpFlag == 0)
