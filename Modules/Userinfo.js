@@ -129,7 +129,7 @@ async function startnewchat(polzid) { //открывает чат с польз�
 
   if (polzid) {
     console.log(polzid);
-    await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}&groupId=b6f7f34d-2f08-fc19-3661-29ac00842898`, {
+    await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}&groupId=c7bbb211-a217-4ed3-8112-98728dc382d8`, {
       headers: {
       },
       referrer: "https://skyeng.autofaq.ai/tickets/assigned/",
