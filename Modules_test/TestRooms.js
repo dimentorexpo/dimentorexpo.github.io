@@ -17,11 +17,10 @@ var win_testrooms =  // описание элементов окна созда�
               <option value="api-physics">Физика</option>
               <option value="api-chess">Шахматы</option>
             </select>
-            <br>
+          </div>
+          <div style="width: 320px; margin:5px; display:flex; justify-content:left;">
             <input id="teachforroom" placeholder="Введи ID П" autocomplete="off" type="number" style="text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;">
             <input id="studforroom" placeholder="Введи ID У" autocomplete="off" type="number" style="text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;">
-				  </div>
-					<div style="width: 320px; margin:5px; display:flex; justify-content:left;">
 					</div>
   </div>`;
 
