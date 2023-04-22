@@ -6,10 +6,20 @@ var win_testrooms =  // описание элементов окна созда�
             <button title="скрывает меню" id="hideMetestrooms" style="width:50px; background: #228B22; margin:5px;">hide</button>
           </div>
 					<div style="width: 320px; margin:5px; display:flex; justify-content:left;">
+          <select id="subjecttypeselect" style="text-align: center; width: 300px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
+            <option disabled="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
+            <option value="api-english">Английский</option>
+            <option value="api-preschool">Дошкольная математика</option>
+            <option value="api-computer-science">Компьютерные курсы</option>
+            <option value="api-math">Математика</option>
+            <option value="api-social-science">Обществознание</option>
+            <option value="api-russian">Русский язык</option>
+            <option value="api-physics">Физика</option>
+            <option value="api-chess">Шахматы</option>
 				  </div>
 					<div style="width: 320px; margin:5px; display:flex; justify-content:left;">
 					</div>
-</div>`;
+  </div>`;
 
 
 if (localStorage.getItem('winToptestrooms') == null) { // началоное положение окна информации об  услугах
