@@ -1197,7 +1197,7 @@ TestRoomsBtn.style = "cursor:pointer; margin:5px;"
 //TestRoomsBtn.title = "Нажми и сразу произноси команду для выполнения. Список команд: \n 1) ту - открывает админку для создания ТУ по англ языку \n 2) платёж - открывает админку поиска платежа \n 3) CRM - открывает CRM обратившегося пользователя \n 4) ТТ - открывает Timetable (произносить лучше тэтэ) \n 5) админка - открывает общую админку по пользователю 6) тшу / тшп - просмотр ТШ по У или П которые обратились \n 7) трамвай - открывает TRM 2.0"
 document.getElementById('testUsers').children[0].children[0].append(TestRoomsBtn)
 
-document.getElementById('butServ').onclick = function () { //открывает вензель user info
+document.getElementById('TestRooms').onclick = function () { //открывает окно создания тестовых комнат
     setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
 }
 
