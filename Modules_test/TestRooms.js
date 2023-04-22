@@ -1,7 +1,6 @@
 var win_testrooms =  // описание элементов окна создания тестовых комнат
   `<div style="display: flex; width: 320px;">
       <span style="width: 320px">
-        <span style="cursor: -webkit-grab;">
           <div style="width: 320px;  border-bottom:1px solid #556B2F;" id="testroomshead">
             <button title="скрывает меню" id="hideMetestrooms" style="width:50px; background: #228B22; margin:5px;">hide</button>
           </div>
@@ -22,6 +21,7 @@ var win_testrooms =  // описание элементов окна созда�
             <input id="teachforroom" placeholder="Введи ID П" autocomplete="off" type="number" style="text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;">
             <input id="studforroom" placeholder="Введи ID У" autocomplete="off" type="number" style="text-align: center; width: 150px; color: black; margin-left: 15px; margin-top: 5px;">
 					</div>
+      </span>
   </div>`;
 
 
