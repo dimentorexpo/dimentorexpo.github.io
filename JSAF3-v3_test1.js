@@ -248,6 +248,7 @@ function timerHideButtons() { //функция добавления скрыти
         // NeuralNetwork Version
         let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
 
+        /* в связи с переходом на группы не используется.
         const hideElements = (modalContent, valuesToHide) => {
             for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
 				let text = modalContent.children[2].children[i].textContent;
@@ -265,24 +266,24 @@ function timerHideButtons() { //функция добавления скрыти
             }
         }
 
-		// if (opsection === 'ТП') {
-			// let modalContent = document.querySelector('.ant-modal-content');
-			// const heading = modalContent.children[1].children[0].childNodes[0].textContent;
-			// if (heading === 'Указать тему') {
-				// hideElements(modalContent, [
-					// 'Техподдержка V1',
-					// 'Уроки V2',
-					// 'Группа КМ',
-					// 'Обратная связь ТП'
-				// ]);
-			// } else if (heading === 'Закрыть запрос?') {
-				// hideElements(modalContent, [
-					// 'Техподдержка V1',
-					// 'Закрыть'
-				// ]);
-			// }
-		// }
-
+		 if (opsection === 'ТП') {
+			 let modalContent = document.querySelector('.ant-modal-content');
+			 const heading = modalContent.children[1].children[0].childNodes[0].textContent;
+			 if (heading === 'Указать тему') {
+				 hideElements(modalContent, [
+					 'Техподдержка V1',
+					 'Уроки V2',
+					 'Группа КМ',
+					 'Обратная связь ТП'
+				 ]);
+			 } else if (heading === 'Закрыть запрос?') {
+				 hideElements(modalContent, [
+					 'Техподдержка V1',
+					 'Закрыть'
+				 ]);
+			 }
+		 }
+        */ 
 
             let modalContent = document.querySelector('.ant-modal-content');
 
@@ -1187,6 +1188,13 @@ wintAF.onmouseup = function () { document.removeEventListener('mousemove', liste
 addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
 loginer = document.getElementById('testUsers')
 loginer.appendChild(addInfoUser)
+
+let TestRoomsBtn = document.createElement('button')
+TestRoomsBtn.textContent = '🎲'
+TestRoomsBtn.id = "TestRooms"
+TestRoomsBtn.style = "cursor:pointer; margin:5px;"
+//TestRoomsBtn.title = "Нажми и сразу произноси команду для выполнения. Список команд: \n 1) ту - открывает админку для создания ТУ по англ языку \n 2) платёж - открывает админку поиска платежа \n 3) CRM - открывает CRM обратившегося пользователя \n 4) ТТ - открывает Timetable (произносить лучше тэтэ) \n 5) админка - открывает общую админку по пользователю 6) тшу / тшп - просмотр ТШ по У или П которые обратились \n 7) трамвай - открывает TRM 2.0"
+document.getElementById('testUsers').children[0].children[0].append(TestRoomsBtn)
 
 let voiceBtn = document.createElement('button')
 voiceBtn.textContent = '🎤'
