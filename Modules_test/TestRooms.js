@@ -7,7 +7,7 @@ var win_testrooms =  // описание элементов окна созда�
           </div>
 					<div style="width: 320px; margin:5px; display:flex; justify-content:left;">
           <select id="subjecttypeselect" style="text-align: center; width: 300px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
-            <option disabled="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
+            <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
             <option value="api-english">Английский</option>
             <option value="api-preschool">Дошкольная математика</option>
             <option value="api-computer-science">Компьютерные курсы</option>
