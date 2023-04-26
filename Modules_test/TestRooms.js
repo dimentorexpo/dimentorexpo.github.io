@@ -84,3 +84,4 @@ TestRoomsinsert.insertBefore(TestRoomsBtn, TestRoomsinsert.children[2])
 document.getElementById('TestRooms').onclick = function () { //открывает окно создания тестовых комнат
     setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
 }
+
