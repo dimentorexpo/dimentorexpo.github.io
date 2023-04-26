@@ -78,8 +78,8 @@ TestRoomsBtn.textContent = '🎲'
 TestRoomsBtn.id = "TestRooms"
 TestRoomsBtn.classList = 'teststudteach'
 TestRoomsBtn.title = "Открыть окно создания тестовых комнат"
-let TestRoomsinsert = document.getElementById('testUsers').children[0].children[0]
-TestRoomsinsert.insertBefore(document.getElementById('TestRooms'), TestRoomsinsert.children[2])
+TestRoomsinsert = document.getElementById('testUsers').childNodes[0].childNodes[1]
+TestRoomsinsert.insertBefore(TestRoomsBtn, TestRoomsinsert.children[2])
 
 document.getElementById('TestRooms').onclick = function () { //открывает окно создания тестовых комнат
     setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
