@@ -4,7 +4,7 @@ var win_testrooms =  // описание элементов окна созда�
           <span style="cursor: -webkit-grab;">
               <div style="width: 320px;  border-bottom:1px solid #556B2F;" id="testroomshead">
                   <button title="скрывает меню" id="hideMetestrooms" style="width:50px; background: #228B22; margin:5px;">hide</button>
-                  <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="clearcreateform" style="width:24px; float: right; margin-right: 5px">🧹</button>
+                  <button title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="cleartestrooms" style="width:24px; float: right; margin: 5px">🧹</button>
               </div>
 
 					    <div style="width: 320px; margin:5px; display:flex; justify-content:left;">
@@ -22,13 +22,14 @@ var win_testrooms =  // описание элементов окна созда�
               </div>
 
               <div style="width: 320px; margin:5px; display:flex; justify-content:left;">
-                  <input id="teachforroom" placeholder="Введи ID П" autocomplete="off" type="number" style="text-align: center; width: 148px; color: black; margin-left: 5px; margin-top: 5px;">
-                  <input id="studforroom" placeholder="Введи ID У" autocomplete="off" type="number" style="text-align: center; width: 148px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="teachforroom" placeholder="Введи ID П" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 148px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="studforroom" placeholder="Введи ID У" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 148px; color: black; margin-left: 5px; margin-top: 5px;">
     					</div>
 
               <div style="width: 320px; margin:5px; display:flex; justify-content:left;">
-                  <button id="insertstudid" class="teststudteach">👨‍🎓</button>
-                  <button id="insertteachid" class="teststudteach">👽</button>
+                  <button id="insertteachid" class="teststudteach">Тестовый 👽</button>
+                  <button id="insertstudid" class="teststudteach">Тестовый 👨‍🎓</button>
+                  <button id="userfromchatid" class="teststudteach">ID из чата</button>
               </div>
           </span>
       </span>
@@ -72,3 +73,14 @@ document.getElementById('hideMetestrooms').onclick = function () { // скрыт
     document.getElementById('AF_testrooms').style.display = 'none'
 }
 
+let TestRoomsBtn = document.createElement('button')
+TestRoomsBtn.textContent = '🎲'
+TestRoomsBtn.id = "TestRooms"
+TestRoomsBtn.classList = 'teststudteach'
+TestRoomsBtn.title = "Открыть окно создания тестовых комнат"
+let TestRoomsinsert = document.getElementById('testUsers').children[0].children[0]
+TestRoomsinsert.insertBefore(TestRoomsBtn, TestRoomsinsert.children[2])
+
+document.getElementById('TestRooms').onclick = function () { //открывает окно создания тестовых комнат
+    setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
+}

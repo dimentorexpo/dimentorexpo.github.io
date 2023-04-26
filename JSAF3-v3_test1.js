@@ -1190,17 +1190,6 @@ addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
 loginer = document.getElementById('testUsers')
 loginer.appendChild(addInfoUser)
 
-let TestRoomsBtn = document.createElement('button')
-TestRoomsBtn.textContent = '🎲'
-TestRoomsBtn.id = "TestRooms"
-TestRoomsBtn.classList = 'teststudteach'
-TestRoomsBtn.title = "Открыть окно создания тестовых комнат"
-document.getElementById('testUsers').children[0].children[0].append(TestRoomsBtn)
-
-document.getElementById('TestRooms').onclick = function () { //открывает окно создания тестовых комнат
-    setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
-}
-
 let voiceBtn = document.createElement('button')
 voiceBtn.textContent = '🎤'
 voiceBtn.id = "pushToTalk"
