@@ -169,9 +169,10 @@ document.getElementById('starttestroom').onclick = function () {
           "mode": "cors",
           "credentials": "include"
           }`
-      document.getElementById('responseTextarea2').value = `https://api-${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`
+      document.getElementById('responseTextarea2').value = "https://api-${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}"
       document.getElementById('responseTextarea3').value = ''
       document.getElementById('sendResponse').click()
+
     } else {
         alert(massagetexttoshow);
     }
