@@ -5,6 +5,7 @@ var win_testrooms =  // описание элементов окна созда�
               <div style="width: 260px;  border-bottom:1px solid #556B2F; margin: 5px;" id="testroomshead">
                   <button title="скрывает меню" id="hideMetestrooms" class="buttonHide">hide</button>
                   <button onclick="cleartestroomsfields()" title="По нажатию очищает поля" id="cleartestrooms" style="width:24px; float: right; margin-right: 5px;">🧹</button>
+                  <button onclick="opentestroomsconf()" title="Открывает раздел в Confluence по созданию тестовых комнат" id="cleartestrooms" style="width:24px; float: right; margin-right: 5px;">📋</button>
               </div>
 
 					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
@@ -253,4 +254,8 @@ function testroomshidemessage(){ //скрытие уведомлений
     messagefield.display = 'none';
     messagefield.innerText = '';
     messagefield.style.background = 'rgb(70, 68, 81)';
+}
+
+function opentestroomsconf() { // Открывает раздел в Confluence по созданию тестовых комнат
+  window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82244638")
 }
