@@ -4,7 +4,7 @@ var win_testrooms =  // описание элементов окна созда�
           <span style="cursor: -webkit-grab;">
               <div style="width: 260px; margin: 5px;" id="testroomshead">
                   <button title="скрывает меню" id="hideMetestrooms" class="buttonHide">hide</button>
-                  <button onclick="cleartestroomsfields()" title="По нажатию очищает поля" id="cleartestrooms" style="width:24px; float: right; margin-right: 5px;">🧹</button>
+                  <button onclick="cleartestroomsfields()" title="По нажатию очищает поля" id="cleartestrooms" style="width:24px; float: right; margin-right: 10px;">🧹</button>
                   <button onclick="opentestroomsconf()" title="Открывает раздел в Confluence по созданию тестовых комнат" id="cleartestrooms" style="width:24px; float: right; margin-right: 5px;">📋</button>
               </div>
 
