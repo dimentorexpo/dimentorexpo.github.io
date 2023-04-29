@@ -31,7 +31,7 @@ var win_testrooms =  // описание элементов окна созда�
                   <button id="insertstudid" onclick="teststudenttofield()" class="teststudteach" style="width: 60px;">Тест👨&zwj;🎓</button>
                   <button id="userfromchatid" class="teststudteach" style="width: 80px;">ID из чата</button>
               </div>
-              <div style="width: 220px; margin:5px; display:flex; justify-content:center;">
+              <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
                   <button id="starttestroom" class="teststudteach" style="width: 200px; background: #228B22;">Создать тестовый урок</button>
               </div>
           </span>
@@ -124,6 +124,6 @@ document.getElementById('userfromchatid').onclick = function () {
 
   for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
     if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-      insertionfield.valueOf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+      insertionfield.value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
   }
 }
