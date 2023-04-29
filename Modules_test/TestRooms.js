@@ -105,7 +105,7 @@ function testteachertofield(){
   if (localStorage.getItem('test_teach') != '' && localStorage.getItem('test_teach') != null) {
     document.getElementById('teachforroom').value = localStorage.getItem('test_teach');
   } else {
-    document.getElementById('teachforroom').value = "Не указан ID";
+    document.getElementById('teachforroom').placeholder = "Не указан ID";
     testroomsshowmessage('error','В настройках расширения не указан id тестового преподавателя')
   }
 }
@@ -114,7 +114,7 @@ function teststudenttofield(){
   if (localStorage.getItem('test_stud') != '' && localStorage.getItem('test_stud') != null) {
     document.getElementById('studforroom').value = localStorage.getItem('test_stud');
   } else {
-    document.getElementById('studforroom').value = "Не указан ID";
+    document.getElementById('studforroom').placeholder = "Не указан ID";
     testroomsshowmessage('error','В настройках расширения не указан id тестового ученика')
   }
 }
