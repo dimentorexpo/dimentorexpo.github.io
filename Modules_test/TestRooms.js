@@ -4,7 +4,7 @@ var win_testrooms =  // описание элементов окна созда�
           <span style="cursor: -webkit-grab;">
               <div style="width: 260px;  border-bottom:1px solid #556B2F;" id="testroomshead">
                   <button title="скрывает меню" id="hideMetestrooms" class="buttonHide">hide</button>
-                  <button onclick="cleartestroomsfields()" title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="cleartestrooms" style="width:24px; float: right; margin: 5px">🧹</button>
+                  <button onclick="cleartestroomsfields()" title="По нажатию очищает поля" id="cleartestrooms" style="width:24px; float: right; margin: 5px">🧹</button>
               </div>
 
 					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
@@ -22,17 +22,17 @@ var win_testrooms =  // описание элементов окна созда�
               </div>
 
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <input id="teachforroom" placeholder="Введи ID П" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
-                  <input id="studforroom" placeholder="Введи ID У" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="teachforroom" placeholder="Введи ID П" title="Введи id П для кого создать тестовую комнату" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="studforroom" placeholder="Введи ID У" title="Введи id У для кого создать тестовую комнату" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
     					</div>
 
               <div style="width: 260px; margin:2px; display:flex; justify-content:left;">
-                  <button id="insertteachid" onclick="testteachertofield()" class="testroomsbtn">Тест👽</button>
-                  <button id="insertstudid" onclick="teststudenttofield()" class="testroomsbtn">Тест👨&zwj;🎓</button>
-                  <button id="userfromchatid" class="testroomsbtn">ID из чата</button>
+                  <button id="insertteachid" title="Поставить id вашего тестового П" onclick="testteachertofield()" class="testroomsbtn">Тест👽</button>
+                  <button id="insertstudid" title="Поставить id вашего тестового У" onclick="teststudenttofield()" class="testroomsbtn">Тест👨&zwj;🎓</button>
+                  <button id="userfromchatid" title="Подставить id пользователя из активного чата и подставить id вашего тестового У или П" class="testroomsbtn">ID из чата</button>
               </div>
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <button id="starttestroom" class="testroomscreate">Создать тестовый урок</button>
+                  <button id="starttestroom" title="Тут и так понятно" class="testroomscreate">Создать тестовый урок</button>
               </div>
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
               <label id="testroomsmessage" style="color:bisque; width:250px; text-align: center; border: 1px solid #3e4f55; background: rgb(70, 68, 81); border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);"></label>
@@ -105,7 +105,7 @@ function testteachertofield(){
   if (localStorage.getItem('test_teach') != '' && localStorage.getItem('test_teach') != null) {
     document.getElementById('teachforroom').value = localStorage.getItem('test_teach');
   } else {
-    document.getElementById('teachforroom').placeholder = "Не указан ID";
+    document.getElementById('teachforroom').placeholder = "Не указан ID П";
     testroomsshowmessage('error','В настройках расширения не указан id тестового преподавателя')
   }
 }
@@ -114,7 +114,7 @@ function teststudenttofield(){
   if (localStorage.getItem('test_stud') != '' && localStorage.getItem('test_stud') != null) {
     document.getElementById('studforroom').value = localStorage.getItem('test_stud');
   } else {
-    document.getElementById('studforroom').placeholder = "Не указан ID";
+    document.getElementById('studforroom').placeholder = "Не указан ID У";
     testroomsshowmessage('error','В настройках расширения не указан id тестового ученика')
   }
 }
@@ -207,7 +207,7 @@ document.getElementById('starttestroom').onclick = function () {
   
       document.getElementById('responseTextarea1').value = JSON.stringify(request);
       document.getElementById('responseTextarea2').value = requestAdr;
-      document.getElementById('responseTextarea3').value = 'senddata1';
+      document.getElementById('responseTextarea3').value = '';
       document.getElementById('sendResponse').click();
 
       document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
