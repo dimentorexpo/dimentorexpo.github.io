@@ -35,7 +35,7 @@ var win_testrooms =  // описание элементов окна созда�
                   <button id="starttestroom" class="testroomscreate">Создать тестовый урок</button>
               </div>
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-              <label id="testroomsmessage" style="color:bisque; width:250px; text-align: center; border: 1px solid #3e4f55; background: #d5484f; border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); display:none"></label>
+              <label id="testroomsmessage" style="color:bisque; width:250px; text-align: center; border: 1px solid #3e4f55; background: #d5484f; border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); display:none;"></label>
               </div>
           </span>
       </span>
@@ -118,33 +118,35 @@ function teststudenttofield(){
 
 document.getElementById('userfromchatid').onclick = function () {
   let userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
-  let insertionfield = ''
-  let flagwhouser = '0'
+  if (userDetailsList){
+      let insertionfield = ''
+      let flagwhouser = '0'
 
-  for (let i = 0; userDetailsList.childNodes[i]; i++) {
-      const childNode = userDetailsList.childNodes[i];
-      const textContent = childNode.childNodes[1].textContent;
-      if (textContent === "teacher") {
-          teststudenttofield()
-          insertionfield = document.getElementById('teachforroom')
-          flagwhouser = '1';
-      } else if (textContent === "student") {
-          testteachertofield()
-          insertionfield = document.getElementById('studforroom')
-          flagwhouser = '1';
+      for (let i = 0; userDetailsList.childNodes[i]; i++) {
+          const childNode = userDetailsList.childNodes[i];
+          const textContent = childNode.childNodes[1].textContent;
+          if (textContent === "teacher") {
+              teststudenttofield()
+              insertionfield = document.getElementById('teachforroom')
+              flagwhouser = '1';
+          } else if (textContent === "student") {
+              testteachertofield()
+              insertionfield = document.getElementById('studforroom')
+              flagwhouser = '1';
+          }
       }
-  }
 
-  if (flagwhouser == '1'){
-    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-      if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-        insertionfield.value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-    }
+      if (flagwhouser == '1'){
+        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+          if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+            insertionfield.value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+        }
+      } else {
+        testroomsshowmessage('error','Не удается определить тип пользователя, пожалуйста, внесите id вручную')
+      }
   } else {
-    testroomsshowmessage('error','Не удается определить тип пользователя, пожалуйста, внесите id вручную')
+    testroomsshowmessage('error','Нет выбранного чата')
   }
-
-
 }
 
 document.getElementById('starttestroom').onclick = function () {
