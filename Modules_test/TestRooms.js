@@ -207,14 +207,14 @@ document.getElementById('starttestroom').onclick = function () {
   
       document.getElementById('responseTextarea1').value = JSON.stringify(request);
       document.getElementById('responseTextarea2').value = requestAdr;
-      document.getElementById('responseTextarea3').value = '';
+      document.getElementById('responseTextarea3').value = 'postdata';
       document.getElementById('sendResponse').click();
 
       document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
-        let responseRoomCreate = document.getElementById('responseTextarea1').getAttribute('senddata1');
+        let responseRoomCreate = document.getElementById('responseTextarea1').getAttribute('postdata');
         if (responseRoomCreate) {
             console.log (responseRoomCreate)
-            document.getElementById('responseTextarea1').removeAttribute('senddata1');
+            document.getElementById('responseTextarea1').removeAttribute('postdata');
         }
     });
     } else {
