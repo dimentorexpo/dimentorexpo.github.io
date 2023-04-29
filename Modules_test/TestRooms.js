@@ -7,7 +7,7 @@ var win_testrooms =  // описание элементов окна созда�
                   <button onclick="cleartestroomsfields()" title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="cleartestrooms" style="width:24px; float: right; margin: 5px">🧹</button>
               </div>
 
-					    <div style="width: 220px; margin:5px; display:flex; justify-content:center;">
+					    <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
                   <select id="subjecttypeselect" style="text-align: center; width: 200px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
                       <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
                       <option value="api-english">Английский</option>
@@ -21,18 +21,18 @@ var win_testrooms =  // описание элементов окна созда�
                   </select>
               </div>
 
-              <div style="width: 220px; margin:5px; display:flex; justify-content:center;">
+              <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
                   <input id="teachforroom" placeholder="Введи ID П" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black; margin-left: 5px; margin-top: 5px;">
                   <input id="studforroom" placeholder="Введи ID У" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black; margin-left: 5px; margin-top: 5px;">
     					</div>
 
-              <div style="width: 220px; margin:2px; display:flex; justify-content:center;">
+              <div style="width: 220px; margin:2px; display:flex; justify-content:left;">
                   <button id="insertteachid" onclick="testteachertofield()" class="teststudteach" style="width: 60px;">Тест👽</button>
                   <button id="insertstudid" onclick="teststudenttofield()" class="teststudteach" style="width: 60px;">Тест👨&zwj;🎓</button>
                   <button id="userfromchatid" class="teststudteach" style="width: 80px;">ID из чата</button>
               </div>
               <div style="width: 220px; margin:5px; display:flex; justify-content:center;">
-                  <button id="starttestroom" class="teststudteach" style="width: 200px;">Создать тестовый урок</button>
+                  <button id="starttestroom" class="teststudteach" style="width: 200px; background: #228B22;">Создать тестовый урок</button>
               </div>
           </span>
       </span>
@@ -104,4 +104,26 @@ function teststudenttofield(){
   if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
     document.getElementById('studforroom').value = localStorage.getItem('test_stud');
   } else document.getElementById('studforroom').value = "Не указан ID";
+}
+
+document.getElementById('userfromchatid').onclick = function () {
+  let userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
+  let insertionfield = ''
+
+  for (let i = 0; userDetailsList.childNodes[i]; i++) {
+      const childNode = userDetailsList.childNodes[i];
+      const textContent = childNode.childNodes[1].textContent;
+      if (textContent === "teacher") {
+          teststudenttofield()
+          insertionfield = document.getElementById('teachforroom')
+      } else if (textContent === "student") {
+          testteachertofield()
+          insertionfield = document.getElementById('studforroom')
+      }
+  }
+
+  for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+      insertionfield.valueOf = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+  }
 }
