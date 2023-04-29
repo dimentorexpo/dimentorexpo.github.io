@@ -35,7 +35,7 @@ var win_testrooms =  // описание элементов окна созда�
                   <button id="starttestroom" class="testroomscreate">Создать тестовый урок</button>
               </div>
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-              <label id="testroomsmessage" style="color:bisque; width:250px; text-align: center; border: 1px solid #3e4f55; background: #d5484f; border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); display:none;"></label>
+              <label id="testroomsmessage" style="color:bisque; width:250px; text-align: center; border: 1px solid #3e4f55; background: rgb(70, 68, 81); border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);"></label>
               </div>
           </span>
       </span>
@@ -53,6 +53,10 @@ winttestrooms.style = 'min-height: 25px; min-width: 65px; background: #464451; t
 winttestrooms.style.display = 'none';
 winttestrooms.setAttribute('id', 'AF_testrooms');
 winttestrooms.innerHTML = win_testrooms;
+
+const messagefield = document.getElementById('testroomsmessage');
+messagefield.display = 'none';
+
 
 var listenertestrooms = function (e, a) { // сохранение позиции окна создания тестовых комнат
   winttestrooms.style.left = Number(e.clientX - myX7) + "px";
@@ -95,7 +99,6 @@ function cleartestroomsfields(){
   document.getElementById('teachforroom').value = '';
   document.getElementById('studforroom').value = '';
   document.getElementById('subjecttypeselect').children[0].selected = true
-  testroomshidemessage()
 }
 
 function testteachertofield(){
@@ -230,8 +233,6 @@ function GenerateHash(length) {
   }
   return result;
 }
-
-const messagefield = document.getElementById('testroomsmessage');
 
 function testroomsshowmessage(type,text){
     if (type == 'error'){
