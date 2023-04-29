@@ -57,7 +57,7 @@ var win_AFhelper =  // описание элементов главного ок
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px;" id="1str">
 					<button id="languageAF" title="Переключает язык Русский/Английский" style="width:100px">Русский</button>
-					<button id="hideMenuMain" title="Скрывает расширение и др открытых окон" style="margin-left:25px;">hide</button>
+					<button id="hideMenuMain" title="Скрывает расширение и др открытых окон" style="margin-left:18px;" class="buttonHide">hide</button>
 					<button id="setting" title="Открывает настройки расширения и включения/отключения будильника" style="width:23px; float: right; margin-right: 5px">⚙</button>
 					<button id="links" title="Открывает доп.меню со ссылками и функциями" style="width:16px; float: right; margin-right: 5px">L</button>
 					<button id="addsrc" class="onlyfortp" title="Открывает доп меню для работы с сервисами школы, требующими запрос на выдачу доступа" style="width:16px; float: right; margin-right: 5px">*</button>
@@ -248,6 +248,7 @@ function timerHideButtons() { //функция добавления скрыти
         // NeuralNetwork Version
         let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
 
+        /* в связи с переходом на группы не используется.
 		const hideElements = (modalContent, valuesToHide) => {
 			for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
 				let text = modalContent.children[2].children[i].textContent;
@@ -265,26 +266,26 @@ function timerHideButtons() { //функция добавления скрыти
 			}
 		}
 
-		// if (opsection === 'ТП') {
-			// let modalContent = document.querySelector('.ant-modal-content');
-			// const heading = modalContent.children[1].children[0].childNodes[0].textContent;
-			// if (heading === 'Указать тему') {
-				// hideElements(modalContent, [
-					// 'Техподдержка V1',
-					// 'Уроки V2',
-					// 'Группа КМ',
-					// 'Обратная связь ТП'
-				// ]);
-			// } else if (heading === 'Закрыть запрос?') {
-				// hideElements(modalContent, [
-					// 'Техподдержка V1',
-					// 'Закрыть'
-				// ]);
-			// }
-		// }
-
-
+		 if (opsection === 'ТП') {
         let modalContent = document.querySelector('.ant-modal-content');
+			 const heading = modalContent.children[1].children[0].childNodes[0].textContent;
+			 if (heading === 'Указать тему') {
+				 hideElements(modalContent, [
+					 'Техподдержка V1',
+					 'Уроки V2',
+					 'Группа КМ',
+					 'Обратная связь ТП'
+				 ]);
+			 } else if (heading === 'Закрыть запрос?') {
+				 hideElements(modalContent, [
+					 'Техподдержка V1',
+					 'Закрыть'
+				 ]);
+			 }
+		 }
+        */ 
+
+            let modalContent = document.querySelector('.ant-modal-content');
 
         const setBackgroundColors = (selectorList, valuesToColor) => {
             for (let i = 0; i < selectorList.length; i++) {
@@ -403,6 +404,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
