@@ -5,7 +5,7 @@ var win_OperStatus =  // описание элементов окна оцено
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 400px;" id="OpSt_header">
                                 <button class="buttonHide" title="скрывает меню" id="hideMeOpSt">hide</button>
-								<button id="clearopersinfo" style="width:24px; float: right; margin: 5px; margin-right: 10px;">🧹</button>
+								<button id="clearopersinfo" style="width:24px; float: right; margin-right: 10px;">🧹</button>
                         </div>
 		    </span>
                         <div style="margin: 5px; width: 400px" id="opers_box">

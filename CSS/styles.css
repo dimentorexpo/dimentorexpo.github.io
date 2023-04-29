@@ -471,10 +471,8 @@ button {
 	}
 	.buttonHide {
 		background:#228B22;
-		margin:5px;
 		border-radius:5px;
 		border:1px solid #566963;
-		color:#ffffff;
 		padding:2px 2px;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		width:50px;
