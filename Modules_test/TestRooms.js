@@ -161,8 +161,21 @@ document.getElementById('starttestroom').onclick = function () {
       fetch(`https://api-${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`, 
       {
           "headers": {
+              "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+              "accept-language": "en-US,en;q=0.9,ru;q=0.8",
+              "cache-control": "max-age=0",
               "content-type": "application/x-www-form-urlencoded",
+              "sec-ch-ua": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"Windows\"",
+              "sec-fetch-dest": "document",
+              "sec-fetch-mode": "navigate",
+              "sec-fetch-site": "same-origin",
+              "sec-fetch-user": "?1",
+              "upgrade-insecure-requests": "1"
           },
+          "referrer": `https://api-${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create`,
+          "referrerPolicy": "strict-origin-when-cross-origin",
           "body": `${randomHash}%5Btype%5D=test&${randomHash}%5BteacherId%5D=${teacheridforroom}&${randomHash}%5BstudentIds%5D=${studentidforroom}&btn_create_and_list=`,
           "method": "POST",
           "mode": "cors",
