@@ -1,14 +1,14 @@
 var win_testrooms =  // описание элементов окна создания тестовых комнат
-  `<div style="display: flex; width: 220px;">
-      <span style="width: 220px">
+  `<div style="display: flex; width: 260px;">
+      <span style="width: 260px">
           <span style="cursor: -webkit-grab;">
-              <div style="width: 220px;  border-bottom:1px solid #556B2F;" id="testroomshead">
+              <div style="width: 260px;  border-bottom:1px solid #556B2F;" id="testroomshead">
                   <button title="скрывает меню" id="hideMetestrooms" style="width:50px; background: #228B22; margin:5px;">hide</button>
                   <button onclick="cleartestroomsfields()" title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="cleartestrooms" style="width:24px; float: right; margin: 5px">🧹</button>
               </div>
 
-					    <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
-                  <select id="subjecttypeselect" style="text-align: center; width: 200px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
+					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
+                  <select id="subjecttypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
                       <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
                       <option value="api-english">Английский</option>
                       <option value="api-preschool">Дошкольная математика</option>
@@ -21,20 +21,20 @@ var win_testrooms =  // описание элементов окна созда�
                   </select>
               </div>
 
-              <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
+              <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
                   <input id="teachforroom" placeholder="Введи ID П" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black; margin-left: 5px; margin-top: 5px;">
                   <input id="studforroom" placeholder="Введи ID У" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black; margin-left: 5px; margin-top: 5px;">
     					</div>
 
-              <div style="width: 220px; margin:2px; display:flex; justify-content:left;">
-                  <button id="insertteachid" onclick="testteachertofield()" class="teststudteach" style="width: 60px;">Тест👽</button>
-                  <button id="insertstudid" onclick="teststudenttofield()" class="teststudteach" style="width: 60px;">Тест👨&zwj;🎓</button>
-                  <button id="userfromchatid" class="teststudteach" style="width: 80px;">ID из чата</button>
+              <div style="width: 260px; margin:2px; display:flex; justify-content:left;">
+                  <button id="insertteachid" onclick="testteachertofield()" class="testroomsbtn">Тест👽</button>
+                  <button id="insertstudid" onclick="teststudenttofield()" class="testroomsbtn">Тест👨&zwj;🎓</button>
+                  <button id="userfromchatid" class="testroomsbtn">ID из чата</button>
               </div>
-              <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
-                  <button id="starttestroom" class="teststudteach" style="width: 200px; background: #228B22;">Создать тестовый урок</button>
+              <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
+                  <button id="starttestroom" class="testroomscreate">Создать тестовый урок</button>
               </div>
-              <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
+              <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
               </div>
           </span>
       </span>
@@ -156,7 +156,7 @@ document.getElementById('starttestroom').onclick = function () {
         console.log ('Не указан id ученика');
     } else { studentidforroom =  document.getElementById('studforroom').value }
 
-    if (flagemptyttfields == '0'){
+    if (flagemptyttfields === '0'){
       randomHash = GenerateHash(14);
 
       const requestBody = `${randomHash}%5Btype%5D=test&${randomHash}%5BteacherId%5D=${teacheridforroom}&${randomHash}%5BstudentIds%5D=${studentidforroom}&btn_create_and_list=`;

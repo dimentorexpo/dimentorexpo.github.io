@@ -440,6 +440,33 @@ button {
 	.teststudteach.active, #pushToTalk.active {
 		background: coral;
 	}
+	.testroomsbtn {
+		background: #3c82b3;
+		margin-left: 2px;
+		margin:2px;
+		cursor: pointer;
+		border-radius: 20px;
+		width: 80px;
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 50%);
+		font-size: 15px;
+	}
+	.testroomsbtn.active{
+		background: coral;
+	}
+	.testroomscreate {
+		background: #228B22;
+		margin-left: 5px;
+		margin:5px;
+		cursor: pointer;
+		border-radius: 20px;
+		width: 240px;
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 50%);
+		font-size: 15px;
+	}
+	.testroomscreate.active{
+		background: coral;
+	}
+
 
 	.msgtype {
 		border-left: 8px solid #4ce479;
