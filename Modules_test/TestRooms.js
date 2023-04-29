@@ -65,11 +65,11 @@ var listenertestrooms = function (e, a) { // сохранение позиции
   localStorage.setItem('winLefttestrooms', String(Number(e.clientX - myX7)));
 };
 
-winttestrooms.onmousedown = function (a) {
+winttestrooms.onmousedown = function (a) { // изменение позиции окна создания тестовых комнат
   if (checkelementtype(a)) {
     window.myX7 = a.layerX;
     window.myY7 = a.layerY;
-    document.addEventListener('mousemove', listenertestrooms); // изменение позиции окна создания тестовых комнат
+    document.addEventListener('mousemove', listenertestrooms); 
   }
 }
 winttestrooms.onmouseup = function () { document.removeEventListener('mousemove', listenertestrooms); } // прекращение изменения позиции окна создания тестовых комнат
@@ -95,13 +95,13 @@ document.getElementById('TestRooms').onclick = function () { //открывае�
     setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
 }
 
-function cleartestroomsfields(){
+function cleartestroomsfields(){ // очистка полей окно создания тестовых комнат
   document.getElementById('teachforroom').value = '';
   document.getElementById('studforroom').value = '';
   document.getElementById('subjecttypeselect').children[0].selected = true
 }
 
-function testteachertofield(){
+function testteachertofield(){ // подставить тестового П
   if (localStorage.getItem('test_teach') != '' && localStorage.getItem('test_teach') != null) {
     document.getElementById('teachforroom').value = localStorage.getItem('test_teach');
   } else {
@@ -110,7 +110,7 @@ function testteachertofield(){
   }
 }
 
-function teststudenttofield(){
+function teststudenttofield(){ // подставить тестового У
   if (localStorage.getItem('test_stud') != '' && localStorage.getItem('test_stud') != null) {
     document.getElementById('studforroom').value = localStorage.getItem('test_stud');
   } else {
@@ -119,7 +119,7 @@ function teststudenttofield(){
   }
 }
 
-document.getElementById('userfromchatid').onclick = function () {
+document.getElementById('userfromchatid').onclick = function () { // добавить id пользователя из активного чата и добавить id тестовго У или П
   let userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
   if (userDetailsList){
       let insertionfield = ''
@@ -152,7 +152,7 @@ document.getElementById('userfromchatid').onclick = function () {
   }
 }
 
-document.getElementById('starttestroom').onclick = function () {
+document.getElementById('starttestroom').onclick = function () { // добавляем тестовую комнату
     let randomHash = '';
     let flagemptyttfields = '0';
     let studentidforroom = '';
@@ -222,7 +222,7 @@ document.getElementById('starttestroom').onclick = function () {
     }        
 }
 
-function GenerateHash(length) {
+function GenerateHash(length) { // генерируем случайный хэш
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
@@ -234,7 +234,7 @@ function GenerateHash(length) {
   return result;
 }
 
-function testroomsshowmessage(type,text){
+function testroomsshowmessage(type,text){ // вывод уведомлений
     if (type == 'error'){
       messagefield.style.background = '#d5484f';
     } else if (type == 'message'){
@@ -249,7 +249,7 @@ function testroomsshowmessage(type,text){
     setTimeout(testroomshidemessage, 3000)
 }
 
-function testroomshidemessage(){
+function testroomshidemessage(){ //скрытие уведомлений
     messagefield.display = 'none';
     messagefield.innerText = '';
     messagefield.style.background = 'rgb(70, 68, 81)';
