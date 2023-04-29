@@ -35,6 +35,7 @@ var win_testrooms =  // описание элементов окна созда�
                   <button id="starttestroom" class="testroomscreate">Создать тестовый урок</button>
               </div>
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
+              <label id="testroomsmessage" style="color:bisque; width:250px; text-align: center; border: 1px solid #3e4f55; background: #d5484f; border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); display:none"></label>
               </div>
           </span>
       </span>
@@ -94,23 +95,31 @@ function cleartestroomsfields(){
   document.getElementById('teachforroom').value = '';
   document.getElementById('studforroom').value = '';
   document.getElementById('subjecttypeselect').children[0].selected = true
+  testroomshidemessage()
 }
 
 function testteachertofield(){
   if (localStorage.getItem('test_teach') != "" || localStorage.getItem('test_teach') != null) {
     document.getElementById('teachforroom').value = localStorage.getItem('test_teach');
-  } else document.getElementById('teachforroom').value = "Не указан ID";
+  } else {
+    document.getElementById('teachforroom').value = "Не указан ID";
+    testroomsshowmessage('error','В настройках расширения не указан id тестового преподавателя')
+  }
 }
 
 function teststudenttofield(){
   if (localStorage.getItem('test_stud') != "" || localStorage.getItem('test_stud') != null) {
     document.getElementById('studforroom').value = localStorage.getItem('test_stud');
-  } else document.getElementById('studforroom').value = "Не указан ID";
+  } else {
+    document.getElementById('studforroom').value = "Не указан ID";
+    testroomsshowmessage('error','В настройках расширения не указан id тестового ученика')
+  }
 }
 
 document.getElementById('userfromchatid').onclick = function () {
   let userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
   let insertionfield = ''
+  let flagwhouser = '0'
 
   for (let i = 0; userDetailsList.childNodes[i]; i++) {
       const childNode = userDetailsList.childNodes[i];
@@ -118,16 +127,24 @@ document.getElementById('userfromchatid').onclick = function () {
       if (textContent === "teacher") {
           teststudenttofield()
           insertionfield = document.getElementById('teachforroom')
+          flagwhouser = '1';
       } else if (textContent === "student") {
           testteachertofield()
           insertionfield = document.getElementById('studforroom')
+          flagwhouser = '1';
       }
   }
 
-  for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-    if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-      insertionfield.value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+  if (flagwhouser == '1'){
+    for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
+      if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
+        insertionfield.value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
+    }
+  } else {
+    testroomsshowmessage('error','Не удается определить тип пользователя, пожалуйста, внесите id вручную')
   }
+
+
 }
 
 document.getElementById('starttestroom').onclick = function () {
@@ -188,8 +205,16 @@ document.getElementById('starttestroom').onclick = function () {
       document.getElementById('responseTextarea3').value = 'senddata1';
       document.getElementById('sendResponse').click();
 
+      document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
+        let responseRoomCreate = document.getElementById('responseTextarea1').getAttribute('senddata1');
+        if (responseRoomCreate) {
+            console.log (responseRoomCreate)
+            document.getElementById('responseTextarea1').removeAttribute('senddata1');
+        }
+    });
+
     } else {
-        alert(massagetexttoshow);
+      testroomsshowmessage('error',massagetexttoshow);
     }
         
 }
@@ -204,4 +229,27 @@ function GenerateHash(length) {
     counter += 1;
   }
   return result;
+}
+
+const messagefield = document.getElementById('testroomsmessage');
+
+function testroomsshowmessage(type,text){
+    if (type == 'error'){
+      messagefield.style.background = '#d5484f';
+    } else if (type == 'message'){
+      messagefield.style.background = '#46d17e';
+    } else {
+      console.log ('Получен неизвестный тип сообщения');
+      messagefield.style.background = 'rgb(70, 68, 81)';
+    }
+
+    messagefield.innerText = text;
+    messagefield.display = '';
+    setTimeout(testroomshidemessage, 3000)
+}
+
+function testroomshidemessage(){
+    messagefield.display = 'none';
+    messagefield.innerText = '';
+    messagefield.style.background = 'rgb(70, 68, 81)';
 }
