@@ -3,7 +3,7 @@ var win_FrozeChat =  // описание формы чтобы не давала
         <span style="width: 410px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 395px;" id="froze_chat_header">
-                                <button title="скрывает меню" id="hidefrozechat" style="width:50px; background: #228B22;">hide</button>
+                                <button title="скрывает меню" id="hidefrozechat" class="buttonHide">hide</button>
 								<button id="clearallchathash">🧹</button>
 								<button id="arinfo" style="float:right" title="При добавлении хеша чата и выборе времени, по умолчанию 6 минут, по истечению которого в этот чат автоматически будет отправлен ответ по умолчанию Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏">❓</button>
                         </div>

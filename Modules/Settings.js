@@ -21,7 +21,7 @@ var win_Settings =  // описание элементов окна ссылок
   `<span style="width: 500px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 500px;" id="settings_head">
-					<button title="Скрытие меню" id="hideMeSettings" style="width:50px; background: #228B22;">hide</button>
+					<button title="Скрытие меню" id="hideMeSettings" class="buttonHide">hide</button>
 				</div>
 
 				<div style="border: 2px double black; background-color: #464451" id="set_bar">

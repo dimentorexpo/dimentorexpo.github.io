@@ -3,7 +3,7 @@ var win_serviceinfo =  // описание элементов окна инфо�
         <span style="width: 320px">
                 <span style="cursor: -webkit-grab;">
                         <div style="width: 320px;  border-bottom:1px solid #556B2F;" id="servicehead">
-                                <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
+                                <button title="скрывает меню" id="hideMeservice" class="buttonHide">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="Начинает чат с пользователем" id="startnewchat" style="width: 25.23px;">💬</button>
 								<button title="Делаем видимым номер телефона и почты" id='dounhidemailandphone'>👁‍🗨</button>

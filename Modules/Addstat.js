@@ -3,7 +3,7 @@ var win_Stat =  // описание элементов окна Статисти
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 550;" id="statdata">
-                                <button id="hideMeStat" style="width:50px; background: #228B22;">hide</button>
+                                <button id="hideMeStat" class="buttonHide">hide</button>
                         </div>
                         <div style="margin: 5px; width: 550px" id="statbox">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="StartData" id="dateFrom"></span>

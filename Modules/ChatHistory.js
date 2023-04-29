@@ -3,7 +3,7 @@ var win_Chathis =  // описание элементов окна Истори�
         <span style="width: 410px">
 			<span style="cursor: default;">
 				<div style="margin: 5px; width: 410px;" id="chathisheader">
-					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
+					<button title="Скрытие меню" id="hideMeChHis" class="buttonHide">hide</button>
 					<button title="Очистка всех полей" id="clearallinfo" style="width:25px;">🧹</button>
 					<select style="height:28px; width:260px; text-align:center" id="operatorstp" onchange="findchatsoper()">
 							<option selected="" disabled="">Операторы на линии</option>
@@ -59,7 +59,7 @@ var win_Chathis =  // описание элементов окна Истори�
 			<div id="userchatdata" style="display:none; position: fixed; top: 0px; right: 420px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;"">
 
 						<div id="datainfoheader">
-							<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
+							<button id="hideuserdatainfo" class="buttonHide">hide</button>
 							<button id="gotocrmhis" style="width:50px;">CRM</button>
 						</div>
 

@@ -1,7 +1,7 @@
 var win_Alarmclock =  // описание элементов окна будильника
     `<div style="border: 2px double black; background-color: #464451; cursor: -webkit-grab;" id="reminder_bar">
 				<div>
-					<button title="Скрытие меню" id="hideMeAlarm" style="width:50px; background: #228B22;">hide</button>
+					<button title="Скрытие меню" id="hideMeAlarm" class="buttonHide">hide</button>
 				</div>
 				<div style="margin: 5px; width: 350px">
 					<label style="color:bisque">__Будильник №1</label> <label style="color:bisque">........................... Будильник №2__</label>

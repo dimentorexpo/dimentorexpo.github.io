@@ -3,7 +3,7 @@ var win_testrooms =  // описание элементов окна созда�
       <span style="width: 260px">
           <span style="cursor: -webkit-grab;">
               <div style="width: 260px;  border-bottom:1px solid #556B2F;" id="testroomshead">
-                  <button title="скрывает меню" id="hideMetestrooms" style="width:50px; background: #228B22; margin:5px;">hide</button>
+                  <button title="скрывает меню" id="hideMetestrooms" class="buttonHide">hide</button>
                   <button onclick="cleartestroomsfields()" title="По нажатию очищает поля и сбрасывает в дефолтное состояние формы" id="cleartestrooms" style="width:24px; float: right; margin: 5px">🧹</button>
               </div>
 
@@ -22,8 +22,8 @@ var win_testrooms =  // описание элементов окна созда�
               </div>
 
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <input id="teachforroom" placeholder="Введи ID П" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black; margin-left: 5px; margin-top: 5px;">
-                  <input id="studforroom" placeholder="Введи ID У" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="teachforroom" placeholder="Введи ID П" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="studforroom" placeholder="Введи ID У" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
     					</div>
 
               <div style="width: 260px; margin:2px; display:flex; justify-content:left;">

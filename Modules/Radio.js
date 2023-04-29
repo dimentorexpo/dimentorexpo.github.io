@@ -4,7 +4,7 @@
         <span style="width: 625px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 625;" id="links_1str">
-					<button title="Скрытие меню" id="hideMeRadio" style="width:50px; background: #228B22;">hide</button>
+					<button title="Скрытие меню" id="hideMeRadio" class="buttonHide">hide</button>
 				</div>
 				<div id="audioPlayer" class="mainplayer">
 					<div id="audioControls">

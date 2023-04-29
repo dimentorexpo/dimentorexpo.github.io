@@ -14,7 +14,7 @@ var win_Themes =  // описание элементов окна Тематик
         <span style="width: 350px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 350;" id="themes_header">
-                                <button title="скрывает меню" id="hideMeThemes" style="width:50px; background: #228B22;">hide</button>
+                                <button title="скрывает меню" id="hideMeThemes" class="buttonHide">hide</button>
 								<button id="ClearSmartroomData" title="Очищает выбранные тэги">🧹</button>
 								<button id="backtomenu" style="width: 28px; height: 28px; font-size: 14px; display:none">🔙</button>
 								<button id="themesinstr" style="float:right;" title="Инструкция по этой форме">❓</button>
