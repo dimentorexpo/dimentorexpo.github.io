@@ -213,7 +213,7 @@ document.getElementById('starttestroom').onclick = function () {
       document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
         let responseRoomCreate = document.getElementById('responseTextarea1').getAttribute('postdata');
         if (responseRoomCreate) {
-            console.log (responseRoomCreate)
+          testroomsshowmessage('message','Тестовый урок создан, приглашение на него отображаются в личных кабинетах У и П');
             document.getElementById('responseTextarea1').removeAttribute('postdata');
         }
     });
