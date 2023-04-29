@@ -26,7 +26,7 @@ var win_testrooms =  // описание элементов окна созда�
                   <input id="studforroom" placeholder="Введи ID У" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 100px; color: black; margin-left: 5px; margin-top: 5px;">
     					</div>
 
-              <div style="width: 220px; margin:5px; display:flex; justify-content:center;">
+              <div style="width: 220px; margin:2px; display:flex; justify-content:center;">
                   <button id="insertteachid" onclick="testteachertofield()" class="teststudteach" style="width: 60px;">Тест👽</button>
                   <button id="insertstudid" onclick="teststudenttofield()" class="teststudteach" style="width: 60px;">Тест👨&zwj;🎓</button>
                   <button id="userfromchatid" class="teststudteach" style="width: 80px;">ID из чата</button>
