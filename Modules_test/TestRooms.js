@@ -4,7 +4,7 @@ var win_testrooms =  // описание элементов окна созда�
           <span style="cursor: -webkit-grab;">
               <div style="width: 260px;  border-bottom:1px solid #556B2F;" id="testroomshead">
                   <button title="скрывает меню" id="hideMetestrooms" class="buttonHide">hide</button>
-                  <button onclick="cleartestroomsfields()" title="По нажатию очищает поля" id="cleartestrooms" style="width:24px; float: right; margin: 5px">🧹</button>
+                  <button onclick="cleartestroomsfields()" title="По нажатию очищает поля" id="cleartestrooms" style="width:24px; float: right; margin-right: 5px;">🧹</button>
               </div>
 
 					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
