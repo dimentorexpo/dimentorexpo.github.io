@@ -214,11 +214,9 @@ document.getElementById('starttestroom').onclick = function () {
             document.getElementById('responseTextarea1').removeAttribute('senddata1');
         }
     });
-
     } else {
       testroomsshowmessage('error',massagetexttoshow);
-    }
-        
+    }        
 }
 
 function GenerateHash(length) {
