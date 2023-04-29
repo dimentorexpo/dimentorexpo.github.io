@@ -10,14 +10,14 @@ var win_testrooms =  // описание элементов окна созда�
 					    <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
                   <select id="subjecttypeselect" style="text-align: center; width: 200px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
                       <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
-                      <option value="english">Английский</option>
-                      <option value="preschool">Дошкольная математика</option>
-                      <option value="computer-science">Компьютерные курсы</option>
-                      <option value="math">Математика</option>
-                      <option value="social-science">Обществознание</option>
-                      <option value="russian">Русский язык</option>
-                      <option value="physics">Физика</option>
-                      <option value="chess">Шахматы</option>
+                      <option value="api-english">Английский</option>
+                      <option value="api-preschool">Дошкольная математика</option>
+                      <option value="api-computer-science">Компьютерные курсы</option>
+                      <option value="api-math">Математика</option>
+                      <option value="api-social-science">Обществознание</option>
+                      <option value="api-russian">Русский язык</option>
+                      <option value="api-physics">Физика</option>
+                      <option value="api-chess">Шахматы</option>
                   </select>
               </div>
 
@@ -158,20 +158,35 @@ document.getElementById('starttestroom').onclick = function () {
 
     if (flagemptyttfields == '0'){
       randomHash = GenerateHash(14);
-      document.getElementById('responseTextarea1').value = `{
-        "headers": {
+
+      const requestBody = `${randomHash}%5Btype%5D=test&${randomHash}%5BteacherId%5D=${teacheridforroom}&${randomHash}%5BstudentIds%5D=${studentidforroom}&btn_create_and_list=`;
+      const requestreferrer = `https://${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create`;
+      const requestAdr = `https://${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`;
+      const requestHeaders = {
+          "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+          "accept-language": "en-US,en;q=0.9,ru;q=0.8",
+          "cache-control": "max-age=0",
           "content-type": "application/x-www-form-urlencoded",
+          "sec-fetch-dest": "document",
           "sec-fetch-mode": "navigate",
           "sec-fetch-site": "same-origin",
-              },
-          "body": "${randomHash}%5Btype%5D=test&${randomHash}%5BteacherId%5D=${teacheridforroom}&${randomHash}%5BstudentIds%5D=${studentidforroom}&btn_create_and_list=",
-          "method": "POST",
-          "mode": "cors",
-          "credentials": "include"
-          }`
-      document.getElementById('responseTextarea2').value = "https://api-${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}"
-      document.getElementById('responseTextarea3').value = ''
-      document.getElementById('sendResponse').click()
+          "sec-fetch-user": "?1",
+          "upgrade-insecure-requests": "1"
+      };
+      const request = {
+          headers: requestHeaders,
+          referrer: requestreferrer,
+          referrerPolicy: 'strict-origin-when-cross-origin',
+          body: requestBody,
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
+      };
+  
+      document.getElementById('responseTextarea1').value = JSON.stringify(request);
+      document.getElementById('responseTextarea2').value = requestAdr;
+      document.getElementById('responseTextarea3').value = 'senddata1';
+      document.getElementById('sendResponse').click();
 
     } else {
         alert(massagetexttoshow);
