@@ -10,14 +10,14 @@ var win_testrooms =  // описание элементов окна созда�
 					    <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
                   <select id="subjecttypeselect" style="text-align: center; width: 200px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
                       <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
-                      <option value="api-english">Английский</option>
-                      <option value="api-preschool">Дошкольная математика</option>
-                      <option value="api-computer-science">Компьютерные курсы</option>
-                      <option value="api-math">Математика</option>
-                      <option value="api-social-science">Обществознание</option>
-                      <option value="api-russian">Русский язык</option>
-                      <option value="api-physics">Физика</option>
-                      <option value="api-chess">Шахматы</option>
+                      <option value="english">Английский</option>
+                      <option value="preschool">Дошкольная математика</option>
+                      <option value="computer-science">Компьютерные курсы</option>
+                      <option value="math">Математика</option>
+                      <option value="social-science">Обществознание</option>
+                      <option value="russian">Русский язык</option>
+                      <option value="physics">Физика</option>
+                      <option value="chess">Шахматы</option>
                   </select>
               </div>
 
@@ -33,6 +33,8 @@ var win_testrooms =  // описание элементов окна созда�
               </div>
               <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
                   <button id="starttestroom" class="teststudteach" style="width: 200px; background: #228B22;">Создать тестовый урок</button>
+              </div>
+              <div style="width: 220px; margin:5px; display:flex; justify-content:left;">
               </div>
           </span>
       </span>
@@ -126,4 +128,66 @@ document.getElementById('userfromchatid').onclick = function () {
     if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
       insertionfield.value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
   }
+}
+
+document.getElementById('starttestroom').onclick = function () {
+    let randomHash = '';
+    let flagemptyttfields = '0';
+    let studentidforroom = '';
+    let teacheridforroom = '';
+    let lessonsubjecttype = '';
+    let massagetexttoshow = '';
+
+    if (document.getElementById('subjecttypeselect').value == 'subjnotselect') {
+        flagemptyttfields = '1';
+        massagetexttoshow = 'Не выбран предмет'
+        console.log ('Не выбран предмет');
+    } else { lessonsubjecttype = document.getElementById('subjecttypeselect').value }
+
+    if ( document.getElementById('teachforroom').value.length <4){
+        flagemptyttfields = '1';
+        massagetexttoshow = 'Не указан id преподавателя'
+        console.log ('Не указан id преподавателя');
+    } else { teacheridforroom =  document.getElementById('teachforroom').value }
+
+    if ( document.getElementById('studforroom').value.length <4){
+        flagemptyttfields = '1';
+        massagetexttoshow = 'Не указан id ученика'
+        console.log ('Не указан id ученика');
+    } else { studentidforroom =  document.getElementById('studforroom').value }
+
+    if (flagemptyttfields == '0'){
+      randomHash = GenerateHash(14);
+      fetch(`https://api-${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`, 
+      {
+          "headers": {
+              "content-type": "application/x-www-form-urlencoded",
+          },
+          "body": `${randomHash}%5Btype%5D=test&${randomHash}%5BteacherId%5D=${teacheridforroom}&${randomHash}%5BstudentIds%5D=${studentidforroom}&btn_create_and_list=`,
+          "method": "POST",
+          "mode": "cors",
+          "credentials": "include"
+      }).then(
+          // Notify employee that he's on go.
+          setTimeout(() => {
+              alert("Урок создан");
+          }, 360));
+    } else {
+      setTimeout(() => {
+        alert(massagetexttoshow);
+    }, 360);
+    }
+        
+}
+
+function GenerateHash(length) {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
 }
