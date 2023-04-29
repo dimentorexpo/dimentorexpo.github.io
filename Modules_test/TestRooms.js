@@ -99,7 +99,7 @@ function cleartestroomsfields(){
 }
 
 function testteachertofield(){
-  if (localStorage.getItem('test_teach') != '' || localStorage.getItem('test_teach') != null || localStorage.getItem('test_teach') != undefined) {
+  if (localStorage.getItem('test_teach') != '' && localStorage.getItem('test_teach') != null) {
     document.getElementById('teachforroom').value = localStorage.getItem('test_teach');
   } else {
     document.getElementById('teachforroom').value = "Не указан ID";
@@ -108,7 +108,7 @@ function testteachertofield(){
 }
 
 function teststudenttofield(){
-  if (localStorage.getItem('test_stud') != '' || localStorage.getItem('test_stud') != null || localStorage.getItem('test_stud') != undefined) {
+  if (localStorage.getItem('test_stud') != '' && localStorage.getItem('test_stud') != null) {
     document.getElementById('studforroom').value = localStorage.getItem('test_stud');
   } else {
     document.getElementById('studforroom').value = "Не указан ID";
