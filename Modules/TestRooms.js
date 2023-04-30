@@ -4,8 +4,9 @@ var win_testrooms =  // описание элементов окна созда�
           <span style="cursor: -webkit-grab;">
               <div style="width: 260px; margin: 5px;" id="testroomshead">
                   <button title="скрывает меню" id="hideMetestrooms" class="buttonHide">hide</button>
-                  <button onclick="cleartestroomsfields()" title="По нажатию очищает поля" id="cleartestrooms" style="width:24px; float: right; margin-right: 10px;">🧹</button>
-                  <button onclick="opentestroomsconf()" title="Открывает раздел в Confluence по созданию тестовых комнат" id="cleartestrooms" style="width:24px; float: right; margin-right: 5px;">📋</button>
+                  <button onclick="cleartestroomsfields()" title="По нажатию очищает поля" style="width:24px;">🧹</button>
+                  <button onclick="opentestroomshelp()" style="width:24px; float: right; margin-right: 10px;" title="Инструкция по этой форме">❓</button>
+                  <button onclick="opentestroomsconf()" title="Открывает раздел в Confluence по созданию тестовых комнат" style="width:24px; float: right; margin-right: 5px;">📋</button>
               </div>
 
 					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
@@ -28,7 +29,7 @@ var win_testrooms =  // описание элементов окна созда�
     					</div>
 
               <div style="width: 260px; margin:2px; display:flex; justify-content:left;">
-                  <button id="insertteachid" title="Поставить id вашего тестового П" onclick="testteachertofield()" class="testroomsbtn">Тест👽</button>
+                  <button id="insertteachid" title="Поставить id вашего тестового П" onclick="testteachertofield()" class="testroomsbtn" style="margin-left:5px;">Тест👽</button>
                   <button id="insertstudid" title="Поставить id вашего тестового У" onclick="teststudenttofield()" class="testroomsbtn">Тест👨&zwj;🎓</button>
                   <button id="userfromchatid" title="Подставить id пользователя из активного чата и подставить id вашего тестового У или П" class="testroomsbtn">ID из чата</button>
               </div>
@@ -88,7 +89,7 @@ let TestRoomsBtn = document.createElement('button') // добавление кн
 TestRoomsBtn.textContent = '🎲'
 TestRoomsBtn.id = "TestRooms"
 TestRoomsBtn.classList = 'teststudteach'
-TestRoomsBtn.title = "Открыть окно создания тестовых комнат"
+TestRoomsBtn.title = "Открыть окно создания тестовых уроков"
 TestRoomsinsert = document.getElementById('testUsers').childNodes[0].childNodes[1]
 TestRoomsinsert.insertBefore(TestRoomsBtn, TestRoomsinsert.children[2])
 
@@ -215,7 +216,8 @@ document.getElementById('starttestroom').onclick = function () { // добавл
         let responseRoomCreate = document.getElementById('responseTextarea1').getAttribute('postdata');
         if (responseRoomCreate) {
           testroomsshowmessage('message','Тестовый урок создан, приглашение на него отображаются в личных кабинетах У и П');
-            document.getElementById('responseTextarea1').removeAttribute('postdata');
+          document.getElementById('responseTextarea1').removeAttribute('postdata');
+          cleartestroomsfields()
         }
     });
     } else {
@@ -258,4 +260,8 @@ function testroomshidemessage(){ //скрытие уведомлений
 
 function opentestroomsconf() { // Открывает раздел в Confluence по созданию тестовых комнат
   window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=82244638")
+}
+
+function opentestroomshelp() { // Открывает раздел в Confluence по созданию тестовых комнат
+  window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-testrooms%D0%9E%D0%BA%D0%BD%D0%BE%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%8B%D1%85%D1%83%D1%80%D0%BE%D0%BA%D0%BE%D0%B2")
 }
