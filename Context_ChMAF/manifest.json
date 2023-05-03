@@ -10,7 +10,8 @@
     "*://*.skyeng.ru/*",
     "*://skyeng.autofaq.ai/*",
     "*://*.slack.com/*",
-    "*://jira.skyeng.tech/*"
+    "*://jira.skyeng.tech/*",
+	"*://mattermost.skyeng.tech/*"
 ],
   "background": {
     "scripts": ["app.js"]
