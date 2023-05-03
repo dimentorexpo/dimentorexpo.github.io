@@ -44,7 +44,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
 					opstats.push(result.onOperator[i])					
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb == '121386') {
+						if (result.unAssigned[j].kb != '120181') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
@@ -86,7 +86,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 					}
 				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb == '121386') {
+						if (result.unAssigned[j].kb != '120181') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
