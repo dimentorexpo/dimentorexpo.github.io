@@ -1,3 +1,43 @@
+let MMostOperId
+
+if (localStorage.getItem('matermost_oid') == null) {
+
+    document.getElementById('responseTextarea1').value = `{
+        "headers": {
+          "accept": "*/*",
+          "accept-language": "ru",
+          "content-type": "application/json",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-requested-with": "XMLHttpRequest"
+        },
+        "referrerPolicy": "no-referrer",
+        "body": null,
+        "method": "GET",
+        "mode": "cors",
+        "credentials": "include"
+      }`;
+    document.getElementById('responseTextarea2').value = "https://mattermost.skyeng.tech/api/v4/users/me";
+    document.getElementById('responseTextarea3').value = 'postdata';
+    document.getElementById('sendResponse').click(); 
+
+    
+    document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
+        let responseMMoid = document.getElementById('responseTextarea1').getAttribute('postdata');
+        let result
+        if (responseMMoid) {
+            result = JSON.parse(responseMMoid)
+            MMostOperId = result.id;
+            console.log(MMostOperId);
+          document.getElementById('responseTextarea1').removeAttribute('postdata');
+        }
+    });
+
+    localStorage.setItem('matermost_oid', MMostOperId)
+} else {
+    MMostOperId = localStorage.getItem('matermost_oid')
+} 
+
 async function docheckopers() {
     let opstats = []
     let moderresult = '';
@@ -21,8 +61,7 @@ async function docheckopers() {
 
     let currdate = getcurrentdate();
     let currtime = getcurrenttime();
-    let timetomsg = currdate + ` ` + currtime;
-
+    let timetomsg = ` ` + currdate + ` ` + currtime;
 
 await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
     "credentials": "include"
@@ -39,7 +78,7 @@ await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 
     let myString;
 if (opstats.length > 0) {
-     myString =`| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}` + `\\\\n\`\`\`Статус операторов по состоянию на \`\`\`${timetomsg}`;
+     myString =`| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}` + `\\\\n\`\`\`Статус операторов по состоянию на\`\`\`${timetomsg}`;
 } else {
      myString =`На линии никого нет!\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}`;
 }
@@ -53,7 +92,7 @@ document.getElementById('responseTextarea1').value = `{
       "x-requested-with": "XMLHttpRequest"
     },
     "referrerPolicy": "no-referrer",
-    "body": "{\\"message\\":\\"${myString}\\",\\"channel_id\\":\\"9gmj89efo38o3doxzu19g3gk6r\\",\\"user_id\\":\\"ag19qsokp7y45xogyqr1sco3pr\\"}",
+    "body": "{\\"message\\":\\"${myString}\\",\\"channel_id\\":\\"9gmj89efo38o3doxzu19g3gk6r\\",\\"user_id\\":\\"${MMostOperId}\\"}",
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
