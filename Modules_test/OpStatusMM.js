@@ -38,29 +38,25 @@ await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 
     let myString;
 if (opstats.length > 0) {
-     myString =`| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}`;
+     myString =`Статус операторов по состоянию на ${currdate} ${currtime}\\\\n| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}`;
 } else {
      myString =`На линии никого нет!\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}`;
 }
-const requestBody = `{\\"message\\":\\"${myString}\\",\\"channel_id\\":\\"9gmj89efo38o3doxzu19g3gk6r\\",\\"user_id\\":\\"ag19qsokp7y45xogyqr1sco3pr\\"}`;
-const requestHeaders = {
-    "accept": "*/*",
-    "accept-language": "ru",
-    "content-type": "application/json",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "x-requested-with": "XMLHttpRequest"
-};
-const request = {
-    headers: requestHeaders,
-    referrerPolicy: 'no-referrer',
-    body: requestBody,
-    method: 'POST',
-    mode: 'cors',
-    credentials: 'include',
-};
-
-document.getElementById('responseTextarea1').value = JSON.stringify(request);
+document.getElementById('responseTextarea1').value = `{
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "ru",
+      "content-type": "application/json",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "x-requested-with": "XMLHttpRequest"
+    },
+    "referrerPolicy": "no-referrer",
+    "body": "{\\"message\\":\\"${myString}\\",\\"channel_id\\":\\"9gmj89efo38o3doxzu19g3gk6r\\",\\"user_id\\":\\"ag19qsokp7y45xogyqr1sco3pr\\"}",
+    "method": "POST",
+    "mode": "cors",
+    "credentials": "include"
+  }`;
 document.getElementById('responseTextarea2').value = "https://mattermost.skyeng.tech/api/v4/posts";
 document.getElementById('responseTextarea3').value = '';
 document.getElementById('sendResponse').click(); 
