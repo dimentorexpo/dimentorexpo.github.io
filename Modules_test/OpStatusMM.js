@@ -19,9 +19,9 @@ async function docheckopers() {
     else if (operdep == 'Prem')
         flagtpkc = 'Prem'
 
-    //let currdate = getcurrentdate();
-    //let currtime = getcurrenttime();
-    //let firtsmsg = `Статус операторов по состоянию на ${currdate} ${currtime}\\\\n`
+    let currdate = getcurrentdate();
+    let currtime = getcurrenttime();
+    let timetomsg = currdate + ` ` + currtime;
 
 
 await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
@@ -39,7 +39,7 @@ await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 
     let myString;
 if (opstats.length > 0) {
-     myString =`| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}`;
+     myString =`| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}` + `\\\\n\`\`\`Статус операторов по состоянию на \`\`\`${timetomsg}`;
 } else {
      myString =`На линии никого нет!\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}`;
 }
