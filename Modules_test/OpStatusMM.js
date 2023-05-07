@@ -151,18 +151,55 @@ function getcurrentdate(){ //получение текущей даты
     return today;
 }
 
+function startstatsending(){ // запуск отправки статистики
+    StatistikToMM.classList.remove('rightPanelBtn');
+    StatistikToMM.classList.add('statMMactive');
+    setsendinterval = setInterval(docheckopers, sendinterval);
+}
+
+function stopstatsending(){ // Остановка отправки статистики
+    StatistikToMM.classList.remove('statMMactive');
+    StatistikToMM.classList.add('rightPanelBtn');
+    clearInterval(setsendinterval);
+}
+
 let StatistikToMM = document.createElement('button')
 StatistikToMM.innerHTML = '📕';
 StatistikToMM.id = 'StatMM';
 StatistikToMM.title = 'Запуск и остановка отправки статистики в Mattermost';
 StatistikToMM.classList.add('rightPanelBtn')
 StatistikToMM.onclick = function () {
-    let answersend = confirm("Запустить отправку статистики в Mattermost?")
-    if(answersend && issending == 0){
-        issending = 1;
-        localStorage.setItem('is_sending_MM', issending);
-        StatistikToMM.style.background = "#faad14"; //#768d87
-    }
+    
 };
-StatistikToMM.ondblclick = function () {};
 document.getElementById('rightPanel').appendChild(StatistikToMM)
+
+StatistikToMM.addEventListener("click", (event) => { //
+    if(issending == 0){
+        let answersend = confirm("Запустить отправку статистики в Mattermost?")
+        if(answersend){
+            issending = 1;
+            localStorage.setItem('is_sending_MM', issending);
+            startstatsending()
+        }
+    } else if(issending == 1){
+        let answersend = confirm("Прекратить отправку статистики в Mattermost?")
+        if(answersend){
+            issending = 0;
+            localStorage.setItem('is_sending_MM', issending);
+            stopstatsending()
+        }
+    }
+});
+
+StatistikToMM.addEventListener("contextmenu", (event) => { // 
+    event.preventDefault();
+    if (issending == 1) {
+        alert("Нельзя обновить настройки отправки статистики пока запущена отправка")
+    } else {
+        getMMostOperId()
+        getsettingsfromdoc()
+        console.log("ID оператора и настройки из дока обновлены")
+    }
+});
+
+if(issending == 1){startstatsending()}
