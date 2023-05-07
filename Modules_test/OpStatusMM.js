@@ -207,8 +207,8 @@ function firstloadstatmodule() {
                 setTimeout(() => {
                     startstatsending()
                 }, 2000);
+                clearInterval(checkforload);
             }
-            clearInterval(checkforload);
         }, 1000);
     }
 }
