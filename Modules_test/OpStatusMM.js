@@ -47,9 +47,7 @@ function getMMostOperId(){ // функция получения id
     localStorage.setItem('matermost_oid', MMostOperId)
 }
     
-if (!MMostOperId) { // проверяем есть ли id оператора ММ
-    getMMostOperId()
-}
+if (!MMostOperId) {getMMostOperId()} // проверяем есть ли id оператора ММ
 
 async function getsettingsfromdoc() { // получаем из файла настройки отправки
 	settingsfromdoc = 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec'
@@ -168,9 +166,6 @@ StatistikToMM.innerHTML = '📕';
 StatistikToMM.id = 'StatMM';
 StatistikToMM.title = 'Запуск и остановка отправки статистики в Mattermost';
 StatistikToMM.classList.add('rightPanelBtn')
-StatistikToMM.onclick = function () {
-    
-};
 document.getElementById('rightPanel').appendChild(StatistikToMM)
 
 StatistikToMM.addEventListener("click", (event) => { //
@@ -202,4 +197,8 @@ StatistikToMM.addEventListener("contextmenu", (event) => { //
     }
 });
 
-if(localStorage.getItem('is_sending_MM') == 1){startstatsending()}
+function firstloadstatmodule() {
+    if(issending == 1){startstatsending()} // Если обновили страницу, автоматим запустим
+}
+
+firstloadstatmodule()
