@@ -74,6 +74,7 @@ async function docheckopers() { // функция сбора статистик�
     let pausecnt = 0;
     let chatneraspcountleft = 0;
     let chattpquecountleft = 0;
+    let undistributedString = '';
     let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
     if (operdep == 'ТП')
         flagtpkc = 'ТП'
@@ -103,11 +104,17 @@ await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
     )?.count ?? chattpquecountleft;
 });
 
+if (chattpquecountleft < undistributed){
+    undistributedString = `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}`;
+} else {
+    undistributedString = `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft} ${whomtotag} :allert:`;
+}
+
     let myString;
 if (opstats.length > 0) {
-     myString =`| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}` + `\\\\n\`\`\`Статус операторов по состоянию на\`\`\`${timetomsg}`;
+     myString =`| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + undistributedString + `\\\\n\`\`\`Статус операторов по состоянию на\`\`\`${timetomsg}`;
 } else {
-     myString =`На линии никого нет!\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}` + `\\\\n\`\`\`Статус операторов по состоянию на\`\`\`${timetomsg}`;
+     myString =`На линии никого нет!` + undistributedString + `\\\\n\`\`\`Статус операторов по состоянию на\`\`\`${timetomsg}`;
 }
 document.getElementById('responseTextarea1').value = `{
     "headers": {
