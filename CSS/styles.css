@@ -491,7 +491,18 @@ button {
 		transition: all 1s ease;
 	}
 
-	#opennewcat:hover , #crmopersstatuses:hover, #datsyCalendar:hover, #radioPlayer:hover, #StatMM:hover  {
+	.rightPanelBtn{
+		width: 40px; 
+		height: 40px; 
+		margin-bottom:4px; 
+		font-size: 22px; 
+		cursor: pointer; 
+		border-radius: 50%; 
+		opacity:0.5; 
+		transition: all 0.5s ease;
+	}
+
+	.rightPanelBtn:hover{
 		opacity: 1 !important;
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);

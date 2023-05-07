@@ -352,25 +352,23 @@ function prepTp() { //функция подготовки расширения �
 
     let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
-    crmopers.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     crmopers.id = 'crmopersstatuses'
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
-    crmopers.classList = 'onlyfortp'
+    crmopers.classList.add('onlyfortp', 'rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(crmopers)
 
 	let openCalendar = document.createElement('button')
     openCalendar.innerHTML = '📅'
-    openCalendar.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     openCalendar.id = 'datsyCalendar'
     openCalendar.title = 'Открывает календарь Datsy'
-	openCalendar.classList = 'onlyfortp'
+	openCalendar.classList.add('onlyfortp', 'rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(openCalendar)
 	
 	let playerRadio = document.createElement('button')
     playerRadio.innerHTML = '📻'
-    playerRadio.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     playerRadio.id = 'radioPlayer'
     playerRadio.title = 'Открывает радио проигрыватель'
+    playerRadio.classList.add('rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(playerRadio)
 
     
@@ -1080,9 +1078,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
-    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     openchhis.id = 'opennewcat'
     openchhis.title = 'Открывает виджет просмотра истории чатов'
+    openchhis.classList.add('rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(openchhis)
 
     openchhis.onclick = () => {
