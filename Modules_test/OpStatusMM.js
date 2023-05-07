@@ -1,7 +1,12 @@
-let MMostOperId
+let MMostOperId = localStorage.getItem('matermost_oid');
+let sendinterval;
+let channel_id;
 
-if (localStorage.getItem('matermost_oid') == null) {
+let settingsfromdoc;
+let settingscontainer;
 
+
+function getMMostOperId(){
     document.getElementById('responseTextarea1').value = `{
         "headers": {
           "accept": "*/*",
@@ -34,9 +39,21 @@ if (localStorage.getItem('matermost_oid') == null) {
     });
 
     localStorage.setItem('matermost_oid', MMostOperId)
-} else {
-    MMostOperId = localStorage.getItem('matermost_oid')
-} 
+}
+    
+if (!MMostOperId) {
+    getMMostOperId()
+}
+
+async function getsettingsfromdoc() { // получаем из файла настройки отправки
+	settingsfromdoc = 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec'
+	await fetch(settingsfromdoc).then(r => r.json()).then(r => settingsdata = r)
+	settingscontainer = settingsdata.result;
+    channel_id = settingscontainer[3][1];
+    sendinterval = settingscontainer[4][1]*1000;
+    console.log("id канала : " + channel_id) // выводим id канала
+    console.log("Интервал : " + sendinterval + " ms") // выводим интервал
+}
 
 async function docheckopers() {
     let opstats = []
@@ -72,7 +89,7 @@ await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         operator.operator?.fullName.match(/ТП\D/)
     ));
     chattpquecountleft = result.unAssigned.find(unAssigned => 
-        unAssigned.kb === '120181'
+        unAssigned.kb === 120181
     )?.count ?? chattpquecountleft;
 });
 
@@ -80,7 +97,7 @@ await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
 if (opstats.length > 0) {
      myString =`| Чатов | Оператор | Статус |\\\\n|:---------:|:----------------------:|:----------:|\\\\n` + opstats.map(obj => `|${obj.aCnt} | ${obj.operator.fullName} | **[${obj.operator.status}]**|`).join('\\\\n') + `\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}` + `\\\\n\`\`\`Статус операторов по состоянию на\`\`\`${timetomsg}`;
 } else {
-     myString =`На линии никого нет!\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}`;
+     myString =`На линии никого нет!\\\\n\`\`\`Очередь ТП:\`\`\` ${chattpquecountleft}` + `\\\\n\`\`\`Статус операторов по состоянию на\`\`\`${timetomsg}`;
 }
 document.getElementById('responseTextarea1').value = `{
     "headers": {
@@ -92,7 +109,7 @@ document.getElementById('responseTextarea1').value = `{
       "x-requested-with": "XMLHttpRequest"
     },
     "referrerPolicy": "no-referrer",
-    "body": "{\\"message\\":\\"${myString}\\",\\"channel_id\\":\\"9gmj89efo38o3doxzu19g3gk6r\\",\\"user_id\\":\\"${MMostOperId}\\"}",
+    "body": "{\\"message\\":\\"${myString}\\",\\"channel_id\\":\\"${channel_id}\\",\\"user_id\\":\\"${MMostOperId}\\"}",
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
@@ -117,11 +134,12 @@ function getcurrenttime(){  // получение текущего времен�
 }
 
 function getcurrentdate(){ //получение текущей даты
-let cdate = new Date();
-let cyear = CheckComponentOfDate(cdate.getFullYear());
-let cmonth = CheckComponentOfDate(cdate.getMonth() + 1);
-let cday = CheckComponentOfDate(cdate.getDate());
-let today = `${cday}.${cmonth}.${cyear}`;
+    let cdate = new Date();
+    let cyear = cdate.getFullYear();
+    let cmonth = CheckComponentOfDate(cdate.getMonth() + 1);
+    let cday = CheckComponentOfDate(cdate.getDate());
+    let today = `${cday}.${cmonth}.${cyear}`;
 
-return today;
+    return today;
 }
+
