@@ -143,3 +143,4 @@ function getcurrentdate(){ //получение текущей даты
     return today;
 }
 
+getsettingsfromdoc()
