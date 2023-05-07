@@ -152,13 +152,16 @@ function getcurrentdate(){ //получение текущей даты
 function startstatsending(){ // запуск отправки статистики
     StatistikToMM.classList.remove('rightPanelBtn');
     StatistikToMM.classList.add('statMMactive');
+    docheckopers();
     setsendinterval = setInterval(docheckopers, sendinterval);
+    console.log("Запущена отправка статистики");
 }
 
 function stopstatsending(){ // Остановка отправки статистики
     StatistikToMM.classList.remove('statMMactive');
     StatistikToMM.classList.add('rightPanelBtn');
     clearInterval(setsendinterval);
+    console.log("Остановлена отправка статистики")
 }
 
 let StatistikToMM = document.createElement('button')
@@ -193,6 +196,7 @@ StatistikToMM.addEventListener("contextmenu", (event) => { //
     } else {
         getMMostOperId()
         getsettingsfromdoc()
+        alert('Настройки отправки статистики обновлены')
         console.log("ID оператора и настройки из дока обновлены")
     }
 });
