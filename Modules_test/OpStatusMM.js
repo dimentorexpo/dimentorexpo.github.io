@@ -7,15 +7,9 @@ let channel_id; // id канала куда отправлять
 let settingsfromdoc;
 let settingscontainer;
 
-let StatistikToMM = document.createElement('button')
-StatistikToMM.innerHTML = '📕'
-StatistikToMM.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
-StatistikToMM.id = 'StatMM'
-document.getElementById('rightPanel').appendChild(StatistikToMM)
-
 if(!issending){ // если не записана переменная в локалсторедж, записываем
     issending = 0;
-    localStorage.setItem('is_sending_MM', issending)
+    localStorage.setItem('is_sending_MM', issending);
 }
 
 function getMMostOperId(){ // функция получения id 
@@ -156,3 +150,18 @@ function getcurrentdate(){ //получение текущей даты
 
     return today;
 }
+
+let StatistikToMM = document.createElement('button')
+StatistikToMM.innerHTML = '📕';
+StatistikToMM.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;';
+StatistikToMM.id = 'StatMM';
+StatistikToMM.onclick = function () {
+    let answersend = confirm("Запустить отправку статистики в Mattermost?")
+    if(answersend && issending == 0){
+        issending = 1;
+        localStorage.setItem('is_sending_MM', issending);
+        StatistikToMM.style.background = "#faad14"; //#768d87
+    }
+};
+StatistikToMM.ondblclick = function () {};
+document.getElementById('rightPanel').appendChild(StatistikToMM)
