@@ -1,12 +1,24 @@
-let MMostOperId = localStorage.getItem('matermost_oid');
-let sendinterval;
-let channel_id;
+let MMostOperId = localStorage.getItem('matermost_oid'); // id оператора в ММ
+let issending = localStorage.getItem('is_sending_MM'); // записываем отправляем сообщения в ММ или нет, чтобы не слетала отправка при обновлении страницы
+let setsendinterval; // сохраняем id интервала
+let sendinterval; // интервал отправки сообщений получаемый из документа
+let channel_id; // id канала куда отправлять
 
 let settingsfromdoc;
 let settingscontainer;
 
+let StatistikToMM = document.createElement('button')
+StatistikToMM.innerHTML = '📕'
+StatistikToMM.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+StatistikToMM.id = 'StatMM'
+document.getElementById('rightPanel').appendChild(StatistikToMM)
 
-function getMMostOperId(){
+if(!issending){ // если не записана переменная в локалсторедж, записываем
+    issending = 0;
+    localStorage.setItem('is_sending_MM', issending)
+}
+
+function getMMostOperId(){ // функция получения id 
     document.getElementById('responseTextarea1').value = `{
         "headers": {
           "accept": "*/*",
@@ -41,7 +53,7 @@ function getMMostOperId(){
     localStorage.setItem('matermost_oid', MMostOperId)
 }
     
-if (!MMostOperId) {
+if (!MMostOperId) { // проверяем есть ли id оператора ММ
     getMMostOperId()
 }
 
@@ -55,7 +67,9 @@ async function getsettingsfromdoc() { // получаем из файла нас
     console.log("Интервал : " + sendinterval + " ms") // выводим интервал
 }
 
-async function docheckopers() {
+getsettingsfromdoc()
+
+async function docheckopers() { // функция сбора статистики и отправки сообщения
     let opstats = []
     let moderresult = '';
     let flagtpkc;
@@ -142,5 +156,3 @@ function getcurrentdate(){ //получение текущей даты
 
     return today;
 }
-
-getsettingsfromdoc()
