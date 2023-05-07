@@ -201,6 +201,15 @@ StatistikToMM.addEventListener("contextmenu", (event) => { //
 });
 
 function firstloadstatmodule() {
-    if(issending == 1){startstatsending()} // Если обновили страницу, автоматим запустим
+    if(issending == 1){ // Если обновили страницу, автоматим запустим
+        let checkforload = setInterval(() => {
+            if(document.getElementById('idforpeopstatus')){
+                setTimeout(() => {
+                    startstatsending()
+                }, 2000);
+            }
+            clearInterval(checkforload);
+        }, 1000);
+    }
 }
 firstloadstatmodule()
