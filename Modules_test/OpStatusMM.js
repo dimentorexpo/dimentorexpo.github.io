@@ -202,4 +202,4 @@ StatistikToMM.addEventListener("contextmenu", (event) => { //
     }
 });
 
-if(issending == 1){startstatsending()}
+if(localStorage.getItem('is_sending_MM') == 1){startstatsending()}
