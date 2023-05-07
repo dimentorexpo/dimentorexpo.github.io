@@ -153,8 +153,9 @@ function getcurrentdate(){ //получение текущей даты
 
 let StatistikToMM = document.createElement('button')
 StatistikToMM.innerHTML = '📕';
-StatistikToMM.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;';
 StatistikToMM.id = 'StatMM';
+StatistikToMM.title = 'Запуск и остановка отправки статистики в Mattermost';
+StatistikToMM.classList.add('rightPanelBtn')
 StatistikToMM.onclick = function () {
     let answersend = confirm("Запустить отправку статистики в Mattermost?")
     if(answersend && issending == 0){
