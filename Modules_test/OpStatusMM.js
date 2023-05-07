@@ -3,6 +3,9 @@ let issending = localStorage.getItem('is_sending_MM'); // записываем �
 let setsendinterval; // сохраняем id интервала
 let sendinterval; // интервал отправки сообщений получаемый из документа
 let channel_id; // id канала куда отправлять
+let undistributed; // при каком нераспреде тэгать
+let whomtotag; // кого тэгать
+
 
 let settingsfromdoc;
 let settingscontainer;
@@ -55,6 +58,8 @@ async function getsettingsfromdoc() { // получаем из файла нас
 	settingscontainer = settingsdata.result;
     channel_id = settingscontainer[3][1];
     sendinterval = settingscontainer[4][1]*1000;
+    undistributed = settingscontainer[5][1];
+    whomtotag = settingscontainer[6][1];
     console.log("id канала : " + channel_id) // выводим id канала
     console.log("Интервал : " + sendinterval + " ms") // выводим интервал
 }
