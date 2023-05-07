@@ -62,6 +62,8 @@ async function getsettingsfromdoc() { // получаем из файла нас
     whomtotag = settingscontainer[6][1];
     console.log("id канала : " + channel_id) // выводим id канала
     console.log("Интервал : " + sendinterval + " ms") // выводим интервал
+    console.log("Нераспред : " + undistributed) // выводим при каком нераспреде тэгать
+    console.log("кого тэгать : " + whomtotag) // выводим кого тэгать
 }
 getsettingsfromdoc()
 
