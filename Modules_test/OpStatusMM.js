@@ -58,7 +58,6 @@ async function getsettingsfromdoc() { // получаем из файла нас
     console.log("id канала : " + channel_id) // выводим id канала
     console.log("Интервал : " + sendinterval + " ms") // выводим интервал
 }
-
 getsettingsfromdoc()
 
 async function docheckopers() { // функция сбора статистики и отправки сообщения
@@ -204,5 +203,4 @@ StatistikToMM.addEventListener("contextmenu", (event) => { //
 function firstloadstatmodule() {
     if(issending == 1){startstatsending()} // Если обновили страницу, автоматим запустим
 }
-
 firstloadstatmodule()
