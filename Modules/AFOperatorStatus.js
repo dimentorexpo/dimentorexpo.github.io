@@ -4,6 +4,7 @@ let peoplestatus = document.createElement('div')
 peoplestatus.id = 'idforpeopstatus'
 peoplestatus.style = 'width: 200px; color: bisque;'
 document.getElementsByClassName('ant-layout-sider-children')[0].append(peoplestatus)
+let chatneraspcountleft = 0;
 async function operstatusleftbar() { // функция замены Script Package вывода списка операторов
     let opstats = []
     let moderresult = '';
@@ -11,7 +12,6 @@ async function operstatusleftbar() { // функция замены Script Packa
     let operonlinecnt = 0;
     let busycnt = 0;
     let pausecnt = 0;
-    let chatneraspcountleft = 0;
     let chattpquecountleft = 0;
 
     let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
@@ -23,8 +23,6 @@ async function operstatusleftbar() { // функция замены Script Packa
         flagtpkc = 'КМ'
     else if (operdep == 'Teachers Care')
         flagtpkc = 'Teachers Care'
-    else if (operdep == 'ТПPrem')
-        flagtpkc = 'ТПPrem'
     else if (operdep == 'Prem')
         flagtpkc = 'Prem'
 
@@ -42,10 +40,11 @@ async function operstatusleftbar() { // функция замены Script Packa
 						}
 					}
 				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
-					opstats.push(result.onOperator[i])					
-					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb == '121386') {
-							chatneraspcountleft = result.unAssigned[j].count
+					opstats.push(result.onOperator[i])
+					chatneraspcountleft = 0;					
+					for (let j=0; j<result.unAssigned[j].length; j++) {
+						if (result.unAssigned[j].groupId == 'b6f7f34d-2f08-fc19-3661-29ac00842898' || result.unAssigned[j].groupId == '8266dbb1-db44-4910-8b5f-a140deeec5c0') {
+							chatneraspcountleft += Number(result.unAssigned[j].count)
 						}
 					}	
 				} else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
@@ -69,13 +68,6 @@ async function operstatusleftbar() { // функция замены Script Packa
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
-					opstats.push(result.onOperator[i])
-					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300' && result.unAssigned[j].kb != '121438' && result.unAssigned[j].kb != '121446' && result.unAssigned[j].kb != '121832' && result.unAssigned[j].kb != '121430' && result.unAssigned[j].kb != '121879' && result.unAssigned[j].kb != '121777' && result.unAssigned[j].kb != '121447' && result.unAssigned[j].kb != '121527' && result.unAssigned[j].kb != '121531' && result.unAssigned[j].kb != '121775') {
-							chatneraspcountleft = result.unAssigned[j].count
-						}
-					}	
 				} // end of if state small 	
 			} else { // end of if state big
 				if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
@@ -85,9 +77,9 @@ async function operstatusleftbar() { // функция замены Script Packa
 						}
 					}
 				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
-					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb == '121386') {
-							chatneraspcountleft = result.unAssigned[j].count
+					for (let j=0; j<result.unAssigned[j].length; j++) {
+						if (result.unAssigned[j].groupId == 'b6f7f34d-2f08-fc19-3661-29ac00842898' || result.unAssigned[j].groupId == '8266dbb1-db44-4910-8b5f-a140deeec5c0') {
+							chatneraspcountleft += Number(result.unAssigned[j].count)
 						}
 					}	
 				} else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
@@ -105,12 +97,6 @@ async function operstatusleftbar() { // функция замены Script Packa
 				} else if (flagtpkc == 'Teachers Care' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/Teachers Care\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb) {
-							chatneraspcountleft = result.unAssigned[j].count
-						}
-					}
-				} else if (flagtpkc == 'ТПPrem' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТПPrem\D/)) {
-					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb != '120181' && result.unAssigned[j].kb != '121300' && result.unAssigned[j].kb != '121438' && result.unAssigned[j].kb != '121446' && result.unAssigned[j].kb != '121832' && result.unAssigned[j].kb != '121430' && result.unAssigned[j].kb != '121879' && result.unAssigned[j].kb != '121777' && result.unAssigned[j].kb != '121447' && result.unAssigned[j].kb != '121527' && result.unAssigned[j].kb != '121531' && result.unAssigned[j].kb != '121775') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}
