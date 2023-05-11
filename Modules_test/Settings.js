@@ -59,15 +59,11 @@ var win_Settings =  // описание элементов окна ссылок
 						<button class="onlyfortp" id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
 
 					<div style="margin-top: 5px; width: 500px">
-						<span style="color:bisque; position: relative; left: 30%;">Выберите отдел:</span>
-						<span style="position: relative; left: 30%; background: green; color: white; padding: 5px; border-radius: 5px;" id="operdepout"></span>
-						<br>
+						<span style="color:bisque;">Выберите отдел:</span>
 						<button class="onlyfortp" onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
 						<button class="onlyfortp" onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
 						<button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
 						<button onclick="AFthePieceofShitKC()" id="set_KCrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
-						<button class="onlyfortp" onclick="AFthePieceofShitPrem()" id="set_PremTPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
-						<button class="onlyfortp" onclick="WeAreTheChempionsPrem()" id="set_TPPrem" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
 						<br>
 					</div>
 
@@ -127,17 +123,6 @@ function WeAreTheChempionsPrem() { //функция вносит в локалс
 function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
   localStorage.setItem('scriptAdr', TP_addrRzrv)
   localStorage.setItem('tpflag', 'ТП')
-  location.reload()
-}
-
-function AFthePieceofShitPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП резервных тестовых
-  localStorage.setItem('scriptAdr', TPprem_addrRzrv)
-  localStorage.setItem('tpflag', 'ТПPrem')
-  location.reload()
-}
-
-function AFthePieceofShitKC() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ резервных тестовых
-  localStorage.setItem('scriptAdr', KC_addrRzrv)
   location.reload()
 }
 
@@ -314,30 +299,14 @@ document.getElementById('setting').onclick = function () { // открывает
     // скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
 
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-    //const setTPrezerv = document.getElementById('set_TPrezerv');
-    //const setTP = document.getElementById('set_TP');
-    //const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
-    //const setTPPrem = document.getElementById('set_TPPrem');
-    const operdepout = document.getElementById('operdepout');
+
     let needtohide = document.getElementsByClassName('onlyfortp');
 
     if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
-      /*
-      setTPrezerv.style.display = "none";
-      setTP.style.display = "none";
-      setPremTPrezerv.style.display = "none";
-      setTPPrem.style.display = "none";
-      */
       for (i = 0; i < needtohide.length; i++) {
           needtohide[i].style.display = 'none'
       }
     } else {
-      /*
-      setTPrezerv.style.display = "";
-      setTP.style.display = "";
-      setPremTPrezerv.style.display = "";
-      setTPPrem.style.display = "";
-      */
       for (i = 0; i < needtohide.length; i++) {
           needtohide[i].style.display = ''
       }
@@ -345,22 +314,16 @@ document.getElementById('setting').onclick = function () { // открывает
 
     switch (localStorage.getItem('scriptAdr')) {
       case TP_addr:
-        operdepout.innerHTML = 'ТП';
+        document.getElementById('set_TP').style.background = 'green';
         break;
       case TP_addrRzrv:
-        operdepout.innerHTML = 'ТП резерв';
-        break;
-      case TPprem_addr:
-        operdepout.innerHTML = 'ТП прем';
-        break;
-      case TPprem_addrRzrv:
-        operdepout.innerHTML = 'ТП прем резерв';
+        document.getElementById('set_TPrezerv').style.background = 'green';
         break;
       case KC_addr:
-        operdepout.innerHTML = 'КЦ';
+        document.getElementById('set_KC').style.background = 'green';
         break;
       case KC_addrRzrv:
-        operdepout.innerHTML = 'КЦ резерв';
+        document.getElementById('set_KCrezerv').style.background = 'green';
         break;
       default:
         break;
