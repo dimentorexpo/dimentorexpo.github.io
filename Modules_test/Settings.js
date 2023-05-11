@@ -49,10 +49,11 @@ var win_Settings =  // описание элементов окна ссылок
 						<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
 						<br>
 						<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
-						<label class="onlyfortp" style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
-						<button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:90px;">Shift</button>
+						<label class="onlyfortp" style="color:bisque; margin-left: 5 px;"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
 						<br>
 						<label id="defaulcolorclschat" style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
+            <button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:90px;">Shift</button>
+            <br>
 						<input class="onlyfortp" id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 						<button class="onlyfortp" id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
 						<input class="onlyfortp" id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
