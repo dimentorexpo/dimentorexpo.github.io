@@ -448,11 +448,12 @@ document.getElementById('setting').onclick = function () { // открывает
 
       if (!StatMMboxstatus.checked) {
         if(localStorage.getItem('is_sending_MM') == 0){
-          flagStatMM = 0;
-          localStorage.setItem('hidestatMM', flagStatMM)
-          StatMMBtn.style.display = "none";
+            flagStatMM = 0;
+            localStorage.setItem('hidestatMM', flagStatMM)
+            StatMMBtn.style.display = "none";
         } else {
-          alert('Отправка статистики активна. Нельзя скрыть кнопку отправки статитстики');
+            StatMMboxstatus.checked = true
+            alert('Отправка статистики активна. Нельзя скрыть кнопку отправки статитстики');
         }    
       } else {
         StatMMBtn.style.display = "";
