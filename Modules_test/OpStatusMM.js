@@ -1,6 +1,5 @@
 let MMostOperId = localStorage.getItem('matermost_oid'); // id оператора в ММ
 let issending = localStorage.getItem('is_sending_MM'); // записываем отправляем сообщения в ММ или нет, чтобы не слетала отправка при обновлении страницы
-let issendingnow = 0;
 let setsendinterval; // сохраняем id интервала
 let sendinterval; // интервал отправки сообщений получаемый из документа
 let channel_id; // id канала куда отправлять
@@ -216,8 +215,7 @@ StatistikToMM.addEventListener("contextmenu", (event) => { //
 });
 
 function firstloadstatmodule() {
-    if(issending == 1 && issendingnow == 0){ // Если обновили страницу, автоматим запустим
-        issendingnow = 1;
+    if(issending == 1){ // Если обновили страницу, автоматим запустим
         let checkforload = setInterval(() => {
             if(document.getElementById('idforpeopstatus')){
                 setTimeout(() => {
@@ -228,4 +226,9 @@ function firstloadstatmodule() {
         }, 1000);
     }
 }
-if(window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {firstloadstatmodule()}
+if(window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 || window.location.href.indexOf('skyeng.autofaq.ai/tickets/common') !== -1) {
+    firstloadstatmodule()
+} else if (window.location.href.indexOf('skyeng.autofaq.ai') !==-1 && issending == 1) {
+    StatistikToMM.classList.remove('rightPanelBtn');
+    StatistikToMM.classList.add('statMMactive');
+}
