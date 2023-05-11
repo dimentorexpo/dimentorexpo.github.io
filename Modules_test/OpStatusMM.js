@@ -56,8 +56,8 @@ async function getsettingsfromdoc() { // получаем из файла нас
 	settingsfromdoc = 'https://script.google.com/macros/s/AKfycbwgym7WoXavCcMa7mpzlA4GHGncpWixKwyxhSJT1TU8tZg4KmRemyZqyQ3c5G2cKTxDrQ/exec'
 	await fetch(settingsfromdoc).then(r => r.json()).then(r => settingsdata = r)
 	settingscontainer = settingsdata.result;
-    channel_id = settingscontainer[3][1];
-    sendinterval = settingscontainer[4][1]*1000;
+    channel_id = settingscontainer[8][1];
+    sendinterval = settingscontainer[9][1]*1000;
     undistributed = settingscontainer[5][1];
     whomtotag = settingscontainer[6][1];
     console.log("id канала : " + channel_id) // выводим id канала
