@@ -15,6 +15,10 @@ if(!issending){ // если не записана переменная в лок
     localStorage.setItem('is_sending_MM', issending);
 }
 
+if(!localStorage.getItem('hidestatMM')){ 
+    localStorage.setItem('hidestatMM', 0)
+}
+
 function getMMostOperId(){ // функция получения id 
     document.getElementById('responseTextarea1').value = `{
         "headers": {
@@ -201,6 +205,8 @@ StatistikToMM.addEventListener("click", (event) => { //
         }
     }
 });
+
+setDisplayStyle(testUsers, localStorage.getItem('hidestatMM') === '0' ? 'none' : '');
 
 StatistikToMM.addEventListener("contextmenu", (event) => { // 
     event.preventDefault();

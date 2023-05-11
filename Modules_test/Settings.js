@@ -49,10 +49,11 @@ var win_Settings =  // описание элементов окна ссылок
 						<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
 						<br>
 						<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
-						<label class="onlyfortp" style="color:bisque; margin-left: 5 px;"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+						<label class="onlyfortp" style="color:bisque; margin-left: 5px;"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+            <label class="onlyfortp" style="color:bisque; margin-left: 5px;"><input type="checkbox" id="hidestatMM">Статистика MM</label>
 						<br>
 						<label id="defaulcolorclschat" style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
-            <button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:90px;">Shift</button>
+            <button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:10px;">Shift</button>
             <br>
 						<input class="onlyfortp" id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 						<button class="onlyfortp" id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
@@ -437,6 +438,34 @@ document.getElementById('setting').onclick = function () { // открывает
         audio.volume = this.value;
         localStorage.setItem('audiovol', audio.volume);
       } else localStorage.setItem('audiovol', this.value);
+    }
+
+    // Отображение/скрытие кнопки отправки статистики в ММ
+    let flagStatMM = 0;   // функция чекбокса вкл и откл кнопки отправки статистики
+    var StatMMboxstatus = document.getElementById('hidestatMM');
+    var StatMMBtn = document.getElementById('StatMM');
+    StatMMboxstatus.onclick = function () {
+
+      if (!StatMMboxstatus.checked) {
+        if(localStorage.getItem('is_sending_MM') == 0){
+          flagStatMM = 0;
+          localStorage.setItem('hidestatMM', flagStatMM)
+          StatMMBtn.style.display = "none";
+        } else {
+          alert('Отправка статистики активна. Нельзя скрыть кнопку отправки статитстики');
+        }    
+      } else {
+        StatMMBtn.style.display = "";
+        flagStatMM = 1;
+        localStorage.setItem('hidestatMM', flagStatMM)
+      }
+    }
+
+    if (localStorage.getItem('hidestatMM') == 0) {
+      StatMMBtn.style.display = "none";
+      StatMMboxstatus.checked = false;
+    } else {
+      StatMMboxstatus.checked = true;
     }
 
     //Скрыть окно Л П МВУ
