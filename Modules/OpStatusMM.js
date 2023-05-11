@@ -226,4 +226,9 @@ function firstloadstatmodule() {
         }, 1000);
     }
 }
-firstloadstatmodule()
+if(window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 || window.location.href.indexOf('skyeng.autofaq.ai/tickets/common') !== -1) {
+    firstloadstatmodule()
+} else if (window.location.href.indexOf('skyeng.autofaq.ai') !==-1 && issending == 1) {
+    StatistikToMM.classList.remove('rightPanelBtn');
+    StatistikToMM.classList.add('statMMactive');
+}
