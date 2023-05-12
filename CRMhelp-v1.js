@@ -40,7 +40,7 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #buttonUnsub:hover, #servDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
+	#jirafinder:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnCreateTestRoom:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
 		background:DeepSkyBlue;
 		color:#ffffffe6;
 		font-weight:600;
@@ -48,7 +48,7 @@ function mystyles() {
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 	}
-	#buttonUnsub, #smartroomformCRM, #servDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnAlarmclock, #btnSettingsApp {
+	#smartroomformCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnCreateTestRoom, #btnAlarmclock, #btnSettingsApp {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -323,7 +323,7 @@ function getText() { // обьявление функции получающей
 
 include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
 include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
-// include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
+
 //Объявление кнопки в верхней панели CRM
 let upmenubtn = document.createElement('span')
 upmenubtn.innerText = "Меню"
@@ -381,13 +381,6 @@ jirasearchbtn.id = "jirafinder"
 document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
-let buttonOpenForm = document.createElement('div'); //unsub
-buttonOpenForm.id = 'buttonUnsub';
-buttonOpenForm.textContent = "📧Unsub";
-document.getElementById('idmymenucrm').append(buttonOpenForm)
-
-include("https://dimentorexpo.github.io/ModulesCRM/unsub.js")
-
 let butsmartroomCRM = document.createElement('div') // smartroom sugest
 butsmartroomCRM.id = "smartroomformCRM"
 butsmartroomCRM.innerHTML = "🦐Smartroom"
@@ -395,14 +388,6 @@ butsmartroomCRM.innerHTML = "🦐Smartroom"
 document.getElementById('idmymenucrm').append(butsmartroomCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
-
-let servDskCRM = document.createElement('div') //service desk
-servDskCRM.id = "servDskCRM"
-servDskCRM.innerHTML = "🥏ServiceDesk"
-
-document.getElementById('idmymenucrm').append(servDskCRM)
-
-include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
 
 let butLessonInfoCRM = document.createElement('div')
 butLessonInfoCRM.id = "butLessonInfoCRM"
@@ -427,6 +412,14 @@ butOperStatus.innerHTML = "🕵️‍♀️ OperStatus"
 document.getElementById('idmymenucrm').append(butOperStatus)
 
 include("https://dimentorexpo.github.io/ModulesCRM/OperatorStatuse.js")
+
+let butCreateTestRoom = document.createElement('div')
+butCreateTestRoom.id = "btnCreateTestRoom"
+butCreateTestRoom.innerHTML = "🎲 Create Test Room"
+
+document.getElementById('idmymenucrm').append(butCreateTestRoom)
+
+include("https://dimentorexpo.github.io/ModulesCRM/TestRooms.js")
 
 let butAlarmclock = document.createElement('div')
 butAlarmclock.id = "btnAlarmclock"
