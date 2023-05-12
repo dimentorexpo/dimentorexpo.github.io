@@ -1,16 +1,16 @@
 var win_testroomsCRM =  // описание элементов окна создания тестовых комнат
-  `<div style="display: flex; width: 260px;">
-      <span style="width: 260px">
+  `<div style="display: flex; width: 310px;">
+      <span style="width: 310px">
           <span style="cursor: -webkit-grab;">
-              <div style="width: 260px; margin: 5px;" id="testroomsCRMhead">
+              <div style="width: 310px; margin: 5px;" id="testroomsCRMhead">
                   <button class="btnCRM" title="скрывает меню" id="hideMetestroomsCRM" style="width:50px; background: #228B22;">hide</button>
                   <button class="btnCRM" onclick="cleartestroomsCRMfields()" title="По нажатию очищает поля" style="width:30px;">🧹</button>
                   <button class="btnCRM" onclick="opentestroomsCRMhelp()" style="width:30px; float: right; margin-right: 10px;" title="Инструкция по этой форме">❓</button>
                   <button class="btnCRM" onclick="opentestroomsCRMconf()" title="Открывает раздел в Confluence по созданию тестовых комнат" style="width:30px; float: right; margin-right: 5px;">📋</button>
               </div>
 
-					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <select id="subjecttypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
+					    <div style="width: 310px; margin:5px; display:flex; justify-content:left;">
+                  <select id="subjecttypeselect" style="text-align: center; width: 290px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
                       <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
                       <option value="api-english">Английский</option>
                       <option value="api-preschool">Дошкольная математика</option>
@@ -23,20 +23,20 @@ var win_testroomsCRM =  // описание элементов окна созд
                   </select>
               </div>
 
-              <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <input id="teachforroom" placeholder="Введи ID П" title="Введи id П для кого создать тестовую комнату" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
-                  <input id="studforroom" placeholder="Введи ID У" title="Введи id У для кого создать тестовую комнату" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
+              <div style="width: 310px; margin:5px; display:flex; justify-content:left;">
+                  <input id="teachforroom" placeholder="Введи ID П" title="Введи id П для кого создать тестовую комнату" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 135px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="studforroom" placeholder="Введи ID У" title="Введи id У для кого создать тестовую комнату" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 135px; color: black; margin-left: 5px; margin-top: 5px;">
     					</div>
 
-              <div style="width: 260px; margin:2px; display:flex; justify-content:left;">
+              <div style="width: 310px; margin:2px; display:flex; justify-content:left;">
                   <button id="insertteachid" title="Поставить id вашего тестового П" onclick="testteachertofield()" class="btnCRM testroomsCRMbtn" style="margin-left:5px;">Тест П</button>
                   <button id="insertstudid" title="Поставить id вашего тестового У" onclick="teststudenttofield()" class="btnCRM testroomsCRMbtn">Тест У</button>
                   <button id="userfromchatid" disabled="true" title="Подставить id пользователя из активного чата и подставить id вашего тестового У или П" class="btnCRM testroomsCRMbtn">ID из чата</button>
               </div>
-              <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
+              <div style="width: 310px; margin:5px; display:flex; justify-content:left;">
                   <button id="starttestroom" title="Тут и так понятно" class="btnCRM testroomsCRMcreate">Создать тестовый урок</button>
               </div>
-              <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
+              <div style="width: 310px; margin:5px; display:flex; justify-content:left;">
               <label id="testroomsCRMmessage" style="color:bisque; width:250px; text-align: center; border: 1px solid #3e4f55; background: rgb(70, 68, 81); border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);"></label>
               </div>
           </span>
@@ -247,7 +247,7 @@ function testroomsCRMshowmessage(type,text){ // вывод уведомлени�
 
     messagefield.innerText = text;
     messagefield.display = '';
-    setTimeout(testroomsCRMhidemessage, 3000)
+    setTimeout(testroomsCRMhidemessage, 7000)
 }
 
 function testroomsCRMhidemessage(){ //скрытие уведомлений
