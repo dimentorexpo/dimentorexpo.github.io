@@ -49,23 +49,25 @@ var win_Settings =  // описание элементов окна ссылок
 						<button title="Внести изменения в таймер автозакрытия" id="setautoclosetime" style="margin-top: 5px">SET⌚</button>
 						<br>
 						<label style="color:bisque"><input type="checkbox" id="hidelngselector">Скрыть выбор языка АФ</label>
-						<label class="onlyfortp" style="color:bisque; margin-left: 5px;"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
-            <label class="onlyfortp" style="color:bisque; margin-left: 5px;"><input type="checkbox" id="hidestatMM">Статистика MM</label>
+						<label class="onlyfortp" style="color:bisque"><input type="checkbox" id="hidelpmwindow">Скрыть окно с У П</label>
+						<button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:90px;">Shift</button>
 						<br>
 						<label id="defaulcolorclschat" style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
-            <button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:10px;">Shift</button>
-            <br>
 						<input class="onlyfortp" id="test_std" placeholder="ID тест У" autocomplete="off" title = "ID личного тестового ученика" type="text" style="text-align: center; width: 100px; color: black;">
 						<button class="onlyfortp" id="setteststd" title="Добавить в localstorage ID тестового У" style="margin-top: 5px">💾</button>
 						<input class="onlyfortp" id="test_teach" placeholder="ID тест П" autocomplete="off" title = "ID личного тестового преподавателя" type="text" style="text-align: center; width: 100px; color: black;">
 						<button class="onlyfortp" id="settestteach" title="Добавить в localstorage ID тестового П" style="margin-top: 5px">💾</button>
 
 					<div style="margin-top: 5px; width: 500px">
-						<span style="color:bisque;">Выберите отдел:</span>
+						<span style="color:bisque; position: relative; left: 30%;">Выберите отдел:</span>
+						<span style="position: relative; left: 30%; background: green; color: white; padding: 5px; border-radius: 5px;" id="operdepout"></span>
+						<br>
 						<button class="onlyfortp" onclick="AFthePieceofShit()" id="set_TPrezerv" title="Нажмите если вы из ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">ТП рез</button>
 						<button class="onlyfortp" onclick="WeAreTheChempions()" id="set_TP" title="Нажмите если вы из ТП" style="margin-top: 5px">ТП</button>
 						<button onclick="ShowMustGoOn()" id="set_KC" title="Нажмите если вы из КЦ" style="margin-top: 5px">КЦ</button>
 						<button onclick="AFthePieceofShitKC()" id="set_KCrezerv" title="Нажмите если вы из КЦ и в АФ не работает Базы Знаний" style="margin-top: 5px">КЦ рез</button>
+						<button class="onlyfortp" onclick="AFthePieceofShitPrem()" id="set_PremTPrezerv" title="Нажмите если вы из Premium ТП и в АФ не работает Базы Знаний" style="margin-top: 5px">Prem ТП рез</button>
+						<button class="onlyfortp" onclick="WeAreTheChempionsPrem()" id="set_TPPrem" title="Нажмите если вы из Premium ТП" style="margin-top: 5px">Prem ТП</button>
 						<br>
 					</div>
 
@@ -125,6 +127,17 @@ function WeAreTheChempionsPrem() { //функция вносит в локалс
 function AFthePieceofShit() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для ТП резервных тестовых
   localStorage.setItem('scriptAdr', TP_addrRzrv)
   localStorage.setItem('tpflag', 'ТП')
+  location.reload()
+}
+
+function AFthePieceofShitPrem() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для Premium ТП резервных тестовых
+  localStorage.setItem('scriptAdr', TPprem_addrRzrv)
+  localStorage.setItem('tpflag', 'ТПPrem')
+  location.reload()
+}
+
+function AFthePieceofShitKC() { //функция вносит в локалсторедж адрес скрипта с гугл таблиц шаблонов для КЦ резервных тестовых
+  localStorage.setItem('scriptAdr', KC_addrRzrv)
   location.reload()
 }
 
@@ -301,14 +314,30 @@ document.getElementById('setting').onclick = function () { // открывает
     // скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
 
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
-
+    //const setTPrezerv = document.getElementById('set_TPrezerv');
+    //const setTP = document.getElementById('set_TP');
+    //const setPremTPrezerv = document.getElementById('set_PremTPrezerv');
+    //const setTPPrem = document.getElementById('set_TPPrem');
+    const operdepout = document.getElementById('operdepout');
     let needtohide = document.getElementsByClassName('onlyfortp');
 
     if (opsection !== 'ТП' && opsection !== 'ТПPrem') {
+      /*
+      setTPrezerv.style.display = "none";
+      setTP.style.display = "none";
+      setPremTPrezerv.style.display = "none";
+      setTPPrem.style.display = "none";
+      */
       for (i = 0; i < needtohide.length; i++) {
           needtohide[i].style.display = 'none'
       }
     } else {
+      /*
+      setTPrezerv.style.display = "";
+      setTP.style.display = "";
+      setPremTPrezerv.style.display = "";
+      setTPPrem.style.display = "";
+      */
       for (i = 0; i < needtohide.length; i++) {
           needtohide[i].style.display = ''
       }
@@ -316,16 +345,22 @@ document.getElementById('setting').onclick = function () { // открывает
 
     switch (localStorage.getItem('scriptAdr')) {
       case TP_addr:
-        document.getElementById('set_TP').style.background = 'green';
+        operdepout.innerHTML = 'ТП';
         break;
       case TP_addrRzrv:
-        document.getElementById('set_TPrezerv').style.background = 'green';
+        operdepout.innerHTML = 'ТП резерв';
+        break;
+      case TPprem_addr:
+        operdepout.innerHTML = 'ТП прем';
+        break;
+      case TPprem_addrRzrv:
+        operdepout.innerHTML = 'ТП прем резерв';
         break;
       case KC_addr:
-        document.getElementById('set_KC').style.background = 'green';
+        operdepout.innerHTML = 'КЦ';
         break;
       case KC_addrRzrv:
-        document.getElementById('set_KCrezerv').style.background = 'green';
+        operdepout.innerHTML = 'КЦ резерв';
         break;
       default:
         break;
@@ -438,35 +473,6 @@ document.getElementById('setting').onclick = function () { // открывает
         audio.volume = this.value;
         localStorage.setItem('audiovol', audio.volume);
       } else localStorage.setItem('audiovol', this.value);
-    }
-
-    // Отображение/скрытие кнопки отправки статистики в ММ
-    let flagStatMM = 0;   // функция чекбокса вкл и откл кнопки отправки статистики
-    var StatMMboxstatus = document.getElementById('hidestatMM');
-    var StatMMBtn = document.getElementById('StatMM');
-    StatMMboxstatus.onclick = function () {
-
-      if (!StatMMboxstatus.checked) {
-        if(localStorage.getItem('is_sending_MM') == 0){
-            flagStatMM = 0;
-            localStorage.setItem('hidestatMM', flagStatMM)
-            StatMMBtn.style.display = "none";
-        } else {
-            StatMMboxstatus.checked = true
-            alert('Отправка статистики активна. Нельзя скрыть кнопку отправки статитстики');
-        }    
-      } else {
-        StatMMBtn.style.display = "";
-        flagStatMM = 1;
-        localStorage.setItem('hidestatMM', flagStatMM)
-      }
-    }
-
-    if (localStorage.getItem('hidestatMM') == 0) {
-      StatMMBtn.style.display = "none";
-      StatMMboxstatus.checked = false;
-    } else {
-      StatMMboxstatus.checked = true;
     }
 
     //Скрыть окно Л П МВУ

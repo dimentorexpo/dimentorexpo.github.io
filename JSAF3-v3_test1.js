@@ -380,7 +380,7 @@ function prepTp() { //функция подготовки расширения �
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
-        "https://dimentorexpo.github.io/Modules_test/Settings.js", // модуль настроек расширения
+        "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
 	    "https://dimentorexpo.github.io/Modules/AlarmClock.js", // модуль будильника
         "https://dimentorexpo.github.io/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
 		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
@@ -403,7 +403,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
-        "https://dimentorexpo.github.io/Modules_test/OpStatusMM.js", //подключаем модуль отправки статусов
+        "https://dimentorexpo.github.io/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
