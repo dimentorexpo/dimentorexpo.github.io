@@ -206,7 +206,7 @@ StatistikToMM.addEventListener("click", (event) => { //
     }
 });
 
-setDisplayStyle(testUsers, localStorage.getItem('hidestatMM') === '0' ? 'none' : '');
+setDisplayStyle(StatistikToMM, localStorage.getItem('hidestatMM') === '0' ? 'none' : '');
 
 StatistikToMM.addEventListener("contextmenu", (event) => { // 
     event.preventDefault();
