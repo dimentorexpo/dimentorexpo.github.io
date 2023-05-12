@@ -207,6 +207,19 @@ function mystyles() {
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 		user-select: none;
 		cursor: pointer;
+	}
+	.testroomsCRMbtn {
+		background: #3c82b3;
+		margin-left: 2px;
+		margin:2px;
+		cursor: pointer;
+		border-radius: 20px;
+		width: 80px;
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 50%);
+		font-size: 15px;
+	}
+	.testroomsCRMbtn.active{
+		background: coral;
 	}	
 `
     mstl.innerHTML = style;
@@ -416,6 +429,7 @@ include("https://dimentorexpo.github.io/ModulesCRM/OperatorStatuse.js")
 let butCreateTestRoom = document.createElement('div')
 butCreateTestRoom.id = "btnCreateTestRoom"
 butCreateTestRoom.innerHTML = "🎲 Create Test Room"
+butCreateTestRoom.disabled = true
 
 document.getElementById('idmymenucrm').append(butCreateTestRoom)
 
