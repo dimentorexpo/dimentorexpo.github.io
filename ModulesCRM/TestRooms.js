@@ -3,10 +3,10 @@ var win_testroomsCRM =  // описание элементов окна созд
       <span style="width: 260px">
           <span style="cursor: -webkit-grab;">
               <div style="width: 260px; margin: 5px;" id="testroomsCRMhead">
-                  <button title="скрывает меню" id="hideMetestroomsCRM" class="buttonHide">hide</button>
-                  <button onclick="cleartestroomsCRMfields()" title="По нажатию очищает поля" style="width:24px;">🧹</button>
-                  <button onclick="opentestroomsCRMhelp()" style="width:24px; float: right; margin-right: 10px;" title="Инструкция по этой форме">❓</button>
-                  <button onclick="opentestroomsCRMconf()" title="Открывает раздел в Confluence по созданию тестовых комнат" style="width:24px; float: right; margin-right: 5px;">📋</button>
+                  <button class="btnCRM" title="скрывает меню" id="hideMetestroomsCRM" style="width:50px; background: #228B22;">hide</button>
+                  <button class="btnCRM" onclick="cleartestroomsCRMfields()" title="По нажатию очищает поля" style="width:24px;">🧹</button>
+                  <button class="btnCRM" onclick="opentestroomsCRMhelp()" style="width:24px; float: right; margin-right: 10px;" title="Инструкция по этой форме">❓</button>
+                  <button class="btnCRM" onclick="opentestroomsCRMconf()" title="Открывает раздел в Confluence по созданию тестовых комнат" style="width:24px; float: right; margin-right: 5px;">📋</button>
               </div>
 
 					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
@@ -102,8 +102,8 @@ function cleartestroomsCRMfields(){ // очистка полей окно соз
 }
 
 function testteachertofield(){ // подставить тестового П
-  if (localStorage.getItem('test_teach') != '' && localStorage.getItem('test_teach') != null) {
-    document.getElementById('teachforroom').value = localStorage.getItem('test_teach');
+  if (localStorage.getItem('test_teachCRM') != '' && localStorage.getItem('test_teachCRM') != null) {
+    document.getElementById('teachforroom').value = localStorage.getItem('test_teachCRM');
   } else {
     document.getElementById('teachforroom').placeholder = "Не указан ID П";
     testroomsCRMshowmessage('error','В настройках расширения не указан id тестового преподавателя')
@@ -111,8 +111,8 @@ function testteachertofield(){ // подставить тестового П
 }
 
 function teststudenttofield(){ // подставить тестового У
-  if (localStorage.getItem('test_stud') != '' && localStorage.getItem('test_stud') != null) {
-    document.getElementById('studforroom').value = localStorage.getItem('test_stud');
+  if (localStorage.getItem('test_studCRM') != '' && localStorage.getItem('test_studCRM') != null) {
+    document.getElementById('studforroom').value = localStorage.getItem('test_studCRM');
   } else {
     document.getElementById('studforroom').placeholder = "Не указан ID У";
     testroomsCRMshowmessage('error','В настройках расширения не указан id тестового ученика')
