@@ -220,6 +220,22 @@ function mystyles() {
 	}
 	.testroomsCRMbtn.active{
 		background: coral;
+	}
+	.testroomsCRMcreate {
+		background: #228B22;
+		margin-left: 5px;
+		margin:5px;
+		cursor: pointer;
+		border-radius: 20px;
+		width: 240px;
+		text-shadow: 1px 2px 5px rgb(0 0 0 / 50%);
+		font-size: 15px;
+	}
+	.testroomsCRMcreate:hover {
+		background: #0d3f0d;
+	} 
+	.testroomsCRMcreate.active{
+		background: coral;
 	}	
 `
     mstl.innerHTML = style;
