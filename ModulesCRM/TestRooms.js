@@ -80,7 +80,7 @@ document.getElementById('testroomsCRMhead').ondblclick = function (a) { // ск�
   if (checkelementtype(a)) { document.getElementById('testroomsCRM').style.display = 'none'; }
 }
 
-document.getElementById('hideMetestrooms').onclick = function () { // скрытие окна создания тестовых комнат
+document.getElementById('hideMetestroomsCRM').onclick = function () { // скрытие окна создания тестовых комнат
   if (document.getElementById('testroomsCRM').style.display == '')
     document.getElementById('testroomsCRM').style.display = 'none'
 }
