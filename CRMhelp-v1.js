@@ -445,7 +445,6 @@ include("https://dimentorexpo.github.io/ModulesCRM/OperatorStatuse.js")
 let butCreateTestRoom = document.createElement('div')
 butCreateTestRoom.id = "btnCreateTestRoom"
 butCreateTestRoom.innerHTML = "🎲 Create Test Room"
-butCreateTestRoom.disabled = true
 
 document.getElementById('idmymenucrm').append(butCreateTestRoom)
 
