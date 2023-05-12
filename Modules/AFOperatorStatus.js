@@ -72,14 +72,14 @@ async function operstatusleftbar() { // функция замены Script Packa
 			} else { // end of if state big
 				if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
-						if (result.unAssigned[j].kb == '120181') {
+						if (result.unAssigned[j].groupId == 'c7bbb211-a217-4ed3-8112-98728dc382d8') {
 							chattpquecountleft = result.unAssigned[j].count
 						}
 					}
 				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
 					chatneraspcountleft = 0;
 					for (let j=0; j<result.unAssigned.length; j++) {
-						if (result.unAssigned[j].groupId == 'b6f7f34d-2f08-fc19-3661-29ac00842898' || result.unAssigned[j].groupId == '8266dbb1-db44-4910-8b5f-a140deeec5c0') {
+						if (result.unAssigned[j].groupId == 'b6f7f34d-2f08-fc19-3661-29ac00842898') {
 							chatneraspcountleft += Number(result.unAssigned[j].count)
 						}
 					}	
