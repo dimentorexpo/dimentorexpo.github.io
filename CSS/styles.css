@@ -281,18 +281,7 @@ button {
 			font-weight:700;
 		}
 
-		#servDsk {
-			cursor: pointer;
-			display:flex;
-			align-items:center;
-			font-size: 14px;
-			border: 1px solid black;
-			height: 36px;
-			min-width: 100px;
-			padding-left:5px;
-		}
-
-		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat, #buttonGetStat {
+		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat, #buttonGetStat, #servDsk {
 			display:flex;
 			align-items:center;
 			cursor: pointer;
@@ -305,7 +294,7 @@ button {
 			padding-left:5px;
 		}
 
-		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat:hover {
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat:hover, #servDsk:hover {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
 			font-weight:600;
