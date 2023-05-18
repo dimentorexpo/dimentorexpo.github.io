@@ -204,11 +204,12 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
             btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[6])
             btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[7])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[8])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[9])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[10])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[11])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[12])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[8])
+            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
+            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
         }, 2000)
 
         function addElementsToList(elements, list) {
@@ -222,16 +223,17 @@ function firstLoadPage() { //первичаня загрузка страниц�
             const menubutarea = document.createElement('div');
             menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
+            headmenulist.insertBefore(menubutarea, headmenulist.children[16]);
             menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
+            headmenulist.insertBefore(menubar, headmenulist.children[16]);
+            const elements = [JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat, servDsk];
             addElementsToList(elements, menubar);
 			
             JiraOpenForm.classList.remove('inithide');
             butrefuse.classList.remove('inithide');
             butsmartroom.classList.remove('inithide');
             butLessonInfo.classList.remove('inithide');
+            servDsk.classList.remove('inithide');
             butChatHistory.classList.remove('inithide');
             butFrozeChat.classList.remove('inithide');
             buttonGetStat.classList.remove('inithide');
