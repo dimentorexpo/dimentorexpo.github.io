@@ -550,7 +550,7 @@ wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
-const inputsFieldsSD = document.getElementById('inputfieldsdiv').style.display;
+const inputsFieldsSD = document.getElementById('inputfieldsdiv');
 
 var listenerServDsk = function (e, a) { // сохранение позиции окна ServiceDesk
     wintServDsk.style.left = Number(e.clientX - myX12) + "px";
@@ -621,7 +621,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
     buttons.forEach(button => {
         $(button).click(function () {
             remres(this);
-            inputsFieldsSD = 'none';
+            inputsFieldsSD.style.display = 'none';
         });
     });
 
@@ -649,7 +649,7 @@ document.getElementById('hideMeSrvDsk').onclick = function () { //форма hid
         buttons.forEach(button => {
             $(button).click(function () {
                 remres(this);
-                inputsFieldsSD = 'none';
+                inputsFieldsSD.style.display = 'none';
             });
         });
 
@@ -669,7 +669,7 @@ function remres(a) {
       buttons.forEach(button => {
         $(button).show().removeClass('activebtn');
       });
-      inputsFieldsSD = 'none';
+      inputsFieldsSD.style.display = 'none';
     } else {
       buttons.forEach(button => {
         if (button !== a) {
@@ -677,7 +677,7 @@ function remres(a) {
         }
       });
       $(a).addClass('activebtn').show();
-      inputsFieldsSD = 'block';
+      inputsFieldsSD.style.display = 'block';
     }
   }
 
