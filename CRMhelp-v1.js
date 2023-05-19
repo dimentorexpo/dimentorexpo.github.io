@@ -410,10 +410,16 @@ jirasearchbtn.id = "jirafinder"
 document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
+let ServiceDeskcrmbtn = document.createElement('div')
+ServiceDeskcrmbtn.innerText = "🛠ServiceDesk"
+ServiceDeskcrmbtn.id = "SrvDskbtn"
+document.getElementById('idmymenucrm').append(ServiceDeskcrmbtn)
+
+include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
+
 let butsmartroomCRM = document.createElement('div') // smartroom sugest
 butsmartroomCRM.id = "smartroomformCRM"
 butsmartroomCRM.innerHTML = "🦐Smartroom"
-
 document.getElementById('idmymenucrm').append(butsmartroomCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
@@ -421,7 +427,6 @@ include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
 let butLessonInfoCRM = document.createElement('div')
 butLessonInfoCRM.id = "butLessonInfoCRM"
 butLessonInfoCRM.innerHTML = "🎓 Lesson Info"
-
 document.getElementById('idmymenucrm').append(butLessonInfoCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/LessonStatus.js")
