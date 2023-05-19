@@ -550,7 +550,7 @@ wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
-const inputsFieldsSD = document.getElementById('inputfieldsdiv');
+const inputsFieldsSD = document.getElementById('inputfieldsdiv').style.display;
 
 var listenerServDsk = function (e, a) { // сохранение позиции окна ServiceDesk
     wintServDsk.style.left = Number(e.clientX - myX12) + "px";
@@ -621,7 +621,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
     buttons.forEach(button => {
         $(button).click(function () {
             remres(this);
-            inputsFieldsSD.display = 'none';
+            inputsFieldsSD = 'none';
         });
     });
 
@@ -649,6 +649,7 @@ document.getElementById('hideMeSrvDsk').onclick = function () { //форма hid
         buttons.forEach(button => {
             $(button).click(function () {
                 remres(this);
+                inputsFieldsSD = 'none';
             });
         });
 
@@ -661,17 +662,24 @@ document.getElementById('hideMeSrvDsk').onclick = function () { //форма hid
 
 document.getElementById('refreshjiraauth').onclick = getInfraOId; //функция обновления статуса авторизации
 
-function remres(a) { // функция переключения класса по нажатию на кнопку
-    buttons.forEach(button => {
+function remres(a) {
+    let isActive = $(a).hasClass('activebtn');
+  
+    if (isActive) {
+      buttons.forEach(button => {
+        $(button).show().removeClass('activebtn');
+      });
+      inputsFieldsSD = 'none';
+    } else {
+      buttons.forEach(button => {
         if (button !== a) {
-            $(button).removeClass('activebtn');
-            $(button).display = 'none';
+          $(button).hide().removeClass('activebtn');
         }
-    });
-
-    $(a).toggleClass('activebtn');
-    inputsFieldsSD.display = 'block'
-}
+      });
+      $(a).addClass('activebtn').show();
+      inputsFieldsSD = 'block';
+    }
+  }
 
 document.getElementById('createsd').addEventListener('click', function () { //функция создания задачи на сервис деск
 
