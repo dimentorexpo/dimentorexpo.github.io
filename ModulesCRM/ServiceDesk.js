@@ -479,17 +479,16 @@ wintSrvDskCRM.onmousedown = function (a) { // изменение позиции 
 }
 wintSrvDskCRM.onmouseup = function () { document.removeEventListener('mousemove', listenerSrvDskCRM); } // прекращение изменения позиции окна ServiceDesk
 
-document.getElementById('SrvDskCRM').onclick = function () { // функция открытия главного окна SD +
+document.getElementById('SrvDskCRMbtn').onclick = function () { // функция открытия главного окна SD +
     if (document.getElementById('CRMServDsk').style.display == '') {
         document.getElementById('CRMServDsk').style.display = 'none'
         document.getElementById('idmymenucrm').style.display = 'none'
         document.getElementById('newtask').textContent = ''
         lasttsk = '';
-    } else
+    } else {
         document.getElementById('CRMServDsk').style.display = ''
         document.getElementById('idmymenucrm').style.display = 'none'
-
-    document.getElementById('idmymenu').style.display = 'none'
+    }
 
 	if (localStorage.getItem('infraOID') == null) {
 		document.getElementById('jiratknstatus').innerText = "🔴"

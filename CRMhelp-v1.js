@@ -40,7 +40,7 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnCreateTestRoom:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
+	#jirafinder:hover, #SrvDskCRM:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnCreateTestRoom:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
 		background:DeepSkyBlue;
 		color:#ffffffe6;
 		font-weight:600;
@@ -48,7 +48,7 @@ function mystyles() {
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 	}
-	#smartroomformCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnCreateTestRoom, #btnAlarmclock, #btnSettingsApp {
+	#smartroomformCRM, #SrvDskCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnCreateTestRoom, #btnAlarmclock, #btnSettingsApp {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -412,7 +412,7 @@ document.getElementById('idmymenucrm').append(jirasearchbtn)
 
 let ServiceDeskcrmbtn = document.createElement('div')
 ServiceDeskcrmbtn.innerText = "🛠ServiceDesk"
-ServiceDeskcrmbtn.id = "SrvDskbtn"
+ServiceDeskcrmbtn.id = "SrvDskCRM"
 document.getElementById('idmymenucrm').append(ServiceDeskcrmbtn)
 
 include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
