@@ -665,8 +665,9 @@ document.getElementById('refreshjiraauth').onclick = getInfraOId; //функци
 
 function remres(a) {
     let isActive = $(a).hasClass('activebtn');
+    let isThemeBtn = $(a).hasClass('sdbtn');
   
-    if (isActive) {
+    if (isActive || isThemeBtn) {
       buttons.forEach(button => {
         $(button).show().removeClass('activebtn');
       });
