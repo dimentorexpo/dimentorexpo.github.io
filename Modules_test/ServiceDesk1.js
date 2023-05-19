@@ -29,7 +29,6 @@ const buttons = [ //array of buttonsnames
     '.mobbugsbtn',
     '.academymobbugsbtn',
     '.stcabmbsbtn',
-	'.testsbtn'
 ];
 
 const otherOptions = [ // array of buttons categories id's
@@ -49,8 +48,7 @@ const otherOptions = [ // array of buttons categories id's
     'edumodeloptions',
     'studcabmobbugskoptions',
     'mobbugsoptions',
-    'academymobbugsoptions',
-	'testsoptions'
+    'academymobbugsoptions'
 ];
 
 var win_servicedesk = // описание элементов окна Service Desk
@@ -58,15 +56,16 @@ var win_servicedesk = // описание элементов окна Service De
 		<span style="width: 480px">
         <span style="cursor: -webkit-grab;">
                 <div style="margin: 5px; width: 480px;" id="SrvDskSummary">
-                        <button id="hideMeSrvDsk" style="width:35px; background: #228B22;">hide</button>
+                        <button id="hideMeSrvDsk" class="buttonHide">hide</button>
 						<button id="refreshjiraauth" title="Перепроверить авторизацию в Jira">🔄</button>
+                        <button id="infratasklist" title="Откріть список своих задач в Infra">📑</button>
 						<button id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
 						<span style="color:bisque">Infra Id:</span>
 						<span id="jiratknstatus">🟢</span>
 						<span style="color:yellow">Prev.tsk</span>
-						<button id="prevtask" style="width: 80px" title="Предыдущая задача"></button>
+						<button id="prevtask" style="width: 78px" title="Предыдущая задача"></button>
 						<span style="color:cyan">Last tsk</span>
-						<button id="newtask" style="width: 80px" title="Последняя задача"></button>
+						<button id="newtask" style="width: 78px" title="Последняя задача"></button>
                 </div>
                 <div id="servicedeskinfo" style="margin-left:20px;">
                     <button class="sdbtn" id="optionTeacher" value="36" style="margin-left:2px; width:80px;">👽T&Corp</button>
@@ -81,12 +80,11 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionStudcab" value="34" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓Studcab</button>
                     <button class="sdbtn" id="optionChat" value="24" style="margin-left:2px; margin-top:2px; width:80px;">💬Chat</button>
                     <button class="sdbtn" id="optionTripwire" value="27" style="margin-left:2px; margin-top:2px; width:80px;">🗣Tripwire</button>
-                    <button class="sdbtn" id="optionAnalyst"  value="18" style="margin-left:2px; margin-top:2px; width:80px;">TEST</button>
+                    <button class="sdbtn" id="optionAnalyst"  value="18" style="margin-left:2px; margin-top:2px; width:80px; display: none;">TEST</button>
                     <button class="sdbtn" id="optionEdModel" value="28" style="margin-left:2px; margin-top:2px; width:80px;">🎓SmartL</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" value="35" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
 					<button class="sdbtn" id="optionMobbugs" value="30" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
                     <button class="sdbtn" id="optionAcademymobbugs" value="19" style="margin-left:2px; margin-top:2px; width:80px;">🅰📱🐞</button>
-                    <button class="sdbtn" id="optionTests" value="18" style="margin-left:2px; margin-top:2px; width:80px;">Other</button>
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
@@ -169,7 +167,7 @@ var win_servicedesk = // описание элементов окна Service De
 				<div id="buttonsfromtest" style="margin-left: 4%; max-height: 200px; overflow-x: hidden; overflow-y: auto;">
 				</div>
 
-				<div>
+				<div id="inputfieldsdiv" style="display: none;">
 					<select style="height:28px; margin-left: 21px; margin-top: 5px; display: none;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="Blocker">Blocker</option>
@@ -464,6 +462,7 @@ wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
+const inputsFieldsSD = document.getElementById('inputfieldsdiv');
 var listenerServDsk = function (e, a) { // сохранение позиции окна ServiceDesk
     wintServDsk.style.left = Number(e.clientX - myX12) + "px";
     wintServDsk.style.top = Number(e.clientY - myY12) + "px";
@@ -500,6 +499,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
     const sdbtn = document.getElementsByClassName('sdbtn');
     for (let i = 0; i < sdbtn.length; i++) {
         sdbtn[i].onclick = function () {
+            inputsFieldsSD.style.display = 'none';
 			getthemesfrominfra(this.value)
             let activeBtnsd = document.getElementsByClassName('activebtnsd');
             for (let j = 0; j < activeBtnsd.length; j++) {
@@ -533,6 +533,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 
     buttons.forEach(button => {
         $(button).click(function () {
+            inputsFieldsSD.style.display = 'none';
             remres(this);
         });
     });
@@ -547,6 +548,10 @@ document.getElementById('ServiceDeskinstr').onclick = function () {
     window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-ServiceDesk')
 }
 
+document.getElementById('infratasklist').onclick = function () { // открываем список задач оператора в Infra
+    window.open('https://infra.skyeng.ru/request/list')
+}
+
 document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
     if (document.getElementById('AF_ServDsk').style.display == '') {
         $('.sdbtn').click(function () {
@@ -557,6 +562,7 @@ document.getElementById('hideMeSrvDsk').onclick = function () { //форма hid
         buttons.forEach(button => {
             $(button).click(function () {
                 remres(this);
+                inputsFieldsSD.style.display = 'none';
             });
         });
 
@@ -571,11 +577,13 @@ document.getElementById('refreshjiraauth').onclick = getInfraOId; //функци
 
 function remres(a) { // функция переключения класса по нажатию на кнопку
   let isActive = $(a).hasClass('activebtn');
-
-  if (isActive) {
+    let isThemeBtn = $(a).hasClass('sdbtn');
+  
+    if (isActive || isThemeBtn) {
     buttons.forEach(button => {
       $(button).show().removeClass('activebtn');
     });
+      inputsFieldsSD.style.display = 'none';
   } else {
     buttons.forEach(button => {
       if (button !== a) {
@@ -583,6 +591,7 @@ function remres(a) { // функция переключения класса п�
       }
     });
     $(a).addClass('activebtn').show();
+      inputsFieldsSD.style.display = 'block';
   }
 }
 
@@ -632,6 +641,12 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
     }
 
 });
+
+function SDtestbtn() {
+    if (document.getElementById('optionAnalyst').style.display == 'none'){
+        document.getElementById('optionAnalyst').style.display == ''
+    } else {document.getElementById('optionAnalyst').style.display == 'none'}
+}
 	//End of script
 // }
 
