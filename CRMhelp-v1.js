@@ -410,12 +410,14 @@ jirasearchbtn.id = "jirafinder"
 document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
+/*
 let ServiceDeskcrmbtn = document.createElement('div')
 ServiceDeskcrmbtn.innerText = "🛠ServiceDesk"
 ServiceDeskcrmbtn.id = "SrvDskCRMbtn"
 document.getElementById('idmymenucrm').append(ServiceDeskcrmbtn)
 
 include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
+*/
 
 let butsmartroomCRM = document.createElement('div') // smartroom sugest
 butsmartroomCRM.id = "smartroomformCRM"
