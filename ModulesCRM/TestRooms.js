@@ -122,26 +122,24 @@ function teststudenttofield(){ // подставить тестового У
 document.getElementById('userfromchatid').onclick = function () { // добавить id пользователя из активного чата и добавить id тестовго У или П
   let userIDfromCRM = document.getElementsByClassName('id')[0].innerText;
   if (userIDfromCRM){
-      let insertionfield = ''
+    let flagwhouser = 0;
+      let insertionfield = document.getElementById('studforroom');
       let UserTypeBages = document.querySelectorAll('div[data-qa]');
 
       UserTypeBages.forEach(div => {
         let bagetype = div.getAttribute('data-qa');
           if (bagetype == 'is-teacher-badge') {
-            teststudenttofield()
+            
             insertionfield = document.getElementById('teachforroom')
-            flagwhouser = '1';
-          }else {
-            testteachertofield()
-            insertionfield = document.getElementById('studforroom')
-            flagwhouser = '1';
+            flagwhouser = 1;
           }
-      }); 
+      });
+      insertionfield.value = userIDfromCRM;
 
-      if (flagwhouser == '1'){
-            insertionfield.value = userIDfromCRM;
+      if (flagwhouser == 1){
+        teststudenttofield()
       } else {
-        testroomsCRMshowmessage('error','Не удается определить пользователя, пожалуйста, внесите id вручную')
+        testteachertofield()
       }
   } else {
     testroomsCRMshowmessage('error','Нет открытой задачи')
