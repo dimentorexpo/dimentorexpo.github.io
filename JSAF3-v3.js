@@ -197,14 +197,14 @@ function firstLoadPage() { //первичаня загрузка страниц�
         setTimeout(function () {
             btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
             btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[1])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[2])
-            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[3])
-            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[4])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[5])
-            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[6])
-            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[7])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[8])
+            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
+            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
+            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
+            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
+            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
+            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
+            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
             btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
             btnAdd1.insertBefore(butServ, btnAdd1.children[11])
@@ -226,7 +226,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
             headmenulist.insertBefore(menubutarea, headmenulist.children[16]);
             menubutarea.append(butmenu);
             headmenulist.insertBefore(menubar, headmenulist.children[16]);
-            const elements = [JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat, servDsk];
+            const elements = [servDsk, JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 			
             JiraOpenForm.classList.remove('inithide');
