@@ -250,44 +250,7 @@ function timerHideButtons() { //функция добавления скрыти
         // NeuralNetwork Version
         let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
 
-        /* в связи с переходом на группы не используется.
-		const hideElements = (modalContent, valuesToHide) => {
-			for (let i = 1; i < modalContent.children[2].childElementCount - 1; i++) {
-				let text = modalContent.children[2].children[i].textContent;
-				let found = false;
-				for (let j = 0; j < valuesToHide.length; j++) {
-					let value = valuesToHide[j];
-					if (text.includes(value)) {
-						found = true;
-						break;
-					}
-				}
-				if (!found) {
-					modalContent.children[2].children[i].style.display = 'none';
-				}
-			}
-		}
-
-		 if (opsection === 'ТП') {
         let modalContent = document.querySelector('.ant-modal-content');
-			 const heading = modalContent.children[1].children[0].childNodes[0].textContent;
-			 if (heading === 'Указать тему') {
-				 hideElements(modalContent, [
-					 'Техподдержка V1',
-					 'Уроки V2',
-					 'Группа КМ',
-					 'Обратная связь ТП'
-				 ]);
-			 } else if (heading === 'Закрыть запрос?') {
-				 hideElements(modalContent, [
-					 'Техподдержка V1',
-					 'Закрыть'
-				 ]);
-			 }
-		 }
-        */ 
-
-            let modalContent = document.querySelector('.ant-modal-content');
 
         const setBackgroundColors = (selectorList, valuesToColor) => {
             for (let i = 0; i < selectorList.length; i++) {
