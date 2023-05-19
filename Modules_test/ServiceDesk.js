@@ -620,8 +620,8 @@ document.getElementById('servDsk').onclick = function () { // функция о�
 
     buttons.forEach(button => {
         $(button).click(function () {
-            remres(this);
             inputsFieldsSD.style.display = 'none';
+            remres(this);
         });
     });
 
