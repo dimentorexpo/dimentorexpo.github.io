@@ -284,7 +284,7 @@ var win_servicedesk = // описание элементов окна Service De
 					<button class="studcabbtn widthofsd" value="429">Подземный стук</button>
                 </div>
 
-				<div>
+				<div id="inputfieldsdiv" style="display: none;">
 					<select style="height:28px; margin-left: 21px; margin-top: 5px; display: none;" id="prioritymbugs">
 							<option selected disabled="">Приоритет</option>
 							<option value="Blocker">Blocker</option>
@@ -550,6 +550,8 @@ wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;
 
+const inputsFieldsSD = document.getElementById('inputfieldsdiv');
+
 var listenerServDsk = function (e, a) { // сохранение позиции окна ServiceDesk
     wintServDsk.style.left = Number(e.clientX - myX12) + "px";
     wintServDsk.style.top = Number(e.clientY - myY12) + "px";
@@ -619,6 +621,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
     buttons.forEach(button => {
         $(button).click(function () {
             remres(this);
+            inputsFieldsSD.display = 'none';
         });
     });
 
@@ -662,10 +665,12 @@ function remres(a) { // функция переключения класса п�
     buttons.forEach(button => {
         if (button !== a) {
             $(button).removeClass('activebtn');
+            $(button).display = 'none';
         }
     });
 
     $(a).toggleClass('activebtn');
+    inputsFieldsSD.display = ''
 }
 
 document.getElementById('createsd').addEventListener('click', function () { //функция создания задачи на сервис деск
