@@ -164,7 +164,7 @@ var win_servicedesk = // описание элементов окна Service De
 
 				</div>
 				
-				<div id="buttonsfromtest" style="margin-left: 4%; max-height: 200px; overflow-x: hidden; overflow-y: auto;">
+				<div id="buttonsfromtest" style="margin-left: 4%; margin-bottom: 5px; max-height: 200px; overflow-x: hidden; overflow-y: auto;">
 				</div>
 
 				<div id="inputfieldsdiv" style="display: none;">
@@ -554,20 +554,18 @@ document.getElementById('infratasklist').onclick = function () { // открыв
 
 document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
     if (document.getElementById('AF_ServDsk').style.display == '') {
-        $('.sdbtn').click(function () {
-            $('.sdbtn').not(this).removeClass('activebtnsd');
-            $(this).toggleClass('activebtnsd');
-        });
+        // $('.sdbtn').click(function () {
+            // $('.sdbtn').not(this).removeClass('activebtnsd');
+            // $(this).toggleClass('activebtnsd');
+        // });
 
         buttons.forEach(button => {
             $(button).click(function () {
                 remres(this);
-                inputsFieldsSD.style.display = 'none';
             });
         });
 
         document.getElementById('newtask').textContent = ''
-        lasttsk = '';
 
         document.getElementById('AF_ServDsk').style.display = 'none'
     }
@@ -644,8 +642,8 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
 
 function SDtestbtn() {
     if (document.getElementById('optionAnalyst').style.display == 'none'){
-        document.getElementById('optionAnalyst').style.display == ''
-    } else {document.getElementById('optionAnalyst').style.display == 'none'}
+        document.getElementById('optionAnalyst').style.display = ''
+    } else {document.getElementById('optionAnalyst').style.display = 'none'}
 }
 	//End of script
 // }
