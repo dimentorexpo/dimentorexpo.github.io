@@ -31,13 +31,13 @@ var win_testroomsCRM =  // описание элементов окна созд
               <div style="width: 310px; margin:2px; display:flex; justify-content:left;">
                   <button id="insertteachid" title="Поставить id вашего тестового П" onclick="testteachertofield()" class="btnCRM testroomsCRMbtn" style="margin-left:5px;">Тест П</button>
                   <button id="insertstudid" title="Поставить id вашего тестового У" onclick="teststudenttofield()" class="btnCRM testroomsCRMbtn">Тест У</button>
-                  <button id="userfromchatid" disabled="true" title="Подставить id пользователя из активного чата и подставить id вашего тестового У или П" class="btnCRM testroomsCRMbtn">User ID</button>
+                  <button id="userfromchatid" disabled="true" title="Подставить id пользователя из активной задачи и подставить id вашего тестового У или П" class="btnCRM testroomsCRMbtn">User ID</button>
               </div>
               <div style="width: 310px; margin:5px; display:flex; justify-content:left;">
                   <button id="starttestroom" title="Тут и так понятно" class="btnCRM testroomsCRMcreate">Создать тестовый урок</button>
               </div>
               <div style="width: 310px; margin:5px; display:flex; justify-content:left;">
-              <label id="testroomsCRMmessage" style="color:bisque; width:290px; text-align: center; border: 1px solid #3e4f55; background: rgb(70, 68, 81); border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);"></label>
+              <label id="testroomsCRMmessage" style="color:bisque; width:298px; text-align: center; border: 1px solid #3e4f55; background: rgb(70, 68, 81); border-radius: 10px; font-size: 15px; box-shadow: 0px 3px 1px rgb(0 0 0 / 35%); text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);"></label>
               </div>
           </span>
       </span>
