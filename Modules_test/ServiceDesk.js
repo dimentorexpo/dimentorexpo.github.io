@@ -670,7 +670,7 @@ function remres(a) { // функция переключения класса п�
     });
 
     $(a).toggleClass('activebtn');
-    inputsFieldsSD.display = ''
+    inputsFieldsSD.display = 'block'
 }
 
 document.getElementById('createsd').addEventListener('click', function () { //функция создания задачи на сервис деск
