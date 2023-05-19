@@ -56,15 +56,16 @@ var win_servicedesk = // описание элементов окна Service De
 		<span style="width: 480px">
         <span style="cursor: -webkit-grab;">
                 <div style="margin: 5px; width: 480px;" id="SrvDskSummary">
-                        <button id="hideMeSrvDsk" style="width:35px; background: #228B22;">hide</button>
+                        <button id="hideMeSrvDsk" class="buttonHide">hide</button>
 						<button id="refreshjiraauth" title="Перепроверить авторизацию в Jira">🔄</button>
+                        <button id="infratasklist" title="Откріть список своих задач в Infra">📑</button>
 						<button id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
 						<span style="color:bisque">Infra Id:</span>
 						<span id="jiratknstatus">🟢</span>
 						<span style="color:yellow">Prev.tsk</span>
-						<button id="prevtask" style="width: 80px" title="Предыдущая задача"></button>
+						<button id="prevtask" style="width: 78px" title="Предыдущая задача"></button>
 						<span style="color:cyan">Last tsk</span>
-						<button id="newtask" style="width: 80px" title="Последняя задача"></button>
+						<button id="newtask" style="width: 78px" title="Последняя задача"></button>
                 </div>
                 <div id="servicedeskinfo" style="margin-left:20px;">
                     <button class="sdbtn" id="optionTeacher" style="margin-left:2px; width:80px;">👽Teacher</button>
@@ -79,7 +80,7 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionStudcab" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓Studcab</button>
                     <button class="sdbtn" id="optionChat" style="margin-left:2px; margin-top:2px; width:80px;">💬Chat</button>
                     <button class="sdbtn" id="optionTripwire" style="margin-left:2px; margin-top:2px; width:80px;">🗣Tripwire</button>
-                    <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px;">TEST</button>
+                    <button class="sdbtn" id="optionAnalyst" style="margin-left:2px; margin-top:2px; width:80px; display: none;">TEST</button>
                     <button class="sdbtn" id="optionEdModel" style="margin-left:2px; margin-top:2px; width:80px;">🎓SmartL</button>
                     <button class="sdbtn" id="optionStudcabmobbugs" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
 					<button class="sdbtn" id="optionMobbugs" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
@@ -631,6 +632,10 @@ document.getElementById('ServiceDeskinstr').onclick = function () {
     window.open('https://confluence.skyeng.tech/pages/viewpage.action?pageId=140564971#id-%F0%9F%A7%A9%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%B8%D0%B5ChatMasterAutoFaq-ServiceDesk')
 }
 
+document.getElementById('infratasklist').onclick = function () { // открываем список задач оператора в Infra
+    window.open('https://infra.skyeng.ru/request/list')
+}
+
 document.getElementById('hideMeSrvDsk').onclick = function () { //форма hide
     if (document.getElementById('AF_ServDsk').style.display == '') {
         $('.sdbtn').click(function () {
@@ -709,6 +714,12 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
     }
 
 });
+
+function SDtestbtn() {
+    if (document.getElementById('optionAnalyst').style.display == 'none'){
+        document.getElementById('optionAnalyst').style.display == ''
+    } else {document.getElementById('optionAnalyst').style.display == 'none'}
+}
 	//End of script
 // }
 
