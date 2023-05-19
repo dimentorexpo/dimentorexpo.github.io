@@ -588,6 +588,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
     const sdbtn = document.getElementsByClassName('sdbtn');
     for (let i = 0; i < sdbtn.length; i++) {
         sdbtn[i].onclick = function () {
+            remres(this);
             let activeBtnsd = document.getElementsByClassName('activebtnsd');
             for (let j = 0; j < activeBtnsd.length; j++) {
                 activeBtnsd[j].classList.remove('activebtnsd');
