@@ -250,7 +250,7 @@ function timerHideButtons() { //функция добавления скрыти
         // NeuralNetwork Version
         let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
 
-            let modalContent = document.querySelector('.ant-modal-content');
+        let modalContent = document.querySelector('.ant-modal-content');
 
         const setBackgroundColors = (selectorList, valuesToColor) => {
             for (let i = 0; i < selectorList.length; i++) {
