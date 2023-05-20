@@ -250,8 +250,9 @@ function getmmlinkCRM() {
 				const infoarr = responseTextarea1.getAttribute('mmlinkhere');
 				if (infoarr) {
 					mmlinkCRM = infoarr.match(/">(https:\/\/mattermost.skyeng.tech.*?)<\/a>/)[1];
-					console.log("Mattermost link " + mmlinkCRM);
-                    document.getElementById('custom_ar').value + "Mattermost link: " + mmlinkCRM;
+					console.log("Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttskCRM);
+                    console.log("Mattermost link " + mmlinkCRM)
+                    document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttskCRM + "\nMattermost link: " + mmlinkCRM;
 				}
 				responseTextarea1.removeAttribute('mmlinkhere');
 			});
@@ -298,7 +299,6 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
         if (reqvarr) {
             lasttskCRM = reqvarr.jiraIssueKey;
             newtask.innerText = lasttskCRM;
-			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttskCRM;
 			
 			const removefields = document.getElementsByClassName('removefield');
             for (let i = 0; i < removefields.length; i++) {
@@ -381,7 +381,6 @@ function sendRequestMobNoPriority(idstdserv, ary, erx, str, dscr, deviceinfo , a
         if (reqvarr) {
             lasttskCRM = reqvarr.jiraIssueKey;
             newtask.innerText = lasttskCRM;
-			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttskCRM;
 			
 			const removefields = document.getElementsByClassName('removefield');
             for (let i = 0; i < removefields.length; i++) {
@@ -436,7 +435,6 @@ function sendRequestMobWithPriority(priorvalue, appinfo, deviceinfo, dscr, str, 
         if (reqvarr) {
             lasttskCRM = reqvarr.jiraIssueKey;
             newtask.innerText = lasttskCRM;
-			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttskCRM;
 			
 			const removefields = document.getElementsByClassName('removefield');
             for (let i = 0; i < removefields.length; i++) {
