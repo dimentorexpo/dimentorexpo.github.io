@@ -56,10 +56,10 @@ var win_servicedesk = // описание элементов окна Service De
 		<span style="width: 480px">
         <span style="cursor: -webkit-grab;">
                 <div style="margin: 5px; width: 480px;" id="SrvDskSummary">
-                        <button id="hideMeSrvDsk" class="buttonHide">hide</button>
-						<button id="refreshjiraauth" title="Перепроверить авторизацию в Jira">🔄</button>
-                        <button id="infratasklist" title="Откріть список своих задач в Infra">📑</button>
-						<button id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
+                        <button class="btnCRM" title="скрывает меню" id="hideMeSrvDsk" style="width:50px; background: #228B22;">hide</button>
+						<button class="btnCRM" id="refreshjiraauth" title="Перепроверить авторизацию в Jira">🔄</button>
+                        <button class="btnCRM" id="infratasklist" title="Откріть список своих задач в Infra">📑</button>
+						<button class="btnCRM" id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
 						<span style="color:bisque">Infra Id:</span>
 						<span id="jiratknstatus">🟢</span>
 						<span style="color:yellow">Prev.tsk</span>
