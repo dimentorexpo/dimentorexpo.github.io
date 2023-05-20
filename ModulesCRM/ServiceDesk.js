@@ -11,6 +11,11 @@ let prevtskCRM;
 let flagpsis = 0;
 let msgissnd = 0;
 let varinfraOIDCRM; //переменная для хранения значения ID оператора в Infra
+const responseTextarea1 = document.getElementById('responseTextarea1');
+const responseTextarea2 = document.getElementById('responseTextarea2');
+const responseTextarea3 = document.getElementById('responseTextarea3');
+const sendResponse = document.getElementById('sendResponse');
+
 const buttons = [ //array of buttonsnames
     '.edumodbtn',
     '.bilqabtn',
@@ -193,10 +198,10 @@ var win_servicedesk = // описание элементов окна Service De
 
 //func getOperInfraId
 function getInfraOId() {
-	document.getElementById('responseTextarea1').value = `{}`
-    document.getElementById('responseTextarea2').value = "https://api-infra.skyeng.ru/api/v1/session";
-    document.getElementById('responseTextarea3').value = 'infradata'
-    document.getElementById('sendResponse').click()
+	responseTextarea1.value = `{}`
+    responseTextarea2.value = "https://api-infra.skyeng.ru/api/v1/session";
+    responseTextarea3.value = 'infradata'
+    sendResponse.click()
 	
 	responseTextarea1.addEventListener("DOMSubtreeModified", function () {
         const rsparray = JSON.parse(responseTextarea1.getAttribute('infradata'));
@@ -209,10 +214,6 @@ function getInfraOId() {
 }
 
 function getprsuplasttask() { //функция для получения ссылки на последний созданный после отправки в канал тикет в джира +
-    const responseTextarea1 = document.getElementById('responseTextarea1');
-    const responseTextarea2 = document.getElementById('responseTextarea2');
-    const responseTextarea3 = document.getElementById('responseTextarea3');
-    const sendResponse = document.getElementById('sendResponse');
     const prevtask = document.getElementById('prevtask');
 
     responseTextarea1.value = `{}`;
@@ -240,10 +241,10 @@ function getprsuplasttask() { //функция для получения ссы�
 
 function getmmlinkCRM() {
 	        if (newtask.innerText != '') {
-            document.getElementById('responseTextarea1').value = `{}`
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + newtask.innerText ;
-            document.getElementById('responseTextarea3').value = 'mmlinkhere'
-            document.getElementById('sendResponse').click()
+            responseTextarea1.value = `{}`
+            responseTextarea2.value = "https://jira.skyeng.tech/browse/" + newtask.innerText ;
+            responseTextarea3.value = 'mmlinkhere'
+            sendResponse.click()
 			
 			    responseTextarea1.addEventListener("DOMSubtreeModified", function () {
 				const infoarr = responseTextarea1.getAttribute('mmlinkhere');
@@ -281,16 +282,16 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 
   let requestOptionsString = JSON.stringify(requestOptions);
 
-  document.getElementById('responseTextarea1').value = requestOptionsString;
-  document.getElementById('responseTextarea2').value = "https://api-infra.skyeng.ru/api/v1/rs/request";
-  document.getElementById('responseTextarea3').value = 'responseRequest';
+  responseTextarea1.value = requestOptionsString;
+  responseTextarea2.value = "https://api-infra.skyeng.ru/api/v1/rs/request";
+  responseTextarea3.value = 'responseRequest';
 
   // логируем входящие переменные и значение полей отправки запроса
   console.log(`${idstdserv} ${dscr} ${str} ${erx} ${ary} ${code}`);
-  console.log(document.getElementById('responseTextarea1').value);
-  console.log(document.getElementById('responseTextarea2').value);
+  console.log(responseTextarea1.value);
+  console.log(responseTextarea2.value);
 
-  document.getElementById('sendResponse').click();
+  sendResponse.click();
     
       responseTextarea1.addEventListener("DOMSubtreeModified", function () {
         const reqvarr = JSON.parse(responseTextarea1.getAttribute('responseRequest'));
@@ -312,11 +313,11 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 
 let checkingId = [];
 function getthemesfrominfra(categoryId) {
-  document.getElementById('responseTextarea1').value = '{}';
-  document.getElementById('responseTextarea2').value = `https://api-infra.skyeng.ru/api/v1/rs/categories/${categoryId}/request-types`;
-  document.getElementById('responseTextarea3').value = 'sendrequest';
+  responseTextarea1.value = '{}';
+  responseTextarea2.value = `https://api-infra.skyeng.ru/api/v1/rs/categories/${categoryId}/request-types`;
+  responseTextarea3.value = 'sendrequest';
 
-  document.getElementById('sendResponse').click();
+  sendResponse.click();
 
   responseTextarea1.addEventListener("DOMSubtreeModified", function () {
     const reqvarr = JSON.parse(responseTextarea1.getAttribute('sendrequest'));
@@ -365,15 +366,15 @@ function sendRequestMobNoPriority(idstdserv, ary, erx, str, dscr, deviceinfo , a
 
   let requestOptionsString = JSON.stringify(requestOptions);
 
-  document.getElementById('responseTextarea1').value = requestOptionsString;
-  document.getElementById('responseTextarea2').value = "https://api-infra.skyeng.ru/api/v1/rs/request";
-  document.getElementById('responseTextarea3').value = 'responseRequest';
+  responseTextarea1.value = requestOptionsString;
+  responseTextarea2.value = "https://api-infra.skyeng.ru/api/v1/rs/request";
+  responseTextarea3.value = 'responseRequest';
 	
 
     // логируем входящие переменные и значение полей отправки запроса
     console.log(appinfo + " " + deviceinfo + " " + dscr + " " + str + " " + erx + " " + ary + " " + idstdserv + " " + code)
 
-    document.getElementById('sendResponse').click()
+    sendResponse.click()
 	
 	      responseTextarea1.addEventListener("DOMSubtreeModified", function () {
         const reqvarr = JSON.parse(responseTextarea1.getAttribute('responseRequest'));
@@ -420,15 +421,15 @@ function sendRequestMobWithPriority(priorvalue, appinfo, deviceinfo, dscr, str, 
 
   let requestOptionsString = JSON.stringify(requestOptions);
 
-  document.getElementById('responseTextarea1').value = requestOptionsString;
-  document.getElementById('responseTextarea2').value = "https://api-infra.skyeng.ru/api/v1/rs/request";
-  document.getElementById('responseTextarea3').value = 'responseRequest';
+  responseTextarea1.value = requestOptionsString;
+  responseTextarea2.value = "https://api-infra.skyeng.ru/api/v1/rs/request";
+  responseTextarea3.value = 'responseRequest';
 	
 	
     // логируем входящие переменные и значение полей отправки запроса
     console.log(priorvalue + " " + appinfo + " " + deviceinfo + " " + dscr + " " + str + " " + erx + " " + ary + " " + idstdserv + " " + code)
 
-    document.getElementById('sendResponse').click()
+    sendResponse.click()
 	
 	      responseTextarea1.addEventListener("DOMSubtreeModified", function () {
         const reqvarr = JSON.parse(responseTextarea1.getAttribute('responseRequest'));
