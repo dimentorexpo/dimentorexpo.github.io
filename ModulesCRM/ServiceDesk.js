@@ -328,7 +328,7 @@ function getthemesfrominfra(categoryId) {
       }
 	  buttonsfromtest.innerHTML = ''
 	  for (let j=0; j<checkingId.length; j++) {
-			buttonsfromtest.innerHTML += `<button class="${buttons[j].replace('.','')} btnCRM" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
+			buttonsfromtest.innerHTML += `<button class="${buttons[j].replace('.','')} widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
 		}
 	      buttons.forEach(button => {
         $(button).click(function () {
