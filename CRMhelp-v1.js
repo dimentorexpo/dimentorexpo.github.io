@@ -359,7 +359,7 @@ function getText() { // обьявление функции получающей
 }
 
 
-include("https://code.jquery.com/jquery-3.6.0.js") // подключаем модуль обработки JQuery
+include("https://dimentorexpo.github.io/jquery-3.6.0.js") // подключаем модуль обработки JQuery
 include("https://dimentorexpo.github.io/ModulesCRM/JiraSearch.js")
 
 //Объявление кнопки в верхней панели CRM
