@@ -1,16 +1,16 @@
 //Global variables
-let jiratoken;
-let jiratokennew;
+let jiratokenCRM;
+let jiratokenCRMnew;
 let responsejira;
-let psarr = [];
+let psarrCRM = [];
 let firstEl;
-let mmlink;
+let mmlinkCRM;
 // let infoarr;
-let lasttsk;
-let prevtsk;
+let lasttskCRM;
+let prevtskCRM;
 let flagpsis = 0;
 let msgissnd = 0;
-let varinfraOID; //переменная для хранения значения ID оператора в Infra
+let varinfraOIDCRM; //переменная для хранения значения ID оператора в Infra
 const buttons = [ //array of buttonsnames
     '.edumodbtn',
     '.bilqabtn',
@@ -216,21 +216,21 @@ function getprsuplasttask() { //функция для получения ссы�
     const prevtask = document.getElementById('prevtask');
 
     responseTextarea1.value = `{}`;
-    responseTextarea2.value = `https://api-infra.skyeng.ru/api/v1/rs/requests?reporterId=${varinfraOID}&approverId=${varinfraOID}&maxResults=40&page=1`;
+    responseTextarea2.value = `https://api-infra.skyeng.ru/api/v1/rs/requests?reporterId=${varinfraOIDCRM}&approverId=${varinfraOIDCRM}&maxResults=40&page=1`;
     responseTextarea3.value = 'pstickets';
     sendResponse.click();
 
     responseTextarea1.addEventListener("DOMSubtreeModified", function () {
-        const psarr = JSON.parse(responseTextarea1.getAttribute('pstickets'));
-        if (psarr) {
-            prevtsk = psarr.items[0].jiraIssueKey;
-            prevtask.innerText = prevtsk;
+        const psarrCRM = JSON.parse(responseTextarea1.getAttribute('pstickets'));
+        if (psarrCRM) {
+            prevtskCRM = psarrCRM.items[0].jiraIssueKey;
+            prevtask.innerText = prevtskCRM;
 
             prevtask.onclick = function () {
                 if (prevtask.innerText === "") {
                     console.log('Задача не найдена');
                 } else {
-                    window.open(`https://jira.skyeng.tech/browse/${prevtsk}`);
+                    window.open(`https://jira.skyeng.tech/browse/${prevtskCRM}`);
                 }
             }
         }
@@ -238,7 +238,7 @@ function getprsuplasttask() { //функция для получения ссы�
     });
 }
 
-function getmmlink() {
+function getmmlinkCRM() {
 	        if (newtask.innerText != '') {
             document.getElementById('responseTextarea1').value = `{}`
             document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/browse/" + newtask.innerText ;
@@ -248,9 +248,9 @@ function getmmlink() {
 			    responseTextarea1.addEventListener("DOMSubtreeModified", function () {
 				const infoarr = responseTextarea1.getAttribute('mmlinkhere');
 				if (infoarr) {
-					mmlink = infoarr.match(/">(https:\/\/mattermost.skyeng.tech.*?)<\/a>/)[1];
-					console.log("Mattermost link " + mmlink);
-                    document.getElementById('custom_ar').value + "Mattermost link: " + mmlink;
+					mmlinkCRM = infoarr.match(/">(https:\/\/mattermost.skyeng.tech.*?)<\/a>/)[1];
+					console.log("Mattermost link " + mmlinkCRM);
+                    document.getElementById('custom_ar').value + "Mattermost link: " + mmlinkCRM;
 				}
 				responseTextarea1.removeAttribute('mmlinkhere');
 			});
@@ -261,8 +261,8 @@ function getmmlink() {
 function sendRequest(idstdserv, dscr, str, erx, ary, code) {
   let formData = new URLSearchParams();
   formData.append('requestTypeId', code);
-  formData.append('reporterId', varinfraOID);
-  formData.append('initiatorId', varinfraOID);
+  formData.append('reporterId', varinfraOIDCRM);
+  formData.append('initiatorId', varinfraOIDCRM);
   formData.append('data[description]', decodeURIComponent(dscr).replaceAll('<br>','\n'))
   formData.append('data[reproduceSteps]', decodeURIComponent(str).replaceAll('<br>','\n'))
   formData.append('data[expectedResult]', decodeURIComponent(erx).replaceAll('<br>','\n'))
@@ -295,9 +295,9 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
       responseTextarea1.addEventListener("DOMSubtreeModified", function () {
         const reqvarr = JSON.parse(responseTextarea1.getAttribute('responseRequest'));
         if (reqvarr) {
-            lasttsk = reqvarr.jiraIssueKey;
-            newtask.innerText = lasttsk;
-			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttsk;
+            lasttskCRM = reqvarr.jiraIssueKey;
+            newtask.innerText = lasttskCRM;
+			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttskCRM;
 			
 			const removefields = document.getElementsByClassName('removefield');
             for (let i = 0; i < removefields.length; i++) {
@@ -307,7 +307,7 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
         responseTextarea1.removeAttribute('responseRequest');
     });
 
-   setTimeout(getmmlink, 8000);
+   setTimeout(getmmlinkCRM, 8000);
 }
 
 let checkingId = [];
@@ -343,8 +343,8 @@ function sendRequestMobNoPriority(idstdserv, ary, erx, str, dscr, deviceinfo , a
 		
   let formData = new URLSearchParams();
   formData.append('requestTypeId', code);
-  formData.append('reporterId', varinfraOID);
-  formData.append('initiatorId', varinfraOID);
+  formData.append('reporterId', varinfraOIDCRM);
+  formData.append('initiatorId', varinfraOIDCRM);
   formData.append('data[appInfo]', decodeURIComponent(appinfo).replaceAll('<br>','\n'))
   formData.append('data[userDeviceInfo]', decodeURIComponent(deviceinfo).replaceAll('<br>','\n'))
   formData.append('data[description]', decodeURIComponent(dscr).replaceAll('<br>','\n'))
@@ -378,9 +378,9 @@ function sendRequestMobNoPriority(idstdserv, ary, erx, str, dscr, deviceinfo , a
 	      responseTextarea1.addEventListener("DOMSubtreeModified", function () {
         const reqvarr = JSON.parse(responseTextarea1.getAttribute('responseRequest'));
         if (reqvarr) {
-            lasttsk = reqvarr.jiraIssueKey;
-            newtask.innerText = lasttsk;
-			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttsk;
+            lasttskCRM = reqvarr.jiraIssueKey;
+            newtask.innerText = lasttskCRM;
+			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttskCRM;
 			
 			const removefields = document.getElementsByClassName('removefield');
             for (let i = 0; i < removefields.length; i++) {
@@ -390,15 +390,15 @@ function sendRequestMobNoPriority(idstdserv, ary, erx, str, dscr, deviceinfo , a
         responseTextarea1.removeAttribute('responseRequest');
     });
 
-    setTimeout(getmmlink, 8000);
+    setTimeout(getmmlinkCRM, 8000);
 }
 
 function sendRequestMobWithPriority(priorvalue, appinfo, deviceinfo, dscr, str, erx, ary, idstdserv, code) {
 	
   let formData = new URLSearchParams();
   formData.append('requestTypeId', code);
-  formData.append('reporterId', varinfraOID);
-  formData.append('initiatorId', varinfraOID);
+  formData.append('reporterId', varinfraOIDCRM);
+  formData.append('initiatorId', varinfraOIDCRM);
   formData.append('data[appInfo]', decodeURIComponent(appinfo).replaceAll('<br>','\n'))
   formData.append('data[userDeviceInfo]', decodeURIComponent(deviceinfo).replaceAll('<br>','\n'))
   formData.append('data[description]', decodeURIComponent(dscr).replaceAll('<br>','\n'))
@@ -433,9 +433,9 @@ function sendRequestMobWithPriority(priorvalue, appinfo, deviceinfo, dscr, str, 
 	      responseTextarea1.addEventListener("DOMSubtreeModified", function () {
         const reqvarr = JSON.parse(responseTextarea1.getAttribute('responseRequest'));
         if (reqvarr) {
-            lasttsk = reqvarr.jiraIssueKey;
-            newtask.innerText = lasttsk;
-			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttsk;
+            lasttskCRM = reqvarr.jiraIssueKey;
+            newtask.innerText = lasttskCRM;
+			document.getElementById('custom_ar').value = "Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttskCRM;
 			
 			const removefields = document.getElementsByClassName('removefield');
             for (let i = 0; i < removefields.length; i++) {
@@ -445,7 +445,7 @@ function sendRequestMobWithPriority(priorvalue, appinfo, deviceinfo, dscr, str, 
         responseTextarea1.removeAttribute('responseRequest');
     });
 
-    setTimeout(getmmlink, 8000);
+    setTimeout(getmmlinkCRM, 8000);
 }
 
 //main
@@ -484,7 +484,7 @@ document.getElementById('SrvDskCRMbtn').onclick = function () { // функци�
         document.getElementById('CRMServDsk').style.display = 'none'
         document.getElementById('idmymenucrm').style.display = 'none'
         document.getElementById('newtask').textContent = ''
-        lasttsk = '';
+        lasttskCRM = '';
     } else {
         document.getElementById('CRMServDsk').style.display = ''
         document.getElementById('idmymenucrm').style.display = 'none'
@@ -493,7 +493,7 @@ document.getElementById('SrvDskCRMbtn').onclick = function () { // функци�
 	if (localStorage.getItem('infraOID') == null) {
 		document.getElementById('jiratknstatus').innerText = "🔴"
 		getInfraOId()
-	} else varinfraOID = localStorage.getItem('infraOID');
+	} else varinfraOIDCRM = localStorage.getItem('infraOID');
 	
     setTimeout(getprsuplasttask, 2000)
 
@@ -648,4 +648,3 @@ function SDtestbtn() {
 }
 	//End of script
 // }
-
