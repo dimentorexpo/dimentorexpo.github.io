@@ -40,7 +40,7 @@ function mystyles() {
 		border: 1px solid black;
 		padding: 6px;
 	}
-	#jirafinder:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnCreateTestRoom:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
+	#jirafinder:hover, #SrvDskCRMbtn:hover, #smartroomformCRM:hover, #butLessonInfoCRM:hover, #butdiagtoolsCRM:hover, #btnOperStatus:hover, #btnCreateTestRoom:hover, #btnAlarmclock:hover, #btnSettingsApp:hover  {
 		background:DeepSkyBlue;
 		color:#ffffffe6;
 		font-weight:600;
@@ -48,7 +48,7 @@ function mystyles() {
 		box-shadow: 0px 3px 1px rgb(0 0 0 / 35%);
 		text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);
 	}
-	#smartroomformCRM, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnCreateTestRoom, #btnAlarmclock, #btnSettingsApp {
+	#smartroomformCRM, #SrvDskCRMbtn, #butLessonInfoCRM, #butdiagtoolsCRM, #btnOperStatus, #btnCreateTestRoom, #btnAlarmclock, #btnSettingsApp {
 		cursor: pointer;
 		font-size: 14px;
 		padding: 6px;
@@ -410,10 +410,18 @@ jirasearchbtn.id = "jirafinder"
 document.getElementById('idmymenucrm').append(jirasearchbtn)
 //конец обьявления
 
+/*
+let ServiceDeskcrmbtn = document.createElement('div')
+ServiceDeskcrmbtn.innerText = "🛠ServiceDesk"
+ServiceDeskcrmbtn.id = "SrvDskCRMbtn"
+document.getElementById('idmymenucrm').append(ServiceDeskcrmbtn)
+
+include("https://dimentorexpo.github.io/ModulesCRM/ServiceDesk.js")
+*/
+
 let butsmartroomCRM = document.createElement('div') // smartroom sugest
 butsmartroomCRM.id = "smartroomformCRM"
 butsmartroomCRM.innerHTML = "🦐Smartroom"
-
 document.getElementById('idmymenucrm').append(butsmartroomCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
@@ -421,7 +429,6 @@ include("https://dimentorexpo.github.io/ModulesCRM/Smartroom.js")
 let butLessonInfoCRM = document.createElement('div')
 butLessonInfoCRM.id = "butLessonInfoCRM"
 butLessonInfoCRM.innerHTML = "🎓 Lesson Info"
-
 document.getElementById('idmymenucrm').append(butLessonInfoCRM)
 
 include("https://dimentorexpo.github.io/ModulesCRM/LessonStatus.js")

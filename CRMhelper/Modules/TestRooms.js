@@ -31,7 +31,7 @@ var win_testroomsCRM =  // описание элементов окна созд
               <div style="width: 310px; margin:2px; display:flex; justify-content:left;">
                   <button id="insertteachid" title="Поставить id вашего тестового П" onclick="testteachertofield()" class="btnCRM testroomsCRMbtn" style="margin-left:5px;">Тест П</button>
                   <button id="insertstudid" title="Поставить id вашего тестового У" onclick="teststudenttofield()" class="btnCRM testroomsCRMbtn">Тест У</button>
-                  <button id="userfromchatid" disabled="true" title="Подставить id пользователя из активной задачи и подставить id вашего тестового У или П" class="btnCRM testroomsCRMbtn">User ID</button>
+                  <button id="userfromchatid" title="Подставить id пользователя из активной задачи и подставить id вашего тестового У или П" class="btnCRM testroomsCRMbtn">User ID</button>
               </div>
               <div style="width: 310px; margin:5px; display:flex; justify-content:left;">
                   <button id="starttestroom" title="Тут и так понятно" class="btnCRM testroomsCRMcreate">Создать тестовый урок</button>
@@ -120,35 +120,29 @@ function teststudenttofield(){ // подставить тестового У
 }
 
 document.getElementById('userfromchatid').onclick = function () { // добавить id пользователя из активного чата и добавить id тестовго У или П
-  let userDetailsList = document.getElementsByClassName('expert-user_details-list')[1];
-  if (userDetailsList){
-      let insertionfield = ''
-      let flagwhouser = '0'
+  let userIDfromCRM = document.getElementsByClassName('id')[0].innerText;
+  if (userIDfromCRM){
+    let flagwhouser = 0;
+      let insertionfield = document.getElementById('studforroom');
+      let UserTypeBages = document.querySelectorAll('div[data-qa]');
 
-      for (let i = 0; userDetailsList.childNodes[i]; i++) {
-          const childNode = userDetailsList.childNodes[i];
-          const textContent = childNode.childNodes[1].textContent;
-          if (textContent === "teacher") {
-              teststudenttofield()
-              insertionfield = document.getElementById('teachforroom')
-              flagwhouser = '1';
-          } else if (textContent === "student") {
-              testteachertofield()
-              insertionfield = document.getElementById('studforroom')
-              flagwhouser = '1';
+      UserTypeBages.forEach(div => {
+        let bagetype = div.getAttribute('data-qa');
+          if (bagetype == 'is-teacher-badge') {
+            
+            insertionfield = document.getElementById('teachforroom')
+            flagwhouser = 1;
           }
-      }
+      });
+      insertionfield.value = userIDfromCRM;
 
-      if (flagwhouser == '1'){
-        for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
-          if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.innerText == "id")
-            insertionfield.value = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].innerText.split(' ')[0];
-        }
+      if (flagwhouser == 1){
+        teststudenttofield()
       } else {
-        testroomsCRMshowmessage('error','Не удается определить тип пользователя, пожалуйста, внесите id вручную')
+        testteachertofield()
       }
   } else {
-    testroomsCRMshowmessage('error','Нет выбранного чата')
+    testroomsCRMshowmessage('error','Нет открытой задачи')
   }
 }
 
