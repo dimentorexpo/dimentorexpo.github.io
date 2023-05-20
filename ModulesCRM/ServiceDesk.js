@@ -312,7 +312,7 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 }
 
 let checkingId = [];
-function getthemesfrominfra(categoryId) {
+function getthemesfrominfra(categoryId,index) {
   responseTextarea1.value = '{}';
   responseTextarea2.value = `https://api-infra.skyeng.ru/api/v1/rs/categories/${categoryId}/request-types`;
   responseTextarea3.value = 'sendrequest';
@@ -328,7 +328,7 @@ function getthemesfrominfra(categoryId) {
       }
 	  buttonsfromtest.innerHTML = ''
 	  for (let j=0; j<checkingId.length; j++) {
-			buttonsfromtest.innerHTML += `<button class="${buttonsCRM[j].replace('.','')} widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
+			buttonsfromtest.innerHTML += `<button class="${buttonsCRM[index].replace('.','')} widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
 		}
 	      buttonsCRM.forEach(button => {
         $(button).click(function () {
@@ -501,14 +501,14 @@ document.getElementById('SrvDskCRMbtn').onclick = function () { // функци�
     const sdbtn = document.getElementsByClassName('sdbtn');
     for (let i = 0; i < sdbtn.length; i++) {
         sdbtn[i].onclick = function () {
+            let index = i;
             inputsFieldsSD.style.display = 'none';
-			getthemesfrominfra(this.value)
+			getthemesfrominfra(this.value,index)
             let activeBtnsd = document.getElementsByClassName('activebtnsd');
             for (let j = 0; j < activeBtnsd.length; j++) {
                 activeBtnsd[j].classList.remove('activebtnsd');
             }
             this.classList.toggle('activebtnsd');
-            let index = i;
             let elementId = otherOptionsCRM[index];
             document.getElementById(elementId).style.display = "block";
 
