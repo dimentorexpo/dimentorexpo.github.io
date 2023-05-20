@@ -16,7 +16,7 @@ const responseTextarea2 = document.getElementById('responseTextarea2');
 const responseTextarea3 = document.getElementById('responseTextarea3');
 const sendResponse = document.getElementById('sendResponse');
 
-const buttons = [ //array of buttonsnames
+const buttonsCRM = [ //array of buttonsnames
     '.edumodbtn',
     '.bilqabtn',
     '.teacbtn',
@@ -36,7 +36,7 @@ const buttons = [ //array of buttonsnames
     '.stcabmbsbtn',
 ];
 
-const otherOptions = [ // array of buttons categories id's
+const otherOptionsCRM = [ // array of buttons categories id's
     'teacherssrvdskoptions',
     'crm2srvdskoptions',
     'authsrvdskoptions',
@@ -328,9 +328,9 @@ function getthemesfrominfra(categoryId) {
       }
 	  buttonsfromtest.innerHTML = ''
 	  for (let j=0; j<checkingId.length; j++) {
-			buttonsfromtest.innerHTML += `<button class="${buttons[i].replace('.','')} widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
+			buttonsfromtest.innerHTML += `<button class="${buttonsCRM[i].replace('.','')} widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
 		}
-	      buttons.forEach(button => {
+	      buttonsCRM.forEach(button => {
         $(button).click(function () {
             remres(this);
         });
@@ -509,10 +509,10 @@ document.getElementById('SrvDskCRMbtn').onclick = function () { // функци�
             }
             this.classList.toggle('activebtnsd');
             let index = i;
-            let elementId = otherOptions[index];
+            let elementId = otherOptionsCRM[index];
             document.getElementById(elementId).style.display = "block";
 
-            let otherElements = document.querySelectorAll(otherOptions.filter((_, idx) => idx !== index).map(id => '#' + id).join(', '));
+            let otherElements = document.querySelectorAll(otherOptionsCRM.filter((_, idx) => idx !== index).map(id => '#' + id).join(', '));
             for (let k = 0; k < otherElements.length; k++) {
                 otherElements[k].style.display = 'none';
             }
@@ -533,7 +533,7 @@ document.getElementById('SrvDskCRMbtn').onclick = function () { // функци�
         }
     }
 
-    buttons.forEach(button => {
+    buttonsCRM.forEach(button => {
         $(button).click(function () {
             inputsFieldsSD.style.display = 'none';
             remres(this);
@@ -561,7 +561,7 @@ document.getElementById('hideMeSrvDsk').onclick = function () { //форма hid
             // $(this).toggleClass('activebtnsd');
         // });
 
-        buttons.forEach(button => {
+        buttonsCRM.forEach(button => {
             $(button).click(function () {
                 remres(this);
             });
@@ -580,12 +580,12 @@ function remres(a) { // функция переключения класса п�
     let isThemeBtn = $(a).hasClass('sdbtn');
   
     if (isActive || isThemeBtn) {
-    buttons.forEach(button => {
+    buttonsCRM.forEach(button => {
       $(button).show().removeClass('activebtn');
     });
       inputsFieldsSD.style.display = 'none';
   } else {
-    buttons.forEach(button => {
+    buttonsCRM.forEach(button => {
       if (button !== a) {
         $(button).hide().removeClass('activebtn');
       }
