@@ -367,7 +367,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
-		"https://dimentorexpo.github.io/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
+		"https://dimentorexpo.github.io/Modules_test/ServiceDesk.js", // подключаем модуль Сервис Деска
         "https://dimentorexpo.github.io/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
         "https://dimentorexpo.github.io/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
