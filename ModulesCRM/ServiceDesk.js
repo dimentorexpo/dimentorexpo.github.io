@@ -73,23 +73,23 @@ var win_servicedesk = // описание элементов окна Service De
 						<button id="newtask" style="width: 78px" title="Последняя задача"></button>
                 </div>
                 <div id="servicedeskinfo" style="margin-left:20px;">
-                    <button class="sdbtn" id="optionTeacher" value="36" style="margin-left:2px; width:80px;">👽T&Corp</button>
-                    <button class="sdbtn" id="optionCRM2" value="26" style="margin-left:2px; width:80px;">🧮CRM2</button>
-                    <button class="sdbtn" id="optionAuth" value="20" style="margin-left:2px; width:80px;">🔐Auth</button>
-                    <button class="sdbtn" id="optionSchedule" value="33" style="margin-left:2px; width:80px;">📆Schedul</button>
-                    <button class="sdbtn" id="optionBillingQA" value="22" style="margin-left:2px; width:80px;">💲Billing-QA</button>
-                    <button class="sdbtn" id="optionOnboarding" value="23" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
-                    <button class="sdbtn" id="optionBilling"  value="21" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>
-                    <button class="sdbtn" id="optionVimbugs" value="38" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
-                    <button class="sdbtn" id="optionVimvideocall" value="39" style="margin-left:2px; margin-top:2px; width:80px;">📸Vid-call</button>
-                    <button class="sdbtn" id="optionStudcab" value="34" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓Studcab</button>
-                    <button class="sdbtn" id="optionChat" value="24" style="margin-left:2px; margin-top:2px; width:80px;">💬Chat</button>
-                    <button class="sdbtn" id="optionTripwire" value="27" style="margin-left:2px; margin-top:2px; width:80px;">🗣Tripwire</button>
-                    <button class="sdbtn" id="optionAnalyst"  value="18" style="margin-left:2px; margin-top:2px; width:80px; display: none;">TEST</button>
-                    <button class="sdbtn" id="optionEdModel" value="28" style="margin-left:2px; margin-top:2px; width:80px;">🎓SmartL</button>
-                    <button class="sdbtn" id="optionStudcabmobbugs" value="35" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
-					<button class="sdbtn" id="optionMobbugs" value="30" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
-                    <button class="sdbtn" id="optionAcademymobbugs" value="19" style="margin-left:2px; margin-top:2px; width:80px;">🅰📱🐞</button>
+                    <button class="sdbtn btnCRM" id="optionTeacher" value="36" style="margin-left:2px; width:80px;">👽T&Corp</button>
+                    <button class="sdbtn btnCRM" id="optionCRM2" value="26" style="margin-left:2px; width:80px;">🧮CRM2</button>
+                    <button class="sdbtn btnCRM" id="optionAuth" value="20" style="margin-left:2px; width:80px;">🔐Auth</button>
+                    <button class="sdbtn btnCRM" id="optionSchedule" value="33" style="margin-left:2px; width:80px;">📆Schedul</button>
+                    <button class="sdbtn btnCRM" id="optionBillingQA" value="22" style="margin-left:2px; width:80px;">💲Billing-QA</button>
+                    <button class="sdbtn btnCRM" id="optionOnboarding" value="23" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
+                    <button class="sdbtn btnCRM" id="optionBilling"  value="21" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>
+                    <button class="sdbtn btnCRM" id="optionVimbugs" value="38" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
+                    <button class="sdbtn btnCRM" id="optionVimvideocall" value="39" style="margin-left:2px; margin-top:2px; width:80px;">📸Vid-call</button>
+                    <button class="sdbtn btnCRM" id="optionStudcab" value="34" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓Studcab</button>
+                    <button class="sdbtn btnCRM" id="optionChat" value="24" style="margin-left:2px; margin-top:2px; width:80px;">💬Chat</button>
+                    <button class="sdbtn btnCRM" id="optionTripwire" value="27" style="margin-left:2px; margin-top:2px; width:80px;">🗣Tripwire</button>
+                    <button class="sdbtn btnCRM" id="optionAnalyst"  value="18" style="margin-left:2px; margin-top:2px; width:80px; display: none;">TEST</button>
+                    <button class="sdbtn btnCRM" id="optionEdModel" value="28" style="margin-left:2px; margin-top:2px; width:80px;">🎓SmartL</button>
+                    <button class="sdbtn btnCRM" id="optionStudcabmobbugs" value="35" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓📱Bugs</button>
+					<button class="sdbtn btnCRM" id="optionMobbugs" value="30" style="margin-left:2px; margin-top:2px; width:80px;">📱Mobil bug</button>
+                    <button class="sdbtn btnCRM" id="optionAcademymobbugs" value="19" style="margin-left:2px; margin-top:2px; width:80px;">🅰📱🐞</button>
                 </div>
 				<div id="studcabmobbugskoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#student-cabinet-mobile-bugs; Cообщаем о проблемах в МП Skysmart Parents и в МП Skyeng главные страницы продуктов</p>
@@ -328,7 +328,7 @@ function getthemesfrominfra(categoryId) {
       }
 	  buttonsfromtest.innerHTML = ''
 	  for (let j=0; j<checkingId.length; j++) {
-			buttonsfromtest.innerHTML += `<button class="${buttons[i].replace('.','')} widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
+			buttonsfromtest.innerHTML += `<button class="${buttons[j].replace('.','')} btnCRM widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
 		}
 	      buttons.forEach(button => {
         $(button).click(function () {
