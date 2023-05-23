@@ -311,7 +311,7 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 }
 
 let checkingId = [];
-function getthemesfrominfra(categoryId,index) {
+function getthemesfrominfra(categoryId) {
   document.getElementById('responseTextarea1').value = '{}';
   document.getElementById('responseTextarea2').value = `https://api-infra.skyeng.ru/api/v1/rs/categories/${categoryId}/request-types`;
   document.getElementById('responseTextarea3').value = 'sendrequest';
@@ -327,7 +327,7 @@ function getthemesfrominfra(categoryId,index) {
       }
 	  buttonsfromtest.innerHTML = ''
 	  for (let j=0; j<checkingId.length; j++) {
-			buttonsfromtest.innerHTML += `<button class="${buttons[index].replace('.','')} widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
+			buttonsfromtest.innerHTML += `<button class="widthofsd" value=${checkingId[j].id}>${checkingId[j].summary}</button>`
 		}
 	      buttons.forEach(button => {
         $(button).click(function () {
@@ -501,7 +501,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
         sdbtn[i].onclick = function () {
             let index = i;
             inputsFieldsSD.style.display = 'none';
-			getthemesfrominfra(this.value,index)
+			getthemesfrominfra(this.value)
             let activeBtnsd = document.getElementsByClassName('activebtnsd');
             for (let j = 0; j < activeBtnsd.length; j++) {
                 activeBtnsd[j].classList.remove('activebtnsd');
