@@ -723,3 +723,6 @@ button {
 		background: #efe05e !important;
 	}
 	
+	.filtersList:hover {
+		background: #6A5ACD !important;
+	}

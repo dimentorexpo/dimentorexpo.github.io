@@ -4,22 +4,33 @@ var win_Grabber =  // описание элементов окна Grabber
     `<div style="display: flex; width: 650px;">
         <span style="width: 650px">
                 <span style="cursor: -webkit-grab;">
-                        <div style="margin: 5px; width: 550;" id="grabdata">
+                        <div style="margin: 5px; width: 550px; display:flex; justify-content:space-evenly;" id="grabdata">
                                 <button id="hideMeGrabber" style="width:50px; background: #228B22;">hide</button>
+								<div style="width:450px;background: #5f7875;height: 21px;"><div id="progressBarGrabber" style="width: 0%; height: 20px; background-color: #e38118; border: 1px solid black; text-align:center; font-weight:700; color:white;"></div></div>
                         </div>
                         <div style="margin: 5px; width: 650px" id="grabbox">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="FirstData" id="dateFromGrab"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="LastData" id="dateToGrab"</span>
                         </div>
 						
-						<div id="opscontainer" style="color: bisque; background: #ff7f507d; text-align: center; cursor: pointer;">Фильтр по операторам</div>
+						<div id="opscontainer" class="filtersList" style="color: bisque; background: #ff7f507d; text-align: center; cursor: pointer; border: 1px solid black;">Фильтр по операторам</div>
 						
-							<div id="activeoperatorsgroup" style="max-height:200px; overflow-y:auto; display: none; grid-template-columns: repeat(3, 1fr); margin-left:5px;">
-														
+							<div id="activeoperatorsgroup" style="max-height:200px; overflow-y:auto; display: none; grid-template-columns: repeat(3, 1fr); margin-left:5px;">					
 							</div>
-								<label id="hideselecall" style="display: none; color:bisque; margin-left:5px;"><input type="checkbox" id="checkthemall"> Select All</label>
-						<div>
-						
+								<label id="hideselecall" style="display: none; color:#93f5a6; margin-left:5px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700;"><input type="checkbox" id="checkthemall"> Select All</label>
+								
+						<div id="markscontainer" class="filtersList"  style="color: bisque; background: #ff7f507d; text-align: center; cursor: pointer; border: 1px solid black;">Фильтр по оценкам</div>
+							<div id="listofthemarks" style="display: none; color:bisque; margin-left:5px;">
+							  <label><input type="checkbox" name="marks[]" value="5"> Good - 5</label>
+							  <label><input type="checkbox" name="marks[]" value="4"> Good, but could be better - 4</label>
+							  <label><input type="checkbox" name="marks[]" value="3"> So-so - 3</label>
+							  <label><input type="checkbox" name="marks[]" value="2"> Bad - 2</label>
+							  <label><input type="checkbox" name="marks[]" value="1"> Terrible - 1</label>
+							  <label id="hideselecallmarks" style="display: none; color:#93f5a6; margin-left:5px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700;"><input type="checkbox" id="checkthemallmarks"> Select All</label>
+							</div>
+												
+												
+						<div>	
 								<select id="ThemesToSearch" style="margin-left:150px; margin-top:10px;">
 									<option style="background-color:DarkKhaki;" value="skmob">Skyeng👨‍🎓Mob</option>
 									<option value="1804">-Авторизация</option>
@@ -220,6 +231,15 @@ let tpopers = testo.onOperator
 		}
 	}
   document.getElementById('checkthemall').checked = true
+
+
+  let listofchkbxmarks = document.getElementsByName('marks[]')
+	for (let i=0; i<listofchkbxmarks.length; i++) {
+		if (!listofchkbxmarks[i].checked) {
+			listofchkbxmarks[i].checked = true;
+		}
+	}
+  document.getElementById('checkthemallmarks').checked = true
     
 }
 
@@ -263,6 +283,19 @@ document.getElementById('checkthemall').onclick = function() {
 	}
 }
 
+document.getElementById('checkthemallmarks').onclick = function() {
+      let listofchkbxmarks = document.getElementsByName('marks[]')
+	for (let i=0; i<listofchkbxmarks.length; i++) {
+		if (listofchkbxmarks[i].checked == true) {
+			listofchkbxmarks[i].checked = false;
+			document.getElementById('checkthemallmarks').checked = false
+		} else {
+			listofchkbxmarks[i].checked = true;
+			document.getElementById('checkthemallmarks').checked = true
+		} 
+	}
+}
+
 let chekopersarr=[];
 let newarray = [];
 let payloadarray = [];
@@ -279,8 +312,6 @@ document.getElementById('stargrab').onclick = async function() {
 	  // minute: 'numeric',
 	  // second: 'numeric'
 };
-
-
 	
 	document.getElementById('themesgrabbeddata').innerHTML = '';
 	
@@ -309,7 +340,6 @@ document.getElementById('stargrab').onclick = async function() {
 // end of time and date
 
 
-	
 	chosentheme ='';
    let selTheme = document.getElementById('ThemesToSearch').options
   for (let i=0;i<selTheme.length;i++) {
@@ -334,6 +364,15 @@ for (let i=0; i<cheklist.length;i++) {
 
  payloadarray = [];  
  chatswithmarksarray = [];  
+ 
+        document.getElementById('themesgrabbeddata').innerHTML = '⏳ Загрузка...'
+        document.getElementById('progressBarGrabber').innerHTML = ''
+        document.getElementById('progressBarGrabber').style.width = '0'
+		
+		let progressBar = document.getElementById("progressBarGrabber");
+		let currentWidth = 0;
+		let step = 100 / chekopersarr.length;
+ 
 for (let i = 0; i < chekopersarr.length; i++) {
             page = 1;
             do {
@@ -380,6 +419,10 @@ for (let i = 0; i < chekopersarr.length; i++) {
                 page++;
                 maxpage = opgrdata.total / 100;
             } while (page-1 < maxpage);
+			
+			currentWidth += step;
+			progressBar.style.width = Number(currentWidth.toFixed(1)) + "%";
+			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
 										
         }
 		
@@ -497,11 +540,19 @@ document.getElementById('opscontainer').onclick = function() {
 		document.getElementById('activeoperatorsgroup').style.display = "grid"
 		document.getElementById('hideselecall').style.display = ""
 	} else { 
-	document.getElementById('activeoperatorsgroup').style.display = "none"
-	document.getElementById('hideselecall').style.display = "none"
-	
+		document.getElementById('activeoperatorsgroup').style.display = "none"
+		document.getElementById('hideselecall').style.display = "none"
 	}
-	
+}
+
+document.getElementById('markscontainer').onclick = function() {
+	if (document.getElementById('listofthemarks').style.display == "none") {
+		document.getElementById('listofthemarks').style.display = ""
+		document.getElementById('hideselecallmarks').style.display = ""
+	} else { 
+		document.getElementById('listofthemarks').style.display = "none"
+		document.getElementById('hideselecallmarks').style.display = "none"
+	}
 }
 
 
