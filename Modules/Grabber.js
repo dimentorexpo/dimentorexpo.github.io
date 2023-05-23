@@ -12,7 +12,7 @@ var win_Grabber =  // описание элементов окна Grabber
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="LastData" id="dateToGrab"</span>
                         </div>
 						
-						<div id="opscontainer" style="color: bisque; background: #ff7f507d; text-align: center; cursor: pointer;">Фильтр по операторм</div>
+						<div id="opscontainer" style="color: bisque; background: #ff7f507d; text-align: center; cursor: pointer;">Фильтр по операторам</div>
 						
 							<div id="activeoperatorsgroup" style="max-height:200px; overflow-y:auto; display: none; grid-template-columns: repeat(3, 1fr); margin-left:5px;">
 														
