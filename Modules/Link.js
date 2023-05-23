@@ -66,6 +66,7 @@ var win_Links =  // описание элементов окна ссылок
 				</div>
 				<div style="margin: 5px; width: 550px" id="links_butd">
 					<button title="копирует в буфер обмена команду setstatus('classwork') для перезапуска уроков" id="restartlesson" style="width:100px">Redo MAT💾</button>
+					<button title="открывает модуль парсинга чатов операторов и вытягиваиет из них теги тематику или все вместе для дальнейшего анализа" id="openGrabber" style="width:100px">Grabber</button>
 					<button title="отображает актуальную версию iOS приложения" id="curVeriOS" style="float: right; margin-right: 10px;"></button>
 			  	    <button title="Отображает актуальную версию Android приложения" id="curVerAndroid" style="float: right; margin-right: 5px;"></button>
 			  	    <button title="Открывает Confluence с инструкцией по расширению" id="faqext" style="float: right; margin-right: 5px;">ChMAF</button>
