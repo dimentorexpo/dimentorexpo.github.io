@@ -336,8 +336,6 @@ function prepTp() { //функция подготовки расширения �
     playerRadio.classList.add('rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(playerRadio)
 
-    
-
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
     setInterval(timerHideButtons, 300)
