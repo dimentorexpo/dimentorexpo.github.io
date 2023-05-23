@@ -726,3 +726,8 @@ button {
 	.filtersList:hover {
 		background: #6A5ACD !important;
 	}
+	
+	.rowOfChatGrabbed:hover {
+		background: rgb(40, 77, 125) !important;
+		cursor:pointer;
+	}

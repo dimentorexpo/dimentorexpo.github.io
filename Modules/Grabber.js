@@ -32,6 +32,7 @@ var win_Grabber =  // описание элементов окна Grabber
 												
 						<div>	
 								<select id="ThemesToSearch" style="margin-left:150px; margin-top:10px;">
+									<option style="background-color:#69b930; text-align: center;  color: white; font-weight: 700;" value="parseallthemes">ALL</option>
 									<option style="background-color:DarkKhaki;" value="skmob">Skyeng👨‍🎓Mob</option>
 									<option value="1804">-Авторизация</option>
 									<option value="1805">-Домашка</option>
@@ -160,9 +161,9 @@ var win_Grabber =  // описание элементов окна Grabber
 						</div>
 						</span>
 
-						<div id="grabbedchats">
+						<div id="grabbedchats" style="margin-left: 20px;">
 							 <p id="themesgrabbeddata" style="width:650px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
-
+							 <p id="foundcount"></p>
 						</div>
         </span>
 </div>`;
@@ -303,6 +304,8 @@ let chatswithmarksarray = [];
 let modifiedPureArray = [];
 document.getElementById('stargrab').onclick = async function() {
 	
+	document.getElementById('foundcount').innerHTML = ''
+	
 	const timeOptions = {
 	  timeZone: 'Europe/Moscow',
 	  year: 'numeric',
@@ -313,7 +316,8 @@ document.getElementById('stargrab').onclick = async function() {
 	  // second: 'numeric'
 };
 	
-	document.getElementById('themesgrabbeddata').innerHTML = '';
+	// document.getElementById('themesgrabbeddata').innerHTML = '';
+	document.getElementById('themesgrabbeddata').innerHTML = '⏳ Загрузка...'
 	
 	//time and date block
 		const padStart = (string, targetLength, padString) => {
@@ -365,7 +369,6 @@ for (let i=0; i<cheklist.length;i++) {
  payloadarray = [];  
  chatswithmarksarray = [];  
  
-        document.getElementById('themesgrabbeddata').innerHTML = '⏳ Загрузка...'
         document.getElementById('progressBarGrabber').innerHTML = ''
         document.getElementById('progressBarGrabber').style.width = '0'
 		
@@ -408,11 +411,18 @@ for (let i = 0; i < chekopersarr.length; i++) {
 						await fetch("https://skyeng.autofaq.ai/api/conversations/" + newarray[j])
 							.then(r => r.json())
 							.then(r => {
-								if (r.payload.topicId.value === chosentheme) {
-									payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
-									console.log(payloadarray)
-									console.log(namespisochek[i])
+								if (chosentheme !="parseallthemes") {
+									if (r.payload.topicId.value === chosentheme) {
+										payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
+										console.log(payloadarray)
+										console.log(namespisochek[i])
+									}
+								} else {
+										payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
+										console.log(payloadarray)
+										console.log(namespisochek[i])
 								}
+
 							});
 					}
 				
@@ -426,31 +436,6 @@ for (let i = 0; i < chekopersarr.length; i++) {
 										
         }
 		
-			// const themesgrabbeddata = document.getElementById('themesgrabbeddata');
-			// themesgrabbeddata.innerHTML = '';
-			// pureArray = [];
-			// const uniqueArray = [...new Set(payloadarray)];
-			// pureArray = uniqueArray;
-
-			// uniqueArray.forEach((element, index) => {
-			  // const row = document.createElement('div');
-			  // row.className = 'srvhhelpnomove';
-			  // const chatId = element.ChatId;
-			  // const matchedItem = chatswithmarksarray.find(item => item.ConvId === chatId);
-
-			  // if (matchedItem) {
-				// const rate = matchedItem.Rate !== undefined ? matchedItem.Rate : 'нет оценки';
-				// row.textContent = `[${index + 1}] ${element.timeStamp} ${element.OperatorName} ${element.ChatId} (Rate: ${rate})`;
-			  // } else {
-				// row.textContent = `[${index + 1}] ${element.timeStamp} ${element.OperatorName} ${element.ChatId} (Rate: none)`;
-			  // }
-
-			  // themesgrabbeddata.appendChild(row);
-			// });
-
-			// themesgrabbeddata.innerHTML += '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">' + "Всего найдено: " + uniqueArray.length + " обращений" + '</span>';
-			
-			
 			const themesgrabbeddata = document.getElementById('themesgrabbeddata');
 			themesgrabbeddata.innerHTML = '';
 
@@ -466,7 +451,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			columnNames.forEach(columnName => {
 			  const th = document.createElement('th');
 			  th.textContent = columnName;
-			  th.style = 'text-align:center;'
+			  th.style = 'text-align:center; font-weight:700; background:dimgrey; border:1px solid black; padding:5px;'
 			  headerRow.appendChild(th);
 			});
 
@@ -489,26 +474,31 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			// Iterate through the data array and create table rows
 			uniqueArray.forEach((element, index) => {
 			  const row = document.createElement('tr');
+			  row.classList = "rowOfChatGrabbed"
+			  row.style = "border: 1px solid black;"
 
 			  // Add the index column
 			  const indexCell = document.createElement('td');
 			  indexCell.textContent = index + 1;
+			  indexCell.style = "border: 1px solid black;"
 			  row.appendChild(indexCell);
 
 			  // Add the date column
 			  const dateCell = document.createElement('td');
 			  dateCell.textContent = element.timeStamp;
+			  dateCell.style = "border: 1px solid black;"
 			  row.appendChild(dateCell);
 
 			  // Add the operator column
 			  const operatorCell = document.createElement('td');
 			  operatorCell.textContent = element.OperatorName;
-			  operatorCell.style = 'text-align:center;'
+			  operatorCell.style = 'text-align:center; border: 1px solid black;'
 			  row.appendChild(operatorCell);
 
 			  // Add the chatId column
 			  const chatIdCell = document.createElement('td');
 			  chatIdCell.textContent = element.ChatId;
+			  chatIdCell.style = "border: 1px solid black;"
 			  row.appendChild(chatIdCell);
 
 			  // Find the matched item in chatswithmarksarray
@@ -527,11 +517,26 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			// Append the table to the themesgrabbeddata element
 			themesgrabbeddata.appendChild(table);
 
-			themesgrabbeddata.innerHTML += '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">' + "Всего найдено: " + uniqueArray.length + " обращений" + '</span>';
-
+			// themesgrabbeddata.innerHTML += '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">' + "Всего найдено: " + uniqueArray.length + " обращений" + '</span>';
+			
+			document.getElementById('foundcount').innerHTML = '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">'+ "Всего найдено: " + uniqueArray.length + " обращений" + '</span>'
 			
 			
+			    let hashes = document.querySelectorAll('.rowOfChatGrabbed');
+				for (let j = 0; j < hashes.length; j++) {
+					hashes[j].onclick = function () {
 
+						if (document.getElementById('AF_ChatHis').style.display == 'none') {
+							document.getElementById('butChatHistory').click();
+							document.getElementById('hashchathis').value = hashes[j].children[3].textContent
+;
+							btn_search_history.click()
+						} else {
+							document.getElementById('hashchathis').value = chashes[j].children[3].textContent
+							btn_search_history.click()
+						}
+					}
+				}
 			
 }
 
