@@ -21,11 +21,12 @@ var win_Grabber =  // описание элементов окна Grabber
 								
 						<div id="markscontainer" class="filtersList"  style="color: bisque; background: #ff7f507d; text-align: center; cursor: pointer; border: 1px solid black;">Фильтр по оценкам</div>
 							<div id="listofthemarks" style="display: none; color:bisque; margin-left:5px;">
-							  <label><input type="checkbox" name="marks[]" value="5"> Good - 5</label>
-							  <label><input type="checkbox" name="marks[]" value="4"> Good, but could be better - 4</label>
-							  <label><input type="checkbox" name="marks[]" value="3"> So-so - 3</label>
-							  <label><input type="checkbox" name="marks[]" value="2"> Bad - 2</label>
-							  <label><input type="checkbox" name="marks[]" value="1"> Terrible - 1</label>
+							  <label><input type="checkbox" name="marks" value="5"> 5</label>
+							  <label><input type="checkbox" name="marks" value="4"> 4</label>
+							  <label><input type="checkbox" name="marks" value="3"> 3</label>
+							  <label><input type="checkbox" name="marks" value="2"> 2</label>
+							  <label><input type="checkbox" name="marks" value="1"> 1</label>
+							  <label><input type="checkbox" name="marks" value="undefined"> No marks</label>
 							  <label id="hideselecallmarks" style="display: none; color:#93f5a6; margin-left:5px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700;"><input type="checkbox" id="checkthemallmarks"> Select All</label>
 							</div>
 												
@@ -234,7 +235,7 @@ let tpopers = testo.onOperator
   document.getElementById('checkthemall').checked = true
 
 
-  let listofchkbxmarks = document.getElementsByName('marks[]')
+  let listofchkbxmarks = document.getElementsByName('marks')
 	for (let i=0; i<listofchkbxmarks.length; i++) {
 		if (!listofchkbxmarks[i].checked) {
 			listofchkbxmarks[i].checked = true;
@@ -285,7 +286,7 @@ document.getElementById('checkthemall').onclick = function() {
 }
 
 document.getElementById('checkthemallmarks').onclick = function() {
-      let listofchkbxmarks = document.getElementsByName('marks[]')
+      let listofchkbxmarks = document.getElementsByName('marks')
 	for (let i=0; i<listofchkbxmarks.length; i++) {
 		if (listofchkbxmarks[i].checked == true) {
 			listofchkbxmarks[i].checked = false;
@@ -302,6 +303,7 @@ let newarray = [];
 let payloadarray = [];
 let chatswithmarksarray = [];
 let modifiedPureArray = [];
+let checkmarksarr = [];
 document.getElementById('stargrab').onclick = async function() {
 	
 	document.getElementById('foundcount').innerHTML = ''
@@ -356,7 +358,15 @@ document.getElementById('stargrab').onclick = async function() {
 let spisochek = document.getElementsByName('listofops')
 let namespisochek=[];
 let cheklist = document.getElementsByName('chekforsearch')
+let markscheklist = document.getElementsByName('marks')
 let opgrdata;
+
+checkmarksarr = [];
+for (let i=0; i<markscheklist.length-1;i++) {
+	if (markscheklist[i].checked == true) {
+		checkmarksarr.push(Number(markscheklist[i].getAttribute('value')))
+	}
+}
 
 chekopersarr = [];
 for (let i=0; i<cheklist.length;i++) {
@@ -393,37 +403,94 @@ for (let i = 0; i < chekopersarr.length; i++) {
 
 					newarray = [];
 					newarray = [...opgrdata.items].map(el => el.conversationId)
-					// chatswithmarksarray.push([...opgrdata.items].filter(el => el.conversationId + " " + el.stats.rate.rate))
-						const items = opgrdata.items;
-						for (let i = 0; i < items.length; i++) {
-						  const el = items[i];
-						  if (el.stats.rate !== null && el.stats.rate !== undefined && el.stats.rate.rate !== undefined) {
-							const obj = {
-							  ConvId: el.conversationId,
-							  Rate: el.stats.rate.rate
-							};
-							chatswithmarksarray.push(obj);
-						  }
+
+					const items = opgrdata.items;
+					for (let i = 0; i < items.length; i++) {
+					  const el = items[i];
+					  if (markscheklist[5].checked == false) {
+						if (
+						  el.stats.rate.rate !== undefined &&
+						  checkmarksarr.includes(el.stats.rate.rate)
+						) {
+						  const obj = {
+							ConvId: el.conversationId,
+							Rate: el.stats.rate.rate
+						  };
+						  chatswithmarksarray.push(obj);
 						}
+					  } else {
+						if (
+						  checkmarksarr.includes(el.stats.rate.rate) || el.stats.rate.rate == undefined
+						) {
+						  const obj = {
+							ConvId: el.conversationId,
+							Rate: el.stats.rate.rate
+						  };
+						  chatswithmarksarray.push(obj);
+						}
+					  }
+					}
 
 
+
+
+
+					// for (let j = 0; j < newarray.length; j++) {
+						// await fetch("https://skyeng.autofaq.ai/api/conversations/" + newarray[j])
+							// .then(r => r.json())
+							// .then(r => {
+								// if (chosentheme !="parseallthemes") {
+									// if (r.payload.topicId.value === chosentheme) {
+										// payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
+										// console.log(payloadarray)
+										// console.log(namespisochek[i])
+									// }
+								// } else {
+										// payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
+										// console.log(payloadarray)
+										// console.log(namespisochek[i])
+								// }
+
+							// });
+					// }
+					
 					for (let j = 0; j < newarray.length; j++) {
-						await fetch("https://skyeng.autofaq.ai/api/conversations/" + newarray[j])
+					  const conversationId = newarray[j];
+					  const matchedItem = chatswithmarksarray.find(item => item.ConvId === conversationId);
+					  
+					  if (matchedItem) {
+						const csat = matchedItem.Rate;
+						
+						if (chosentheme !== "parseallthemes") {
+						  if (r.payload.topicId.value === chosentheme) {
+							await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
+							  .then(r => r.json())
+							  .then(r => {
+								payloadarray.push({
+								  ChatId: conversationId,
+								  OperatorName: namespisochek[i],
+								  timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
+								  CSAT: csat
+								});
+								console.log(payloadarray);
+								console.log(namespisochek[i]);
+							  });
+						  }
+						} else {
+						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
 							.then(r => r.json())
 							.then(r => {
-								if (chosentheme !="parseallthemes") {
-									if (r.payload.topicId.value === chosentheme) {
-										payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
-										console.log(payloadarray)
-										console.log(namespisochek[i])
-									}
-								} else {
-										payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
-										console.log(payloadarray)
-										console.log(namespisochek[i])
-								}
-
+							  payloadarray.push({
+								ChatId: conversationId,
+								OperatorName: namespisochek[i],
+								timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
+								CSAT: csat
+							  });
+							  console.log(payloadarray);
+							  console.log(namespisochek[i]);
 							});
+						}
+					  }
 					}
 				
                 page++;
@@ -460,17 +527,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			
 			 const uniqueArray = [...new Set(payloadarray)];
 			 pureArray = uniqueArray;
-			 
-				modifiedPureArray = pureArray.map(pureElement => {
-				  const matchedItem = chatswithmarksarray.find(item => item.ConvId === pureElement.ChatId);
-				  if (matchedItem && matchedItem.Rate !== null && matchedItem.Rate !== undefined) {
-					return { ...pureElement, Rate: matchedItem.Rate };
-				  } else {
-					return { ...pureElement, Rate: " " };
-				  }
-				});
-
-
+			 				
 			// Iterate through the data array and create table rows
 			uniqueArray.forEach((element, index) => {
 			  const row = document.createElement('tr');
@@ -520,7 +577,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			// themesgrabbeddata.innerHTML += '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">' + "Всего найдено: " + uniqueArray.length + " обращений" + '</span>';
 			
 			document.getElementById('foundcount').innerHTML = '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">'+ "Всего найдено: " + uniqueArray.length + " обращений" + '</span>'
-			
+
 			
 			    let hashes = document.querySelectorAll('.rowOfChatGrabbed');
 				for (let j = 0; j < hashes.length; j++) {
@@ -589,6 +646,6 @@ function convertArrayToCSV(data) {
 document.getElementById('webtoCSV').onclick = function() {
 	  const filename = "data.csv";
 
-  // downloadCSV(pureArray, filename);
-  downloadCSV(modifiedPureArray, filename);
+  downloadCSV(pureArray, filename);
+  // downloadCSV(modifiedPureArray, filename);
 }
