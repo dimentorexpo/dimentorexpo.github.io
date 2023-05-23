@@ -161,7 +161,7 @@ var win_Grabber =  // описание элементов окна Grabber
 						</div>
 						</span>
 
-						<div id="grabbedchats" style="margin-left: 20px;">
+						<div id="grabbedchats" style="margin-left: 15px;">
 							 <p id="themesgrabbeddata" style="width:650px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
 							 <p id="foundcount"></p>
 						</div>
@@ -532,7 +532,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 ;
 							btn_search_history.click()
 						} else {
-							document.getElementById('hashchathis').value = chashes[j].children[3].textContent
+							document.getElementById('hashchathis').value = hashes[j].children[3].textContent
 							btn_search_history.click()
 						}
 					}
