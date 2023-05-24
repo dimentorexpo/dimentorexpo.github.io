@@ -317,6 +317,7 @@ let payloadarray = [];
 let chatswithmarksarray = [];
 let modifiedPureArray = [];
 let checkmarksarr = [];
+let operstagsarray=[];
 document.getElementById('stargrab').onclick = async function() {
 	
 	document.getElementById('foundcount').innerHTML = ''
@@ -374,7 +375,6 @@ let cheklist = document.getElementsByName('chekforsearch')
 let markscheklist = document.getElementsByName('marks')
 let opgrdata;
 let tmponlyoperhashes=[];
-let operstagsarray=[];
 
 checkmarksarr = [];
 for (let i=0; i<markscheklist.length-1;i++) {
@@ -462,7 +462,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
 							.then(r => r.json())
 							.then(r => {
-							  if (r.payload.topicId.value === chosentheme) {  
+							  if (r.payload.topicId && r.payload.topicId.value === chosentheme) {  
 								payloadarray.push({
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
@@ -474,19 +474,19 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								
 								console.log(payloadarray);
 								console.log(namespisochek[i]);
+								console.log(operstagsarray);
 							  }
 							});
 						} else {
 						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
 							.then(r => r.json())
 							.then(r => {
-							  payloadarray.push({
-								ChatId: conversationId,
-								OperatorName: namespisochek[i],
-								timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
-								CSAT: csat
-							  });
-							  
+									payloadarray.push({
+									ChatId: conversationId,
+									OperatorName: namespisochek[i],
+									timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
+									CSAT: csat
+									});					  
 							 operstagsarray.push(r.payload.tags.value)
 							  
 							  console.log(payloadarray);
@@ -506,6 +506,9 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			progressBar.textContent = Number(currentWidth.toFixed(1)) + "%";
 										
         }
+		
+		const cleanedarray = operstagsarray.map(element => element.trim().slice(2, -2).trim().replace(/"/g, '').replace(/\n /,''));
+		console.log(cleanedarray)
 		
 			const themesgrabbeddata = document.getElementById('themesgrabbeddata');
 			themesgrabbeddata.innerHTML = '';
