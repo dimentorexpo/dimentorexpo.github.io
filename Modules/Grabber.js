@@ -360,6 +360,7 @@ let namespisochek=[];
 let cheklist = document.getElementsByName('chekforsearch')
 let markscheklist = document.getElementsByName('marks')
 let opgrdata;
+let tmponlyoperhashes=[];
 
 checkmarksarr = [];
 for (let i=0; i<markscheklist.length-1;i++) {
@@ -387,6 +388,7 @@ for (let i=0; i<cheklist.length;i++) {
 		let step = 100 / chekopersarr.length;
  
 for (let i = 0; i < chekopersarr.length; i++) {
+	tmponlyoperhashes=[];
             page = 1;
             do {
                 await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
@@ -401,12 +403,12 @@ for (let i = 0; i < chekopersarr.length; i++) {
 				.then(r=>r.json()).
 				then(r=>opgrdata=r)
 
-					newarray = [];
-					newarray = [...opgrdata.items].map(el => el.conversationId)
+					// newarray = [];
+					// newarray = [...opgrdata.items].map(el => el.conversationId)
 
 					const items = opgrdata.items;
-					for (let i = 0; i < items.length; i++) {
-					  const el = items[i];
+					for (let k = 0; k < items.length; k++) {
+					  const el = items[k];
 					  if (markscheklist[5].checked == false) {
 						if (
 						  el.stats.rate.rate !== undefined &&
@@ -429,33 +431,15 @@ for (let i = 0; i < chekopersarr.length; i++) {
 						  chatswithmarksarray.push(obj);
 						}
 					  }
+					  
+					  if (items[k].operatorId == chekopersarr[i]) {
+						  tmponlyoperhashes.push(el.conversationId)
+						  console.log(tmponlyoperhashes)
+					  }
 					}
-
-
-
-
-
-					// for (let j = 0; j < newarray.length; j++) {
-						// await fetch("https://skyeng.autofaq.ai/api/conversations/" + newarray[j])
-							// .then(r => r.json())
-							// .then(r => {
-								// if (chosentheme !="parseallthemes") {
-									// if (r.payload.topicId.value === chosentheme) {
-										// payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
-										// console.log(payloadarray)
-										// console.log(namespisochek[i])
-									// }
-								// } else {
-										// payloadarray.push({ChatId: r.id, OperatorName: namespisochek[i], timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions)});
-										// console.log(payloadarray)
-										// console.log(namespisochek[i])
-								// }
-
-							// });
-					// }
 					
-					for (let j = 0; j < newarray.length; j++) {
-					  const conversationId = newarray[j];
+					for (let j = 0; j < tmponlyoperhashes.length; j++) {
+					  const conversationId = tmponlyoperhashes[j];
 					  const matchedItem = chatswithmarksarray.find(item => item.ConvId === conversationId);
 					  
 					  if (matchedItem) {
@@ -573,8 +557,6 @@ for (let i = 0; i < chekopersarr.length; i++) {
 
 			// Append the table to the themesgrabbeddata element
 			themesgrabbeddata.appendChild(table);
-
-			// themesgrabbeddata.innerHTML += '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">' + "Всего найдено: " + uniqueArray.length + " обращений" + '</span>';
 			
 			document.getElementById('foundcount').innerHTML = '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">'+ "Всего найдено: " + uniqueArray.length + " обращений" + '</span>'
 
@@ -647,5 +629,4 @@ document.getElementById('webtoCSV').onclick = function() {
 	  const filename = "data.csv";
 
   downloadCSV(pureArray, filename);
-  // downloadCSV(modifiedPureArray, filename);
 }
