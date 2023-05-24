@@ -29,6 +29,19 @@ var win_Grabber =  // описание элементов окна Grabber
 							  <label><input type="checkbox" name="marks" value="undefined"> No marks</label>
 							  <label id="hideselecallmarks" style="display: none; color:#93f5a6; margin-left:5px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700;"><input type="checkbox" id="checkthemallmarks"> Select All</label>
 							</div>
+							
+						<div id="tagscontainer" class="filtersList"  style="color: bisque; background: #ff7f507d; text-align: center; cursor: pointer; border: 1px solid black;">Фильтр по тегам</div>
+							<div id="listofthetags" style="display: none; color:bisque; margin-left:5px;">
+							  <label><input type="checkbox" name="tagsforfilter" value="server_issues"> Серверные</label>
+							  <label><input type="checkbox" name="tagsforfilter" value="untargeted"> Нецелевой</label>
+							  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_tc"> Передача в TC</label>
+							  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_channel_qa"> Передача в QA</label>
+							  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_development"> Передача в разработку</label>
+							  <label><input type="checkbox" name="tagsforfilter" value="refusal_of_help"> Отказ от помощи</label>
+							  <label><input type="checkbox" name="tagsforfilter" value="empty"> No tags</label>
+							  <label id="hideselecalltags" style="display: none; color:#93f5a6; margin-left:5px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700;"><input type="checkbox" id="checkthemalltags"> Select All</label>
+							</div>	
+							
 												
 												
 						<div>	
@@ -361,6 +374,7 @@ let cheklist = document.getElementsByName('chekforsearch')
 let markscheklist = document.getElementsByName('marks')
 let opgrdata;
 let tmponlyoperhashes=[];
+let operstagsarray=[];
 
 checkmarksarr = [];
 for (let i=0; i<markscheklist.length-1;i++) {
@@ -434,7 +448,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 					  
 					  if (items[k].operatorId == chekopersarr[i]) {
 						  tmponlyoperhashes.push(el.conversationId)
-						  console.log(tmponlyoperhashes)
+						  // console.log(tmponlyoperhashes)
 					  }
 					}
 					
@@ -444,22 +458,24 @@ for (let i = 0; i < chekopersarr.length; i++) {
 					  
 					  if (matchedItem) {
 						const csat = matchedItem.Rate;
-						
 						if (chosentheme !== "parseallthemes") {
-						  if (r.payload.topicId.value === chosentheme) {
-							await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
-							  .then(r => r.json())
-							  .then(r => {
+						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
+							.then(r => r.json())
+							.then(r => {
+							  if (r.payload.topicId.value === chosentheme) {  
 								payloadarray.push({
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
 								  timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
 								  CSAT: csat
 								});
+								
+								operstagsarray.push(r.payload.tags.value)
+								
 								console.log(payloadarray);
 								console.log(namespisochek[i]);
-							  });
-						  }
+							  }
+							});
 						} else {
 						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
 							.then(r => r.json())
@@ -470,12 +486,16 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
 								CSAT: csat
 							  });
+							  
+							 operstagsarray.push(r.payload.tags.value)
+							  
 							  console.log(payloadarray);
 							  console.log(namespisochek[i]);
 							});
 						}
 					  }
 					}
+
 				
                 page++;
                 maxpage = opgrdata.total / 100;
@@ -596,6 +616,16 @@ document.getElementById('markscontainer').onclick = function() {
 	} else { 
 		document.getElementById('listofthemarks').style.display = "none"
 		document.getElementById('hideselecallmarks').style.display = "none"
+	}
+}
+
+document.getElementById('tagscontainer').onclick = function() {
+	if (document.getElementById('listofthetags').style.display == "none") {
+		document.getElementById('listofthetags').style.display = ""
+		document.getElementById('hideselecalltags').style.display = ""
+	} else { 
+		document.getElementById('listofthetags').style.display = "none"
+		document.getElementById('hideselecalltags').style.display = "none"
 	}
 }
 
