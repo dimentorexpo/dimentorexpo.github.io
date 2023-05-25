@@ -41,10 +41,8 @@ var win_Grabber =  // описание элементов окна Grabber
 							  <label><input type="checkbox" name="tagsforfilter" value="empty"> No tags</label>
 							  <label id="hideselecalltags" style="display: none; color:#93f5a6; margin-left:5px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700;"><input type="checkbox" id="checkthemalltags"> Select All</label>
 							</div>	
-							
-												
-												
-						<div>	
+													
+						<div style="padding-bottom: 5px;">	
 								<select id="ThemesToSearch" style="margin-left:150px; margin-top:10px;">
 									<option style="background-color:#69b930; text-align: center;  color: white; font-weight: 700;" value="parseallthemes">ALL</option>
 									<option style="background-color:DarkKhaki;" value="skmob">Skyeng👨‍🎓Mob</option>
@@ -178,6 +176,16 @@ var win_Grabber =  // описание элементов окна Grabber
 						<div id="grabbedchats" style="margin-left: 15px;">
 							 <p id="themesgrabbeddata" style="width:650px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
 							 <p id="foundcount"></p>
+							 <div id="CSATFilterField" style="display:none; position: absolute; top: 300px; left: 670px; background: #464451; color:bisque; width: 95px;">
+							 <span style="border: 1px solid; padding: 2px; color:black; font-weight:700; background: tan;">🌀CSAT filter</span> <br>
+							  <label><input type="checkbox" name="marksFilter" value="5"> 5</label> <br>
+							  <label><input type="checkbox" name="marksFilter" value="4"> 4</label> <br>
+							  <label><input type="checkbox" name="marksFilter" value="3"> 3</label> <br>
+							  <label><input type="checkbox" name="marksFilter" value="2"> 2</label> <br>
+							  <label><input type="checkbox" name="marksFilter" value="1"> 1</label> <br>
+							  <label><input type="checkbox" name="marksFilter" value="-"> No marks</label> <br>
+							  <button id="downloadfilteredtocsv" style="margin-left: 25%; margin-bottom: 10px;">💾CSV</button>
+							 </div>
 						</div>
         </span>
 </div>`;
@@ -313,6 +321,7 @@ document.getElementById('checkthemallmarks').onclick = function() {
 
 let chekopersarr=[];
 let newarray = [];
+let arrofthemes = [];
 let payloadarray = [];
 let chatswithmarksarray = [];
 let modifiedPureArray = [];
@@ -321,7 +330,8 @@ let operstagsarray=[];
 document.getElementById('stargrab').onclick = async function() {
 	
 	document.getElementById('foundcount').innerHTML = ''
-	
+	operstagsarray=[];
+	arrofthemes=[];
 	const timeOptions = {
 	  timeZone: 'Europe/Moscow',
 	  year: 'numeric',
@@ -488,6 +498,12 @@ for (let i = 0; i < chekopersarr.length; i++) {
 									CSAT: csat
 									});					  
 							 operstagsarray.push(r.payload.tags.value)
+							 if (r.payload.topicId) {
+								  arrofthemes.push(r.payload.topicId.value)
+							 } else {
+								 arrofthemes.push('no theme')
+							 }
+
 							  
 							  console.log(payloadarray);
 							  console.log(namespisochek[i]);
@@ -516,6 +532,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			// Create the table element
 			const table = document.createElement('table');
 			table.className = 'srvhhelpnomove';
+			table.id = "TableGrabbed"
 
 			// Create the table header row
 			const headerRow = document.createElement('tr');
@@ -525,6 +542,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			columnNames.forEach(columnName => {
 			  const th = document.createElement('th');
 			  th.textContent = columnName;
+			  th.setAttribute('name','btnNameFilter')
 			  th.style = 'text-align:center; font-weight:700; background:dimgrey; border:1px solid black; padding:5px;'
 			  headerRow.appendChild(th);
 			});
@@ -572,6 +590,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			  const csatCell = document.createElement('td');
 			  csatCell.textContent = matchedItem ? (matchedItem.Rate !== undefined ? matchedItem.Rate : '-') : '-';
 			  csatCell.style = 'text-align:center;'
+			  csatCell.setAttribute('name','CSATvalue')
 			  row.appendChild(csatCell);
 
 			  // Append the row to the table
@@ -581,6 +600,86 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			// Append the table to the themesgrabbeddata element
 			themesgrabbeddata.appendChild(table);
 			
+			let btnFilters = document.getElementsByName('btnNameFilter')
+			for (let i=0;i<btnFilters.length;i++) {
+				btnFilters[i].onclick = function() {
+					if (document.getElementById('CSATFilterField').style.display == 'none') {
+						document.getElementById('CSATFilterField').style.display = ''
+						
+						// Получаем все строки таблицы с атрибутом name="rowOfChatGrabbed"
+						const rows = document.querySelectorAll('.rowOfChatGrabbed');
+						
+						function filterTableRows() {
+						  const selectedValues = getSelectedCheckboxValues();
+						  
+						  // Перебираем все строки таблицы
+						  rows.forEach(function(row) {
+							const cellValue = row.querySelector('[name="CSATvalue"]').textContent;
+							
+							// Если ни один чекбокс не выбран, отображаем все строки
+							if (selectedValues.length === 0) {
+							  row.style.display = '';
+							}
+							// Если значение ячейки соответствует выбранным чекбоксам - отображаем строку
+							else if (selectedValues.includes(cellValue)) {
+							  row.style.display = '';
+							}
+							// Иначе скрываем строку
+							else {
+							  row.style.display = 'none';
+							}
+						  });
+						}
+
+						// Функция для получения выбранных значений чекбоксов
+						function getSelectedCheckboxValues() {
+						  const checkboxes = document.querySelectorAll('input[name="marksFilter"]:checked');
+						  const selectedValues = [];
+
+						  checkboxes.forEach(function(checkbox) {
+							selectedValues.push(checkbox.value);
+						  });
+
+						  return selectedValues;
+						}
+
+						// Обрабатываем событие изменения для каждого чекбокса
+						const checkboxes = document.querySelectorAll('input[name="marksFilter"]');
+						checkboxes.forEach(function(checkbox) {
+						  checkbox.addEventListener('change', filterTableRows);
+						});
+						
+						document.getElementById('downloadfilteredtocsv').onclick = function() {
+							let nwtable = document.getElementById("TableGrabbed");
+							let csvData = [];
+
+							for (let i = 0; i < nwtable.rows.length; i++) {
+								if (nwtable.rows[i].style.display !== 'none') {
+									let rowData = [];
+									for (let j = 0; j < nwtable.rows[i].cells.length; j++) {
+										// Преобразование текстового содержимого ячейки в строку CSV
+										rowData.push('"' + nwtable.rows[i].cells[j].textContent.replace(/"/g, '""') + '"');
+									}
+									csvData.push(rowData.join(","));
+								}
+							}
+
+							let csvString = csvData.join("\n");
+							let csvContent = "\uFEFF" + csvString; // Добавление BOM для поддержки кириллицы
+
+							let downloadLink = document.createElement("a");
+							downloadLink.href = "data:text/csv;charset=utf-8," + encodeURIComponent(csvContent);
+							downloadLink.download = "filtered_table.csv";
+
+							downloadLink.click();
+
+						}
+
+						
+					} else document.getElementById('CSATFilterField').style.display = 'none'
+				}
+			}
+						
 			document.getElementById('foundcount').innerHTML = '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">'+ "Всего найдено: " + uniqueArray.length + " обращений" + '</span>'
 
 			
