@@ -3,6 +3,7 @@ let pureArray=[];
 let filteredArrayTags =[];
 let cleanedarray=[];
 let themesarray = []
+let avgCsatCountVar;
 var win_Grabber =  // описание элементов окна Grabber
     `<div style="display: flex; width: 800px;">
         <span style="width: 800px">
@@ -49,127 +50,124 @@ var win_Grabber =  // описание элементов окна Grabber
 								<select id="ThemesToSearch" style="margin-left:150px; margin-top:10px;">
 									<option style="background-color:#69b930; text-align: center;  color: white; font-weight: 700;" value="parseallthemes">ALL</option>
 									<option style="background-color:DarkKhaki;" value="skmob">Skyeng👨‍🎓Mob</option>
-									<option value="1804">Авторизация</option>
-									<option value="1805">Домашка</option>
-									<option value="1806">Оплата</option>
-									<option value="1807">Профиль</option>
-									<option value="1808">Тренажер слов</option>
-									<option value="1809">Уроки</option>
-									<option value="1810">Чат</option>
+									<option value="1804">📱‍👨‍🎓Авторизация</option>
+									<option value="1805">📱‍👨‍🎓Домашка</option>
+									<option value="1806">📱‍👨‍🎓Оплата</option>
+									<option value="1807">📱‍👨‍🎓Профиль</option>
+									<option value="1808">📱‍👨‍🎓Тренажер слов</option>
+									<option value="1809">📱‍👨‍🎓Уроки</option>
+									<option value="1810">📱‍👨‍🎓Чат</option>
 									<option style="background-color:DarkKhaki;" value="tmob">Teachers👽Mob</option>
-                                    <option value="1833">Авторизация</option>
-									<option value="1836">Виджет расписания</option>
-									<option value="1839">Чат</option>
-									<option value="1835">Виджет финансов</option>
-									<option value="1838">Профиль</option>
-									<option value="1840">Сторис</option>
-									<option value="1837">Стр расписания</option>
-									<option value="1834">Стр финансов</option>
+                                    <option value="1833">📱👽Авторизация</option>
+									<option value="1836">📱👽Виджет расписания</option>
+									<option value="1839">📱👽Чат</option>
+									<option value="1835">📱👽Виджет финансов</option>
+									<option value="1838">📱👽Профиль</option>
+									<option value="1840">📱👽3Сторис</option>
+									<option value="1837">📱👽Страница расписания</option>
+									<option value="1834">📱👽Страница финансов</option>
 									<option style="background-color:DarkKhaki;" value="sksmpar">Skysmart👪родит</option>
-                                    <option value="1884">Другое</option>
-									<option value="1883">Материалы</option>
-									<option value="1880">Предметы и баланс</option>
-									<option value="1881">Профиль родителя</option>
-									<option value="1879">Расписание</option>
-									<option value="1882">Чат</option>
+                                    <option value="1884">📱👪Другое</option>
+									<option value="1883">📱👪Материалы</option>
+									<option value="1880">📱👪Предметы и баланс</option>
+									<option value="1881">📱👪Профиль родителя</option>
+									<option value="1879">📱👪Расписание</option>
+									<option value="1882">📱👪Чат</option>
 									<option style="background-color:DarkKhaki;" value="solanka">Different</option>
-                                    <option value="2034">Прочее</option>
-									<option value="2030">Slack-вход</option>
-									<option value="2020">Логи ур У</option>
-									<option value="2019">Логи ур П</option>
-									<option value="2018">БД ур оператор</option>
-									<option value="2017">БД ур система</option>
+                                    <option value="2034">🚫Прочее</option>
+									<option value="2030">Slack-проблемы со входом</option>
+									<option value="69">Проблемы с телефонией</option>
 									<option style="background-color:DarkKhaki;" value="payf">Проблемы с оплатой</option>
-                                    <option value="1077">Вина школы</option>
-									<option value="1658">Консультация</option>
-									<option value="1661">Карта У</option>
-									<option value="1662">Сбой</option>
-									<option value="1660">Подписки</option>
+                                    <option value="1077">💳Вина школы</option>
+									<option value="1658">💳Консультация</option>
+									<option value="1661">💳Карта У</option>
+									<option value="1662">💳Сбой оплаты</option>
+									<option value="1660">💳Подписки</option>
 									<option style="background-color:DarkKhaki;" value="hwtr">Проблемы с ДЗ</option>
-                                    <option value="1744">Контент</option>
-									<option value="1745">Оценка</option>
-									<option value="1746">Словарь</option>
-									<option value="1747">Упражнение</option>
+                                    <option value="1744">💼Контент</option>
+									<option value="1745">💼Оценка</option>
+									<option value="1746">💼Словарь</option>
+									<option value="1747">💼Упражнение</option>
 									<option style="background-color:DarkKhaki;" value="svyaz">Проблемы связь</option>
-                                    <option value="1581">ОС/брауз ниж мин</option>
-									<option value="1589">Конс раб св</option>
-									<option value="1582">Корп с/ус</option>
-									<option value="1583">ОС/браузер</option>
-                                    <option value="1586">ПК</option>
-									<option value="1584">Гарнитура</option>
-									<option value="1585">Камера</option>
-									<option value="1580">Блок ПО</option>
-									<option value="1594">Не подерж брауз</option>
-									<option value="1595">Не под кам гарн пк</option>
-                                    <option value="1593">Сбой платф</option>
-									<option value="1592">Сб задерж кам</option>
-									<option value="1587">Инет ниж мин</option>
-									<option value="1590">Сб плат блк прер</option>
-									<option value="1588">Хар ниж мин</option>
-									<option value="1591">Сб задерж зв</option>
+                                    <option value="1581">💻ОС/брауз ниж мин</option>
+									<option value="1589">💻Консультация работы связи</option>
+									<option value="1582">💻Корп сеть/ус-во</option>
+									<option value="1583">💻ОС/браузер</option>
+                                    <option value="1586">💻ПК</option>
+									<option value="1584">💻Гарнитура</option>
+									<option value="1585">💻Камера</option>
+									<option value="1580">💻Блокировалось ПО</option>
+									<option value="1594">💻Не подерж браузер</option>
+									<option value="1595">💻Не подерж кам,гарн,пк</option>
+                                    <option value="1593">💻Сбой платф</option>
+									<option value="1592">💻Сб задерж кам</option>
+									<option value="1587">💻Инет ниж мин</option>
+									<option value="1590">💻Сб плат блок,прерыв</option>
+									<option value="1588">💻Хар ниж мин</option>
+									<option value="1591">💻Сб задерж звука</option>
 									<option style="background-color:DarkKhaki;" value="lkp">Проблемы ЛКП</option>
-                                    <option value="1721">Группа</option>
-									<option value="1714">Чат</option>
-									<option value="1719">Финансы</option>
-									<option value="1717">Упражнения</option>
-                                    <option value="1712">Карта роста</option>
-									<option value="1716">Настройки</option>
-									<option value="1718">Перерыв</option>
-									<option value="1715">Профиль</option>
-									<option value="1720">Работы на проверку</option>
-									<option value="1713">Расписание</option>
+                                    <option value="1721">👽ЛКП - Группа</option>
+									<option value="1714">👽ЛКП - Чат</option>
+									<option value="1719">👽ЛКП - Финансы</option>
+									<option value="1717">👽ЛКП - Упражнения</option>
+                                    <option value="1712">👽ЛКП - Карта роста</option>
+									<option value="1716">👽ЛКП - Настройки</option>
+									<option value="1718">👽ЛКП - Перерыв</option>
+									<option value="1715">👽ЛКП - Профиль</option>
+									<option value="1720">👽ЛКП - Работы на проверку</option>
+									<option value="1713">👽ЛКП - Расписание</option>
 									<option style="background-color:DarkKhaki;" value="lku">Проблемы ЛКУ</option>
-                                    <option value="1708">Чат</option>
-									<option value="1710">Профиль</option>
-									<option value="1706">Видж прогр</option>
-									<option value="1707">Ис зан/портф</option>
-                                    <option value="1709">Семья</option>
-									<option value="1711">Настройки</option>
-									<option value="1705">Навыки</option>
-									<option value="1704">Грамматика</option>
+                                    <option value="1708">👨‍🎓ЛКУ - Чат</option>
+									<option value="1710">👨‍🎓ЛКУ - Профиль</option>
+									<option value="1706">👨‍🎓ЛКУ - Виджет прогресса</option>
+									<option value="1707">👨‍🎓ЛКУ - История занятий/портфолио</option>
+                                    <option value="1709">👨‍🎓ЛКУ - Семья</option>
+									<option value="1711">👨‍🎓ЛКУ - Настройки</option>
+									<option value="1705">👨‍🎓ЛКУ - Навыки</option>
+									<option value="1704">👨‍🎓ЛКУ - Грамматика</option>
 									<option style="background-color:DarkKhaki;" value="problvh">Проблемы вход</option>
-                                    <option value="1632">Не привяз почт/тел</option>
-									<option value="1635">Данные</option>
-									<option value="1634">Сброс пароля</option>
-									<option value="1631">Консультация</option>
-                                    <option value="1633">Сбой</option>
+                                    <option value="1632">🔐Не привяз почт/тел</option>
+									<option value="1635">🔐Данные для входа</option>
+									<option value="1634">🔐Сброс пароля</option>
+									<option value="1631">🔐Консультация авторизации</option>
+                                    <option value="1633">🔐Сбой авторизации</option>
 									<option style="background-color:DarkKhaki;" value="problpodk">Проблемы подкл</option>
-                                    <option value="1624">Истек подпис</option>
-									<option value="1627">Консультациия</option>
-									<option value="1629">Нет кн входа</option>
-									<option value="1628">У не в ГУ</option>
-                                    <option value="1625">Ур в др вр</option>
-									<option value="1626">У отпуск</option>
-                                    <option value="1630">Неакт кн вх</option>
+                                    <option value="1624">🔌Истекла подписка</option>
+									<option value="1627">🔌Консультациия</option>
+									<option value="1629">🔌Нет кнопки входа</option>
+									<option value="1628">🔌У не в ГУ</option>
+                                    <option value="1625">🔌Ур в др вр</option>
+									<option value="1626">🔌У отпуск</option>
+                                    <option value="1630">🔌Неактивна кнопка входа</option>
 									<option style="background-color:DarkKhaki;" value="lesfunc">Функционал урок</option>
-                                    <option value="1772">STT</option>
-									<option value="1773">TTT</option>
-									<option value="1767">Вложения</option>
-									<option value="1771">Демонстрация экр</option>
-                                    <option value="1768">Доска</option>
-									<option value="2037">Заметки</option>
-                                    <option value="1775">Отпр ДЗ на ур</option>
-                                    <option value="1770">Перекл материалов</option>
-									<option value="1776">Ауд/вид плеер</option>
-                                    <option value="1769">Словарь на ур</option>
-                                    <option value="1774">Упражн на ур</option>
+                                    <option value="1772">👨‍🎓STT</option>
+									<option value="1773">👽TTT</option>
+									<option value="1767">📎Вложения</option>
+									<option value="1771">🖥Демонстрация экр</option>
+                                    <option value="1768">⌨Доска</option>
+									<option value="2037">📝Заметки</option>
+                                    <option value="1775">💨Отправка ДЗ на уроке</option>
+                                    <option value="1770">🔀Перекл материалов</option>
+									<option value="1776">🎵/📽Ауд/вид плеер</option>
+                                    <option value="1769">📙Словарь на уроке</option>
+                                    <option value="1774">🎯Упражнения на уроке</option>
 									<option style="background-color:DarkKhaki;" value="feedbk">Отзывы и пожел</option>
-                                    <option value="1970">Vim-контент</option>
-									<option value="1971">Vim-оценка</option>
-									<option value="1972">Vim-словарь</option>
-									<option value="1973">Vim-упражнения</option>
-                                    <option value="1966">ЛК-ОС род</option>
-									<option value="1965">ЛК-пер,отм ур</option>
-                                    <option value="1967">ЛК-профиль</option>
-                                    <option value="1968">ЛК-семья</option>
-									<option value="1969">ЛК чат</option>
-                                    <option value="1974">App Skyeng</option>
-                                    <option value="1975">App Teachers</option>
-                                    <option value="1979">App Skypro</option>
-                                    <option value="1976">App класс</option>
-									<option value="1977">App решения</option>
-                                    <option value="1978">App Skysmart род</option>
-                                    <option value="1980">Прочее</option>
+                                    <option value="1970">💭Vim-контент</option>
+									<option value="1971">💭Vim-оценка</option>
+									<option value="1972">💭Vim-словарь</option>
+									<option value="1973">💭Vim-упражнения</option>
+                                    <option value="1966">💭ЛК-ОС род</option>
+									<option value="1965">💭ЛК-пер,отм ур</option>
+                                    <option value="1967">💭ЛК-профиль</option>
+                                    <option value="1968">💭ЛК-семья</option>
+									<option value="1969">💭ЛК чат</option>
+                                    <option value="1974">💭App Skyeng</option>
+                                    <option value="1975">💭App Teachers</option>
+                                    <option value="1979">💭App Skypro</option>
+                                    <option value="1976">💭App класс</option>
+									<option value="1977">💭App решения</option>
+                                    <option value="1978">💭App Skysmart род</option>
+                                    <option value="1980">💭Прочее</option>
                                     </select>
                                <button style=" title="ищет чаты по тематике" id="stargrab">Find</button>
 							   	<button id="webtoCSV">💾 Download CSV</button>
@@ -179,6 +177,7 @@ var win_Grabber =  // описание элементов окна Grabber
 						<div id="grabbedchats" style="margin-left: 15px;">
 							 <p id="themesgrabbeddata" style="width:800px; max-height:400px; color:bisque; margin-left:5px; overflow:auto"></p>
 							 <p id="foundcount"></p>
+							 <p id="avgCsatCount"></p>
 							 <div id="CSATFilterField" style="display:none; position: absolute; top: 300px; left: 820px; background: #464451; color:bisque; width: 95px;">
 							 <span id="hidefilter" style="cursor:pointer; border: 1px solid; padding: 2px; color:black; font-weight:700; background: tan;">🌀CSAT filter</span> <br>
 							  <label><input type="checkbox" name="marksFilter" value="5"> 5</label> <br>
@@ -327,6 +326,18 @@ document.getElementById('checkthemallmarks').onclick = function() {
 	}
 }
 
+// Функция для получения выбранных значений чекбоксов
+function getSelectedCheckboxValues() {
+  const checkboxes = document.querySelectorAll('input[name="marksFilter"]:checked');
+  const selectedValues = [];
+
+  checkboxes.forEach(function(checkbox) {
+	selectedValues.push(checkbox.value);
+  });
+
+  return selectedValues;
+}
+
 let chekopersarr=[];
 let newarray = [];
 let arrofthemes = [];
@@ -342,15 +353,16 @@ document.getElementById('stargrab').onclick = async function() {
 
 	
 	document.getElementById('foundcount').innerHTML = ''
+	document.getElementById('avgCsatCount').innerHTML = ''
 	operstagsarray=[];
 	arrofthemes=[];
 	const timeOptions = {
 	  timeZone: 'Europe/Moscow',
 	  year: 'numeric',
 	  month: 'numeric',
-	  day: 'numeric'
-	  // hour: 'numeric',
-	  // minute: 'numeric',
+	  day: 'numeric',
+	  hour: 'numeric',
+	  minute: 'numeric'
 	  // second: 'numeric'
 };
 	
@@ -488,7 +500,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								payloadarray.push({
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
-								  timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
+								  timeStamp: new Date(r.tsMod).toLocaleString('ru-RU', timeOptions),
 								  CSAT: csat
 								});
 								
@@ -509,7 +521,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								payloadarray.push({
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
-								  timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
+								  timeStamp: new Date(r.tsMod).toLocaleString('ru-RU', timeOptions),
 								  CSAT: csat,
 								  ThemeValue: themesarray.find(theme => theme.value === r.payload.topicId.value)?.ThemeName || ''
 								});
@@ -519,7 +531,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								payloadarray.push({
 									ChatId: conversationId,
 									OperatorName: namespisochek[i],
-									timeStamp: new Date(r.tsCreate).toLocaleString('ru-RU', timeOptions),
+									timeStamp: new Date(r.tsMod).toLocaleString('ru-RU', timeOptions),
 									CSAT: csat,
 									ThemeValue: 'no theme'
 								});	
@@ -624,25 +636,25 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			  // Add the index column
 			  const indexCell = document.createElement('td');
 			  indexCell.textContent = index + 1;
-			  indexCell.style = "border: 1px solid black;"
+			  indexCell.style = "border: 1px solid black; font-size: 12px;"
 			  row.appendChild(indexCell);
 
 			  // Add the date column
 			  const dateCell = document.createElement('td');
 			  dateCell.textContent = element.timeStamp;
-			  dateCell.style = "border: 1px solid black;"
+			  dateCell.style = "border: 1px solid black; font-size: 12px;"
 			  row.appendChild(dateCell);
 
 			  // Add the operator column
 			  const operatorCell = document.createElement('td');
 			  operatorCell.textContent = element.OperatorName;
-			  operatorCell.style = 'text-align:center; border: 1px solid black;'
+			  operatorCell.style = 'text-align:center; border: 1px solid black; font-size: 12px;'
 			  row.appendChild(operatorCell);
 
 			  // Add the chatId column
 			  const chatIdCell = document.createElement('td');
 			  chatIdCell.textContent = element.ChatId;
-			  chatIdCell.style = "border: 1px solid black;"
+			  chatIdCell.style = "border: 1px solid black; font-size: 12px;"
 			  row.appendChild(chatIdCell);
 
 			  // Find the matched item in chatswithmarksarray
@@ -657,7 +669,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			  
 			  const themeCell = document.createElement('td');
 			  themeCell.textContent = element.ThemeValue
-			  themeCell.style = 'text-align:center; border: 1px solid black;'
+			  themeCell.style = 'text-align:center; border: 1px solid black; font-size: 12px;'
 			  row.appendChild(themeCell);
 
 			  // Append the row to the table
@@ -696,18 +708,8 @@ for (let i = 0; i < chekopersarr.length; i++) {
 							  row.style.display = 'none';
 							}
 						  });
-						}
-
-						// Функция для получения выбранных значений чекбоксов
-						function getSelectedCheckboxValues() {
-						  const checkboxes = document.querySelectorAll('input[name="marksFilter"]:checked');
-						  const selectedValues = [];
-
-						  checkboxes.forEach(function(checkbox) {
-							selectedValues.push(checkbox.value);
-						  });
-
-						  return selectedValues;
+						  
+						  calcAvgCsat()
 						}
 
 						// Обрабатываем событие изменения для каждого чекбокса
@@ -752,9 +754,72 @@ for (let i = 0; i < chekopersarr.length; i++) {
 					} 
 				}
 			}
-						
+			
+			// method of calculating averagecsat of foundchats
+			
+			// function calcAvgCsat() {
+				// let csatvalcontainer = document.getElementsByName('CSATvalue')
+				// let arrayoffoundmarks = [];
+
+				// for (let i=0; i<csatvalcontainer.length;i++) {
+					// if (csatvalcontainer[i].textContent !='-') {
+						// arrayoffoundmarks.push(Number(csatvalcontainer[i].textContent))
+					// }
+				// }
+
+				// let sumcsat = 0;
+				// let countcsat = 0;
+
+				// arrayoffoundmarks.forEach((element) => {
+				  // if (typeof element === "number") {
+					// sumcsat += element;
+					// countcsat++;
+				  // }
+				// });
+
+				// avgCsatCountVar = sumcsat / countcsat;
+			// }
+				function calcAvgCsat() {
+				let csatvalcontainer = document.getElementsByName('CSATvalue');
+				let arrayoffoundmarks = [];
+
+				for (let i = 0; i < csatvalcontainer.length; i++) {
+				  const cellValue = csatvalcontainer[i].textContent;
+				  const selectedValues = getSelectedCheckboxValues();
+
+				  if (selectedValues.length === 0) {
+					// Если ни один чекбокс не выбран, добавляем все значения в массив
+					if (cellValue !== '-') {
+					  arrayoffoundmarks.push(Number(cellValue));
+					}
+				  } else {
+					// Если выбраны чекбоксы, проверяем значения ячейки на соответствие выбранным значениям
+					if (selectedValues.includes(cellValue) && cellValue !== '-') {
+					  arrayoffoundmarks.push(Number(cellValue));
+					}
+				  }
+				}
+
+				let sumcsat = 0;
+				let countcsat = 0;
+
+				arrayoffoundmarks.forEach((element) => {
+				  if (typeof element === "number") {
+					sumcsat += element;
+					countcsat++;
+				  }
+				});
+
+				avgCsatCountVar = sumcsat / countcsat;
+				
+				document.getElementById('avgCsatCount').innerHTML = '<span style="background: #2960ae; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">'+ "Средний CSAT по выгрузке: " + avgCsatCountVar.toFixed(2) + '</span>'
+				}
+			
+			//
+									
 			document.getElementById('foundcount').innerHTML = '<span style="background: #166945; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">'+ "Всего найдено: " + pureArray.length + " обращений" + '</span>'
 
+			calcAvgCsat()
 			
 			    let hashes = document.querySelectorAll('.rowOfChatGrabbed');
 				for (let j = 0; j < hashes.length; j++) {
