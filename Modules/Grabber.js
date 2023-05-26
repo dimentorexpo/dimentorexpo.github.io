@@ -501,7 +501,8 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
 								  timeStamp: new Date(r.tsMod).toLocaleString('ru-RU', timeOptions),
-								  CSAT: csat
+								  CSAT: csat,
+								  ThemeValue: themesarray.find(theme => theme.value === r.payload.topicId.value)?.ThemeName || ''
 								});
 								
 								operstagsarray.push({ChatId: conversationId, Tags: r.payload.tags.value})
