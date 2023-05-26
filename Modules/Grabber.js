@@ -75,8 +75,8 @@ var win_Grabber =  // описание элементов окна Grabber
 									<option value="1882">📱👪Чат</option>
 									<option style="background-color:DarkKhaki;" value="solanka">Different</option>
                                     <option value="2034">🚫Прочее</option>
-									<option value="2030">Slack-проблемы со входом</option>
-									<option value="69">Проблемы с телефонией</option>
+									<option value="2030">♍Slack-проблемы со входом</option>
+									<option value="69">☎Проблемы с телефонией</option>
 									<option style="background-color:DarkKhaki;" value="payf">Проблемы с оплатой</option>
                                     <option value="1077">💳Вина школы</option>
 									<option value="1658">💳Консультация</option>
@@ -588,7 +588,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			  const th = document.createElement('th');
 			  th.textContent = columnName;
 			  th.setAttribute('name','btnNameFilter')
-			  th.style = 'text-align:center; font-weight:700; background:dimgrey; border:1px solid black; padding:5px;   position: sticky;  top: 0;'
+			  th.style = 'text-align:center; font-weight:700; background:dimgrey; border:1px solid black; padding:5px; position: sticky; top: 0;'
 			  headerRow.appendChild(th);
 			});
 			
@@ -613,17 +613,17 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			// Assign the unique array to pureArray
 			pureArray = uniqueArray;
 			
-				filteredArrayTags = cleanedarray.reduce((unique, item) => {
-					 const existingItem = unique.find((element) => element.ChatId === item.ChatId);
-							  
-							  // If ChatId does not exist, add the item to the unique array
-							  if (!existingItem) {
-								unique.push(item);
-							  }
-							  
-							  return unique;
-				}, [])
-				console.log(filteredArrayTags)
+			filteredArrayTags = cleanedarray.reduce((unique, item) => {
+				 const existingItem = unique.find((element) => element.ChatId === item.ChatId);
+						  
+						  // If ChatId does not exist, add the item to the unique array
+						  if (!existingItem) {
+							unique.push(item);
+						  }
+						  
+						  return unique;
+			}, [])
+			console.log(filteredArrayTags)
 
 
 
@@ -654,7 +654,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 			  // Add the chatId column
 			  const chatIdCell = document.createElement('td');
 			  chatIdCell.textContent = element.ChatId;
-			  chatIdCell.style = "border: 1px solid black; font-size: 12px;"
+			  chatIdCell.style = "border: 1px solid black; font-size: 11px;"
 			  row.appendChild(chatIdCell);
 
 			  // Find the matched item in chatswithmarksarray
