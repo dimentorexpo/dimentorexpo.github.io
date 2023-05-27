@@ -123,7 +123,7 @@ var win_servicedesk = // описание элементов окна Service De
 
 				</div>
                 <div id="mrktbillrvdskoptions" style="display: none; margin-left:20px;">
-                    <p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px; width:90%;">#mrkt-bill-questions; Канал для вопросов по промокодам, сертификатам, реферальной программе</p>
+                    <p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#mrkt-bill-questions; Канал для вопросов по промокодам, сертификатам, реферальной программе</p>
 
                 </div>
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
