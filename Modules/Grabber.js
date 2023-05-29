@@ -4,6 +4,7 @@ let filteredArrayTags =[];
 let cleanedarray=[];
 let themesarray = []
 let avgCsatCountVar;
+let convDurationArr=[];
 var win_Grabber =  // описание элементов окна Grabber
     `<div style="display: flex; width: 800px;">
         <span style="width: 800px">
@@ -75,8 +76,9 @@ var win_Grabber =  // описание элементов окна Grabber
 									<option value="1882">📱👪Чат</option>
 									<option style="background-color:DarkKhaki;" value="solanka">Different</option>
                                     <option value="2034">🚫Прочее</option>
-									<option value="2030">♍Slack-проблемы со входом</option>
+									<option value="2030">ⓂSlack-проблемы со входом</option>
 									<option value="69">☎Проблемы с телефонией</option>
+									<option value="68">📍Другие технические проблемы</option>
 									<option style="background-color:DarkKhaki;" value="payf">Проблемы с оплатой</option>
                                     <option value="1077">💳Вина школы</option>
 									<option value="1658">💳Консультация</option>
@@ -347,6 +349,8 @@ let checkmarksarr = [];
 let operstagsarray=[];
 document.getElementById('stargrab').onclick = async function() {
 	
+	convDurationAr = [];
+	
 	if (document.getElementById('CSATFilterField').style.display =="") {
 		document.getElementById('CSATFilterField').style.display ="none"
 	}
@@ -482,6 +486,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 					  
 					  if (items[k].operatorId == chekopersarr[i]) {
 						  tmponlyoperhashes.push(el.conversationId)
+						  convDurationAr.push({HashId: el.conversationId , Duration: el.stats.conversationDuration})
 						  // console.log(tmponlyoperhashes)
 					  }
 					}
@@ -500,7 +505,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								payloadarray.push({
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
-								  timeStamp: new Date(r.tsMod).toLocaleString('ru-RU', timeOptions),
+								  timeStamp: new Date(+r.tsCreate+convDurationAr[j].Duration).toLocaleString('ru-RU', timeOptions),
 								  CSAT: csat,
 								  ThemeValue: themesarray.find(theme => theme.value === r.payload.topicId.value)?.ThemeName || ''
 								});
@@ -522,7 +527,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								payloadarray.push({
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
-								  timeStamp: new Date(r.tsMod).toLocaleString('ru-RU', timeOptions),
+								  timeStamp: new Date(+r.tsCreate+convDurationAr[j].Duration).toLocaleString('ru-RU', timeOptions),
 								  CSAT: csat,
 								  ThemeValue: themesarray.find(theme => theme.value === r.payload.topicId.value)?.ThemeName || ''
 								});
@@ -532,13 +537,12 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								payloadarray.push({
 									ChatId: conversationId,
 									OperatorName: namespisochek[i],
-									timeStamp: new Date(r.tsMod).toLocaleString('ru-RU', timeOptions),
+									timeStamp: new Date(+r.tsCreate+convDurationAr[j].Duration).toLocaleString('ru-RU', timeOptions),
 									CSAT: csat,
 									ThemeValue: 'no theme'
 								});	
 
 							 }
-
 							  
 							  console.log(payloadarray);
 							  console.log(namespisochek[i]);
