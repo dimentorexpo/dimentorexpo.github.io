@@ -166,7 +166,7 @@ document.getElementById('useradm').addEventListener('click', function () { // о
 })
 
 document.getElementById('suggestions').addEventListener('click', function () { // открываем ссылку в новой вкладке на  Предложения/пожелания
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdfxamf3lm7vsWj4VKbh6DUu4d2Q39vnQ1RfFglQ4Zy34R6_g/viewform?fbzx=4442277476040311569")
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLScnX8PdboJjcq2hgLmIyHvZoaqKXmgfp-6gGkyFjwJ1JYAK3Q/viewform")
 })
 
 document.getElementById('transactions').addEventListener('click', function () { // открываем ссылку в новой вкладке на  Поиск транзакций
