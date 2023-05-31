@@ -90,6 +90,16 @@ var win_AFhelper =  // описание элементов главного ок
 	</span>
 </div>`;
 
+function confirmBeforeUnload(event) {
+    // Отменяем событие beforeunload (для того, чтобы показать пользовательское окно подтверждения)
+    event.preventDefault();
+    // Устанавливаем текст сообщения для окна подтверждения
+    event.returnValue = 'Вы уверены, что хотите закрыть страницу?';
+  }
+  
+  // Добавляем обработчик события beforeunload
+  window.addEventListener('beforeunload', confirmBeforeUnload);
+
 flag = 0
 str = localStorage.getItem('sound_str');
 if (str !== null && str !== "")
