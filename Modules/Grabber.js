@@ -265,10 +265,10 @@ document.getElementById('clearall').onclick = function () {
 }
 
 async function getlistofopers() {
-	await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState").then(r=>r.json()).then(r=>testo=r)
+	await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState").then(r=>r.json()).then(r=>dataInfo=r)
 
-let tpopers = testo.onOperator
-  .map(el => el.groupId === "c7bbb211-a217-4ed3-8112-98728dc382d8" ? ({ id: el.operator.id, name: el.operator.fullName }) : null)
+let tpopers = dataInfo.onOperator
+  .map(el => el.groupId === "c7bbb211-a217-4ed3-8112-98728dc382d8" ? ({ id: el.operator.id, name: el.operator.fullName }) :  el.groupId ==="8266dbb1-db44-4910-8b5f-a140deeec5c0" ? ({ id: el.operator.id, name: el.operator.fullName }) : null)
   .filter(el => el !== null)
   .filter(el => /ТП[^0-9](?!.*\(CRM2\))/.test(el.name));
   
