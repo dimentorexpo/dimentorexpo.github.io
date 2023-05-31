@@ -4,15 +4,28 @@ let filteredArrayTags =[];
 let cleanedarray=[];
 let themesarray = []
 let avgCsatCountVar;
+let countsArray=[];
+let isDescending;
 // let convDurationArr=[];
 var win_Grabber =  // описание элементов окна Grabber
     `<div style="display: flex; width: 800px;">
         <span style="width: 800px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 800px; display:flex; justify-content:space-evenly;" id="grabdata">
-                                <button id="hideMeGrabber" style="width:50px; background: #228B22;">hide</button>
+                                <button id="hideMeGrabber" class="buttonHide">hide</button>
+                                <button id="GatherStatByThemes">🧮</button>
 								<div style="width:450px;background: #5f7875;height: 21px;"><div id="progressBarGrabber" style="width: 0%; height: 20px; background-color: #e38118; border: 1px solid black; text-align:center; font-weight:700; color:white;"></div></div>
                         </div>
+						
+						<div id="AgregatedDataThemes" style="display:none; width:400px; min-height:100px; max-height:800px; background: rgb(70, 68, 81); position:absolute; top:-1px; left:-400px; overflow-y:auto">
+							<div id="ToolsPanel" style="padding:5px;">
+								<button id="HideToolsPanel"class="buttonHide">hide</button>
+								<button id="SwitchToGraph">🔀📊</button>
+								<button id="SwitchToTable">🔀🧮</button>
+							</div>
+							<div id="AgregatedDataOut" style="color: bisque; padding: 5px; text-align: center;"></div>
+						</div>
+						
                         <div style="margin: 5px; width: 800px" id="grabbox">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="FirstData" id="dateFromGrab"></span>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="LastData" id="dateToGrab"</span>
@@ -170,6 +183,8 @@ var win_Grabber =  // описание элементов окна Grabber
 									<option value="1977">💭App решения</option>
                                     <option value="1978">💭App Skysmart род</option>
                                     <option value="1980">💭Прочее</option>
+									<option style="background-color:DarkKhaki;" value="feedbk">Оплата(КЦ)</option>
+									<option value="479">💰КЦ-Проблемы с оплатой</option>
                                     </select>
                                <button style=" title="ищет чаты по тематике" id="stargrab">Find</button>
 							   	<button id="webtoCSV">💾 Download CSV</button>
@@ -229,7 +244,20 @@ wintGrabber.onmouseup = function () { document.removeEventListener('mousemove', 
     document.getElementById('hideMeGrabber').onclick = function () { // скрытие окна работы со Grabber
         if (document.getElementById('AF_Grabber').style.display == '')
             document.getElementById('AF_Grabber').style.display = 'none'
+    }  
+
+	document.getElementById('HideToolsPanel').onclick = function () { 
+        if (document.getElementById('AgregatedDataThemes').style.display == '') {
+            document.getElementById('AgregatedDataThemes').style.display = 'none'
+			document.getElementById('themesgrabbeddata').style.display = ''
+		}
     }
+	
+	document.getElementById('GatherStatByThemes').onclick = function() {
+    if (document.getElementById('AgregatedDataThemes').style.display=='none') {
+        document.getElementById('AgregatedDataThemes').style.display = ''
+    } else document.getElementById('AgregatedDataThemes').style.display ='none'
+}
 	
 	//Функция очищения выведенной информации после поиска
 document.getElementById('clearall').onclick = function () {
@@ -338,6 +366,122 @@ function getSelectedCheckboxValues() {
   });
 
   return selectedValues;
+}
+  
+function buildTable() {
+  document.getElementById('AgregatedDataThemes').style.width = "400px"
+  document.getElementById('themesgrabbeddata').style.display = ''
+  const tableContainer = document.getElementById('AgregatedDataOut');
+  tableContainer.innerHTML = ''; // Очищаем содержимое контейнера перед построением таблицы
+
+  // Создаем таблицу
+  const table = document.createElement('table');
+
+  // Создаем заголовок таблицы
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  const headers = ['№п.п', 'Тематика', 'Количество'];
+
+  headers.forEach((headerText, index) => {
+    const th = document.createElement('th');
+    th.textContent = headerText;
+	th.style = "text-align: center; font-weight: 700; background: dimgrey; border: 1px solid black; padding: 5px; position: sticky; top: 0px;"
+    if (index === 2) {
+	  th.style = "text-align: center; font-weight: 700; background: dimgrey; border: 1px solid black; padding: 5px; position: sticky; top: 0px; cursor:pointer"
+	  th.title = "При клике сортирует список либо по возрастанию либо по убыванию, повторый клик также изменяет направление сортировки!"
+      th.addEventListener('click', sortTableByCount);
+    }
+    headerRow.appendChild(th);
+  });
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Создаем тело таблицы
+  const tbody = document.createElement('tbody');
+
+  countsArray.forEach((item, index) => {
+    const row = document.createElement('tr');
+    const numberCell = document.createElement('td');
+    const themeCell = document.createElement('td');
+    const countCell = document.createElement('td');
+
+    numberCell.textContent = (index + 1).toString();
+    themeCell.textContent = item.ThemeValue;
+    countCell.textContent = item.Count.toString();
+
+    row.appendChild(numberCell);
+    row.appendChild(themeCell);
+    row.appendChild(countCell);
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+
+  // Добавляем таблицу в контейнер
+  tableContainer.appendChild(table);
+}
+
+function drawGraph() {
+  document.getElementById('AgregatedDataThemes').style.width = "1200px"
+  document.getElementById('themesgrabbeddata').style.display = 'none'
+  const themeValues = countsArray.map(item => item.ThemeValue);
+  const counts = countsArray.map(item => item.Count);
+
+  // Создаем контейнер для графика
+  const graphContainer = document.getElementById('AgregatedDataOut');
+  graphContainer.innerHTML = ''; // Очищаем содержимое контейнера перед отрисовкой графика
+  const canvas = document.createElement('canvas');
+  graphContainer.appendChild(canvas);
+
+  // Отрисовываем график
+const ctx = canvas.getContext('2d');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: themeValues,
+    datasets: [
+      {
+        label: 'Количество',
+        data: counts,
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }
+    ]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          color: 'bisque' // Цвет текста по оси Y
+        }
+      },
+      x: {
+        ticks: {
+          color: 'bisque' // Цвет текста по оси X
+        }
+      }
+    }
+  }
+});
+}
+
+
+
+function sortTableByCount() {
+  countsArray.sort((a, b) => {
+    if (isDescending) {
+      return b.Count - a.Count;
+    } else {
+      return a.Count - b.Count;
+    }
+  });
+
+  isDescending = !isDescending; // Инвертируем флаг сортировки
+
+  buildTable(); // Перестраиваем таблицу с новым порядком
 }
 
 let chekopersarr=[];
@@ -716,6 +860,30 @@ for (let i = 0; i < chekopersarr.length; i++) {
 
 			// Append the table to the themesgrabbeddata element
 			themesgrabbeddata.appendChild(table);
+			
+			//
+			
+			
+				const result = payloadarray.reduce((acc, obj) => {
+				  const themeValue = obj.ThemeValue;
+				  acc.uniqueValues.add(themeValue);
+				  acc.counts[themeValue] = (acc.counts[themeValue] || 0) + 1;
+				  return acc;
+				}, { uniqueValues: new Set(), counts: {} });
+
+				const uniqueValuesArray = Array.from(result.uniqueValues);
+				countsArray = Object.entries(result.counts).map(([themeValue, count]) => ({ ThemeValue: themeValue, Count: count }));
+
+				isDescending = true; // Флаг для определения порядка сортировки
+
+				const switchToTableButton = document.getElementById('SwitchToTable');
+				switchToTableButton.addEventListener('click', buildTable);
+				
+				const switchToGraphButton = document.getElementById('SwitchToGraph');
+				switchToGraphButton.addEventListener('click', drawGraph);
+
+			
+			//
 			
 			let btnFilters = document.getElementsByName('btnNameFilter')
 			for (let i=0;i<btnFilters.length;i++) {
