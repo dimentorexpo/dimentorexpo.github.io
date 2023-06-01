@@ -698,68 +698,68 @@ function drawIntervalGraph() {
   document.getElementById('themesgrabbeddata').style.display = 'none';
 
   const themeValues = uniqueValuesArray;
-  const datasets = themeValues.map((theme, index) => {
-    const counts = intervals.map(interval => {
-      const countObj = countsArrayInterval.find(item => item.TimeStamp.startsWith(interval) && item.ThemeValue === theme);
-      return countObj ? countObj.Count : 0;
-    });
-
-    const color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.5)`;
-
-    return {
-      label: theme,
-      data: counts,
-      backgroundColor: color,
-      borderColor: color,
-      borderWidth: 1,
-	  barThickness: 5
-    };
+const datasets = themeValues.map((theme, index) => {
+  const counts = intervals.map(interval => {
+    const countObj = countsArrayInterval.find(item => item.TimeStamp.startsWith(interval) && item.ThemeValue === theme);
+    return countObj ? countObj.Count : 0;
   });
 
-  const graphContainer = document.getElementById('AgregatedDataOut');
-  graphContainer.innerHTML = '';
-  const canvas = document.createElement('canvas');
-  graphContainer.appendChild(canvas);
+  const color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
 
-  const ctx = canvas.getContext('2d');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: intervals,
-      datasets: datasets
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            color: 'bisque',
-            font: {
-              weight: 'bold'
-            }
-          }
-        },
-        x: {
-          ticks: {
-            color: 'bisque',
-            font: {
-              weight: 'bold'
-            }
+  return {
+    label: theme,
+    data: counts,
+    backgroundColor: color,
+    borderColor: color,
+    borderWidth: 1,
+    pointRadius: 4, // Hide data points for a smooth line
+  };
+});
+
+const graphContainer = document.getElementById('AgregatedDataOut');
+graphContainer.innerHTML = '';
+const canvas = document.createElement('canvas');
+graphContainer.appendChild(canvas);
+
+const ctx = canvas.getContext('2d');
+new Chart(ctx, {
+  type: 'line', // Set the chart type to 'line'
+  data: {
+    labels: intervals,
+    datasets: datasets
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          color: 'bisque',
+          font: {
+            weight: 'bold'
           }
         }
       },
-      plugins: {
-        legend: {
-          labels: {
-			  color: 'LightSalmon',
-            font: {
-              weight: 'bold'
-            }
+      x: {
+        ticks: {
+          color: 'bisque',
+          font: {
+            weight: 'bold'
+          }
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: 'LightSalmon',
+          font: {
+            weight: 'bold'
           }
         }
       }
     }
-  });
+  }
+});
   
 }
 
