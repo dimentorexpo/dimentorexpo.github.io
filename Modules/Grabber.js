@@ -5,6 +5,7 @@ let cleanedarray=[];
 let themesarray = []
 let avgCsatCountVar;
 let countsArray=[];
+let countsArrayInterval=[];
 let isDescending;
 // let convDurationArr=[];
 var win_Grabber =  // описание элементов окна Grabber
@@ -22,6 +23,8 @@ var win_Grabber =  // описание элементов окна Grabber
 								<button id="HideToolsPanel"class="buttonHide">hide</button>
 								<button id="SwitchToGraph">🔀📊</button>
 								<button id="SwitchToTable">🔀🧮</button>
+								<button id="SwitchToIntervalTable">🔀🧮〰</button>
+								<button id="SwitchToIntervalGraph">🔀📊〰</button>
 							</div>
 							<div id="AgregatedDataOut" style="color: bisque; padding: 5px; text-align: center;"></div>
 						</div>
@@ -468,7 +471,133 @@ new Chart(ctx, {
 });
 }
 
+function buildIntervalTable() {
+	
+	const intervals = [
+  '07:00 - 07:30',
+  '07:30 - 08:00',
+  '08:00 - 08:30',
+  '08:30 - 09:00',
+  '09:00 - 09:30',
+  '09:30 - 10:00',
+  '10:00 - 10:30',
+  '10:30 - 11:00',
+  '11:00 - 11:30', 
+  '11:30 - 12:00',
+  '12:00 - 12:30',
+  '12:30 - 13:00', 
+  '13:00 - 13:30',
+  '13:30 - 14:00',
+  '14:00 - 14:30', 
+  '14:30 - 15:00',
+  '15:00 - 15:30',
+  '15:30 - 16:00', 
+  '16:00 - 16:30',
+  '16:30 - 17:00',
+  '17:00 - 17:30', 
+  '17:30 - 18:00',
+  '18:00 - 18:30',
+  '18:30 - 19:00', 
+  '19:00 - 19:30',
+  '19:30 - 20:00',
+  '20:00 - 20:30', 
+  '20:30 - 21:00',
+  '21:00 - 21:30',
+  '21:30 - 22:00',
+  '22:00 - 22:30',
+  '22:30 - 23:00',
+  '23:00 - 23:30',
+  '23:30 - 00:00'
+];
 
+const result = payloadarray.reduce((acc, obj) => {
+  const themeValue = obj.ThemeValue;
+  const timeStamp = obj.timeStamp;
+  const timeKey = moment(timeStamp, 'DD.MM.YYYY, HH:mm').format('HH:mm');
+  const interval = intervals.find((interval) => {
+    const [start, end] = interval.split(' - ');
+    return moment(timeKey, 'HH:mm').isBetween(moment(start, 'HH:mm'), moment(end, 'HH:mm'), null, '[]');
+  });
+
+  if (interval) {
+    acc.counts[interval] = acc.counts[interval] || {};
+    acc.counts[interval][themeValue] = (acc.counts[interval][themeValue] || 0) + 1;
+  }
+
+  acc.uniqueValues.add(themeValue);
+  return acc;
+}, { uniqueValues: new Set(), counts: {} });
+
+const uniqueValuesArray = Array.from(result.uniqueValues);
+countsArrayInterval = Object.entries(result.counts).flatMap(([interval, counts]) => {
+  return Object.entries(counts).map(([themeValue, count]) => ({
+    TimeStamp: interval,
+    ThemeValue: themeValue,
+    Count: count,
+  }));
+});
+
+countsArrayInterval.sort((a, b) => {
+  const timeA = a.TimeStamp.split(" - ")[0];
+  const timeB = b.TimeStamp.split(" - ")[0];
+  return moment(timeA, "HH:mm").diff(moment(timeB, "HH:mm"));
+});
+	
+  document.getElementById('AgregatedDataThemes').style.width = "400px"
+  document.getElementById('themesgrabbeddata').style.display = ''
+  const tableContainer = document.getElementById('AgregatedDataOut');
+  tableContainer.innerHTML = ''; // Очищаем содержимое контейнера перед построением таблицы
+
+  // Создаем таблицу
+  const table = document.createElement('table');
+
+  // Создаем заголовок таблицы
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  const headers = ['№п.п', 'Тематика', 'Интервал', 'Количество'];
+
+  headers.forEach((headerText, index) => {
+    const th = document.createElement('th');
+    th.textContent = headerText;
+    th.style = "text-align: center; font-weight: 700; background: dimgrey; border: 1px solid black; padding: 5px; position: sticky; top: 0px;"
+    if (headerText === 'Интервал') {
+      th.style.cursor = 'pointer';
+      th.title = "При клике сортирует список либо по возрастанию либо по убыванию, повторный клик также изменяет направление сортировки!";
+      th.addEventListener('click', sortTableByInterval);
+    }
+    headerRow.appendChild(th);
+  });
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Создаем тело таблицы
+  const tbody = document.createElement('tbody');
+
+  countsArrayInterval.forEach((item, index) => {
+    const row = document.createElement('tr');
+    const numberCell = document.createElement('td');
+    const themeCell = document.createElement('td');
+    const intervalCell = document.createElement('td');
+    const countCell = document.createElement('td');
+
+    numberCell.textContent = (index + 1).toString();
+    themeCell.textContent = item.ThemeValue;
+    intervalCell.textContent = item.TimeStamp;
+    countCell.textContent = item.Count.toString();
+
+    row.appendChild(numberCell);
+    row.appendChild(themeCell);
+    row.appendChild(intervalCell);
+    row.appendChild(countCell);
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+
+  // Добавляем таблицу в контейнер
+  tableContainer.appendChild(table);
+}
 
 function sortTableByCount() {
   countsArray.sort((a, b) => {
@@ -483,6 +612,156 @@ function sortTableByCount() {
 
   buildTable(); // Перестраиваем таблицу с новым порядком
 }
+
+function sortTableByInterval() {
+  countsArrayInterval.sort((a, b) => {
+    const timeA = a.TimeStamp.split(" - ")[0];
+    const timeB = b.TimeStamp.split(" - ")[0];
+    return moment(timeA, "HH:mm").diff(moment(timeB, "HH:mm"));
+  });
+
+  buildIntervalTable();
+}
+
+function drawIntervalGraph() {
+  const intervals = [
+    '07:00 - 07:30',
+    '07:30 - 08:00',
+    '08:00 - 08:30',
+    '08:30 - 09:00',
+    '09:00 - 09:30',
+    '09:30 - 10:00',
+    '10:00 - 10:30',
+    '10:30 - 11:00',
+    '11:00 - 11:30',
+    '11:30 - 12:00',
+    '12:00 - 12:30',
+    '12:30 - 13:00',
+    '13:00 - 13:30',
+    '13:30 - 14:00',
+    '14:00 - 14:30',
+    '14:30 - 15:00',
+    '15:00 - 15:30',
+    '15:30 - 16:00',
+    '16:00 - 16:30',
+    '16:30 - 17:00',
+    '17:00 - 17:30',
+    '17:30 - 18:00',
+    '18:00 - 18:30',
+    '18:30 - 19:00',
+    '19:00 - 19:30',
+    '19:30 - 20:00',
+    '20:00 - 20:30',
+    '20:30 - 21:00',
+    '21:00 - 21:30',
+    '21:30 - 22:00',
+    '22:00 - 22:30',
+    '22:30 - 23:00',
+    '23:00 - 23:30',
+    '23:30 - 00:00'
+  ];
+
+  const result = payloadarray.reduce((acc, obj) => {
+    const themeValue = obj.ThemeValue;
+    const timeStamp = obj.timeStamp;
+    const timeKey = moment(timeStamp, 'DD.MM.YYYY, HH:mm').format('HH:mm');
+    const interval = intervals.find((interval) => {
+      const [start, end] = interval.split(' - ');
+      return moment(timeKey, 'HH:mm').isBetween(moment(start, 'HH:mm'), moment(end, 'HH:mm'), null, '[]');
+    });
+
+    if (interval) {
+      acc.counts[interval] = acc.counts[interval] || {};
+      acc.counts[interval][themeValue] = (acc.counts[interval][themeValue] || 0) + 1;
+    }
+
+    acc.uniqueValues.add(themeValue);
+    return acc;
+  }, { uniqueValues: new Set(), counts: {} });
+
+  const uniqueValuesArray = Array.from(result.uniqueValues);
+  countsArrayInterval = Object.entries(result.counts).flatMap(([interval, counts]) => {
+    return Object.entries(counts).map(([themeValue, count]) => ({
+      TimeStamp: interval,
+      ThemeValue: themeValue,
+      Count: count,
+    }));
+  });
+
+  countsArrayInterval.sort((a, b) => {
+    const timeA = a.TimeStamp.split(" - ")[0];
+    const timeB = b.TimeStamp.split(" - ")[0];
+    return moment(timeA, "HH:mm").diff(moment(timeB, "HH:mm"));
+  });
+
+  document.getElementById('AgregatedDataThemes').style.width = "1200px";
+  document.getElementById('themesgrabbeddata').style.display = 'none';
+
+  const themeValues = uniqueValuesArray;
+  const datasets = themeValues.map((theme, index) => {
+    const counts = intervals.map(interval => {
+      const countObj = countsArrayInterval.find(item => item.TimeStamp.startsWith(interval) && item.ThemeValue === theme);
+      return countObj ? countObj.Count : 0;
+    });
+
+    const color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.5)`;
+
+    return {
+      label: theme,
+      data: counts,
+      backgroundColor: color,
+      borderColor: color,
+      borderWidth: 1
+    };
+  });
+
+  const graphContainer = document.getElementById('AgregatedDataOut');
+  graphContainer.innerHTML = '';
+  const canvas = document.createElement('canvas');
+  graphContainer.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: intervals,
+      datasets: datasets
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            color: 'bisque',
+            font: {
+              weight: 'bold'
+            }
+          }
+        },
+        x: {
+          ticks: {
+            color: 'bisque',
+            font: {
+              weight: 'bold'
+            }
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+			  color: 'LightSalmon',
+            font: {
+              weight: 'bold'
+            }
+          }
+        }
+      }
+    }
+  });
+  
+}
+
 
 let chekopersarr=[];
 let newarray = [];
@@ -878,12 +1157,15 @@ for (let i = 0; i < chekopersarr.length; i++) {
 
 				const switchToTableButton = document.getElementById('SwitchToTable');
 				switchToTableButton.addEventListener('click', buildTable);
-				
+								
 				const switchToGraphButton = document.getElementById('SwitchToGraph');
 				switchToGraphButton.addEventListener('click', drawGraph);
+				
+				const switchToIntervalTableButton = document.getElementById('SwitchToIntervalTable');
+				switchToIntervalTableButton.addEventListener('click', buildIntervalTable);	
 
-			
-			//
+				const switchToIntervalGraphButton = document.getElementById('SwitchToIntervalGraph');
+				switchToIntervalGraphButton.addEventListener('click', drawIntervalGraph);
 			
 			let btnFilters = document.getElementsByName('btnNameFilter')
 			for (let i=0;i<btnFilters.length;i++) {
