@@ -711,7 +711,8 @@ function drawIntervalGraph() {
       data: counts,
       backgroundColor: color,
       borderColor: color,
-      borderWidth: 1
+      borderWidth: 1,
+	  barThickness: 10
     };
   });
 
