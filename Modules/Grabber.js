@@ -712,7 +712,7 @@ function drawIntervalGraph() {
       backgroundColor: color,
       borderColor: color,
       borderWidth: 1,
-	  barThickness: 10
+	  barThickness: 5
     };
   });
 
