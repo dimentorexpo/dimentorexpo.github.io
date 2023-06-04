@@ -143,6 +143,16 @@ function refreshTimerReminder() {
         abortTimeOut = setTimeout(function () {
             setRemindAf('chronostamp')
         }, localStorage.getItem('chronostamp2'));
+        if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
+            setchas1.value = localStorage.getItem('setchas1');
+            setminuta1.value = localStorage.getItem('setminuta1');
+            var timearr1 = new Date();
+            var chronostamp22 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+            localStorage.setItem('chronostamp22', chronostamp22);
+            abortTimeOut1 = setTimeout(function () {
+            setRemindAf('chronostamp1')
+            }, localStorage.getItem('chronostamp22'));
+        }
     } else if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
         document.getElementById('reminderstatus').textContent = "🔔";
         setchas1.value = localStorage.getItem('setchas1');
