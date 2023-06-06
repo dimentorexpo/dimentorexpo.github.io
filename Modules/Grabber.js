@@ -14,7 +14,7 @@ var win_Grabber =  // описание элементов окна Grabber
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 800px; display:flex; justify-content:space-evenly;" id="grabdata">
                                 <button id="hideMeGrabber" class="buttonHide">hide</button>
-                                <button id="GatherStatByThemes">🧮</button>
+                                <button id="GatherStatByThemes" disabled>🧮</button>
 								<div style="width:450px;background: #5f7875;height: 21px;"><div id="progressBarGrabber" style="width: 0%; height: 20px; background-color: #e38118; border: 1px solid black; text-align:center; font-weight:700; color:white;"></div></div>
                         </div>
 						
@@ -23,8 +23,9 @@ var win_Grabber =  // описание элементов окна Grabber
 								<button id="HideToolsPanel"class="buttonHide">hide</button>
 								<button id="SwitchToGraph">🔀📊</button>
 								<button id="SwitchToTable">🔀🧮</button>
-								<button id="SwitchToIntervalTable">🔀🧮〰</button>
 								<button id="SwitchToIntervalGraph">🔀📊〰</button>
+								<button id="SwitchToIntervalTable">🔀🧮〰</button>
+								<button id="SaveIntervalCSV" disabled>〰💾CSV</button>
 							</div>
 							<div id="AgregatedDataOut" style="color: bisque; padding: 5px; text-align: center;"></div>
 						</div>
@@ -66,6 +67,7 @@ var win_Grabber =  // описание элементов окна Grabber
 						<div style="padding-bottom: 5px;">	
 								<select id="ThemesToSearch" style="margin-left:150px; margin-top:10px;">
 									<option style="background-color:#69b930; text-align: center;  color: white; font-weight: 700;" value="parseallthemes">ALL</option>
+									<option style="background-color:coral; text-align: center;  color: white; font-weight: 700;" value="parsenothemes">Without themes</option>
 									<option style="background-color:DarkKhaki;" value="skmob">Skyeng👨‍🎓Mob</option>
 									<option value="1804">📱‍👨‍🎓Авторизация</option>
 									<option value="1805">📱‍👨‍🎓Домашка</option>
@@ -83,13 +85,15 @@ var win_Grabber =  // описание элементов окна Grabber
 									<option value="1840">📱👽3Сторис</option>
 									<option value="1837">📱👽Страница расписания</option>
 									<option value="1834">📱👽Страница финансов</option>
-									<option style="background-color:DarkKhaki;" value="sksmpar">Skysmart👪родит</option>
+									<option style="background-color:DarkKhaki;" value="sksmpartapp">Skysmart👪родит</option>
                                     <option value="1884">📱👪Другое</option>
 									<option value="1883">📱👪Материалы</option>
 									<option value="1880">📱👪Предметы и баланс</option>
 									<option value="1881">📱👪Профиль родителя</option>
 									<option value="1879">📱👪Расписание</option>
 									<option value="1882">📱👪Чат</option>
+									<option style="background-color:DarkKhaki;" value="skyproapp">Приложение Skypro</option>
+                                    <option value="1904">Skypro App - Виджет входа на урок</option>
 									<option style="background-color:DarkKhaki;" value="solanka">Different</option>
                                     <option value="2034">🚫Прочее</option>
 									<option value="2030">ⓂSlack-проблемы со входом</option>
@@ -116,11 +120,11 @@ var win_Grabber =  // описание элементов окна Grabber
 									<option value="1585">💻Камера</option>
 									<option value="1580">💻Блокировалось ПО</option>
 									<option value="1594">💻Не подерж браузер</option>
-									<option value="1595">💻Не подерж кам,гарн,пк</option>
+									<option value="1595">💻Не подерж камера гарнитура пк</option>
                                     <option value="1593">💻Сбой платф</option>
 									<option value="1592">💻Сб задерж кам</option>
 									<option value="1587">💻Инет ниж мин</option>
-									<option value="1590">💻Сб плат блок,прерыв</option>
+									<option value="1590">💻Сб плат блок прерыв связь</option>
 									<option value="1588">💻Хар ниж мин</option>
 									<option value="1591">💻Сб задерж звука</option>
 									<option style="background-color:DarkKhaki;" value="lkp">Проблемы ЛКП</option>
@@ -175,7 +179,7 @@ var win_Grabber =  // описание элементов окна Grabber
 									<option value="1972">💭Vim-словарь</option>
 									<option value="1973">💭Vim-упражнения</option>
                                     <option value="1966">💭ЛК-ОС род</option>
-									<option value="1965">💭ЛК-пер,отм ур</option>
+									<option value="1965">💭ЛК-перенос отмена ур</option>
                                     <option value="1967">💭ЛК-профиль</option>
                                     <option value="1968">💭ЛК-семья</option>
 									<option value="1969">💭ЛК чат</option>
@@ -186,8 +190,14 @@ var win_Grabber =  // описание элементов окна Grabber
 									<option value="1977">💭App решения</option>
                                     <option value="1978">💭App Skysmart род</option>
                                     <option value="1980">💭Прочее</option>
-									<option style="background-color:DarkKhaki;" value="feedbk">Оплата(КЦ)</option>
+									<option style="background-color:DarkKhaki;" value="difCCthemes">Разные тематики с КЦ</option>
 									<option value="479">💰КЦ-Проблемы с оплатой</option>
+									<option value="63">💻КЦ-Нет видео или звука</option>
+									<option value="66">💼КЦ-ДЗ и вирт класс</option>
+									<option value="109">💼КЦ-Сброс</option>
+									<option value="73">🏝КЦ-Отпуск У</option>
+									<option value="107">📱КЦ-Проч обр по Skyeng App</option>
+									<option value="1249">💋КЦ-Talks</option>
                                     </select>
                                <button style=" title="ищет чаты по тематике" id="stargrab">Find</button>
 							   	<button id="webtoCSV">💾 Download CSV</button>
@@ -597,6 +607,8 @@ countsArrayInterval.sort((a, b) => {
 
   // Добавляем таблицу в контейнер
   tableContainer.appendChild(table);
+  document.getElementById('SaveIntervalCSV').removeAttribute('disabled')
+  
 }
 
 function sortTableByCount() {
@@ -761,8 +773,34 @@ new Chart(ctx, {
   }
 });
   
+  document.getElementById('SaveIntervalCSV').removeAttribute('disabled')
 }
 
+function saveToCSVInterval() {
+  let csvContent = "\uFEFF"; // Добавление BOM символа для корректной кодировки UTF-8
+
+  // Добавление заголовков столбцов
+  csvContent += "TimeStamp,ThemeValue,Count\n";
+
+  // Добавление данных
+  countsArrayInterval.forEach(item => {
+    const { TimeStamp, ThemeValue, Count } = item;
+    const row = `${TimeStamp},${ThemeValue},${Count}\n`;
+    csvContent += row;
+  });
+
+  // Создание элемента ссылки для скачивания CSV-файла
+  const downloadLink = document.createElement("a");
+  downloadLink.href = "data:text/csv;charset=utf-8," + encodeURIComponent(csvContent);
+  downloadLink.setAttribute("download", "data.csv");
+  document.body.appendChild(downloadLink);
+
+  // Нажатие на ссылку для скачивания файла
+  downloadLink.click();
+
+  // Удаление ссылки из DOM
+  document.body.removeChild(downloadLink);
+}
 
 let chekopersarr=[];
 let newarray = [];
@@ -778,7 +816,8 @@ document.getElementById('stargrab').onclick = async function() {
 	if (document.getElementById('CSATFilterField').style.display =="") {
 		document.getElementById('CSATFilterField').style.display ="none"
 	}
-
+	
+	document.getElementById('GatherStatByThemes').setAttribute('disabled','')
 	
 	document.getElementById('foundcount').innerHTML = ''
 	document.getElementById('avgCsatCount').innerHTML = ''
@@ -922,7 +961,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 					  
 					  if (matchedItem) {
 						const csat = matchedItem.Rate;
-						if (chosentheme !== "parseallthemes") {
+						if (chosentheme !== "parseallthemes" && chosentheme !== "parsenothemes") {
 						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
 							.then(r => r.json())
 							.then(r => {
@@ -956,13 +995,43 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								console.log(operstagsarray);
 							  }
 							});
+						}  else if (chosentheme !== "parseallthemes" && chosentheme == "parsenothemes") {
+							 await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
+							.then(r => r.json())
+							.then(r => {
+				  
+							 operstagsarray.push({ChatId: conversationId , Tags: r.payload.tags.value})
+							if (r.payload.topicId && r.payload.topicId.value =='' && tmponlyoperhashes[j].Duration == undefined) { 
+							 	payloadarray.push({
+								  ChatId: conversationId,
+								  OperatorName: namespisochek[i],
+								  timeStamp: "Active chat, ⏳",
+								  CSAT: csat,
+								  ThemeValue: '⁉No theme'
+								});
+							 } else if (r.payload.topicId.value =='' && tmponlyoperhashes[j].Duration != undefined) {
+								payloadarray.push({
+									ChatId: conversationId,
+									OperatorName: namespisochek[i],
+									timeStamp: new Date(+r.tsCreate + tmponlyoperhashes[j].Duration).toLocaleString('ru-RU', timeOptions),
+									CSAT: csat,
+									ThemeValue: '⁉No theme'
+								});	
+
+							 } 
+
+							  console.log(payloadarray);
+							  console.log(namespisochek[i]);
+							});
+							
+							
 						} else {
 						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
 							.then(r => r.json())
 							.then(r => {
 				  
 							 operstagsarray.push({ChatId: conversationId , Tags: r.payload.tags.value})
-							 if (r.payload.topicId && tmponlyoperhashes[j].Duration != undefined) {
+							 if (r.payload.topicId && r.payload.topicId.value !='' && tmponlyoperhashes[j].Duration != undefined) {
 								payloadarray.push({
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
@@ -971,7 +1040,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								  ThemeValue: themesarray.find(theme => theme.value === r.payload.topicId.value)?.ThemeName || ''
 								});
 
-							 } else if (r.payload.topicId && tmponlyoperhashes[j].Duration == undefined) {
+							 } else if (r.payload.topicId && r.payload.topicId.value !='' && tmponlyoperhashes[j].Duration == undefined) {
 								payloadarray.push({
 								  ChatId: conversationId,
 								  OperatorName: namespisochek[i],
@@ -980,25 +1049,27 @@ for (let i = 0; i < chekopersarr.length; i++) {
 								  ThemeValue: themesarray.find(theme => theme.value === r.payload.topicId.value)?.ThemeName || ''
 								});
 
-							 } else if (!r.payload.topicId && tmponlyoperhashes[j].Duration != undefined) {
+							 } else if (r.payload.topicId && r.payload.topicId.value =='' && tmponlyoperhashes[j].Duration == undefined) { 
+							 	payloadarray.push({
+								  ChatId: conversationId,
+								  OperatorName: namespisochek[i],
+								  timeStamp: "Active chat, ⏳",
+								  CSAT: csat,
+								  ThemeValue: '⁉No theme'
+								});
+							 }
+
+							 else if (r.payload.topicId.value =='' && tmponlyoperhashes[j].Duration != undefined) {
 								 
 								payloadarray.push({
 									ChatId: conversationId,
 									OperatorName: namespisochek[i],
 									timeStamp: new Date(+r.tsCreate + tmponlyoperhashes[j].Duration).toLocaleString('ru-RU', timeOptions),
 									CSAT: csat,
-									ThemeValue: 'no theme'
+									ThemeValue: '⁉No theme'
 								});	
 
-							 } else if (!r.payload.topicId && tmponlyoperhashes[j].Duration == undefined) { 
-							 	payloadarray.push({
-								  ChatId: conversationId,
-								  OperatorName: namespisochek[i],
-								  timeStamp: "Active chat, ⏳",
-								  CSAT: csat,
-								  ThemeValue: 'no theme'
-								});
-							 }
+							 } 
 
 							  
 							  console.log(payloadarray);
@@ -1166,7 +1237,10 @@ for (let i = 0; i < chekopersarr.length; i++) {
 				switchToIntervalTableButton.addEventListener('click', buildIntervalTable);	
 
 				const switchToIntervalGraphButton = document.getElementById('SwitchToIntervalGraph');
-				switchToIntervalGraphButton.addEventListener('click', drawIntervalGraph);
+				switchToIntervalGraphButton.addEventListener('click', drawIntervalGraph);	
+
+				const SaveIntervalCSVButton = document.getElementById('SaveIntervalCSV');
+				SaveIntervalCSVButton.addEventListener('click', saveToCSVInterval);				
 			
 			let btnFilters = document.getElementsByName('btnNameFilter')
 			for (let i=0;i<btnFilters.length;i++) {
@@ -1244,30 +1318,6 @@ for (let i = 0; i < chekopersarr.length; i++) {
 				}
 			}
 			
-			// method of calculating averagecsat of foundchats
-			
-			// function calcAvgCsat() {
-				// let csatvalcontainer = document.getElementsByName('CSATvalue')
-				// let arrayoffoundmarks = [];
-
-				// for (let i=0; i<csatvalcontainer.length;i++) {
-					// if (csatvalcontainer[i].textContent !='-') {
-						// arrayoffoundmarks.push(Number(csatvalcontainer[i].textContent))
-					// }
-				// }
-
-				// let sumcsat = 0;
-				// let countcsat = 0;
-
-				// arrayoffoundmarks.forEach((element) => {
-				  // if (typeof element === "number") {
-					// sumcsat += element;
-					// countcsat++;
-				  // }
-				// });
-
-				// avgCsatCountVar = sumcsat / countcsat;
-			// }
 				function calcAvgCsat() {
 				let csatvalcontainer = document.getElementsByName('CSATvalue');
 				let arrayoffoundmarks = [];
@@ -1325,6 +1375,9 @@ for (let i = 0; i < chekopersarr.length; i++) {
 						}
 					}
 				}
+				
+			document.getElementById('GatherStatByThemes').removeAttribute('disabled')
+
 			
 }
 
