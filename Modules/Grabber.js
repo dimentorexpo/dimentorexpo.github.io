@@ -67,7 +67,8 @@ var win_Grabber =  // описание элементов окна Grabber
 							  <label><input type="checkbox" name="tagsforfilter" value="refusal_of_help"> Отказ от помощи</label>
 							  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_outgoing_tp_crm2"> Передача на ТП Исход</label>
 							  <label><input type="checkbox" name="tagsforfilter" value="queue"> Очередь</label>
-							  <button id="hideselecalltags"> Apply</button>
+							  <button id="hideselecalltags">🚀Apply</button>
+							  <button id="SaveToCSVFilteredByTags">💾CSV</button>
 							</div>
 
 						<div style="padding-bottom: 5px;">
@@ -317,7 +318,7 @@ async function getlistofopers() {
 
 }
 
-    function calcAvgCsat() {
+function calcAvgCsat() {
         let csatvalcontainer = document.getElementsByName('CSATvalue');
         let arrayoffoundmarks = [];
 
@@ -353,6 +354,30 @@ async function getlistofopers() {
         document.getElementById('avgCsatCount').innerHTML = '<span style="background: #2960ae; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">' + "Средний CSAT по выгрузке: " + avgCsatCountVar.toFixed(2) + '</span>'
     }
 
+function saveFilteredTableCSV() {
+	let nwtable = document.getElementById("TableGrabbed");
+	let csvData = [];
+
+	for (let i = 0; i < nwtable.rows.length; i++) {
+		if (nwtable.rows[i].style.display !== 'none') {
+			let rowData = [];
+			for (let j = 0; j < nwtable.rows[i].cells.length; j++) {
+				// Преобразование текстового содержимого ячейки в строку CSV
+				rowData.push('"' + nwtable.rows[i].cells[j].textContent.replace(/"/g, '""') + '"');
+			}
+			csvData.push(rowData.join(","));
+		}
+	}
+
+	let csvString = csvData.join("\n");
+	let csvContent = "\uFEFF" + csvString; // Добавление BOM для поддержки кириллицы
+
+	let downloadLink = document.createElement("a");
+	downloadLink.href = "data:text/csv;charset=utf-8," + encodeURIComponent(csvContent);
+	downloadLink.download = "filtered_table.csv";
+
+	downloadLink.click();
+}
 
 document.getElementById('openGrabber').onclick = function () {
     let parseThemesAndVals = document.getElementById('ThemesToSearch')
@@ -1294,62 +1319,56 @@ document.getElementById('stargrab').onclick = async function () {
     SaveIntervalCSVButton.addEventListener('click', saveToCSVInterval);
 	
 	///
-			function filterTableRowsByTags() {
-					// Получаем выбранный чекбокс
-					const selectedCheckbox = document.querySelector('input[name="tagsforfilter"]:checked');
+		function filterTableRowsByTags() {
+		  // Получаем выбранные чекбоксы
+		  const selectedValues = getSelectedCheckboxTagsValues();
 
-					if (selectedCheckbox != null) {
-					  // Получаем значение выбранного чекбокса
-					  const selectedValue = selectedCheckbox.value;
+		  if (selectedValues.length > 0) {
+			const rows = document.querySelectorAll('.rowOfChatGrabbed');
+			rows.forEach(function (row) {
+			  const cellValue = row.children[3].textContent;
+			  let isMatched = false; // Флаг для отслеживания совпадения
 
-					  // Фильтруем массив cleanedarray на основе свойства Tags
-					  testarray = cleanedarray.filter(item => {
-						// Проверяем каждый элемент массива Tags на совпадение с выбранным значением
-						const tags = item.Tags.split(',').map(tag => tag.trim());
-						return tags.includes(selectedValue);
-					  });
+			  selectedValues.forEach(function (selectedValue) {
+				const filteredArray = cleanedarray.filter(item => {
+				  const tags = item.Tags.split(',').map(tag => tag.trim());
+				  return tags.includes(selectedValue);
+				});
 
-					  console.log(testarray);
-					  
-					  const rows = document.querySelectorAll('.rowOfChatGrabbed');
-						rows.forEach(function (row) {
-						  const cellValue = row.children[3].textContent;
+				filteredArray.forEach(function (item) {
+				  if (item.ChatId === cellValue) {
+					isMatched = true;
+					return; // Прерываем цикл, если найдено совпадение
+				  }
+				});
+			  });
 
-						  let isMatched = false; // Флаг для отслеживания совпадения
+			  if (isMatched) {
+				row.style.display = '';
+			  } else {
+				row.style.display = 'none';
+			  }
+			});
 
-						  testarray.forEach(function (item) {
-							if (item.ChatId === cellValue) {
-							  isMatched = true;
-							  return; // Прерываем цикл, если найдено совпадение
-							}
-						  });
-						if (isMatched) {
-							row.style.display = '';
-						  }
-						  // Иначе скрываем строку
-						  else {
-							row.style.display = 'none';
-						  }
-						});
-					  			calcAvgCsat()
-					  
-					} else {
-					  const rows = document.querySelectorAll('.rowOfChatGrabbed');
-					  rows.forEach(function (row) {
-						  row.style.display = '';
-					  })
-					  console.log("Ни один чекбокс не выбран");
-					  			calcAvgCsat()
-					}
+			calcAvgCsat();
+		  } else {
+			const rows = document.querySelectorAll('.rowOfChatGrabbed');
+			rows.forEach(function (row) {
+			  row.style.display = '';
+			});
+
+			console.log("Ни один чекбокс не выбран");
+
+			calcAvgCsat();
+		  }
 		}
 		
 	
 	document.getElementById('hideselecalltags').onclick = filterTableRowsByTags
+	document.getElementById('SaveToCSVFilteredByTags').onclick = saveFilteredTableCSV
 	
 	///
 	
-	
-
     let btnFilters = document.getElementsByName('btnNameFilter')
     for (let i = 0; i < btnFilters.length; i++) {
         btnFilters[i].onclick = function () {
@@ -1393,31 +1412,7 @@ document.getElementById('stargrab').onclick = async function () {
                     document.getElementById('CSATFilterField').style.display = 'none'
                 }
 
-                document.getElementById('downloadfilteredtocsv').onclick = function () {
-                    let nwtable = document.getElementById("TableGrabbed");
-                    let csvData = [];
-
-                    for (let i = 0; i < nwtable.rows.length; i++) {
-                        if (nwtable.rows[i].style.display !== 'none') {
-                            let rowData = [];
-                            for (let j = 0; j < nwtable.rows[i].cells.length; j++) {
-                                // Преобразование текстового содержимого ячейки в строку CSV
-                                rowData.push('"' + nwtable.rows[i].cells[j].textContent.replace(/"/g, '""') + '"');
-                            }
-                            csvData.push(rowData.join(","));
-                        }
-                    }
-
-                    let csvString = csvData.join("\n");
-                    let csvContent = "\uFEFF" + csvString; // Добавление BOM для поддержки кириллицы
-
-                    let downloadLink = document.createElement("a");
-                    downloadLink.href = "data:text/csv;charset=utf-8," + encodeURIComponent(csvContent);
-                    downloadLink.download = "filtered_table.csv";
-
-                    downloadLink.click();
-
-                }
+                document.getElementById('downloadfilteredtocsv').onclick = saveFilteredTableCSV
 
 
             } else if (btnFilters[i].textContent == '🏁 CSAT' && document.getElementById('CSATFilterField').style.display == '') {
