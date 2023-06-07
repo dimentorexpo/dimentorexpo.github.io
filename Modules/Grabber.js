@@ -42,12 +42,12 @@ var win_Grabber =  // описание элементов окна Grabber
 							<div id="tagscontainer" class="filtersList"  style="color: bisque; background: #ff7f507d; font-size: 16px; padding: 5px; width: 33%; border-radius: 20px; text-align: center; cursor: pointer; border: 1px solid black;">🔱Фильтр по тегам🏷</div>
 						</div>
 
-							<div id="activeoperatorsgroup" style="max-height:200px; overflow-y:auto; display: none; grid-template-columns: repeat(3, 1fr); margin-left:5px;">
+							<div id="activeoperatorsgroup" style="max-height:200px; overflow-y:auto; display: none; grid-template-columns: repeat(3, 1fr); margin-left:5px; border:1px solid lightslategrey;">
 							</div>
 								<label id="hideselecall" style="display: none; color:#93f5a6; margin-left:5px; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%); font-weight: 700;"><input type="checkbox" id="checkthemall"> Select All</label>
 
 
-							<div id="listofthemarks" style="display: none; color:bisque; margin-left:5px;">
+							<div id="listofthemarks" style="display: none; color:bisque; border:1px solid lightslategrey; margin-left:5px;">
 							  <label><input type="checkbox" name="marks" value="5"> 5</label>
 							  <label><input type="checkbox" name="marks" value="4"> 4</label>
 							  <label><input type="checkbox" name="marks" value="3"> 3</label>
@@ -59,16 +59,21 @@ var win_Grabber =  // описание элементов окна Grabber
 
 
 							<div id="listofthetags" style="display: none; color:bisque; margin-left:5px;">
-							  <label><input type="checkbox" name="tagsforfilter" value="server_issues"> Серверные</label>
-							  <label><input type="checkbox" name="tagsforfilter" value="untargeted"> Нецелевой</label>
-							  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_tc"> Передача в TC</label>
-							  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_channel_qa"> Передача в QA</label>
-							  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_development"> Передача в разработку</label>
-							  <label><input type="checkbox" name="tagsforfilter" value="refusal_of_help"> Отказ от помощи</label>
-							  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_outgoing_tp_crm2"> Передача на ТП Исход</label>
-							  <label><input type="checkbox" name="tagsforfilter" value="queue"> Очередь</label>
-							  <button id="hideselecalltags">🚀Apply</button>
-							  <button id="SaveToCSVFilteredByTags">💾CSV</button>
+								<div style="display: grid; grid-template-columns: repeat(3, 1fr); border:1px solid lightslategrey;">
+								  <label><input type="checkbox" name="tagsforfilter" value="server_issues"> Серверные</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="untargeted"> Нецелевой</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_tc"> Передача в TC</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_channel_qa"> Передача в QA</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_development"> Передача в разработку</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="refusal_of_help"> Отказ от помощи</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_outgoing_tp_crm2"> Передача на ТП Исход</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="queue"> Очередь</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="oo"> Ошибка КЦ</label>
+							  </div>
+							  <div style="display: flex;">
+								  <button id="hideselecalltags" style="flex-grow:1">🚀Apply</button>
+								  <button id="SaveToCSVFilteredByTags" style="flex-grow:1">💾CSV</button>
+							  </div>
 							</div>
 
 						<div style="padding-bottom: 5px;">
@@ -1197,7 +1202,12 @@ document.getElementById('stargrab').onclick = async function () {
         const th = document.createElement('th');
         th.textContent = columnName;
         th.setAttribute('name', 'btnNameFilter')
-        th.style = 'text-align:center; font-weight:700; background:dimgrey; border:1px solid black; padding:5px; position: sticky; top: 0;'
+		if (columnName == "🏁 CSAT") {
+			th.style = 'text-align:center; font-weight:700; background:dimgrey; border:1px solid black; padding:5px; position: sticky; top: 0; cursor:pointer;'
+		} else  {
+			th.style = 'text-align:center; font-weight:700; background:dimgrey; border:1px solid black; padding:5px; position: sticky; top: 0;'
+		} 
+
         headerRow.appendChild(th);
     });
 
