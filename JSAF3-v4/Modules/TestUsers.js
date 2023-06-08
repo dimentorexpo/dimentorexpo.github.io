@@ -16,12 +16,16 @@ if (localStorage.getItem('winTopTestUsers') == null) {
     localStorage.setItem('winTopTestUsers', '120');
     localStorage.setItem('winLeftTestUsers', '295');
 }
+
+
 let TestUsersdiv = document.createElement('div'); // добавляем окно тестовых поьзователей
 document.body.append(TestUsersdiv);
 TestUsersdiv.style = 'min-height: 20px; max-height: 750px; min-width: 35px; max-width: 370px; background: #464451; top: ' + localStorage.getItem('winTopTestUsers') + 'px; left: ' + localStorage.getItem('winLeftTestUsers') + 'px; font-size: 14px; z-index: 12500; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; display: none';
 TestUsersdiv.setAttribute('id', 'TestUsers');
 TestUsersdiv.classList = 'onlyfortp';
 TestUsersdiv.innerHTML = win_TestUsers;
+
+let addInfoUser = document.getElementById('addInfoUser');
 
 var listenerTestUsers = function (e, a) { // сохранение позиции окна тестовых поьзователей
     TestUsersdiv.style.left = Number(e.clientX - myXTestUsers) + "px";
@@ -39,6 +43,8 @@ wintTestUsers.onmousedown = function (a) { // изменение позиции 
 }
 wintTestUsers.onmouseup = function () { document.removeEventListener('mousemove', listenerTestUsers); } // прекращение изменения позиции окна тестовых поьзователей
 
+let btnsid = document.getElementById('sidcode');
+let btntid = document.getElementById('tidcode');
 btnsid.addEventListener("click", (event) => { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
@@ -109,4 +115,8 @@ function logginerfortests(polzovatel) { // функция логинера дл�
             document.getElementById('responseTextarea1').removeAttribute('senddata1');
         }
     });
+}
+
+document.getElementById('TestRooms').onclick = function () { //открывает окно создания тестовых комнат
+    setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
 }
