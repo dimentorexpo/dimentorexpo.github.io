@@ -3,9 +3,9 @@ var win_Chathis =  // описание элементов окна Истори�
         <span style="width: 410px">
 			<span style="cursor: default;">
 				<div style="margin: 5px; width: 410px;" id="chathisheader">
-					<button title="Скрытие меню" id="hideMeChHis" class="buttonHide">hide</button>
+					<button title="Скрытие меню" id="hideMeChHis" style="width:50px; background: #228B22;">hide</button>
 					<button title="Очистка всех полей" id="clearallinfo" style="width:25px;">🧹</button>
-					<select style="height:28px; width:250px; text-align:center" id="operatorstp" onchange="findchatsoper()">
+					<select style="height:28px; width:260px; text-align:center" id="operatorstp" onchange="findchatsoper()">
 							<option selected="" disabled="">Операторы на линии</option>
 					</select>
 					<button title="Обновляет список активных операторов, их статус, и количества чатов" id="RefrehOperators" style="width:25px;">♻</button>
@@ -59,7 +59,7 @@ var win_Chathis =  // описание элементов окна Истори�
 			<div id="userchatdata" style="display:none; position: fixed; top: 0px; right: 420px; background: rgb(70, 68, 81); color: bisque; width: 365px; height: 400px; max-height: 600px; max-width: 500px; overflow: auto; border: 1px solid; padding: 10px; word-break: break-all;"">
 
 						<div id="datainfoheader">
-							<button id="hideuserdatainfo" class="buttonHide">hide</button>
+							<button id="hideuserdatainfo" style="width:50px; background: #228B22;">hide</button>
 							<button id="gotocrmhis" style="width:50px;">CRM</button>
 						</div>
 
@@ -338,7 +338,7 @@ async function findchatsoper() { // ищет активные чаты на вы
     if (objSel.length > 1) {
         for (let i = 1; i < objSel.length; i++) {
             if (objSel[i].selected == true) {
-                await fetch("https://uat.autofaq.ai/api/conversations/history", {
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
                         "content-type": "application/json",
                         "sec-fetch-dest": "empty",
@@ -404,7 +404,7 @@ async function findchatsoper() { // ищет активные чаты на вы
 
                     document.getElementsByClassName('chatlist')[i].onclick = async () => {
 
-                        await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
 
                         if (convdata.status != null && convdata.status == 'AssignedToOperator')
@@ -715,7 +715,7 @@ document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDat
             activetechopers = []
             objSel.length = 1
             objSel[0].selected = true;
-            await fetch("https://uat.autofaq.ai/api/operators/statistic/currentState", {
+            await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
                 "credentials": "include"
             }).then(r => r.json()).then(result => {
 
@@ -832,7 +832,7 @@ document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDat
 
                 document.getElementById('infofield').innerHTML = 'Загрузка'
 
-                await fetch("https://uat.autofaq.ai/api/conversations/history", {
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
                         "content-type": "application/json",
                         "sec-fetch-mode": "cors",
@@ -895,7 +895,7 @@ document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDat
 
                     document.getElementsByClassName('chatlist')[i].onclick = async () => {
 
-                        await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
 
                         if (convdata.status != null && convdata.status == 'AssignedToOperator')
@@ -909,7 +909,7 @@ document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDat
 
             } else if (document.getElementById('chatuserhis').value == '' && document.getElementById('hashchathis').value != '') { //если пользователь не введен, но введн хеш чата
                 flagsearch = 'searchbyhash'
-                await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
+                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('hashchathis').value.trim()).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 
                 if (convdata.status != null && convdata.status == 'AssignedToOperator')
@@ -950,7 +950,7 @@ document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDat
 
                     document.getElementsByClassName('chatlist')[i].onclick = async () => {
 
-                        await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
+                        await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementsByClassName('chatlist')[i].title).then(r => r.json()).then(r => convdata = r)
                         console.log(convdata)
 
                         if (convdata.status != null && convdata.status == 'AssignedToOperator')
@@ -972,7 +972,7 @@ document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDat
             if (document.getElementById('placechatid').innerText != '') {
                 document.getElementById('infofield').innerHTML = '';
 
-                await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                 console.log(convdata)
 
                 if (convdata.status != null && convdata.status == 'AssignedToOperator')
@@ -990,7 +990,7 @@ document.getElementById('dateToChHis').value = getyearLS + "-" + getFormattedDat
                 let chat_id = document.getElementById('placechatid').innerText;
                 let operator_id = operatorId;
 
-                fetch("https://uat.autofaq.ai/api/conversation/assign", {
+                fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
                     "headers": {
                         "content-type": "application/json"
                     },
@@ -1008,10 +1008,10 @@ async function startnewchatfast(polzid) { //открывает быстро ча
     }
 
     if (polzid) {
-        await fetch(`https://uat.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}&groupId=c7bbb211-a217-4ed3-8112-98728dc382d8`, {
+        await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}&groupId=c7bbb211-a217-4ed3-8112-98728dc382d8`, {
             headers: {
             },
-            referrer: "https://uat.autofaq.ai/tickets/assigned/",
+            referrer: "https://skyeng.autofaq.ai/tickets/assigned/",
             referrerPolicy: "strict-origin-when-cross-origin",
             body: null,
             method: "POST",
@@ -1074,7 +1074,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
             if (arops.children[0].selected != true && hashid != '') {
                 for (let i = 1; i < arops.children.length; i++) {
                     if (arops.children[i].selected == true)
-                        fetch("https://uat.autofaq.ai/api/conversation/assign", {
+                        fetch("https://skyeng.autofaq.ai/api/conversation/assign", {
                             "headers": {
                                 "content-type": "application/json",
                                 "sec-fetch-dest": "empty",
@@ -1102,13 +1102,13 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                     let chathashfromdiv = document.getElementById('placechatid').innerText
                     let sesid;
 
-                    await fetch("https://uat.autofaq.ai/api/conversations/" + chathashfromdiv)
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
                         .then(r => r.json()).then(r => rdata = r)
                     sesid = rdata.sessionId;
 
                     let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
 
-                    fetch("https://uat.autofaq.ai/api/reason8/answers", {
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                         "headers": {
                             "accept": "*/*",
                             "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -1129,7 +1129,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                             if (document.getElementById('placechatid').innerText != '') {
                                 document.getElementById('infofield').innerHTML = '';
 
-                                await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
 
                                 fillchatbox();
@@ -1142,13 +1142,13 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                     let chathashfromdiv = document.getElementById('placechatid').innerText
                     let sesid;
 
-                    await fetch("https://uat.autofaq.ai/api/conversations/" + chathashfromdiv)
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
                         .then(r => r.json()).then(r => rdata = r)
                     sesid = rdata.sessionId;
 
                     let notemsg = '<p>' + document.getElementById('msgftochatornotes').value + '</p>';
 
-                    fetch("https://uat.autofaq.ai/api/reason8/answers", {
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                         "headers": {
                             "accept": "*/*",
                             "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -1169,7 +1169,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                             if (document.getElementById('placechatid').innerText != '') {
                                 document.getElementById('infofield').innerHTML = '';
 
-                                await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
 
                                 if (convdata.status != null && convdata.status == 'AssignedToOperator')
@@ -1194,13 +1194,13 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                     let chathashfromdiv = document.getElementById('placechatid').innerText
                     let sesid;
 
-                    await fetch("https://uat.autofaq.ai/api/conversations/" + chathashfromdiv)
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
                         .then(r => r.json()).then(r => rdata = r)
                     sesid = rdata.sessionId;
 
                     let notemsg = '<p>' + document.getElementById('msgftochatornotes1').value + '</p>';
 
-                    fetch("https://uat.autofaq.ai/api/reason8/answers", {
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                         "headers": {
                             "accept": "*/*",
                             "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -1221,7 +1221,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                             if (document.getElementById('placechatid').innerText != '') {
                                 document.getElementById('infofield').innerHTML = '';
 
-                                await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
 
                                 fillchatbox();
@@ -1234,13 +1234,13 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                     let chathashfromdiv = document.getElementById('placechatid').innerText
                     let sesid;
 
-                    await fetch("https://uat.autofaq.ai/api/conversations/" + chathashfromdiv)
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
                         .then(r => r.json()).then(r => rdata = r)
                     sesid = rdata.sessionId;
 
                     let notemsg = '<p>' + document.getElementById('msgftochatornotes1').value + '</p>';
 
-                    fetch("https://uat.autofaq.ai/api/reason8/answers", {
+                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
                         "headers": {
                             "accept": "*/*",
                             "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -1261,7 +1261,7 @@ async function startnewchatfast(polzid) { //открывает быстро ча
                             if (document.getElementById('placechatid').innerText != '') {
                                 document.getElementById('infofield').innerHTML = '';
 
-                                await fetch("https://uat.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
+                                await fetch("https://skyeng.autofaq.ai/api/conversations/" + document.getElementById('placechatid').innerText).then(r => r.json()).then(r => convdata = r)
                                 console.log(convdata)
 
                                 if (convdata.status != null && convdata.status == 'AssignedToOperator')

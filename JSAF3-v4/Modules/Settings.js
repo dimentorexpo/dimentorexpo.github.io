@@ -219,7 +219,7 @@ function paintstatus() { //функция перекрашивания стат�
         statusElem.style = style;
 
         let buttonElem;
-        if (document.URL === "https://uat.autofaq.ai/tickets/archive") {
+        if (document.URL === "https://skyeng.autofaq.ai/tickets/archive") {
             buttonElem = buttonElems[5];
         } else {
             buttonElem = buttonElems[4];

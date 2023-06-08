@@ -3,7 +3,7 @@ var win_serviceinfo =  // описание элементов окна инфо�
         <span style="width: 320px">
                 <span style="cursor: -webkit-grab;">
                         <div style="width: 320px;  border-bottom:1px solid #556B2F;" id="servicehead">
-                                <button title="скрывает меню" id="hideMeservice" class="buttonHide">hide</button>
+                                <button title="скрывает меню" id="hideMeservice" style="width:50px; background: #228B22; margin:5px;">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="Начинает чат с пользователем" id="startnewchat" style="width: 25.23px;">💬</button>
 								<button title="Делаем видимым номер телефона и почты" id='dounhidemailandphone'>👁‍🗨</button>
@@ -129,10 +129,10 @@ async function startnewchat(polzid) { //открывает чат с польз�
 
   if (polzid) {
     console.log(polzid);
-    await fetch(`https://uat.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}&groupId=c7bbb211-a217-4ed3-8112-98728dc382d8`, {
+    await fetch(`https://skyeng.autofaq.ai/api/conversation/start?channelId=eca64021-d5e9-4c25-b6e9-03c24s638d4d&userId=${polzid}&operatorId=${operatorId}&groupId=c7bbb211-a217-4ed3-8112-98728dc382d8`, {
       headers: {
       },
-      referrer: "https://uat.autofaq.ai/tickets/assigned/",
+      referrer: "https://skyeng.autofaq.ai/tickets/assigned/",
       referrerPolicy: "strict-origin-when-cross-origin",
       body: null,
       method: "POST",

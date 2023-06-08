@@ -3,7 +3,7 @@ var win_Links =  // описание элементов окна ссылок
         <span style="width: 550px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 550;" id="links_1str">
-					<button title="Скрытие меню" id="hideMe" class="buttonHide">hide</button>
+					<button title="Скрытие меню" id="hideMe" style="width:50px; background: #228B22;">hide</button>
                     <button title="Открывает Базу знаний в Confluence" id="knoweledgebaseKC" class="uplinksbar onlyforkc">📚</button>
                     <button title="Прослушать запись урока" id="lessonrecordKC" class="uplinksbar onlyforkc">👩‍🏫</button>
 					<button title="Личный кабинет в Skyeng" id="skyhomeKC" class="uplinksbar onlyforkc">💼</button>

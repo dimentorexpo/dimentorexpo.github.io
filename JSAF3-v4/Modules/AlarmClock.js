@@ -177,7 +177,7 @@ function setRemindAf(tsname) { //функция  при наступлении �
         source: "Operator"
     };
 
-    fetch("https://uat.autofaq.ai/api/reason8/operator/status", {
+    fetch("https://skyeng.autofaq.ai/api/reason8/operator/status", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
