@@ -251,13 +251,13 @@ document.getElementById('getstatfromperiod').onclick = async function () { // Т
     let allchatcountclosed = document.getElementById('sumchatcountclosed')
     allchatcountclosed.textContent = "Загрузка"
     strnew.textContent = "Загрузка"
-    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+    await fetch("https://uat.autofaq.ai/api/conversations/history", {
         "headers": {
             "content-type": "application/json",
             "sec-fetch-mode": "cors",
             "sec-fetch-site": "same-origin"
         },
-        "referrer": "https://skyeng.autofaq.ai/logs",
+        "referrer": "https://uat.autofaq.ai/logs",
         "referrerPolicy": "strict-origin-when-cross-origin",
         "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
         "method": "POST",
@@ -267,13 +267,13 @@ document.getElementById('getstatfromperiod').onclick = async function () { // Т
     allchatcounttouched.innerText = "Количество пощупаных чатов: " + sumchatcounttouched.total;
 
 
-    await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+    await fetch("https://uat.autofaq.ai/api/conversations/history", {
         "headers": {
             "content-type": "application/json",
             "sec-fetch-mode": "cors",
             "sec-fetch-site": "same-origin"
         },
-        "referrer": "https://skyeng.autofaq.ai/logs",
+        "referrer": "https://uat.autofaq.ai/logs",
         "referrerPolicy": "strict-origin-when-cross-origin",
         "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId + "\"],\"tsFrom\":\"" + datefrom + "\",\"tsTo\":\"" + dateto + "\",\"usedStatuses\":[\"ClosedByOperator\"],\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
         "method": "POST",
@@ -290,7 +290,7 @@ document.getElementById('getstatfromperiod').onclick = async function () { // Т
         csatCountNew = 0
         while (true) {
             test = ''
-            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
+            await fetch("https://uat.autofaq.ai/api/conversations/queues/archive", {
                 "headers": {
                     "content-type": "application/json",
                 },
@@ -300,7 +300,7 @@ document.getElementById('getstatfromperiod').onclick = async function () { // Т
             for (let i = 0; i < test.items.length; i++) {
                 let flagCsat = 0
                 let flagTopic = 0
-                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                await fetch('https://uat.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
                     .then(r => {
                         if (r.operatorId == operatorId) {
@@ -318,7 +318,7 @@ document.getElementById('getstatfromperiod').onclick = async function () { // Т
                             csatCountNew++
                         }
                 if (flagTopic == 1)
-                    stringChatsWithoutTopic2 += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;">' + test.items[i].conversationId + '</a></br>'
+                    stringChatsWithoutTopic2 += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://uat.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;">' + test.items[i].conversationId + '</a></br>'
             }
 
             if (stringChatsWithoutTopic2 == "")
@@ -354,7 +354,7 @@ document.getElementById('getlowcsat').onclick = async function () { // полу�
         stringChatsWithLowCsat = "";
         while (true) {
             test = ''
-            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
+            await fetch("https://uat.autofaq.ai/api/conversations/queues/archive", {
                 "headers": {
                     "content-type": "application/json",
                 },
@@ -364,7 +364,7 @@ document.getElementById('getlowcsat').onclick = async function () { // полу�
             for (let i = 0; i < test.items.length; i++) {
                 let flagCsat1 = 0
                 csatScoreNewLow = 0
-                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                await fetch('https://uat.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
                     .then(r => {
                         if (r.operatorId == operatorId) {
@@ -378,7 +378,7 @@ document.getElementById('getlowcsat').onclick = async function () { // полу�
                         }
 
                 if (csatScoreNewLow == 1)
-                    stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
+                    stringChatsWithLowCsat += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://uat.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="" style="color:#1E90FF;" class = "csatchatids">' + test.items[i].conversationId + '</a>' + '<span class = "lowcsatschats" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
 
             }
 
@@ -447,7 +447,7 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
         pagecmt = 1
         while (true) {
             test = ''
-            await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            await fetch("https://uat.autofaq.ai/api/conversations/history", {
                 "headers": {
                     "content-type": "application/json",
                 },
@@ -456,14 +456,14 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
             }).then(r => r.json()).then(r => test = r)
             for (let i = 0; i < test.items.length; i++) {
                 let flagComment = 0
-                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                await fetch('https://uat.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(response => response.json()).then(data => {
                         for (let j = 0; j < data.messages.length; j++) {
                             if (data.messages[j].tpe == "OperatorComment" && data.messages[j].txt == document.getElementById('commenttosearch').value)
                                 flagComment = 1
                         }
                         if (flagComment == 1)
-                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://skyeng.autofaq.ai/logs/' + data.id + '" onclick="" style="color:#1E90FF;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
+                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://uat.autofaq.ai/logs/' + data.id + '" onclick="" style="color:#1E90FF;" class="chatids">' + data.id + '</a>' + '<span class = "chatswithcomments" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '</br>'
 
                     })
             }
@@ -530,7 +530,7 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
         test = ''
         page = 1;
         while (true) {
-            await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+            await fetch("https://uat.autofaq.ai/api/conversations/history", {
                 "headers": {
                     "content-type": "application/json",
                 },
@@ -540,7 +540,7 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
             sctc = test.total;
             for (let i = 0; i < test.items.length; i++) {
                 let flagComment = 0
-                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                await fetch('https://uat.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(response => response.json()).then(data => {
                         if (data.payload.topicId.value == curval) {
                             if (data.payload.tags.value.match(/\w+/) != null && data.payload.tags.value.match(/\w+/) != undefined && data.payload.tags.value.match(/\w+/)[0] == "request_forwarded_to_outgoing_tp_crm2")
@@ -574,7 +574,7 @@ document.getElementById('parsechat').onclick = async function () { //Функц�
                                 tsm = "0" + timestmp.getMinutes();
                             else tsm = timestmp.getMinutes();
 
-                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://skyeng.autofaq.ai/logs/' + data.id + '" onclick="" style="color:#FFA07A;" class = "csatchatids">' + data.id + '</a>' + " " + tagflag + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + " " + tsh + ":" + tsm + '</br>';
+                            stringChatsWithComment += '<span style="color: #00FA9A">&#5129;</span>' + " " + '<a href="https://uat.autofaq.ai/logs/' + data.id + '" onclick="" style="color:#FFA07A;" class = "csatchatids">' + data.id + '</a>' + " " + tagflag + '<span class = "seechat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + " " + tsh + ":" + tsm + '</br>';
                             count++;
                         }
                     })
@@ -618,7 +618,7 @@ document.getElementById('changetheme').onclick = function () { //функция 
     let curval = document.getElementById('thematics').value;
     let chatId = document.getElementById('commenttosearch').value;
     if (chatId != "" && chatId != null && chatId != undefined)
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },

@@ -278,7 +278,7 @@ document.getElementById('multitag').onclick = function () { // откправк�
     let alltagsbtns = document.getElementsByName('tagssbtn')
     let tagsvaluesarr = [];
     let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+    if (window.location.href.indexOf('uat.autofaq.ai/tickets/archive') === -1)
         chatId = document.location.pathname.split('/')[3]
     else
         chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
@@ -298,7 +298,7 @@ document.getElementById('multitag').onclick = function () { // откправк�
         tagsvaluesarr = tagsvaluesarr.join(',')
         console.log("tagsvaluesarr: " + tagsvaluesarr)
 
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },
@@ -319,7 +319,7 @@ document.getElementById('linktojirasend').onclick = function () { // добав�
     let getval = document.getElementById('linktojiracoment').value;
     if (getval != '') {
         sendComment(getval);
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", {
+        fetch("https://uat.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },

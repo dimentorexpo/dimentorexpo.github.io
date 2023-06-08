@@ -202,7 +202,7 @@ document.getElementById('serviceinf').innerHTML = '';
             document.getElementById('chathashlnk').value = location.pathname.split('/')[3]
             conversid = document.getElementById('chathashlnk').value;
 
-            fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/click", {
+            fetch("https://uat.autofaq.ai/api/reason8/operator/customButtons/click", {
                 "headers": {
                     "content-type": "application/json",
                 },
@@ -237,7 +237,7 @@ document.getElementById('serviceinf').innerHTML = '';
         document.getElementById('hideMeCreateForm').onclick = function () {
             document.getElementById('AF_Createtask').style.display = 'none'
 
-            fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+            fetch("https://uat.autofaq.ai/api/reason8/operator/customButtons/form", {
                 "headers": {
                     "content-type": "application/json",
                 },
@@ -557,7 +557,7 @@ document.getElementById('serviceinf').innerHTML = '';
                 }
 				
 				if (idflagempty == 1){
-                    fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+                    fetch("https://uat.autofaq.ai/api/reason8/operator/customButtons/form", {
                         "headers": {
                             "content-type": "application/json",
                         },
@@ -567,7 +567,7 @@ document.getElementById('serviceinf').innerHTML = '';
                         "credentials": "include"
                     });
                 } else {
-                    fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+                    fetch("https://uat.autofaq.ai/api/reason8/operator/customButtons/form", {
                         "headers": {
                             "content-type": "application/json",
                         },
@@ -603,7 +603,7 @@ document.getElementById('serviceinf').innerHTML = '';
     } else {
         document.getElementById('AF_Createtask').style.display = 'none'
         conversid = document.getElementById('chathashlnk').value;
-        fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
+        fetch("https://uat.autofaq.ai/api/reason8/operator/customButtons/form", {
             "headers": {
                 "content-type": "application/json",
             },

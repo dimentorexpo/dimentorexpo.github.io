@@ -268,7 +268,7 @@ document.getElementById('clearall').onclick = function () {
 }
 
 async function getlistofopers() {
-	await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState").then(r=>r.json()).then(r=>dataInfo=r)
+	await fetch("https://uat.autofaq.ai/api/operators/statistic/currentState").then(r=>r.json()).then(r=>dataInfo=r)
 
 let tpopers = dataInfo.onOperator
   .map(el => el.groupId === "c7bbb211-a217-4ed3-8112-98728dc382d8" ? ({ id: el.operator.id, name: el.operator.fullName }) :  el.groupId ==="8266dbb1-db44-4910-8b5f-a140deeec5c0" ? ({ id: el.operator.id, name: el.operator.fullName }) : null)
@@ -867,7 +867,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 	tmponlyoperhashes=[];
             page = 1;
             do {
-                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
+                await fetch("https://uat.autofaq.ai/api/conversations/history", {
                     headers: {
                         "content-type": "application/json",
                     },
@@ -923,7 +923,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 					  if (matchedItem) {
 						const csat = matchedItem.Rate;
 						if (chosentheme !== "parseallthemes") {
-						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
+						  await fetch("https://uat.autofaq.ai/api/conversations/" + conversationId)
 							.then(r => r.json())
 							.then(r => {
 							  if (r.payload.topicId && r.payload.topicId.value === chosentheme && tmponlyoperhashes[j].Duration != undefined) {  
@@ -957,7 +957,7 @@ for (let i = 0; i < chekopersarr.length; i++) {
 							  }
 							});
 						} else {
-						  await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
+						  await fetch("https://uat.autofaq.ai/api/conversations/" + conversationId)
 							.then(r => r.json())
 							.then(r => {
 				  

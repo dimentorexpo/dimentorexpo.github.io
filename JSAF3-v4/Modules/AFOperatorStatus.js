@@ -26,7 +26,7 @@ async function operstatusleftbar() { // функция замены Script Packa
     else if (operdep == 'Prem')
         flagtpkc = 'Prem'
 
-    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
+    await fetch("https://uat.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
     }).then(r => r.json()).then(result => {
 

@@ -208,11 +208,11 @@ let intervalotak = setInterval(function () {
                 // end of it
 
                 if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                    document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                    document.getElementById('chatlnk').value = "https://uat.autofaq.ai/logs/" + document.URL.split('/')[5]
 
                 document.getElementById('refreshhashrefuseform').onclick = () => {
                     if (document.URL.split('/')[5] != '' && document.URL.split('/')[5] != undefined)
-                        document.getElementById('chatlnk').value = "https://skyeng.autofaq.ai/logs/" + document.URL.split('/')[5]
+                        document.getElementById('chatlnk').value = "https://uat.autofaq.ai/logs/" + document.URL.split('/')[5]
                     else document.getElementById('chatlnk').value = ''
                 }
 

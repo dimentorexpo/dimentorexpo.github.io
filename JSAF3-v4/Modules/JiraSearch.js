@@ -242,7 +242,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                         sendComment('https://jira.skyeng.tech/browse/' + favissues[j].match(/browse.(\S+)"/)[1])
 
                         let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        fetch("https://uat.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",
@@ -437,13 +437,13 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                     for (let j = 0; j < barray.length; j++) {
                         barray[j].onclick = function () {
                             let chatId = ''
-                            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
+                            if (window.location.href.indexOf('uat.autofaq.ai/tickets/archive') === -1) {
                                 chatId = document.location.pathname.split('/')[3]
                                 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
                             } else {
                                 chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
                             }
-                            fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+                            fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
                                 "headers": {
                                     "accept": "*/*",
                                     "content-type": "application/json",
@@ -573,7 +573,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                     barray.onclick = function () {
                         sendComment(rezissuetable[0].items[0].url)
                         let b = document.URL.split('/')
-                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        fetch("https://uat.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",

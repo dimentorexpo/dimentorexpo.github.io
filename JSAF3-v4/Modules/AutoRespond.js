@@ -85,7 +85,7 @@ wintFrozeChat.onmouseup = function () { document.removeEventListener('mousemove'
 			// function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в заметки по айди сессии и хешу
 				  // let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
 					
-					// fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+					// fetch("https://uat.autofaq.ai/api/reason8/answers", {
                         // "headers": {
                             // "accept": "*/*",
                             // "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -103,7 +103,7 @@ wintFrozeChat.onmouseup = function () { document.removeEventListener('mousemove'
 			function sndmsgaftertime(session, hashchat) { // функция отправки сообщения в чат по айди сессии и хешу , ее потом включить сейчас для теста использую заметки
 				  let notemsg = '<p>Извините, что заставляю вас ждать, но мне нужно еще несколько минут 🙏</p>';
 
-                    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+                    fetch("https://uat.autofaq.ai/api/reason8/answers", {
                         "headers": {
                             "accept": "*/*",
                             "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -130,7 +130,7 @@ wintFrozeChat.onmouseup = function () { document.removeEventListener('mousemove'
 			} 
 			
 			async function getsesid(arg) { // функция получения Idsession из хеша чата для отправки заметок или сообщений в чат пользователю
-				await fetch("https://skyeng.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
+				await fetch("https://uat.autofaq.ai/api/conversations/" + arg).then(r=>r.json()).then(r=>datachat=r)
 				return datachat.sessionId
 			}
 						
