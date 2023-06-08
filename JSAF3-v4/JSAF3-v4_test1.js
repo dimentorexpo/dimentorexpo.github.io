@@ -184,7 +184,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
     } else {
         let mystyles = document.createElement('link')
 		mystyles.rel = 'stylesheet'
-		mystyles.href = "https://dimentorexpo.github.io/CSS/styles.css" // подключаем модуль стилей 
+		mystyles.href = "https://dimentorexpo.github.io/JSAF3-v4/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
         if (localStorage.getItem('Hidetestid') == 0) {
@@ -206,7 +206,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
             btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
             btnAdd1.insertBefore(butServ, btnAdd1.children[11])
             btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
             btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
@@ -635,20 +634,6 @@ function newTags(tagName) { //функция добавления несколь
             "method": "POST",
             "credentials": "include"
         });
-}
-
-function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
-    const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
-    const isActiveChat = (
-        document.URL.split('/')[2] === 'uat.autofaq.ai' &&
-        document.URL.length > 43 &&
-        button &&
-        !button.classList.contains('selchatact')
-    );
-
-    if (isActiveChat) {
-        button.classList.toggle('selchatact');
-    }
 }
 
 function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
@@ -1402,11 +1387,6 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
     });
 };
 
-let hashBut = document.createElement('div')
-hashBut.id = "hashBut"
-hashBut.innerHTML = "Хэш"
-hashBut.style = "margin-right:15px; cursor:pointer;";
-
 let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
@@ -1591,39 +1571,6 @@ maskBackHide.onclick = function () { // кнопка скрыть
     }
 };
 
-hashBut.onclick = function () { // кнопка копирующая хеш чата
-    const adr = document.location.href;
-    const adr1 = document.location.pathname;
-    const adrPathArray = adr1.split('/');
-    const chatId = adrPathArray[3];
-    const hashBut = document.getElementById('hashBut');
-    let hash;
-
-    if ((chatId === undefined || chatId === "") || window.location.href.indexOf('uat.autofaq.ai/tickets/assigned') === -1) {
-        if (window.location.href.indexOf('uat.autofaq.ai/logs') === -1) {
-            hashBut.innerHTML = "Ошибка";
-            setTimeout(function () { hashBut.innerHTML = "Хэш"; }, 3000);
-        } else {
-            chatId = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent;
-            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
-            copyToClipboard1(hash);
-            hashBut.innerHTML = "Скопировано";
-            setTimeout(function () { hashBut.innerHTML = "Хэш"; }, 3000);
-        }
-    } else {
-        if (scriptAdr === TS_addr) {
-            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-18/' + chatId;
-        } else if (scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
-            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-26/' + chatId;
-        } else {
-            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
-        }
-        copyToClipboard1(hash);
-        hashBut.innerHTML = "Скопировано";
-        setTimeout(function () { hashBut.innerHTML = "Хэш" }, 3000)
-    }
-}
-
 document.getElementById('testUsers').ondblclick = function (a) {
     if (checkelementtype(a)) {
         if (testid && idlogin && testid.style.display === '' && idlogin.style.display === '') {
@@ -1713,7 +1660,6 @@ studneotv.onclick = function() {
 }
 
 setInterval(screenshots, 5000)
-setInterval(setactivechatstyle, 1000)
 setInterval(addbuttonsintegration, 1000)
 setInterval(remandressl, 3000);
 setInterval(closeTerms, 500);

@@ -20,6 +20,7 @@ const buttons = [ //array of buttonsnames
     '.authbtn',
     '.crm2sbtn',
     '.billbtn',
+    '.mrktbillbtn',
     '.vimbugsbtn',
     '.vimvidsbtn',
     '.studcabbtn',
@@ -39,6 +40,7 @@ const otherOptions = [ // array of buttons categories id's
     'billingqasrvdskoptions',
     'c1srvdskoptions',
     'billingsrvdskoptions',
+    'mrktbillrvdskoptions',
     'vimbugsoptions',
     'vimvidoptions',
     'studcaboptions',
@@ -58,7 +60,7 @@ var win_servicedesk = // описание элементов окна Service De
                 <div style="margin: 5px; width: 480px;" id="SrvDskSummary">
                         <button id="hideMeSrvDsk" class="buttonHide">hide</button>
 						<button id="refreshjiraauth" title="Перепроверить авторизацию в Jira">🔄</button>
-                        <button id="infratasklist" title="Откріть список своих задач в Infra">📑</button>
+                        <button id="infratasklist" title="Открыть список своих задач в Infra">📑</button>
 						<button id="ServiceDeskinstr" title="Инструкция по этой форме">❓</button>
 						<span style="color:bisque">Infra Id:</span>
 						<span id="jiratknstatus">🟢</span>
@@ -75,6 +77,7 @@ var win_servicedesk = // описание элементов окна Service De
                     <button class="sdbtn" id="optionBillingQA" value="22" style="margin-left:2px; width:80px;">💲Billing-QA</button>
                     <button class="sdbtn" id="optionOnboarding" value="23" style="margin-left:2px; margin-top:2px; width:80px;">♻Onboard</button>
                     <button class="sdbtn" id="optionBilling"  value="21" style="margin-left:2px; margin-top:2px; width:80px;">💰Billing</button>
+                    <button class="sdbtn" id="optionMrktbill"  value="31" style="margin-left:2px; margin-top:2px; width:80px;">📈Mrkt-Bill</button>
                     <button class="sdbtn" id="optionVimbugs" value="38" style="margin-left:2px; margin-top:2px; width:80px;">🐞Vim-bug</button>
                     <button class="sdbtn" id="optionVimvideocall" value="39" style="margin-left:2px; margin-top:2px; width:80px;">📸Vid-call</button>
                     <button class="sdbtn" id="optionStudcab" value="34" style="margin-left:2px; margin-top:2px; width:80px;">👨‍🎓Studcab</button>
@@ -119,7 +122,10 @@ var win_servicedesk = // описание элементов окна Service De
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:180px; width:90%;">#billing</p>
 
 				</div>
-				
+                <div id="mrktbillrvdskoptions" style="display: none; margin-left:20px;">
+                    <p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#mrkt-bill-questions; Канал для вопросов по промокодам, сертификатам, реферальной программе</p>
+
+                </div>
 				<div id="vimbugsoptions" style="display: none; margin-left:20px;">
 					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">#vim-bugs; Проблемы с Vimbox/Smartroom</p>
 
