@@ -110,12 +110,12 @@ function setDisplayStyle(element, value){
 }
 
 // Блок горячих клавиш
-const API_ENDPOINT = 'https://skyeng.autofaq.ai/api/reason8/operator/status';
+const API_ENDPOINT = 'https://uat.autofaq.ai/api/reason8/operator/status';
 const fetchOptions = {
     headers: {
         'content-type': 'application/json',
     },
-    referrer: 'https://skyeng.autofaq.ai/tickets/archive',
+    referrer: 'https://uat.autofaq.ai/tickets/archive',
     referrerPolicy: 'strict-origin-when-cross-origin',
     body: '',
     method: 'POST',
@@ -134,7 +134,7 @@ function changeStatus(status) { // функция изменения стату�
         });
 }
 
-if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
+if (window.location.href.indexOf('uat.autofaq.ai') !== -1) {
     document.onkeydown = (event) => {
         if (event.altKey && event.code === 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
             changeStatus('Offline');
@@ -159,7 +159,7 @@ function noDoubts(object) { // функция для разрешения вво
 }
 
 async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
-    const a = await fetch('https://skyeng.autofaq.ai/api/operators/statistic/currentState', {
+    const a = await fetch('https://uat.autofaq.ai/api/operators/statistic/currentState', {
         credentials: 'include',
     });
     const b = await a.json();
@@ -176,10 +176,10 @@ async function whoAmI() { // функция получения айди опер
 }
 
 function firstLoadPage() { //первичаня загрузка страницы
-    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+    if (window.location.href.indexOf('uat.autofaq.ai') === -1 || window.location.href.indexOf('uat.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
         if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
-            include("https://dimentorexpo.github.io/Modules/Consideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
+            include("https://dimentorexpo.github.io/JSAF3-v4/Modules/Consideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
         }
     } else {
         let mystyles = document.createElement('link')
@@ -343,34 +343,34 @@ function prepTp() { //функция подготовки расширения �
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
 		"https://dimentorexpo.github.io/chart.js", // подключаем модуль обработки графиков
 		"https://dimentorexpo.github.io/moment.js", // подключаем модуль обработки даты и времени
-        "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
-        "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
-	    "https://dimentorexpo.github.io/Modules/AlarmClock.js", // модуль будильника
-        "https://dimentorexpo.github.io/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
-		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
-		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Календарь"
-        "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
-        "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        "https://dimentorexpo.github.io/Modules/RefuseForm.js", // модуль формы отказа от помощи
-		"https://dimentorexpo.github.io/Modules/VoiceHelper.js", // модуль голосового помощника
-        "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
-        "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
-        "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
-        "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
-        "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
-        "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
-        "https://dimentorexpo.github.io/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
-        "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
-        "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
-        "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-        "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
-		"https://dimentorexpo.github.io/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
-		"https://grumstv.github.io/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
-        "https://dimentorexpo.github.io/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
-        "https://dimentorexpo.github.io/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Link.js", // модуль ссылкера (L)inks
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Settings.js", // модуль настроек расширения
+	    "https://dimentorexpo.github.io/JSAF3-v4/Modules/AlarmClock.js", // модуль будильника
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://dimentorexpo.github.io/JSAF3-v4/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+		"https://dimentorexpo.github.io/JSAF3-v4/Modules/Calendar.js", // модуль кнопки "Календарь"
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/RefuseForm.js", // модуль формы отказа от помощи
+		"https://dimentorexpo.github.io/JSAF3-v4/Modules/VoiceHelper.js", // модуль голосового помощника
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Marks.js", // модуль просмотра оценок пользователя
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/AutoRespond.js", // модуль автоответа по таймеру
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/JiraSearch.js", // модуль поиска по Jira
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Themes.js", // модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/ChatHistory.js", // модуль просмотра истории чатов
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
+		"https://dimentorexpo.github.io/JSAF3-v4/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
+		"https://dimentorexpo.github.io/JSAF3-v4/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
@@ -390,17 +390,17 @@ function prepKC() { //функция подготовки расширения �
     setTimeout(whoAmI, 2000)
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
-        "https://dimentorexpo.github.io/Modules/LinkKC.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
-        "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
-	    "https://dimentorexpo.github.io/Modules/AlarmClock.js", // модуль будильника
-        "https://dimentorexpo.github.io/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
-		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
-        "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
-        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
-        "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
-        "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
-        "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/LinkKC.js", // модуль ссылкера (L)inks
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Settings.js", // модуль настроек расширения
+	    "https://dimentorexpo.github.io/JSAF3-v4/Modules/AlarmClock.js", // модуль будильника
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://dimentorexpo.github.io/JSAF3-v4/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Marks.js", // модуль просмотра оценок пользователя
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Themes.js", // модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/ChatHistory.js", // модуль просмотра истории чатов
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
@@ -442,7 +442,7 @@ async function sendComment(txt) { // функция отправки комме�
     var txt2 = txt.split('\n').join('\\n')
     var txt2 = txt2.split("\"").join("\\\"")
     resetFlags()
-    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+    fetch("https://uat.autofaq.ai/api/reason8/answers", {
         "headers": {
             "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
         },
@@ -516,9 +516,9 @@ function checkEducationServiceInput() {
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
-        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
+        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'uat.autofaq.ai' && document.URL.split('/')[5] != '') {
             let temparr = document.location.pathname.split('/')[3];
-            await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
+            await fetch("https://uat.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
 
             let uslugstr
@@ -597,11 +597,11 @@ async function checkthemestatus() { //функция проверки выста
 
 function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
     let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+    if (window.location.href.indexOf('uat.autofaq.ai/tickets/archive') === -1)
         chatId = document.location.pathname.split('/')[3]
     else
         chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+    fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
         "headers": {
             "content-type": "application/json",
         },
@@ -613,12 +613,12 @@ function newTaggg(tagName) { //функция добавления тега в �
 
 function newTags(tagName) { //функция добавления нескольких тегов в чат, которые тянутся из дока в комплекте так сказать
     let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+    if (window.location.href.indexOf('uat.autofaq.ai/tickets/archive') === -1)
         chatId = document.location.pathname.split('/')[3]
     else
         chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
     if (tagName.split(',').length < 2)
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },
@@ -627,7 +627,7 @@ function newTags(tagName) { //функция добавления несколь
             "credentials": "include"
         });
     else if (tagName.split(',').length == 2)
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },
@@ -640,7 +640,7 @@ function newTags(tagName) { //функция добавления несколь
 function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
     const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
     const isActiveChat = (
-        document.URL.split('/')[2] === 'skyeng.autofaq.ai' &&
+        document.URL.split('/')[2] === 'uat.autofaq.ai' &&
         document.URL.length > 43 &&
         button &&
         !button.classList.contains('selchatact')
@@ -1599,8 +1599,8 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     const hashBut = document.getElementById('hashBut');
     let hash;
 
-    if ((chatId === undefined || chatId === "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
-        if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
+    if ((chatId === undefined || chatId === "") || window.location.href.indexOf('uat.autofaq.ai/tickets/assigned') === -1) {
+        if (window.location.href.indexOf('uat.autofaq.ai/logs') === -1) {
             hashBut.innerHTML = "Ошибка";
             setTimeout(function () { hashBut.innerHTML = "Хэш"; }, 3000);
         } else {
@@ -1867,7 +1867,7 @@ document.getElementById('sndbot').onclick = async function () { //отправи
     txt3 = txt3.substr(0, txt3.length - 2)
 
     if (document.getElementById('msg').innerHTML == "Чат")
-        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+        fetch("https://uat.autofaq.ai/api/reason8/answers", {
             "headers": {
                 "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
             },
