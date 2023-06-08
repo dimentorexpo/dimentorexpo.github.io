@@ -1117,7 +1117,7 @@ if (localStorage.getItem('scriptAdr') == null) {
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
-wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 11500; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
+wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 12000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 
