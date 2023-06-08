@@ -19,7 +19,6 @@ let template_flag2 = 0
 let word_text = ""
 let template_text = ""
 let flagggg = 0;
-let addInfoUser = document.createElement('div');
 let getidusrteachreq;
 let getidusrstud;
 let getidusrsteach;
@@ -35,11 +34,6 @@ var abortTimeOut1 = ''
 var modulesarray = [];
 var chatsArray = [];
 var scriptAdr = localStorage.getItem('scriptAdr');
-const testUsers = document.getElementById('testUsers');
-testUsers.classList = 'onlyfortp';
-testUsers.style.display = 'none'; // скрываю плавающее окно при загрузке страницы
-const testid = document.getElementById('testid');
-const idlogin = document.getElementById('idlogin');
 const TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec';
 const KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec';
 const KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec';
@@ -186,11 +180,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
 		mystyles.rel = 'stylesheet'
 		mystyles.href = "https://dimentorexpo.github.io/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
-
-        if (localStorage.getItem('Hidetestid') == 0) {
-            testid.style.display = 'none';
-            idlogin.style.display = 'none';
-        }
         
         setTimeout(move_again_AF, 3500)
 
@@ -240,7 +229,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             butMarks.classList.remove('inithide');
         }, 8000);
     }
-    setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
 }
 
 function timerHideButtons() { //функция добавления скрытия полей плюс также перекрашивает при выборе тп исход срм2 в красный, тп2л в зеленый
@@ -311,6 +299,7 @@ function loadmoduls(gfgScript){
 
 function prepTp() { //функция подготовки расширения ТП
     const languageSwitcher = document.querySelector('.user_menu-language_switcher');
+    const testUsers = document.getElementById('testUsers');
 
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
@@ -342,6 +331,7 @@ function prepTp() { //функция подготовки расширения �
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
 		"https://dimentorexpo.github.io/chart.js", // подключаем модуль обработки графиков
+		"https://dimentorexpo.github.io/moment.js", // подключаем модуль обработки даты и времени
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
@@ -367,7 +357,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
 		"https://dimentorexpo.github.io/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
-		"https://grumstv.github.io/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
+		"https://dimentorexpo.github.io/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
         "https://dimentorexpo.github.io/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
@@ -429,7 +419,7 @@ function maxLengthCheck(object) { // функция ограничения ко�
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON'  && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != "checkbox-audio-switch" && elem.className != "checkbox-refresh-switch" && elem.className != "srvhhelpnomove" && elem.className != "rowOfChatGrabbed" && elem.id !== "CSATFilterField" && elem.id !== "AgregatedDataThemes" && elem.nodeName !='TABLE' && elem.nodeName!='TH' && elem.nodeName != "TR") {
+	if (elem.nodeName != 'BUTTON'  && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !=='TABLE' && elem.nodeName !=='TH' && elem.nodeName !=='TR' && elem.id !=='AgregatedDataOut' && elem.nodeName !=='CANVAS') {
         return true;
     }
     return false;
@@ -1151,38 +1141,6 @@ wintAF.onmousedown = function (a) { // изменение позиции гла�
 }
 wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
 
-addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
-loginer = document.getElementById('testUsers')
-loginer.appendChild(addInfoUser)
-
-let voiceBtn = document.createElement('button')
-voiceBtn.textContent = '🎤'
-voiceBtn.id = "pushToTalk"
-voiceBtn.style = "cursor:pointer; margin:5px;"
-voiceBtn.title = "Нажми и сразу произноси команду для выполнения. Список команд: \n 1) ту - открывает админку для создания ТУ по англ языку \n 2) платёж - открывает админку поиска платежа \n 3) CRM - открывает CRM обратившегося пользователя \n 4) ТТ - открывает Timetable (произносить лучше тэтэ) \n 5) админка - открывает общую админку по пользователю 6) тшу / тшп - просмотр ТШ по У или П которые обратились \n 7) трамвай - открывает TRM 2.0"
-document.getElementById('testUsers').children[0].children[0].append(voiceBtn)
-
-let voiceout = document.createElement('div')
-voiceout.id = "voicetext";
-voiceout.style='color:bisque; width:110px; text-align:center;'
-document.getElementById('testUsers').children[0].children[0].append(voiceout)
-
-var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
-    loginer.style.left = Number(e.clientX - myXloginer) + "px";
-    loginer.style.top = Number(e.clientY - myYloginer) + "px";
-    localStorage.setItem('winTop3', String(Number(e.clientY - myYloginer)));
-    localStorage.setItem('winLeft3', String(Number(e.clientX - myXloginer)));
-};
-
-loginer.onmousedown = function (a) {
-    if (checkelementtype(a)) {
-        window.myXloginer = a.layerX;
-        window.myYloginer = a.layerY;
-        document.addEventListener('mousemove', listenerloginer);
-    }
-}
-
-loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); } // прекращение изменения позиции окна с логинером для У П
 
 let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
@@ -1623,19 +1581,6 @@ hashBut.onclick = function () { // кнопка копирующая хеш ча
     }
 }
 
-document.getElementById('testUsers').ondblclick = function (a) {
-    if (checkelementtype(a)) {
-        if (testid && idlogin && testid.style.display === '' && idlogin.style.display === '') {
-            testid.style.display = 'none';
-            idlogin.style.display = 'none';
-            localStorage.setItem('Hidetestid', '0');
-        } else if (testid && idlogin) {
-            testid.style.display = '';
-            idlogin.style.display = '';
-            localStorage.setItem('Hidetestid', '1');
-        }
-    }
-};
 
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     // Find the 'teacher' user type and get the user's id.
@@ -1720,22 +1665,6 @@ setInterval(checJiraF, 1000);
 setInterval(checkthemestatus, 3000);
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
-
-let btnsid = document.createElement('button')
-btnsid.textContent = "👨‍🎓";
-btnsid.id = "sidcode";
-btnsid.title = 'При клике ЛКМ генерирует ссылку логинер для входа в учетку с заранее сохраненным ID тестового ученика в настройках и копирует ее в буфер обмена. При клике ПКМ копирует в буфер обмена ID ученика, может пригодиться в админке создания тестовых уроков.';
-btnsid.classList = 'teststudteach';
-
-let btntid = document.createElement('button')
-btntid.textContent = "👽";
-btntid.id = "tidcode";
-btntid.title = 'При клике ЛКМ генерирует ссылку логинер для входа в учетку с заранее сохраненным ID тестового преподавателя в настройках и копирует ее в буфер обмена. При клике ПКМ копирует в буфер обмена ID преподавателя, может пригодиться в админке создания тестовых уроков.';
-btntid.classList = 'teststudteach';
-
-document.getElementById('testMath').replaceWith();
-document.getElementById('testStudent').replaceWith(btnsid);
-document.getElementById('testTeacher').replaceWith(btntid);
 
 btnsid.addEventListener("click", (event) => { // копирует в буфер логиннер для У
     let teststudid = localStorage.getItem('test_stud');
