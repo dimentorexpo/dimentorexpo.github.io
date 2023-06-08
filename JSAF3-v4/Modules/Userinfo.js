@@ -68,7 +68,7 @@ if (localStorage.getItem('winTopTimetable') == null) { // начальное п�
 
 let wintServices = document.createElement('div'); // создание окна вензель user info
 document.body.append(wintServices);
-wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintServices.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopService') + 'px; left: ' + localStorage.getItem('winLeftService') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintServices.style.display = 'none';
 wintServices.setAttribute('id', 'AF_Service');
 wintServices.innerHTML = win_serviceinfo;
@@ -89,10 +89,9 @@ wintServices.onmousedown = function (a) {
 }
 wintServices.onmouseup = function () { document.removeEventListener('mousemove', listenerServices); } // прекращение изменения позиции вензель user info
 
-
 let wintTimetable = document.createElement('div'); // создание окна предстоящих и прошедших занятиях
 document.body.append(wintTimetable);
-wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintTimetable.style.display = 'none';
 wintTimetable.setAttribute('id', 'AF_Timetable');
 wintTimetable.innerHTML = win_Timetable;
@@ -118,8 +117,10 @@ document.getElementById('servicehead').ondblclick = function (a) { // скрыт
 }
 
 document.getElementById('hideMeservice').onclick = function () { // скрытие окна вензель user info
-  if (document.getElementById('AF_Service').style.display == '')
+  if (document.getElementById('AF_Service').style.display == '') {
     document.getElementById('AF_Service').style.display = 'none'
+	document.getElementById('butServ').classList.remove('activeScriptBtn')
+  }
 }
 
 async function startnewchat(polzid) { //открывает чат с пользователем

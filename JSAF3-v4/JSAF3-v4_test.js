@@ -206,7 +206,6 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
             btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[10])
             btnAdd1.insertBefore(butThemes, btnAdd1.children[11])
             btnAdd1.insertBefore(taskBut, btnAdd1.children[12])
         }, 2000)
@@ -334,6 +333,21 @@ function prepTp() { //функция подготовки расширения �
     playerRadio.title = 'Открывает радио проигрыватель'
     playerRadio.classList.add('rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(playerRadio)
+	
+	let butServ = document.createElement('button')
+	butServ.id = "butServ"
+	butServ.innerHTML = "⚜"
+	butServ.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+	butServ.classList.add('onlyfortp', 'rightPanelBtn')
+	butServ.onclick = function () { //открывает вензель user info
+        setDisplayStyle(document.getElementById('AF_Service'), document.getElementById('AF_Service').style.display === '' ? 'none' : '');
+		if (document.getElementById('AF_Service').style.display =="")
+			butServ.classList.add('activeScriptBtn')
+		else {
+			butServ.classList.remove('activeScriptBtn')
+		}
+    }
+	document.getElementById('rightPanel').appendChild(butServ)
 
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
@@ -1029,6 +1043,23 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         sidePanel.id = "rightPanel"
         sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 10000; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
         document.body.append(sidePanel)
+			
+	let ScriptBut = document.createElement('button');
+    ScriptBut.id = 'scriptBut';
+    ScriptBut.innerHTML = "🧩";
+    ScriptBut.style = "width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;";
+    ScriptBut.classList.add('rightPanelBtn')
+    ScriptBut.onclick = function () {
+		if (document.getElementById('AF_helper').style.display != 'flex') {
+			    document.getElementById('AF_helper').style.display = 'flex'
+				this.classList.add('activeScriptBtn')
+		} else {
+				document.getElementById('AF_helper').style.display = 'none'
+				this.classList.remove('activeScriptBtn')
+		}
+
+    }	
+	document.getElementById('rightPanel').appendChild(ScriptBut)	
 		
 	let MainMenuBtn = document.createElement('button')
 	MainMenuBtn.textContent = "👺"
@@ -1049,6 +1080,9 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         if (document.getElementById('AF_ChatHis').style.display == 'none')
             document.getElementById('butChatHistory').click()
     }
+	
+
+	
 	
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
@@ -1071,10 +1105,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         })
     }
 
-    document.getElementById('butServ').onclick = function () { //открывает вензель user info
-        setDisplayStyle(document.getElementById('AF_Service'), document.getElementById('AF_Service').style.display === '' ? 'none' : '');
-    }
-
     window.onkeydown = function (e) {
         if (e.key == 'Control') {
             bool = 1;
@@ -1088,23 +1118,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             bool = 0;
         }
     }
-
-    // создание кнопки скрипт + начало тандема
-    let ScriptBut = document.createElement('div');
-    ScriptBut.id = 'scriptBut';
-    ScriptBut.innerHTML = "Скрипт";
-    ScriptBut.style = "margin-right:15px; cursor:pointer;";
-    ScriptBut.onclick = function () {
-        document.getElementById('AF_helper').style.display = 'flex'
-        this.style.display = 'none'
-    }
-
-    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-    btnAdd.insertBefore(ScriptBut, btnAdd.children[0]) // добавление кнопки скрипт на строку с основными кнопками в верхней части экрана
-    // конец тандема
-
-    user = "student"
-
 }
 
 function closeTerms() { // функция автоподтверждения условий пользования при входе в ЛКП
@@ -1151,18 +1164,6 @@ addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
 loginer = document.getElementById('testUsers')
 loginer.appendChild(addInfoUser)
 
-let voiceBtn = document.createElement('button')
-voiceBtn.textContent = '🎤'
-voiceBtn.id = "pushToTalk"
-voiceBtn.style = "cursor:pointer; margin:5px;"
-voiceBtn.title = "Нажми и сразу произноси команду для выполнения. Список команд: \n 1) ту - открывает админку для создания ТУ по англ языку \n 2) платёж - открывает админку поиска платежа \n 3) CRM - открывает CRM обратившегося пользователя \n 4) ТТ - открывает Timetable (произносить лучше тэтэ) \n 5) админка - открывает общую админку по пользователю 6) тшу / тшп - просмотр ТШ по У или П которые обратились \n 7) трамвай - открывает TRM 2.0"
-document.getElementById('testUsers').children[0].children[0].append(voiceBtn)
-
-let voiceout = document.createElement('div')
-voiceout.id = "voicetext";
-voiceout.style='color:bisque; width:110px; text-align:center;'
-document.getElementById('testUsers').children[0].children[0].append(voiceout)
-
 var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
     loginer.style.left = Number(e.clientX - myXloginer) + "px";
     loginer.style.top = Number(e.clientY - myYloginer) + "px";
@@ -1179,6 +1180,18 @@ loginer.onmousedown = function (a) {
 }
 
 loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); } // прекращение изменения позиции окна с логинером для У П
+
+let voiceBtn = document.createElement('button')
+voiceBtn.textContent = '🎤'
+voiceBtn.id = "pushToTalk"
+voiceBtn.style = "cursor:pointer; margin:5px;"
+voiceBtn.title = "Нажми и сразу произноси команду для выполнения. Список команд: \n 1) ту - открывает админку для создания ТУ по англ языку \n 2) платёж - открывает админку поиска платежа \n 3) CRM - открывает CRM обратившегося пользователя \n 4) ТТ - открывает Timetable (произносить лучше тэтэ) \n 5) админка - открывает общую админку по пользователю 6) тшу / тшп - просмотр ТШ по У или П которые обратились \n 7) трамвай - открывает TRM 2.0"
+document.getElementById('testUsers').children[0].children[0].append(voiceBtn)
+
+let voiceout = document.createElement('div')
+voiceout.id = "voicetext";
+voiceout.style='color:bisque; width:110px; text-align:center;'
+document.getElementById('testUsers').children[0].children[0].append(voiceout)
 
 let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
@@ -1402,12 +1415,6 @@ taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
 taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
 taskBut.classList.add('ant-btn', 'onlyfortp');
-
-let butServ = document.createElement('div')
-butServ.id = "butServ"
-butServ.innerHTML = "⚜UserInfo"
-butServ.style = "margin-right:15px; cursor:pointer;"
-butServ.classList.add('onlyfortp');
 
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
@@ -1838,5 +1845,5 @@ document.getElementById('sndbot').onclick = async function () { //отправи
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd', 'AF_Settings'];
     elements.forEach(e => {if (document.getElementById(e)){setDisplayStyle(document.getElementById(e), 'none')}});
-    document.getElementById('scriptBut').style.display = '';
+    document.getElementById('scriptBut').classList.remove('activeScriptBtn')
 }
