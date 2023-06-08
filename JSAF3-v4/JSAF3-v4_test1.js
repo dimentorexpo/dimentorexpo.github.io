@@ -1025,7 +1025,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 
     let sidePanel = document.createElement('div')
 	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 11000; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
 	document.body.append(sidePanel)
 
     let openchhis = document.createElement('button')
@@ -1088,7 +1088,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         document.getElementById('AF_helper').style.display = 'flex'
         this.style.display = 'none'
     }
-    
+
     var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
     btnAdd.insertBefore(ScriptBut, btnAdd.children[0]) // добавление кнопки скрипт на строку с основными кнопками в верхней части экрана
     // конец тандема
@@ -1117,7 +1117,7 @@ if (localStorage.getItem('scriptAdr') == null) {
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
-wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
+wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 11500; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 
