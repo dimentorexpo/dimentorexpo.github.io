@@ -342,6 +342,7 @@ function prepTp() { //функция подготовки расширения �
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
 		"https://dimentorexpo.github.io/chart.js", // подключаем модуль обработки графиков
+		"https://dimentorexpo.github.io/moment.js", // подключаем модуль обработки даты и времени
         "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
@@ -367,7 +368,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
 		"https://dimentorexpo.github.io/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
-		"https://grumstv.github.io/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
+		"https://dimentorexpo.github.io/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
         "https://dimentorexpo.github.io/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
@@ -429,7 +430,7 @@ function maxLengthCheck(object) { // функция ограничения ко�
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON'  && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != "checkbox-audio-switch" && elem.className != "checkbox-refresh-switch" && elem.className != "srvhhelpnomove" && elem.className != "rowOfChatGrabbed" && elem.id !== "CSATFilterField" && elem.id !== "AgregatedDataThemes" && elem.nodeName !='TABLE' && elem.nodeName!='TH' && elem.nodeName != "TR") {
+	if (elem.nodeName != 'BUTTON'  && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !=='TABLE' && elem.nodeName !=='TH' && elem.nodeName !=='TR' && elem.id !=='AgregatedDataOut' && elem.nodeName !=='CANVAS') {
         return true;
     }
     return false;
