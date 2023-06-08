@@ -31,14 +31,14 @@ function startTimer() { // большая функция по таймеру а�
         curTime4 = curTime4 + String(s);
         tmrs[i][0] = curTime4
     }
-    if (window.location.href.indexOf('uat.autofaq.ai/tickets/assigned') !== -1 && flag == 0) {
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && flag == 0) {
         requestsRed()
         flag = 1
     }
-    if (window.location.href.indexOf('uat.autofaq.ai/tickets/assigned') === -1 && flag == 1)
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1 && flag == 1)
         flag = 0
 
-    if (window.location.href.indexOf('uat.autofaq.ai/tickets/assigned') !== -1) {
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
         if (document.getElementsByClassName('ant-btn ant-btn-primary')[0] !== undefined)
             document.getElementsByClassName('ant-btn ant-btn-primary')[0].onclick = function () {
                 refCurTimer(localStorage.getItem('aclstime') + ":00")
@@ -48,7 +48,7 @@ function startTimer() { // большая функция по таймеру а�
     }
 
     if (localStorage.getItem('audio') == '1')
-        if (window.location.href.indexOf('uat.autofaq.ai/tickets/assigned') !== -1) {
+        if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1) {
             if (document.getElementsByClassName('expert-sidebar-button')[0] != undefined) {
                 txt = document.getElementsByClassName('expert-sidebar-button')[0].childNodes[1].childNodes[0].innerHTML
                 if (txt[14] > 0) {
@@ -64,7 +64,7 @@ function startTimer() { // большая функция по таймеру а�
         }
 
 
-    if (window.location.href.indexOf('uat.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
+    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 && document.getElementsByClassName('expert-user_details-list')[1] !== undefined) {
         vertical = user = ""
         nextClassMode = nextClassstudentId = ""
         nextClassModeId = ""
@@ -372,7 +372,7 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
 }
 
 async function buttonsFromDoc(butName) { // функция отправки шаблона в зависимости от нажатой кнопки и также взаимодействут с другими функциями
-    if (butName == "ус+бра")
+    if (butName == "ус+брауз")
         if (user == 'student')
             butName = "ус+брауз (У)"
         else
@@ -405,6 +405,9 @@ async function buttonsFromDoc(butName) { // функция отправки ша
     if (butName == '🖕Отказ' && document.getElementById('AF_Refuseformnew').style.display == 'none') // если кнопка отказ открывает форму отказа и если повторно нажали не закрываем форму
         document.getElementById('otkaz').click();
 
+    if (((butName == '🤬Негатив ОС') || (butName == '🖼Нет изобр в ДЗ ЛК') || (butName == '💨Сброс ответов ДЗ ЛК') || (butName == '🔇Звук ответов ЛК') || (butName == '🖥Размер видео') || butName == ('🖼📱Нет изобр ДЗ в МП')) && document.getElementById('AF_Smartroomform').style.display == 'none')
+        document.getElementById('smartroomform').click();
+
     msgFromTable(butName)
 
     // start of counter of pressed key script то есть при нажатии на кнопку с шаблоном передает в гугл таблицу ин6формацию какая кнопка была нажата и там уже др скрипты считают сколько  раз и сортируют
@@ -417,7 +420,7 @@ function servFromDoc(butName) { // отправка комента и сообщ
     if (document.getElementById('avariyalink').value !== null) { // проверка есть ли значение в поле ссылки
         let linktostatsend = document.getElementById('avariyalink').value.trim()
         sendComment(linktostatsend); // вызов функции отправки комента
-        fetch("https://uat.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", { //записываем ссылку в поле "Ссылка на jira"
+        fetch("https://skyeng.autofaq.ai/api/conversation/" + document.URL.split('/')[5] + "/payload", { //записываем ссылку в поле "Ссылка на jira"
                     "headers": {
                         "content-type": "application/json",
                     },
@@ -472,7 +475,7 @@ async function getInfo(flag1 = 1) { //функция получения инфо
     if (adr1 == undefined)
         adr1 = ""
     if (document.getElementById('msg1').innerHTML != "Доработать" || flag1 == 0) {
-        await fetch("https://uat.autofaq.ai/api/conversations/" + adr1)
+        await fetch("https://skyeng.autofaq.ai/api/conversations/" + adr1)
             .then(response => response.json())
             .then(result => { sessionId = result.sessionId; chatsArray.push(result); localStorage.setItem('serviceIdGlob', result.serviceId) });
     }
@@ -747,7 +750,7 @@ function refreshTemplates() { // функция обновляет шаблон�
                         if (newBut.textContent == 'Урок NS')
                             newBut.id = "NS"
                         if (newBut.textContent == 'ус+брауз (У)')
-                            newBut.textContent = "ус+бра"
+                            newBut.textContent = "ус+брауз"
                         if (newBut.textContent == 'ус+брауз (П)')
                             continue
                         if (addTmpFlag == 0)
@@ -819,16 +822,16 @@ function newTag(valueId) {
     const pathname = document.location.pathname.split('/');
     let chatId;
 
-    if (window.location.href.indexOf('uat.autofaq.ai/logs') !== -1) {
+    if (window.location.href.indexOf('skyeng.autofaq.ai/logs') !== -1) {
         chatId = pathname[2];
-    } else if (window.location.href.indexOf('uat.autofaq.ai/tickets/archive') === -1) {
+    } else if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
         chatId = pathname[3];
     } else {
         const panel = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0];
         chatId = panel.children[0].children[0].children[0].textContent.split(' ')[1];
     }
 
-    fetch(`https://uat.autofaq.ai/api/conversation/${chatId}/payload`, {
+    fetch(`https://skyeng.autofaq.ai/api/conversation/${chatId}/payload`, {
         headers: {
             'content-type': 'application/json',
         },
@@ -918,7 +921,7 @@ function msgFromTable(btnName) { //шаблоны, тематики. теги с
 
 async function loadTemplates(template, word) { //загрузка шаблонов с дока
     if (localStorage.getItem('tpflag') == 'ТП') {
-        return await fetch("https://uat.autofaq.ai/api/reason8/autofaq/top/batch", {
+        return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
             "headers": {
                 "content-type": "application/json",
             },
@@ -958,7 +961,7 @@ async function loadTemplates(template, word) { //загрузка шаблоно
                 }
             })
     } else if (localStorage.getItem('tpflag') == 'ТПPrem') {
-        return await fetch("https://uat.autofaq.ai/api/reason8/autofaq/top/batch", {
+        return await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
             "headers": {
                 "content-type": "application/json",
             },
@@ -1003,10 +1006,10 @@ async function loadTemplates(template, word) { //загрузка шаблоно
 
 async function sendAnswerTemplate2(word, flag = 0) { //функция отправки шаблона 2
     var tmpTxt = ""
-    var adr = `https://uat.autofaq.ai/tickets/assigned/`
+    var adr = `https://skyeng.autofaq.ai/tickets/assigned/`
     if (word.length < 50)
         try {
-            a = await fetch("https://uat.autofaq.ai/api/reason8/autofaq/top/batch", {
+            a = await fetch("https://skyeng.autofaq.ai/api/reason8/autofaq/top/batch", {
                 "headers": {
                     "content-type": "application/json",
                 },
@@ -1044,7 +1047,7 @@ async function sendAnswerTemplate2(word, flag = 0) { //функция отпра
         var values = await getInfo(0)
         refCurTimer(localStorage.getItem('aclstime') + ":00")
         var adr = values[0]; var adr1 = values[1]; var uid = values[2]
-        fetch("https://uat.autofaq.ai/api/reason8/answers", {
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
             "headers": {
                 "accept": "*/*",
                 "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
@@ -1111,7 +1114,7 @@ async function sendAnswerTemplate(template, word, flag = 0, newText = "", flag2 
 
         resetFlags()
         refCurTimer(time)
-        fetch("https://uat.autofaq.ai/api/reason8/answers", {
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
             "headers": {
                 "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryZ3ivsA3aU80QEBST",
             },
@@ -1138,7 +1141,7 @@ async function sendAnswer(txt, flag = 1, time = localStorage.getItem('aclstime')
     }
     else {
         refCurTimer(time)
-        fetch("https://uat.autofaq.ai/api/reason8/answers", {
+        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
             "headers": {
                 "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryFeIiMdHaxAteNUHd",
             },

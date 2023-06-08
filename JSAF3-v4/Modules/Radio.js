@@ -4,7 +4,10 @@
         <span style="width: 625px">
 			<span style="cursor: -webkit-grab;">
 				<div style="margin: 5px; width: 625;" id="links_1str">
-					<button title="Скрытие меню" id="hideMeRadio" class="buttonHide">hide</button>
+					<button title="Скрытие меню" id="hideMeRadio" style="width:50px; background: #228B22;">hide</button>
+					<button class="rotateDisc" style="margin-left:30%">📀</button>
+					<span style="color:bisque">Play'O'Neer</span>
+					<button class="rotateDisc">📀</button>
 				</div>
 				<div id="audioPlayer" class="mainplayer">
 					<div id="audioControls">

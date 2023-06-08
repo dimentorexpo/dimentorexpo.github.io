@@ -4,7 +4,7 @@ var win_Marks =  // описание элементов окна оценок о
         <span style="width: 320px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 320px;" id="marks_header">
-                                <button title="скрывает меню" id="hideMeMarks" class="buttonHide">hide</button>
+                                <button title="скрывает меню" id="hideMeMarks" style="width:50px; background: #228B22;">hide</button>
 								<button id="marksinstr" style="float: right; margin-right: 10px;" title="Инструкция по этой форме">❓</button>
                         </div>
 						<div>
@@ -55,32 +55,46 @@ wintMarks.onmouseup = function () { document.removeEventListener('mousemove', li
 
 function getDate() {
 	
-		let getdateset = new Date()
-        let getyearLS = getdateset.getFullYear();
-        let getcurmonthLS = (getdateset.getMonth() + 1)
-        let todayLS = getdateset.getDate();
-        if (getcurmonthLS < 10) {
-            getcurmonthLS = "0" + (getdateset.getMonth() + 1)
-        } else {
-            getcurmonthLS = (getdateset.getMonth() + 1);
-        }
-        if (getdateset.getDate() < 10 && getcurmonthLS <=10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromMarks').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
-            document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        } else  if (getdateset.getDate() < 10 && getcurmonthLS > 10) {
-            todayLS = "0" + getdateset.getDate();
-            document.getElementById('dateFromMarks').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
-            document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-		} else  if  ( (getdateset.getDate() == 10 && getcurmonthLS > 10) || (getdateset.getDate() > 10 && (getcurmonthLS-1 == 10)) ) {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromMarks').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + Number(todayLS);
-            document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-		} else {
-            todayLS = getdateset.getDate();
-            document.getElementById('dateFromMarks').value = getyearLS + "-" + (getcurmonthLS - 1) + "-" + (todayLS - 1);
-            document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
-        }		
+let getdateset = new Date();
+let getyearLS = getdateset.getFullYear();
+let getcurmonthLS = (getdateset.getMonth() + 1);
+let todayLS = getdateset.getDate();
+
+	if (getcurmonthLS < 10) {
+	  getcurmonthLS = "0" + (getdateset.getMonth() + 1);
+	} else {
+	  getcurmonthLS = (getdateset.getMonth() + 1);
+	}
+
+	if (getdateset.getDate() < 10 && getcurmonthLS <= 10) {
+	  todayLS = "0" + getdateset.getDate();
+	  document.getElementById('dateFromMarks').value = getyearLS + "-" + '0' + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+	  document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+	} else if (getdateset.getDate() < 10 && getcurmonthLS > 10) {
+	  todayLS = "0" + getdateset.getDate();
+	  document.getElementById('dateFromMarks').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + "0" + Number(todayLS);
+	  document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS;
+	} else if ((getdateset.getDate() == 10 && getcurmonthLS > 10) || (getdateset.getDate() > 10 && (getcurmonthLS - 1 == 10))) {
+	  todayLS = getdateset.getDate();
+	  document.getElementById('dateFromMarks').value = getyearLS + "-" + JSON.stringify(getcurmonthLS - 1) + "-" + todayLS.toString().padStart(2, '0');
+	  document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS + "-" + todayLS.toString().padStart(2, '0');
+	} else {
+	  todayLS = getdateset.getDate();
+	  let previousDay = todayLS - 1;
+	  let previousMonth = getcurmonthLS - 1;
+	  
+	  if (previousMonth < 1) {
+		previousMonth = 12;
+		getyearLS -= 1;
+	  }
+	  
+	  if (previousMonth === 2 && previousDay > 28) {
+		previousDay = 28;
+	  }
+
+	  document.getElementById('dateFromMarks').value = getyearLS + "-" + previousMonth.toString().padStart(2, '0') + "-" + previousDay.toString().padStart(2, '0');
+	  document.getElementById('dateToMarks').value = getyearLS + "-" + getcurmonthLS.toString().padStart(2, '0') + "-" + todayLS.toString().padStart(2, '0');
+	}
 		
 }
 	
@@ -118,14 +132,14 @@ async function getUserMarks(option) {
 	            let from = document.getElementById('dateFromMarks').value
                 let to = document.getElementById('dateToMarks').value
 	   
-                await fetch("https://uat.autofaq.ai/api/conversations/history", {
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     "headers": {
                         "content-type": "application/json",
                         "sec-fetch-dest": "empty",
                         "sec-fetch-mode": "cors",
                         "sec-fetch-site": "same-origin"
                     },
-                    "referrer": "https://uat.autofaq.ai/tickets/archive",
+                    "referrer": "https://skyeng.autofaq.ai/tickets/archive",
                     "referrerPolicy": "strict-origin-when-cross-origin",
                     "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"channelUserFullTextLike\":\"" + tempval + "\",\"tsFrom\":\""+from+"T00:00:00.000Z\",\"tsTo\":\""+to+"T23:59:59.059Z\",\"orderBy\":\"ts\",\"orderDirection\":\"Desc\",\"page\":1,\"limit\":100}",
                     "method": "POST",

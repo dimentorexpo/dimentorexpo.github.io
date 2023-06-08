@@ -95,7 +95,7 @@ str = localStorage.getItem('sound_str');
 if (str !== null && str !== "")
     audio = new Audio(str);
 else
-    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
+    audio = new Audio("https://grumstv.github.io/Sounds/msg.mp3");
 
 Object.keys(localStorage).forEach(function (key) { // чистка localstorage от мусора , когда АФ на каждый лог добавляет запись вида SMART_TABLE... или при работе с архивом
     if (/^(SMART_TABLE.)/.test(key)) {
@@ -110,12 +110,12 @@ function setDisplayStyle(element, value){
 }
 
 // Блок горячих клавиш
-const API_ENDPOINT = 'https://skyeng.autofaq.ai/api/reason8/operator/status';
+const API_ENDPOINT = 'https://uat.autofaq.ai/api/reason8/operator/status';
 const fetchOptions = {
     headers: {
         'content-type': 'application/json',
     },
-    referrer: 'https://skyeng.autofaq.ai/tickets/archive',
+    referrer: 'https://uat.autofaq.ai/tickets/archive',
     referrerPolicy: 'strict-origin-when-cross-origin',
     body: '',
     method: 'POST',
@@ -134,7 +134,7 @@ function changeStatus(status) { // функция изменения стату�
         });
 }
 
-if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
+if (window.location.href.indexOf('uat.autofaq.ai') !== -1) {
     document.onkeydown = (event) => {
         if (event.altKey && event.code === 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
             changeStatus('Offline');
@@ -159,7 +159,7 @@ function noDoubts(object) { // функция для разрешения вво
 }
 
 async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
-    const a = await fetch('https://skyeng.autofaq.ai/api/operators/statistic/currentState', {
+    const a = await fetch('https://uat.autofaq.ai/api/operators/statistic/currentState', {
         credentials: 'include',
     });
     const b = await a.json();
@@ -176,20 +176,20 @@ async function whoAmI() { // функция получения айди опер
 }
 
 function firstLoadPage() { //первичаня загрузка страницы
-    if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
+    if (window.location.href.indexOf('uat.autofaq.ai') === -1 || window.location.href.indexOf('uat.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
         if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
-            include("https://dimentorexpo.github.io/Modules/Consideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
+            include("https://grumstv.github.io/Modules_testNEW/Consideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
         }
     } else {
         let mystyles = document.createElement('link')
 		mystyles.rel = 'stylesheet'
-		mystyles.href = "https://dimentorexpo.github.io/CSS/styles.css" // подключаем модуль стилей 
+		mystyles.href = "https://grumstv.github.io/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
         if (localStorage.getItem('Hidetestid') == 0) {
-            testid.style.display = 'none';
-            idlogin.style.display = 'none';
+           testid.style.display = 'none';
+           idlogin.style.display = 'none';
         }
 
         setTimeout(move_again_AF, 3500)
@@ -206,10 +206,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
             btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
             btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(hashBut, btnAdd1.children[10])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
+            btnAdd1.insertBefore(butServ, btnAdd1.children[10])
+            btnAdd1.insertBefore(butThemes, btnAdd1.children[11])
+            btnAdd1.insertBefore(taskBut, btnAdd1.children[12])
         }, 2000)
 
         function addElementsToList(elements, list) {
@@ -223,9 +222,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
             const menubutarea = document.createElement('div');
             menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[16]);
+            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
             menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[16]);
+            headmenulist.insertBefore(menubar, headmenulist.children[15]);
             const elements = [servDsk, JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
             addElementsToList(elements, menubar);
 			
@@ -277,7 +276,7 @@ function timerHideButtons() { //функция добавления скрыти
 function loadmoduls(gfgScript){
     let lboxstyles = document.createElement('link')
     lboxstyles.rel = 'stylesheet'
-    lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+    lboxstyles.href = "https://grumstv.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
     document.querySelector('head').append(lboxstyles)
 
     let create = (info) => {
@@ -315,7 +314,7 @@ function prepTp() { //функция подготовки расширения �
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
-    let crmopers = document.createElement('button')
+	let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
     crmopers.id = 'crmopersstatuses'
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
@@ -340,38 +339,38 @@ function prepTp() { //функция подготовки расширения �
     setTimeout(whoAmI, 2000)
     setInterval(timerHideButtons, 300)
 
-    let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
-		"https://dimentorexpo.github.io/chart.js", // подключаем модуль обработки графиков
-		"https://dimentorexpo.github.io/moment.js", // подключаем модуль обработки даты и времени
-        "https://dimentorexpo.github.io/Modules/Link.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
-        "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
-	    "https://dimentorexpo.github.io/Modules/AlarmClock.js", // модуль будильника
-        "https://dimentorexpo.github.io/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
-		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
-		"https://dimentorexpo.github.io/Modules/Calendar.js", // модуль кнопки "Календарь"
-        "https://dimentorexpo.github.io/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
-        "https://dimentorexpo.github.io/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        "https://dimentorexpo.github.io/Modules/RefuseForm.js", // модуль формы отказа от помощи
-		"https://dimentorexpo.github.io/Modules/VoiceHelper.js", // модуль голосового помощника
-        "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
-        "https://dimentorexpo.github.io/Modules/AutoRespond.js", // модуль автоответа по таймеру
-        "https://dimentorexpo.github.io/Modules/JiraSearch.js", // модуль поиска по Jira
-        "https://dimentorexpo.github.io/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
-        "https://dimentorexpo.github.io/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
-        "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
-        "https://dimentorexpo.github.io/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
-        "https://dimentorexpo.github.io/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
-        "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
-        "https://dimentorexpo.github.io/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-        "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://dimentorexpo.github.io/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
-		"https://dimentorexpo.github.io/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
-		"https://dimentorexpo.github.io/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
-        "https://dimentorexpo.github.io/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
-        "https://dimentorexpo.github.io/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
-        "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
+    let gfgScript = ["https://grumstv.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
+		"https://grumstv.github.io/chart.js", // подключаем модуль для работы с графиками
+		"https://grumstv.github.io/moment.js", // подключаем модуль для работы с датами и временем
+        "https://grumstv.github.io/Modules_testNEW/Link.js", // модуль ссылкера (L)inks
+        "https://grumstv.github.io/Modules_testNEW/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://grumstv.github.io/Modules_testNEW/Settings.js", // модуль настроек расширения
+	    "https://grumstv.github.io/Modules_testNEW/AlarmClock.js", // модуль будильника
+        "https://grumstv.github.io/Modules_testNEW/CustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://grumstv.github.io/Modules_testNEW/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+		"https://grumstv.github.io/Modules_testNEW/Calendar.js", // модуль кнопки "Календарь"
+        "https://grumstv.github.io/Modules_testNEW/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
+        "https://grumstv.github.io/Modules_testNEW/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
+        "https://grumstv.github.io/Modules_testNEW/RefuseForm.js", // модуль формы отказа от помощи
+		"https://grumstv.github.io/Modules_testNEW/VoiceHelper.js", // модуль голосового помощника
+        "https://grumstv.github.io/Modules_testNEW/Marks.js", // модуль просмотра оценок пользователя
+        "https://grumstv.github.io/Modules_testNEW/AutoRespond.js", // модуль автоответа по таймеру
+        "https://grumstv.github.io/Modules_testNEW/JiraSearch.js", // модуль поиска по Jira
+        "https://grumstv.github.io/Modules_testNEW/Smartroom.js", // модуль формы пожеланий Smartroom
+        "https://grumstv.github.io/Modules_testNEW/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
+        "https://grumstv.github.io/Modules_testNEW/Themes.js", // модуль выставления тегов и тематик
+        "https://grumstv.github.io/Modules_testNEW/ChatHistory.js", // модуль просмотра истории чатов
+        "https://grumstv.github.io/Modules_testNEW/BinBankInfo.js", // модуль просмотра участников группы в L
+        "https://grumstv.github.io/Modules_testNEW/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
+        "https://grumstv.github.io/Modules_testNEW/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://grumstv.github.io/Modules_testNEW/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
+		"https://grumstv.github.io/Modules_testNEW/OpStatusMM.js", //подключаем модуль отправки статусов
+        "https://grumstv.github.io/Modules_testNEW/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://grumstv.github.io/Modules_testNEW/ServiceDesk.js", // подключаем модуль Сервис Деска
+        "https://grumstv.github.io/Modules_testNEW/Grabber.js", // подключаем модуль Парсинга чатов оператора
+        "https://grumstv.github.io/Modules_testNEW/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
+		"https://dimentorexpo.github.io/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
+        "https://grumstv.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
 
@@ -389,19 +388,19 @@ function prepKC() { //функция подготовки расширения �
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
 
-    let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
-        "https://dimentorexpo.github.io/Modules/LinkKC.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
-        "https://dimentorexpo.github.io/Modules/Settings.js", // модуль настроек расширения
-	    "https://dimentorexpo.github.io/Modules/AlarmClock.js", // модуль будильника
-        "https://dimentorexpo.github.io/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
-		"https://dimentorexpo.github.io/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
-        "https://dimentorexpo.github.io/Modules/Marks.js", // модуль просмотра оценок пользователя
-        "https://dimentorexpo.github.io/Modules/Themes.js", // модуль выставления тегов и тематик
-        "https://dimentorexpo.github.io/Modules/ChatHistory.js", // модуль просмотра истории чатов
-        "https://dimentorexpo.github.io/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
-        "https://dimentorexpo.github.io/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
+    let gfgScript = ["https://grumstv.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
+        "https://grumstv.github.io/Modules_testNEW/LinkKC.js", // модуль ссылкера (L)inks
+        "https://grumstv.github.io/Modules_testNEW/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://grumstv.github.io/Modules_testNEW/Settings.js", // модуль настроек расширения
+	    "https://grumstv.github.io/Modules_testNEW/AlarmClock.js", // модуль будильника
+        "https://grumstv.github.io/Modules_testNEW/CustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://grumstv.github.io/Modules_testNEW/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+        "https://grumstv.github.io/Modules_testNEW/Marks.js", // модуль просмотра оценок пользователя
+        "https://grumstv.github.io/Modules_testNEW/Themes.js", // модуль выставления тегов и тематик
+        "https://grumstv.github.io/Modules_testNEW/ChatHistory.js", // модуль просмотра истории чатов
+        "https://grumstv.github.io/Modules_testNEW/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://grumstv.github.io/Modules_testNEW/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://grumstv.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
 
@@ -430,7 +429,7 @@ function maxLengthCheck(object) { // функция ограничения ко�
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-	if (elem.nodeName != 'BUTTON'  && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !=='TABLE' && elem.nodeName !=='TH' && elem.nodeName !=='TR' && elem.id !=='AgregatedDataOut' && elem.nodeName !=='CANVAS') {
+    if (elem.nodeName != 'BUTTON'  && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !=='TABLE' && elem.nodeName !=='TH' && elem.nodeName !=='TR' && elem.id !=='AgregatedDataOut' && elem.nodeName !=='CANVAS' && elem.id !=="grabdata" && elem.id !=="ToolsPanel") {
         return true;
     }
     return false;
@@ -442,7 +441,7 @@ async function sendComment(txt) { // функция отправки комме�
     var txt2 = txt.split('\n').join('\\n')
     var txt2 = txt2.split("\"").join("\\\"")
     resetFlags()
-    fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+    fetch("https://uat.autofaq.ai/api/reason8/answers", {
         "headers": {
             "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
         },
@@ -516,9 +515,9 @@ function checkEducationServiceInput() {
 
 async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
     try {
-        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'skyeng.autofaq.ai' && document.URL.split('/')[5] != '') {
+        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'uat.autofaq.ai' && document.URL.split('/')[5] != '') {
             let temparr = document.location.pathname.split('/')[3];
-            await fetch("https://skyeng.autofaq.ai/api/conversations/" + temparr, {
+            await fetch("https://uat.autofaq.ai/api/conversations/" + temparr, {
             }).then(r => r.json()).then(r => pldata = r)
 
             let uslugstr
@@ -597,11 +596,11 @@ async function checkthemestatus() { //функция проверки выста
 
 function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
     let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+    if (window.location.href.indexOf('uat.autofaq.ai/tickets/archive') === -1)
         chatId = document.location.pathname.split('/')[3]
     else
         chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
-    fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+    fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
         "headers": {
             "content-type": "application/json",
         },
@@ -613,12 +612,12 @@ function newTaggg(tagName) { //функция добавления тега в �
 
 function newTags(tagName) { //функция добавления нескольких тегов в чат, которые тянутся из дока в комплекте так сказать
     let chatId = ''
-    if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1)
+    if (window.location.href.indexOf('uat.autofaq.ai/tickets/archive') === -1)
         chatId = document.location.pathname.split('/')[3]
     else
         chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
     if (tagName.split(',').length < 2)
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },
@@ -627,7 +626,7 @@ function newTags(tagName) { //функция добавления несколь
             "credentials": "include"
         });
     else if (tagName.split(',').length == 2)
-        fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
+        fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
             "headers": {
                 "content-type": "application/json",
             },
@@ -637,19 +636,7 @@ function newTags(tagName) { //функция добавления несколь
         });
 }
 
-function setactivechatstyle() { // функция добавляющая активному чату класс selchatact который слева рисует синюю границу толще чтобы было заметнее
-    const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
-    const isActiveChat = (
-        document.URL.split('/')[2] === 'skyeng.autofaq.ai' &&
-        document.URL.length > 43 &&
-        button &&
-        !button.classList.contains('selchatact')
-    );
 
-    if (isActiveChat) {
-        button.classList.toggle('selchatact');
-    }
-}
 
 function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
     fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
@@ -1039,22 +1026,30 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
 
     let sidePanel = document.createElement('div')
-	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 5; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
-	document.body.append(sidePanel)
-
+        sidePanel.id = "rightPanel"
+        sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 10000; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+        document.body.append(sidePanel)
+		
+	let MainMenuBtn = document.createElement('button')
+	MainMenuBtn.textContent = "👺"
+	MainMenuBtn.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+	MainMenuBtn.id = 'MainMenuBtn'
+	MainMenuBtn.title = 'По клику открывает список инструментов необходимых для работы'
+	MainMenuBtn.classList.add('rightPanelBtn')
+	document.getElementById('rightPanel').appendChild(MainMenuBtn)
+		
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
+    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     openchhis.id = 'opennewcat'
     openchhis.title = 'Открывает виджет просмотра истории чатов'
     openchhis.classList.add('rightPanelBtn')
-	document.getElementById('rightPanel').appendChild(openchhis)
-
+    document.getElementById('rightPanel').appendChild(openchhis)
     openchhis.onclick = () => {
         if (document.getElementById('AF_ChatHis').style.display == 'none')
             document.getElementById('butChatHistory').click()
     }
-
+	
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
         location.reload()
@@ -1132,7 +1127,7 @@ if (localStorage.getItem('scriptAdr') == null) {
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
-wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
+wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 
@@ -1402,11 +1397,6 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
     });
 };
 
-let hashBut = document.createElement('div')
-hashBut.id = "hashBut"
-hashBut.innerHTML = "Хэш"
-hashBut.style = "margin-right:15px; cursor:pointer;";
-
 let taskBut = document.createElement('div')
 taskBut.id = "taskBut"
 taskBut.innerHTML = "🛠 Task"
@@ -1591,39 +1581,6 @@ maskBackHide.onclick = function () { // кнопка скрыть
     }
 };
 
-hashBut.onclick = function () { // кнопка копирующая хеш чата
-    const adr = document.location.href;
-    const adr1 = document.location.pathname;
-    const adrPathArray = adr1.split('/');
-    const chatId = adrPathArray[3];
-    const hashBut = document.getElementById('hashBut');
-    let hash;
-
-    if ((chatId === undefined || chatId === "") || window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') === -1) {
-        if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
-            hashBut.innerHTML = "Ошибка";
-            setTimeout(function () { hashBut.innerHTML = "Хэш"; }, 3000);
-        } else {
-            chatId = document.getElementsByClassName('ant-spin-nested-loading')[1].firstChild.firstChild.firstChild.childNodes[1].textContent;
-            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
-            copyToClipboard1(hash);
-            hashBut.innerHTML = "Скопировано";
-            setTimeout(function () { hashBut.innerHTML = "Хэш"; }, 3000);
-        }
-    } else {
-        if (scriptAdr === TS_addr) {
-            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-18/' + chatId;
-        } else if (scriptAdr === TPprem_addr || scriptAdr === TPprem_addrRzrv) {
-            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-26/' + chatId;
-        } else {
-            hash = 'https://hdi.skyeng.ru/autofaq/conversation/-11/' + chatId;
-        }
-        copyToClipboard1(hash);
-        hashBut.innerHTML = "Скопировано";
-        setTimeout(function () { hashBut.innerHTML = "Хэш" }, 3000)
-    }
-}
-
 document.getElementById('testUsers').ondblclick = function (a) {
     if (checkelementtype(a)) {
         if (testid && idlogin && testid.style.display === '' && idlogin.style.display === '') {
@@ -1713,7 +1670,6 @@ studneotv.onclick = function() {
 }
 
 setInterval(screenshots, 5000)
-setInterval(setactivechatstyle, 1000)
 setInterval(addbuttonsintegration, 1000)
 setInterval(remandressl, 3000);
 setInterval(closeTerms, 500);
@@ -1867,7 +1823,7 @@ document.getElementById('sndbot').onclick = async function () { //отправи
     txt3 = txt3.substr(0, txt3.length - 2)
 
     if (document.getElementById('msg').innerHTML == "Чат")
-        fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+        fetch("https://uat.autofaq.ai/api/reason8/answers", {
             "headers": {
                 "content-type": "multipart/form-data; boundary=----WebKitFormBoundarymasjvc4O46a190zh",
             },

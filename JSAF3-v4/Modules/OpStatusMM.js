@@ -97,7 +97,7 @@ async function docheckopers() { // функция сбора статистик�
     let currtime = getcurrenttime();
     let timetomsg = ` ` + currdate + ` ` + currtime;
 
-await fetch("https://uat.autofaq.ai/api/operators/statistic/currentState", {
+await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
     "credentials": "include"
 }).then(r => r.json()).then(result => {
     opstats.push(...result.onOperator.filter(operator => 
@@ -232,9 +232,9 @@ function firstloadstatmodule() {
         }, 1000);
     }
 }
-if(window.location.href.indexOf('uat.autofaq.ai/tickets/assigned') !== -1 || window.location.href.indexOf('uat.autofaq.ai/tickets/common') !== -1) {
+if(window.location.href.indexOf('skyeng.autofaq.ai/tickets/assigned') !== -1 || window.location.href.indexOf('skyeng.autofaq.ai/tickets/common') !== -1) {
     firstloadstatmodule()
-} else if (window.location.href.indexOf('uat.autofaq.ai') !==-1 && issending == 1) {
+} else if (window.location.href.indexOf('skyeng.autofaq.ai') !==-1 && issending == 1) {
     StatistikToMM.classList.remove('rightPanelBtn');
     StatistikToMM.classList.add('statMMactive');
 }

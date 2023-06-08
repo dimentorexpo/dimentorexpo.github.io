@@ -3,7 +3,7 @@ var win_Jira =  // описание элементов окна Поиска п�
         <span style="width: 550px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 550;" id="jira_1str">
-                                <button title="скрывает меню" id="hideMej" class="buttonHide">hide</button>
+                                <button title="скрывает меню" id="hideMej" style="width:50px; background: #228B22;">hide</button>
 								<button id="RefreshJiraStatus" title="Обновляет статус Токена Jira, чтобы проверить авторизованы вы или нет">🔄</button>
 								<button id="ClearJiraData" title="Очищает поля с результатами и полем для ввода">🧹</button>
 								<span style="color:bisque">Token Status: </span>
@@ -242,7 +242,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                         sendComment('https://jira.skyeng.tech/browse/' + favissues[j].match(/browse.(\S+)"/)[1])
 
                         let b = document.URL.split('/')
-                        fetch("https://uat.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",
@@ -437,13 +437,13 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                     for (let j = 0; j < barray.length; j++) {
                         barray[j].onclick = function () {
                             let chatId = ''
-                            if (window.location.href.indexOf('uat.autofaq.ai/tickets/archive') === -1) {
+                            if (window.location.href.indexOf('skyeng.autofaq.ai/tickets/archive') === -1) {
                                 chatId = document.location.pathname.split('/')[3]
                                 sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
                             } else {
                                 chatId = document.getElementsByClassName('ant-tabs-tabpane expert-sider-tabs-panel_scrollable')[0].children[0].children[0].children[0].textContent.split(' ')[1]
                             }
-                            fetch("https://uat.autofaq.ai/api/conversation/" + chatId + "/payload", {
+                            fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
                                 "headers": {
                                     "accept": "*/*",
                                     "content-type": "application/json",
@@ -573,7 +573,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                     barray.onclick = function () {
                         sendComment(rezissuetable[0].items[0].url)
                         let b = document.URL.split('/')
-                        fetch("https://uat.autofaq.ai/api/conversation/" + b[5] + "/payload", {
+                        fetch("https://skyeng.autofaq.ai/api/conversation/" + b[5] + "/payload", {
                             "headers": {
                                 "accept": "*/*",
                                 "content-type": "application/json",

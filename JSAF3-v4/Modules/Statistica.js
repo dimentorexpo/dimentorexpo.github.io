@@ -3,7 +3,7 @@ var win_StatisticaAF =  // описание формы чтобы не дава�
         <span style="width: 750px; min-height: 70px; max-height:700px; overflow-y:auto; overflow-x:hidden;">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 750px; display:flex; justify-content:space-evenly;" id="stataaf_header">
-                                <button title="скрывает меню" id="hidestatisticaaf" class="buttonHide">hide</button>
+                                <button title="скрывает меню" id="hidestatisticaaf" style="width:50px; background: #228B22;">hide</button>
 								<button id="clearstatawindow">🧹</button>
 								<input type="text" id="timeoutput" style="width:100px; text-align:center; background: blanchedalmond; font-weight: 700;" disabled></input>
 								<div style="width:450px;background: #5f7875;height: 21px;"><div id="progress-bar" style="width: 0%; height: 20px; background-color: #e38118; border: 1px solid black; text-align:center; font-weight:700; color:white;"></div></div>
@@ -168,7 +168,7 @@ async function getStats() { // функция получения статист�
     const str1 = `${currentDate.getFullYear()}-${month1}-${date1}T21:00:00Z`;
     const str2 = `${previousDate.getFullYear()}-${month2}-${date2}T21:00:00Z`;
 
-    const response = await fetch(`https://uat.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=${str2}&dateTo=${str1}`);
+    const response = await fetch(`https://skyeng.autofaq.ai/api/reason8/reports/operatorActivityTable?dateFrom=${str2}&dateTo=${str1}`);
     const data = await response.json();
     const arrayvars = data.rows.filter(row => row.operator.indexOf(opSection) !== -1);
     arrayvars.sort((a, b) => b.conversationClosed - a.conversationClosed);
@@ -177,7 +177,7 @@ async function getStats() { // функция получения статист�
 
     var operatorId = []
     var operatorNames = []
-    await fetch("https://uat.autofaq.ai/api/operators/statistic/currentState", {
+    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
     }).then(result => b = result.json()).then(b => b.onOperator.forEach(k => {
         if (k.operator != null)
@@ -195,14 +195,14 @@ async function getStats() { // функция получения статист�
 
     var operatorChatCount = []
     for (var l = 0; l < operatorId.length; l++) {
-        await fetch("https://uat.autofaq.ai/api/conversations/history", {
+        await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
             "headers": {
                 "accept": "*/*",
                 "content-type": "application/json",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin"
             },
-            "referrer": "https://uat.autofaq.ai/logs",
+            "referrer": "https://skyeng.autofaq.ai/logs",
             "referrerPolicy": "strict-origin-when-cross-origin",
             "body": "{\"serviceId\":\"361c681b-340a-4e47-9342-c7309e27e7b5\",\"mode\":\"Json\",\"participatingOperatorsIds\":[\"" + operatorId[l] + "\"],\"tsFrom\":\"" + firstDate + "\",\"tsTo\":\"" + secondDateN + "\",\"orderBy\":\"ts\",\"orderDirection\":\"Asc\",\"page\":1,\"limit\":1}",
             "method": "POST",
@@ -367,7 +367,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
                 servicetopic = 'df7d4f86-bb75-45b5-8ae8-87bf896bf308'
             }
 
-            await fetch("https://uat.autofaq.ai/api/conversations/queues/archive", {
+            await fetch("https://skyeng.autofaq.ai/api/conversations/queues/archive", {
                 "headers": {
                     "content-type": "application/json",
                 },
@@ -378,7 +378,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
                 let flagCsat = 0
                 let flagTopic = 0
 
-                await fetch('https://uat.autofaq.ai/api/conversations/' + test.items[i].conversationId)
+                await fetch('https://skyeng.autofaq.ai/api/conversations/' + test.items[i].conversationId)
                     .then(r => r.json())
                     .then(r => {
                         if (r.operatorId == operatorId) {
@@ -419,7 +419,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
 
                             slacount++;
                             abovecloseslaarr += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
-                                '<a href="https://uat.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "slaclchatids">' +
+                                '<a href="https://skyeng.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "slaclchatids">' +
                                 clschatarr[k] + '</a>' + ' Время чата: ' + (test.items[i].stats.conversationDuration / 1000 / 60).toFixed(1) +
                                 '<span class = "lookchat" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + ' Создан чат в: ' + tshrs + ":" + tsmin + ' МСК ' + tagsarr[k] + '<br>')
                         }
@@ -427,7 +427,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
                         if (test.items[i].stats.averageOperatorAnswerTime !== undefined && ((test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2)) > 2) {
                             artcount++;
                             aboveart += ('<span style="color: red; font-weight:700">&#5129;</span>' + " " +
-                                '<a href="https://uat.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "artchatids">' +
+                                '<a href="https://skyeng.autofaq.ai/logs/' + clschatarr[k] + '" onclick="" style="color:LightGoldenrod;" class = "artchatids">' +
                                 clschatarr[k] + '</a>' + ' Ср.время ответа: ' + (test.items[i].stats.averageOperatorAnswerTime / 1000 / 60).toFixed(2) +
                                 '<span class = "lookchatart" style="margin-left: 10px; cursor: pointer">👁‍🗨</span>' + '<br>')
                         }
@@ -448,7 +448,7 @@ async function checkCSAT() { // функция проверки CSAT и чато
                                 flagmid += '• ' + test.items[i].stats.conversationId + '<br>'
                         }
                 if (flagTopic == 1)
-                    stringChatsWithoutTopic += '<a href="https://uat.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="">https://uat.autofaq.ai/logs/' + test.items[i].conversationId + '</a></br>'
+                    stringChatsWithoutTopic += '<a href="https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '" onclick="">https://skyeng.autofaq.ai/logs/' + test.items[i].conversationId + '</a></br>'
             }
 
             if (test.total / 100 >= page) {
@@ -583,7 +583,7 @@ async function checkload(department, flag) { // функция проверки 
     if (opsection == 'ТПPrem' || opsection == 'Prem')
         department = "Prem"
 
-    await fetch("https://uat.autofaq.ai/api/operators/statistic/currentState", {
+    await fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
         "credentials": "include"
     }).then(r => r.json()).then(result => {
         setTimeout(function () {
@@ -667,7 +667,7 @@ async function getopersSLA() {
 			overduecount = 0;
             page = 1;
             do {
-                await fetch("https://uat.autofaq.ai/api/conversations/history", {
+                await fetch("https://skyeng.autofaq.ai/api/conversations/history", {
                     headers: {
                         "content-type": "application/json",
                     },
@@ -680,7 +680,7 @@ async function getopersSLA() {
                     .then((r) => (operdata = r));
 
                 for (let j = 0; j < operdata.items.length; j++) {
-                    await fetch("https://uat.autofaq.ai/api/conversations/" + operdata.items[j].conversationId)
+                    await fetch("https://skyeng.autofaq.ai/api/conversations/" + operdata.items[j].conversationId)
                         .then((r) => r.json())
                         .then((r) => (fres = r));
                     if (fres.operatorId == activeopersId[i]) {
