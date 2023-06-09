@@ -300,7 +300,12 @@ document.getElementById('setting').onclick = function () { // открывает
 
     // скрываем от других отделов возможность включать расширение с ТП  плююшками и шаблонами
 
-    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    //const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    if (document.getElementsByClassName('User_Label__rj419').textContent == 'Nagiev Eldar') {
+      const opsection = 'ТП'
+    } else {
+      const opsection = document.getElementsByClassName('User_Label__rj419')[0].textContent.split('-')[0]
+    }
 
     let needtohide = document.getElementsByClassName('onlyfortp');
 
