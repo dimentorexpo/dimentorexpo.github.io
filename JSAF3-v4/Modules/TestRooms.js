@@ -85,14 +85,6 @@ document.getElementById('hideMetestrooms').onclick = function () { // скрыт
     document.getElementById('AF_testrooms').style.display = 'none'
 }
 
-let TestRoomsBtn = document.createElement('button') // добавление кнопки открытия окна создания тестовых комнат
-TestRoomsBtn.textContent = '🎲'
-TestRoomsBtn.id = "TestRooms"
-TestRoomsBtn.classList = 'teststudteach'
-TestRoomsBtn.title = "Открыть окно создания тестовых уроков"
-TestRoomsinsert = document.getElementById('testUsers').childNodes[0].childNodes[1]
-TestRoomsinsert.insertBefore(TestRoomsBtn, TestRoomsinsert.children[2])
-
 document.getElementById('TestRooms').onclick = function () { //открывает окно создания тестовых комнат
     setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
 }
