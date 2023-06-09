@@ -183,7 +183,7 @@ async function whoAmI() {
     const data = await response.json();
     operatorsarray = data.res;
   
-    const operator = operatorsarray.find(s => s.operator !== null && me && s.operator.id === operatorId);
+    const operator = operatorsarray.find(s => s.operator !== null && operatorId && s.operator.id === operatorId);
     if (operator) {
       afopername = operator.operator.fullName;
       opsection = operator.operator.fullName.split('-')[0];
