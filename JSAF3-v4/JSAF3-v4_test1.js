@@ -83,6 +83,18 @@ var win_AFhelper =  // описание элементов главного ок
 	</span>
 </div>`;
 
+var win_mainmenu = // описание кнопок меню
+    `<div>
+        <div id="servDsk">🛠ServiceDesk</div>
+        <div id="JiraOpenForm">🔎Jira Search</div>
+        <div id="butMarks">🎭 Оценки</div>
+        <div id="otkaz">❌Отказ от помощи</div>
+        <div id="smartroomform">🦐Smartroom</div>
+        <div id="butLessonInfo">🎓 Lesson Info</div>
+        <div id="butFrozeChat">❄ Auto Respond</div>
+        <div id="buttonGetStat">📊 Статистика</div>
+    </div>`;
+
 flag = 0
 str = localStorage.getItem('sound_str');
 if (str !== null && str !== "")
@@ -449,40 +461,6 @@ async function sendComment(txt) { // функция отправки комме�
         "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + adr1 + "\",\"text\":\"" + txt2 + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
         "method": "POST",
         "credentials": "include"
-    });
-}
-
-function logginerfortests(polzovatel) { // функция логинера для тестовых У/П
-    const requestBody = `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${polzovatel}&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenlog}`;
-    const requestHeaders = {
-        'content-type': 'application/x-www-form-urlencoded',
-        'sec-fetch-site': 'same-origin',
-        'sec-fetch-user': '?1',
-        'upgrade-insecure-requests': '1',
-    };
-    const request = {
-        headers: requestHeaders,
-        referrer: 'https://id.skyeng.ru/admin/auth/login-links',
-        referrerPolicy: 'strict-origin-when-cross-origin',
-        body: requestBody,
-        method: 'POST',
-        mode: 'cors',
-        credentials: 'include',
-    };
-
-    document.getElementById('responseTextarea1').value = JSON.stringify(request);
-    document.getElementById('responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/login-links';
-    document.getElementById('responseTextarea3').value = 'senddata1';
-    document.getElementById('sendResponse').click();
-
-    document.getElementById('responseTextarea1').addEventListener('DOMSubtreeModified', () => {
-        let logginerinfo = document.getElementById('responseTextarea1').getAttribute('senddata1');
-        if (logginerinfo) {
-            logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
-            logginerinfo = logginerinfo[logginerinfo.length - 1].split('"');
-            copyToClipboard(logginerinfo[1]);
-            document.getElementById('responseTextarea1').removeAttribute('senddata1');
-        }
     });
 }
 
@@ -993,6 +971,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 	let menubar = document.createElement('div')
 	menubar.style = `background: white; position:absolute; right:100px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
 	menubar.id = 'idmymenu'
+    menubar.innerHTML = win_mainmenu;
 	document.getElementById('rightPanel').appendChild(menubar)
 		
     let openchhis = document.createElement('button')
@@ -1157,8 +1136,8 @@ let marksstata = document.createElement('span');
 marksstata.id = 'marksstata';
 marksstata.innerHTML = '<a style="color: black; cursor: pointer;">📊</a>';
 
-buttonhistory.onclick = function () { //функция приска пр истории чатов в коте
-    document.getElementById('butChatHistory').click();
+buttonhistory.onclick = function () { //функция поиска по истории чатов в коте
+    document.getElementById('opennewcat').click();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
@@ -1169,7 +1148,7 @@ buttonhistory.onclick = function () { //функция приска пр ист�
 }
 
 btnNextUserChatHistory.onclick = function () { //искать историю чатов по ученику с которым след урок при обращении П
-    document.getElementById('butChatHistory').click();
+    document.getElementById('opennewcat').click();
 
     for (i = 0; document.getElementsByClassName('expert-user_details-list')[1].childNodes[i] != undefined; i++) {
         if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "nextClass-studentId") {
@@ -1320,8 +1299,7 @@ butLessonInfo.classList.add('inithide');
 let servDsk = document.createElement('div')
 servDsk.id = "servDsk"
 servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.classList.add('onlyfortp');
-servDsk.classList.add('inithide');
+servDsk.classList.add('onlyfortp', 'inithide');
 
 let butrefuse = document.createElement('div')
 butrefuse.id = "otkaz"
