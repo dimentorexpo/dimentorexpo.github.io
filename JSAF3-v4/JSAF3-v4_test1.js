@@ -290,9 +290,7 @@ function loadmoduls(gfgScript){
 
 function prepTp() { //функция подготовки расширения ТП
     const languageSwitcher = document.querySelector('.user_menu-language_switcher');
-    const testUsers = document.getElementById('testUsers');
 
-    setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
 	let crmopers = document.createElement('button')
@@ -345,7 +343,8 @@ function prepTp() { //функция подготовки расширения �
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
 		"https://dimentorexpo.github.io/chart.js", // подключаем модуль для работы с графиками
 		"https://dimentorexpo.github.io/moment.js", // подключаем модуль для работы с датами и временем
-        "https://dimentorexpo.github.io/JSAF3-v4/ModulesLink.js", // модуль ссылкера (L)inks
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/TestUsers.js", // модуль тестовых У П
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Link.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/Settings.js", // модуль настроек расширения
 	    "https://dimentorexpo.github.io/JSAF3-v4/Modules/AlarmClock.js", // модуль будильника
