@@ -14,55 +14,45 @@ async function operstatusleftbar() { // функция замены Script Packa
     let pausecnt = 0;
     let chattpquecountleft = 0;
 
-    let operdep = document.getElementsByClassName('user_menu-dropdown-user_name')[0].innerText.split('-')[0]
-    if (operdep == 'ТП')
-        flagtpkc = 'ТП'
-    else if (operdep == 'КЦ')
-        flagtpkc = 'КЦ'
-    else if (operdep == 'КМ')
-        flagtpkc = 'КМ'
-    else if (operdep == 'Teachers Care')
-        flagtpkc = 'Teachers Care'
-    else if (operdep == 'Prem')
-        flagtpkc = 'Prem'
-
-    await fetch("https://uat.autofaq.ai/api/operators/statistic/currentState", {
+    flagtpkc = opsection
+    
+    await fetch("https://uat.autofaq.ai/api/reason8/operator/status", {
         "credentials": "include"
     }).then(r => r.json()).then(result => {
 
-        for (let i = 0; i < result.onOperator.length; i++) {
-			if (result.onOperator[i].operator.status != "Offline") {
-				if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
-					opstats.push(result.onOperator[i])
+        for (let i = 0; i < result.res.length; i++) {
+			if (result.res[i].operator.status != "Offline") {
+				if (flagtpkc == 'ТП' && result.res[i].operator != null && result.res[i].operator.fullName.match(/ТП\D/)) {
+					opstats.push(result.res[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].groupId == 'c7bbb211-a217-4ed3-8112-98728dc382d8') {
 							chattpquecountleft = result.unAssigned[j].count
 						}
 					}
-				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
-					opstats.push(result.onOperator[i])
+				} else if (flagtpkc == 'КЦ' && result.res[i].operator != null && result.res[i].operator.fullName.match(/КЦ\D/)) {
+					opstats.push(result.res[i])
 					chatneraspcountleft = 0;					
 					for (let j=0; j<result.unAssigned.length; j++) {
 						if (result.unAssigned[j].groupId == 'b6f7f34d-2f08-fc19-3661-29ac00842898') {
 							chatneraspcountleft += Number(result.unAssigned[j].count)
 						}
 					}	
-				} else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
-					opstats.push(result.onOperator[i])
+				} else if (flagtpkc == 'КМ' && result.res[i].operator != null && result.res[i].operator.fullName.match(/КМ\D/)) {
+					opstats.push(result.res[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb == '121300') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'Prem' && result.onOperator[i].operator != null && result.onOperator[i].groupId =='68932fae-b9f9-6b37-2a52-911b2b6b4f6d' && result.onOperator[i].operator.fullName.match(/Prem\D/)) {
-					opstats.push(result.onOperator[i])
+				} else if (flagtpkc == 'Prem' && result.res[i].operator != null && result.res[i].groupId =='68932fae-b9f9-6b37-2a52-911b2b6b4f6d' && result.res[i].operator.fullName.match(/Prem\D/)) {
+					opstats.push(result.res[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb == '121527') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'Teachers Care' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/Teachers Care\D/)) {
-					opstats.push(result.onOperator[i])
+				} else if (flagtpkc == 'Teachers Care' && result.res[i].operator != null && result.res[i].operator.fullName.match(/Teachers Care\D/)) {
+					opstats.push(result.res[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb) {
 							chatneraspcountleft = result.unAssigned[j].count
@@ -70,32 +60,32 @@ async function operstatusleftbar() { // функция замены Script Packa
 					}	
 				} // end of if state small 	
 			} else { // end of if state big
-				if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
+				if (flagtpkc == 'ТП' && result.res[i].operator != null && result.res[i].operator.fullName.match(/ТП\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].groupId == 'c7bbb211-a217-4ed3-8112-98728dc382d8') {
 							chattpquecountleft = result.unAssigned[j].count
 						}
 					}
-				} else if (flagtpkc == 'КЦ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КЦ\D/)) {
+				} else if (flagtpkc == 'КЦ' && result.res[i].operator != null && result.res[i].operator.fullName.match(/КЦ\D/)) {
 					chatneraspcountleft = 0;
 					for (let j=0; j<result.unAssigned.length; j++) {
 						if (result.unAssigned[j].groupId == 'b6f7f34d-2f08-fc19-3661-29ac00842898') {
 							chatneraspcountleft += Number(result.unAssigned[j].count)
 						}
 					}	
-				} else if (flagtpkc == 'КМ' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/КМ\D/)) {
+				} else if (flagtpkc == 'КМ' && result.res[i].operator != null && result.res[i].operator.fullName.match(/КМ\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb == '121300') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'Prem' && result.onOperator[i].groupId =='68932fae-b9f9-6b37-2a52-911b2b6b4f6d' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/Prem\D/)) {
+				} else if (flagtpkc == 'Prem' && result.res[i].groupId =='68932fae-b9f9-6b37-2a52-911b2b6b4f6d' && result.res[i].operator != null && result.res[i].operator.fullName.match(/Prem\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb == '121527') {
 							chatneraspcountleft = result.unAssigned[j].count
 						}
 					}	
-				} else if (flagtpkc == 'Teachers Care' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/Teachers Care\D/)) {
+				} else if (flagtpkc == 'Teachers Care' && result.res[i].operator != null && result.res[i].operator.fullName.match(/Teachers Care\D/)) {
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].kb) {
 							chatneraspcountleft = result.unAssigned[j].count
