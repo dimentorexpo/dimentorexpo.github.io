@@ -34,14 +34,14 @@ var listenerTestUsers = function (e, a) { // сохранение позиции
     localStorage.setItem('winLeftTestUsers', String(Number(e.clientX - myXTestUsers)));
 };
 
-wintTestUsers.onmousedown = function (a) { // изменение позиции окна тестовых поьзователей
+TestUsersdiv.onmousedown = function (a) { // изменение позиции окна тестовых поьзователей
     if (checkelementtype(a)) {
         window.myXTestUsers = a.layerX;
         window.myYTestUsers = a.layerY;
         document.addEventListener('mousemove', listenerTestUsers);
     }
 }
-wintTestUsers.onmouseup = function () { document.removeEventListener('mousemove', listenerTestUsers); } // прекращение изменения позиции окна тестовых поьзователей
+TestUsersdiv.onmouseup = function () { document.removeEventListener('mousemove', listenerTestUsers); } // прекращение изменения позиции окна тестовых поьзователей
 
 let btnsid = document.getElementById('sidcode');
 let btntid = document.getElementById('tidcode');

@@ -1081,23 +1081,6 @@ wintAF.onmousedown = function (a) { // изменение позиции гла�
 }
 wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
 
-var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
-    loginer.style.left = Number(e.clientX - myXloginer) + "px";
-    loginer.style.top = Number(e.clientY - myYloginer) + "px";
-    localStorage.setItem('winTop3', String(Number(e.clientY - myYloginer)));
-    localStorage.setItem('winLeft3', String(Number(e.clientX - myXloginer)));
-};
-
-loginer.onmousedown = function (a) {
-    if (checkelementtype(a)) {
-        window.myXloginer = a.layerX;
-        window.myYloginer = a.layerY;
-        document.addEventListener('mousemove', listenerloginer);
-    }
-}
-
-loginer.onmouseup = function () { document.removeEventListener('mousemove', listenerloginer); } // прекращение изменения позиции окна с логинером для У П
-
 let infouserbut = document.createElement('p');
 infouserbut.id = 'userIdScript';
 infouserbut.innerHTML = '<a style="color: black; width:40px; cursor: pointer;"> Info </a>';
