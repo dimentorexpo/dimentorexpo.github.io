@@ -208,9 +208,6 @@ function timerHideButtons() { //функция добавления скрыти
     if (document.getElementsByClassName('ant-modal-content')[0] !== undefined) {
         document.getElementsByClassName('ant-modal-content')[0].childNodes[1].children[0].appendChild(maskBackHide)
 
-        // NeuralNetwork Version
-        let opsection = document.querySelector('.user_menu-dropdown-user_name').textContent.split('-')[0];
-
         let modalContent = document.querySelector('.ant-modal-content');
 
         const setBackgroundColors = (selectorList, valuesToColor) => {
@@ -878,11 +875,15 @@ function addOption(oListbox, text, value) {  //функция добавлени
 }
 
 function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
-    const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
+    if (document.getElementsByClassName('User_Label__rj419').textContent == 'Nagiev Eldar') {
+        const opsection = 'ТП'
+    } else {
+        const opsection = document.getElementsByClassName('User_Label__rj419')[0].textContent.split('-')[0]
+    }
 
     let sidePanel = document.createElement('div')
         sidePanel.id = "rightPanel"
-        sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 10000; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+        sidePanel.style = 'position: fixed; top: 110px; right: 22px; z-index: 10000; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
         document.body.append(sidePanel)
 			
 	let ScriptBut = document.createElement('button');
@@ -919,8 +920,10 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 	MainMenuBtn.onclick = function() {
 		    if (document.getElementById('idmymenu').style.display == 'none') {
 				document.getElementById('idmymenu').style.display = ''
+                this.classList.add('activeScriptBtn')
 			} else {
 				document.getElementById('idmymenu').style.display = 'none'
+                this.classList.remove('activeScriptBtn')
 			}
 	}
 	document.getElementById('rightPanel').appendChild(MainMenuBtn)
