@@ -194,9 +194,22 @@ function firstLoadPage() { //первичаня загрузка страниц�
 		mystyles.href = "https://dimentorexpo.github.io/JSAF3-v4/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
-        document.addEventListener("DOMContentLoaded", function(event) {
-            move_again_AF();
+        // Создаем новый экземпляр MutationObserver с обработчиком события
+        const observer = new MutationObserver(function(mutationsList, observer) {
+            // Перебираем все мутации
+            for (let mutation of mutationsList) {
+                // Перебираем все добавленные узлы
+                for (let addedNode of mutation.addedNodes) {
+                    // Проверяем, является ли добавленный узел элементом с нужным классом
+                    if (addedNode instanceof HTMLElement && addedNode.classList.contains('User_Label__rj419')) {
+                        move_again_AF();
+                    }
+                }
+            }
         });
+
+        // Настройка и запуск наблюдения за изменениями в DOM
+        observer.observe(document, { childList: true, subtree: true });
 
         //setTimeout(move_again_AF, 3500)
 
