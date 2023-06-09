@@ -65,9 +65,13 @@ document.getElementById('crmopersstatuses').onclick = function () {
 	let timeoutarr = []
 	let timeoutcnt = 0;
 
-		if (document.getElementById('AF_OperStat').style.display == 'none')
+		if (document.getElementById('AF_OperStat').style.display == 'none') {
 			document.getElementById('AF_OperStat').style.display = ''
-		else document.getElementById('AF_OperStat').style.display = 'none'
+			document.getElementById('idmymenu').style.display = 'none'
+		}else{
+			document.getElementById('AF_OperStat').style.display = 'none'
+			document.getElementById('idmymenu').style.display = 'none'
+		}
 		
 	
 	 var socket = new WebSocket("wss://telephony.skyeng.ru/phone-stats/?EIO=4&transport=websocket"); 
