@@ -87,13 +87,13 @@ var win_mainmenu = // описание кнопок меню
     `<div>
         <div id="servDsk" class="onlyfortp">🛠ServiceDesk</div>
         <div id="JiraOpenForm" class="onlyfortp">🔎Jira Search</div>
-        <div id="crmopersstatuses" class="onlyfortp">🧮Статусы CRM2</button>
+        <div id="crmopersstatuses" class="onlyfortp">🧮Статусы CRM2</div>
         <div id="butMarks">🎭 Оценки</div>
         <div id="otkaz" class="onlyfortp">❌Отказ от помощи</div>
         <div id="smartroomform" class="onlyfortp">🦐Smartroom</div>
         <div id="butLessonInfo">🎓 Lesson Info</div>
         <div id="butFrozeChat" class="onlyfortp">❄ Auto Respond</div>
-        <div id="radioPlayer">📻 Radio</button>
+        <div id="radioPlayer">📻 Radio</div>
         <div id="buttonGetStat">📊 Статистика</div>
     </div>`;
 
