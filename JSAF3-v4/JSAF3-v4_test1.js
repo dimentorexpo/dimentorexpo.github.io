@@ -6,7 +6,6 @@ let operchatsdata;
 let isChatOnOperator = false;
 let flagusertype;
 let flaggetlogginer;
-let tokenlog; // пустая переменная для функции logginerfortests подставляемая в body
 let audio // переменнай для проигрывания звука при поступлении нового чата
 let chatneraspcount; // переменная для получения колчества нераспределенных чатов в очереди
 let chattpquecount; // переменная для получения колчества нераспределенных чатов в очереди тематики ТП v1
