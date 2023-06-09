@@ -25,6 +25,7 @@ let getservidst;
 var templatesAF = [];
 var bool = 0;
 var table;
+var opsection = ''; // глобальная переменная отдела оператора
 var operatorId = ""; //глобальная переменная после получения ID operator , который использует расширение и авторизован в свой профиль
 var operatorsarray = []; //массив операторов , который потом пригодится для других функций
 var flagLangBut = 0;
@@ -165,22 +166,29 @@ function noDoubts(object) { // функция для разрешения вво
     object.value = object.value.replace(/["'\\]/gi, '');
 }
 
-async function whoAmI() { // функция получения айди оператора, который работает и запустил расширение
-    const a = await fetch('https://uat.autofaq.ai/api/operators/statistic/currentState', {
-        credentials: 'include',
+async function whoAmI() {
+    const tokenis = document.cookie.match(/jwt=(.*)/);
+    const token = tokenis[1];
+  
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(window.atob(base64).split('').map(c => {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    operatorId = JSON.parse(jsonPayload).user.id;
+  
+    const response = await fetch('https://uat.autofaq.ai/api/reason8/operator/status', {
+      credentials: 'include'
     });
-    const b = await a.json();
-    const me = document.querySelector('.user_menu-dropdown-user_name');
-    operatorsarray = b.onOperator;
-
-    b.onOperator.forEach((s) => {
-        if (s.operator != null && me && s.operator.fullName === me.textContent) {
-            operatorId = s.operator.id;
-            afopername = s.operator.fullName;
-            console.log(`Мой ID: ${operatorId}`);
-        }
-    });
-}
+    const data = await response.json();
+    operatorsarray = data.res;
+  
+    const operator = operatorsarray.find(s => s.operator !== null && me && s.operator.id === operatorId);
+    if (operator) {
+      afopername = operator.operator.fullName;
+      opsection = operator.operator.fullName.split('-')[0];
+    }
+  }
 
 function firstLoadPage() { //первичаня загрузка страницы
     if (window.location.href.indexOf('uat.autofaq.ai') === -1 || window.location.href.indexOf('uat.autofaq.ai/login') > 0) {
@@ -194,24 +202,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
 		mystyles.href = "https://dimentorexpo.github.io/JSAF3-v4/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
-        // Создаем новый экземпляр MutationObserver с обработчиком события
-        const observer = new MutationObserver(function(mutationsList, observer) {
-            // Перебираем все мутации
-            for (let mutation of mutationsList) {
-                // Перебираем все добавленные узлы
-                for (let addedNode of mutation.addedNodes) {
-                    // Проверяем, является ли добавленный узел элементом с нужным классом
-                    if (addedNode instanceof HTMLElement && addedNode.classList.contains('User_Label__rj419')) {
-                        move_again_AF();
-                    }
-                }
-            }
-        });
-
-        // Настройка и запуск наблюдения за изменениями в DOM
-        observer.observe(document, { childList: true, subtree: true });
-
-        //setTimeout(move_again_AF, 3500)
+        setTimeout(move_again_AF, 3500)
 
         function addElementsToList(elements, list) {
             elements.forEach((element) => {
@@ -319,7 +310,6 @@ function prepTp() { //функция подготовки расширения �
 	document.getElementById('rightPanel').appendChild(taskBut)
 	
     flagLangBut = 1
-    setTimeout(whoAmI, 2000)
     setInterval(timerHideButtons, 300)
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
@@ -370,7 +360,6 @@ function prepKC() { //функция подготовки расширения �
     needtoopen.forEach(e => setDisplayStyle(e, ''));
 
     flagLangBut = 1
-    setTimeout(whoAmI, 2000)
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/LinkKC.js", // модуль ссылкера (L)inks
@@ -891,13 +880,8 @@ function addOption(oListbox, text, value) {  //функция добавлени
     oListbox.appendChild(oOption);
 }
 
-function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
-    if (document.getElementsByClassName('User_Label__rj419').textContent == 'Nagiev Eldar') {
-        const opsection = 'ТП'
-    } else {
-        const opsection = document.getElementsByClassName('User_Label__rj419')[0].textContent.split('-')[0]
-    }
-
+async function move_again_AF() { //с АФ шняга там стили шмили скрипта отображение отправку сообщений
+    await  whoAmI()
     let sidePanel = document.createElement('div')
         sidePanel.id = "rightPanel"
         sidePanel.style = 'position: fixed; top: 110px; right: 22px; z-index: 10000; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
