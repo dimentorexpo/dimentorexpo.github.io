@@ -194,21 +194,18 @@ function firstLoadPage() { //первичаня загрузка страниц�
 
         setTimeout(move_again_AF, 3500)
 
-        setTimeout(function () {
-            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
-            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
-            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
-            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
-            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[11])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[12])
-        }, 2000)
+        // setTimeout(function () {
+            // btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            // btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
+            // btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
+            // btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            // btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
+            // btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
+            // btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
+            // btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
+            // btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
+            // btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
+        // }, 2000)
 
         function addElementsToList(elements, list) {
             elements.forEach((element) => {
@@ -216,27 +213,23 @@ function firstLoadPage() { //первичаня загрузка страниц�
             });
         }
 
-        setTimeout(() => {
-            const headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0];
-            const menubutarea = document.createElement('div');
-            menubutarea.style = 'margin-right:20px;';
+        // setTimeout(() => {
+            // const headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0];
+            // const menubutarea = document.createElement('div');
+            // menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[15]);
-            menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[15]);
-            const elements = [servDsk, JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
-            addElementsToList(elements, menubar);
+            // const elements = [servDsk, JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butFrozeChat, buttonGetStat];
+            // addElementsToList(elements, menubar);
 			
-            JiraOpenForm.classList.remove('inithide');
-            butrefuse.classList.remove('inithide');
-            butsmartroom.classList.remove('inithide');
-            butLessonInfo.classList.remove('inithide');
-            servDsk.classList.remove('inithide');
-            butChatHistory.classList.remove('inithide');
-            butFrozeChat.classList.remove('inithide');
-            buttonGetStat.classList.remove('inithide');
-            butMarks.classList.remove('inithide');
-        }, 8000);
+            // JiraOpenForm.classList.remove('inithide');
+            // butrefuse.classList.remove('inithide');
+            // butsmartroom.classList.remove('inithide');
+            // butLessonInfo.classList.remove('inithide');
+            // servDsk.classList.remove('inithide');
+            // butFrozeChat.classList.remove('inithide');
+            // buttonGetStat.classList.remove('inithide');
+            // butMarks.classList.remove('inithide');
+        // }, 8000);
     }
     setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
 }
@@ -348,7 +341,14 @@ function prepTp() { //функция подготовки расширения �
 		}
     }
 	document.getElementById('rightPanel').appendChild(butServ)
-
+	
+	let taskBut = document.createElement('button')
+	taskBut.id = "taskBut"
+	taskBut.innerHTML = "🛠"
+	taskBut.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+	butServ.classList.add('onlyfortp', 'rightPanelBtn')
+	document.getElementById('rightPanel').appendChild(taskBut)
+	
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
     setInterval(timerHideButtons, 300)
@@ -525,87 +525,6 @@ function checkEducationServiceInput() {
         }
     }
     return false
-}
-
-async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
-    try {
-        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'uat.autofaq.ai' && document.URL.split('/')[5] != '') {
-            let temparr = document.location.pathname.split('/')[3];
-            await fetch("https://uat.autofaq.ai/api/conversations/" + temparr, {
-            }).then(r => r.json()).then(r => pldata = r)
-
-            let uslugstr
-            uslugstr = checkEducationServiceInput()
-            
-            if (pldata.payload.topicId.value == ""){
-                const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
-
-                if (button) {
-                    const textNode = button.childNodes[0].childNodes[0];
-                    const theme = document.createElement('div');
-                    theme.textContent = 'Тема: ❌';
-                    theme.style = 'color:red; font-weight:700';
-
-                    if (!textNode.childNodes[1].childNodes[4]) {
-                        textNode.childNodes[1].appendChild(theme);
-                    } else if (textNode.childNodes[1].childNodes[4].textContent === 'Тема: ✔') {
-                        textNode.childNodes[1].childNodes[4].textContent = 'Тема: ❌';
-                        textNode.childNodes[1].childNodes[4].style.color = 'red';
-                    }
-                }
-
-            } else if (pldata.payload.topicId.value != "") {
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.textContent = "Тема: ✔"
-                    theme.style = 'color:green; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[4].textContent == 'Тема: ❌') {
-                        txtbar.childNodes[1].childNodes[4].textContent = "Тема: ✔";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'green';
-                    }
-                }
-            }
-
-            if (!uslugstr && pldata.payload.educationServiceId == undefined) {
-                let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                txtbar.childNodes[1].childNodes[5].textContent = "";
-            }
-
-            if (uslugstr && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '') {
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.textContent = "Услуга: ❌"
-                    theme.style = 'color:red; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[5] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[5].textContent == 'Услуга: ✔') {
-                        txtbar.childNodes[1].childNodes[5].textContent = "Услуга: ❌";
-                        txtbar.childNodes[1].childNodes[5].style.color = 'red';
-                    }
-                }
-            } else if (uslugstr && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '') {
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.textContent = "Услуга: ✔"
-                    theme.style = 'color:green; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[5] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[5].textContent == 'Услуга: ❌') {
-                        txtbar.childNodes[1].childNodes[5].textContent = "Услуга: ✔";
-                        txtbar.childNodes[1].childNodes[5].style.color = 'green';
-                    }
-                }
-            }
-        }
-    } catch (e) { }
 }
 
 function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
@@ -1059,15 +978,35 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 		}
 
     }	
-	document.getElementById('rightPanel').appendChild(ScriptBut)	
+	document.getElementById('rightPanel').appendChild(ScriptBut)
+
+	let butThemes = document.createElement('button')
+	butThemes.id = "themes"
+	butThemes.innerHTML = "📚"
+	butThemes.title = "[Темы] - кнопка открывающая окно с темами и тегами"
+	butThemes.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+	butThemes.classList.add('rightPanelBtn')	
+	document.getElementById('rightPanel').appendChild(butThemes)
 		
 	let MainMenuBtn = document.createElement('button')
 	MainMenuBtn.textContent = "👺"
 	MainMenuBtn.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
 	MainMenuBtn.id = 'MainMenuBtn'
-	MainMenuBtn.title = 'По клику открывает список инструментов необходимых для работы'
+	MainMenuBtn.title = '[Меню] - По клику открывает список инструментов необходимых для работы'
 	MainMenuBtn.classList.add('rightPanelBtn')
+	MainMenuBtn.onclick = function() {
+		    if (document.getElementById('idmymenu').style.display == 'none') {
+				document.getElementById('idmymenu').style.display = ''
+			} else {
+				document.getElementById('idmymenu').style.display = 'none'
+			}
+	}
 	document.getElementById('rightPanel').appendChild(MainMenuBtn)
+	
+	let menubar = document.createElement('div')
+	menubar.style = `background: white; position:absolute; right:100px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+	menubar.id = 'idmymenu'
+	document.getElementById('rightPanel').appendChild(menubar)
 		
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
@@ -1076,14 +1015,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     openchhis.title = 'Открывает виджет просмотра истории чатов'
     openchhis.classList.add('rightPanelBtn')
     document.getElementById('rightPanel').appendChild(openchhis)
-    openchhis.onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == 'none')
-            document.getElementById('butChatHistory').click()
-    }
-	
-
-	
-	
+		
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
         location.reload()
@@ -1410,21 +1342,10 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
     });
 };
 
-let taskBut = document.createElement('div')
-taskBut.id = "taskBut"
-taskBut.innerHTML = "🛠 Task"
-taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
-taskBut.classList.add('ant-btn', 'onlyfortp');
-
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
 butMarks.innerHTML = "🎭 Оценки"
 butMarks.classList.add('inithide');
-
-let butChatHistory = document.createElement('div')
-butChatHistory.id = "butChatHistory"
-butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.classList.add('inithide');
 
 let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
@@ -1458,55 +1379,39 @@ butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
 butsmartroom.classList.add('onlyfortp', 'inithide');
 
-let butThemes = document.createElement('div')
-butThemes.id = "themes"
-butThemes.innerHTML = "Темы"
-butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn')
-
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
 butJiraOpenForm.classList.add('onlyfortp', 'inithide');
 
-let butmenu = document.createElement('button')
-butmenu.textContent = 'Меню'
-butmenu.id = 'headmymenu'
-butmenu.style = 'height:32px;'
-butmenu.classList.add('ant-btn')
+// butmenu.onclick = () => { // кнопка открытия Меню
+    // if (menubar.style.display === 'none') {
+        // menubar.style.display = '';
+        // let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231);
+        // menubar.style.left = `${xvarmenu}px`;
 
-let menubar = document.createElement('div')
-menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
-menubar.id = 'idmymenu'
+       // Query the DOM only once
+        // const expertChatContent = document.querySelector('.ant-layout-content .expert-chat_content');
+        // const appBodyContentInnerRight = document.querySelector('.ant-layout-content .app-body-content-inner-right');
+        // let clickHandler;
 
-butmenu.onclick = () => { // кнопка открытия Меню
-    if (menubar.style.display === 'none') {
-        menubar.style.display = '';
-        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231);
-        menubar.style.left = `${xvarmenu}px`;
-
-        // Query the DOM only once
-        const expertChatContent = document.querySelector('.ant-layout-content .expert-chat_content');
-        const appBodyContentInnerRight = document.querySelector('.ant-layout-content .app-body-content-inner-right');
-        let clickHandler;
-
-        if (expertChatContent) {
-            clickHandler = (event) => {
-                const e = document.getElementById('idmymenu');
-                if (!e.contains(event.target)) e.style.display = 'none';
-            };
-            expertChatContent.addEventListener('click', clickHandler);
-        } else if (appBodyContentInnerRight) {
-            clickHandler = (event) => {
-                const e = document.getElementById('idmymenu');
-                if (!e.contains(event.target)) e.style.display = 'none';
-            };
-            appBodyContentInnerRight.addEventListener('click', clickHandler);
-        }
-    } else {
-        menubar.style.display = 'none';
-    }
-}
+        // if (expertChatContent) {
+            // clickHandler = (event) => {
+                // const e = document.getElementById('idmymenu');
+                // if (!e.contains(event.target)) e.style.display = 'none';
+            // };
+            // expertChatContent.addEventListener('click', clickHandler);
+        // } else if (appBodyContentInnerRight) {
+            // clickHandler = (event) => {
+                // const e = document.getElementById('idmymenu');
+                // if (!e.contains(event.target)) e.style.display = 'none';
+            // };
+            // appBodyContentInnerRight.addEventListener('click', clickHandler);
+        // }
+    // } else {
+        // menubar.style.display = 'none';
+    // }
+// }
 
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
@@ -1681,7 +1586,6 @@ setInterval(addbuttonsintegration, 1000)
 setInterval(remandressl, 3000);
 setInterval(closeTerms, 500);
 setInterval(checJiraF, 1000);
-setInterval(checkthemestatus, 3000);
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
 
