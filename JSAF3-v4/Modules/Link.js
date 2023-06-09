@@ -189,7 +189,7 @@ document.getElementById('confbugs').addEventListener('click', function () { // �
 })
 
 document.getElementById('restartlesson').addEventListener('click', function () { // копируем ссылку в буфер для перезапуска урока
-    copyToClipboard1("setStatus('classwork')")   
+    copyToClipboard("setStatus('classwork')")   
     document.getElementById('restartlesson').innerHTML = "Copied!";
     setTimeout(function () { document.getElementById('restartlesson').innerHTML = "Redo MAT💾" }, 2000);
 })
@@ -296,7 +296,7 @@ document.getElementById('getenablerAP').onclick = function () {               //
     if (enablerAP.value == "")
         console.log('Введите hash комнаты в поле')
     else {
-        copyToClipboard1(enableAPlnk + enablerAP.value);
+        copyToClipboard(enableAPlnk + enablerAP.value);
     };
     document.getElementById('getenablerAP').innerHTML = "✅";
     setTimeout(function () { document.getElementById('getenablerAP').innerHTML = "💾" }, 2000);
@@ -308,7 +308,7 @@ document.getElementById('getskipAP').onclick = function () {               // с
     if (skipAP.value == "")
         console.log('Введите hash комнаты в поле')
     else {
-        copyToClipboard1(skipAPlnk + skipAP.value);
+        copyToClipboard(skipAPlnk + skipAP.value);
     };
     document.getElementById('getskipAP').innerHTML = "✅";
     setTimeout(function () { document.getElementById('getskipAP').innerHTML = "💾" }, 2000);
@@ -321,7 +321,7 @@ document.getElementById('doskiponboard').onclick = function () {               /
     if (skiponboarding.value == "")
         console.log('Введите ID услуги в поле')
     else {
-        copyToClipboard1(skiponblnk + skiponboarding.value);
+        copyToClipboard(skiponblnk + skiponboarding.value);
     };
     document.getElementById('doskiponboard').innerHTML = "✅";
     setTimeout(function () { document.getElementById('doskiponboard').innerHTML = "💾" }, 2000);

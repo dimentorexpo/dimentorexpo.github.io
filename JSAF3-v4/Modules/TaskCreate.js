@@ -618,22 +618,22 @@ document.getElementById('serviceinf').innerHTML = '';
     }
 	
 	studcontact.onclick = function() {
-		copyToClipboard1('Обратился П. Связаться с У');
+		copyToClipboard('Обратился П. Связаться с У');
 		sendComment('Обратился П. Связаться с У')
 	}
 
 	teachcontact.onclick = function() {
-		copyToClipboard1('Обратился У. Связаться с П');
+		copyToClipboard('Обратился У. Связаться с П');
 		sendComment('Обратился У. Связаться с П')
 	}
 
 	nrstudent.onclick = function() {
-		copyToClipboard1('Крит Н.О. У');
+		copyToClipboard('Крит Н.О. У');
 		sendComment('Крит Н.О. У')
 	}
 
 	nrteacher.onclick = function() {
-		copyToClipboard1('Крит Н.О. П');
+		copyToClipboard('Крит Н.О. П');
 		sendComment('Крит Н.О. П')
 	}
 

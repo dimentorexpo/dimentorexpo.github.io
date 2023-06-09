@@ -58,7 +58,7 @@ btnsid.addEventListener("contextmenu", (event) => { // копирует в бу�
     event.preventDefault();
     let teststudid = localStorage.getItem('test_stud');
     if (teststudid != null || teststudid != '') {
-        copyToClipboard1(teststudid)
+        copyToClipboard(teststudid)
         document.getElementById('sidcode').classList.add('active');
         setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000);
     } else alert("Введите ID тестового ученика в настройках ⚙");
@@ -77,7 +77,7 @@ btntid.addEventListener("contextmenu", (event) => { // копирует в бу�
     event.preventDefault();
     let testteachid = localStorage.getItem('test_teach');
     if (testteachid != null || testteachid != '') {
-        copyToClipboard1(testteachid)
+        copyToClipboard(testteachid)
         document.getElementById('tidcode').classList.add('active');
         setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000);
     } else alert("Введите ID тестового преподавателя в настройках ⚙");
@@ -111,12 +111,8 @@ function logginerfortests(polzovatel) { // функция логинера дл�
         if (logginerinfo) {
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split('"');
-            copyToClipboard1(logginerinfo[1]);
+            copyToClipboard(logginerinfo[1]);
             document.getElementById('responseTextarea1').removeAttribute('senddata1');
         }
     });
-}
-
-document.getElementById('TestRooms').onclick = function () { //открывает окно создания тестовых комнат
-    setDisplayStyle(document.getElementById('AF_testrooms'), document.getElementById('AF_testrooms').style.display === '' ? 'none' : '');
 }

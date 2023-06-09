@@ -137,7 +137,7 @@ function startTimer() { // большая функция по таймеру а�
                             for (let i = 0; i < document.getElementsByClassName('expert-user_details-list')[1].childElementCount; i++) {
                                 if (document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].firstChild.textContent == "id") {
                                     let getidafuser = document.getElementsByClassName('expert-user_details-list')[1].childNodes[i].childNodes[1].textContent.split(' ')[0];
-                                    copyToClipboard1("https://crm2.skyeng.ru/persons/" + getidafuser)
+                                    copyToClipboard("https://crm2.skyeng.ru/persons/" + getidafuser)
                                 }
                             }
                         }

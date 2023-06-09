@@ -447,11 +447,11 @@ document.getElementById('clearallinfo').onclick = () => { //кнопка очи�
 }
 	
 	document.getElementById('chid').onclick = () => { // копирует в буфер айди чата
-        copyToClipboard1('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
+        copyToClipboard('https://hdi.skyeng.ru/autofaq/conversation/-11/' + document.getElementById('placechatid').innerText)
     }
 
     document.getElementById('usidchat').onclick = () => { //копирует в буфер айди пользователя
-        copyToClipboard1(document.getElementById('placeusid').innerText)
+        copyToClipboard(document.getElementById('placeusid').innerText)
     }
 	
 	document.getElementById('hideuserdatainfo').onclick = () => { // форма hide

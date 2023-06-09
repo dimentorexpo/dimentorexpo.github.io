@@ -135,7 +135,7 @@ function getSlotData(name) {
 				// Format the date as desired
 				let formattedDate = `${("0" + date.getDate()).slice(-2)}-${("0" + (date.getMonth() + 1)).slice(-2)}-${date.getFullYear()} ${time}`;
 				
-				copyToClipboard1(formattedDate)
+				copyToClipboard(formattedDate)
 
 
 				}

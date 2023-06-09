@@ -19,7 +19,6 @@ let template_flag2 = 0
 let word_text = ""
 let template_text = ""
 let flagggg = 0;
-let addInfoUser = document.createElement('div');
 let getidusrteachreq;
 let getidusrstud;
 let getidusrsteach;
@@ -35,11 +34,6 @@ var abortTimeOut1 = ''
 var modulesarray = [];
 var chatsArray = [];
 var scriptAdr = localStorage.getItem('scriptAdr');
-const testUsers = document.getElementById('testUsers');
-testUsers.classList = 'onlyfortp';
-testUsers.style.display = 'none'; // скрываю плавающее окно при загрузке страницы
-const testid = document.getElementById('testid');
-const idlogin = document.getElementById('idlogin');
 const TS_addr = 'https://script.google.com/macros/s/AKfycbyuK-HoVzF2v66klEcqNyAKFFqtvVheEe4vLhRz/exec';
 const KC_addr = 'https://script.google.com/macros/s/AKfycbzV8BHtyD3XUcPjZmb9pwwY-2cwAKx8hTRZKVENpKhdCJYe-hF0rpyDVdUIXBUin326Lw/exec';
 const KC_addrRzrv = 'https://script.google.com/macros/s/AKfycbzn2Lv0uuqXG5-mSWHu2W_fAmeeVJ9WVtT1hNNMAj9z9p5I0WLZnydzTcE8z1H5nuaTiQ/exec';
@@ -187,29 +181,20 @@ function firstLoadPage() { //первичаня загрузка страниц�
 		mystyles.href = "https://dimentorexpo.github.io/JSAF3-v4/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
-        if (localStorage.getItem('Hidetestid') == 0) {
-            testid.style.display = 'none';
-            idlogin.style.display = 'none';
-        }
-
         setTimeout(move_again_AF, 3500)
 
-        setTimeout(function () {
-            btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
-            btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
-            btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
-            btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
-            btnAdd1.insertBefore(butChatHistory, btnAdd1.children[6])
-            btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
-            btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
-            btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-            btnAdd1.insertBefore(butServ, btnAdd1.children[11])
-            btnAdd1.insertBefore(butThemes, btnAdd1.children[12])
-            btnAdd1.insertBefore(taskBut, btnAdd1.children[13])
-        }, 2000)
+        // setTimeout(function () {
+            // btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
+            // btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
+            // btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
+            // btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
+            // btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
+            // btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
+            // btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
+            // btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
+            // btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
+            // btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
+        // }, 2000)
 
         function addElementsToList(elements, list) {
             elements.forEach((element) => {
@@ -217,29 +202,24 @@ function firstLoadPage() { //первичаня загрузка страниц�
             });
         }
 
-        setTimeout(() => {
-            const headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0];
-            const menubutarea = document.createElement('div');
-            menubutarea.style = 'margin-right:20px;';
+        // setTimeout(() => {
+            // const headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0];
+            // const menubutarea = document.createElement('div');
+            // menubutarea.style = 'margin-right:20px;';
 
-            headmenulist.insertBefore(menubutarea, headmenulist.children[16]);
-            menubutarea.append(butmenu);
-            headmenulist.insertBefore(menubar, headmenulist.children[16]);
-            const elements = [servDsk, JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butChatHistory, butFrozeChat, buttonGetStat];
-            addElementsToList(elements, menubar);
+            // const elements = [servDsk, JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butFrozeChat, buttonGetStat];
+            // addElementsToList(elements, menubar);
 			
-            JiraOpenForm.classList.remove('inithide');
-            butrefuse.classList.remove('inithide');
-            butsmartroom.classList.remove('inithide');
-            butLessonInfo.classList.remove('inithide');
-            servDsk.classList.remove('inithide');
-            butChatHistory.classList.remove('inithide');
-            butFrozeChat.classList.remove('inithide');
-            buttonGetStat.classList.remove('inithide');
-            butMarks.classList.remove('inithide');
-        }, 8000);
+            // JiraOpenForm.classList.remove('inithide');
+            // butrefuse.classList.remove('inithide');
+            // butsmartroom.classList.remove('inithide');
+            // butLessonInfo.classList.remove('inithide');
+            // servDsk.classList.remove('inithide');
+            // butFrozeChat.classList.remove('inithide');
+            // buttonGetStat.classList.remove('inithide');
+            // butMarks.classList.remove('inithide');
+        // }, 8000);
     }
-    setTimeout(function () { document.getElementById('testUsers').style.background = "#464451" }, 200)
 }
 
 function timerHideButtons() { //функция добавления скрытия полей плюс также перекрашивает при выборе тп исход срм2 в красный, тп2л в зеленый
@@ -310,11 +290,12 @@ function loadmoduls(gfgScript){
 
 function prepTp() { //функция подготовки расширения ТП
     const languageSwitcher = document.querySelector('.user_menu-language_switcher');
+    const testUsers = document.getElementById('testUsers');
 
     setDisplayStyle(testUsers, localStorage.getItem('disablelpmwindow') === '1' ? 'none' : '');
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
 
-    let crmopers = document.createElement('button')
+	let crmopers = document.createElement('button')
     crmopers.innerHTML = '🧮'
     crmopers.id = 'crmopersstatuses'
     crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
@@ -334,15 +315,37 @@ function prepTp() { //функция подготовки расширения �
     playerRadio.title = 'Открывает радио проигрыватель'
     playerRadio.classList.add('rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(playerRadio)
-
+	
+	let butServ = document.createElement('button')
+	butServ.id = "butServ"
+	butServ.innerHTML = "⚜"
+	butServ.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+	butServ.classList.add('onlyfortp', 'rightPanelBtn')
+	butServ.onclick = function () { //открывает вензель user info
+        setDisplayStyle(document.getElementById('AF_Service'), document.getElementById('AF_Service').style.display === '' ? 'none' : '');
+		if (document.getElementById('AF_Service').style.display =="")
+			butServ.classList.add('activeScriptBtn')
+		else {
+			butServ.classList.remove('activeScriptBtn')
+		}
+    }
+	document.getElementById('rightPanel').appendChild(butServ)
+	
+	let taskBut = document.createElement('button')
+	taskBut.id = "taskBut"
+	taskBut.innerHTML = "🛠"
+	taskBut.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+	taskBut.classList.add('onlyfortp', 'rightPanelBtn')
+	document.getElementById('rightPanel').appendChild(taskBut)
+	
     flagLangBut = 1
     setTimeout(whoAmI, 2000)
     setInterval(timerHideButtons, 300)
 
     let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
-		"https://dimentorexpo.github.io/chart.js", // подключаем модуль обработки графиков
-		"https://dimentorexpo.github.io/moment.js", // подключаем модуль обработки даты и времени
-        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Link.js", // модуль ссылкера (L)inks
+		"https://dimentorexpo.github.io/chart.js", // подключаем модуль для работы с графиками
+		"https://dimentorexpo.github.io/moment.js", // подключаем модуль для работы с датами и временем
+        "https://dimentorexpo.github.io/JSAF3-v4/ModulesLink.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/Settings.js", // модуль настроек расширения
 	    "https://dimentorexpo.github.io/JSAF3-v4/Modules/AlarmClock.js", // модуль будильника
@@ -364,12 +367,12 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
+		"https://dimentorexpo.github.io/JSAF3-v4/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
+        "https://dimentorexpo.github.io/JSAF3-v4/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/JSAF3-v4/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
-		"https://dimentorexpo.github.io/JSAF3-v4/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
-		"https://dimentorexpo.github.io/JSAF3-v4/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
-        "https://dimentorexpo.github.io/JSAF3-v4/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
-        "https://dimentorexpo.github.io/JSAF3-v4/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
+		"https://dimentorexpo.github.io/JSAF3-v4/Modules/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
@@ -404,7 +407,7 @@ function prepKC() { //функция подготовки расширения �
     loadmoduls(gfgScript)
 }
 
-const copyToClipboard1 = str => { // функция копирования в буфер обмена
+const copyToClipboard = str => { // функция копирования в буфер обмена
     const el = document.createElement('textarea');
     el.value = str;
     document.body.appendChild(el);
@@ -429,7 +432,7 @@ function maxLengthCheck(object) { // функция ограничения ко�
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-	if (elem.nodeName != 'BUTTON'  && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !=='TABLE' && elem.nodeName !=='TH' && elem.nodeName !=='TR' && elem.id !=='AgregatedDataOut' && elem.nodeName !=='CANVAS') {
+    if (elem.nodeName != 'BUTTON'  && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !=='TABLE' && elem.nodeName !=='TH' && elem.nodeName !=='TR' && elem.id !=='AgregatedDataOut' && elem.nodeName !=='CANVAS' && elem.id !=="grabdata" && elem.id !=="ToolsPanel") {
         return true;
     }
     return false;
@@ -479,7 +482,7 @@ function logginerfortests(polzovatel) { // функция логинера дл�
         if (logginerinfo) {
             logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
             logginerinfo = logginerinfo[logginerinfo.length - 1].split('"');
-            copyToClipboard1(logginerinfo[1]);
+            copyToClipboard(logginerinfo[1]);
             document.getElementById('responseTextarea1').removeAttribute('senddata1');
         }
     });
@@ -511,87 +514,6 @@ function checkEducationServiceInput() {
         }
     }
     return false
-}
-
-async function checkthemestatus() { //функция проверки выставления темы и услуги в активном чате
-    try {
-        if (document.URL.split('/').length >= 6 && document.URL.split('/')[2] == 'uat.autofaq.ai' && document.URL.split('/')[5] != '') {
-            let temparr = document.location.pathname.split('/')[3];
-            await fetch("https://uat.autofaq.ai/api/conversations/" + temparr, {
-            }).then(r => r.json()).then(r => pldata = r)
-
-            let uslugstr
-            uslugstr = checkEducationServiceInput()
-            
-            if (pldata.payload.topicId.value == ""){
-                const button = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0];
-
-                if (button) {
-                    const textNode = button.childNodes[0].childNodes[0];
-                    const theme = document.createElement('div');
-                    theme.textContent = 'Тема: ❌';
-                    theme.style = 'color:red; font-weight:700';
-
-                    if (!textNode.childNodes[1].childNodes[4]) {
-                        textNode.childNodes[1].appendChild(theme);
-                    } else if (textNode.childNodes[1].childNodes[4].textContent === 'Тема: ✔') {
-                        textNode.childNodes[1].childNodes[4].textContent = 'Тема: ❌';
-                        textNode.childNodes[1].childNodes[4].style.color = 'red';
-                    }
-                }
-
-            } else if (pldata.payload.topicId.value != "") {
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.textContent = "Тема: ✔"
-                    theme.style = 'color:green; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[4] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[4].textContent == 'Тема: ❌') {
-                        txtbar.childNodes[1].childNodes[4].textContent = "Тема: ✔";
-                        txtbar.childNodes[1].childNodes[4].style.color = 'green';
-                    }
-                }
-            }
-
-            if (!uslugstr && pldata.payload.educationServiceId == undefined) {
-                let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                txtbar.childNodes[1].childNodes[5].textContent = "";
-            }
-
-            if (uslugstr && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value == '') {
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.textContent = "Услуга: ❌"
-                    theme.style = 'color:red; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[5] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[5].textContent == 'Услуга: ✔') {
-                        txtbar.childNodes[1].childNodes[5].textContent = "Услуга: ❌";
-                        txtbar.childNodes[1].childNodes[5].style.color = 'red';
-                    }
-                }
-            } else if (uslugstr && pldata.payload.educationServiceId != undefined && pldata.payload.educationServiceId.value != '') {
-                if (document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0] != undefined) {
-                    let txtbar = document.getElementsByClassName('ant-btn expert-item-block expert-item-block-selected ant-btn-block')[0].childNodes[0].childNodes[0]
-                    let theme = document.createElement('div')
-                    theme.textContent = "Услуга: ✔"
-                    theme.style = 'color:green; font-weight:700'
-                    if (txtbar.childNodes[1].childNodes[5] == undefined)
-                        txtbar.childNodes[1].appendChild(theme)
-
-                    if (txtbar.childNodes[1].childNodes[5].textContent == 'Услуга: ❌') {
-                        txtbar.childNodes[1].childNodes[5].textContent = "Услуга: ✔";
-                        txtbar.childNodes[1].childNodes[5].style.color = 'green';
-                    }
-                }
-            }
-        }
-    } catch (e) { }
 }
 
 function newTaggg(tagName) { //функция добавления тега в чат, но надо потом искать где используется
@@ -635,6 +557,8 @@ function newTags(tagName) { //функция добавления несколь
             "credentials": "include"
         });
 }
+
+
 
 function fetchaddchat(userid1, userid2) { //вспомогательная функция просто добавления чата мекжду пользователям
     fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
@@ -1024,22 +948,63 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
     const opsection = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[0];
 
     let sidePanel = document.createElement('div')
-	sidePanel.id = "rightPanel"
-	sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 11000; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
-	document.body.append(sidePanel)
+        sidePanel.id = "rightPanel"
+        sidePanel.style = 'position: fixed; top: 75px; right: 22px; z-index: 10000; width: 40px; font-size: 22px; cursor: pointer; transition: all 0.5s ease;'
+        document.body.append(sidePanel)
+			
+	let ScriptBut = document.createElement('button');
+    ScriptBut.id = 'scriptBut';
+    ScriptBut.innerHTML = "🧩";
+    ScriptBut.style = "width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;";
+    ScriptBut.classList.add('rightPanelBtn')
+    ScriptBut.onclick = function () {
+		if (document.getElementById('AF_helper').style.display != 'flex') {
+			    document.getElementById('AF_helper').style.display = 'flex'
+				this.classList.add('activeScriptBtn')
+		} else {
+				document.getElementById('AF_helper').style.display = 'none'
+				this.classList.remove('activeScriptBtn')
+		}
 
+    }	
+	document.getElementById('rightPanel').appendChild(ScriptBut)
+
+	let butThemes = document.createElement('button')
+	butThemes.id = "themes"
+	butThemes.innerHTML = "📚"
+	butThemes.title = "[Темы] - кнопка открывающая окно с темами и тегами"
+	butThemes.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+	butThemes.classList.add('rightPanelBtn')	
+	document.getElementById('rightPanel').appendChild(butThemes)
+		
+	let MainMenuBtn = document.createElement('button')
+	MainMenuBtn.textContent = "👺"
+	MainMenuBtn.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
+	MainMenuBtn.id = 'MainMenuBtn'
+	MainMenuBtn.title = '[Меню] - По клику открывает список инструментов необходимых для работы'
+	MainMenuBtn.classList.add('rightPanelBtn')
+	MainMenuBtn.onclick = function() {
+		    if (document.getElementById('idmymenu').style.display == 'none') {
+				document.getElementById('idmymenu').style.display = ''
+			} else {
+				document.getElementById('idmymenu').style.display = 'none'
+			}
+	}
+	document.getElementById('rightPanel').appendChild(MainMenuBtn)
+	
+	let menubar = document.createElement('div')
+	menubar.style = `background: white; position:absolute; right:100px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+	menubar.id = 'idmymenu'
+	document.getElementById('rightPanel').appendChild(menubar)
+		
     let openchhis = document.createElement('button')
     openchhis.innerHTML = '☢'
+    openchhis.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     openchhis.id = 'opennewcat'
     openchhis.title = 'Открывает виджет просмотра истории чатов'
     openchhis.classList.add('rightPanelBtn')
-	document.getElementById('rightPanel').appendChild(openchhis)
-
-    openchhis.onclick = () => {
-        if (document.getElementById('AF_ChatHis').style.display == 'none')
-            document.getElementById('butChatHistory').click()
-    }
-
+    document.getElementById('rightPanel').appendChild(openchhis)
+		
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
         location.reload()
@@ -1061,10 +1026,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
         })
     }
 
-    document.getElementById('butServ').onclick = function () { //открывает вензель user info
-        setDisplayStyle(document.getElementById('AF_Service'), document.getElementById('AF_Service').style.display === '' ? 'none' : '');
-    }
-
     window.onkeydown = function (e) {
         if (e.key == 'Control') {
             bool = 1;
@@ -1078,23 +1039,6 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
             bool = 0;
         }
     }
-
-    // создание кнопки скрипт + начало тандема
-    let ScriptBut = document.createElement('div');
-    ScriptBut.id = 'scriptBut';
-    ScriptBut.innerHTML = "Скрипт";
-    ScriptBut.style = "margin-right:15px; cursor:pointer;";
-    ScriptBut.onclick = function () {
-        document.getElementById('AF_helper').style.display = 'flex'
-        this.style.display = 'none'
-    }
-
-    var btnAdd = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-    btnAdd.insertBefore(ScriptBut, btnAdd.children[0]) // добавление кнопки скрипт на строку с основными кнопками в верхней части экрана
-    // конец тандема
-
-    user = "student"
-
 }
 
 function closeTerms() { // функция автоподтверждения условий пользования при входе в ЛКП
@@ -1117,7 +1061,7 @@ if (localStorage.getItem('scriptAdr') == null) {
 
 let wintAF = document.createElement('div'); // создание главного окна
 document.body.append(wintAF);
-wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 12000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
+wintAF.style = 'display: none; min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAF') + 'px; left: ' + localStorage.getItem('winLeftAF') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black; box-shadow: 0px 0px 10px #000';
 wintAF.setAttribute('id', 'AF_helper');
 wintAF.innerHTML = win_AFhelper;
 
@@ -1136,22 +1080,6 @@ wintAF.onmousedown = function (a) { // изменение позиции гла�
     }
 }
 wintAF.onmouseup = function () { document.removeEventListener('mousemove', listenerAF); } // прекращение изменения позиции главного окна
-
-addInfoUser.style = "color: white; text-align: center; cursor: -webkit-grab;"
-loginer = document.getElementById('testUsers')
-loginer.appendChild(addInfoUser)
-
-let voiceBtn = document.createElement('button')
-voiceBtn.textContent = '🎤'
-voiceBtn.id = "pushToTalk"
-voiceBtn.style = "cursor:pointer; margin:5px;"
-voiceBtn.title = "Нажми и сразу произноси команду для выполнения. Список команд: \n 1) ту - открывает админку для создания ТУ по англ языку \n 2) платёж - открывает админку поиска платежа \n 3) CRM - открывает CRM обратившегося пользователя \n 4) ТТ - открывает Timetable (произносить лучше тэтэ) \n 5) админка - открывает общую админку по пользователю 6) тшу / тшп - просмотр ТШ по У или П которые обратились \n 7) трамвай - открывает TRM 2.0"
-document.getElementById('testUsers').children[0].children[0].append(voiceBtn)
-
-let voiceout = document.createElement('div')
-voiceout.id = "voicetext";
-voiceout.style='color:bisque; width:110px; text-align:center;'
-document.getElementById('testUsers').children[0].children[0].append(voiceout)
 
 var listenerloginer = function (e, a) { //  изменения позиции окна с логинером для У П
     loginer.style.left = Number(e.clientX - myXloginer) + "px";
@@ -1387,27 +1315,10 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
     });
 };
 
-let taskBut = document.createElement('div')
-taskBut.id = "taskBut"
-taskBut.innerHTML = "🛠 Task"
-taskBut.style = "margin-right:15px; cursor:pointer; margin-top:15px;"
-taskBut.classList.add('ant-btn', 'onlyfortp');
-
-let butServ = document.createElement('div')
-butServ.id = "butServ"
-butServ.innerHTML = "⚜UserInfo"
-butServ.style = "margin-right:15px; cursor:pointer;"
-butServ.classList.add('onlyfortp');
-
 let butMarks = document.createElement('div')
 butMarks.id = "butMarks"
 butMarks.innerHTML = "🎭 Оценки"
 butMarks.classList.add('inithide');
-
-let butChatHistory = document.createElement('div')
-butChatHistory.id = "butChatHistory"
-butChatHistory.innerHTML = "💬Chat History"
-butChatHistory.classList.add('inithide');
 
 let butFrozeChat = document.createElement('div')
 butFrozeChat.id = "butFrozeChat"
@@ -1441,55 +1352,39 @@ butsmartroom.id = "smartroomform"
 butsmartroom.innerHTML = "🦐Smartroom"
 butsmartroom.classList.add('onlyfortp', 'inithide');
 
-let butThemes = document.createElement('div')
-butThemes.id = "themes"
-butThemes.innerHTML = "Темы"
-butThemes.style = 'margin-right:15px; margin-top:15px; cursor:pointer;';
-butThemes.classList.add('ant-btn')
-
 let butJiraOpenForm = document.createElement('div')
 butJiraOpenForm.id = "JiraOpenForm"
 butJiraOpenForm.innerHTML = "🔎Jira Search"
 butJiraOpenForm.classList.add('onlyfortp', 'inithide');
 
-let butmenu = document.createElement('button')
-butmenu.textContent = 'Меню'
-butmenu.id = 'headmymenu'
-butmenu.style = 'height:32px;'
-butmenu.classList.add('ant-btn')
+// butmenu.onclick = () => { // кнопка открытия Меню
+    // if (menubar.style.display === 'none') {
+        // menubar.style.display = '';
+        // let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231);
+        // menubar.style.left = `${xvarmenu}px`;
 
-let menubar = document.createElement('div')
-menubar.style = `background: white; position:absolute; left: 0; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
-menubar.id = 'idmymenu'
+       // Query the DOM only once
+        // const expertChatContent = document.querySelector('.ant-layout-content .expert-chat_content');
+        // const appBodyContentInnerRight = document.querySelector('.ant-layout-content .app-body-content-inner-right');
+        // let clickHandler;
 
-butmenu.onclick = () => { // кнопка открытия Меню
-    if (menubar.style.display === 'none') {
-        menubar.style.display = '';
-        let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231);
-        menubar.style.left = `${xvarmenu}px`;
-
-        // Query the DOM only once
-        const expertChatContent = document.querySelector('.ant-layout-content .expert-chat_content');
-        const appBodyContentInnerRight = document.querySelector('.ant-layout-content .app-body-content-inner-right');
-        let clickHandler;
-
-        if (expertChatContent) {
-            clickHandler = (event) => {
-                const e = document.getElementById('idmymenu');
-                if (!e.contains(event.target)) e.style.display = 'none';
-            };
-            expertChatContent.addEventListener('click', clickHandler);
-        } else if (appBodyContentInnerRight) {
-            clickHandler = (event) => {
-                const e = document.getElementById('idmymenu');
-                if (!e.contains(event.target)) e.style.display = 'none';
-            };
-            appBodyContentInnerRight.addEventListener('click', clickHandler);
-        }
-    } else {
-        menubar.style.display = 'none';
-    }
-}
+        // if (expertChatContent) {
+            // clickHandler = (event) => {
+                // const e = document.getElementById('idmymenu');
+                // if (!e.contains(event.target)) e.style.display = 'none';
+            // };
+            // expertChatContent.addEventListener('click', clickHandler);
+        // } else if (appBodyContentInnerRight) {
+            // clickHandler = (event) => {
+                // const e = document.getElementById('idmymenu');
+                // if (!e.contains(event.target)) e.style.display = 'none';
+            // };
+            // appBodyContentInnerRight.addEventListener('click', clickHandler);
+        // }
+    // } else {
+        // menubar.style.display = 'none';
+    // }
+// }
 
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"
@@ -1571,20 +1466,6 @@ maskBackHide.onclick = function () { // кнопка скрыть
     }
 };
 
-document.getElementById('testUsers').ondblclick = function (a) {
-    if (checkelementtype(a)) {
-        if (testid && idlogin && testid.style.display === '' && idlogin.style.display === '') {
-            testid.style.display = 'none';
-            idlogin.style.display = 'none';
-            localStorage.setItem('Hidetestid', '0');
-        } else if (testid && idlogin) {
-            testid.style.display = '';
-            idlogin.style.display = '';
-            localStorage.setItem('Hidetestid', '1');
-        }
-    }
-};
-
 butteachid.onclick = function () { // копирует в буфер ID П при создании задачи через АФ интеграцию
     // Find the 'teacher' user type and get the user's id.
     const userTypeList = document.getElementsByClassName('expert-user_details-list')[1];
@@ -1595,7 +1476,7 @@ butteachid.onclick = function () { // копирует в буфер ID П пр�
             for (let j = 0; j < userTypeList.childElementCount; j++) {
                 if (userTypeList.childNodes[j].firstChild.textContent === "id") {
                     getidusrteachreq = userTypeList.childNodes[j].childNodes[1].textContent.split(' ')[0];
-                    copyToClipboard1(getidusrteachreq);
+                    copyToClipboard(getidusrteachreq);
                     break;
                 }
             }
@@ -1615,8 +1496,8 @@ butstdid.onclick = function () {  // копирует в буфер ID У из �
             // Get the text content of the grandchild node
             const getidusrstud = child.childNodes[1].textContent;
 
-            // Call the copyToClipboard1 function with the getidusrstud variable as an argument
-            copyToClipboard1(getidusrstud);
+            // Call the copyToClipboard function with the getidusrstud variable as an argument
+            copyToClipboard(getidusrstud);
         }
     }
 };
@@ -1626,7 +1507,7 @@ butteachidfstd.onclick = function () { // копирует в буфер ID П �
     const teacherIdNode = Array.from(detailsList.childNodes).find(node => node.firstChild.textContent == "nextClass-teacherId");
     if (teacherIdNode) {
         getidusrsteach = teacherIdNode.childNodes[1].textContent;
-        copyToClipboard1(getidusrsteach);
+        copyToClipboard(getidusrsteach);
     }
 }
 
@@ -1635,27 +1516,27 @@ buttonservid.onclick = function () { //копирует в буфер nextClass-
     const serviceIdNode = Array.from(detailsList.childNodes).find(node => node.firstChild.textContent == "nextClass-educationServiceId");
     if (serviceIdNode) {
         getservidst = serviceIdNode.childNodes[1].textContent;
-        copyToClipboard1(getservidst);
+        copyToClipboard(getservidst);
     }
 }
 
 buttoncontactstudent.onclick = function() {
-	copyToClipboard1('Обратился П. Связаться с У');
+	copyToClipboard('Обратился П. Связаться с У');
 	sendComment('Обратился П. Связаться с У')
 }
 
 buttoncontactteacher.onclick = function() {
-	copyToClipboard1('Обратился У. Связаться с П');
+	copyToClipboard('Обратился У. Связаться с П');
 	sendComment('Обратился У. Связаться с П')
 }
 
 teachneotv.onclick = function() {
-	copyToClipboard1('Крит Н.О. П');
+	copyToClipboard('Крит Н.О. П');
 	sendComment('Крит Н.О. П')
 }
 
 studneotv.onclick = function() {
-	copyToClipboard1('Крит Н.О. У');
+	copyToClipboard('Крит Н.О. У');
 	sendComment('Крит Н.О. У')
 }
 
@@ -1664,63 +1545,8 @@ setInterval(addbuttonsintegration, 1000)
 setInterval(remandressl, 3000);
 setInterval(closeTerms, 500);
 setInterval(checJiraF, 1000);
-setInterval(checkthemestatus, 3000);
 
 firstLoadPage() //вызов функции первичной загрузки страницы с фомированием меню и наполнением его
-
-let btnsid = document.createElement('button')
-btnsid.textContent = "👨‍🎓";
-btnsid.id = "sidcode";
-btnsid.title = 'При клике ЛКМ генерирует ссылку логинер для входа в учетку с заранее сохраненным ID тестового ученика в настройках и копирует ее в буфер обмена. При клике ПКМ копирует в буфер обмена ID ученика, может пригодиться в админке создания тестовых уроков.';
-btnsid.classList = 'teststudteach';
-
-let btntid = document.createElement('button')
-btntid.textContent = "👽";
-btntid.id = "tidcode";
-btntid.title = 'При клике ЛКМ генерирует ссылку логинер для входа в учетку с заранее сохраненным ID тестового преподавателя в настройках и копирует ее в буфер обмена. При клике ПКМ копирует в буфер обмена ID преподавателя, может пригодиться в админке создания тестовых уроков.';
-btntid.classList = 'teststudteach';
-
-document.getElementById('testMath').replaceWith();
-document.getElementById('testStudent').replaceWith(btnsid);
-document.getElementById('testTeacher').replaceWith(btntid);
-
-btnsid.addEventListener("click", (event) => { // копирует в буфер логиннер для У
-    let teststudid = localStorage.getItem('test_stud');
-    if (teststudid != null || teststudid != '') {
-        logginerfortests(teststudid)
-        document.getElementById('sidcode').classList.add('active');
-        setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000);
-    } else alert("Введите ID тестового ученика в настройках ⚙");
-});
-
-btnsid.addEventListener("contextmenu", (event) => { // копирует в буфер id У
-    event.preventDefault();
-    let teststudid = localStorage.getItem('test_stud');
-    if (teststudid != null || teststudid != '') {
-        copyToClipboard1(teststudid)
-        document.getElementById('sidcode').classList.add('active');
-        setTimeout(function () { document.getElementById('sidcode').classList.remove('active') }, 1000);
-    } else alert("Введите ID тестового ученика в настройках ⚙");
-});
-
-btntid.addEventListener("click", (event) => { // копирует в буфер логиннер для П
-    let testteachid = localStorage.getItem('test_teach');
-    if (testteachid != null || testteachid != '') {
-        logginerfortests(testteachid)
-        document.getElementById('tidcode').classList.add('active');
-        setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000);
-    } else alert("Введите ID тестового преподавателя в настройках ⚙");
-});
-
-btntid.addEventListener("contextmenu", (event) => { // копирует в буфер id П
-    event.preventDefault();
-    let testteachid = localStorage.getItem('test_teach');
-    if (testteachid != null || testteachid != '') {
-        copyToClipboard1(testteachid)
-        document.getElementById('tidcode').classList.add('active');
-        setTimeout(function () { document.getElementById('tidcode').classList.remove('active') }, 1000);
-    } else alert("Введите ID тестового преподавателя в настройках ⚙");
-});
 
 if (localStorage.getItem('msg') != null) {
     document.getElementById('msg').innerHTML = localStorage.getItem('msg')
@@ -1828,5 +1654,5 @@ document.getElementById('sndbot').onclick = async function () { //отправи
 document.getElementById('hideMenuMain').onclick = function () { // кнопка hide на главном окне скрипта
     var elements = ['AF_helper', 'cstmTmplates', 'AF_Links', 'AF_AlarmClock', 'AF_Stat', 'AF_LessonStatus', 'AF_Linksd', 'AF_Settings'];
     elements.forEach(e => {if (document.getElementById(e)){setDisplayStyle(document.getElementById(e), 'none')}});
-    document.getElementById('scriptBut').style.display = '';
+    document.getElementById('scriptBut').classList.remove('activeScriptBtn')
 }

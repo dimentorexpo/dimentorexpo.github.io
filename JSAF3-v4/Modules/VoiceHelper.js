@@ -67,14 +67,14 @@ recognition.addEventListener('result', (event) => {
       }, 5000)
       break;
     case command.includes('id у') || command.includes('idу') || command.includes('айдиу') || command.includes('айди у'):
-      copyToClipboard1(test_stud_spech);
+      copyToClipboard(test_stud_spech);
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''
       }, 5000)
       break;
     case command.includes('id п') || command.includes('idп') || command.includes('айдип') || command.includes('айди п') || command.includes('idp'):
-      copyToClipboard1(test_teach_spech)
+      copyToClipboard(test_teach_spech)
       document.getElementById('voicetext').textContent = command + ' ✔';
       setTimeout(function () {
         document.getElementById('voicetext').textContent = ''

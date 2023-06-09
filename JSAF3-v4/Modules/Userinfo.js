@@ -652,7 +652,7 @@ function postuderdatatologin() { // логгинер для У П , перера
       logginerinfo = logginerinfo.match(/("https:\/\/id.skyeng.ru\/auth\/login-link\/\w+.*?")/gm);
       logginerinfo = logginerinfo[logginerinfo.length - 1].split("\"");
 
-      copyToClipboard1(logginerinfo[1])
+      copyToClipboard(logginerinfo[1])
       if (logginerinfo[1])
         flaggetlogginer = 1;
       else flaggetlogginer = 0;
@@ -906,19 +906,19 @@ function getuserinfo() {
 
           if (document.getElementById('getusremail1') != null) {
             document.getElementById('getusremail1').onclick = function () {
-              copyToClipboard1(document.getElementById('mailunhidden').textContent);
+              copyToClipboard(document.getElementById('mailunhidden').textContent);
             };
           }
 
           if (document.getElementById('getusrphone1') != null) {
             document.getElementById('getusrphone1').onclick = function () {
-              copyToClipboard1(document.getElementById('phoneunhidden').textContent);
+              copyToClipboard(document.getElementById('phoneunhidden').textContent);
             };
           }
 
           if (document.getElementById('getshowcase1') != null) {
             document.getElementById('getshowcase1').onclick = function () {
-              copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+              copyToClipboard("https://profile.skyeng.ru/profile/" + stid + "/showcase");
             };
           }
 
@@ -948,19 +948,19 @@ function getuserinfo() {
         let tmparr = document.querySelectorAll('.copyserviceid');
         for (let j = 0; j < tmparr.length; j++) {
           tmparr[j].onclick = function () {
-            copyToClipboard1(arrservice[j])
+            copyToClipboard(arrservice[j])
           }
         }
 
         if (document.getElementById('getusremail') != null) {
           document.getElementById('getusremail').onclick = function () {
-            copyToClipboard1(document.getElementById('mailunhidden').textContent);
+            copyToClipboard(document.getElementById('mailunhidden').textContent);
           };
         }
 
         if (document.getElementById('getusrphone') != null) {
           document.getElementById('getusrphone').onclick = function () {
-            copyToClipboard1(document.getElementById('phoneunhidden').textContent);
+            copyToClipboard(document.getElementById('phoneunhidden').textContent);
           };
         }
 
@@ -983,7 +983,7 @@ function getuserinfo() {
 
         if (document.getElementById('getshowcase') != null) {
           document.getElementById('getshowcase').onclick = function () {
-            copyToClipboard1("https://profile.skyeng.ru/profile/" + stid + "/showcase");
+            copyToClipboard("https://profile.skyeng.ru/profile/" + stid + "/showcase");
           };
         }
 
