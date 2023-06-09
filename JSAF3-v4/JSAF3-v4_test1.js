@@ -85,13 +85,15 @@ var win_AFhelper =  // описание элементов главного ок
 
 var win_mainmenu = // описание кнопок меню
     `<div>
-        <div id="servDsk">🛠ServiceDesk</div>
-        <div id="JiraOpenForm">🔎Jira Search</div>
+        <div id="servDsk" class="onlyfortp">🛠ServiceDesk</div>
+        <div id="JiraOpenForm" class="onlyfortp">🔎Jira Search</div>
+        <div id="crmopersstatuses" class="onlyfortp">🧮Статусы CRM2</button>
         <div id="butMarks">🎭 Оценки</div>
-        <div id="otkaz">❌Отказ от помощи</div>
-        <div id="smartroomform">🦐Smartroom</div>
+        <div id="otkaz" class="onlyfortp">❌Отказ от помощи</div>
+        <div id="smartroomform" class="onlyfortp">🦐Smartroom</div>
         <div id="butLessonInfo">🎓 Lesson Info</div>
-        <div id="butFrozeChat">❄ Auto Respond</div>
+        <div id="butFrozeChat" class="onlyfortp">❄ Auto Respond</div>
+        <div id="radioPlayer">📻 Radio</button>
         <div id="buttonGetStat">📊 Статистика</div>
     </div>`;
 
@@ -194,42 +196,11 @@ function firstLoadPage() { //первичаня загрузка страниц�
 
         setTimeout(move_again_AF, 3500)
 
-        // setTimeout(function () {
-            // btnAdd1 = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0]
-            // btnAdd1.insertBefore(butMarks, btnAdd1.children[0])
-            // btnAdd1.insertBefore(servDsk, btnAdd1.children[1])
-            // btnAdd1.insertBefore(butJiraOpenForm, btnAdd1.children[2])
-            // btnAdd1.insertBefore(butrefuse, btnAdd1.children[3])
-            // btnAdd1.insertBefore(butsmartroom, btnAdd1.children[4])
-            // btnAdd1.insertBefore(butLessonInfo, btnAdd1.children[5])
-            // btnAdd1.insertBefore(butFrozeChat, btnAdd1.children[7])
-            // btnAdd1.insertBefore(buttonGetStat, btnAdd1.children[8])
-            // btnAdd1.insertBefore(maskBack, btnAdd1.children[9])
-        // }, 2000)
-
         function addElementsToList(elements, list) {
             elements.forEach((element) => {
                 list.append(element);
             });
         }
-
-        // setTimeout(() => {
-            // const headmenulist = document.getElementsByClassName('app-body-content-user_menu')[0].childNodes[0];
-            // const menubutarea = document.createElement('div');
-            // menubutarea.style = 'margin-right:20px;';
-
-            // const elements = [servDsk, JiraOpenForm, butMarks, otkaz, smartroomform, butLessonInfo, butFrozeChat, buttonGetStat];
-            // addElementsToList(elements, menubar);
-			
-            // JiraOpenForm.classList.remove('inithide');
-            // butrefuse.classList.remove('inithide');
-            // butsmartroom.classList.remove('inithide');
-            // butLessonInfo.classList.remove('inithide');
-            // servDsk.classList.remove('inithide');
-            // butFrozeChat.classList.remove('inithide');
-            // buttonGetStat.classList.remove('inithide');
-            // butMarks.classList.remove('inithide');
-        // }, 8000);
     }
 }
 
@@ -303,13 +274,6 @@ function prepTp() { //функция подготовки расширения �
     const languageSwitcher = document.querySelector('.user_menu-language_switcher');
 
     setDisplayStyle(languageSwitcher, localStorage.getItem('disablelngpmwindow') === '1' ? 'none' : '');
-
-	let crmopers = document.createElement('button')
-    crmopers.innerHTML = '🧮'
-    crmopers.id = 'crmopersstatuses'
-    crmopers.title = 'Открывает виджет просмотра статусов операторов в CRM2'
-    crmopers.classList.add('onlyfortp', 'rightPanelBtn')
-	document.getElementById('rightPanel').appendChild(crmopers)
 	
 	let openCalendar = document.createElement('button')
     openCalendar.innerHTML = '📅'
@@ -317,14 +281,7 @@ function prepTp() { //функция подготовки расширения �
     openCalendar.title = 'Открывает календарь Datsy'
 	openCalendar.classList.add('onlyfortp', 'rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(openCalendar)
-	
-	let playerRadio = document.createElement('button')
-    playerRadio.innerHTML = '📻'
-    playerRadio.id = 'radioPlayer'
-    playerRadio.title = 'Открывает радио проигрыватель'
-    playerRadio.classList.add('rightPanelBtn')
-	document.getElementById('rightPanel').appendChild(playerRadio)
-	
+		
 	let butServ = document.createElement('button')
 	butServ.id = "butServ"
 	butServ.innerHTML = "⚜"
@@ -969,7 +926,7 @@ function move_again_AF() { //с АФ шняга там стили шмили с�
 	document.getElementById('rightPanel').appendChild(MainMenuBtn)
 	
 	let menubar = document.createElement('div')
-	menubar.style = `background: white; position:absolute; right:100px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
+	menubar.style = `background: white; position:absolute; right:50px; top: 50px; border: 0px solid #000000; display:none; min-height: 60px; min-width:165px; box-shadow: -1px 4px 16px 7px rgba(34, 60, 80, 0.09)`
 	menubar.id = 'idmymenu'
     menubar.innerHTML = win_mainmenu;
 	document.getElementById('rightPanel').appendChild(menubar)
@@ -1274,76 +1231,6 @@ nextuserinfo.onclick = function () { // открывает просмотр ин
         }
     });
 };
-
-let butMarks = document.createElement('div')
-butMarks.id = "butMarks"
-butMarks.innerHTML = "🎭 Оценки"
-butMarks.classList.add('inithide');
-
-let butFrozeChat = document.createElement('div')
-butFrozeChat.id = "butFrozeChat"
-butFrozeChat.innerHTML = "❄ Auto Respond"
-butFrozeChat.classList.add('onlyfortp', 'inithide');
-
-let buttonGetStat = document.createElement('div'); // добавляет кнопку с выводом статистики за день
-buttonGetStat.id = 'buttonGetStat';
-buttonGetStat.innerHTML = "📊 Статистика";
-buttonGetStat.classList.add('inithide');
-
-let butLessonInfo = document.createElement('div')
-butLessonInfo.id = "butLessonInfo"
-butLessonInfo.title = "Открывает меню для просмотра статусов уроков(удален,отменен,пропущен) и кем"
-butLessonInfo.innerHTML = "🎓 Lesson Info"
-butLessonInfo.classList.add('inithide');
-
-let servDsk = document.createElement('div')
-servDsk.id = "servDsk"
-servDsk.innerHTML = "🛠ServiceDesk"
-servDsk.classList.add('onlyfortp', 'inithide');
-
-let butrefuse = document.createElement('div')
-butrefuse.id = "otkaz"
-butrefuse.innerHTML = "❌Отказ от помощи"
-butrefuse.classList.add('onlyfortp', 'inithide');
-
-let butsmartroom = document.createElement('div')
-butsmartroom.id = "smartroomform"
-butsmartroom.innerHTML = "🦐Smartroom"
-butsmartroom.classList.add('onlyfortp', 'inithide');
-
-let butJiraOpenForm = document.createElement('div')
-butJiraOpenForm.id = "JiraOpenForm"
-butJiraOpenForm.innerHTML = "🔎Jira Search"
-butJiraOpenForm.classList.add('onlyfortp', 'inithide');
-
-// butmenu.onclick = () => { // кнопка открытия Меню
-    // if (menubar.style.display === 'none') {
-        // menubar.style.display = '';
-        // let xvarmenu = parseInt(document.getElementById('headmymenu').getBoundingClientRect().x - 231);
-        // menubar.style.left = `${xvarmenu}px`;
-
-       // Query the DOM only once
-        // const expertChatContent = document.querySelector('.ant-layout-content .expert-chat_content');
-        // const appBodyContentInnerRight = document.querySelector('.ant-layout-content .app-body-content-inner-right');
-        // let clickHandler;
-
-        // if (expertChatContent) {
-            // clickHandler = (event) => {
-                // const e = document.getElementById('idmymenu');
-                // if (!e.contains(event.target)) e.style.display = 'none';
-            // };
-            // expertChatContent.addEventListener('click', clickHandler);
-        // } else if (appBodyContentInnerRight) {
-            // clickHandler = (event) => {
-                // const e = document.getElementById('idmymenu');
-                // if (!e.contains(event.target)) e.style.display = 'none';
-            // };
-            // appBodyContentInnerRight.addEventListener('click', clickHandler);
-        // }
-    // } else {
-        // menubar.style.display = 'none';
-    // }
-// }
 
 let maskBack = document.createElement('div')
 maskBack.id = "maskBack"

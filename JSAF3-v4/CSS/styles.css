@@ -277,8 +277,10 @@ button {
 			cursor:pointer;
 			font-weight:700;
 		}
-
-		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat, #buttonGetStat, #servDsk {
+		#servDsk{
+			border-top: 1px solid black;
+		}
+		#buttonOpenForm, #butMarks, #suggestform, #otkaz, #butChatHistory, #butLessonInfo, #JiraOpenForm, #smartroomform, #butFrozeChat, #buttonGetStat, #servDsk, #radioPlayer, #crmopersstatuses {
 			display:flex;
 			align-items:center;
 			cursor: pointer;
@@ -291,7 +293,7 @@ button {
 			padding-left:5px;
 		}
 
-		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat:hover, #servDsk:hover {
+		#servDsk:hover, #buttonOpenForm:hover, #butMarks:hover, #suggestform:hover, #otkaz:hover, #butChatHistory:hover, #butLessonInfo:hover, #JiraOpenForm:hover, #smartroomform:hover, #butFrozeChat:hover, #buttonGetStat:hover, #servDsk:hover, #radioPlayer:hover, #crmopersstatuses:hover {
 			background:DeepSkyBlue;
 			color:#ffffffe6;
 			font-weight:600;
