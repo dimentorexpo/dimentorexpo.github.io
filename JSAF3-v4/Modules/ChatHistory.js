@@ -423,6 +423,7 @@ async function findchatsoper() { // ищет активные чаты на вы
 document.getElementById('hideMeChHis').onclick = () => { //форма hide
 	if (document.getElementById('AF_ChatHis').style.display == '') {
 		document.getElementById('AF_ChatHis').style.display = 'none'
+        document.getElementById('opennewcat').classList.remove('activeScriptBtn');
 		document.getElementById('rightPanel').style.right = "22px";
 		document.getElementById('infofield').innerText = ''
 		document.getElementById('placeusid').innerText = ''
@@ -611,15 +612,14 @@ document.getElementById('chagetheme').onclick = () => { //функция пер�
     document.getElementById('opennewcat').onclick = () => { // открывает меню для работы с историей чата по типу кота Омельченко
 
         if (document.getElementById('AF_ChatHis').style.display == '') {
-            document.getElementById('AF_ChatHis').style.display = 'none'
+            document.getElementById('AF_ChatHis').style.display = 'none';
 		    document.getElementById('rightPanel').style.right = "22px";
+            document.getElementById('opennewcat').classList.remove('activeScriptBtn');
         }else {
-            document.getElementById('AF_ChatHis').style.display = ''
+            document.getElementById('AF_ChatHis').style.display = '';
 			document.getElementById('rightPanel').style.right = "422px";
+            document.getElementById('opennewcat').classList.add('activeScriptBtn');
 		}
-        if (document.getElementById('idmymenu') != null && document.getElementById('idmymenu').style.display == '') {
-            document.getElementById('idmymenu').style.display = 'none'
-        }
 
         changeviewtheme()
 

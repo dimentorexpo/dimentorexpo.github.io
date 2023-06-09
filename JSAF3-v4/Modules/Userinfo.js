@@ -113,7 +113,10 @@ wintTimetable.onmousedown = function (a) { // изменение позиции 
 wintTimetable.onmouseup = function () { document.removeEventListener('mousemove', listenerTimetable); } // прекращение изменения позиции окна предстоящих и прошедших занятиях
 
 document.getElementById('servicehead').ondblclick = function (a) { // скрытие окна вензель user info по двойному клику
-  if (checkelementtype(a)) { document.getElementById('AF_Service').style.display = 'none'; }
+  if (checkelementtype(a)) { 
+    document.getElementById('AF_Service').style.display = 'none'; 
+    document.getElementById('butServ').classList.remove('activeScriptBtn');
+  }
 }
 
 document.getElementById('hideMeservice').onclick = function () { // скрытие окна вензель user info

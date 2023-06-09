@@ -69,12 +69,14 @@ wintThemes.onmousedown = function (a) { // изменение позиции о�
 wintThemes.onmouseup = function () { document.removeEventListener('mousemove', listenerThemes); } // прекращение изменения позиции окна Тематик
 
 document.getElementById('AF_Themes').ondblclick = function (a) { // скрытие окна Тематик и тегов по двойному клику
-    if (checkelementtype(a)) { document.getElementById('hideMeThemes').click(); }
+    if (checkelementtype(a)) { document.getElementById('hideMeThemes').click();}
 }
 
 document.getElementById('hideMeThemes').onclick = function () { // скрытие окна Тематик
-    if (document.getElementById('AF_Themes').style.display == '')
+    if (document.getElementById('AF_Themes').style.display == ''){
         document.getElementById('AF_Themes').style.display = 'none'
+        document.getElementById('themes').classList.remove('activeScriptBtn')
+    }
 
     if (document.getElementById('backtomenu').style.display == '')
         document.getElementById('backtomenu').click()
@@ -85,10 +87,13 @@ document.getElementById('themesinstr').onclick = function () { // открыти
 }
 
 document.getElementById('themes').onclick = function () { // открытие окна темы
-    if (document.getElementById('AF_Themes').style.display == '')
+    if (document.getElementById('AF_Themes').style.display == ''){
         document.getElementById('AF_Themes').style.display = 'none'
-    else
+        document.getElementById('themes').classList.remove('activeScriptBtn')
+    } else {
         document.getElementById('AF_Themes').style.display = ''
+        document.getElementById('themes').classList.add('activeScriptBtn')
+    }
 }
 
 function getTextThemes() { // функция обновления текста для тематик из документа

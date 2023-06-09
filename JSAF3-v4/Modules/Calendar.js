@@ -410,6 +410,7 @@ let refreshintervalset;
 document.getElementById('datsyCalendar').onclick = function () {
     if (document.getElementById('AF_Calendar').style.display == "none") {
         document.getElementById('AF_Calendar').style.display = ""
+		document.getElementById('datsyCalendar').classList.add('activeScriptBtn')
 		let operNameAF = document.getElementsByClassName('user_menu-dropdown-user_name')[0].textContent.split('-')[1].trim()
 		operNamesAF = [operNameAF, operNameAF.split(" ").reverse().join(" ")];
 		console.log(operNamesAF)
@@ -436,6 +437,7 @@ document.getElementById('datsyCalendar').onclick = function () {
 
     } else {
         document.getElementById('AF_Calendar').style.display = "none"
+		document.getElementById('datsyCalendar').classList.remove('activeScriptBtn')
     }
 
 }
@@ -551,6 +553,7 @@ document.getElementsByClassName('checkbox-refresh-switch')[0].onclick = function
 
 document.getElementById('hidecalendar').onclick = function () {
     document.getElementById('AF_Calendar').style.display = "none"
+	document.getElementById('datsyCalendar').classList.remove('activeScriptBtn')
 }
 
 document.getElementById('clearcalendar').onclick = function () {
