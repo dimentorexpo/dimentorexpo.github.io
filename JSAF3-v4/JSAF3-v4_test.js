@@ -346,7 +346,7 @@ function prepTp() { //функция подготовки расширения �
 	taskBut.id = "taskBut"
 	taskBut.innerHTML = "🛠"
 	taskBut.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
-	butServ.classList.add('onlyfortp', 'rightPanelBtn')
+	taskBut.classList.add('onlyfortp', 'rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(taskBut)
 	
     flagLangBut = 1
