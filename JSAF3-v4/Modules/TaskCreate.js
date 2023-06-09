@@ -127,6 +127,7 @@ document.getElementById('serviceinf').innerHTML = '';
 	
     if (document.getElementById('AF_Createtask').style.display == 'none') {
         document.getElementById('AF_Createtask').style.display = ''
+		taskBut.classList.add('activeScriptBtn')
 				
 		document.getElementById('responseTextarea1').value = `{}`
 		document.getElementById('responseTextarea2').value = "https://backend.skyeng.ru/api/products/configurations/"
@@ -236,6 +237,7 @@ document.getElementById('serviceinf').innerHTML = '';
 
         document.getElementById('hideMeCreateForm').onclick = function () {
             document.getElementById('AF_Createtask').style.display = 'none'
+			taskBut.classList.remove('activeScriptBtn')
 
             fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
                 "headers": {
@@ -602,6 +604,7 @@ document.getElementById('serviceinf').innerHTML = '';
 
     } else {
         document.getElementById('AF_Createtask').style.display = 'none'
+		taskBut.classList.remove('activeScriptBtn')
         conversid = document.getElementById('chathashlnk').value;
         fetch("https://skyeng.autofaq.ai/api/reason8/operator/customButtons/form", {
             "headers": {
