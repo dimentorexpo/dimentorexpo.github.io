@@ -942,6 +942,8 @@ async function move_again_AF() { //с АФ шняга там стили шмил
     openchhis.title = 'Открывает виджет просмотра истории чатов'
     openchhis.classList.add('rightPanelBtn')
     document.getElementById('rightPanel').appendChild(openchhis)
+
+    if(opsection == 'Nagiev Eldar') { opsection = "ТП"}
 		
     if ((scriptAdr == TP_addr || scriptAdr == TP_addrRzrv || scriptAdr == TPprem_addr || scriptAdr == TPprem_addrRzrv) && opsection == "КЦ"){
         localStorage.setItem('scriptAdr', KC_addr)
