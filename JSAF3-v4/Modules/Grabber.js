@@ -241,7 +241,7 @@ if (localStorage.getItem('winTopGrabber') == null) { // началоное по�
 
 let wintGrabber = document.createElement('div'); // создание окна работы со Grabber
 document.body.append(wintGrabber);
-wintGrabber.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrabber') + 'px; left: ' + localStorage.getItem('winLeftGrabber') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintGrabber.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopGrabber') + 'px; left: ' + localStorage.getItem('winLeftGrabber') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintGrabber.style.display = 'none';
 wintGrabber.setAttribute('id', 'AF_Grabber');
 wintGrabber.innerHTML = win_Grabber;

@@ -35,7 +35,7 @@ if (localStorage.getItem('winTopRadio') == null) { // началоное пол�
 
 let wintRadio = document.createElement('div'); // создание окна радио
 document.body.append(wintRadio);
-wintRadio.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRadio') + 'px; left: ' + localStorage.getItem('winLeftRadio') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintRadio.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopRadio') + 'px; left: ' + localStorage.getItem('winLeftRadio') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintRadio.style.display = 'none';
 wintRadio.setAttribute('id', 'AF_Radio');
 wintRadio.innerHTML = win_Radio;

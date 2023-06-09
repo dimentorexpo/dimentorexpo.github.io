@@ -48,7 +48,7 @@ if (localStorage.getItem('winTopCalendar') == null) { //начальное по�
 
 let wintCalendar = document.createElement('div'); // создание окна для заморозки чата
 document.body.append(wintCalendar);
-wintCalendar.style = 'min-height: 25px; width: 600px; background: #464451; top: ' + localStorage.getItem('winTopCalendar') + 'px; left: ' + localStorage.getItem('winLeftCalendar') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintCalendar.style = 'min-height: 25px; width: 600px; background: #464451; top: ' + localStorage.getItem('winTopCalendar') + 'px; left: ' + localStorage.getItem('winLeftCalendar') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintCalendar.style.display = 'none';
 wintCalendar.setAttribute('id', 'AF_Calendar');
 wintCalendar.innerHTML = win_Calendar;

@@ -463,7 +463,7 @@ if (localStorage.getItem('winTopServDsk') == null) { // начальное по�
 
 let wintServDsk = document.createElement('div'); // создание окна ServiceDesk
 document.body.append(wintServDsk);
-wintServDsk.style = 'min-height: 165px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopServDsk') + 'px; left: ' + localStorage.getItem('winLeftServDsk') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintServDsk.style = 'min-height: 165px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopServDsk') + 'px; left: ' + localStorage.getItem('winLeftServDsk') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintServDsk.style.display = 'none';
 wintServDsk.setAttribute('id', 'AF_ServDsk');
 wintServDsk.innerHTML = win_servicedesk;

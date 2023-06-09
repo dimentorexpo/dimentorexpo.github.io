@@ -51,7 +51,7 @@ if (localStorage.getItem('winToptestrooms') == null) { // началоное п�
 
 let winttestrooms = document.createElement('div'); // создание окна создания тестовых комнат
 document.body.append(winttestrooms);
-winttestrooms.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winToptestrooms') + 'px; left: ' + localStorage.getItem('winLefttestrooms') + 'px; font-size: 14px; z-index: 21; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+winttestrooms.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winToptestrooms') + 'px; left: ' + localStorage.getItem('winLefttestrooms') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 winttestrooms.style.display = 'none';
 winttestrooms.setAttribute('id', 'AF_testrooms');
 winttestrooms.innerHTML = win_testrooms;

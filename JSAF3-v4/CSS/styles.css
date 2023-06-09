@@ -728,3 +728,7 @@ button {
 		background: rgb(40, 77, 125) !important;
 		cursor:pointer;
 	}
+	
+	.activeScriptBtn {
+		opacity:1 !important;
+	}

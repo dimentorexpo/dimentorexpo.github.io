@@ -26,7 +26,7 @@ if (localStorage.getItem('winTopAlarmclock') == null) { // началоное п
 
 let wintAlarmclock = document.createElement('div'); // создание окна будильника
 document.body.append(wintAlarmclock);
-wintAlarmclock.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAlarmclock') + 'px; left: ' + localStorage.getItem('winLeftAlarmclock') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintAlarmclock.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopAlarmclock') + 'px; left: ' + localStorage.getItem('winLeftAlarmclock') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintAlarmclock.style.display = 'none';
 wintAlarmclock.setAttribute('id', 'AF_AlarmClock');
 wintAlarmclock.innerHTML = win_Alarmclock;

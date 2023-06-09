@@ -89,7 +89,7 @@ if (localStorage.getItem('winTopTaskCreate') == null) { //начальное п�
 
 let wintCreateTask = document.createElement('div'); // создание окна создания задачи через интеграцию в АФ
 document.body.append(wintCreateTask);
-wintCreateTask.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopTaskCreate') + 'px; left: ' + localStorage.getItem('winLeftTaskCreate') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintCreateTask.style = 'min-height: 25px; width: 420px; background: #464451; top: ' + localStorage.getItem('winTopTaskCreate') + 'px; left: ' + localStorage.getItem('winLeftTaskCreate') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintCreateTask.style.display = 'none';
 wintCreateTask.setAttribute('id', 'AF_Createtask');
 wintCreateTask.innerHTML = win_taskform;

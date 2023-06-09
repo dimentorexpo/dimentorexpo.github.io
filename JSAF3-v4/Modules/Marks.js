@@ -32,7 +32,7 @@ if (localStorage.getItem('winTopMarks') == null) { //начальное поло
 	
 let wintMarks = document.createElement('div'); // создание окна поиска оценок от пользователя
 document.body.append(wintMarks);
-wintMarks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopMarks') + 'px; left: ' + localStorage.getItem('winLeftMarks') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintMarks.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopMarks') + 'px; left: ' + localStorage.getItem('winLeftMarks') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintMarks.style.display = 'none';
 wintMarks.setAttribute('id', 'AF_Marks');
 wintMarks.innerHTML = win_Marks;

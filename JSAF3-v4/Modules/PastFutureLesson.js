@@ -24,7 +24,7 @@ if (localStorage.getItem('winTopTimetable') == null) { // начальное п�
 
 let wintTimetable = document.createElement('div'); // создание окна предстоящих и прошедших занятиях
 document.body.append(wintTimetable);
-wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintTimetable.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopTimetable') + 'px; left: ' + localStorage.getItem('winLeftTimetable') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintTimetable.style.display = 'none';
 wintTimetable.setAttribute('id', 'AF_Timetable');
 wintTimetable.innerHTML = win_Timetable;

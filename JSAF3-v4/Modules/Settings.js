@@ -84,7 +84,7 @@ if (localStorage.getItem('winTopSettings') == null) { // началоное по
 
 let wintSettings = document.createElement('div'); // создание окна ссылок
 document.body.append(wintSettings);
-wintSettings.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSettings') + 'px; left: ' + localStorage.getItem('winLeftSettings') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintSettings.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopSettings') + 'px; left: ' + localStorage.getItem('winLeftSettings') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintSettings.style.display = 'none';
 wintSettings.setAttribute('id', 'AF_Settings');
 wintSettings.innerHTML = win_Settings;

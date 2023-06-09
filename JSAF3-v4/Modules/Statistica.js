@@ -36,7 +36,7 @@ if (localStorage.getItem('winTopStataAF') == null) { //начальное пол
 
 let wintStataAF = document.createElement('div'); // создание окна для заморозки чата
 document.body.append(wintStataAF);
-wintStataAF.style = 'min-height: 25px; width: 750px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStataAF.style = 'min-height: 25px; width: 750px; background: #464451; top: ' + localStorage.getItem('winTopStataAF') + 'px; left: ' + localStorage.getItem('winLeftStataAF') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintStataAF.style.display = 'none';
 wintStataAF.setAttribute('id', 'AF_StataAF');
 wintStataAF.innerHTML = win_StatisticaAF;

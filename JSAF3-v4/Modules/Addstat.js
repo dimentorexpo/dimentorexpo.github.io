@@ -166,7 +166,7 @@ if (localStorage.getItem('winTopStat') == null) { // началоное поло
 
 let wintStat = document.createElement('div'); // создание окна работы со статистикой
 document.body.append(wintStat);
-wintStat.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopStat') + 'px; left: ' + localStorage.getItem('winLeftStat') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintStat.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopStat') + 'px; left: ' + localStorage.getItem('winLeftStat') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintStat.style.display = 'none';
 wintStat.setAttribute('id', 'AF_Stat');
 wintStat.innerHTML = win_Stat;

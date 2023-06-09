@@ -26,7 +26,7 @@ if (localStorage.getItem('winTopBankInfo') == null) {  // начальное п�
 
 let wintBankInfo = document.createElement('div'); // создание окна Список группы
 document.body.append(wintBankInfo);
-wintBankInfo.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopBankInfo') + 'px; left: ' + localStorage.getItem('winLeftBankInfo') + 'px; font-size: 14px; z-index: 20; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
+wintBankInfo.style = 'min-height: 25px; min-width: 65px; background: #464451; top: ' + localStorage.getItem('winTopBankInfo') + 'px; left: ' + localStorage.getItem('winLeftBankInfo') + 'px; font-size: 14px; z-index: 10000; position: fixed; border: 1px solid rgb(56, 56, 56); color: black;';
 wintBankInfo.style.display = 'none';
 wintBankInfo.setAttribute('id', 'AF_BankCheck');
 wintBankInfo.innerHTML = win_BankInfo;
