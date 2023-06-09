@@ -194,7 +194,9 @@ function firstLoadPage() { //первичаня загрузка страниц�
 		mystyles.href = "https://dimentorexpo.github.io/JSAF3-v4/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
-        setTimeout(move_again_AF, 3500)
+        document.addEventListener("DOMContentLoaded",move_again_AF);
+
+        //setTimeout(move_again_AF, 3500)
 
         function addElementsToList(elements, list) {
             elements.forEach((element) => {
