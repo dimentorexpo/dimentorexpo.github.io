@@ -199,7 +199,7 @@ function firstLoadPage() { //первичаня загрузка страниц�
     } else {
         let mystyles = document.createElement('link')
 		mystyles.rel = 'stylesheet'
-		mystyles.href = "https://grumstv.github.io/CSS_testNEW/styles.css" // подключаем модуль стилей 
+		mystyles.href = "https://grumstv.github.io/ChMAF/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
         setTimeout(move_again_AF, 3500)
@@ -312,38 +312,38 @@ function prepTp() { //функция подготовки расширения �
     flagLangBut = 1
     setInterval(timerHideButtons, 300)
 
-    let gfgScript = ["https://grumstv.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
-		"https://grumstv.github.io/chart.js", // подключаем модуль для работы с графиками
-		"https://grumstv.github.io/moment.js", // подключаем модуль для работы с датами и временем
-        "https://grumstv.github.io/Modules_testNEW/TestUsers.js", // модуль тестовых У П
-        "https://grumstv.github.io/Modules_testNEW/Link.js", // модуль ссылкера (L)inks
-        "https://grumstv.github.io/Modules_testNEW/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
-        "https://grumstv.github.io/Modules_testNEW/Settings.js", // модуль настроек расширения
-	    "https://grumstv.github.io/Modules_testNEW/AlarmClock.js", // модуль будильника
-        "https://grumstv.github.io/Modules_testNEW/CustomTemplates.js", // модуль кастомных собственных шаблонов
-		"https://grumstv.github.io/Modules_testNEW/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
-		"https://grumstv.github.io/Modules_testNEW/Calendar.js", // модуль кнопки "Календарь"
-        "https://grumstv.github.io/Modules_testNEW/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
-        "https://grumstv.github.io/Modules_testNEW/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        "https://grumstv.github.io/Modules_testNEW/RefuseForm.js", // модуль формы отказа от помощи
-		"https://grumstv.github.io/Modules_testNEW/VoiceHelper.js", // модуль голосового помощника
-        "https://grumstv.github.io/Modules_testNEW/Marks.js", // модуль просмотра оценок пользователя
-        "https://grumstv.github.io/Modules_testNEW/AutoRespond.js", // модуль автоответа по таймеру
-        "https://grumstv.github.io/Modules_testNEW/JiraSearch.js", // модуль поиска по Jira
-        "https://grumstv.github.io/Modules_testNEW/Smartroom.js", // модуль формы пожеланий Smartroom
-        "https://grumstv.github.io/Modules_testNEW/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-        "https://grumstv.github.io/Modules_testNEW/Themes.js", // модуль выставления тегов и тематик
-        "https://grumstv.github.io/Modules_testNEW/ChatHistory.js", // модуль просмотра истории чатов
-        "https://grumstv.github.io/Modules_testNEW/BinBankInfo.js", // модуль просмотра участников группы в L
-        "https://grumstv.github.io/Modules_testNEW/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
-        "https://grumstv.github.io/Modules_testNEW/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
-        "https://grumstv.github.io/Modules_testNEW/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-		"https://grumstv.github.io/Modules_testNEW/OpStatusMM.js", //подключаем модуль отправки статусов
-        "https://grumstv.github.io/Modules_testNEW/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://grumstv.github.io/Modules_testNEW/ServiceDesk.js", // подключаем модуль Сервис Деска
-        "https://grumstv.github.io/Modules_testNEW/Grabber.js", // подключаем модуль Парсинга чатов оператора
-        "https://grumstv.github.io/Modules_testNEW/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
-		"https://grumstv.github.io/Modules_testNEW/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
+    let gfgScript = ["https://grumstv.github.io/ChMAF/Extras/jquery-3.6.0.js", // подключаем модуль обработки JQuery
+		"https://grumstv.github.io/ChMAF/Extras/chart.js", // подключаем модуль для работы с графиками
+		"https://grumstv.github.io/ChMAF/Extras/moment.js", // подключаем модуль для работы с датами и временем
+        "https://grumstv.github.io/ChMAF/Modules/TestUsers.js", // модуль тестовых У П
+        "https://grumstv.github.io/ChMAF/Modules/Link.js", // модуль ссылкера (L)inks
+        "https://grumstv.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://grumstv.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
+	    "https://grumstv.github.io/ChMAF/Modules/AlarmClock.js", // модуль будильника
+        "https://grumstv.github.io/ChMAF/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://grumstv.github.io/ChMAF/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+		"https://grumstv.github.io/ChMAF/Modules/Calendar.js", // модуль кнопки "Календарь"
+        "https://grumstv.github.io/ChMAF/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
+        "https://grumstv.github.io/ChMAF/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
+        "https://grumstv.github.io/ChMAF/Modules/RefuseForm.js", // модуль формы отказа от помощи
+		"https://grumstv.github.io/ChMAF/Modules/VoiceHelper.js", // модуль голосового помощника
+        "https://grumstv.github.io/ChMAF/Modules/Marks.js", // модуль просмотра оценок пользователя
+        "https://grumstv.github.io/ChMAF/Modules/AutoRespond.js", // модуль автоответа по таймеру
+        "https://grumstv.github.io/ChMAF/Modules/JiraSearch.js", // модуль поиска по Jira
+        "https://grumstv.github.io/ChMAF/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
+        "https://grumstv.github.io/ChMAF/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
+        "https://grumstv.github.io/ChMAF/Modules/Themes.js", // модуль выставления тегов и тематик
+        "https://grumstv.github.io/ChMAF/Modules/ChatHistory.js", // модуль просмотра истории чатов
+        "https://grumstv.github.io/ChMAF/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
+        "https://grumstv.github.io/ChMAF/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
+        "https://grumstv.github.io/ChMAF/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://grumstv.github.io/ChMAF/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
+		"https://grumstv.github.io/ChMAF/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
+        "https://grumstv.github.io/ChMAF/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://grumstv.github.io/ChMAF/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
+        "https://grumstv.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
+        "https://grumstv.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
+		"https://grumstv.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
         "https://grumstv.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
