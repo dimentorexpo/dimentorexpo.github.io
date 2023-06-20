@@ -103,7 +103,7 @@ str = localStorage.getItem('sound_str');
 if (str !== null && str !== "")
     audio = new Audio(str);
 else
-    audio = new Audio("https://grumstv.github.io/Sounds/msg.mp3");
+    audio = new Audio("https://dimentorexpo.github.io/Sounds/msg.mp3");
 
 Object.keys(localStorage).forEach(function (key) { // чистка localstorage от мусора , когда АФ на каждый лог добавляет запись вида SMART_TABLE... или при работе с архивом
     if (/^(SMART_TABLE.)/.test(key)) {
@@ -194,12 +194,12 @@ function firstLoadPage() { //первичаня загрузка страниц�
     if (window.location.href.indexOf('skyeng.autofaq.ai') === -1 || window.location.href.indexOf('skyeng.autofaq.ai/login') > 0) {
         document.getElementById('AF_helper').style.display = 'none';
         if (window.location.href.indexOf('billing-marketing.skyeng.ru/accrual-operations/create') !== -1 ) {
-            include("https://grumstv.github.io/Modules_testNEWConsideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
+            include("https://dimentorexpo.github.io/Modules_testNEWConsideration.js") // подключаем модуль вывода подсказок при создании компенсации компенсации
         }
     } else {
         let mystyles = document.createElement('link')
 		mystyles.rel = 'stylesheet'
-		mystyles.href = "https://grumstv.github.io/ChMAF/CSS/styles.css" // подключаем модуль стилей 
+		mystyles.href = "https://dimentorexpo.github.io/ChMAF/CSS/styles.css" // подключаем модуль стилей 
 		document.querySelector('head').append(mystyles)
 
         setTimeout(move_again_AF, 3500)
@@ -243,7 +243,7 @@ function timerHideButtons() { //функция добавления скрыти
 function loadmoduls(gfgScript){
     let lboxstyles = document.createElement('link')
     lboxstyles.rel = 'stylesheet'
-    lboxstyles.href = "https://grumstv.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
+    lboxstyles.href = "https://dimentorexpo.github.io/Lightbox/dist/css/lightbox.min.css" // подключаем модуль стилей для Lightbox
     document.querySelector('head').append(lboxstyles)
 
     let create = (info) => {
@@ -312,39 +312,39 @@ function prepTp() { //функция подготовки расширения �
     flagLangBut = 1
     setInterval(timerHideButtons, 300)
 
-    let gfgScript = ["https://grumstv.github.io/ChMAF/Extras/jquery-3.6.0.js", // подключаем модуль обработки JQuery
-		"https://grumstv.github.io/ChMAF/Extras/chart.js", // подключаем модуль для работы с графиками
-		"https://grumstv.github.io/ChMAF/Extras/moment.js", // подключаем модуль для работы с датами и временем
-        "https://grumstv.github.io/ChMAF/Modules/TestUsers.js", // модуль тестовых У П
-        "https://grumstv.github.io/ChMAF/Modules/Link.js", // модуль ссылкера (L)inks
-        "https://grumstv.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
-        "https://grumstv.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
-	    "https://grumstv.github.io/ChMAF/Modules/AlarmClock.js", // модуль будильника
-        "https://grumstv.github.io/ChMAF/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
-		"https://grumstv.github.io/ChMAF/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
-		"https://grumstv.github.io/ChMAF/Modules/Calendar.js", // модуль кнопки "Календарь"
-        "https://grumstv.github.io/ChMAF/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
-        "https://grumstv.github.io/ChMAF/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
-        "https://grumstv.github.io/ChMAF/Modules/RefuseForm.js", // модуль формы отказа от помощи
-		"https://grumstv.github.io/ChMAF/Modules/VoiceHelper.js", // модуль голосового помощника
-        "https://grumstv.github.io/ChMAF/Modules/Marks.js", // модуль просмотра оценок пользователя
-        "https://grumstv.github.io/ChMAF/Modules/AutoRespond.js", // модуль автоответа по таймеру
-        "https://grumstv.github.io/ChMAF/Modules/JiraSearch.js", // модуль поиска по Jira
-        "https://grumstv.github.io/ChMAF/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
-        "https://grumstv.github.io/ChMAF/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
-        "https://grumstv.github.io/ChMAF/Modules/Themes.js", // модуль выставления тегов и тематик
-        "https://grumstv.github.io/ChMAF/Modules/ChatHistory.js", // модуль просмотра истории чатов
-        "https://grumstv.github.io/ChMAF/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
-        "https://grumstv.github.io/ChMAF/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
-        "https://grumstv.github.io/ChMAF/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
-        "https://grumstv.github.io/ChMAF/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
-		"https://grumstv.github.io/ChMAF/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
-        "https://grumstv.github.io/ChMAF/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://grumstv.github.io/ChMAF/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
-        "https://grumstv.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
-        "https://grumstv.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
-		"https://grumstv.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
-        "https://grumstv.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
+    let gfgScript = ["https://dimentorexpo.github.io/ChMAF/Extras/jquery-3.6.0.js", // подключаем модуль обработки JQuery
+		"https://dimentorexpo.github.io/ChMAF/Extras/chart.js", // подключаем модуль для работы с графиками
+		"https://dimentorexpo.github.io/ChMAF/Extras/moment.js", // подключаем модуль для работы с датами и временем
+        "https://dimentorexpo.github.io/ChMAF/Modules/TestUsers.js", // модуль тестовых У П
+        "https://dimentorexpo.github.io/ChMAF/Modules/Link.js", // модуль ссылкера (L)inks
+        "https://dimentorexpo.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
+	    "https://dimentorexpo.github.io/ChMAF/Modules/AlarmClock.js", // модуль будильника
+        "https://dimentorexpo.github.io/ChMAF/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://dimentorexpo.github.io/ChMAF/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
+		"https://dimentorexpo.github.io/ChMAF/Modules/Calendar.js", // модуль кнопки "Календарь"
+        "https://dimentorexpo.github.io/ChMAF/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
+        "https://dimentorexpo.github.io/ChMAF/Modules/Userinfo.js", // модуль UserInfo в виде вензеля с разными функциями и возможностями
+        "https://dimentorexpo.github.io/ChMAF/Modules/RefuseForm.js", // модуль формы отказа от помощи
+		"https://dimentorexpo.github.io/ChMAF/Modules/VoiceHelper.js", // модуль голосового помощника
+        "https://dimentorexpo.github.io/ChMAF/Modules/Marks.js", // модуль просмотра оценок пользователя
+        "https://dimentorexpo.github.io/ChMAF/Modules/AutoRespond.js", // модуль автоответа по таймеру
+        "https://dimentorexpo.github.io/ChMAF/Modules/JiraSearch.js", // модуль поиска по Jira
+        "https://dimentorexpo.github.io/ChMAF/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
+        "https://dimentorexpo.github.io/ChMAF/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
+        "https://dimentorexpo.github.io/ChMAF/Modules/Themes.js", // модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/ChMAF/Modules/ChatHistory.js", // модуль просмотра истории чатов
+        "https://dimentorexpo.github.io/ChMAF/Modules/BinBankInfo.js", // модуль просмотра участников группы в L
+        "https://dimentorexpo.github.io/ChMAF/Modules/Addstat.js", // модуль дополнительного окна статистики, расположенного в кнопке L
+        "https://dimentorexpo.github.io/ChMAF/Modules/LessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://dimentorexpo.github.io/ChMAF/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
+		"https://dimentorexpo.github.io/ChMAF/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
+        "https://dimentorexpo.github.io/ChMAF/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/ChMAF/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
+        "https://dimentorexpo.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
+        "https://dimentorexpo.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
+		"https://dimentorexpo.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
+        "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
 
@@ -361,19 +361,19 @@ function prepKC() { //функция подготовки расширения �
 
     flagLangBut = 1
 
-    let gfgScript = ["https://grumstv.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
-        "https://grumstv.github.io/Modules_testNEWLinkKC.js", // модуль ссылкера (L)inks
-        "https://grumstv.github.io/Modules_testNEWTemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
-        "https://grumstv.github.io/Modules_testNEWSettings.js", // модуль настроек расширения
-	    "https://grumstv.github.io/Modules_testNEWAlarmClock.js", // модуль будильника
-        "https://grumstv.github.io/Modules_testNEWCustomTemplates.js", // модуль кастомных собственных шаблонов
-		"https://grumstv.github.io/Modules_testNEWStatistica.js", // модуль кнопки "Статистика" и вложенных функций
-        "https://grumstv.github.io/Modules_testNEWMarks.js", // модуль просмотра оценок пользователя
-        "https://grumstv.github.io/Modules_testNEWThemes.js", // модуль выставления тегов и тематик
-        "https://grumstv.github.io/Modules_testNEWChatHistory.js", // модуль просмотра истории чатов
-        "https://grumstv.github.io/Modules_testNEWLessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
-        "https://grumstv.github.io/Modules_testNEWAFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://grumstv.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
+    let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
+        "https://dimentorexpo.github.io/Modules_testNEWLinkKC.js", // модуль ссылкера (L)inks
+        "https://dimentorexpo.github.io/Modules_testNEWTemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/Modules_testNEWSettings.js", // модуль настроек расширения
+	    "https://dimentorexpo.github.io/Modules_testNEWAlarmClock.js", // модуль будильника
+        "https://dimentorexpo.github.io/Modules_testNEWCustomTemplates.js", // модуль кастомных собственных шаблонов
+		"https://dimentorexpo.github.io/Modules_testNEWStatistica.js", // модуль кнопки "Статистика" и вложенных функций
+        "https://dimentorexpo.github.io/Modules_testNEWMarks.js", // модуль просмотра оценок пользователя
+        "https://dimentorexpo.github.io/Modules_testNEWThemes.js", // модуль выставления тегов и тематик
+        "https://dimentorexpo.github.io/Modules_testNEWChatHistory.js", // модуль просмотра истории чатов
+        "https://dimentorexpo.github.io/Modules_testNEWLessonStatus.js", // модуль просмотра статуса уроков по П или по П и У
+        "https://dimentorexpo.github.io/Modules_testNEWAFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
+        "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
 
