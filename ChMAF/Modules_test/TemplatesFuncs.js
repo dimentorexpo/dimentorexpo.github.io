@@ -115,6 +115,37 @@ function startTimer() {
             }
         }
 
+        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && getAllChatsList().chatsList.length > 0 && !iframeDoc.getElementById('transfer-buttons-container')) {
+            const chatHeaderActionsInner = iframeDoc.querySelectorAll('#__next [class^="ConversationActions_Actions"]')[0];
+            function createTransferButton(text) {
+                const button = iframeDoc.createElement('span');
+                button.textContent = ` ${text}`;
+                button.style.cursor = 'pointer';
+                button.style.marginLeft = '5px';
+                button.style.borderRadius = '50%';
+                button.style.background = '#ccc';
+                button.style.padding = '5px 10px';
+                button.style.display = 'inline-block';
+                button.style.width = '32px'; 
+                button.style.height = '32px';
+                button.classList.add('transferbtn');
+                return button;
+            }
+
+            const TransfBtnsContainer = iframeDoc.createElement('div');
+            TransfBtnsContainer.id = 'transfer-buttons-container';
+            
+            const kcTransBtn = createTransferButton('КЦ');
+            const osTransBtn = createTransferButton('ОС');
+            const opTransBtn = createTransferButton('ОП');
+            
+            TransfBtnsContainer.appendChild(kcTransBtn);
+            TransfBtnsContainer.appendChild(osTransBtn);
+            TransfBtnsContainer.appendChild(opTransBtn);
+            
+            chatHeaderActionsInner.parentNode.insertBefore(TransfBtnsContainer, chatHeaderActionsInner);
+        }
+
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield){
             if (tagsshowflag === "1"){
                 showTaggs(iframeDoc);
