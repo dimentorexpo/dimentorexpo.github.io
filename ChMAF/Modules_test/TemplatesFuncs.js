@@ -154,7 +154,7 @@ function startTimer() {
                 }
             let testchatbtn = iframeDoc.createElement('span')
                 testchatbtn.textContent = ' test?';
-                testchatbtn.style = "cursor:pointer; margin-left:5px; displey: none;";
+                testchatbtn.style = "cursor:pointer; margin-left:5px;";
                 testchatbtn.id = 'testchatbtn';
 
             Usernamefield.children[0].append(testchatbtn)
@@ -163,8 +163,8 @@ function startTimer() {
                     setTimeout(() => { newTaggg('double') }, 500);
                     setTimeout(() => { newTag('1710') }, 1000);
                 }
-            if (trigertestchat === 1){
-                testchatbtn.style.display = '';
+            if (trigertestchat === '0'){
+                testchatbtn.style.display = 'none';
             }
     
             if (usertypeis === "teacher") {
