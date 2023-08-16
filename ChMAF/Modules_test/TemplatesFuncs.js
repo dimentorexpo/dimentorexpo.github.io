@@ -118,14 +118,17 @@ function startTimer() {
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && getAllChatsList().chatsList.length > 0 && !iframeDoc.getElementById('transfer-buttons-container')) {
             const chatHeaderActionsInner = iframeDoc.querySelectorAll('#__next [class^="ConversationActions_Actions"]')[0];
             function createTransferButton(text) {
-                const button = iframeDoc.createElement('span');
-                button.textContent = ` ${text}`;
+                const button = iframeDoc.createElement('button');
+                button.textContent = `${text}`;
                 button.style.cursor = 'pointer';
                 button.style.marginLeft = '5px';
                 button.style.borderRadius = '50%';
-                button.style.background = '#ccc';
+                button.style.border = '1px solid #1976d2'
                 button.style.padding = '5px 10px';
-                button.style.display = 'inline-block';
+                button.style.display = 'flex';
+                button.style.alignItems = 'center'; 
+                button.style.justifyContent = 'center';
+                //button.style.display = 'inline-block';
                 button.style.width = '32px'; 
                 button.style.height = '32px';
                 button.classList.add('transferbtn');
