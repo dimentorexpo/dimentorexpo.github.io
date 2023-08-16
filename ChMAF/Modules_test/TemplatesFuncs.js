@@ -60,6 +60,7 @@ function Lessonisnow(iframeDoc) { // добавляем красную надп�
 
 function startTimer() {
     let tagsshowflag = localStorage.getItem('showquicktags');
+    const trigertestchat = localStorage.getItem('trigertestchat');
     const hrefisnow = window.location.href;
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
     const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0];  
@@ -151,6 +152,20 @@ function startTimer() {
                     const getidafuser = SearchinAFnewUI("id");
                     copyToClipboard("https://crm2.skyeng.ru/persons/" + getidafuser);
                 }
+            let testchatbtn = iframeDoc.createElement('span')
+                testchatbtn.textContent = ' test?';
+                testchatbtn.style = "cursor:pointer; margin-left:5px; displey: none;";
+                testchatbtn.id = 'testchatbtn';
+
+            Usernamefield.children[0].append(testchatbtn)
+                testchatbtn.onclick = function () {
+                    sendComment('Тестовый чат');
+                    newTaggg('double');
+                    newTag('1710');
+                }
+            if (trigertestchat === 1){
+                testchatbtn.style.display = '';
+            }
     
                     if (usertypeis === "teacher") {
                         iframeDoc.getElementById('userTypeId').textContent = " (П)";
