@@ -167,18 +167,18 @@ function startTimer() {
                 testchatbtn.style.display = '';
             }
     
-                    if (usertypeis === "teacher") {
-                        iframeDoc.getElementById('userTypeId').textContent = " (П)";
-                        iframeDoc.getElementById('userTypeId').style.color = "#1E90FF";
+            if (usertypeis === "teacher") {
+                iframeDoc.getElementById('userTypeId').textContent = " (П)";
+                iframeDoc.getElementById('userTypeId').style.color = "#1E90FF";
     
-                    } else if (usertypeis === "student") {
-                        iframeDoc.getElementById('userTypeId').textContent = " (У)";
-                        iframeDoc.getElementById('userTypeId').style.color = "#DC143C";
+            } else if (usertypeis === "student") {
+                iframeDoc.getElementById('userTypeId').textContent = " (У)";
+                iframeDoc.getElementById('userTypeId').style.color = "#DC143C";
     
-                    } else if (usertypeis === "parent") {
-                        iframeDoc.getElementById('userTypeId').textContent = " (РУ)";
-                        iframeDoc.getElementById('userTypeId').style.color = "#DC143C";
-                    }
+            } else if (usertypeis === "parent") {
+                iframeDoc.getElementById('userTypeId').textContent = " (РУ)";
+                iframeDoc.getElementById('userTypeId').style.color = "#DC143C";
+            }
     
     
             if (usertypeis === "teacher") {
