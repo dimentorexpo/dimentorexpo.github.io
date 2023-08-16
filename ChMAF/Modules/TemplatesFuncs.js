@@ -60,6 +60,7 @@ function Lessonisnow(iframeDoc) { // добавляем красную надп�
 
 function startTimer() {
     let tagsshowflag = localStorage.getItem('showquicktags');
+    const trigertestchat = localStorage.getItem('trigertestchat');
     const hrefisnow = window.location.href;
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
     const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0];  
@@ -123,6 +124,16 @@ function startTimer() {
             
         }
 
+        if (iframeDoc.getElementById('testchatbtn')){
+            if (iframeDoc.getElementById('testchatbtn').style.display != 'none' && trigertestchat == "0"){
+                iframeDoc.getElementById('testchatbtn').style.display = 'none'
+            }
+            if (iframeDoc.getElementById('testchatbtn').style.display == 'none' && trigertestchat == "1"){
+                iframeDoc.getElementById('testchatbtn').style.display = ''
+            }
+        }       
+
+
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield && iframeDoc.getElementsByClassName('UsersInfo').length == 0) { // добавляем кнопки и инфу в боковую панель
             let userTypeName = iframeDoc.createElement('span');
             userTypeName.id = "userTypeId";
@@ -150,6 +161,17 @@ function startTimer() {
                 copyCrmFromName.onclick = function () {
                     const getidafuser = SearchinAFnewUI("id");
                     copyToClipboard("https://crm2.skyeng.ru/persons/" + getidafuser);
+                }
+            let testchatbtn = iframeDoc.createElement('span')
+                testchatbtn.textContent = ' test';
+                testchatbtn.style = "cursor: pointer;margin-left: 5px;color: crimson;font-size: medium;margin-left: auto;margin-right: auto; display: none;";
+                testchatbtn.id = 'testchatbtn';
+
+            Usernamefield.children[0].append(testchatbtn)
+                testchatbtn.onclick = function () {
+                    sendComment('Тестовый чат');
+                    setTimeout(() => { newTaggg('double') }, 500);
+                    setTimeout(() => { newTag('1710') }, 1000);
                 }
     
                     if (usertypeis === "teacher") {

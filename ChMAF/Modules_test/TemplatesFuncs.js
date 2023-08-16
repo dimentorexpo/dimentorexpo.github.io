@@ -163,7 +163,7 @@ function startTimer() {
                     copyToClipboard("https://crm2.skyeng.ru/persons/" + getidafuser);
                 }
             let testchatbtn = iframeDoc.createElement('span')
-                testchatbtn.textContent = ' test?';
+                testchatbtn.textContent = ' test';
                 testchatbtn.style = "cursor: pointer;margin-left: 5px;color: crimson;font-size: medium;margin-left: auto;margin-right: auto; display: none;";
                 testchatbtn.id = 'testchatbtn';
 
@@ -1375,5 +1375,4 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
         resetFlags()
     }
 }
-
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
