@@ -124,12 +124,12 @@ function startTimer() {
             
         }
         
-        if (iframeDoc.getElementById('trigertestchat')){
-            if (iframeDoc.getElementById('trigertestchat').style.display != 'none' && trigertestchat == "0"){
-                iframeDoc.getElementById('trigertestchat').style.display = 'none'
+        if (iframeDoc.getElementById('testchatbtn')){
+            if (iframeDoc.getElementById('testchatbtn').style.display != 'none' && trigertestchat == "0"){
+                iframeDoc.getElementById('testchatbtn').style.display = 'none'
             }
-            if (iframeDoc.getElementById('trigertestchat').style.display == 'none' && trigertestchat == "1"){
-                iframeDoc.getElementById('trigertestchat').style.display = ''
+            if (iframeDoc.getElementById('testchatbtn').style.display == 'none' && trigertestchat == "1"){
+                iframeDoc.getElementById('testchatbtn').style.display = ''
             }
         }       
 
