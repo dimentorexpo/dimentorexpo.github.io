@@ -152,7 +152,6 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
             const currentStatus = localStorage.getItem('trigertestchat');
             const newStatus = currentStatus === '0' ? '1' : '0';
             localStorage.setItem('trigertestchat', newStatus);
-            console.log('trigertestchat = ' + newStatus)
         }
     };
 }
