@@ -160,8 +160,8 @@ function startTimer() {
             Usernamefield.children[0].append(testchatbtn)
                 testchatbtn.onclick = function () {
                     sendComment('Тестовый чат');
-                    newTaggg('double');
-                    newTag('1710');
+                    setTimeout(() => { newTaggg('double') }, 500);
+                    setTimeout(() => { newTag('1710') }, 1000);
                 }
             if (trigertestchat === 1){
                 testchatbtn.style.display = '';
