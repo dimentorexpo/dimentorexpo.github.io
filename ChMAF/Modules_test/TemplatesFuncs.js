@@ -165,6 +165,8 @@ function startTimer() {
                 }
             if (trigertestchat === 1){
                 testchatbtn.style.display = '';
+            } else {
+                testchatbtn.style.display = 'none';
             }
     
                     if (usertypeis === "teacher") {
