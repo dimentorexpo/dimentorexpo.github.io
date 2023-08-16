@@ -125,10 +125,10 @@ function startTimer() {
         }
         
         if (iframeDoc.getElementById('trigertestchat')){
-            if (iframeDoc.getElementById('trigertestchat').style.display != 'none' && trigertestchat == 0){
+            if (iframeDoc.getElementById('trigertestchat').style.display != 'none' && trigertestchat == "0"){
                 iframeDoc.getElementById('trigertestchat').style.display = 'none'
             }
-            if (iframeDoc.getElementById('trigertestchat').style.display == 'none' && trigertestchat == 1){
+            if (iframeDoc.getElementById('trigertestchat').style.display == 'none' && trigertestchat == "1"){
                 iframeDoc.getElementById('trigertestchat').style.display = ''
             }
         }       
