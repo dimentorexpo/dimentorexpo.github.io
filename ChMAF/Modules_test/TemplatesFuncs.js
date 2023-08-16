@@ -123,12 +123,11 @@ function startTimer() {
                 button.style.cursor = 'pointer';
                 button.style.marginLeft = '5px';
                 button.style.borderRadius = '50%';
-                button.style.border = '1px solid #1976d2'
-                button.style.padding = '5px 10px';
-                button.style.display = 'flex';
-                button.style.alignItems = 'center'; 
-                button.style.justifyContent = 'center';
-                //button.style.display = 'inline-block';
+                button.style.border = '1px solid #1976d2';
+                button.style.padding = '5px';
+                button.style.textAlign = 'center';
+                button.style.fontSize = '12px';
+                button.style.display = 'inline-block';
                 button.style.width = '32px'; 
                 button.style.height = '32px';
                 button.classList.add('transferbtn');
