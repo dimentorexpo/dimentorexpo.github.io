@@ -164,7 +164,7 @@ function startTimer() {
                 }
             let testchatbtn = iframeDoc.createElement('span')
                 testchatbtn.textContent = ' test?';
-                testchatbtn.style = "cursor:pointer; margin-left:5px;";
+                testchatbtn.style = "cursor:pointer; margin-left:5px; display: none;";
                 testchatbtn.id = 'testchatbtn';
 
             Usernamefield.children[0].append(testchatbtn)
