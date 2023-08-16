@@ -148,6 +148,10 @@ if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
             changeStatus('Offline');
         } else if (event.altKey && event.code === 'KeyI') { // горячие клавиши для смены статуса в Занят
             changeStatus('Busy');
+        } else if (event.altKey && event.code === 'KeyT') { // горячие клавиши тестового чата
+            const currentStatus = localStorage.getItem('trigertestchat');
+            const newStatus = currentStatus === '0' ? '1' : '0';
+            localStorage.setItem('trigertestchat', newStatus);
         }
     };
 }

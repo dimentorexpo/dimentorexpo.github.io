@@ -63,7 +63,8 @@ function startTimer() {
     const trigertestchat = localStorage.getItem('trigertestchat');
     const hrefisnow = window.location.href;
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
-    const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0];  
+    const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0]; 
+    const chatHeaderActionsInner = iframeDoc.querySelectorAll('#__next [class^="ConversationActions_Actions"]')[0]; 
     
     let taketaskElement = null;
     const Searchlist = iframeDoc.querySelectorAll('[class^="Operator_DialogsActions"]');
@@ -115,6 +116,57 @@ function startTimer() {
             }
         }
 
+        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && chatHeaderActionsInner && !iframeDoc.getElementById('transfer-buttons-container')) {
+            function createTransferButton(text) {
+                const button = iframeDoc.createElement('button');
+                button.textContent = `${text}`;
+                button.style.cursor = 'pointer';
+                button.style.marginLeft = '5px';
+                button.style.borderRadius = '50%';
+                button.style.border = '1px solid #1976d2';
+                button.style.padding = '5px';
+                button.style.textAlign = 'center';
+                button.style.fontSize = '12px';
+                button.style.display = 'inline-block';
+                button.style.width = '32px'; 
+                button.style.height = '32px';
+                button.classList.add('transferbtn');
+                return button;
+            }
+
+            const TransfBtnsContainer = iframeDoc.createElement('div');
+            TransfBtnsContainer.id = 'transfer-buttons-container';
+            
+            const kcTransBtn = createTransferButton('КЦ');
+            const osTransBtn = createTransferButton('ОС');
+            const opTransBtn = createTransferButton('ОП');
+            
+            TransfBtnsContainer.appendChild(kcTransBtn);
+            TransfBtnsContainer.appendChild(osTransBtn);
+            TransfBtnsContainer.appendChild(opTransBtn);
+            
+            chatHeaderActionsInner.parentNode.insertBefore(TransfBtnsContainer, chatHeaderActionsInner);
+        }
+
+        if (iframeDoc.getElementById('transfer-buttons-container')){
+            const centerfild = iframeDoc.getElementsByClassName('split-view-view-visible')[0];
+            const rightfield = iframeDoc.getElementsByClassName('split-view-view-visible')[3];
+            const slascher = iframeDoc.getElementsByClassName('sash-vertical')[0];
+            
+            const centerWidth = parseInt(centerfild.style.width, 10);
+            const rightWidth = parseInt(rightfield.style.width, 10);
+            
+            if (centerWidth < 390) {
+                const a = 390 - centerWidth;
+                const b = rightWidth - a;
+            
+                centerfild.style.width = '390px';
+                rightfield.style.left = '390px';
+                rightfield.style.width = b + 'px';
+                slascher.style.left = '386px';
+            }
+        }
+
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield){
             if (tagsshowflag === "1"){
                 showTaggs(iframeDoc);
@@ -123,6 +175,16 @@ function startTimer() {
             }
             
         }
+        
+        if (iframeDoc.getElementById('testchatbtn')){
+            if (iframeDoc.getElementById('testchatbtn').style.display != 'none' && trigertestchat == "0"){
+                iframeDoc.getElementById('testchatbtn').style.display = 'none'
+            }
+            if (iframeDoc.getElementById('testchatbtn').style.display == 'none' && trigertestchat == "1"){
+                iframeDoc.getElementById('testchatbtn').style.display = ''
+            }
+        }       
+
 
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield && iframeDoc.getElementsByClassName('UsersInfo').length == 0) { // добавляем кнопки и инфу в боковую панель
             let userTypeName = iframeDoc.createElement('span');
@@ -153,8 +215,8 @@ function startTimer() {
                     copyToClipboard("https://crm2.skyeng.ru/persons/" + getidafuser);
                 }
             let testchatbtn = iframeDoc.createElement('span')
-                testchatbtn.textContent = ' test?';
-                testchatbtn.style = "cursor:pointer; margin-left:5px; displey: none;";
+                testchatbtn.textContent = ' test';
+                testchatbtn.style = "cursor: pointer;margin-left: 5px;color: crimson;font-size: medium;margin-left: auto;margin-right: auto; display: none;";
                 testchatbtn.id = 'testchatbtn';
 
             Usernamefield.children[0].append(testchatbtn)
@@ -163,22 +225,19 @@ function startTimer() {
                     setTimeout(() => { newTaggg('double') }, 500);
                     setTimeout(() => { newTag('1710') }, 1000);
                 }
-            if (trigertestchat === 1){
-                testchatbtn.style.display = '';
+    
+            if (usertypeis === "teacher") {
+                iframeDoc.getElementById('userTypeId').textContent = " (П)";
+                iframeDoc.getElementById('userTypeId').style.color = "#1E90FF";
+    
+            } else if (usertypeis === "student") {
+                iframeDoc.getElementById('userTypeId').textContent = " (У)";
+                iframeDoc.getElementById('userTypeId').style.color = "#DC143C";
+    
+            } else if (usertypeis === "parent") {
+                iframeDoc.getElementById('userTypeId').textContent = " (РУ)";
+                iframeDoc.getElementById('userTypeId').style.color = "#DC143C";
             }
-    
-                    if (usertypeis === "teacher") {
-                        iframeDoc.getElementById('userTypeId').textContent = " (П)";
-                        iframeDoc.getElementById('userTypeId').style.color = "#1E90FF";
-    
-                    } else if (usertypeis === "student") {
-                        iframeDoc.getElementById('userTypeId').textContent = " (У)";
-                        iframeDoc.getElementById('userTypeId').style.color = "#DC143C";
-    
-                    } else if (usertypeis === "parent") {
-                        iframeDoc.getElementById('userTypeId').textContent = " (РУ)";
-                        iframeDoc.getElementById('userTypeId').style.color = "#DC143C";
-                    }
     
     
             if (usertypeis === "teacher") {
