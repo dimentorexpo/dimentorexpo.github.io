@@ -862,36 +862,35 @@ async function getopersSLA() {
 						
 						
 						//
-						for (let z = 0; z < fres.messages.length; z++) {
+						for (let z = fres.messages.length - 1; z >= 0; z--) {
 							
 							if (flagFoundOperGroup === 0) { 
-								if (fres.messages[z].eventTpe && fres.messages[z].eventTpe === "ChangeGroup" && fres.messages[z].payload.group == "c7bbb211-a217-4ed3-8112-98728dc382d8") { // Попробовать потом автоматизировать автоподстановку группы ТП 
-									flagFoundOperGroup = 1
-									indexOfChangeGroup = z;
-								}
+								if (fres.messages[z].eventTpe && fres.messages[z].eventTpe === "ChangeGroup" && fres.messages[z].payload.prevGroup == undefined && fres.messages[z].payload.group == "c7bbb211-a217-4ed3-8112-98728dc382d8") {
+									flagFoundOperGroup = 1;
+									indexOfChangeGroup = z; 
+									}
 							}
 							
 							if (flagFoundOperGroup == 1) {
 								if (flagFoundQueue === 0) {
 									if (fres.messages[z].eventTpe && fres.messages[z].eventTpe === "FirstTimeInQueue") {
-									  foundQueue = fres.messages[z].ts;
-									  flagFoundQueue = 1;
-									  indexOfFirstTimeInQueue = z;
+										foundQueue = fres.messages[z].ts;
+										flagFoundQueue = 1;
+										indexOfFirstTimeInQueue = z; 
 									}
 								}
 
-							  if (flagFoundOperAnswer === 0) {
-								if (fres.messages[z].tpe && (fres.messages[z].tpe === "AnswerOperator" || fres.messages[z].tpe === "AnswerOperatorWithBot")) {
-								  foundOperAnswer = fres.messages[z].ts;
-								  flagFoundOperAnswer = 1;
+								if (flagFoundOperAnswer === 0) {
+									if (fres.messages[z].tpe && (fres.messages[z].tpe === "AnswerOperator" || fres.messages[z].tpe === "AnswerOperatorWithBot")) {
+										foundOperAnswer = fres.messages[z].ts;
+										flagFoundOperAnswer = 1;
+									}
 								}
-							  }
 							}
-							
-
 						}
 
-						if (fres.answers.length > 0 && indexOfChangeGroup < indexOfFirstTimeInQueue) {
+
+						if (fres.answers.length > 0 && indexOfChangeGroup > indexOfFirstTimeInQueue) {
 								foundQueueTime = new Date(foundQueue).getTime();
 								foundOperAnswerTime = new Date(foundOperAnswer).getTime();
 
