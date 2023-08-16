@@ -123,6 +123,16 @@ function startTimer() {
             }
             
         }
+        
+        if (iframeDoc.getElementById('trigertestchat')){
+            if (iframeDoc.getElementById('trigertestchat').style.display != 'none' && trigertestchat == 0){
+                iframeDoc.getElementById('trigertestchat').style.display = 'none'
+            }
+            if (iframeDoc.getElementById('trigertestchat').style.display == 'none' && trigertestchat == 1){
+                iframeDoc.getElementById('trigertestchat').style.display = ''
+            }
+        }       
+
 
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield && iframeDoc.getElementsByClassName('UsersInfo').length == 0) { // добавляем кнопки и инфу в боковую панель
             let userTypeName = iframeDoc.createElement('span');
@@ -163,9 +173,6 @@ function startTimer() {
                     setTimeout(() => { newTaggg('double') }, 500);
                     setTimeout(() => { newTag('1710') }, 1000);
                 }
-            if (trigertestchat === '0'){
-                testchatbtn.style.display = 'none';
-            }
     
             if (usertypeis === "teacher") {
                 iframeDoc.getElementById('userTypeId').textContent = " (П)";
