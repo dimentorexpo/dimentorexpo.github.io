@@ -10,28 +10,25 @@ var win_WFMHelper = `<div">
 						
 							    <ul id="humansList">
 									<li><label name="selectAllWorkersByChanges" style="background-color:Crimson; color:white; padding:2px; border: 1px solid black; padding-left:5px; padding-right:5px;">2/2 | Верхняя смена</label></li>
-										<li><label title="⏰ 07:00-19:00 🍔 12:45-14:00 💫ОС 11:00-13:00"><input type="checkbox" name="upper" value="Зубарев Дмитрий">Зубарев Дмитрий</label></li>
-										<li><label title="⏰ 07:00-19:00 🍔 12:15-13:30 💫ОС 08:00-11:00"><input type="checkbox" name="upper" value="Тарасова Наталья">Тарасова Наталья</label></li>
-										<li><label title="⏰ 11:00-23:00 🍔 15:45-17:00 💫ОС 13:00-15:00"><input type="checkbox" name="upper" value="Аркания Георгий">Аркания Георгий</label></li>
-										<li><label title="⏰ 11:00-23:00 🍔 15:45-17:00 💫ОС 18:00-20:00"><input type="checkbox" name="upper" value="Козел Полина">Козел Полина</label></li>
-										<li><label title="⏰ 12:00-00:00 🍔 16:45-18:00 💫ОС 20:00-22:00"><input type="checkbox" name="upper" value="Артемьев Сергей">Артемьев Сергей</label></li>
-										<li><label title="⏰ 07:00-19:00 🍔 12:15-13:30 💫ОС 08:00-11:00"><input type="checkbox" name="lower" value="Лукач Дарья">Лукач Дарья</label></li>
-										<li><label title="По будням ⏰ 08:00-20:00 🍔 13:45-15:00 По выходным ⏰ 09:00-21:00 🍔 14:45-16:00 "><input type="checkbox" name="upper" value="Радченко Александр">🅿 Радченко Александр</label></li>
+										<li><label title="⏰ 07:00-19:00 🍔 12:15-13:30"><input type="checkbox" name="upper" value="Тарасова Наталья">Тарасова Наталья</label></li>								
+										<li><label title="⏰ 08:00-20:00 🍔 13:45-15:00"><input type="checkbox" name="upper" value="Зубарев Дмитрий">Зубарев Дмитрий</label></li>
+										<li><label title="⏰ 08:00-20:00 🍔 14:45-16:00"><input type="checkbox" name="upper" value="Радченко Александр">Радченко Александр</label></li>	
+										<li><label title="⏰ 10:00-22:00 🍔 15:30-16:45"><input type="checkbox" name="lower" value="Лукач Дарья">Лукач Дарья</label></li>
+										<li><label title="⏰ 10:00-22:00 🍔 15:45-17:00"><input type="checkbox" name="lower" value="Приблуда Константин">Приблуда Константин</label></li>										
+										<li><label title="⏰ 12:00-00:00 🍔 16:45-18:00"><input type="checkbox" name="upper" value="Артемьев Сергей">Артемьев Сергей</label></li>
 									<li><label name="selectAllWorkersByChanges" style="background-color:DeepSkyBlue; text-align:center; font-weight:700; color:black; padding:2px; padding-left:10px; padding-right:10px; border: 1px solid black;">2/2 | Нижняя смена</label></li>
-										<li><label title="⏰ 07:00-19:00 🍔 12:15-13:30 💫ОС 15:00-18:00"><input type="checkbox" name="upper" value="Изотеев Даниил">Изотеев Даниил</label></li>
-										<li><label title="⏰ 07:00-19:00 🍔 12:45-14:00 💫ОС 11:00-13:00"><input type="checkbox" name="lower" value="Шеремет Александр">Шеремет Александр</label></li>
-										<li><label title="⏰ 08:00-20:00 🍔 13:45-15:00 💫ОС 15:00-18:00"><input type="checkbox" name="lower" value="Медяник Олег">Медяник Олег</label></li>
-										<li><label title="⏰ 11:00-23:00 🍔 15:45-17:00 💫ОС 13:00-15:00"><input type="checkbox" name="lower" value="Зурнин Павел">Зурнин Павел</label></li>
-										<li><label title="⏰ 11:00-23:00 🍔 15:45-17:00 💫ОС 18:00-20:00"><input type="checkbox" name="lower" value="Приблуда Константин">Приблуда Константин</label></li>
-										<li><label title="⏰ 12:00-00:00 🍔 16:45-18:00 💫ОС 20:00-22:00"><input type="checkbox" name="lower" value="Бахтын Ростислав">Бахтын Ростислав</label></li>
-										<li><label title="По будням ⏰ 08:00-20:00 🍔 13:45-15:00 По выходным ⏰ 09:00-21:00 🍔 14:45-16:00 "><input type="checkbox" name="lower" value="Ромашов Даниил">🅿 Ромашов Даниил</label></li>
+										<li><label title="⏰ 07:00-19:00 🍔 12:45-14:00"><input type="checkbox" name="lower" value="Шеремет Александр">Шеремет Александр</label></li>									
+										<li><label title="⏰ 08:00-20:00 🍔 13:45-15:00"><input type="checkbox" name="upper" value="Изотеев Даниил">Изотеев Даниил</label></li>
+										<li><label title="⏰ 08:00-20:00 🍔 13:45-15:00"><input type="checkbox" name="lower" value="Медяник Олег">Медяник Олег</label></li>
+										<li><label title="⏰ 08:00-20:00 🍔 14:45-16:00 "><input type="checkbox" name="lower" value="Ромашов Даниил">Ромашов Даниил</label></li>
+										<li><label title="⏰ 11:00-23:00 🍔 15:45-17:00"><input type="checkbox" name="lower" value="Зурнин Павел">Зурнин Павел</label></li>
+										<li><label title="⏰ 12:00-00:00 🍔 16:45-18:00"><input type="checkbox" name="lower" value="Бахтын Ростислав">Бахтын Ростислав</label></li>
 									<li><label style="background-color:MediumSeaGreen; text-align:center; font-weight:700; color:black; padding:2px; padding-left:45px; padding-right:45px; border: 1px solid black;">5/2 смена</label></li>
-										<li><label title="ВТ-ПТ ⏰ 10:00-19:00 , СБ ⏰ 08:00-17:00"><input type="checkbox" name="5days" value="Колесников Валерий">Колесников Валерий</label></li>
-										<li><label title="ПН ⏰ 13:00-22:00, ВТ,СР ⏰ 15:00-00:00, ЧТ ⏰ 09:00-18:00, ПТ ⏰ 08:00-17:00"><input type="checkbox" name="5days" value="Цой Анатолий">Цой Анатолий</label></li>
-										<li><label title="ПН ⏰ 15:00-00:00, ВТ,СР ⏰ 13:00-22:00, ЧТ,ВС ⏰ 08:00-17:00"><input type="checkbox" name="5days" value="Сачковский Кирилл">Сачковский Кирилл</label></li>
-										<li><label title="ПН ⏰ 08:00-17:00, ВТ ⏰ 12:00-21:00, СР,ЧТ ⏰ 09:00-18:00, ПТ ⏰ 13:00-22:00"><input type="checkbox" name="5days" value="Рябцев Илья">Рябцев Илья</label></li>
-										<li><label title="ПН ⏰ 12:00-21:00, ВТ,СР ⏰ 08:00-17:00, ЧТ ⏰ 13:00-22:00, ПТ ⏰ 15:00-00:00"><input type="checkbox" name="5days" value="Аймахани Бек">Аймахани Бек</label></li>
-										<li><label title="ПН,ПТ ⏰ 09:00-18:00, ВТ,СР ⏰ 13:00-22:00, ЧТ ⏰ 15:00-00:00"><input type="checkbox" name="5days" value="Наливайко Полина">Наливайко Полина</label></li>
+										<li><label title="ПН-ПТ ⏰ 07:00-16:00"><input type="checkbox" name="5days" value="Колесников Валерий">Колесников Валерий</label></li>
+										<li><label title="ПН-ПТ ⏰ 15:00-24:00"><input type="checkbox" name="5days" value="Цой Анатолий">Цой Анатолий</label></li>
+										<li><label title="ПН-ПТ ⏰ 13:00-22:00"><input type="checkbox" name="5days" value="Сачковский Кирилл">Сачковский Кирилл</label></li>
+										<li><label title="ПН-СР, СБ-ВС ⏰ 07:00-16:00"><input type="checkbox" name="5days" value="Аймахани Бек">Аймахани Бек</label></li>
+										<li><label title="ПН-ПТ ⏰ 14:00-23:00"><input type="checkbox" name="5days" value="Наливайко Полина">Наливайко Полина</label></li>
 										<li><label title=""><input type="checkbox" name="5days" value="---">---</label></li>
 
 								</ul>
