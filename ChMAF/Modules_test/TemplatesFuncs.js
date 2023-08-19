@@ -1469,6 +1469,39 @@ function transfertogroup(section, conversationId) {
             credentials: "include",
             mode: "cors"
             });
+        fetch("https://skyeng.autofaq.ai/new-frontend/_next/data/GuE1U8YIQUNusG7bfIfQi/ru/operator.json?withNavigation=false&hidden=false", {
+            headers: {
+                "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin"
+            },
+            referrer: "https://skyeng.autofaq.ai/new-frontend/operator/6fbad965-c0f0-4638-961b-69bce408c382?hidden=false&withNavigation=false",
+            referrerPolicy: "strict-origin-when-cross-origin",
+            method: "GET",
+            mode: "cors",
+            credentials: "include"
+        });
+        fetch(`https://skyeng.autofaq.ai/api/users?query=${operatorId}`, {
+            headers: {
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            referrer: "https://skyeng.autofaq.ai/new-frontend/operator/6fbad965-c0f0-4638-961b-69bce408c382?hidden=false&withNavigation=false",
+            referrerPolicy: "strict-origin-when-cross-origin",
+            method: "GET",
+            mode: "cors",
+            credentials: "include"
+        });
+        fetch("https://skyeng.autofaq.ai/api/groups?all=true", {
+            headers: {
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            referrer: "https://skyeng.autofaq.ai/new-frontend/operator/6fbad965-c0f0-4638-961b-69bce408c382?hidden=false&withNavigation=false",
+            referrerPolicy: "strict-origin-when-cross-origin",
+            method: "GET",
+            mode: "cors",
+            credentials: "include"
+        });
     }
 }
 
