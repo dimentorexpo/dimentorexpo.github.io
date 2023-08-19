@@ -879,7 +879,6 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
             console.log(`Selected topic: ${button.innerText}`);
         }
     }
-
 });
 
 function SDtestbtn() {
