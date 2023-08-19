@@ -65,7 +65,7 @@ function startTimer() {
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
     const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0]; 
     const chatHeaderActionsInner = iframeDoc.querySelectorAll('#__next [class^="ConversationActions_Actions"]')[0];
-    const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]') 
+    const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]')[0].children[1];
     
     let taketaskElement = null;
     const Searchlist = iframeDoc.querySelectorAll('[class^="Operator_DialogsActions"]');
