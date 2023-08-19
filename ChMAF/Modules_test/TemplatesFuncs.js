@@ -65,7 +65,7 @@ function startTimer() {
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
     const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0]; 
     const chatHeaderActionsInner = iframeDoc.querySelectorAll('#__next [class^="ConversationActions_Actions"]')[0];
-    const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]')[0].children[1];
+    const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]')[0].children[1].children[0];
     
     let taketaskElement = null;
     const Searchlist = iframeDoc.querySelectorAll('[class^="Operator_DialogsActions"]');
@@ -140,8 +140,40 @@ function startTimer() {
             
             const kcTransBtn = createTransferButton('КЦ');
             const osTransBtn = createTransferButton('ОС');
-            const opTransBtn = createTransferButton('ОП');
-            
+//            const opTransBtn = createTransferButton('ОП');
+  
+            kcTransBtn.onclick = function () {
+                const actchat = getChatId();
+                if (!actchat) {
+                    this.style.background = "red";
+                    setTimeout(() => {
+                        this.style.background = "";
+                    }, 1000);
+                } else {
+                    this.style.background = "lightgreen";
+                    setTimeout(() => {
+                        this.style.background = "";
+                    }, 1000);
+                    transfertogroup('КЦ', actchat)
+                }
+            }
+
+            osTransBtn.onclick = function () {
+                const actchat = getChatId();
+                if (!actchat) {
+                    this.style.background = "red";
+                    setTimeout(() => {
+                        this.style.background = "";
+                    }, 1000);
+                } else {
+                    this.style.background = "lightgreen";
+                    setTimeout(() => {
+                        this.style.background = "";
+                    }, 1000);
+                    transfertogroup('ОС', actchat)
+                }
+            }
+
             TransfBtnsContainer.appendChild(kcTransBtn);
             TransfBtnsContainer.appendChild(osTransBtn);
 //            TransfBtnsContainer.appendChild(opTransBtn);
@@ -149,25 +181,6 @@ function startTimer() {
             iframeHeader.parentNode.insertBefore(TransfBtnsContainer, iframeHeader);
         }
 
-/*        if (iframeDoc.getElementById('transfer-buttons-container')){
-            const centerfild = iframeDoc.getElementsByClassName('split-view-view-visible')[0];
-            const rightfield = iframeDoc.getElementsByClassName('split-view-view-visible')[3];
-            const slascher = iframeDoc.getElementsByClassName('sash-vertical')[0];
-            
-            const centerWidth = parseInt(centerfild.style.width, 10);
-            const rightWidth = parseInt(rightfield.style.width, 10);
-            
-            if (centerWidth < 390) {
-                const a = 390 - centerWidth;
-                const b = rightWidth - a;
-            
-                centerfild.style.width = '390px';
-                rightfield.style.left = '390px';
-                rightfield.style.width = b + 'px';
-                slascher.style.left = '386px';
-            }
-        }
-*/
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield){
             if (tagsshowflag === "1"){
                 showTaggs(iframeDoc);
@@ -1427,6 +1440,37 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
         });
         resetFlags()
     }
+}
+
+function transfertogroup(section, conversationId) {
+    if (section == 'КЦ') {
+        const groupId = "b6f7f34d-2f08-fc19-3661-29ac00842898";
+    } else if (section == 'ОС') {
+        const groupId = "b6f7f34d-2f08-fc19-3661-29ac00842898";
+    }
+
+    if (groupId && conversationId) {
+        fetch(`https://skyeng.autofaq.ai/api/conversation/assign/group/${groupId}`, {
+            method: "POST",
+            headers: {
+                "accept": "application/json",
+                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
+                "content-type": "application/json",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
+            referrerPolicy: "strict-origin-when-cross-origin",
+            body: JSON.stringify({
+                conversationId: conversationId,
+                command: "DO_ASSIGN_CONVERSATION"
+            }),
+            credentials: "include",
+            mode: "cors"
+            });
+    }
+
 }
 
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
