@@ -63,9 +63,7 @@ function startTimer() {
     const trigertestchat = localStorage.getItem('trigertestchat');
     const hrefisnow = window.location.href;
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
-    const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0]; 
-    const chatHeaderActionsInner = iframeDoc.querySelectorAll('#__next [class^="ConversationActions_Actions"]')[0];
-    const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]')[0].children[1].children[0];
+    const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0];
     
     let taketaskElement = null;
     const Searchlist = iframeDoc.querySelectorAll('[class^="Operator_DialogsActions"]');
@@ -117,7 +115,8 @@ function startTimer() {
             }
         }
 
-        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && iframeHeader && !iframeDoc.getElementById('transfer-buttons-container')) {
+        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && !iframeDoc.getElementById('transfer-buttons-container')) {
+            const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]')[0].children[1].children[0];
             function createTransferButton(text) {
                 const button = iframeDoc.createElement('button');
                 button.textContent = `${text}`;
