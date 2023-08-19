@@ -573,6 +573,7 @@ function sendRequestAcademMob(CMSvalue, priorvalue, appinfo, deviceinfo, dscr, s
     formData.append('reporterId', varinfraOID);
     formData.append('initiatorId', varinfraOID);
     formData.append('data[cms_link]', CMSvalue);
+	formData.append('data[priority]', decodeURIComponent(priorvalue).replaceAll('<br>','\n'))
     formData.append('data[appInfo]', decodeURIComponent(appinfo).replaceAll('<br>','\n'))
     formData.append('data[userDeviceInfo]', decodeURIComponent(deviceinfo).replaceAll('<br>','\n'))
     formData.append('data[description]', decodeURIComponent(dscr).replaceAll('<br>','\n'))
@@ -580,7 +581,6 @@ function sendRequestAcademMob(CMSvalue, priorvalue, appinfo, deviceinfo, dscr, s
     formData.append('data[expectedResult]', decodeURIComponent(erx).replaceAll('<br>','\n'))
     formData.append('data[actualResult]', decodeURIComponent(ary).replaceAll('<br>','\n'))
     formData.append('data[userIds]', decodeURIComponent(idstdserv).replaceAll('<br>','\n'))
-    formData.append('data[priority]', decodeURIComponent(priorvalue).replaceAll('<br>','\n'))
   
     let requestOptions = {
       method: 'POST',
