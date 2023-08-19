@@ -1443,10 +1443,11 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
 }
 
 function transfertogroup(section, conversationId) {
-    if (section == 'КЦ') {
-        const groupId = "b6f7f34d-2f08-fc19-3661-29ac00842898";
-    } else if (section == 'ОС') {
-        const groupId = "b6f7f34d-2f08-fc19-3661-29ac00842898";
+    var groupId;
+    if (section == "КЦ") {
+        groupId = "b6f7f34d-2f08-fc19-3661-29ac00842898";
+    } else if (section == "ОС") {
+        groupId = "8266dbb1-db44-4910-8b5f-a140deeec5c0";
     }
 
     if (groupId && conversationId) {
@@ -1470,7 +1471,6 @@ function transfertogroup(section, conversationId) {
             mode: "cors"
             });
     }
-
 }
 
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
