@@ -825,7 +825,7 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
     let idUser = document.getElementById('custom_id')
     let appInfo = document.getElementById('custom_appinfo')
     let deviceInfo = document.getElementById('custom_deviceinfo')
-    let CMSfield = document.getElementById('custom_CMS');
+    let CMSlink = document.getElementById('custom_CMS');
     let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value.replace(/[\n\t\"]/g, function (match) {
         if (match === '\n') return '<br>';
         if (match === '\t') return '&emsp;';
@@ -846,11 +846,6 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
         if (match === '\t') return '&emsp;';
         if (match === '\"') return '&quot;';
     }))
-    let CMSlink = encodeURIComponent(CMSfield.value.replace(/[\n\t\"]/g, function (match) {
-        if (match === '\n') return '<br>';
-        if (match === '\t') return '&emsp;';
-        if (match === '\"') return '&quot;';
-    }))
     let activeButtons = document.querySelectorAll('.activebtn');
 
     if (catcommprob.style.display == ''){
@@ -863,12 +858,12 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
             sendRequest(idUser.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
             console.log(`Selected topic: ${button.innerText}`);
         }
-    } else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '' && CMSfield.style.display == '') {
+    } else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '' && CMSlink.style.display == '') {
         for (const button of activeButtons) {
             sendRequestAcademMob(CMSlink.value, priorityMobile.value, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, idUser.value, button.value);
             console.log(`Selected topic: ${button.innerText}`);
         }
-    } else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '' && CMSfield.style.display == 'none') {
+    } else if (priorityMobile.style.display == '' && appInfo.style.display == '' && deviceInfo.style.display == '' && CMSlink.style.display == 'none') {
         for (const button of activeButtons) {
             sendRequestMobWithPriority(priorityMobile.value, appInfo.value, deviceInfo.value, descriptionField, stepsToReproduce, expectedResult, actualResult, idUser.value, button.value);
             console.log(`Selected topic: ${button.innerText}`);
