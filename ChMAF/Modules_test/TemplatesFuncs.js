@@ -64,7 +64,8 @@ function startTimer() {
     const hrefisnow = window.location.href;
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
     const Usernamefield = iframeDoc.querySelectorAll('[class^="User_Preview"]')[0]; 
-    const chatHeaderActionsInner = iframeDoc.querySelectorAll('#__next [class^="ConversationActions_Actions"]')[0]; 
+    const chatHeaderActionsInner = iframeDoc.querySelectorAll('#__next [class^="ConversationActions_Actions"]')[0];
+    const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]') 
     
     let taketaskElement = null;
     const Searchlist = iframeDoc.querySelectorAll('[class^="Operator_DialogsActions"]');
@@ -116,19 +117,19 @@ function startTimer() {
             }
         }
 
-        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && chatHeaderActionsInner && !iframeDoc.getElementById('transfer-buttons-container')) {
+        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && iframeHeader && !iframeDoc.getElementById('transfer-buttons-container')) {
             function createTransferButton(text) {
                 const button = iframeDoc.createElement('button');
                 button.textContent = `${text}`;
                 button.style.cursor = 'pointer';
                 button.style.marginLeft = '5px';
-                button.style.borderRadius = '50%';
+                button.style.borderRadius = '15%';
                 button.style.border = '1px solid #1976d2';
                 button.style.padding = '5px';
                 button.style.textAlign = 'center';
-                button.style.fontSize = '12px';
+                button.style.fontSize = '14px';
                 button.style.display = 'inline-block';
-                button.style.width = '32px'; 
+                button.style.width = '50px'; 
                 button.style.height = '32px';
                 button.classList.add('transferbtn');
                 return button;
@@ -145,10 +146,10 @@ function startTimer() {
             TransfBtnsContainer.appendChild(osTransBtn);
             TransfBtnsContainer.appendChild(opTransBtn);
             
-            chatHeaderActionsInner.parentNode.insertBefore(TransfBtnsContainer, chatHeaderActionsInner);
+            iframeHeader.parentNode.insertBefore(TransfBtnsContainer, iframeHeader);
         }
 
-        if (iframeDoc.getElementById('transfer-buttons-container')){
+/*        if (iframeDoc.getElementById('transfer-buttons-container')){
             const centerfild = iframeDoc.getElementsByClassName('split-view-view-visible')[0];
             const rightfield = iframeDoc.getElementsByClassName('split-view-view-visible')[3];
             const slascher = iframeDoc.getElementsByClassName('sash-vertical')[0];
@@ -166,7 +167,7 @@ function startTimer() {
                 slascher.style.left = '386px';
             }
         }
-
+*/
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield){
             if (tagsshowflag === "1"){
                 showTaggs(iframeDoc);
