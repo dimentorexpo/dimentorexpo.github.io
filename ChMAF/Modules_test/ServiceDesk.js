@@ -708,7 +708,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 otherElements[k].style.display = 'none';
             }
 
-            if (elementId === "academymobbugsoptions" || elementId === "mobbugsoptions") {
+            if (elementId === "academymobbugsoptions") {
                 document.getElementById('prioritymbugs').style.display = '';
                 document.getElementById('custom_CMS').style.display = '';
                 document.getElementById('custom_appinfo').style.display = '';
@@ -721,6 +721,19 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('categoryCommproblems').style.display = 'none';
                 document.getElementById('categoryCommproblems').children[0].selected = true
                 document.getElementById('custom_email').style.display = 'none';
+            }if (elementId === "mobbugsoptions") {
+                document.getElementById('prioritymbugs').style.display = '';
+                document.getElementById('custom_appinfo').style.display = '';
+                document.getElementById('custom_deviceinfo').style.display = '';
+                document.getElementById('custom_id').style.display = '';
+                document.getElementById('custom_descr').style.display = '';
+                document.getElementById('custom_str').style.display = '';
+                document.getElementById('custom_er').style.display = '';
+                document.getElementById('custom_ar').style.display = '';
+                document.getElementById('categoryCommproblems').style.display = 'none';
+                document.getElementById('categoryCommproblems').children[0].selected = true
+                document.getElementById('custom_email').style.display = 'none';
+                document.getElementById('custom_CMS').style.display = 'none';
             } else if (elementId === 'studcabmobbugskoptions') {
                 document.getElementById('custom_appinfo').style.display = '';
                 document.getElementById('custom_deviceinfo').style.display = '';
