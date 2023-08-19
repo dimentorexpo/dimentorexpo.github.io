@@ -1478,7 +1478,7 @@ function transfertogroup(section, conversationId) {
             credentials: "include"
         });
         
-/*        fetch(`https://skyeng.autofaq.ai/api/users?query=${operatorId}`, {
+       fetch(`https://skyeng.autofaq.ai/api/users?query=${operatorId}`, {
             headers: {
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin"
@@ -1500,7 +1500,7 @@ function transfertogroup(section, conversationId) {
             method: "GET",
             mode: "cors",
             credentials: "include"
-        }); */
+        });
     }
 }
 
