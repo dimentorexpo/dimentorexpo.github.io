@@ -1475,7 +1475,7 @@ function transfertogroup(section, conversationId) {
                 "sec-fetch-mode": "cors",
               "sec-fetch-site": "same-origin"
             },
-            referrer: "https://skyeng.autofaq.ai/new-frontend/operator/6fbad965-c0f0-4638-961b-69bce408c382?hidden=false&withNavigation=false",
+            referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
             referrerPolicy: "strict-origin-when-cross-origin",
             method: "GET",
             mode: "cors",
@@ -1488,7 +1488,7 @@ function transfertogroup(section, conversationId) {
                     "sec-fetch-mode": "cors",
                     "sec-fetch-site": "same-origin"
                 },
-                referrer: "https://skyeng.autofaq.ai/new-frontend/operator/6fbad965-c0f0-4638-961b-69bce408c382?hidden=false&withNavigation=false",
+                referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
                 referrerPolicy: "strict-origin-when-cross-origin",
                 method: "GET",
                 mode: "cors",
@@ -1501,7 +1501,7 @@ function transfertogroup(section, conversationId) {
                     "sec-fetch-mode": "cors",
                     "sec-fetch-site": "same-origin"
                 },
-                referrer: "https://skyeng.autofaq.ai/new-frontend/operator/6fbad965-c0f0-4638-961b-69bce408c382?hidden=false&withNavigation=false",
+                referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
                 referrerPolicy: "strict-origin-when-cross-origin",
                 method: "GET",
                 mode: "cors",
