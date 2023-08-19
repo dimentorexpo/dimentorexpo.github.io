@@ -1441,20 +1441,16 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
     }
 }
 
-function transfertogroup(section, conversationId) {
-    var groupId;
-    if (section == "КЦ") {
-        groupId = "b6f7f34d-2f08-fc19-3661-29ac00842898";
-    } else if (section == "ОС") {
-        groupId = "8266dbb1-db44-4910-8b5f-a140deeec5c0";
-    }
+async function transfertogroup(section, conversationId) {
+    const groupId = section === "КЦ" ? "b6f7f34d-2f08-fc19-3661-29ac00842898"
+        : section === "ОС" ? "8266dbb1-db44-4910-8b5f-a140deeec5c0"
+        : null;
 
     if (groupId && conversationId) {
-        fetch(`https://skyeng.autofaq.ai/api/conversation/assign/group/${groupId}`, {
+        await fetch(`https://skyeng.autofaq.ai/api/conversation/assign/group/${groupId}`, {
             method: "POST",
             headers: {
                 "accept": "application/json",
-                "accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,uk;q=0.6",
                 "content-type": "application/json",
                 "sec-fetch-dest": "empty",
                 "sec-fetch-mode": "cors",
@@ -1468,12 +1464,12 @@ function transfertogroup(section, conversationId) {
             }),
             credentials: "include",
             mode: "cors"
-            });
-        setTimeout(() => {
-            fetch("https://skyeng.autofaq.ai/new-frontend/_next/data/GuE1U8YIQUNusG7bfIfQi/ru/operator.json?withNavigation=false&hidden=false", {
+        });
+        
+        await fetch("https://skyeng.autofaq.ai/new-frontend/_next/data/GuE1U8YIQUNusG7bfIfQi/ru/operator.json?withNavigation=false&hidden=false", {
             headers: {
                 "sec-fetch-mode": "cors",
-              "sec-fetch-site": "same-origin"
+                "sec-fetch-site": "same-origin"
             },
             referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
             referrerPolicy: "strict-origin-when-cross-origin",
@@ -1481,33 +1477,30 @@ function transfertogroup(section, conversationId) {
             mode: "cors",
             credentials: "include"
         });
-        }, 1000);
-        setTimeout(() => {
-            fetch(`https://skyeng.autofaq.ai/api/users?query=${operatorId}`, {
-                headers: {
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin"
-                },
-                referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
-                referrerPolicy: "strict-origin-when-cross-origin",
-                method: "GET",
-                mode: "cors",
-                credentials: "include"
-            });
-        }, 2000);
-        setTimeout(() => {
-            fetch("https://skyeng.autofaq.ai/api/groups?all=true", {
-                headers: {
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin"
-                },
-                referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
-                referrerPolicy: "strict-origin-when-cross-origin",
-                method: "GET",
-                mode: "cors",
-                credentials: "include"
-            });
-        }, 3000);
+        
+        await fetch(`https://skyeng.autofaq.ai/api/users?query=${operatorId}`, {
+            headers: {
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
+            referrerPolicy: "strict-origin-when-cross-origin",
+            method: "GET",
+            mode: "cors",
+            credentials: "include"
+        });
+        
+        await fetch("https://skyeng.autofaq.ai/api/groups?all=true", {
+            headers: {
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin"
+            },
+            referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
+            referrerPolicy: "strict-origin-when-cross-origin",
+            method: "GET",
+            mode: "cors",
+            credentials: "include"
+        });
     }
 }
 
