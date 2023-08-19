@@ -1441,13 +1441,13 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
     }
 }
 
-async function transfertogroup(section, conversationId) {
+function transfertogroup(section, conversationId) {
     const groupId = section === "КЦ" ? "b6f7f34d-2f08-fc19-3661-29ac00842898"
         : section === "ОС" ? "8266dbb1-db44-4910-8b5f-a140deeec5c0"
         : null;
 
     if (groupId && conversationId) {
-        await fetch(`https://skyeng.autofaq.ai/api/conversation/assign/group/${groupId}`, {
+        fetch(`https://skyeng.autofaq.ai/api/conversation/assign/group/${groupId}`, {
             method: "POST",
             headers: {
                 "accept": "application/json",
@@ -1466,7 +1466,7 @@ async function transfertogroup(section, conversationId) {
             mode: "cors"
         });
         
-        await fetch("https://skyeng.autofaq.ai/new-frontend/_next/data/GuE1U8YIQUNusG7bfIfQi/ru/operator.json?withNavigation=false&hidden=false", {
+        fetch("https://skyeng.autofaq.ai/new-frontend/_next/data/GuE1U8YIQUNusG7bfIfQi/ru/operator.json?withNavigation=false&hidden=false", {
             headers: {
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin"
@@ -1478,7 +1478,7 @@ async function transfertogroup(section, conversationId) {
             credentials: "include"
         });
         
-        await fetch(`https://skyeng.autofaq.ai/api/users?query=${operatorId}`, {
+/*        fetch(`https://skyeng.autofaq.ai/api/users?query=${operatorId}`, {
             headers: {
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin"
@@ -1490,7 +1490,7 @@ async function transfertogroup(section, conversationId) {
             credentials: "include"
         });
         
-        await fetch("https://skyeng.autofaq.ai/api/groups?all=true", {
+        fetch("https://skyeng.autofaq.ai/api/groups?all=true", {
             headers: {
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin"
@@ -1500,7 +1500,7 @@ async function transfertogroup(section, conversationId) {
             method: "GET",
             mode: "cors",
             credentials: "include"
-        });
+        }); */
     }
 }
 
