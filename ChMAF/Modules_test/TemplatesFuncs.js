@@ -144,7 +144,7 @@ function startTimer() {
             
             TransfBtnsContainer.appendChild(kcTransBtn);
             TransfBtnsContainer.appendChild(osTransBtn);
-            TransfBtnsContainer.appendChild(opTransBtn);
+//            TransfBtnsContainer.appendChild(opTransBtn);
             
             iframeHeader.parentNode.insertBefore(TransfBtnsContainer, iframeHeader);
         }
