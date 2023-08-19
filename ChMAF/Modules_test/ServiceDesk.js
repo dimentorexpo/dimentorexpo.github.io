@@ -733,6 +733,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('categoryCommproblems').style.display = 'none';
                 document.getElementById('categoryCommproblems').children[0].selected = true
                 document.getElementById('custom_email').style.display = 'none';
+                document.getElementById('custom_CMS').style.display = 'none';
             } else if(elementId === 'CommProblemsoptions') {
                 getcommproboptions();
                 document.getElementById('categoryCommproblems').style.display = '';
@@ -743,6 +744,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('custom_str').style.display = 'none';
                 document.getElementById('custom_er').style.display = 'none';
                 document.getElementById('custom_ar').style.display = 'none';
+                document.getElementById('custom_CMS').style.display = 'none';
             } else {
                 document.getElementById('custom_id').style.display = '';
                 document.getElementById('custom_descr').style.display = '';
@@ -755,6 +757,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('categoryCommproblems').style.display = 'none';
                 document.getElementById('categoryCommproblems').children[0].selected = true
                 document.getElementById('custom_email').style.display = 'none';
+                document.getElementById('custom_CMS').style.display = 'none';
             }
         }
     }
@@ -825,7 +828,7 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
     let idUser = document.getElementById('custom_id')
     let appInfo = document.getElementById('custom_appinfo')
     let deviceInfo = document.getElementById('custom_deviceinfo')
-    let CMSlink = document.getElementById('custom_CMS');
+    let CMSlink = document.getElementById('custom_CMS')
     let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value.replace(/[\n\t\"]/g, function (match) {
         if (match === '\n') return '<br>';
         if (match === '\t') return '&emsp;';
