@@ -721,7 +721,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('categoryCommproblems').style.display = 'none';
                 document.getElementById('categoryCommproblems').children[0].selected = true
                 document.getElementById('custom_email').style.display = 'none';
-            }if (elementId === "mobbugsoptions") {
+            }else if (elementId === "mobbugsoptions") {
                 document.getElementById('prioritymbugs').style.display = '';
                 document.getElementById('custom_appinfo').style.display = '';
                 document.getElementById('custom_deviceinfo').style.display = '';
