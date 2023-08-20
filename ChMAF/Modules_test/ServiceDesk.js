@@ -196,6 +196,7 @@ var win_servicedesk = // описание элементов окна Service De
                         </select>
                     <input id="custom_CMS" placeholder="Ссылка на CMS" class="sdcustfieldformlines removefield" style="margin-left: 21px; display: none;">
 					<input id="custom_id" placeholder="ID Пользователей (Id П, Id У)" class="sdcustfieldformlines removefield" style="margin-left: 21px;">
+                    <input id="custom_service" placeholder="ID Услуги" class="sdcustfieldformlines removefield" style="margin-left: 21px; display: none;">
                     <input id="custom_hesh" placeholder="Хэш урока" class="sdcustfieldformlines removefield" style="margin-left: 21px; display: none;">
                     <input id="custom_email" placeholder="Почта пользователей" class="sdcustfieldformlines removefield" style="margin-left: 21px; display: none;">
                     <input id="custom_appinfo" placeholder="Приложение / Версия / Платформа" class="sdcustfieldformlines removefield" style="margin-left: 21px; display: none;"></input>
@@ -329,6 +330,59 @@ function sendRequest(idstdserv, dscr, str, erx, ary, code) {
 
    setTimeout(getmmlink, 8000);
 }
+
+function sendRequestmrktbill(idstdserv, service, dscr, str, erx, ary, code) {
+    let formData = new URLSearchParams();
+    formData.append('requestTypeId', code);
+    formData.append('reporterId', varinfraOID);
+    formData.append('initiatorId', varinfraOID);
+    formData.append('data[description]', decodeURIComponent(dscr).replaceAll('<br>','\n'))
+    formData.append('data[reproduceSteps]', decodeURIComponent(str).replaceAll('<br>','\n'))
+    formData.append('data[expectedResult]', decodeURIComponent(erx).replaceAll('<br>','\n'))
+    formData.append('data[actualResult]', decodeURIComponent(ary).replaceAll('<br>','\n'))
+    formData.append('data[userIds]', decodeURIComponent(idstdserv).replaceAll('<br>','\n'))
+    formData.append('data[serviceId]', decodeURIComponent(idstdserv).replaceAll('<br>','\n'))
+  
+    let requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData.toString(),
+      mode: 'cors',
+      credentials: 'include',
+    };
+  
+    let requestOptionsString = JSON.stringify(requestOptions);
+  
+    document.getElementById('responseTextarea1').value = requestOptionsString;
+    document.getElementById('responseTextarea2').value = "https://api-infra.skyeng.ru/api/v1/rs/request";
+    document.getElementById('responseTextarea3').value = 'responseRequest';
+  
+    // логируем входящие переменные и значение полей отправки запроса
+    console.log(`${idstdserv} ${service} ${dscr} ${str} ${erx} ${ary} ${code}`);
+    console.log(document.getElementById('responseTextarea1').value);
+    console.log(document.getElementById('responseTextarea2').value);
+  
+    document.getElementById('sendResponse').click();
+      
+        responseTextarea1.addEventListener("DOMSubtreeModified", function () {
+          const reqvarr = JSON.parse(responseTextarea1.getAttribute('responseRequest'));
+          if (reqvarr) {
+              lasttsk = reqvarr.jiraIssueKey;
+              newtask.innerText = lasttsk;
+              sendComment("Jira PS link:" + ' ' + "https://jira.skyeng.tech/browse/" + lasttsk);
+              
+              const removefields = document.getElementsByClassName('removefield');
+              for (let i = 0; i < removefields.length; i++) {
+                  removefields[i].value = '';
+              }
+          }
+          responseTextarea1.removeAttribute('responseRequest');
+      });
+  
+     setTimeout(getmmlink, 8000);
+  }
 
 function sendRequestVimVid(idstdserv, hesh, dscr, str, erx, ary, code) {
     let formData = new URLSearchParams();
@@ -776,6 +830,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('categoryCommproblems').children[0].selected = true
                 document.getElementById('custom_email').style.display = 'none';
                 document.getElementById('custom_hesh').style.display = 'none';
+                document.getElementById('custom_service').style.display = 'none';
             }else if (elementId === "mobbugsoptions") {
                 document.getElementById('prioritymbugs').style.display = '';
                 document.getElementById('custom_appinfo').style.display = '';
@@ -790,6 +845,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('custom_email').style.display = 'none';
                 document.getElementById('custom_CMS').style.display = 'none';
                 document.getElementById('custom_hesh').style.display = 'none';
+                document.getElementById('custom_service').style.display = 'none';
             } else if (elementId === 'studcabmobbugskoptions') {
                 document.getElementById('custom_appinfo').style.display = '';
                 document.getElementById('custom_deviceinfo').style.display = '';
@@ -804,6 +860,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('custom_email').style.display = 'none';
                 document.getElementById('custom_CMS').style.display = 'none';
                 document.getElementById('custom_hesh').style.display = 'none';
+                document.getElementById('custom_service').style.display = 'none';
             } else if(elementId === 'CommProblemsoptions') {
                 getcommproboptions();
                 document.getElementById('categoryCommproblems').style.display = '';
@@ -816,6 +873,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('custom_ar').style.display = 'none';
                 document.getElementById('custom_CMS').style.display = 'none';
                 document.getElementById('custom_hesh').style.display = 'none';
+                document.getElementById('custom_service').style.display = 'none';
             } else if (elementId === 'vimvidoptions') {
                 document.getElementById('custom_id').style.display = '';
                 document.getElementById('custom_hesh').style.display = '';
@@ -830,6 +888,22 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('categoryCommproblems').children[0].selected = true
                 document.getElementById('custom_email').style.display = 'none';
                 document.getElementById('custom_CMS').style.display = 'none';
+                document.getElementById('custom_service').style.display = 'none';
+            } else if (elementId === 'mrktbillrvdskoptions') {
+                document.getElementById('custom_id').style.display = '';
+                document.getElementById('custom_descr').style.display = '';
+                document.getElementById('custom_str').style.display = '';
+                document.getElementById('custom_er').style.display = '';
+                document.getElementById('custom_ar').style.display = '';
+                document.getElementById('custom_service').style.display = '';
+                document.getElementById('prioritymbugs').style.display = 'none';
+                document.getElementById('custom_appinfo').style.display = 'none';
+                document.getElementById('custom_deviceinfo').style.display = 'none';
+                document.getElementById('categoryCommproblems').style.display = 'none';
+                document.getElementById('categoryCommproblems').children[0].selected = true
+                document.getElementById('custom_email').style.display = 'none';
+                document.getElementById('custom_CMS').style.display = 'none';
+                document.getElementById('custom_hesh').style.display = 'none';
             } else {
                 document.getElementById('custom_id').style.display = '';
                 document.getElementById('custom_descr').style.display = '';
@@ -844,6 +918,7 @@ document.getElementById('servDsk').onclick = function () { // функция о�
                 document.getElementById('custom_email').style.display = 'none';
                 document.getElementById('custom_CMS').style.display = 'none';
                 document.getElementById('custom_hesh').style.display = 'none';
+                document.getElementById('custom_service').style.display = 'none';
             }
         }
     }
@@ -916,6 +991,7 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
     let deviceInfo = document.getElementById('custom_deviceinfo')
     let CMSlink = document.getElementById('custom_CMS')
     let lessonHesh = document.getElementById('custom_hesh')
+    let userservice = document.getElementById('custom_service')
     let descriptionField = encodeURIComponent(document.getElementById('custom_descr').value.replace(/[\n\t\"]/g, function (match) {
         if (match === '\n') return '<br>';
         if (match === '\t') return '&emsp;';
@@ -943,7 +1019,12 @@ document.getElementById('createsd').addEventListener('click', function () { //ф
             sendRequestCommprob(catcommprob.value, usermail.value, idUser.value, descriptionField, button.value);
             console.log(`Selected topic: ${button.innerText}`);
         }
-    } else if (lessonHesh.style.display == '') {
+    } else if (userservice.style.display == '') {
+        for (const button of activeButtons) {
+            sendRequestmrktbill(idUser.value, userservice.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
+            console.log(`Selected topic: ${button.innerText}`);
+        }
+    }else if (lessonHesh.style.display == '') {
         for (const button of activeButtons) {
             sendRequestVimVid(idUser.value, lessonHesh.value, descriptionField, stepsToReproduce, expectedResult, actualResult, button.value);
             console.log(`Selected topic: ${button.innerText}`);
