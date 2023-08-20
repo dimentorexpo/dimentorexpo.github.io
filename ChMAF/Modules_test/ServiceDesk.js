@@ -177,11 +177,6 @@ var win_servicedesk = // описание элементов окна Service De
 
                 </div>
 				
-				<div id="testsoptions" style="display: none; margin-left:20px;">
-					<p style="color:bisque;font-size:18px;position:relative; top:7px; left:10px; width:90%;">Просто проверчка все хорошо здоврья вам, счастья вам. добра вам!</p>
-
-				</div>
-				
 				<div id="buttonsfromtest" style="margin-left: 4%; margin-bottom: 5px; max-height: 200px; overflow-x: hidden; overflow-y: auto;">
 				</div>
 
@@ -234,10 +229,7 @@ function getInfraOId() {
 }
 
 function getprsuplasttask() { //функция для получения ссылки на последний созданный после отправки в канал тикет в джира +
-    const responseTextarea1 = responseTextarea1;
-    const responseTextarea2 = responseTextarea2;
-    const responseTextarea3 = responseTextarea3;
-    const sendResponse = sendResponse;
+
     const prevtask = document.getElementById('prevtask');
 
     responseTextarea1.value = `{}`;
