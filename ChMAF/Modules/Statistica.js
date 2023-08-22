@@ -900,13 +900,26 @@ async function getopersSLA() {
 								}
 							}
 							
+							// if (flagIsOnTPOper === 0) {
+								// if (fres.messages[z].eventTpe === "AssignToOperator" && fres.messages[z].payload.oid != undefined) {
+									// let filterOperObj = operatorsarray.filter(el => el.operator.id == fres.messages[z].payload.oid)
+									// operFuckUpName = filterOperObj[0].operator.fullName
+									// flagIsOnTPOper = 1
+								// }
+							// }
+							
 							if (flagIsOnTPOper === 0) {
 								if (fres.messages[z].eventTpe === "AssignToOperator" && fres.messages[z].payload.oid != undefined) {
-									let filterOperObj = operatorsarray.filter(el => el.operator.id == fres.messages[z].payload.oid)
-									operFuckUpName = filterOperObj[0].operator.fullName
-									flagIsOnTPOper = 1
+									let filterOperObj = operatorsarray.filter(el => el.operator.id == fres.messages[z].payload.oid);
+
+									if (filterOperObj.length > 0) { // проверка на наличие элементов в массиве
+										operFuckUpName = filterOperObj[0].operator.fullName;
+										flagIsOnTPOper = 1;
+									}
 								}
 							}
+
+							
 						}
 
 
@@ -931,14 +944,7 @@ async function getopersSLA() {
 								console.log('%c [Очередь ТП] | (AFRT) ' + operFuckUpName + ' ' + fres.id + ' ' + differenceInSeconds + ' ' + "Общее кол-во чатов в очереди: " + arrayafrtcountwithqueue.length, 'color:coral')
 							} 
 						}
-						
-						
-						//
-						
-						
-						
-
-						
+												
 						if (operdata.items[j].stats.rate.rate) {
                             csatcount++;
 							csatsumma += operdata.items[j].stats.rate.rate
