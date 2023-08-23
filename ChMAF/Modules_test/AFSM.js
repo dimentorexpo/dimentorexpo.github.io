@@ -2998,11 +2998,14 @@ document.getElementById('selectallwords').onclick = toggleAllWordSelection; //ф
 function toggleAllWordSelection() {
     const wordElements = document.getElementsByClassName('wminId');
     const checkboxes = document.getElementsByName('checkfordel');
+    const selectAllCheckboxes = document.getElementsByName('selectwordsinonelesson');
+    
     const areAllChecked = Array.from(checkboxes).every(chk => chk.checked);
 
     if (areAllChecked) {
         // Если все слова уже выделены, снимаем выделение и очищаем массив
         Array.from(checkboxes).forEach(chk => chk.checked = false);
+        Array.from(selectAllCheckboxes).forEach(chk => chk.checked = false); // Снимаем выделение с selectonesection чекбоксов
         checkedarray = [];
     } else {
         // Иначе выделяем все слова и добавляем их в массив
@@ -3010,10 +3013,10 @@ function toggleAllWordSelection() {
             chk.checked = true;
             checkedarray.push(wordElements[index].textContent);
         });
+        Array.from(selectAllCheckboxes).forEach(chk => chk.checked = true); // Выделяем все selectonesection чекбоксы
     }
-
-    console.log(checkedarray);
 }
+
 
 document.getElementById('delunlearnallwords').onclick = deleteLearnedWords; // функция удаления всех выученных слов
 
@@ -3291,11 +3294,10 @@ function setupSelectAllWordsInSet() {
     let selectoneles = document.getElementsByName('selectwordsinonelesson');
     let checkboxesall = document.getElementsByName('checkfordel');
     let flagforfilter = document.getElementsByClassName('sectionforcheck');
-    let massiv = [];
 
     for (let i = 0; i < selectoneles.length; i++) {
         selectoneles[i].onclick = function() {
-            massiv = [];
+            let massiv = [];
             for (let j = 0; j < flagforfilter.length; j++) {
                 if (flagforfilter[j].textContent === 'section') {
                     massiv.push(j);
@@ -3316,22 +3318,28 @@ function setupSelectAllWordsInSet() {
         }
     }
 
-    // Добавим проверку на изменение чекбоксов слов:
+    // При изменении каждого чекбокса слова
     for(let checkbox of checkboxesall) {
         checkbox.addEventListener('change', function() {
-            let allCheckedInSection = Array.from(checkboxesall).every(chk => chk.checked);
-            if(allCheckedInSection) {
-                for(let sel of selectoneles) {
-                    sel.checked = true;
+            let massiv = [];
+            for (let j = 0; j < flagforfilter.length; j++) {
+                if (flagforfilter[j].textContent === 'section') {
+                    massiv.push(j);
                 }
-            } else {
-                for(let sel of selectoneles) {
+            }
+
+            let allCheckedInSection = Array.from(checkboxesall).slice(massiv[0], massiv[massiv.length - 1] + 1).every(chk => chk.checked);
+            for(let sel of selectoneles) {
+                if(allCheckedInSection) {
+                    sel.checked = true;
+                } else {
                     sel.checked = false;
                 }
             }
         });
     }
 }
+
 
 
 function setupLinkCopyToClipboard() {
