@@ -21,7 +21,7 @@ var win_Knowledge =  // описание элементов окна ссыло�
 					</select>
 						<div style="margin: 5px; width: 550px" id="ProblemsName">
 						</div>
-						<div style="display: none; margin: 5px; width: 550px; position: absolute; top: -6px; left: 545px; background: #464451; color: bisque; padding: 5px;" id="ProblemsSolution">
+						<div style="display: none; margin: 5px; width: 550px; position: absolute; top: -7px; left: 545px; background: #464451; color: bisque; padding: 5px; border: 2px solid white; min-height: 100px; max-height: 400px; overflow-y: auto;" id="ProblemsSolution">
 						</div>
 						<div style="margin: 5px; width: 550px" id="ProblemsNameFromSearch">
 						</div>
