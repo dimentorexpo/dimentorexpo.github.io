@@ -284,6 +284,13 @@ function prepTp() { //функция подготовки расширения �
     }
 	document.getElementById('rightPanel').appendChild(butServ)
 	
+    let openKnowledge = document.createElement('button')
+    openKnowledge.innerHTML = '💡'
+    openKnowledge.id = 'knowledgeCenter'
+    openKnowledge.title = 'Открывает базу знаний решений неполадок'
+    openKnowledge.classList.add('onlyfortp', 'rightPanelBtn')
+    document.getElementById('rightPanel').appendChild(openKnowledge)
+
 	let taskBut = document.createElement('button')
 	taskBut.id = "taskBut"
 	taskBut.innerHTML = "🛠"
@@ -299,7 +306,7 @@ function prepTp() { //функция подготовки расширения �
 		"https://dimentorexpo.github.io/ChMAF/Extras/moment.js", // подключаем модуль для работы с датами и временем
         "https://dimentorexpo.github.io/ChMAF/Modules/TestUsers.js", // модуль тестовых У П
         "https://dimentorexpo.github.io/ChMAF/Modules/Link.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/ChMAF/Modules_test/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
 	    "https://dimentorexpo.github.io/ChMAF/Modules/AlarmClock.js", // модуль будильника
         "https://dimentorexpo.github.io/ChMAF/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
@@ -322,10 +329,11 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
 		"https://dimentorexpo.github.io/ChMAF/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/ChMAF/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://dimentorexpo.github.io/ChMAF/Modules_test/ServiceDesk.js", // подключаем модуль Сервис Деска
+        "https://dimentorexpo.github.io/ChMAF/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
         "https://dimentorexpo.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
 		"https://dimentorexpo.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
+		"https://grumstv.github.io/ChMAF/Modules/Knowledge.js", //подключаем модуль базы знаний
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
@@ -384,7 +392,7 @@ function maxLengthCheck(object) { // функция ограничения ко�
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !== 'TABLE' && elem.nodeName !== 'TH' && elem.nodeName !== 'TR' && elem.id !== 'AgregatedDataOut' && elem.nodeName !== 'CANVAS' && elem.id !== "grabdata" && elem.id !== "ToolsPanel") {
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !== 'TABLE' && elem.nodeName !== 'TH' && elem.nodeName !== 'TR' && elem.id !== 'AgregatedDataOut' && elem.nodeName !== 'CANVAS' && elem.id !== "grabdata" && elem.id !== "ToolsPanel" && elem.id !=="ProblemsSolution") {
         return true;
     }
     return false;
