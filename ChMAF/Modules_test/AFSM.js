@@ -3240,7 +3240,7 @@ async function getwordsets(studentId) {
         }
 
         allWordSets.push(wordSetData);
-        renderWordSets(allWordSets);
+        renderWordSets(allWordSets, false);
         setupWordSetToggle();
         setupSelectAllWordsInSet();
         setupLinkCopyToClipboard();
@@ -3248,11 +3248,12 @@ async function getwordsets(studentId) {
     }
 }
 
-function renderWordSets(wordSets) {
+function renderWordSets(wordSets, isSearch = false) {
     let htmlContent = '';
     
     for (let wordSet of wordSets) {
         let wordsHtml = '';
+        let displayBox = 'none';  // По умолчанию блок скрыт
         
         for (let word of wordSet.words) {
             wordsHtml += `<span style="color: #00FA9A; margin-left:5px;">&#5129; </span>
@@ -3267,9 +3268,13 @@ function renderWordSets(wordSets) {
                           </span>
                           <br>`;
         }
+
+        if (isSearch && wordSet.words.length > 0) {
+            displayBox = 'block';
+        }
         
         htmlContent += `<div class="wordsetname">${wordSet.title} (${wordSet.words.length})</div>
-                        <div class="boxwithwords" style="display:none">
+                        <div class="boxwithwords" style="display:${displayBox}">
                             <div class="headerexplain">
                                 <span style="margin-left: 30px;">Слово или фраза</span>
                                 <span style="margin-left: 142px;">ID слова</span>
@@ -3345,11 +3350,10 @@ document.getElementById('searchwordinput').addEventListener('input', function() 
             title: wordSet.title,
             words: wordSet.words.filter(word => word.text.toLowerCase().includes(query))
         };
-    }).filter(wordSet => wordSet.words.length > 0); // Удаляем группы без слов
+    }).filter(wordSet => wordSet.words.length > 0);
 
-    renderWordSets(filteredWordSets);
+    renderWordSets(filteredWordSets, true);  // добавьте true, чтобы указать, что это поиск
 });
-
 
 function addOption(oListbox, text, value) {  //функция добавления опции в список
     var oOption = document.createElement("option");
