@@ -823,6 +823,9 @@ var win_Vocabulary = `<div style="display: flex;">
 								<button class="commonbtn" id="learncheckedwords" title="Делает слово выученным">✅ Learn</button>
 								<button class="commonbtn" id="selectallwords" title="Выделяет все слова">☑ Select All</button>
 							</div>
+                            <div class="vocabularremtools">
+                                <input id="searchwordinput" style="width: 360px;text-align: center; height: 23px; display: none;" placeholder="Enter word for search">
+							</div>
 						</div>
 
 						<div id="wordsout" class="wordsout">
@@ -2976,6 +2979,7 @@ document.getElementById('VocabularyMenu').onclick = function () { // откры�
     document.getElementById('ClearVocabulary').onclick = function () {
         document.getElementById('wordsout').innerHTML = '';
         document.getElementById('iduserwords').value = '';
+        allWordSets = [];
     }
 
     document.getElementById('hideVocabularyMenu').onclick = function () {
@@ -2989,167 +2993,192 @@ document.getElementById('VocabularyMenu').onclick = function () { // откры�
 
 
 let checkedarray = [];
-document.getElementById('selectallwords').onclick = function () { //функция выделения всех слов
-    let getmeanids = document.getElementsByClassName('wminId');
-    let checkallwords = document.getElementsByName('checkfordel')
-    for (let i = 0; i < checkallwords.length; i++) {
-        if (checkallwords[i].checked != true) {
-            checkallwords[i].checked = true
-            checkedarray.push(getmeanids[i].textContent)
-            console.log(checkedarray)
-        } else if (checkallwords[i].checked == true) {
-            checkallwords[i].checked = false
-            checkedarray = []
-        }
+document.getElementById('selectallwords').onclick = toggleAllWordSelection; //функция выделения всех слов
+
+function toggleAllWordSelection() {
+    const wordElements = document.getElementsByClassName('wminId');
+    const checkboxes = document.getElementsByName('checkfordel');
+    const areAllChecked = Array.from(checkboxes).every(chk => chk.checked);
+
+    if (areAllChecked) {
+        // Если все слова уже выделены, снимаем выделение и очищаем массив
+        Array.from(checkboxes).forEach(chk => chk.checked = false);
+        checkedarray = [];
+    } else {
+        // Иначе выделяем все слова и добавляем их в массив
+        Array.from(checkboxes).forEach((chk, index) => {
+            chk.checked = true;
+            checkedarray.push(wordElements[index].textContent);
+        });
     }
+
+    console.log(checkedarray);
 }
 
-document.getElementById('delunlearnallwords').onclick = function () { // функция удаления всех выученных слов
-    let learnedwords = document.getElementsByClassName('islearnedyesno')
-    let userstud = document.getElementById('iduserwords').value.trim();
-    let idslov = document.getElementsByClassName('wminId');
-    let isLearned = []
-    var quest3;
-    for (let i = 0; i < learnedwords.length; i++) {
-        if (learnedwords[i].textContent == '✔')
-            isLearned.push(i)
-    }
+document.getElementById('delunlearnallwords').onclick = deleteLearnedWords; // функция удаления всех выученных слов
 
-    if (isLearned != '') {
-        quest3 = confirm("Вы уверены, что хотите удалить ВСЕ выученные слова?");
-        if (quest3) {
-            for (let j = 0; j < isLearned.length; j++) {
-                fetch("https://api-words.skyeng.ru/api/v2/words/" + idslov[isLearned[j]].textContent + ".json?studentId=" + userstud, {
-                    "headers": {
-                        "accept": "application/json, text/plain, */*",
-                        "authorization": "Bearer " + token.token_global,
-                    },
-                    "method": "DELETE"
-                })
+async function deleteLearnedWords() {
+    const learnedWordsElements = document.getElementsByClassName('islearnedyesno');
+    const userstud = document.getElementById('iduserwords').value.trim();
+    const wordIds = document.getElementsByClassName('wminId');    
+    const learnedIndices = Array.from(learnedWordsElements).filter(word => word.textContent === '✔').map((word, index) => index);
+
+    console.log(learnedIndices);
+
+    if (learnedIndices.length) {
+        const confirmDelete = confirm("Вы уверены, что хотите удалить ВСЕ выученные слова?");
+        if (confirmDelete) {
+            for (const learnedIndex of learnedIndices) {
+                try {
+                    await fetch(`https://api-words.skyeng.ru/api/v2/words/${wordIds[learnedIndex].textContent}.json?studentId=${userstud}`, {
+                        headers: {
+                            "accept": "application/json, text/plain, */*",
+                            "authorization": `Bearer ${token.token_global}`,
+                        },
+                        method: "DELETE"
+                    });
+                } catch (err) {
+                    console.error("Error deleting learned word: ", err);
+                }
             }
-            console.log(isLearned)
-            alert("Все выученные слова были успешно удалены 😏")
-        }
-    } else alert("Выученных слов в кабинете ученика нет")
-}
-
-document.getElementById('learncheckedwords').onclick = function () { // функция изучения выбранного слова минуя тренировку
-    let checkisSelected = document.getElementsByName('checkfordel')
-    let getwordsids = document.getElementsByClassName('wminId');
-    let userstud = document.getElementById('iduserwords').value.trim();
-    let flagselected = [];
-    for (let i = 0; i < checkisSelected.length; i++) {
-        if (checkisSelected[i].checked == true)
-            flagselected.push(i)
-    }
-
-    console.log(flagselected)
-
-    if (flagselected != '') {
-        for (let i = 0; i < flagselected.length; i++) {
-            fetch("https://api-words.skyeng.ru/api/for-vimbox/v1/words/" + getwordsids[flagselected[i]].textContent + "/skip.json?studentId=" + userstud, {
-                "headers": {
-                    "accept": "application/json, text/plain, */*",
-                    "authorization": "Bearer " + token.token_global,
-                },
-                "method": "PUT"
-            })
-        }
-        alert("Выбранные слова были успешно выучены 😏")
-    } else alert("Нет выбранных слов для изменения статуса на выучен. Отметье, пожалуйста, после чего повторите попытку")
-}
-
-document.getElementById('unlearnallwords').onclick = function () { // функция сброса выученного слова
-    let checkisSelected = document.getElementsByName('checkfordel')
-    let getwordsids = document.getElementsByClassName('wminId');
-    let userstud = document.getElementById('iduserwords').value.trim();
-    let flagselected = [];
-    var quest1;
-    for (let i = 0; i < checkisSelected.length; i++) {
-        if (checkisSelected[i].checked == true)
-            flagselected.push(i)
-    }
-
-    if (flagselected == '') {
-        quest1 = confirm("Не был выбран ниодин пункт. Будет автоматически сброшен прогресс для всех слов. Продолжить?");
-        if (quest1) {
-            for (let g = 0; g < getwordsids.length; g++) {
-                fetch("https://api-words.skyeng.ru/api/trainings/v1/users/" + userstud + "/meanings/" + getwordsids[g].textContent + "/progress", {
-                    "headers": {
-                        "accept": "application/json, text/plain, */*",
-                        "authorization": "Bearer " + token.token_global,
-                    },
-                    "method": "DELETE"
-                })
-            }
-            alert("Прогресс всех слов был успешно сброшен! 🤠")
+            alert("Все выученные слова были успешно удалены 😏");
+            await getwordsets(userstud);
         }
     } else {
-        quest1 = confirm("Вы выбрали некоторые пункты для сброса прогресса слов. Продолжить?");
-        if (quest1) {
-            for (let g = 0; g < flagselected.length; g++) {
-                console.log(getwordsids[flagselected[g]]);
-                fetch("https://api-words.skyeng.ru/api/trainings/v1/users/" + userstud + "/meanings/" + getwordsids[flagselected[g]].textContent + "/progress", {
-                    "headers": {
-                        "accept": "application/json, text/plain, */*",
-                        "authorization": "Bearer " + token.token_global,
-                    },
-                    "method": "DELETE"
-                })
-            }
-            alert("Прогресс выбранных слов был успешно сброшен! 🤠")
-        }
+        alert("Выученных слов в кабинете ученика нет.");
     }
-    console.log(flagselected)
 }
 
-document.getElementById('deleteallwords').onclick = function () { // функция удаленя слов выбраных в списке если ничего не выбрано то всех!
-    let cheks = document.getElementsByName('checkfordel');
-    let idslov = document.getElementsByClassName('wminId');
-    let userstud = document.getElementById('iduserwords').value.trim();
-    let flagselected = [];
-    var quest2;
-    for (let i = 0; i < cheks.length; i++) {
-        if (cheks[i].checked == true)
-            flagselected.push(i)
-    }
+document.getElementById('learncheckedwords').onclick = learnSelectedWords; // функция изучения выбранного слова минуя тренировку
 
-    if (flagselected == '') {
-        quest2 = confirm("Не был выбран ниодин пункт. Будут автоматически удалены все слова из словаря. Продолжить?");
-        if (quest2) {
-            for (let g = 0; g < idslov.length; g++) {
+async function learnSelectedWords() {
+    const checks = document.getElementsByName('checkfordel');
+    const wordIds = document.getElementsByClassName('wminId');
+    const userstud = document.getElementById('iduserwords').value.trim();
+    const flagselected = Array.from(checks).filter(chk => chk.checked).map((chk, index) => index);
 
-                fetch("https://api-words.skyeng.ru/api/v2/words/" + idslov[g].textContent + ".json?studentId=" + userstud, {
-                    "headers": {
+    console.log(flagselected);
+
+    if (flagselected.length) {
+        for (const selectedIndex of flagselected) {
+            try {
+                await fetch(`https://api-words.skyeng.ru/api/for-vimbox/v1/words/${wordIds[selectedIndex].textContent}/skip.json?studentId=${userstud}`, {
+                    headers: {
                         "accept": "application/json, text/plain, */*",
-                        "authorization": "Bearer " + token.token_global,
+                        "authorization": `Bearer ${token.token_global}`,
                     },
-                    "method": "DELETE"
-                })
+                    method: "PUT"
+                });
+            } catch (err) {
+                console.error("Error updating word status: ", err);
+            }
+        }
+        alert("Выбранные слова были успешно выучены 😏");
+    } else {
+        alert("Нет выбранных слов для изменения статуса на выучен. Отметьте, пожалуйста, и повторите попытку.");
+    }
+}
+
+document.getElementById('unlearnallwords').onclick = resetProgressForSelectedWords; // функция сброса выученного слова
+
+async function resetProgressForSelectedWords() {
+    const checks = document.getElementsByName('checkfordel');
+    const wordIds = document.getElementsByClassName('wminId');
+    const userstud = document.getElementById('iduserwords').value.trim();
+    const flagselected = Array.from(checks).filter(chk => chk.checked).map(chk => chk.value);
+
+    if (!flagselected.length) {
+        const confirmResetAll = confirm("Не был выбран ниодин пункт. Будет автоматически сброшен прогресс для всех слов. Продолжить?");
+        if (confirmResetAll) {
+            for (let g = 0; g < wordIds.length; g++) {
+                try {
+                    await fetch(`https://api-words.skyeng.ru/api/trainings/v1/users/${userstud}/meanings/${wordIds[g].textContent}/progress`, {
+                        headers: {
+                            "accept": "application/json, text/plain, */*",
+                            "authorization": `Bearer ${token.token_global}`,
+                        },
+                        method: "DELETE"
+                    });
+                } catch (err) {
+                    console.error("Error resetting progress: ", err);
+                }
+            }
+            alert("Прогресс всех слов был успешно сброшен! 🤠");
+            await getwordsets(userstud);
+        }
+    } else {
+        const confirmResetSelected = confirm("Вы выбрали некоторые пункты для сброса прогресса слов. Продолжить?");
+        if (confirmResetSelected) {
+            for (const selectedIndex of flagselected) {
+                try {
+                    await fetch(`https://api-words.skyeng.ru/api/trainings/v1/users/${userstud}/meanings/${wordIds[selectedIndex].textContent}/progress`, {
+                        headers: {
+                            "accept": "application/json, text/plain, */*",
+                            "authorization": `Bearer ${token.token_global}`,
+                        },
+                        method: "DELETE"
+                    });
+                } catch (err) {
+                    console.error("Error resetting selected word's progress: ", err);
+                }
+            }
+            alert("Прогресс выбранных слов был успешно сброшен! 🤠");
+            await getwordsets(userstud);
+        }
+    }
+}
+
+document.getElementById('deleteallwords').onclick = deleteSelectedWords; // функция удаленя слов выбраных в списке если ничего не выбрано то всех!
+
+async function deleteSelectedWords() {
+    const checks = document.getElementsByName('checkfordel');
+    const idslov = document.getElementsByClassName('wminId');
+    const userstud = document.getElementById('iduserwords').value.trim();
+    const flagselected = Array.from(checks).filter(chk => chk.checked).map(chk => chk.value);
+
+    if (!flagselected.length) {
+        const confirmDeleteAll = confirm("Не был выбран ниодин пункт. Будут автоматически удалены все слова из словаря. Продолжить?");
+        if (confirmDeleteAll) {
+            for (let g = 0; g < idslov.length; g++) {
+                try {
+                    await fetch(`https://api-words.skyeng.ru/api/v2/words/${idslov[g].textContent}.json?studentId=${userstud}`, {
+                        headers: {
+                            "accept": "application/json, text/plain, */*",
+                            "authorization": `Bearer ${token.token_global}`,
+                        },
+                        method: "DELETE"
+                    });
+                } catch (err) {
+                    console.error("Error deleting word: ", err);
+                }
             }
             alert("Все слова были успешно удалены! 🤠");
+            await getwordsets(userstud);
         }
     } else {
-        quest2 = confirm("Вы выбрали некоторые пункты для удаления слов. Продолжить?");
-        if (quest2) {
-            for (let g = 0; g < flagselected.length; g++) {
-                console.log(idslov[flagselected[g]]);
-
-                fetch("https://api-words.skyeng.ru/api/v2/words/" + idslov[flagselected[g]].textContent + ".json?studentId=" + userstud, {
-                    "headers": {
-                        "accept": "application/json, text/plain, */*",
-                        "authorization": "Bearer " + token.token_global,
-                    },
-                    "method": "DELETE"
-                })
+        const confirmDeleteSelected = confirm("Вы выбрали некоторые пункты для удаления слов. Продолжить?");
+        if (confirmDeleteSelected) {
+            for (const selectedIndex of flagselected) {
+                try {
+                    await fetch(`https://api-words.skyeng.ru/api/v2/words/${idslov[selectedIndex].textContent}.json?studentId=${userstud}`, {
+                        headers: {
+                            "accept": "application/json, text/plain, */*",
+                            "authorization": `Bearer ${token.token_global}`,
+                        },
+                        method: "DELETE"
+                    });
+                } catch (err) {
+                    console.error("Error deleting selected word: ", err);
+                }
             }
             alert("Выбранные слова были успешно удалены! 🤠");
+            await getwordsets(userstud);
         }
     }
-    console.log(flagselected)
 }
 
 async function getwordsets(studentId) {
+    allWordSets = [];
     document.getElementById('wordsout').innerHTML = '';
 
     let wordsetsarr = await fetch("https://api-words.skyeng.ru/api/for-vimbox/v1/wordsets.json?studentId=" + studentId + "&pageSize=500", {
@@ -3192,6 +3221,9 @@ async function getwordsets(studentId) {
 
         allWordSets.push(wordSetData);
         renderWordSets(allWordSets);
+        setupWordSetToggle();
+        setupSelectAllWordsInSet();
+        setupLinkCopyToClipboard();
     }
 }
 
@@ -3231,9 +3263,54 @@ function renderWordSets(wordSets) {
     document.getElementById('wordsout').innerHTML = htmlContent;
 }
 
+function setupWordSetToggle() {
+    let wordsetnames = document.getElementsByClassName('wordsetname');
+    let boxwithwordsbar = document.getElementsByClassName('boxwithwords');
+    for (let i = 0; i < wordsetnames.length; i++) {
+        wordsetnames[i].onclick = function () {
+            if (boxwithwordsbar[i].style.display === 'none' || boxwithwordsbar[i].style.display === '')
+                boxwithwordsbar[i].style.display = 'block';
+            else
+                boxwithwordsbar[i].style.display = 'none';
+        }
+    }
+}
 
+function setupSelectAllWordsInSet() {
+    let selectoneles = document.getElementsByName('selectwordsinonelesson');
+    let checkboxesall = document.getElementsByName('checkfordel');
+    let flagforfilter = document.getElementsByClassName('sectionforcheck');
+    let massiv = [];
+    
+    for (let i = 0; i < selectoneles.length; i++) {
+        selectoneles[i].onclick = function () {
+            let counter = 0;
+            massiv = [];
+            for (let j = 0; j < flagforfilter.length; j++) {
+                if (flagforfilter[j].textContent === 'section') {
+                    massiv.push(j);
+                }
+            }
 
+            for (let k = massiv[0]; k <= massiv[massiv.length - 1]; k++) {
+                if (checkboxesall[k].checked !== true)
+                    checkboxesall[k].checked = true;
+                else
+                    checkboxesall[k].checked = false;
+            }
+        }
+    }
+}
 
+function setupLinkCopyToClipboard() {
+    let savebtnsarr = document.getElementsByClassName('savelinktowordcms');
+    for (let z = 0; z < savebtnsarr.length; z++) {
+        savebtnsarr[z].onclick = function () {
+            let allmeanings = document.getElementsByClassName('wminId');
+            copyToClipboardAFMS("https://dictionary.skyeng.ru/cms/meaning/" + allmeanings[z].textContent);
+        }
+    }
+}
 
 function addOption(oListbox, text, value) {  //функция добавления опции в список
     var oOption = document.createElement("option");
