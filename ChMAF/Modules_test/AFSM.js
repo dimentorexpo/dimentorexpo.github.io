@@ -3059,8 +3059,8 @@ async function learnSelectedWords() {
     const wordIds = document.getElementsByClassName('wminId');
     const userstud = document.getElementById('iduserwords').value.trim();
     let flagselected = [];
-    for (let i = 0; i < checkisSelected.length; i++) {
-        if (checkisSelected[i].checked == true)
+    for (let i = 0; i < checks.length; i++) {
+        if (checks[i].checked == true)
             flagselected.push(i)
     }
 
@@ -3092,8 +3092,8 @@ async function resetProgressForSelectedWords() {
     const wordIds = document.getElementsByClassName('wminId');
     const userstud = document.getElementById('iduserwords').value.trim();
     let flagselected = [];
-    for (let i = 0; i < checkisSelected.length; i++) {
-        if (checkisSelected[i].checked == true)
+    for (let i = 0; i < checks.length; i++) {
+        if (checks[i].checked == true)
             flagselected.push(i)
     }
 
@@ -3145,8 +3145,8 @@ async function deleteSelectedWords() {
     const idslov = document.getElementsByClassName('wminId');
     const userstud = document.getElementById('iduserwords').value.trim();
     let flagselected = [];
-    for (let i = 0; i < cheks.length; i++) {
-        if (cheks[i].checked == true)
+    for (let i = 0; i < checks.length; i++) {
+        if (checks[i].checked == true)
             flagselected.push(i)
     }
 
