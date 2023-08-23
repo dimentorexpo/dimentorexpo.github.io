@@ -3067,21 +3067,24 @@ async function learnSelectedWords() {
     }
 
     if (flagselected.length) {
-        for (let i = 0; i < flagselected.length; i++) {
-            try {
-                await fetch(`https://api-words.skyeng.ru/api/for-vimbox/v1/words/${wordIds[flagselected[i]].textContent}/skip.json?studentId=${userstud}`, {
-                    headers: {
-                        "accept": "application/json, text/plain, */*",
-                        "authorization": `Bearer ${token.token_global}`,
-                    },
-                    method: "PUT"
-                });
-            } catch (err) {
-                console.error("Error updating word status: ", err);
+        const confirlearn = confirm("Вы уверены, что хотите поменять статуст выделенных слов на выучено ?");
+        if (confirlearn){
+            for (let i = 0; i < flagselected.length; i++) {
+                try {
+                    await fetch(`https://api-words.skyeng.ru/api/for-vimbox/v1/words/${wordIds[flagselected[i]].textContent}/skip.json?studentId=${userstud}`, {
+                        headers: {
+                            "accept": "application/json, text/plain, */*",
+                            "authorization": `Bearer ${token.token_global}`,
+                        },
+                        method: "PUT"
+                    });
+                } catch (err) {
+                    console.error("Error updating word status: ", err);
+                }
             }
+            alert("Выбранные слова были успешно выучены 😏");
+            await getwordsets(userstud);
         }
-        alert("Выбранные слова были успешно выучены 😏");
-        await getwordsets(userstud);
     } else {
         alert("Нет выбранных слов для изменения статуса на выучен. Отметьте, пожалуйста, и повторите попытку.");
     }
