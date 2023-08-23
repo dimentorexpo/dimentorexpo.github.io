@@ -824,7 +824,7 @@ var win_Vocabulary = `<div style="display: flex;">
 								<button class="commonbtn" id="selectallwords" title="Выделяет все слова">☑ Select All</button>
 							</div>
                             <div class="vocabularremtools">
-                                <input id="searchwordinput" style="width: 360px;text-align: center; height: 23px; display: none;" placeholder="Enter word for search">
+                                <input id="searchwordinput" style="width: 470px; text-align: center; height: 23px; display: none; margin-top: 7px;" placeholder="Enter word for search">
 							</div>
 						</div>
 
@@ -2980,6 +2980,7 @@ document.getElementById('VocabularyMenu').onclick = function () { // откры�
         document.getElementById('wordsout').innerHTML = '';
         document.getElementById('iduserwords').value = '';
         allWordSets = [];
+        document.getElementById('searchwordinput').style.display = 'none'
     }
 
     document.getElementById('hideVocabularyMenu').onclick = function () {
@@ -3243,6 +3244,7 @@ async function getwordsets(studentId) {
         setupWordSetToggle();
         setupSelectAllWordsInSet();
         setupLinkCopyToClipboard();
+        document.getElementById('searchwordinput').style.display = ''
     }
 }
 
@@ -3326,9 +3328,6 @@ function setupSelectAllWordsInSet() { // выделение слов в блок
     }
 }
 
-
-
-
 function setupLinkCopyToClipboard() {
     let savebtnsarr = document.getElementsByClassName('savelinktowordcms');
     for (let z = 0; z < savebtnsarr.length; z++) {
@@ -3338,6 +3337,19 @@ function setupLinkCopyToClipboard() {
         }
     }
 }
+
+document.getElementById('searchwordinput').addEventListener('input', function() {
+    const query = this.value.toLowerCase().trim();
+    const filteredWordSets = allWordSets.map(wordSet => {
+        return {
+            title: wordSet.title,
+            words: wordSet.words.filter(word => word.text.toLowerCase().includes(query))
+        };
+    }).filter(wordSet => wordSet.words.length > 0); // Удаляем группы без слов
+
+    renderWordSets(filteredWordSets);
+});
+
 
 function addOption(oListbox, text, value) {  //функция добавления опции в список
     var oOption = document.createElement("option");
