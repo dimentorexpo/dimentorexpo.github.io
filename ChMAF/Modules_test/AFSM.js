@@ -3055,14 +3055,16 @@ async function learnSelectedWords() {
     const checks = document.getElementsByName('checkfordel');
     const wordIds = document.getElementsByClassName('wminId');
     const userstud = document.getElementById('iduserwords').value.trim();
-    const flagselected = Array.from(checks).filter(chk => chk.checked).map((chk, index) => index);
-
-    console.log(flagselected);
+    let flagselected = [];
+    for (let i = 0; i < checkisSelected.length; i++) {
+        if (checkisSelected[i].checked == true)
+            flagselected.push(i)
+    }
 
     if (flagselected.length) {
-        for (const selectedIndex of flagselected) {
+        for (let i = 0; i < flagselected.length; i++) {
             try {
-                await fetch(`https://api-words.skyeng.ru/api/for-vimbox/v1/words/${wordIds[selectedIndex].textContent}/skip.json?studentId=${userstud}`, {
+                await fetch(`https://api-words.skyeng.ru/api/for-vimbox/v1/words/${wordIds[flagselected[i]].textContent}/skip.json?studentId=${userstud}`, {
                     headers: {
                         "accept": "application/json, text/plain, */*",
                         "authorization": `Bearer ${token.token_global}`,
@@ -3074,6 +3076,7 @@ async function learnSelectedWords() {
             }
         }
         alert("Выбранные слова были успешно выучены 😏");
+        await getwordsets(userstud);
     } else {
         alert("Нет выбранных слов для изменения статуса на выучен. Отметьте, пожалуйста, и повторите попытку.");
     }
@@ -3085,7 +3088,11 @@ async function resetProgressForSelectedWords() {
     const checks = document.getElementsByName('checkfordel');
     const wordIds = document.getElementsByClassName('wminId');
     const userstud = document.getElementById('iduserwords').value.trim();
-    const flagselected = Array.from(checks).filter(chk => chk.checked).map(chk => chk.value);
+    let flagselected = [];
+    for (let i = 0; i < checkisSelected.length; i++) {
+        if (checkisSelected[i].checked == true)
+            flagselected.push(i)
+    }
 
     if (!flagselected.length) {
         const confirmResetAll = confirm("Не был выбран ниодин пункт. Будет автоматически сброшен прогресс для всех слов. Продолжить?");
@@ -3109,9 +3116,9 @@ async function resetProgressForSelectedWords() {
     } else {
         const confirmResetSelected = confirm("Вы выбрали некоторые пункты для сброса прогресса слов. Продолжить?");
         if (confirmResetSelected) {
-            for (const selectedIndex of flagselected) {
+            for (let g = 0; g < flagselected.length; g++) {
                 try {
-                    await fetch(`https://api-words.skyeng.ru/api/trainings/v1/users/${userstud}/meanings/${wordIds[selectedIndex].textContent}/progress`, {
+                    await fetch(`https://api-words.skyeng.ru/api/trainings/v1/users/${userstud}/meanings/${wordIds[flagselected[g]].textContent}/progress`, {
                         headers: {
                             "accept": "application/json, text/plain, */*",
                             "authorization": `Bearer ${token.token_global}`,
@@ -3134,7 +3141,11 @@ async function deleteSelectedWords() {
     const checks = document.getElementsByName('checkfordel');
     const idslov = document.getElementsByClassName('wminId');
     const userstud = document.getElementById('iduserwords').value.trim();
-    const flagselected = Array.from(checks).filter(chk => chk.checked).map(chk => chk.value);
+    let flagselected = [];
+    for (let i = 0; i < cheks.length; i++) {
+        if (cheks[i].checked == true)
+            flagselected.push(i)
+    }
 
     if (!flagselected.length) {
         const confirmDeleteAll = confirm("Не был выбран ниодин пункт. Будут автоматически удалены все слова из словаря. Продолжить?");
@@ -3158,9 +3169,9 @@ async function deleteSelectedWords() {
     } else {
         const confirmDeleteSelected = confirm("Вы выбрали некоторые пункты для удаления слов. Продолжить?");
         if (confirmDeleteSelected) {
-            for (const selectedIndex of flagselected) {
+            for (let g = 0; g < flagselected.length; g++) {
                 try {
-                    await fetch(`https://api-words.skyeng.ru/api/v2/words/${idslov[selectedIndex].textContent}.json?studentId=${userstud}`, {
+                    await fetch(`https://api-words.skyeng.ru/api/v2/words/${idslov[flagselected[g]].textContent}.json?studentId=${userstud}`, {
                         headers: {
                             "accept": "application/json, text/plain, */*",
                             "authorization": `Bearer ${token.token_global}`,
@@ -3281,10 +3292,9 @@ function setupSelectAllWordsInSet() {
     let checkboxesall = document.getElementsByName('checkfordel');
     let flagforfilter = document.getElementsByClassName('sectionforcheck');
     let massiv = [];
-    
+
     for (let i = 0; i < selectoneles.length; i++) {
-        selectoneles[i].onclick = function () {
-            let counter = 0;
+        selectoneles[i].onclick = function() {
             massiv = [];
             for (let j = 0; j < flagforfilter.length; j++) {
                 if (flagforfilter[j].textContent === 'section') {
@@ -3292,15 +3302,37 @@ function setupSelectAllWordsInSet() {
                 }
             }
 
+            let allCheckedInSection = true;
             for (let k = massiv[0]; k <= massiv[massiv.length - 1]; k++) {
-                if (checkboxesall[k].checked !== true)
-                    checkboxesall[k].checked = true;
-                else
-                    checkboxesall[k].checked = false;
+                if (checkboxesall[k].checked !== true) {
+                    allCheckedInSection = false;
+                    break;
+                }
+            }
+
+            for (let k = massiv[0]; k <= massiv[massiv.length - 1]; k++) {
+                checkboxesall[k].checked = !allCheckedInSection;
             }
         }
     }
+
+    // Добавим проверку на изменение чекбоксов слов:
+    for(let checkbox of checkboxesall) {
+        checkbox.addEventListener('change', function() {
+            let allCheckedInSection = Array.from(checkboxesall).every(chk => chk.checked);
+            if(allCheckedInSection) {
+                for(let sel of selectoneles) {
+                    sel.checked = true;
+                }
+            } else {
+                for(let sel of selectoneles) {
+                    sel.checked = false;
+                }
+            }
+        });
+    }
 }
+
 
 function setupLinkCopyToClipboard() {
     let savebtnsarr = document.getElementsByClassName('savelinktowordcms');
