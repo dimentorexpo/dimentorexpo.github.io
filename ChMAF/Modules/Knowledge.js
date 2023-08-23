@@ -11,14 +11,16 @@ var win_Knowledge =  // описание элементов окна ссыло�
 					<button title="Индикатор загрузки базы знаний" id="IndicatorLoadData">⏳</button>
 				</div>
 				<div style="margin: 5px; width: 550px;" id="testField">
-					<input placeholder="Слово для поиска" id="textToSearchSolution"></input>
+					<input placeholder="Слово для поиска" id="textToSearchSolution" style="border-radius: 20px; text-align: center; width: 300px; margin-left: 20%;"></input>
 					<br>
-					<select id="lessonTypeList">
-						<option style="background-color:#69b930; text-align: center;  color: white; font-weight: 700;" value="lType">Тип урока</option>
-					</select>
-					<select id="CategoryNameList">
-						<option style="background-color:DeepSkyBlue; text-align: center;  color: white; font-weight: 700;" value="CatType">Категория</option>
-					</select>
+					<div>
+						<select style="width: 40%; height: 20px; border-radius: 20px; text-align: center;" id="lessonTypeList">
+							<option style="background-color:#69b930; text-align: center; color: white; font-weight: 700;" value="lType">Тип урока</option>
+						</select>
+						<select style="width: 50%; height: 20px; border-radius: 20px; text-align: center;" id="CategoryNameList">
+							<option style="background-color:DeepSkyBlue; text-align: center;  color: white; font-weight: 700;" value="CatType">Категория</option>
+						</select>
+					</div>
 						<div style="margin: 5px; width: 550px; max-height: 600px; overflow-y: auto;" id="ProblemsName">
 						</div>
 						<div style="display: none; margin: 5px; width: 550px; position: absolute; top: -7px; left: 545px; background: #464451; color: bisque; padding: 5px; border: 2px solid white; min-height: 100px; max-height: 600px; overflow-y: auto;" id="ProblemsSolution">
