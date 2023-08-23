@@ -3024,16 +3024,18 @@ async function deleteLearnedWords() {
     const learnedWordsElements = document.getElementsByClassName('islearnedyesno');
     const userstud = document.getElementById('iduserwords').value.trim();
     const wordIds = document.getElementsByClassName('wminId');    
-    const learnedIndices = Array.from(learnedWordsElements).filter(word => word.textContent === '✔').map((word, index) => index);
-
-    console.log(learnedIndices);
+    const learnedIndices = [];
+    for (let i = 0; i < learnedWordsElements.length; i++) {
+        if (learnedWordsElements[i].textContent == '✔')
+        learnedIndices.push(i)
+    }
 
     if (learnedIndices.length) {
         const confirmDelete = confirm("Вы уверены, что хотите удалить ВСЕ выученные слова?");
         if (confirmDelete) {
-            for (const learnedIndex of learnedIndices) {
+            for (let j = 0; j < learnedIndices.length; j++) {
                 try {
-                    await fetch(`https://api-words.skyeng.ru/api/v2/words/${wordIds[learnedIndex].textContent}.json?studentId=${userstud}`, {
+                    await fetch(`https://api-words.skyeng.ru/api/v2/words/${wordIds[learnedIndices[j]].textContent}.json?studentId=${userstud}`, {
                         headers: {
                             "accept": "application/json, text/plain, */*",
                             "authorization": `Bearer ${token.token_global}`,
@@ -3277,7 +3279,7 @@ function renderWordSets(wordSets) {
     document.getElementById('wordsout').innerHTML = htmlContent;
 }
 
-function setupWordSetToggle() {
+function setupWordSetToggle() { // расскрытие/скрытие блоков
     let wordsetnames = document.getElementsByClassName('wordsetname');
     let boxwithwordsbar = document.getElementsByClassName('boxwithwords');
     for (let i = 0; i < wordsetnames.length; i++) {
@@ -3290,55 +3292,37 @@ function setupWordSetToggle() {
     }
 }
 
-function setupSelectAllWordsInSet() {
-    let selectoneles = document.getElementsByName('selectwordsinonelesson');
-    let checkboxesall = document.getElementsByName('checkfordel');
-    let flagforfilter = document.getElementsByClassName('sectionforcheck');
+function setupSelectAllWordsInSet() { // выделение слов в блоке
+    const selectoneles = document.getElementsByName('selectwordsinonelesson');
+    const checkboxesall = document.getElementsByName('checkfordel');
 
-    for (let i = 0; i < selectoneles.length; i++) {
-        selectoneles[i].onclick = function() {
-            let massiv = [];
-            for (let j = 0; j < flagforfilter.length; j++) {
-                if (flagforfilter[j].textContent === 'section') {
-                    massiv.push(j);
-                }
-            }
+    // Обработчик для главных чекбоксов
+    for (let selectone of selectoneles) {
+        selectone.addEventListener('click', function() {
+            let parentDiv = selectone.closest('.boxwithwords');
+            let checkboxesInGroup = parentDiv.querySelectorAll('[name="checkfordel"]');
+            
+            let allCheckedInSection = Array.from(checkboxesInGroup).every(chk => chk.checked);
 
-            let allCheckedInSection = true;
-            for (let k = massiv[0]; k <= massiv[massiv.length - 1]; k++) {
-                if (checkboxesall[k].checked !== true) {
-                    allCheckedInSection = false;
-                    break;
-                }
-            }
-
-            for (let k = massiv[0]; k <= massiv[massiv.length - 1]; k++) {
-                checkboxesall[k].checked = !allCheckedInSection;
-            }
-        }
+            checkboxesInGroup.forEach(chk => {
+                chk.checked = !allCheckedInSection;
+            });
+        });
     }
 
-    // При изменении каждого чекбокса слова
-    for(let checkbox of checkboxesall) {
+    // Обработчик для чекбоксов слов
+    for (let checkbox of checkboxesall) {
         checkbox.addEventListener('change', function() {
-            let massiv = [];
-            for (let j = 0; j < flagforfilter.length; j++) {
-                if (flagforfilter[j].textContent === 'section') {
-                    massiv.push(j);
-                }
-            }
+            let parentDiv = checkbox.closest('.boxwithwords');
+            let selectOneInSection = parentDiv.querySelector('.selectonesection');
+            let checkboxesInGroup = parentDiv.querySelectorAll('[name="checkfordel"]');
 
-            let allCheckedInSection = Array.from(checkboxesall).slice(massiv[0], massiv[massiv.length - 1] + 1).every(chk => chk.checked);
-            for(let sel of selectoneles) {
-                if(allCheckedInSection) {
-                    sel.checked = true;
-                } else {
-                    sel.checked = false;
-                }
-            }
+            let allCheckedInSection = Array.from(checkboxesInGroup).every(chk => chk.checked);
+            selectOneInSection.checked = allCheckedInSection;
         });
     }
 }
+
 
 
 
