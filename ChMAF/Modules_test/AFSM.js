@@ -3191,22 +3191,48 @@ async function getwordsets(studentId) {
         }
 
         allWordSets.push(wordSetData);
+        renderWordSets(allWordSets);
     }
 }
 
-// Функция для рендеринга (как пример)
 function renderWordSets(wordSets) {
     let htmlContent = '';
+    
     for (let wordSet of wordSets) {
         let wordsHtml = '';
+        
         for (let word of wordSet.words) {
-            // формируем HTML для каждого слова
-            wordsHtml += `...`;  // здесь ваш шаблон
+            wordsHtml += `<span style="color: #00FA9A; margin-left:5px;">&#5129; </span>
+                          <span style="color: bisque; cursor: text;" name="meaningsId">
+                              <span style="color: #30dbe3; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%);">${word.text}</span>
+                              <input type="checkbox" name="checkfordel" class="checkdel">
+                              <span style="display:none" class="sectionforcheck">section</span>
+                              <span class="savelinktowordcms" title="Копирует в буфер обмена ссылку на CMS словаря для этого слова"> 💾 </span>
+                              <span class="checkislearned">${word.isLearned ? '<span class="islearnedyesno" style="float:right;margin-right:30px;">✔</span>' : '<span class="islearnedyesno" style="float:right; margin-right:30px;">❌</span>'}</span>
+                              <span style="float:right; margin-right:35px;">${word.progress < 100 ? `<span style="padding-left: 8px;">${word.progress}%</span>` : `${word.progress}%`}</span>
+                              <span class="wminId" style="float:right; margin-right:5px;">${word.meaningId}</span>
+                          </span>
+                          <br>`;
         }
-        htmlContent += `...`;  // здесь ваш шаблон для wordSet + wordsHtml
+        
+        htmlContent += `<div class="wordsetname">${wordSet.title} (${wordSet.words.length})</div>
+                        <div class="boxwithwords" style="display:none">
+                            <div class="headerexplain">
+                                <span style="margin-left: 30px;">Слово или фраза</span>
+                                <span style="margin-left: 142px;">ID слова</span>
+                                <span style="margin-left: 12px;"> % </span>
+                                <span style="margin-left: 10px;"> Выучено </span>
+                                <input type="checkbox" name="selectwordsinonelesson" class="selectonesection">
+                            </div>
+                            ${wordsHtml}
+                        </div>`;
     }
+    
     document.getElementById('wordsout').innerHTML = htmlContent;
 }
+
+
+
 
 
 function addOption(oListbox, text, value) {  //функция добавления опции в список
