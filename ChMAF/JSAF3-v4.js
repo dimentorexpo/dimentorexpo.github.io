@@ -283,6 +283,13 @@ function prepTp() { //функция подготовки расширения �
         }
     }
     document.getElementById('rightPanel').appendChild(butServ)
+	
+    let openKnowledge = document.createElement('button')
+    openKnowledge.innerHTML = '💡'
+    openKnowledge.id = 'knowledgeCenter'
+    openKnowledge.title = 'Открывает базу знаний решений неполадок'
+    openKnowledge.classList.add('onlyfortp', 'rightPanelBtn')
+    document.getElementById('rightPanel').appendChild(openKnowledge)
 
     let taskBut = document.createElement('button')
     taskBut.id = "taskBut"
@@ -326,6 +333,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
+		"https://grumstv.github.io/ChMAF/Modules/Knowledge.js", //подключаем модуль базы знаний
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
@@ -384,7 +392,7 @@ function maxLengthCheck(object) { // функция ограничения ко�
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !== 'TABLE' && elem.nodeName !== 'TH' && elem.nodeName !== 'TR' && elem.id !== 'AgregatedDataOut' && elem.nodeName !== 'CANVAS' && elem.id !== "grabdata" && elem.id !== "ToolsPanel") {
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !== 'TABLE' && elem.nodeName !== 'TH' && elem.nodeName !== 'TR' && elem.id !== 'AgregatedDataOut' && elem.nodeName !== 'CANVAS' && elem.id !== "grabdata" && elem.id !== "ToolsPanel" && elem.id !=="ProblemsSolution") {
         return true;
     }
     return false;

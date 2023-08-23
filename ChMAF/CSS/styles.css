@@ -744,3 +744,29 @@ button {
 		background:#337436 !important;
 		cursor:pointer;
 	}
+	
+	span[name=changeList].active {
+		background:SeaGreen !important;
+	}
+	
+	span[name=changeList]:hover {
+		background:#af622c !important;
+	}
+	
+	div[name="exploreSolution"]:hover {
+		background:#ff9f4b !important;
+		cursor:pointer;
+	}
+	
+	div[name="foundToSolution"]:hover {
+		background:#ff9f4b !important;
+		cursor:pointer;
+	}
+	
+	#ProblemsSolution {
+		cursor:default;
+	}
+	
+	div[name="foundToSolution"].active, div[name="exploreSolution"].active {
+		background: #4fca82 !important
+	}
