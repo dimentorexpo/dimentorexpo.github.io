@@ -19,14 +19,13 @@ var win_Knowledge =  // описание элементов окна ссыло�
 					<select id="CategoryNameList">
 						<option style="background-color:DeepSkyBlue; text-align: center;  color: white; font-weight: 700;" value="CatType">Категория</option>
 					</select>
-						<div style="margin: 5px; width: 550px; min-height: 100px; max-height: 400px; overflow-y: auto;" id="ProblemsName">
+						<div style="margin: 5px; width: 550px; max-height: 600px; overflow-y: auto;" id="ProblemsName">
 						</div>
-						<div style="display: none; margin: 5px; width: 550px; position: absolute; top: -7px; left: 545px; background: #464451; color: bisque; padding: 5px; border: 2px solid white; min-height: 100px; max-height: 400px; overflow-y: auto;" id="ProblemsSolution">
+						<div style="display: none; margin: 5px; width: 550px; position: absolute; top: -7px; left: 545px; background: #464451; color: bisque; padding: 5px; border: 2px solid white; min-height: 100px; max-height: 600px; overflow-y: auto;" id="ProblemsSolution">
 						</div>
-						<div style="margin: 5px; width: 550px; min-height: 100px; max-height: 400px; overflow-y: auto;" id="ProblemsNameFromSearch">
+						<div style="margin: 5px; width: 550px; max-height: 600px; overflow-y: auto;" id="ProblemsNameFromSearch">
 						</div>
 				</div>
-
 			</span>
 	</span>
 </div>`;
