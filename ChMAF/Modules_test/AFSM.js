@@ -1163,7 +1163,7 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
         document.getElementById('AFMS_addChatMenu').style.display = ''
 
         let sidarr = [];
-        document.getElementById('userid1').value = getUserId();
+        document.getElementById('userid1').value = await getUserId();
 
         document.getElementById('addChat').onclick = function () { //функция добавления чата
 
