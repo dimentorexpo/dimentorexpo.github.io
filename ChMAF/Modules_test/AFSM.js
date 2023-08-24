@@ -470,10 +470,25 @@ function mystylesAFMS() {
 		font-size: 20px;
 	}
 
-	.vocabularbarcls {
-		width:490px;
-		text-align:center;
-	}
+    .vocabularbarcls {
+        text-align:center;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5px; 
+    }
+    
+    .vocabularremtools:first-child {
+        margin-right: 5px; 
+    }
+    
+    .vocabularremtools, #searchtoolswords {
+        margin: 5px 0;
+    }
+    
+    .commonbtn, #searchwordinput, #iduserwords {
+        width: 100%;
+        box-sizing: border-box; 
+    }    
 
 	.vocabularremtools > button {
 		padding: 3px;
