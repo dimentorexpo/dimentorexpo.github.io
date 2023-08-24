@@ -1163,16 +1163,7 @@ document.getElementById('openchataddmenu').onclick = async function () { // от
         document.getElementById('AFMS_addChatMenu').style.display = ''
 
         let sidarr = [];
-        //Проверяем, в ЛКУ или ЛКП открыто
-        if (window.location.href.indexOf('vimbox.skyeng.ru') != -1 || window.location.href.indexOf('new-teachers.skyeng.ru') != -1 || window.location.href.indexOf('teachers.skyeng.ru') != -1 || window.location.href.indexOf('student.skyeng.ru') != -1) {
-            await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-                "credentials": "include",
-                "method": "POST"
-            }).then(r => r.json()).then(r => artId = r)
-            console.log(artId)
-
-            document.getElementById('userid1').value = artId.user.id;
-        }
+        document.getElementById('userid1').value = getUserId();
 
         document.getElementById('addChat').onclick = function () { //функция добавления чата
 
@@ -2979,6 +2970,7 @@ document.getElementById('VocabularyMenu').onclick = function () { // откры�
     if (document.getElementById('AFMS_Vocabulary').style.display == 'none') {
         document.getElementById('AFMS_Vocabulary').style.display = ''
         document.getElementById('vocabularbar').style.display = '';
+        firstgetvocabulary(document.getElementById('iduserwords'));        
     } else document.getElementById('AFMS_Vocabulary').style.display = 'none'
 
 
@@ -3005,7 +2997,31 @@ document.getElementById('VocabularyMenu').onclick = function () { // откры�
 
 } // end of open vocabulary menu function
 
+async function firstgetvocabulary(idfield) {
+    const userId = await getUserId();
+    idfield.value = userId;
 
+    if (idfield.value && idfield.value.trim() !== '') {
+        document.getElementById('findwords').click();
+    }
+}
+
+async function getUserId() { // получаем id пользователя
+    //Проверяем, в ЛКУ или ЛКП открыто
+    if (window.location.href.indexOf('vimbox.skyeng.ru') != -1 || window.location.href.indexOf('new-teachers.skyeng.ru') != -1 || window.location.href.indexOf('teachers.skyeng.ru') != -1 || window.location.href.indexOf('student.skyeng.ru') != -1) {
+        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
+            "credentials": "include",
+            "method": "POST"
+        }).then(r => r.json()).then(r => artId = r)
+        console.log(artId)
+        
+        if (!artId.user.id){
+            artId.user.id ='';
+        }
+        return artId.user.id;
+    }
+    return ('');
+}
 
 let checkedarray = [];
 document.getElementById('selectallwords').onclick = toggleAllWordSelection; //функция выделения всех слов
