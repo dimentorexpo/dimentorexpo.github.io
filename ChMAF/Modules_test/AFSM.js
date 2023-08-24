@@ -485,8 +485,8 @@ function mystylesAFMS() {
         margin: 5px 0;
     }
     
-    .commonbtn, #searchwordinput, #iduserwords {
-        width: 100%;
+    #searchwordinput, #iduserwords, #deleteallwords, #unlearnallwords, #delunlearnallwords, #learncheckedwords, #selectallwords, #findwords {
+        width: 100% !important;
         box-sizing: border-box; 
     }    
 
