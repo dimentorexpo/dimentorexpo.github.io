@@ -1110,19 +1110,20 @@ wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove
 // main script
 
 let div = document.getElementById("AFMS_addMenu");
+let allowedSites = ["vimbox.skyeng.ru", "new-teachers.skyeng.ru", "teachers.skyeng.ru", "student.skyeng.ru"];
+let token;
 
-// Select the body element to add the event listener
+if (allowedSites.includes(location.host)) {
+
 document.querySelector('body').addEventListener('dblclick', (event) => {
-	if(event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA" && event.target.tagName !== "BUTTON" && event.target.tagName !== "H1" && event.target.tagName !== "H2" && event.target.tagName !== "H3" && event.target.tagName !== "UL" && event.target.tagName !== "LI" && event.target.tagName !== "VIM-WORD" && event.target.tagName !== "P" && event.target.tagName !== "SPAN" && location.host!='skyeng.autofaq.ai' && location.host!= 'crm2.skyeng.ru' ){ 
-    // Add the mouse cursor coordinates to the div's content
-    // Append the div to the body
-    // Show the div
+        let tags = ["INPUT", "TEXTAREA", "BUTTON", "H1", "H2", "H3", "UL", "LI", "VIM-WORD", "P", "SPAN"];
+        if (!tags.includes(event.target.tagName)) {
+
     div.style.display = "block";
-    // Set the div's position
     div.style.left = (event.clientX - 180) + "px";
     div.style.top = event.clientY + "px";
 
-	token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+            let token = Object.fromEntries(document.cookie.split(/; */).map(c => {
 		const [key, ...v] = c.split('=');
 		return [key, decodeURIComponent(v.join('='))];
 	}));
@@ -1137,23 +1138,23 @@ document.querySelector('body').addEventListener('click', (event) => {
 });
 
 document.getElementById('hidemainmenu').onclick = function () {
-	document.getElementById('AFMS_addMenu').style.display = 'none';
+        div.style.display = 'none';
 }
 
-let token;
-if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
-    document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
+    document.onkeydown = function(event) {
         if ((event.altKey && event.code == 'Numpad0') || (event.altKey && event.code == 'Digit0')) {
-            if (document.getElementById('AFMS_addMenu').style.display == 'none') {
-                document.getElementById('AFMS_addMenu').style.display = '';
+            if (div.style.display == 'none') {
 
-                token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+                div.style.display = '';
+
+                let token = Object.fromEntries(document.cookie.split(/; */).map(c => {
                     const [key, ...v] = c.split('=');
                     return [key, decodeURIComponent(v.join('='))];
                 }));
-                console.log(token)
-
-            } else document.getElementById('AFMS_addMenu').style.display = 'none'
+                console.log(token);
+            } else {
+                div.style.display = 'none';
+            }
         }
     }
 }
@@ -1281,10 +1282,10 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
 
         document.getElementById('hashroom').onclick = function () { // копируепт по клику ссылку на комнату в skysmart в буфер обмена
             if (document.getElementById('subjectnamefield').textContent != '' && document.getElementById('platformname').textContent == 'Skysmart') {
-                copyToClipboard('https://vimbox.skyeng.ru/kids/' + document.getElementById('subjectnamefield').textContent.toLowerCase() + '/room/' + document.getElementById('hashroom').textContent)
+                copyToClipboardAFMS('https://vimbox.skyeng.ru/kids/' + document.getElementById('subjectnamefield').textContent.toLowerCase() + '/room/' + document.getElementById('hashroom').textContent)
                 alert('Ссылка на комнату скопирована в буфер обмена!')
             } else if (document.getElementById('subjectnamefield').textContent != '' && document.getElementById('platformname').textContent == 'Adults') {
-                copyToClipboard('https://vimbox.skyeng.ru/lesson/' + document.getElementById('hashroom').textContent)
+                copyToClipboardAFMS('https://vimbox.skyeng.ru/lesson/' + document.getElementById('hashroom').textContent)
                 alert('Ссылка на комнату скопирована в буфер обмена!')
             }
         }
@@ -1460,7 +1461,7 @@ async function getusersadults(hash) { // функция получения ин�
     document.getElementById('forstudentid').textContent = usersadults.studentId;
 
     document.getElementById('forstudentid').onclick = function () {
-        copyToClipboard(document.getElementById('forstudentid').textContent)
+        copyToClipboardAFMS(document.getElementById('forstudentid').textContent)
     }
 }
 
@@ -1656,7 +1657,7 @@ function setstclasswork(api, status) { // функция изменяющая с
 
 }
 
-const copyToClipboard = str => { // функция копирования в буфер обмена
+const copyToClipboardAFMS = str => { // функция копирования в буфер обмена
     const el = document.createElement('textarea');
     el.value = str;
     document.body.appendChild(el);
@@ -2825,7 +2826,7 @@ document.getElementById('exercisesttc').onclick = async function () {
                 let savelinkarr = document.getElementsByClassName('savelinktocms')
                 for (let z = 0; z < savelinkarr.length; z++) {
                     savelinkarr[z].onclick = function () {
-                        copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('TTCstepid')[z].textContent)
+                        copyToClipboardAFMS("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('TTCstepid')[z].textContent)
                     }
                 }
 
@@ -3381,7 +3382,7 @@ function setupLinkCopyToClipboard() {
     for (let z = 0; z < savebtnsarr.length; z++) {
         savebtnsarr[z].onclick = function () {
             let allmeanings = document.getElementsByClassName('wminId');
-            copyToClipboard("https://dictionary.skyeng.ru/cms/meaning/" + allmeanings[z].textContent);
+            copyToClipboardAFMS("https://dictionary.skyeng.ru/cms/meaning/" + allmeanings[z].textContent);
         }
     }
 }

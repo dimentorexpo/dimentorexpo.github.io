@@ -1110,19 +1110,20 @@ wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove
 // main script
 
 let div = document.getElementById("AFMS_addMenu");
+let allowedSites = ["vimbox.skyeng.ru", "new-teachers.skyeng.ru", "teachers.skyeng.ru", "student.skyeng.ru"];
+let token;
 
-// Select the body element to add the event listener
+if (allowedSites.includes(location.host)) {
+
 document.querySelector('body').addEventListener('dblclick', (event) => {
-	if(event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA" && event.target.tagName !== "BUTTON" && event.target.tagName !== "H1" && event.target.tagName !== "H2" && event.target.tagName !== "H3" && event.target.tagName !== "UL" && event.target.tagName !== "LI" && event.target.tagName !== "VIM-WORD" && event.target.tagName !== "P" && event.target.tagName !== "SPAN" && location.host!='skyeng.autofaq.ai' && location.host!= 'crm2.skyeng.ru' ){ 
-    // Add the mouse cursor coordinates to the div's content
-    // Append the div to the body
-    // Show the div
-    div.style.display = "block";
-    // Set the div's position
-    div.style.left = (event.clientX - 180) + "px";
-    div.style.top = event.clientY + "px";
+        let tags = ["INPUT", "TEXTAREA", "BUTTON", "H1", "H2", "H3", "UL", "LI", "VIM-WORD", "P", "SPAN"];
+        if (!tags.includes(event.target.tagName)) {
 
-	token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+            div.style.display = "block";
+            div.style.left = (event.clientX - 180) + "px";
+            div.style.top = event.clientY + "px";
+
+            let token = Object.fromEntries(document.cookie.split(/; */).map(c => {
 		const [key, ...v] = c.split('=');
 		return [key, decodeURIComponent(v.join('='))];
 	}));
@@ -1137,23 +1138,23 @@ document.querySelector('body').addEventListener('click', (event) => {
 });
 
 document.getElementById('hidemainmenu').onclick = function () {
-	document.getElementById('AFMS_addMenu').style.display = 'none';
+        div.style.display = 'none';
 }
 
-let token;
-if (window.location.href.indexOf('skyeng.autofaq.ai/logs') === -1) {
-    document.onkeydown = function (event) { // горячие клавиши для открытия главного меню
+    document.onkeydown = function(event) {
         if ((event.altKey && event.code == 'Numpad0') || (event.altKey && event.code == 'Digit0')) {
-            if (document.getElementById('AFMS_addMenu').style.display == 'none') {
-                document.getElementById('AFMS_addMenu').style.display = '';
+            if (div.style.display == 'none') {
 
-                token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+                div.style.display = '';
+
+                let token = Object.fromEntries(document.cookie.split(/; */).map(c => {
                     const [key, ...v] = c.split('=');
                     return [key, decodeURIComponent(v.join('='))];
                 }));
-                console.log(token)
-
-            } else document.getElementById('AFMS_addMenu').style.display = 'none'
+                console.log(token);
+            } else {
+                div.style.display = 'none';
+            }
         }
     }
 }
