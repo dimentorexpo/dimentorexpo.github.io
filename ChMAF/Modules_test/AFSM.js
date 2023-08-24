@@ -3378,7 +3378,7 @@ document.getElementById('searchwordinput').addEventListener('input', function() 
 });
 
 function liveSearch(query) {
-    const query = this.value.toLowerCase().trim();
+    query = query.toLowerCase().trim();
 
     if(query === "") {
         renderWordSets(allWordSets, false);
