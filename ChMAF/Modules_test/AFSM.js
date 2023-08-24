@@ -2971,7 +2971,8 @@ document.getElementById('VocabularyMenu').onclick = function () { // откры�
 
 
     document.getElementById('findwords').onclick = async function () {
-
+        document.getElementById('searchwordinput').value = ''
+        document.getElementById('searchwordinput').style.display = 'none'
         getwordsets(document.getElementById('iduserwords').value.trim())
 
     }
@@ -2980,6 +2981,7 @@ document.getElementById('VocabularyMenu').onclick = function () { // откры�
         document.getElementById('wordsout').innerHTML = '';
         document.getElementById('iduserwords').value = '';
         allWordSets = [];
+        document.getElementById('searchwordinput').value = ''
         document.getElementById('searchwordinput').style.display = 'none'
     }
 
