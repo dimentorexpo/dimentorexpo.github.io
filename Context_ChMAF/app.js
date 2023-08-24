@@ -2,6 +2,7 @@ var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack
 
 //переменные каналов отправки сообщений
 var ChanelDev = "C9H76AC9X";
+var ChanelTimelog = "GF9EKHE3W";
 
 var main = chrome.contextMenus.create( {"id":"mainoption","title": "AutoFaq Support Master", "documentUrlPatterns":showForPages} ); //обьявляем контекстное меню для страницы, отвечает свойство page и также в дочерних ветках
 
@@ -47,21 +48,7 @@ function opentalksadm(i){
 	chrome.tabs.create(createProperties);
 }
 
-
-chrome.contextMenus.create({"title": "⚕ Enable Health Widget", "contexts":["page"], "parentId": "mainoption", "onclick": enablehealth}); //опция открывает Окно с компенсациями
-function enablehealth(i){
-chrome.tabs.getSelected(null, function(tab) {
-
-	// Execute code on the existing tab to open the Message.
-	chrome.tabs.executeScript(tab.id, {
-		"code": "window.localStorage.setItem('health-widget-visibility', true);"
-			+ "location.reload()"
-	});
-});
-		
-}
-
-chrome.contextMenus.create({"title": "🆘 #dev-disaster", "contexts":["page"], "parentId": "mainoption", "onclick": sendtodisaster}); //опция для копирования ссылки для пропуска АП
+chrome.contextMenus.create({"title": "🆘 #dev-disaster", "contexts":["page"], "parentId": "mainoption", "onclick": sendtodisaster}); //опция для копирования ссылки для отправки сообщения в дизастер
 async function sendtodisaster(i,t){
 	
 	let tokenslack;
@@ -107,7 +94,6 @@ async function sendtodisaster(i,t){
 	} else console.log("Нажата кнопка Отмена");
 	} else console.log("Не уверен, жаль, повезет в другой раз!")
 }	
-
 
 var selmain = chrome.contextMenus.create( {"id":"selMainOption","title": "AutoFaq Support Master", "contexts":["selection"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
 
@@ -245,33 +231,38 @@ var createProperties = { url: encodeURI("https://video-trouble-shooter.skyeng.ru
 
 var linkparent = chrome.contextMenus.create( {"id":"linkOption","title": "AutoFaq Support Master", "contexts":["link"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
 
-chrome.contextMenus.create({"title": "🚫 Отмена ТП1Л (исход)", "contexts":["link"], "parentId": "linkOption", "onclick": cancelishodcall}); //опция для копирования ссылки для пропуска АП
-async function cancelishodcall(i,t){
-	let tokenslack;
-	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
+let MMostOperId ='';
+
+chrome.contextMenus.create({"title": "🚫 Отмена ТП1Л (исход)", "contexts":["link"], "parentId": "linkOption", "onclick": cancelishodcall}); //опция для копирования ссылки для test msg
+
+async function cancelishodcall(i,t) {
 	
-	var curTime = new Date();
-    var newTime = curTime / 1000;
-	
-	await fetch("https://skyeng.slack.com/api/chat.postMessage?_x_id=2420e4bd-"+newTime+"&_x_csid=JqSHDZDdQTc&slack_route=T03A3SUFB&_x_version_ts=1660105648&_x_gantry=true&fp=78", {
-  "headers": {
-    "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryb25rqGftA7WL10lj",
-  },
-  "referrerPolicy": "no-referrer",
-  "body": `------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nG4A2UB8KB\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"ts\"\r\n\r\n"+parseInt(newTime)+".xxxxx5\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"type\"\r\n\r\nmessage\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"unfurl\"\r\n\r\n[{\"url\":\"${i.linkUrl}\"}]\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"blocks\"\r\n\r\n[{\"type\":\"rich_text\",\"elements\":[{\"type\":\"rich_text_section\",\"elements\":[{\"type\":\"usergroup\",\"usergroup_id\":\"SQN8E1FL6\"},{\"type\":\"text\",\"text\":\" \"},{\"type\":\"link\",\"url\":\"${i.linkUrl}\"},{\"type\":\"text\",\"text\":\" охрана - отмена \"}, {\"type\":\"emoji\",\"name\":\"no_entry_sign\"}]}]}]\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n${tokenslack}\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_reason\"\r\n\r\nwebapp_message_send\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_mode\"\r\n\r\nonline\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_sonic\"\r\n\r\ntrue\r\n------WebKitFormBoundaryb25rqGftA7WL10lj--\r\n`,
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-		}).then(r=>r.json()).then(r=>data=r)
-		
-		console.log(data.ts)
-		console.log("https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-"+data.ts)
-		
-		console.log(t.url)
-		
-		
+	if (localStorage.getItem('matermost_oid') == null) {
+
+		await fetch("https://mattermost.skyeng.tech/api/v4/users/me").then(r=>r.json()).then(r=>rcvdata=r)
+		MMostOperId = rcvdata.id
+		localStorage.setItem('matermost_oid', MMostOperId)
+	} else {
+		MMostOperId = localStorage.getItem('matermost_oid')
+	}
+
+	if (MMostOperId) {
+			fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+			  "headers": {
+				"accept": "*/*",
+				"accept-language": "ru",
+				"content-type": "application/json",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin",
+				"x-requested-with": "XMLHttpRequest"
+			  },
+			  "referrerPolicy": "no-referrer",
+			  "body": `{\"message\":\"@techsupp-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"pspyooisr3rd7qzx9as8uc96xc\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
+			
 		let chathashfromdiv = t.url.split('/')[5]
 		let sesid;
 
@@ -279,7 +270,7 @@ async function cancelishodcall(i,t){
 			.then(r => r.json()).then(r => rdata = r)
 		sesid = rdata.sessionId;
 
-		let notemsg = '<p>' + 'Передано в канал #techsupport:' + 'https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-' + data.ts + '</p>';
+		let notemsg = '<p>' + 'Передано в канал #techsupport:' + '</p>';
 
 		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
 			"headers": {
@@ -294,39 +285,46 @@ async function cancelishodcall(i,t){
 			"mode": "cors",
 			"credentials": "include"
 		});
+			
+	}
+	
 }
 
-chrome.contextMenus.create({"title": "💬 Написать ТП1Л (исход) со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": cancelishodcallwithowntext}); //опция для копирования ссылки для пропуска АП
-async function cancelishodcallwithowntext(i,t){
+chrome.contextMenus.create({"title": "💬 Написать ТП1Л (исход) со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": sendtestmsgcustommsg}); //опция для копирования ссылки для test msg
+
+async function sendtestmsgcustommsg(i,t) {
 	
-	let tokenslack;
-	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	
-	var curTime = new Date();
-    var newTime = curTime / 1000;
-	var textmsg = prompt('Введите ваш текст в это поле');
+	if (localStorage.getItem('matermost_oid') == null) {
+
+		await fetch("https://mattermost.skyeng.tech/api/v4/users/me").then(r=>r.json()).then(r=>rcvdata=r)
+		MMostOperId = rcvdata.id
+		localStorage.setItem('matermost_oid', MMostOperId)
+	} else {
+		MMostOperId = localStorage.getItem('matermost_oid')
+	}
+
+	if (MMostOperId) {
+		
+			var textmsg = prompt('Введите ваш текст в это поле');
 	
 	if (textmsg !== null){
 		if (textmsg.length > 3) {
-			await fetch("https://skyeng.slack.com/api/chat.postMessage?_x_id=2420e4bd-"+newTime+"&_x_csid=JqSHDZDdQTc&slack_route=T03A3SUFB&_x_version_ts=1660105648&_x_gantry=true&fp=78", {
-			"headers": {
-			  "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryb25rqGftA7WL10lj",
-			},
-			"referrerPolicy": "no-referrer",
-			"body": `------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nG4A2UB8KB\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"ts\"\r\n\r\n"+parseInt(newTime)+".xxxxx5\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"type\"\r\n\r\nmessage\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"unfurl\"\r\n\r\n[{\"url\":\"${i.linkUrl}\"}]\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"blocks\"\r\n\r\n[{\"type\":\"rich_text\",\"elements\":[{\"type\":\"rich_text_section\",\"elements\":[{\"type\":\"usergroup\",\"usergroup_id\":\"SQN8E1FL6\"},{\"type\":\"text\",\"text\":\" \"},{\"type\":\"link\",\"url\":\"${i.linkUrl}\"},{\"type\":\"text\",\"text\":\" ${textmsg}\"}]}]}]\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n${tokenslack}\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_reason\"\r\n\r\nwebapp_message_send\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_mode\"\r\n\r\nonline\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_sonic\"\r\n\r\ntrue\r\n------WebKitFormBoundaryb25rqGftA7WL10lj--\r\n`,
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		  	}).then(r=>r.json()).then(r=>data=r)
-		
-		console.log(data.ts)
-		console.log("https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-"+data.ts)
-		
-		console.log(t.url)
-		
-		
+			fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+			  "headers": {
+				"accept": "*/*",
+				"accept-language": "ru",
+				"content-type": "application/json",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin",
+				"x-requested-with": "XMLHttpRequest"
+			  },
+			  "referrerPolicy": "no-referrer",
+			  "body": `{\"message\":\"@techsupp-1line-crm2 ${i.linkUrl} ${textmsg}\",\"channel_id\":\"pspyooisr3rd7qzx9as8uc96xc\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
+			
 		let chathashfromdiv = t.url.split('/')[5]
 		let sesid;
 
@@ -334,7 +332,7 @@ async function cancelishodcallwithowntext(i,t){
 			.then(r => r.json()).then(r => rdata = r)
 		sesid = rdata.sessionId;
 
-		let notemsg = '<p>' + 'Передано в канал #techsupport:' + 'https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-' + data.ts + '</p>';
+		let notemsg = '<p>' + 'Передано в канал #techsupport' + '</p>';
 
 		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
 			"headers": {
@@ -349,39 +347,45 @@ async function cancelishodcallwithowntext(i,t){
 			"mode": "cors",
 			"credentials": "include"
 		});
-		
+			
+			
 		} else alert("Текст слишком короткий");
 	} else console.log("Нажата кнопка Отмена");
+	}
 	
 }
 
-chrome.contextMenus.create({"title": "🚫 Отмена 2ЛТП", "contexts":["link"], "parentId": "linkOption", "onclick": cancelsecondline}); //опция для копирования ссылки для пропуска АП
-async function cancelsecondline(i,t){
-	let tokenslack;
-	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
+
+chrome.contextMenus.create({"title": "🚫 Отмена 2ЛТП", "contexts":["link"], "parentId": "linkOption", "onclick": cancelsecondline}); //опция для копирования ссылки для test msg
+
+async function cancelsecondline(i,t) {
 	
-	var curTime = new Date();
-    var newTime = curTime / 1000;
-	
-	await fetch("https://skyeng.slack.com/api/chat.postMessage?_x_id=2420e4bd-"+newTime+"&_x_csid=JqSHDZDdQTc&slack_route=T03A3SUFB&_x_version_ts=1660105648&_x_gantry=true&fp=78", {
-  "headers": {
-    "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryb25rqGftA7WL10lj",
-  },
-  "referrerPolicy": "no-referrer",
-  "body": `------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nG4A2UB8KB\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"ts\"\r\n\r\n"+parseInt(newTime)+".xxxxx5\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"type\"\r\n\r\nmessage\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"unfurl\"\r\n\r\n[{\"url\":\"${i.linkUrl}\"}]\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"blocks\"\r\n\r\n[{\"type\":\"rich_text\",\"elements\":[{\"type\":\"rich_text_section\",\"elements\":[{\"type\":\"usergroup\",\"usergroup_id\":\"SGADAJL1Y\"},{\"type\":\"text\",\"text\":\" \"},{\"type\":\"link\",\"url\":\"${i.linkUrl}\"},{\"type\":\"text\",\"text\":\" охрана - отмена \"}, {\"type\":\"emoji\",\"name\":\"no_entry_sign\"}]}]}]\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n${tokenslack}\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_reason\"\r\n\r\nwebapp_message_send\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_mode\"\r\n\r\nonline\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_sonic\"\r\n\r\ntrue\r\n------WebKitFormBoundaryb25rqGftA7WL10lj--\r\n`,
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-  }).then(r=>r.json()).then(r=>data=r)
-		
-		console.log(data.ts)
-		console.log("https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-"+data.ts)
-		
-		console.log(t.url)
-		
-		
+	if (localStorage.getItem('matermost_oid') == null) {
+
+		await fetch("https://mattermost.skyeng.tech/api/v4/users/me").then(r=>r.json()).then(r=>rcvdata=r)
+		MMostOperId = rcvdata.id
+		localStorage.setItem('matermost_oid', MMostOperId)
+	} else {
+		MMostOperId = localStorage.getItem('matermost_oid')
+	}
+
+	if (MMostOperId) {
+			fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+			  "headers": {
+				"accept": "*/*",
+				"accept-language": "ru",
+				"content-type": "application/json",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin",
+				"x-requested-with": "XMLHttpRequest"
+			  },
+			  "referrerPolicy": "no-referrer",
+			  "body": `{\"message\":\"@techsupport-2line ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"pspyooisr3rd7qzx9as8uc96xc\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
+			
 		let chathashfromdiv = t.url.split('/')[5]
 		let sesid;
 
@@ -389,7 +393,7 @@ async function cancelsecondline(i,t){
 			.then(r => r.json()).then(r => rdata = r)
 		sesid = rdata.sessionId;
 
-		let notemsg = '<p>' + 'Передано в канал #techsupport:' + 'https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-' + data.ts + '</p>';
+		let notemsg = '<p>' + 'Передано в канал #techsupport:' + '</p>';
 
 		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
 			"headers": {
@@ -404,41 +408,46 @@ async function cancelsecondline(i,t){
 			"mode": "cors",
 			"credentials": "include"
 		});
-		
+			
+	}
 	
 }
 
-chrome.contextMenus.create({"title": "💬 Написать 2ЛТП со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": cancelsecondlinewithowntext}); //опция для копирования ссылки для пропуска АП
-async function cancelsecondlinewithowntext(i,t){
+chrome.contextMenus.create({"title": "💬 Написать 2ЛТП со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": send2ndlinetestmsgcustommsg}); //опция для копирования ссылки для test msg
+
+async function send2ndlinetestmsgcustommsg(i,t) {
 	
-	let tokenslack;
-	await fetch('https://app.slack.com/auth?app=client&return_to=%2Fclient%2FT03A3SUFB&teams=&iframe=1').then(r=>r.text()).then(r=>slackdata=r)
-	tokenslack = slackdata.match(/"token":"(.*?)"/)[1]
-	localStorage.setItem('tokenslack', slackdata.match(/"token":"(.*?)"/)[1])
-	
-	var curTime = new Date();
-    var newTime = curTime / 1000;
-	var textmsg = prompt('Введите ваш текст в это поле');
+	if (localStorage.getItem('matermost_oid') == null) {
+
+		await fetch("https://mattermost.skyeng.tech/api/v4/users/me").then(r=>r.json()).then(r=>rcvdata=r)
+		MMostOperId = rcvdata.id
+		localStorage.setItem('matermost_oid', MMostOperId)
+	} else {
+		MMostOperId = localStorage.getItem('matermost_oid')
+	}
+
+	if (MMostOperId) {
+		
+			var textmsg = prompt('Введите ваш текст в это поле');
 	
 	if (textmsg !== null){
 		if (textmsg.length > 3) {
-			await fetch("https://skyeng.slack.com/api/chat.postMessage?_x_id=2420e4bd-"+newTime+"&_x_csid=JqSHDZDdQTc&slack_route=T03A3SUFB&_x_version_ts=1660105648&_x_gantry=true&fp=78", {
-  			"headers": {
-    		"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryb25rqGftA7WL10lj",
-  			},
-  			"referrerPolicy": "no-referrer",
-  			"body": `------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nG4A2UB8KB\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"ts\"\r\n\r\n"+parseInt(newTime)+".xxxxx5\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"type\"\r\n\r\nmessage\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"unfurl\"\r\n\r\n[{\"url\":\"${i.linkUrl}\"}]\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"blocks\"\r\n\r\n[{\"type\":\"rich_text\",\"elements\":[{\"type\":\"rich_text_section\",\"elements\":[{\"type\":\"usergroup\",\"usergroup_id\":\"SGADAJL1Y\"},{\"type\":\"text\",\"text\":\" \"},{\"type\":\"link\",\"url\":\"${i.linkUrl}\"},{\"type\":\"text\",\"text\":\" ${textmsg}\"}]}]}]\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n${tokenslack}\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_reason\"\r\n\r\nwebapp_message_send\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_mode\"\r\n\r\nonline\r\n------WebKitFormBoundaryb25rqGftA7WL10lj\r\nContent-Disposition: form-data; name=\"_x_sonic\"\r\n\r\ntrue\r\n------WebKitFormBoundaryb25rqGftA7WL10lj--\r\n`,
-  			"method": "POST",
-  			"mode": "cors",
-  			"credentials": "include"
-		}).then(r=>r.json()).then(r=>data=r)
-		
-		console.log(data.ts)
-		console.log("https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-"+data.ts)
-		
-		console.log(t.url)
-		
-		
+			fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+			  "headers": {
+				"accept": "*/*",
+				"accept-language": "ru",
+				"content-type": "application/json",
+				"sec-fetch-mode": "cors",
+				"sec-fetch-site": "same-origin",
+				"x-requested-with": "XMLHttpRequest"
+			  },
+			  "referrerPolicy": "no-referrer",
+			  "body": `{\"message\":\"@techsupport-2line ${i.linkUrl} ${textmsg}\",\"channel_id\":\"pspyooisr3rd7qzx9as8uc96xc\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			  "method": "POST",
+			  "mode": "cors",
+			  "credentials": "include"
+			});
+			
 		let chathashfromdiv = t.url.split('/')[5]
 		let sesid;
 
@@ -446,7 +455,7 @@ async function cancelsecondlinewithowntext(i,t){
 			.then(r => r.json()).then(r => rdata = r)
 		sesid = rdata.sessionId;
 
-		let notemsg = '<p>' + 'Передано в канал #techsupport:' + 'https://app.slack.com/client/T03A3SUFB/G4A2UB8KB/thread/G4A2UB8KB-' + data.ts + '</p>';
+		let notemsg = '<p>' + 'Передано в канал #techsupport' + '</p>';
 
 		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
 			"headers": {
@@ -461,9 +470,11 @@ async function cancelsecondlinewithowntext(i,t){
 			"mode": "cors",
 			"credentials": "include"
 		});
-		
+			
+			
 		} else alert("Текст слишком короткий");
 	} else console.log("Нажата кнопка Отмена");
+	}
 	
 }
 
