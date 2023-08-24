@@ -1123,11 +1123,11 @@ document.querySelector('body').addEventListener('dblclick', (event) => {
             div.style.left = (event.clientX - 180) + "px";
             div.style.top = event.clientY + "px";
 
-            let token = Object.fromEntries(document.cookie.split(/; */).map(c => {
-		const [key, ...v] = c.split('=');
-		return [key, decodeURIComponent(v.join('='))];
-	}));
-	console.log(token)
+            token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+		        const [key, ...v] = c.split('=');
+		        return [key, decodeURIComponent(v.join('='))];
+	        }));
+	        console.log(token)
 		}
 });
 
@@ -1147,7 +1147,7 @@ document.getElementById('hidemainmenu').onclick = function () {
 
                 div.style.display = '';
 
-                let token = Object.fromEntries(document.cookie.split(/; */).map(c => {
+                token = Object.fromEntries(document.cookie.split(/; */).map(c => {
                     const [key, ...v] = c.split('=');
                     return [key, decodeURIComponent(v.join('='))];
                 }));
