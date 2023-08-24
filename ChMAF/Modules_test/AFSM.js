@@ -3241,9 +3241,7 @@ async function getwordsets(studentId) {
 
         allWordSets.push(wordSetData);
         renderWordSets(allWordSets, false);
-        setupWordSetToggle();
-        setupSelectAllWordsInSet();
-        setupLinkCopyToClipboard();
+        
         document.getElementById('searchwordinput').style.display = ''
     }
 }
@@ -3287,6 +3285,9 @@ function renderWordSets(wordSets, isSearch = false) {
     }
     
     document.getElementById('wordsout').innerHTML = htmlContent;
+    setupWordSetToggle();
+    setupSelectAllWordsInSet();
+    setupLinkCopyToClipboard();
 }
 
 function setupWordSetToggle() { // расскрытие/скрытие блоков
