@@ -472,22 +472,19 @@ function mystylesAFMS() {
 
     .vocabularbarcls {
         text-align:center;
-        display: flex;
         justify-content: space-between;
         padding: 0 5px; 
-    }
-    
-    .vocabularremtools:first-child {
-        margin-right: 5px; 
-    }
+    }    
     
     .vocabularremtools, #searchtoolswords {
         margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
     }
     
     #searchwordinput, #iduserwords, #deleteallwords, #unlearnallwords, #delunlearnallwords, #learncheckedwords, #selectallwords, #findwords {
-        width: 100% !important;
-        box-sizing: border-box; 
+        flex-grow: 1;
+        margin: 0 5px;
     }    
 
 	.vocabularremtools > button {
