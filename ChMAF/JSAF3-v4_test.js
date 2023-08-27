@@ -297,7 +297,6 @@ function prepTp() { //функция подготовки расширения �
 	taskBut.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
 	taskBut.classList.add('onlyfortp', 'rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(taskBut)
-
     
     setTimeout(() => {
         document.getElementById('rightPanel').appendChild(maskBack) 
