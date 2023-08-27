@@ -1110,7 +1110,7 @@ wintVocabulary.onmouseup = function () { document.removeEventListener('mousemove
 // main script
 
 let div = document.getElementById("AFMS_addMenu");
-let allowedSites = ["vimbox.skyeng.ru", "new-teachers.skyeng.ru", "teachers.skyeng.ru", "student.skyeng.ru"];
+let allowedSites = ["vimbox.skyeng.ru", "new-teachers.skyeng.ru", "teachers.skyeng.ru", "student.skyeng.ru", "ttc.skyeng.ru"];
 let token;
 
 if (allowedSites.includes(location.host)) {

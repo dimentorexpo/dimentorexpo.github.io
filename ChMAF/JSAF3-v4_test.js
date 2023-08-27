@@ -297,6 +297,11 @@ function prepTp() { //функция подготовки расширения �
 	taskBut.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
 	taskBut.classList.add('onlyfortp', 'rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(taskBut)
+
+    
+    setTimeout(() => {
+        document.getElementById('rightPanel').appendChild(maskBack) 
+    }, 5000);
 	
     flagLangBut = 1
     setInterval(timerHideButtons, 500)
@@ -308,7 +313,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/Link.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
-	    "https://dimentorexpo.github.io/ChMAF/Modules_test/AlarmClock.js", // модуль будильника
+	    "https://dimentorexpo.github.io/ChMAF/Modules/AlarmClock.js", // модуль будильника
         "https://dimentorexpo.github.io/ChMAF/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
 		"https://dimentorexpo.github.io/ChMAF/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
 		"https://dimentorexpo.github.io/ChMAF/Modules/Calendar.js", // модуль кнопки "Календарь"
@@ -952,10 +957,6 @@ maskBack.innerHTML = "↩️"
 maskBack.title = "Вернуть скрытое окно"
 maskBack.style = 'display: none; width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
 maskBack.classList.add('rightPanelBtn')
-
-setTimeout(() => {
-    document.getElementById('rightPanel').appendChild(maskBack) 
-}, 5000);
 
 maskBack.onclick = function () { // функция кнопки вернуть
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
