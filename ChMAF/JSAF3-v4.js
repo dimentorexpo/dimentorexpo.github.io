@@ -297,7 +297,11 @@ function prepTp() { //функция подготовки расширения �
     taskBut.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
     taskBut.classList.add('onlyfortp', 'rightPanelBtn')
     document.getElementById('rightPanel').appendChild(taskBut)
-
+    
+    setTimeout(() => {
+        document.getElementById('rightPanel').appendChild(maskBack) 
+    }, 5000);
+	
     flagLangBut = 1
     setInterval(timerHideButtons, 500)
 
@@ -952,10 +956,6 @@ maskBack.innerHTML = "↩️"
 maskBack.title = "Вернуть скрытое окно"
 maskBack.style = 'display: none; width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
 maskBack.classList.add('rightPanelBtn')
-
-setTimeout(() => {
-    document.getElementById('rightPanel').appendChild(maskBack) 
-}, 5000);
 
 maskBack.onclick = function () { // функция кнопки вернуть
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
