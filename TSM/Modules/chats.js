@@ -44,3 +44,72 @@ wintAddChatMenu.onmouseup = function () { document.removeEventListener('mousemov
 
 // end add chat menu
 
+document.getElementById('openchataddmenu').onclick = async function () { // открывает меню для удаления и добавления чатов
+    if (wintAddChatMenu.style.display == 'none') {
+        wintAddChatMenu.style.display = ''
+
+        let sidarr = [];
+        document.getElementById('userid1').value = await getUserId();
+
+        document.getElementById('addChat').onclick = function () { //функция добавления чата
+
+		    fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				"headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				},
+				"referrer": "https://vimbox.skyeng.ru/",
+				"referrerPolicy": "strict-origin-when-cross-origin",
+				"body": `{\"userId1\":${document.getElementById('userid1').value},\"userId2\":${document.getElementById('userid2').value}}`,
+				"method": "POST",
+				"mode": "cors",
+				"credentials": "include"
+			});
+			
+            console.log('%cChat was added successfully!', 'color:lightgreen; font-weight:700');
+            document.getElementById('outputstatus').innerText = "Чат добавлен"
+            document.getElementById('outputstatus').style.color = "#48e114"
+            document.getElementById('outputstatus').style.display = ""
+            setTimeout(() => {
+                document.getElementById('outputstatus').innerText = ""
+                document.getElementById('outputstatus').style.display = "none"
+            }, 3000)
+        }
+
+        document.getElementById('RemoveChat').onclick = function () { //функция удаления чата
+		
+		
+		    fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+				"headers": {
+					"content-type": "application/json",
+					"sec-fetch-mode": "cors",
+					"sec-fetch-site": "same-site"
+				},
+				"referrer": "https://vimbox.skyeng.ru/",
+				"referrerPolicy": "strict-origin-when-cross-origin",
+				"body": `{\"userId1\":${document.getElementById('userid1').value},\"userId2\":${document.getElementById('userid2').value}}`,
+				"method": "DELETE",
+				"mode": "cors",
+				"credentials": "include"
+			});
+		
+            console.log('%cChat was removed successfully!', 'color:orange; font-weight:700');
+
+            document.getElementById('outputstatus').innerText = "Чат удалён"
+            document.getElementById('outputstatus').style.color = "orange"
+            document.getElementById('outputstatus').style.display = ""
+            setTimeout(() => {
+                document.getElementById('outputstatus').innerText = ""
+                document.getElementById('outputstatus').style.color = "#48e114"
+                document.getElementById('outputstatus').style.display = "none"
+            }, 3000)
+
+        }
+
+        document.getElementById('hideMeAddChatMenu').onclick = function () { //функция скрытия меню чатов
+            wintAddChatMenu.style.display = 'none'
+        }
+    }
+    else wintAddChatMenu.style.display = 'none'
+}

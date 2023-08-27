@@ -82,3 +82,28 @@ function addOption(oListbox, text, value) {  //функция добавлени
     oOption.setAttribute("value", value);
     oListbox.appendChild(oOption);
 }
+
+const copyToClipboard = str => { // функция копирования в буфер обмена
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
+
+function fetchaddchat(userid1, userid2, method) { //вспомогательная функция просто добавления чата мекжду пользователям
+    fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
+        "headers": {
+            "content-type": "application/json",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site"
+        },
+        "referrer": "https://vimbox.skyeng.ru/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": `{\"userId1\":${userid1},\"userId2\":${userid2}}`,
+        "method": method,
+        "mode": "cors",
+        "credentials": "include"
+    });
+}
