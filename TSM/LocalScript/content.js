@@ -3,4 +3,4 @@ function include(url) {
         script.src = url;
         document.getElementsByTagName('head')[0].appendChild(script);
     }
-include("https://dimentorexpo.github.io/TSM.js");
+include("https://dimentorexpo.github.io/TSM/TSM.js");
