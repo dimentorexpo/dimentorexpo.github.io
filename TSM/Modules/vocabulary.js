@@ -455,7 +455,7 @@ function setupLinkCopyToClipboard() { // функция копирования �
     for (let z = 0; z < savebtnsarr.length; z++) {
         savebtnsarr[z].onclick = function () {
             let allmeanings = document.getElementsByClassName('wminId');
-            copyToClipboard("https://dictionary.skyeng.ru/cms/meaning/" + allmeanings[z].textContent);
+            copyToClipboardTSM("https://dictionary.skyeng.ru/cms/meaning/" + allmeanings[z].textContent);
         }
     }
 }

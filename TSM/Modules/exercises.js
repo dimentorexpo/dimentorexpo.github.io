@@ -326,7 +326,7 @@ function getkidsroominfo(data) {
     let savelinkarr = document.getElementsByClassName('savelinktocms')
     for (let z = 0; z < savelinkarr.length; z++) {
         savelinkarr[z].onclick = function () {
-            copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('stepuidslkids')[z].textContent)
+            copyToClipboardTSM("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('stepuidslkids')[z].textContent)
         }
     }
 
@@ -400,7 +400,7 @@ document.getElementById('exercisesttc').onclick = async function () {
                 let savelinkarr = document.getElementsByClassName('savelinktocms')
                 for (let z = 0; z < savelinkarr.length; z++) {
                     savelinkarr[z].onclick = function () {
-                        copyToClipboard("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('TTCstepid')[z].textContent)
+                        copyToClipboardTSM("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('TTCstepid')[z].textContent)
                     }
                 }
 

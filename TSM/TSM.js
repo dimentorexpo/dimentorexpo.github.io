@@ -83,7 +83,7 @@ function addOption(oListbox, text, value) {  //функция добавлени
     oListbox.appendChild(oOption);
 }
 
-const copyToClipboard = str => { // функция копирования в буфер обмена
+const copyToClipboardTSM = str => { // функция копирования в буфер обмена
     const el = document.createElement('textarea');
     el.value = str;
     document.body.appendChild(el);

@@ -124,10 +124,10 @@ document.getElementById('openlesinfomenu').onclick = async function () { // от
 
         document.getElementById('hashroom').onclick = function () { // копируепт по клику ссылку на комнату в skysmart в буфер обмена
             if (document.getElementById('subjectnamefield').textContent != '' && document.getElementById('platformname').textContent == 'Skysmart') {
-                copyToClipboard('https://vimbox.skyeng.ru/kids/' + document.getElementById('subjectnamefield').textContent.toLowerCase() + '/room/' + document.getElementById('hashroom').textContent)
+                copyToClipboardTSM('https://vimbox.skyeng.ru/kids/' + document.getElementById('subjectnamefield').textContent.toLowerCase() + '/room/' + document.getElementById('hashroom').textContent)
                 alert('Ссылка на комнату скопирована в буфер обмена!')
             } else if (document.getElementById('subjectnamefield').textContent != '' && document.getElementById('platformname').textContent == 'Adults') {
-                copyToClipboard('https://vimbox.skyeng.ru/lesson/' + document.getElementById('hashroom').textContent)
+                copyToClipboardTSM('https://vimbox.skyeng.ru/lesson/' + document.getElementById('hashroom').textContent)
                 alert('Ссылка на комнату скопирована в буфер обмена!')
             }
         }
@@ -303,7 +303,7 @@ async function getusersadults(hash) { // функция получения ин�
     document.getElementById('forstudentid').textContent = usersadults.studentId;
 
     document.getElementById('forstudentid').onclick = function () {
-        copyToClipboard(document.getElementById('forstudentid').textContent)
+        copyToClipboardTSM(document.getElementById('forstudentid').textContent)
     }
 }
 
