@@ -32,7 +32,7 @@ function opentt(i){
 
 chrome.contextMenus.create({"title": "📆 Календарь (Datsy)", "contexts":["page"], "parentId": "mainoption", "onclick": opencalendar}); //опция открывает Datsy календарь
 function opencalendar(i){
-	var createProperties = {url: encodeURI("https://datsy.ru/")};
+	var createProperties = {url: encodeURI("https://datsy.info/")};
 	chrome.tabs.create(createProperties);
 }
 

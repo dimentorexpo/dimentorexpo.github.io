@@ -22,7 +22,7 @@ var win_Vocabulary = `<div style="display: flex;">
 								<button class="commonbtn" id="selectallwords" title="Выделяет все слова">☑ Select All</button>
 							</div>
                             <div class="vocabularremtools">
-                                <input id="searchwordinput" style="width: 470px; text-align: center; height: 23px; display: none; margin-top: 7px;" placeholder="Enter word for search">
+                                <input id="searchwordinput" style="width: 470px; text-align: center; height: 23px; display: none; margin-top: 7px;" placeholder="Enter a word or part of it to search">
 							</div>
 						</div>
 
