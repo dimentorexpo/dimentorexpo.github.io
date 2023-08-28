@@ -337,7 +337,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
         "https://dimentorexpo.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
-		"https://grumstv.github.io/ChMAF/Modules/Knowledge.js", //подключаем модуль базы знаний
+		"https://dimentorexpo.github.io/ChMAF/Modules/Knowledge.js", //подключаем модуль базы знаний
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
