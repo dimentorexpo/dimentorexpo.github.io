@@ -351,18 +351,20 @@ document.getElementById('exercisesttc').onclick = async function () {
         wintExercTTC.style.display = ''
         wintExercSkysmart.style.display = 'none'
 
-        if (location.host == 'ttc.skyeng.ru')
-            document.getElementById('roomhashttc').value = document.URL.split('/')[5]
-        else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
+        if (location.host == 'ttc.skyeng.ru') {
+            document.getElementById('roomhashttc').value = document.URL.split('/')[5];
+            document.getElementById('getroomdatakids').click();
+        } else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
 
         document.getElementById('hideExercisesTTCMenu').onclick = function () {
             wintExercTTC.style.display = 'none'
         }
 
         document.getElementById('RefreshInfoExerciseTTC').onclick = function () {
-            if (location.host == 'ttc.skyeng.ru')
-                document.getElementById('roomhashttc').value = document.URL.split('/')[5]
-            else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
+            if (location.host == 'ttc.skyeng.ru') {
+                document.getElementById('roomhashttc').value = document.URL.split('/')[5];
+                document.getElementById('getroomdatakids').click();
+            } else document.getElementById('roomhashttc').value = "Не открыт TTC курс! Откройте и повторите Или введите хеш одним словом"
         }
 
         document.getElementById('getroomdatattc').onclick = async function () {

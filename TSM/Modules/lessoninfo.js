@@ -229,7 +229,7 @@ async function getlesinfojoin() { // получает инфо об уроке �
     let api2;
     let flagplatf = 0; // unknown platform, for example main page or other page (1) - skysmart, (2) - adults
     if (location.pathname.split('/')[1] == 'kids') {
-        document.getElementById('platformname').textContent = "Skymart";
+        document.getElementById('platformname').textContent = "Skysmart";
         flagplatf = 1;
         document.getElementById('roomfor').style.display = 'none'
         document.getElementById('forstudentid').style.display = 'none'

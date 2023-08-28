@@ -71,7 +71,7 @@ document.querySelector('body').addEventListener('dblclick', (event) => {
     let tags = ["INPUT", "TEXTAREA", "BUTTON", "H1", "H2", "H3", "UL", "LI", "VIM-WORD", "P", "SPAN"];
     if (!tags.includes(event.target.tagName)) {
         wintAddMenu.style.display = "block";
-        wintAddMenu.style.left = (event.clientX - 180) + "px";
+        wintAddMenu.style.left = (event.clientX - 120) + "px";
         wintAddMenu.style.top = event.clientY + "px";
 
         token = Object.fromEntries(document.cookie.split(/; */).map(c => {
