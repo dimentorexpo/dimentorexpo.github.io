@@ -297,6 +297,10 @@ function prepTp() { //функция подготовки расширения �
 	taskBut.style = 'width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
 	taskBut.classList.add('onlyfortp', 'rightPanelBtn')
 	document.getElementById('rightPanel').appendChild(taskBut)
+    
+    setTimeout(() => {
+        document.getElementById('rightPanel').appendChild(maskBack) 
+    }, 5000);
 	
     flagLangBut = 1
     setInterval(timerHideButtons, 500)
@@ -333,7 +337,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
 		"https://dimentorexpo.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
-		"https://grumstv.github.io/ChMAF/Modules/Knowledge.js", //подключаем модуль базы знаний
+		"https://dimentorexpo.github.io/ChMAF/Modules/Knowledge.js", //подключаем модуль базы знаний
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
 }
@@ -952,10 +956,6 @@ maskBack.innerHTML = "↩️"
 maskBack.title = "Вернуть скрытое окно"
 maskBack.style = 'display: none; width: 40px; height: 40px; margin-bottom:4px; font-size: 22px; cursor: pointer; border-radius: 50%; opacity:0.5; transition: all 0.5s ease;'
 maskBack.classList.add('rightPanelBtn')
-
-setTimeout(() => {
-    document.getElementById('rightPanel').appendChild(maskBack) 
-}, 5000);
 
 maskBack.onclick = function () { // функция кнопки вернуть
     const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;

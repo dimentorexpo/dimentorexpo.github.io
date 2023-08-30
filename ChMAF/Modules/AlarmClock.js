@@ -237,69 +237,76 @@ if (localStorage.getItem('chronostamp') == null && localStorage.getItem('chronos
     document.getElementById('reminderstatus').textContent = "🔕";
 }
 
-document.getElementById('setreminder').onclick = function () {  // выставляем будильник 1
+document.getElementById('setreminder').onclick = function () {
     document.getElementById('reminderstatus').textContent = "🔔";
     localStorage.setItem('setchas', setchas.value);
-    if (setminuta.value == "00") {
-        setminuta.value = 0;
-    }
-    localStorage.setItem('setminuta', setminuta.value);
-    var timearr = new Date()
+
+    var cleanMinuta = parseInt(setminuta.value, 10).toString();
+    localStorage.setItem('setminuta', cleanMinuta);
+
+    var timearr = new Date();
     var chronostamp = (((localStorage.getItem('setchas') - timearr.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta') - timearr.getMinutes()) * 60) + (0 - timearr.getSeconds())) * 1000;
+
     localStorage.setItem('chronostamp', chronostamp);
-    //		setchas.value = "";
-    //		setminuta.value = "";
-    alert("Будильник установлен на " + setchas.value + ":" + setminuta.value + ":" + "00");
+
+    alert("Будильник установлен на " + setchas.value + ":" + cleanMinuta + ":" + "00");
+
     abortTimeOut = setTimeout(function () {
-        setRemindAf('chronostamp')
+        setRemindAf('chronostamp');
     }, localStorage.getItem('chronostamp'));
 }
+
 
 document.getElementById('setreminder1').onclick = function () {  // выставляем будильник 2
     document.getElementById('reminderstatus').textContent = "🔔";
     localStorage.setItem('setchas1', setchas1.value);
-    if (setminuta1.value == "00") {
-        setminuta1.value = 0;
-    }
-    localStorage.setItem('setminuta1', setminuta1.value);
+
+    var cleanMinuta1 = parseInt(setminuta1.value, 10).toString();
+    localStorage.setItem('setminuta1', cleanMinuta1);
+
     var timearr1 = new Date()
     var chronostamp1 = (((localStorage.getItem('setchas1') - timearr1.getHours()) * 60 * 60) + ((localStorage.getItem('setminuta1') - timearr1.getMinutes()) * 60) + (0 - timearr1.getSeconds())) * 1000;
+    
     localStorage.setItem('chronostamp1', chronostamp1);
-    //		setchas.value = "";
-    //		setminuta.value = "";
+
     alert("Будильник установлен на " + setchas1.value + ":" + setminuta1.value + ":" + "00");
+
     abortTimeOut1 = setTimeout(function () {
         setRemindAf('chronostamp1')
     }, localStorage.getItem('chronostamp1'));
 }
 
-document.getElementById('clock_remin').ondblclick = function () {		// Удаление будильника 1
-    if (localStorage.getItem('chronostamp') !== null && localStorage.getItem('chronostamp') > 0) {
-        clearTimeout(abortTimeOut)
-        localStorage.removeItem('chronostamp')
-        localStorage.removeItem('chronostamp2')
-        setchas.value = ""
-        setminuta.value = ""
-        localStorage.removeItem('setchas');
-        localStorage.removeItem('setminuta');
-        alert("Будильник удален")
+document.getElementById('clock_remin').ondblclick = function () {
+    removeAlarm('clock_remin', abortTimeOut, 'chronostamp', 'chronostamp2', 'setchas', 'setminuta');
+}
+
+document.getElementById('clock_remin1').ondblclick = function () {
+    removeAlarm('clock_remin1', abortTimeOut1, 'chronostamp1', 'chronostamp22', 'setchas1', 'setminuta1');
+}
+
+function removeAlarm(clockElem, timeoutVar, chronostampKey, chronostamp2Key, chasKey, minutaKey) {
+    if (localStorage.getItem(chronostampKey) !== null && localStorage.getItem(chronostampKey) > 0) {
+        clearTimeout(timeoutVar);
+        localStorage.removeItem(chronostampKey);
+        localStorage.removeItem(chronostamp2Key);
+        document.getElementById(chasKey).value = "";
+        document.getElementById(minutaKey).value = "";
+        localStorage.removeItem(chasKey);
+        localStorage.removeItem(minutaKey);
+        alert("Будильник удален");
+        checkAlarmsStatus();
+    }
+}
+
+function checkAlarmsStatus() {
+    var chronostamp = localStorage.getItem('chronostamp');
+    var chronostamp1 = localStorage.getItem('chronostamp1');
+
+    if ((!chronostamp || chronostamp <= 0) && (!chronostamp1 || chronostamp1 <= 0)) {
         document.getElementById('reminderstatus').textContent = "🔕";
     }
 }
 
-document.getElementById('clock_remin1').ondblclick = function () {		// Удаление будильника 2
-    if (localStorage.getItem('chronostamp1') !== null && localStorage.getItem('chronostamp1') > 0) {
-        clearTimeout(abortTimeOut1)
-        localStorage.removeItem('chronostamp1')
-        localStorage.removeItem('chronostamp22')
-        setchas1.value = ""
-        setminuta1.value = ""
-        localStorage.removeItem('setchas1');
-        localStorage.removeItem('setminuta1');
-        alert("Будильник удален")
-        // document.getElementById('reminderstatus').textContent = "🔕";  //тут еще подумать логику если первый будильник тоже не выставлен и удален второй тогда да изменять иконку
-    }
-}
 
 document.getElementById('hideMeAlarm').onclick = function() {
 	document.getElementById('AF_AlarmClock').style.display = 'none'
