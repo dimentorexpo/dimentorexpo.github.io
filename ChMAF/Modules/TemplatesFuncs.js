@@ -713,9 +713,9 @@ async function buttonsFromDoc(butName) { // функция отправки ша
             }                
         } else {
             if (!cyrillicPattern.test(tempname) && tempname != "Неизвестный" && tempname != '' && document.getElementById('msg1').innerHTML == "Доработать") {
-                txt = "Hello, " + tempname + "!" + '\r\n' + "Please wait a few minutes."
+                txt = "Hello, " + tempname + "!" + '\r\n' + "I'm reviewing the information based on your request. I will return with an answer or for clarifications in a few minutes."
             } else {
-                txt = "Hello!" + '\r\n' + "Please wait a few minutes."
+                txt = "Hello!" + '\r\n' + "I'm reviewing the information based on your request. I will return with an answer or for clarifications in a few minutes."
             }
         }
         if (txt != '') {
