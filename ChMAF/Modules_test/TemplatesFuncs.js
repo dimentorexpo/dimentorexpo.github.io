@@ -1440,59 +1440,8 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
         resetFlags()
     }
 }
+
 function transfertogroup(section, conversationId) {
-    const groupId = section === "КЦ" ? "b6f7f34d-2f08-fc19-3661-29ac00842898"
-        : section === "ОС" ? "8266dbb1-db44-4910-8b5f-a140deeec5c0"
-        : null;
-
-    if (groupId && conversationId) {
-        fetch(`https://skyeng.autofaq.ai/api/conversation/assign/group/${groupId}`, {
-            method: "POST",
-            headers: {
-                "accept": "application/json",
-                "content-type": "application/json",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
-            referrerPolicy: "strict-origin-when-cross-origin",
-            body: JSON.stringify({
-                conversationId: conversationId,
-                command: "DO_ASSIGN_CONVERSATION"
-            }),
-            credentials: "include",
-            mode: "cors"
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("First fetch completed:", data);
-
-            // Второй fetch начнется после успешного завершения первого
-            return fetch("https://skyeng.autofaq.ai/api/conversations/queues/recheck", {
-                method: "POST",
-                headers: {
-                    "accept": "application/json",
-                    "content-type": "application/json",
-                },
-                referrer: "https://skyeng.autofaq.ai/tickets/assigned",
-                referrerPolicy: "strict-origin-when-cross-origin",
-                body: `{\"activeQueueIds\":[\"${conversationId}\"],\"commonQueueIds\":[]}`,
-                credentials: "include",
-                mode: "cors"
-            });
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Second fetch completed:", data);
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
-    }
-}
-
-
-/* function transfertogroup(section, conversationId) {
     const groupId = section === "КЦ" ? "b6f7f34d-2f08-fc19-3661-29ac00842898"
         : section === "ОС" ? "8266dbb1-db44-4910-8b5f-a140deeec5c0"
         : null;
@@ -1545,44 +1494,7 @@ function transfertogroup(section, conversationId) {
                 conversationRoot.innerHTML = '';
             }
         }
-/*       
-        fetch("https://skyeng.autofaq.ai/new-frontend/_next/data/GuE1U8YIQUNusG7bfIfQi/ru/operator.json?withNavigation=false&hidden=false", {
-            headers: {
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
-            referrerPolicy: "strict-origin-when-cross-origin",
-            method: "GET",
-            mode: "cors",
-            credentials: "include"
-        });
-        
-       fetch(`https://skyeng.autofaq.ai/api/users?query=${operatorId}`, {
-            headers: {
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
-            referrerPolicy: "strict-origin-when-cross-origin",
-            method: "GET",
-            mode: "cors",
-            credentials: "include"
-        });
-        
-        fetch("https://skyeng.autofaq.ai/api/groups?all=true", {
-            headers: {
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin"
-            },
-            referrer: `https://skyeng.autofaq.ai/new-frontend/operator/${conversationId}?hidden=false&withNavigation=false`,
-            referrerPolicy: "strict-origin-when-cross-origin",
-            method: "GET",
-            mode: "cors",
-            credentials: "include"
-        });
-
     }
 }
-*/
+
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
