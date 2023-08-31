@@ -115,7 +115,7 @@ function startTimer() {
             }
         }
 
-/*        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && !iframeDoc.getElementById('transfer-buttons-container')) {
+        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && !iframeDoc.getElementById('transfer-buttons-container')) {
             const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]')[0].children[1].children[0];
             function createTransferButton(text) {
                 const button = iframeDoc.createElement('button');
@@ -179,7 +179,6 @@ function startTimer() {
             
             iframeHeader.parentNode.insertBefore(TransfBtnsContainer, iframeHeader);
         }
-*/
 
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield){
             if (tagsshowflag === "1"){
@@ -779,9 +778,9 @@ async function buttonsFromDoc(butName) { // функция отправки ша
             }                
         } else {
             if (!cyrillicPattern.test(tempname) && tempname != "Неизвестный" && tempname != '' && document.getElementById('msg1').innerHTML == "Доработать") {
-                txt = "Hello, " + tempname + "!" + '\r\n' + "Please wait a few minutes."
+                txt = "Hello, " + tempname + "!" + '\r\n' + "I'm reviewing the information based on your request. I will return with an answer or for clarifications in a few minutes."
             } else {
-                txt = "Hello!" + '\r\n' + "Please wait a few minutes."
+                txt = "Hello!" + '\r\n' + "I'm reviewing the information based on your request. I will return with an answer or for clarifications in a few minutes."
             }
         }
         if (txt != '') {
@@ -1442,7 +1441,7 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
     }
 }
 
-/* function transfertogroup(section, conversationId) {
+ function transfertogroup(section, conversationId) {
     const groupId = section === "КЦ" ? "b6f7f34d-2f08-fc19-3661-29ac00842898"
         : section === "ОС" ? "8266dbb1-db44-4910-8b5f-a140deeec5c0"
         : null;
@@ -1466,7 +1465,16 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
             credentials: "include",
             mode: "cors"
         });
-        
+    
+        let idtoclose = getAllChatsList().chatsList;
+
+        idtoclose.forEach(chat => {
+            const dataConvId = chat.getAttribute("data-conv-id");
+            if (dataConvId === conversationId) {
+                chat.remove();
+            }
+        });
+/*       
         fetch("https://skyeng.autofaq.ai/new-frontend/_next/data/GuE1U8YIQUNusG7bfIfQi/ru/operator.json?withNavigation=false&hidden=false", {
             headers: {
                 "sec-fetch-mode": "cors",
@@ -1502,7 +1510,8 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
             mode: "cors",
             credentials: "include"
         });
+*/
     }
-} */
+}
 
 // конец блока для работы с шаблонами из гугл таблиц и в целом отправки ответа с обновлением таймера автозакрытия чата
