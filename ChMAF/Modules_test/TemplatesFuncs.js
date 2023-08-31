@@ -1466,14 +1466,34 @@ async function sendAnswer(txt, flag = 1) { //функция отправки о�
             mode: "cors"
         });
     
-        let idtoclose = getAllChatsList().chatsList;
-
-        idtoclose.forEach(chat => {
+        let idtoclose = getAllChatsList().chatsList; // получаем список чатов
+        let removedElementIndex = -1;
+    
+        idtoclose.forEach((chat, index) => { // Находим и удаляем чат с conversationId
             const dataConvId = chat.getAttribute("data-conv-id");
             if (dataConvId === conversationId) {
                 chat.remove();
+                removedElementIndex = index;
             }
         });
+    
+        if (removedElementIndex !== -1) { // Если чат был найден и удален
+            if (idtoclose.length > 0) {
+                let nextElementIndex = removedElementIndex;
+
+                if (removedElementIndex === 0) { // Если удаленный чат был первым, выбираем следующий чат
+                    nextElementIndex = 1;
+                }
+
+                if (nextElementIndex < idtoclose.length) { // Если следующий чат существует, кликаем на него
+                    idtoclose[nextElementIndex].click();
+                }
+            } else { // Если других чатов нет, очищаем содержимое окна
+                const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
+                const conversationRoot = iframeDoc.querySelectorAll('[class^="ConversationScreen_Root"]')[0];
+                conversationRoot.innerHTML = '';
+            }
+        }
 /*       
         fetch("https://skyeng.autofaq.ai/new-frontend/_next/data/GuE1U8YIQUNusG7bfIfQi/ru/operator.json?withNavigation=false&hidden=false", {
             headers: {
