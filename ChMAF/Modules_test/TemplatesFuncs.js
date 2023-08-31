@@ -1476,7 +1476,7 @@ function transfertogroup(section, conversationId) {
                 },
                 referrer: "https://skyeng.autofaq.ai/tickets/assigned",
                 referrerPolicy: "strict-origin-when-cross-origin",
-                body: "{\"activeQueueIds\":[\"627b27db-48a0-4d1b-abe2-dd33cbfce86d\"],\"commonQueueIds\":[]}",
+                body: `{\"activeQueueIds\":[\"${conversationId}\"],\"commonQueueIds\":[]}`,
                 credentials: "include",
                 mode: "cors"
             });
