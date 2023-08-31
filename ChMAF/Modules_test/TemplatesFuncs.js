@@ -1478,7 +1478,7 @@ function transfertogroup(section, conversationId) {
         });
     
         if (removedElementIndex !== -1) { // Если чат был найден и удален
-            if (idtoclose.length > 0) {
+            if (idtoclose.length > 1) {
                 let nextElementIndex = removedElementIndex;
 
                 if (removedElementIndex === 0) { // Если удаленный чат был первым, выбираем следующий чат
