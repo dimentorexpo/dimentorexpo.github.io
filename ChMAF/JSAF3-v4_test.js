@@ -131,7 +131,7 @@ const fetchOptions = {
     credentials: 'include',
 };
 
-function changeStatus(status) { // функция изменения статуса оператора
+function changeStatus(status) {
     fetchOptions.body = `{ "command": "DO_SET_OPERATOR_STATUS", "status": "${status}", "source": "Operator" }`;
     fetch(API_ENDPOINT, fetchOptions)
         .then((res) => {
@@ -140,24 +140,6 @@ function changeStatus(status) { // функция изменения стату�
         .catch((err) => {
             console.error(err);
         });
-}
-
-function waitForElement(selector, callback, timeout = 5000) {
-    const startTime = new Date().getTime();
-    
-    const checkInterval = setInterval(() => {
-        const element = document.querySelector(selector);
-        const currentTime = new Date().getTime();
-        
-        if (element || currentTime - startTime > timeout) {
-            clearInterval(checkInterval);
-            if (element) {
-                callback(element);
-            } else {
-                console.error(`Element with selector '${selector}' not found within timeout.`);
-            }
-        }
-    }, 100); // Проверяем каждые 100 миллисекунд
 }
 
 const hotkeyStatusMap = {
@@ -180,23 +162,17 @@ function handleHotkey(event) {
                 changeStatus(keyCombination);
                 break;
         }
+        // Отменяем дальнейшее распространение события клавиши
+        event.preventDefault();
     }
 }
+
+
+
 
 if (window.location.href.includes('skyeng.autofaq.ai')) {
-
     document.addEventListener('keydown', handleHotkey);
-
-    if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')) {
-        waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
-            const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
-            iframeDoc.addEventListener('keydown', handleHotkey);
-            document.body.focus();
-        });
-    }
 }
-
-
 // Конец блока горячих клавиш
 
 function onlyNumber(object) { // функция для разрешения ввода только цифр и знака -
