@@ -142,19 +142,38 @@ function changeStatus(status) { // функция изменения стату�
         });
 }
 
-if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
-    document.onkeydown = (event) => {
-        if (event.altKey && event.code === 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
-            changeStatus('Offline');
-        } else if (event.altKey && event.code === 'KeyI') { // горячие клавиши для смены статуса в Занят
-            changeStatus('Busy');
-        } else if (event.altKey && event.code === 'KeyT') { // горячие клавиши тестового чата
-            const currentStatus = localStorage.getItem('trigertestchat');
-            const newStatus = currentStatus === '0' ? '1' : '0';
-            localStorage.setItem('trigertestchat', newStatus);
+const hotkeyStatusMap = {
+    KeyO: 'Offline',
+    KeyI: 'Busy',
+    KeyT: 'TestChat'
+};
+
+function handleHotkey(event) {
+    const keyCombination = event.altKey && hotkeyStatusMap[event.code];
+    
+    if (keyCombination) {
+        switch (keyCombination) {
+            case 'TestChat':
+                const currentStatus = localStorage.getItem('trigertestchat') || '0';
+                const newStatus = currentStatus === '0' ? '1' : '0';
+                localStorage.setItem('trigertestchat', newStatus);
+                break;
+            default:
+                changeStatus(keyCombination);
+                break;
         }
-    };
+    }
 }
+
+if (window.location.href.includes('skyeng.autofaq.ai')) {
+    if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')) {
+        const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
+        iframeDoc.addEventListener('keydown', handleHotkey);
+    }
+    
+    document.addEventListener('keydown', handleHotkey);
+}
+
 
 // Конец блока горячих клавиш
 
