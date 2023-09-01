@@ -260,7 +260,7 @@ async function cancelishodcall(i,t) {
 				"x-requested-with": "XMLHttpRequest"
 			  },
 			  "referrerPolicy": "no-referrer",
-			  "body": `{\"message\":\"@techsupp-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			  "body": `{\"message\":\"@techsupport-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
@@ -319,7 +319,7 @@ async function sendtestmsgcustommsg(i,t) {
 				"x-requested-with": "XMLHttpRequest"
 			  },
 			  "referrerPolicy": "no-referrer",
-			  "body": `{\"message\":\"@techsupp-1line-crm2 ${i.linkUrl} ${textmsg}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			  "body": `{\"message\":\"@@techsupport-1line-crm2 ${i.linkUrl} ${textmsg}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
