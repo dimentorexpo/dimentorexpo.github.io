@@ -188,8 +188,9 @@ function handleHotkey(event) { // Обработчик нажатия горяч
 
 if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем листенер чтобы отслеживать нажатие клавишь
     if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')){
-        waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
-            const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
+        //waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
+            setTimeout(() => {
+                const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
 
             iframeDoc.addEventListener('keydown', (event) => {
                 if (event.altKey) {
@@ -203,7 +204,9 @@ if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем 
                     window.dispatchEvent(eventData)
                 }
             });
-        });
+            }, 5000);
+            
+        //});
         window.addEventListener('CallKeyPress', (event) => {
             const keyCombination = event.data.keyCombination;
             if (keyCombination) {
