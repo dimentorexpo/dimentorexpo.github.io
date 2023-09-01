@@ -192,7 +192,7 @@ if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем 
         waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
             const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
 
-            iframeDoc.addEventListener('keydown', (event) => {
+            iframeDoc.children[0].addEventListener('keydown', (event) => {
                 if (event.altKey) {
                     const keyCombination = event.code;
                     console.log(keyCombination);
