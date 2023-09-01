@@ -191,6 +191,7 @@ if (window.location.href.includes('skyeng.autofaq.ai')) {
         waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
             const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
             iframeDoc.addEventListener('keydown', handleHotkey);
+            document.body.focus();
         });
     }
 }
