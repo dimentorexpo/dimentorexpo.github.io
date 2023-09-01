@@ -152,6 +152,7 @@ function waitForElement(selector, callback, timeout = 5000) { // проверк�
         if (element || currentTime - startTime > timeout) {
             clearInterval(checkInterval);
             if (element) {
+                console.log('Element find')
                 callback(element);
             } else {
                 console.error(`Element with selector '${selector}' not found within timeout.`);
@@ -188,9 +189,8 @@ function handleHotkey(event) { // Обработчик нажатия горяч
 
 if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем листенер чтобы отслеживать нажатие клавишь
     if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')){
-        //waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
-            setTimeout(() => {
-                const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
+        waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
+            const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
 
             iframeDoc.addEventListener('keydown', (event) => {
                 if (event.altKey) {
@@ -204,9 +204,7 @@ if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем 
                     window.dispatchEvent(eventData)
                 }
             });
-            }, 5000);
-            
-        //});
+        });
         window.addEventListener('CallKeyPress', (event) => {
             const keyCombination = event.data.keyCombination;
             if (keyCombination) {
