@@ -142,7 +142,7 @@ function changeStatus(status) {  // функция изменения стату
         });
 }
 
-function waitForElement(selector, callback, timeout = 5000) { // проверка на наличие элемента
+function waitForElement(selector, callback, timeout = 15000) { // проверка на наличие элемента
     const startTime = new Date().getTime();
     
     const checkInterval = setInterval(() => {
