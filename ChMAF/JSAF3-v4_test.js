@@ -142,6 +142,25 @@ function changeStatus(status) {  // функция изменения стату
         });
 }
 
+function waitForElement(selector, callback, timeout = 5000) { // проверка на наличие элемента
+    const startTime = new Date().getTime();
+    
+    const checkInterval = setInterval(() => {
+        const element = document.querySelector(selector);
+        const currentTime = new Date().getTime();
+        
+        if (element || currentTime - startTime > timeout) {
+            clearInterval(checkInterval);
+            if (element) {
+                callback(element);
+            } else {
+                console.error(`Element with selector '${selector}' not found within timeout.`);
+            }
+        }
+    }, 100); // Проверяем каждые 100 миллисекунд
+}
+
+
 const hotkeyStatusMap = { //массив горячих клавиш
     KeyO: 'Offline',
     KeyI: 'Busy',
@@ -167,12 +186,45 @@ function handleHotkey(event) { // Обработчик нажатия горяч
     }
 }
 
-
-
-
 if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем листенер чтобы отслеживать нажатие клавишь
+    if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')){
+        waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
+            const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
+
+            iframeDoc.addEventListener('keydown', (event) => {
+                if (event.altKey) {
+                    const keyCombination = event.code;
+                    console.log(keyCombination);
+                    // Создаем объект с данными
+                    const eventData = {
+                        type: 'CallKeyPress',
+                        keyCombination: keyCombination
+                    };
+                    window.dispatchEvent(eventData)
+                }
+            });
+        });
+        window.addEventListener('CallKeyPress', (event) => {
+            const keyCombination = event.data.keyCombination;
+            if (keyCombination) {
+                switch (keyCombination) {
+                    case 'TestChat':
+                        const currentStatus = localStorage.getItem('trigertestchat') || '0';
+                        const newStatus = currentStatus === '0' ? '1' : '0';
+                        localStorage.setItem('trigertestchat', newStatus);
+                        break;
+                    default:
+                        changeStatus(keyCombination);
+                        break;
+                }
+                // Отменяем дальнейшее распространение события клавиши
+                event.preventDefault();
+            }
+          });
+    }
     document.addEventListener('keydown', handleHotkey);
 }
+
 // Конец блока горячих клавиш
 
 function onlyNumber(object) { // функция для разрешения ввода только цифр и знака -
