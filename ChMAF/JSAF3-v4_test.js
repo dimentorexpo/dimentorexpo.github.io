@@ -142,6 +142,24 @@ function changeStatus(status) { // функция изменения стату�
         });
 }
 
+function waitForElement(selector, callback, timeout = 5000) {
+    const startTime = new Date().getTime();
+    
+    const checkInterval = setInterval(() => {
+        const element = document.querySelector(selector);
+        const currentTime = new Date().getTime();
+        
+        if (element || currentTime - startTime > timeout) {
+            clearInterval(checkInterval);
+            if (element) {
+                callback(element);
+            } else {
+                console.error(`Element with selector '${selector}' not found within timeout.`);
+            }
+        }
+    }, 100); // Проверяем каждые 100 миллисекунд
+}
+
 const hotkeyStatusMap = {
     KeyO: 'Offline',
     KeyI: 'Busy',
@@ -166,12 +184,15 @@ function handleHotkey(event) {
 }
 
 if (window.location.href.includes('skyeng.autofaq.ai')) {
-    if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')) {
-        const iframeDoc = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
-        iframeDoc.addEventListener('keydown', handleHotkey);
-    }
-    
+
     document.addEventListener('keydown', handleHotkey);
+
+    if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')) {
+        waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
+            const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
+            iframeDoc.addEventListener('keydown', handleHotkey);
+        });
+    }
 }
 
 
