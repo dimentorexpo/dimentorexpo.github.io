@@ -131,7 +131,7 @@ const fetchOptions = {
     credentials: 'include',
 };
 
-function changeStatus(status) {
+function changeStatus(status) {  // функция изменения статуса оператора
     fetchOptions.body = `{ "command": "DO_SET_OPERATOR_STATUS", "status": "${status}", "source": "Operator" }`;
     fetch(API_ENDPOINT, fetchOptions)
         .then((res) => {
@@ -142,13 +142,13 @@ function changeStatus(status) {
         });
 }
 
-const hotkeyStatusMap = {
+const hotkeyStatusMap = { //массив горячих клавиш
     KeyO: 'Offline',
     KeyI: 'Busy',
     KeyT: 'TestChat'
 };
 
-function handleHotkey(event) {
+function handleHotkey(event) { // Обработчик нажатия горячих клавиш
     const keyCombination = event.altKey && hotkeyStatusMap[event.code];
     
     if (keyCombination) {
@@ -170,7 +170,7 @@ function handleHotkey(event) {
 
 
 
-if (window.location.href.includes('skyeng.autofaq.ai')) {
+if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем листенер чтобы отслеживать нажатие клавишь
     document.addEventListener('keydown', handleHotkey);
 }
 // Конец блока горячих клавиш
