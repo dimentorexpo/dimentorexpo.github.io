@@ -188,7 +188,7 @@ function handleHotkey(event) { // Обработчик нажатия горяч
 }
 
 if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем листенер чтобы отслеживать нажатие клавишь
-/*    if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')){
+   if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')){
         waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
             const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
 
@@ -196,35 +196,34 @@ if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем 
                 if (event.altKey) {
                     const keyCombination = event.code;
                     console.log(keyCombination);
-                    // Создаем объект с данными
-                    const eventData = {
-                        type: 'CallKeyPress',
-                        keyCombination: keyCombination
-                    };
-                    window.dispatchEvent(eventData)
+                    // Создаем объект события
+                    const eventData = new Event('CallKeyPress');
+                    eventData.data = { keyCombination: keyCombination };
+                    window.dispatchEvent(eventData);
                 }
             });
         });
-        window.addEventListener('CallKeyPress', (event) => {
-            const keyCombination = event.data.keyCombination;
-            if (keyCombination) {
-                switch (keyCombination) {
-                    case 'TestChat':
-                        const currentStatus = localStorage.getItem('trigertestchat') || '0';
-                        const newStatus = currentStatus === '0' ? '1' : '0';
-                        localStorage.setItem('trigertestchat', newStatus);
-                        break;
-                    default:
-                        changeStatus(keyCombination);
-                        break;
-                }
-                // Отменяем дальнейшее распространение события клавиши
-                event.preventDefault();
-            }
-          });
-    } */
+    } 
     window.addEventListener('keydown', handleHotkey);
 }
+
+window.addEventListener('CallKeyPress', (event) => {
+    const keyCombination = event.data.keyCombination;
+    if (keyCombination) {
+        switch (keyCombination) {
+            case 'TestChat':
+                const currentStatus = localStorage.getItem('trigertestchat') || '0';
+                const newStatus = currentStatus === '0' ? '1' : '0';
+                localStorage.setItem('trigertestchat', newStatus);
+                break;
+            default:
+                changeStatus(keyCombination);
+                break;
+        }
+        // Отменяем дальнейшее распространение события клавиши
+        event.preventDefault();
+    }
+});
 
 // Конец блока горячих клавиш
 
