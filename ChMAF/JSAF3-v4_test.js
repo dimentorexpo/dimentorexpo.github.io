@@ -188,7 +188,7 @@ function handleHotkey(event) { // Обработчик нажатия горяч
 }
 
 if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем листенер чтобы отслеживать нажатие клавишь
-    if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')){
+/*    if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')){
         waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
             const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
 
@@ -222,8 +222,8 @@ if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем 
                 event.preventDefault();
             }
           });
-    }
-    document.addEventListener('keydown', handleHotkey);
+    } */
+    window.addEventListener('keydown', handleHotkey);
 }
 
 // Конец блока горячих клавиш
