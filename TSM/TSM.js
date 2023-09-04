@@ -1,5 +1,5 @@
 let allowedSites = ["vimbox.skyeng.ru", "new-teachers.skyeng.ru", "teachers.skyeng.ru", "student.skyeng.ru", "ttc.skyeng.ru"];
-let servicesites = ["skyeng.autofaq.ai/tickets/assigned","crm2.skyeng.ru"];
+let servicesites = ["skyeng.autofaq.ai","crm2.skyeng.ru"];
 let token;
 
 function loadmoduls(TSMScript){ // загрузка доп. модулей расширения

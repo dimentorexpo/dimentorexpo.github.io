@@ -495,33 +495,3 @@ async function getMMostOperId() {
 
     return '';
 }
-
-function getChatId() {
-    const hrefnow = window.location.href;
-    const pathname = document.location.pathname.split('/');
-    let chatId = '';
-
-    if (hrefnow.includes('skyeng.autofaq.ai/logs')) {
-        chatId = pathname[2];
-    } else if (hrefnow.includes('tickets/assigned')) {
-        const iframeDocument = document.querySelector('[class^="NEW_FRONTEND"]').contentDocument || document.querySelector('[class^="NEW_FRONTEND"]').contentWindow.document;
-        const ConvArray = iframeDocument.querySelectorAll('#__next [class^="DialogsCard_Card"]');
-
-        for (let i = 0; i < ConvArray.length; i++) {
-            if (ConvArray[i].getAttribute('aria-selected') === 'true') {
-                chatId = ConvArray[i].getAttribute('data-conv-id');
-                break;
-            }
-        }
-    } else if (hrefnow.includes('tickets/archive')) {
-        const fieldsArray = document.querySelectorAll('.ant-spin-container');
-        for (let i = 0; i < fieldsArray.length; i++) {
-            if (fieldsArray[i].textContent.split(':')[0] === "ID") {
-                chatId = fieldsArray[i].children[0].textContent.split(':')[1].trim();
-                break;
-            }
-        }
-    }
-
-    return chatId;
-}
