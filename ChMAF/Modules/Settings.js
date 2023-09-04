@@ -420,10 +420,10 @@ document.getElementById('setting').onclick = function () { // открывает
       document.getElementById('languageAF').onclick = function () {
         if (this.innerHTML == "Русский") {
           this.innerHTML = "Английский";
-          document.getElementById('AF_helper').style.background = "#EBC7DF"
+          document.getElementById('AF_helper').style.background = "#EBC7DF";
         } else {
           this.innerHTML = "Русский";
-          document.getElementById('AF_helper').style.background = "#464451"
+          document.getElementById('AF_helper').style.background = "#464451";
         }
       }
     }

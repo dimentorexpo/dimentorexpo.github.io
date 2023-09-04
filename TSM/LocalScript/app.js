@@ -1,9 +1,10 @@
 var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack.com/*","*://jira.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
+const port = chrome.runtime.connect({ name: "TSM-script" }); // соединение с остальной частью расширения для передачи данных
 
 //переменные каналов отправки сообщений
 var ChanelDev = "hg8rcub4pfg3dcae8jxkwzkq9h";
-var ChanelSupport = "pspyooisr3rd7qzx9as8uc96xc";
-
+//var ChanelSupport = "pspyooisr3rd7qzx9as8uc96xc";
+var ChanelSupport = "9gmj89efo38o3doxzu19g3gk6r"; // тестовый канал
 var main = chrome.contextMenus.create( {"id":"mainoption","title": "Technical Support Master", "documentUrlPatterns":showForPages} ); //обьявляем контекстное меню для страницы, отвечает свойство page и также в дочерних ветках
 
 chrome.contextMenus.create({"title": "💸 Поиск платежа", "contexts":["page"], "parentId": "mainoption", "onclick": searchpayment}); //опция открывает поиск платежа
@@ -242,6 +243,7 @@ let MMostOperId ='';
 chrome.contextMenus.create({"title": "🚫 Отмена ТП1Л (исход)", "contexts":["link"], "parentId": "linkOption", "onclick": cancelishodcall}); //опция для копирования ссылки для test msg
 
 async function cancelishodcall(i,t) {
+	let Chatid = '';
 	
 	if (localStorage.getItem('matermost_oid') == null) {
 		MMostOperId = await getMMostOperId()
@@ -250,47 +252,31 @@ async function cancelishodcall(i,t) {
 	}
 
 	if (MMostOperId) {
-			fetch("https://mattermost.skyeng.tech/api/v4/posts", {
-			  "headers": {
-				"accept": "*/*",
-				"accept-language": "ru",
-				"content-type": "application/json",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin",
-				"x-requested-with": "XMLHttpRequest"
-			  },
-			  "referrerPolicy": "no-referrer",
-			  "body": `{\"message\":\"@techsupp-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			});
-			
-		let chathashfromdiv = t.url.split('/')[5]
-		let sesid;
-
-		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-			.then(r => r.json()).then(r => rdata = r)
-		sesid = rdata.sessionId;
-
-		let notemsg = '<p>' + 'Передано в канал #techsupport:' + '</p>';
-
-		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
+		fetch("https://mattermost.skyeng.tech/api/v4/posts", {
 			"headers": {
-				"accept": "*/*",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
+			  "accept": "*/*",
+			  "accept-language": "ru",
+			  "content-type": "application/json",
+			  "sec-fetch-mode": "cors",
+			  "sec-fetch-site": "same-origin",
+			  "x-requested-with": "XMLHttpRequest"
 			},
-			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+			"referrerPolicy": "no-referrer",
+			"body": `{\"message\":\"@techsupport-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
 			"method": "POST",
 			"mode": "cors",
 			"credentials": "include"
-		});
-			
-	}
-	
+		  })
+		  .then(response => response.json())
+		  .then(data => {
+			Chatid = data.id; // Извлекаем id из ответа
+			console.log(`id из ответа: ${Chatid}`);
+			port.postMessage({ action: "CallMMComment", Chatid: Chatid });
+		  })
+		  .catch(error => {
+			console.error("Ошибка:", error);
+		  });
+	}	
 }
 
 chrome.contextMenus.create({"title": "💬 Написать ТП1Л (исход) со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": sendtestmsgcustommsg}); //опция для копирования ссылки для test msg
@@ -319,13 +305,14 @@ async function sendtestmsgcustommsg(i,t) {
 				"x-requested-with": "XMLHttpRequest"
 			  },
 			  "referrerPolicy": "no-referrer",
-			  "body": `{\"message\":\"@techsupp-1line-crm2 ${i.linkUrl} ${textmsg}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			  "body": `{\"message\":\"@@techsupport-1line-crm2 ${i.linkUrl} ${textmsg}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
 			});
 			
-		let chathashfromdiv = t.url.split('/')[5]
+		// let chathashfromdiv = t.url.split('/')[5]
+		let chathashfromdiv = getChatId()
 		let sesid;
 
 		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
@@ -383,7 +370,8 @@ async function cancelsecondline(i,t) {
 			  "credentials": "include"
 			});
 			
-		let chathashfromdiv = t.url.split('/')[5]
+		// let chathashfromdiv = t.url.split('/')[5]
+		let chathashfromdiv = getChatId()
 		let sesid;
 
 		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
@@ -442,7 +430,8 @@ async function send2ndlinetestmsgcustommsg(i,t) {
 			  "credentials": "include"
 			});
 			
-		let chathashfromdiv = t.url.split('/')[5]
+		// let chathashfromdiv = t.url.split('/')[5]
+		let chathashfromdiv = getChatId()
 		let sesid;
 
 		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
