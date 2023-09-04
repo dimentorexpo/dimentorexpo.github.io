@@ -48,7 +48,7 @@ function firstLoad() { //первичаня загрузка страницы
 
 if (allowedSites.includes(location.host)) { firstLoad() } // если нужная страница загружаем расширение
 
-if (servicesites.includes(location.host)) { // Если запущено CRM2 или AF
+/* if (servicesites.includes(location.host)) { // Если запущено CRM2 или AF
     window.addEventListener('CallMMComment', (event) => {
         const Chatid = event.detail.Chatid;
         const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
@@ -61,7 +61,26 @@ if (servicesites.includes(location.host)) { // Если запущено CRM2 и
             sendComment(SendMessage);
         }
     });
-}
+} */
+
+chrome.runtime.onConnect.addListener((port) => {
+    if (port.name === "content-script") {
+        port.onMessage.addListener((message) => {
+            if (message.action === "CallMMComment") {
+                const Chatid = message.Chatid;
+                const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
+                const SendMessage = 'Передано в канал #techsupport: ' + messlink;
+                
+                if (location.host.includes('crm2.skyeng.ru')) {
+                    copyToClipboardTSM(messlink);
+                    alert(SendMessage);
+                } else if (location.host.includes('skyeng.autofaq.ai/tickets/assigned')) {
+                    sendComment(SendMessage);
+                }
+            }
+        });
+    }
+});
 
 function checkelementt(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
