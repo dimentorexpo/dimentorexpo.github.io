@@ -64,7 +64,7 @@ if (allowedSites.includes(location.host)) { firstLoad() } // если нужна
 } */
 
 chrome.runtime.onConnect.addListener((port) => {
-    if (port.name === "content-script") {
+    if (port.name === "TSM-script") {
         port.onMessage.addListener((message) => {
             if (message.action === "CallMMComment") {
                 const Chatid = message.Chatid;

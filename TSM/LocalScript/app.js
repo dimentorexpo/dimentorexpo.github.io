@@ -270,8 +270,8 @@ async function cancelishodcall(i,t) {
 		  .then(data => {
 			Chatid = data.id; // Извлекаем id из ответа
 			console.log(`id из ответа: ${Chatid}`);
-			const event = new CustomEvent('CallMMComment', { detail: { Chatid: Chatid } });
-			window.dispatchEvent(event);
+			const port = chrome.runtime.connect({ name: "content-script" });
+			port.postMessage({ action: "CallMMComment", Chatid: Chatid });
 		  })
 		  .catch(error => {
 			console.error("Ошибка:", error);
