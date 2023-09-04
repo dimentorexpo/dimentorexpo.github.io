@@ -252,19 +252,19 @@ async function cancelishodcall(i,t) {
 
 	if (MMostOperId) {
 		fetch("https://mattermost.skyeng.tech/api/v4/posts", {
-			method: "POST",
-			headers: {
-			  "content-type": "application/json"
+			"headers": {
+			  "accept": "*/*",
+			  "accept-language": "ru",
+			  "content-type": "application/json",
+			  "sec-fetch-mode": "cors",
+			  "sec-fetch-site": "same-origin",
+			  "x-requested-with": "XMLHttpRequest"
 			},
-			referrerPolicy: "no-referrer",
-			body: JSON.stringify({
-			  message: `@techsupport-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫`,
-			  channel_id: ChanelSupport,
-			  pending_post_id: MMostOperId,
-			  user_id: MMostOperId
-			}),
-			mode: "cors",
-			credentials: "include"
+			"referrerPolicy": "no-referrer",
+			"body": `{\"message\":\"@techsupport-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			"method": "POST",
+			"mode": "cors",
+			"credentials": "include"
 		  })
 		  .then(response => response.json())
 		  .then(data => {
