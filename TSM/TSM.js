@@ -62,7 +62,7 @@ if (allowedSites.includes(location.host)) { firstLoad() } // если нужна
         }
     });
 } */
-
+function initTSM() {
 chrome.runtime.onConnect.addListener((port) => {
     if (port.name === "TSM-script") {
         port.onMessage.addListener((message) => {
@@ -81,6 +81,7 @@ chrome.runtime.onConnect.addListener((port) => {
         });
     }
 });
+}
 
 function checkelementt(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
@@ -189,3 +190,5 @@ function getChatId() {
 
     return chatId;
 }
+
+window.addEventListener('DOMContentLoaded', initTSM);
