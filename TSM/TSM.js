@@ -63,31 +63,24 @@ if (allowedSites.includes(location.host)) { firstLoad() } // если нужна
     });
 } */
 function initTSM() {
-    console.log('initTSM');
-    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-        console.log(message);
-        if (message.action === "CallMMComment") {
-            console.log(message.action);
-            const Chatid = message.Chatid;
-            console.log(Chatid);
-            const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
-            console.log(messlink);
-            const SendMessage = 'Передано в канал #techsupport: ' + messlink;
-            console.log(SendMessage);
-            
-            if (location.host.includes('crm2.skyeng.ru')) {
-                console.log('crm2.skyeng.ru');
-                copyToClipboardTSM(messlink);
-                console.log(messlink);
-                alert(SendMessage);
-                console.log(SendMessage);
-            } else if (location.host.includes('skyeng.autofaq.ai/tickets/assigned')) {
-                console.log('skyeng.autofaq.ai/tickets/assigned');
-                sendComment(SendMessage);
-                console.log(SendMessage);
+chrome.runtime.onConnect.addListener((port) => {
+    if (port.name === "TSM-script") {
+        port.onMessage.addListener((message) => {
+            if (message.action === "CallMMComment") {
+                const Chatid = message.Chatid;
+                const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
+                const SendMessage = 'Передано в канал #techsupport: ' + messlink;
+                
+                if (location.host.includes('crm2.skyeng.ru')) {
+                    copyToClipboardTSM(messlink);
+                    alert(SendMessage);
+                } else if (location.host.includes('skyeng.autofaq.ai/tickets/assigned')) {
+                    sendComment(SendMessage);
+                }
             }
-        }
-    });
+        });
+    }
+});
 }
 
 function checkelementt(a) { // проверка на какой элемент нажали

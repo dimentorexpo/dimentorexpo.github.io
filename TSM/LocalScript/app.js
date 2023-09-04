@@ -1,4 +1,5 @@
 var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack.com/*","*://jira.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
+const port = chrome.runtime.connect({ name: "TSM-script" }); // соединение с остальной частью расширения для передачи данных
 
 //переменные каналов отправки сообщений
 var ChanelDev = "hg8rcub4pfg3dcae8jxkwzkq9h";
@@ -270,9 +271,7 @@ async function cancelishodcall(i,t) {
 		  .then(data => {
 			Chatid = data.id; // Извлекаем id из ответа
 			console.log(`id из ответа: ${Chatid}`);
-			chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-				chrome.tabs.sendMessage(tabs[0].id, { action: "CallMMComment", Chatid: Chatid });
-			});		
+			port.postMessage({ action: "CallMMComment", Chatid: Chatid });
 		  })
 		  .catch(error => {
 			console.error("Ошибка:", error);
