@@ -269,9 +269,7 @@ async function cancelishodcall(i,t) {
 		  .then(response => response.json())
 		  .then(data => {
 			Chatid = data.id; // Извлекаем id из ответа
-			console.log(`id из ответа: ${Chatid}`);
-			const port = chrome.runtime.connect({ name: "TSM-script" });
-			port.postMessage({ action: "CallMMComment", Chatid: Chatid });
+			transfertoTSM(Chatid)
 		  })
 		  .catch(error => {
 			console.error("Ошибка:", error);
@@ -494,3 +492,12 @@ async function getMMostOperId() {
 
     return '';
 }
+
+function transfertoTSM(Chatid) {
+	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+	  const activeTab = tabs[0];
+	  if (activeTab) {
+		chrome.tabs.sendMessage(activeTab.id, { action: "CallMMComment", Chatid: Chatid });
+	  }
+	});
+  }

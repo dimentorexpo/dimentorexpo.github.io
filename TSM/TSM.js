@@ -63,25 +63,24 @@ if (allowedSites.includes(location.host)) { firstLoad() } // если нужна
     });
 } */
 function initTSM() {
-chrome.runtime.onConnect.addListener((port) => {
-    if (port.name === "TSM-script") {
-        port.onMessage.addListener((message) => {
-            if (message.action === "CallMMComment") {
-                const Chatid = message.Chatid;
-                const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
-                const SendMessage = 'Передано в канал #techsupport: ' + messlink;
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        if (message.action === "CallMMComment") {
+            const Chatid = message.Chatid;
+            console.log("Получен Chatid из background.js:", Chatid);
+            const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
+            const SendMessage = 'Передано в канал #techsupport: ' + messlink;
                 
-                if (location.host.includes('crm2.skyeng.ru')) {
-                    copyToClipboardTSM(messlink);
-                    alert(SendMessage);
-                } else if (location.host.includes('skyeng.autofaq.ai/tickets/assigned')) {
-                    sendComment(SendMessage);
-                }
+            if (location.host.includes('crm2.skyeng.ru')) {
+                copyToClipboardTSM(messlink);
+                alert(SendMessage);
+            } else if (location.host.includes('skyeng.autofaq.ai/tickets/assigned')) {
+                sendComment(SendMessage);
             }
-        });
-    }
-});
+        }
+    });
 }
+
+window.addEventListener('DOMContentLoaded', initTSM);
 
 function checkelementt(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
@@ -190,5 +189,3 @@ function getChatId() {
 
     return chatId;
 }
-
-window.addEventListener('DOMContentLoaded', initTSM);
