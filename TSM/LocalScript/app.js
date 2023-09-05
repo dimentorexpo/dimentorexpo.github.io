@@ -280,6 +280,7 @@ async function cancelishodcall(i,t) {
 chrome.contextMenus.create({"title": "💬 Написать ТП1Л (исход) со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": sendtestmsgcustommsg}); //опция для копирования ссылки для test msg
 
 async function sendtestmsgcustommsg(i,t) {
+	let Chatid = '';
 	
 	if (localStorage.getItem('matermost_oid') == null) {
 		MMostOperId = await getMMostOperId()
@@ -303,47 +304,29 @@ async function sendtestmsgcustommsg(i,t) {
 				"x-requested-with": "XMLHttpRequest"
 			  },
 			  "referrerPolicy": "no-referrer",
-			  "body": `{\"message\":\"@@techsupport-1line-crm2 ${i.linkUrl} ${textmsg}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+			  "body": `{\"message\":\"@techsupport-1line-crm2 ${i.linkUrl} ${textmsg}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
+			})
+			.then(response => response.json())
+			.then(data => {
+			  Chatid = data.id; // Извлекаем id из ответа
+			  transfertoTSM(Chatid)
+			})
+			.catch(error => {
+			  console.error("Ошибка:", error);
 			});
-			
-		// let chathashfromdiv = t.url.split('/')[5]
-		let chathashfromdiv = getChatId()
-		let sesid;
 
-		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-			.then(r => r.json()).then(r => rdata = r)
-		sesid = rdata.sessionId;
-
-		let notemsg = '<p>' + 'Передано в канал #techsupport' + '</p>';
-
-		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-			"headers": {
-				"accept": "*/*",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			},
-			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		});
-			
-			
 		} else alert("Текст слишком короткий");
 	} else console.log("Нажата кнопка Отмена");
-	}
-	
+	}	
 }
-
 
 chrome.contextMenus.create({"title": "🚫 Отмена 2ЛТП", "contexts":["link"], "parentId": "linkOption", "onclick": cancelsecondline}); //опция для копирования ссылки для test msg
 
 async function cancelsecondline(i,t) {
+	let Chatid = '';
 	
 	if (localStorage.getItem('matermost_oid') == null) {
 		MMostOperId = await getMMostOperId()
@@ -366,32 +349,15 @@ async function cancelsecondline(i,t) {
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
-			});
-			
-		// let chathashfromdiv = t.url.split('/')[5]
-		let chathashfromdiv = getChatId()
-		let sesid;
-
-		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-			.then(r => r.json()).then(r => rdata = r)
-		sesid = rdata.sessionId;
-
-		let notemsg = '<p>' + 'Передано в канал #techsupport:' + '</p>';
-
-		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-			"headers": {
-				"accept": "*/*",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			},
-			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		});
-			
+			})
+			.then(response => response.json())
+			.then(data => {
+			  Chatid = data.id; // Извлекаем id из ответа
+			  transfertoTSM(Chatid)
+			})
+			.catch(error => {
+			  console.error("Ошибка:", error);
+			});			
 	}
 	
 }
@@ -399,6 +365,7 @@ async function cancelsecondline(i,t) {
 chrome.contextMenus.create({"title": "💬 Написать 2ЛТП со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": send2ndlinetestmsgcustommsg}); //опция для копирования ссылки для test msg
 
 async function send2ndlinetestmsgcustommsg(i,t) {
+	let Chatid = '';
 	
 	if (localStorage.getItem('matermost_oid') == null) {
 		MMostOperId = await getMMostOperId()
@@ -426,37 +393,18 @@ async function send2ndlinetestmsgcustommsg(i,t) {
 			  "method": "POST",
 			  "mode": "cors",
 			  "credentials": "include"
+			})
+			.then(response => response.json())
+			.then(data => {
+			  Chatid = data.id; // Извлекаем id из ответа
+			  transfertoTSM(Chatid)
+			})
+			.catch(error => {
+			  console.error("Ошибка:", error);
 			});
-			
-		// let chathashfromdiv = t.url.split('/')[5]
-		let chathashfromdiv = getChatId()
-		let sesid;
-
-		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-			.then(r => r.json()).then(r => rdata = r)
-		sesid = rdata.sessionId;
-
-		let notemsg = '<p>' + 'Передано в канал #techsupport' + '</p>';
-
-		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-			"headers": {
-				"accept": "*/*",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			},
-			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		});
-			
-			
 		} else alert("Текст слишком короткий");
 	} else console.log("Нажата кнопка Отмена");
-	}
-	
+	}	
 }
 
 // функция общения с stat.js чтобы отправлять запрос на получение какой либо инфы для обхода CORS
