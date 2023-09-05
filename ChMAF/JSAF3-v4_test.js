@@ -425,7 +425,7 @@ function prepKC() { //функция подготовки расширения �
 
     flagLangBut = 1
 
-    let gfgScript = ["https://dimentorexpo.github.io/jquery-3.6.0.js", // подключаем модуль обработки JQuery
+    let gfgScript = ["https://dimentorexpo.github.io/ChMAF/Extras/jquery-3.6.0.js", // подключаем модуль обработки JQuery
         "https://dimentorexpo.github.io/ChMAF/Modules/LinkKC.js", // модуль ссылкера (L)inks
         "https://dimentorexpo.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
