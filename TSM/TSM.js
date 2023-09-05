@@ -79,7 +79,6 @@ function initTSM() {
         }
     });
 }
-
 window.addEventListener('DOMContentLoaded', initTSM);
 
 function checkelementt(a) { // проверка на какой элемент нажали
