@@ -1,5 +1,4 @@
 var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack.com/*","*://jira.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
-const port = chrome.runtime.connect({ name: "TSM-script" }); // соединение с остальной частью расширения для передачи данных
 
 //переменные каналов отправки сообщений
 var ChanelDev = "hg8rcub4pfg3dcae8jxkwzkq9h";
@@ -52,11 +51,7 @@ function opentalksadm(i){
 chrome.contextMenus.create({"title": "🆘 #dev-disaster", "contexts":["page"], "parentId": "mainoption", "onclick": sendtodisaster}); //опция для копирования ссылки для отправки сообщения в дизастер
 async function sendtodisaster(i,t){
 	
-	if (localStorage.getItem('matermost_oid') == null) {
-		MMostOperId = await getMMostOperId()
-	} else {
-		MMostOperId = localStorage.getItem('matermost_oid')
-	}
+	if (!MMostOperId) { MMostOperId = await getMMostOperId() }
 	
 	let answersend = confirm("Вы уверены, что хотите пробудить Древнее Зло и воззвать к команде Фиксиков для исправления катаклизма на платформе?\nОК - Для продолжения. Отмена закрыть форму.")
 	if (answersend) {
@@ -243,222 +238,54 @@ let MMostOperId ='';
 chrome.contextMenus.create({"title": "🚫 Отмена ТП1Л (исход)", "contexts":["link"], "parentId": "linkOption", "onclick": cancelishodcall}); //опция для копирования ссылки для test msg
 
 async function cancelishodcall(i,t) {
-	let Chatid = '';
-	
-	if (localStorage.getItem('matermost_oid') == null) {
-		MMostOperId = await getMMostOperId()
-	} else {
-		MMostOperId = localStorage.getItem('matermost_oid')
+	MMostOperId = await getMMostOperId();
+	if (MMostOperId) { 
+		var message = `@techsupport-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫`;
+		sendMattermostMessage(message);
 	}
-
-	if (MMostOperId) {
-		fetch("https://mattermost.skyeng.tech/api/v4/posts", {
-			"headers": {
-			  "accept": "*/*",
-			  "accept-language": "ru",
-			  "content-type": "application/json",
-			  "sec-fetch-mode": "cors",
-			  "sec-fetch-site": "same-origin",
-			  "x-requested-with": "XMLHttpRequest"
-			},
-			"referrerPolicy": "no-referrer",
-			"body": `{\"message\":\"@techsupport-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		  })
-		  .then(response => response.json())
-		  .then(data => {
-			Chatid = data.id; // Извлекаем id из ответа
-			console.log(`id из ответа: ${Chatid}`);
-			port.postMessage({ action: "CallMMComment", Chatid: Chatid });
-		  })
-		  .catch(error => {
-			console.error("Ошибка:", error);
-		  });
-	}	
 }
 
 chrome.contextMenus.create({"title": "💬 Написать ТП1Л (исход) со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": sendtestmsgcustommsg}); //опция для копирования ссылки для test msg
 
 async function sendtestmsgcustommsg(i,t) {
-	
-	if (localStorage.getItem('matermost_oid') == null) {
-		MMostOperId = await getMMostOperId()
-	} else {
-		MMostOperId = localStorage.getItem('matermost_oid')
+	MMostOperId = await getMMostOperId();
+	if (MMostOperId) { 
+		const textmsg = prompt('Введите ваш текст в это поле');
+		if (textmsg !== null && textmsg.length > 3) {
+			var message = `@techsupport-1line-crm2 ${i.linkUrl} ${textmsg}`;
+			sendMattermostMessage(message);
+		} else if (textmsg !== null) {
+			alert("Текст слишком короткий");
+		} else {
+			console.log("Нажата кнопка Отмена");
+		}
 	}
-
-	if (MMostOperId) {
-		
-			var textmsg = prompt('Введите ваш текст в это поле');
-	
-	if (textmsg !== null){
-		if (textmsg.length > 3) {
-			fetch("https://mattermost.skyeng.tech/api/v4/posts", {
-			  "headers": {
-				"accept": "*/*",
-				"accept-language": "ru",
-				"content-type": "application/json",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin",
-				"x-requested-with": "XMLHttpRequest"
-			  },
-			  "referrerPolicy": "no-referrer",
-			  "body": `{\"message\":\"@@techsupport-1line-crm2 ${i.linkUrl} ${textmsg}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			});
-			
-		// let chathashfromdiv = t.url.split('/')[5]
-		let chathashfromdiv = getChatId()
-		let sesid;
-
-		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-			.then(r => r.json()).then(r => rdata = r)
-		sesid = rdata.sessionId;
-
-		let notemsg = '<p>' + 'Передано в канал #techsupport' + '</p>';
-
-		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-			"headers": {
-				"accept": "*/*",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			},
-			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		});
-			
-			
-		} else alert("Текст слишком короткий");
-	} else console.log("Нажата кнопка Отмена");
-	}
-	
 }
-
 
 chrome.contextMenus.create({"title": "🚫 Отмена 2ЛТП", "contexts":["link"], "parentId": "linkOption", "onclick": cancelsecondline}); //опция для копирования ссылки для test msg
 
-async function cancelsecondline(i,t) {
-	
-	if (localStorage.getItem('matermost_oid') == null) {
-		MMostOperId = await getMMostOperId()
-	} else {
-		MMostOperId = localStorage.getItem('matermost_oid')
+async function cancelsecondline(i,t) {	MMostOperId = await getMMostOperId();
+	if (MMostOperId) { 
+		var message = `@techsupport-2line ${i.linkUrl} Охрана - отмена 🚫`;
+		sendMattermostMessage(message);
 	}
-
-	if (MMostOperId) {
-			fetch("https://mattermost.skyeng.tech/api/v4/posts", {
-			  "headers": {
-				"accept": "*/*",
-				"accept-language": "ru",
-				"content-type": "application/json",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin",
-				"x-requested-with": "XMLHttpRequest"
-			  },
-			  "referrerPolicy": "no-referrer",
-			  "body": `{\"message\":\"@techsupport-2line ${i.linkUrl} Охрана - отмена 🚫\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			});
-			
-		// let chathashfromdiv = t.url.split('/')[5]
-		let chathashfromdiv = getChatId()
-		let sesid;
-
-		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-			.then(r => r.json()).then(r => rdata = r)
-		sesid = rdata.sessionId;
-
-		let notemsg = '<p>' + 'Передано в канал #techsupport:' + '</p>';
-
-		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-			"headers": {
-				"accept": "*/*",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			},
-			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		});
-			
-	}
-	
 }
 
 chrome.contextMenus.create({"title": "💬 Написать 2ЛТП со ссылкой", "contexts":["link"], "parentId": "linkOption", "onclick": send2ndlinetestmsgcustommsg}); //опция для копирования ссылки для test msg
 
 async function send2ndlinetestmsgcustommsg(i,t) {
-	
-	if (localStorage.getItem('matermost_oid') == null) {
-		MMostOperId = await getMMostOperId()
-	} else {
-		MMostOperId = localStorage.getItem('matermost_oid')
-	}
-
-	if (MMostOperId) {
-		
-			var textmsg = prompt('Введите ваш текст в это поле');
-	
-	if (textmsg !== null){
-		if (textmsg.length > 3) {
-			fetch("https://mattermost.skyeng.tech/api/v4/posts", {
-			  "headers": {
-				"accept": "*/*",
-				"accept-language": "ru",
-				"content-type": "application/json",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin",
-				"x-requested-with": "XMLHttpRequest"
-			  },
-			  "referrerPolicy": "no-referrer",
-			  "body": `{\"message\":\"@techsupport-2line ${i.linkUrl} ${textmsg}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
-			  "method": "POST",
-			  "mode": "cors",
-			  "credentials": "include"
-			});
-			
-		// let chathashfromdiv = t.url.split('/')[5]
-		let chathashfromdiv = getChatId()
-		let sesid;
-
-		await fetch("https://skyeng.autofaq.ai/api/conversations/" + chathashfromdiv)
-			.then(r => r.json()).then(r => rdata = r)
-		sesid = rdata.sessionId;
-
-		let notemsg = '<p>' + 'Передано в канал #techsupport' + '</p>';
-
-		fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
-			"headers": {
-				"accept": "*/*",
-				"accept-language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
-				"content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
-				"sec-fetch-mode": "cors",
-				"sec-fetch-site": "same-origin"
-			},
-			"body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sesid + "\",\"conversationId\":\"" + chathashfromdiv + "\",\"text\":\"" + notemsg + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
-			"method": "POST",
-			"mode": "cors",
-			"credentials": "include"
-		});
-			
-			
-		} else alert("Текст слишком короткий");
-	} else console.log("Нажата кнопка Отмена");
-	}
-	
+	MMostOperId = await getMMostOperId();
+	if (MMostOperId) { 
+		const textmsg = prompt('Введите ваш текст в это поле');
+		if (textmsg !== null && textmsg.length > 3) {
+			var message = `@techsupport-2line ${i.linkUrl} ${textmsg}`;
+			sendMattermostMessage(message);
+		} else if (textmsg !== null) {
+			alert("Текст слишком короткий");
+		} else {
+			console.log("Нажата кнопка Отмена");
+		}
+	}	
 }
 
 // функция общения с stat.js чтобы отправлять запрос на получение какой либо инфы для обхода CORS
@@ -474,23 +301,64 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 async function getMMostOperId() {
-    try {
-        const response = await fetch("https://mattermost.skyeng.tech/api/v4/users/me");
-        
-        if (!response.ok) {
-            throw new Error("Failed to fetch user data.");
-        }
+	return new Promise(async (resolve) => {
+	  let MMostOperId = localStorage.getItem('matermost_oid');
+  
+	  if (MMostOperId !== null) {
+		resolve(MMostOperId);
+	  } else {
+		try {
+		  const response = await fetch("https://mattermost.skyeng.tech/api/v4/users/me");
+		  
+		  if (!response.ok) {
+			throw new Error("Failed to fetch user data.");
+		  }
+  
+		  const data = await response.json();
+		  MMostOperId = data.id;
+  
+		  if (MMostOperId) {
+			localStorage.setItem('matermost_oid', MMostOperId);
+			resolve(MMostOperId);
+		  }
+		} catch (error) {
+		  console.error("Error fetching user data:", error);
+		  resolve(null); // Если возникла ошибка, вернуть null
+		}
+	  }
+	});
+  }
 
-        const data = await response.json();
-        const MMostOperId = data.id;
+function sendMattermostMessage(message) {
+	fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+		"headers": {
+			"accept": "*/*",
+			"accept-language": "ru",
+			"content-type": "application/json",
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin",
+			"x-requested-with": "XMLHttpRequest"
+		},
+		"referrerPolicy": "no-referrer",
+		"body": `{\"message\":\"${message}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
+		"method": "POST",
+		"mode": "cors",
+		"credentials": "include"
+	})
+	.then(response => response.json())
+	.then(data => {
+		transfertoTSM(data.id);
+	})
+	.catch(error => {
+		console.error("Ошибка:", error);
+	});
+}
 
-        if (MMostOperId) {
-            localStorage.setItem('matermost_oid', MMostOperId);
-            return MMostOperId;
-        }
-    } catch (error) {
-        console.error("Error fetching user data:", error);
-    }
-
-    return '';
+function transfertoTSM(Chatid) {
+	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+	  const activeTab = tabs[0];
+	  if (activeTab) {
+		chrome.tabs.sendMessage(activeTab.id, { action: "CallMMComment", Chatid: Chatid });
+	  }
+	});
 }

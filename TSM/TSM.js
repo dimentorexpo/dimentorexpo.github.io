@@ -1,5 +1,4 @@
 let allowedSites = ["vimbox.skyeng.ru", "new-teachers.skyeng.ru", "teachers.skyeng.ru", "student.skyeng.ru", "ttc.skyeng.ru"];
-let servicesites = ["skyeng.autofaq.ai","crm2.skyeng.ru"];
 let token;
 
 function loadmoduls(TSMScript){ // загрузка доп. модулей расширения
@@ -47,41 +46,6 @@ function firstLoad() { //первичаня загрузка страницы
 }
 
 if (allowedSites.includes(location.host)) { firstLoad() } // если нужная страница загружаем расширение
-
-/* if (servicesites.includes(location.host)) { // Если запущено CRM2 или AF
-    window.addEventListener('CallMMComment', (event) => {
-        const Chatid = event.detail.Chatid;
-        const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
-        const SendMessage = 'Передано в канал #techsupport: ' + messlink;
-        
-        if (location.host.includes('crm2.skyeng.ru')) {
-            copyToClipboardTSM(messlink);
-            alert(SendMessage);
-        } else if (location.host.includes('skyeng.autofaq.ai/tickets/assigned')) {
-            sendComment(SendMessage);
-        }
-    });
-} */
-function initTSM() {
-chrome.runtime.onConnect.addListener((port) => {
-    if (port.name === "TSM-script") {
-        port.onMessage.addListener((message) => {
-            if (message.action === "CallMMComment") {
-                const Chatid = message.Chatid;
-                const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
-                const SendMessage = 'Передано в канал #techsupport: ' + messlink;
-                
-                if (location.host.includes('crm2.skyeng.ru')) {
-                    copyToClipboardTSM(messlink);
-                    alert(SendMessage);
-                } else if (location.host.includes('skyeng.autofaq.ai/tickets/assigned')) {
-                    sendComment(SendMessage);
-                }
-            }
-        });
-    }
-});
-}
 
 function checkelementt(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
@@ -144,36 +108,35 @@ function fetchaddchat(userid1, userid2, method) { //вспомогательна
     });
 }
 
-async function sendComment(txt) { // функция отправки комментария
-    var values = await getInfo()
-    activeConvId = values[0]; uid = values[1];
-    if (activeConvId, uid) {
+async function sendCommentTSM(txt) { // функция отправки комментария
+    var values = await getInfoTSM();
+    activeConvId = values[0]; sessionId = values[1];
+    if (activeConvId, sessionId) {
         var txt2 = txt.split('\n').join('\\n')
         var txt2 = txt2.split("\"").join("\\\"")
         fetch("https://skyeng.autofaq.ai/api/reason8/answers", {
             "headers": {
                 "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryH2CK1t5M3Dc3ziNW",
             },
-            "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + uid + "\",\"conversationId\":\"" + activeConvId + "\",\"text\":\"" + txt2 + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
+            "body": "------WebKitFormBoundaryH2CK1t5M3Dc3ziNW\r\nContent-Disposition: form-data; name=\"payload\"\r\n\r\n{\"sessionId\":\"" + sessionId + "\",\"conversationId\":\"" + activeConvId + "\",\"text\":\"" + txt2 + "\",\"isComment\":true}\r\n------WebKitFormBoundaryH2CK1t5M3Dc3ziNW--\r\n",
             "method": "POST",
             "credentials": "include"
         });
     }
 }
 
-async function getInfo() { //функция получения инфо о чате и сервис айди
-    var sessionId = "";
-    var activeConvId = getChatId();
-    if (activeConvId){
-        await fetch("https://skyeng.autofaq.ai/api/conversations/" + activeConvId)
-			.then(r => r.json()).then(r => rdata = r)
-		sesid = rdata.sessionId;
-    } else { activeConvId = "" }
+async function getInfoTSM() { //функция получения инфо о чате и сервис айди
+    let activeConvId = getChatIdTSM();
+	let sessionId = "";
+ 
+    await fetch("https://skyeng.autofaq.ai/api/conversations/" + activeConvId)
+        .then(response => response.json())
+        .then(result => { sessionId = result.sessionId;});
 
     return [activeConvId, sessionId]
 }
 
-function getChatId() {
+function getChatIdTSM() {
     const hrefnow = window.location.href;
     let chatId = '';
     if (hrefnow.includes('tickets/assigned')) {
@@ -190,5 +153,3 @@ function getChatId() {
 
     return chatId;
 }
-
-window.addEventListener('DOMContentLoaded', initTSM);
