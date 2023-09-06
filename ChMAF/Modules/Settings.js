@@ -54,7 +54,7 @@ var win_Settings =  // описание элементов окна ссылок
             <label class="onlyfortp" style="color:bisque; margin-left: 5px;" title="Добавить тэги в боковое меню"><input type="checkbox" id="showquicktags">Добавить тэги</label>
 						<label class="onlyfortp" style="color:bisque; margin-left: 5px;"><input type="checkbox" id="hidestatMM">Статистика MM</label>
 						<br>
-						<label class="onlyfortp" style="color:bisque; margin-left: 5px;"><input type="checkbox" id="hideInnerTaskCreate">Скрыть окно АФ при создании задачи</label>
+						<label style="color:bisque; margin-left: 5px;"><input type="checkbox" id="hideInnerTaskCreate">Скрыть окно АФ при создании задачи</label>
 						<br>
 						<label style="color:bisque;"><input type="color" id="aclstimepicker">Цвет заливки закрытия чата</label>
             <button id="activateVoiceCommands" title="Позволяет изменить кнопку для активации голосовых командю По умолчанию SHIFT" style="margin-left:10px;">Shift</button>
