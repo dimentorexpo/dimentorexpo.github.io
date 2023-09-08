@@ -4,6 +4,7 @@ var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack
 var ChanelDev = "hg8rcub4pfg3dcae8jxkwzkq9h";
 //var ChanelSupport = "pspyooisr3rd7qzx9as8uc96xc";
 var ChanelSupport = "9gmj89efo38o3doxzu19g3gk6r"; // тестовый канал
+
 var main = chrome.contextMenus.create( {"id":"mainoption","title": "Technical Support Master", "documentUrlPatterns":showForPages} ); //обьявляем контекстное меню для страницы, отвечает свойство page и также в дочерних ветках
 
 chrome.contextMenus.create({"title": "💸 Поиск платежа", "contexts":["page"], "parentId": "mainoption", "onclick": searchpayment}); //опция открывает поиск платежа
@@ -362,3 +363,4 @@ function transfertoTSM(Chatid) {
 	  }
 	});
 }
+
