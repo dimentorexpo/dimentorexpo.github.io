@@ -1,9 +1,12 @@
-var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack.com/*","*://jira.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
+var showForPages = ["*://*.skyeng.ru/*", "*://skyeng.autofaq.ai/*",	"*://*.slack.com/*","*://jira.skyeng.tech/*","*://*.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
 
 //переменные каналов отправки сообщений
 var ChanelDev = "hg8rcub4pfg3dcae8jxkwzkq9h";
-//var ChanelSupport = "pspyooisr3rd7qzx9as8uc96xc";
-var ChanelSupport = "9gmj89efo38o3doxzu19g3gk6r"; // тестовый канал
+var ChanelSupport = "pspyooisr3rd7qzx9as8uc96xc";
+//var ChanelSupport = "9gmj89efo38o3doxzu19g3gk6r"; // тестовый канал
+
+let lastChatId = null; // Глобальная переменная для хранения последнего chatid
+let lastMessage = null; // Глобальная переменная для хранения последнего сообщения
 
 var main = chrome.contextMenus.create( {"id":"mainoption","title": "Technical Support Master", "documentUrlPatterns":showForPages} ); //обьявляем контекстное меню для страницы, отвечает свойство page и также в дочерних ветках
 
@@ -266,6 +269,7 @@ async function sendtestmsgcustommsg(i,t) {
 chrome.contextMenus.create({"title": "🚫 Отмена 2ЛТП", "contexts":["link"], "parentId": "linkOption", "onclick": cancelsecondline}); //опция для копирования ссылки для test msg
 
 async function cancelsecondline(i,t) {	MMostOperId = await getMMostOperId();
+	MMostOperId = await getMMostOperId();
 	if (MMostOperId) { 
 		var message = `@techsupport-2line ${i.linkUrl} Охрана - отмена 🚫`;
 		sendMattermostMessage(message);
@@ -331,6 +335,8 @@ async function getMMostOperId() {
   }
 
 function sendMattermostMessage(message) {
+	lastMessage = message; // Сохраняем каждое новое сообщение
+
 	fetch("https://mattermost.skyeng.tech/api/v4/posts", {
 		"headers": {
 			"accept": "*/*",
@@ -356,6 +362,13 @@ function sendMattermostMessage(message) {
 }
 
 function transfertoTSM(Chatid) {
+	if (Chatid === lastChatId) { // Если текущий chatid такой же, как и передыдущий
+        sendMattermostMessage(lastMessage); // Пересылаем сообщение заново
+        return; // Прекращаем выполнение функции, чтобы не отправлять сообщение в content.js
+    }
+
+    lastChatId = Chatid; // Обновляем последний chatid
+
 	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
 	  const activeTab = tabs[0];
 	  if (activeTab) {

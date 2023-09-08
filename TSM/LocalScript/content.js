@@ -6,6 +6,7 @@ function include(url) {
 include("https://dimentorexpo.github.io/TSM/TSM.js");
 
 const servicesites = ["skyeng.autofaq.ai","crm2.skyeng.ru"];
+let lastChatIdF = null; // Глобальная переменная для хранения последнего chatid
 
 if (servicesites.includes(location.host)) { initTSM() }
 
@@ -14,15 +15,20 @@ function initTSM() {
         if (message.action === "CallMMComment") {
             const Chatid = message.Chatid;
             console.log("Получен Chatid из background.js:", Chatid);
-            const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
-            const SendMessage = `Передано в канал #techsupport: <a href="${messlink}" target="_blank" rel="noopener">ссылка</a>`;
-            const SendMessageCRM = `Передано в канал #techsupport и ссылка скопирована в буфер обмена: ${messlink}`;
-                
-            if (location.href.includes('crm2.skyeng.ru')) {
-                copyToClipboardTSM(messlink);
-                alert(SendMessageCRM);
-            } else if (location.href.includes('skyeng.autofaq.ai/tickets/assigned')) {
-                sendCommentTSM(SendMessage);
+            if (!Chatid || Chatid === lastChatIdF) { // Если текущий chatid пуст или такой же, как и последний
+                alert("Ошибка. Повтори отправку сообщения в ММ")
+            } else {
+                lastChatIdF = Chatid;
+                const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
+                const SendMessage = `Передано в канал #techsupport: <a href="${messlink}" target="_blank" rel="noopener">ссылка</a>`;
+                const SendMessageCRM = `Передано в канал #techsupport и ссылка скопирована в буфер обмена: ${messlink}`;
+                    
+                if (location.href.includes('crm2.skyeng.ru')) {
+                    copyToClipboardBack(messlink);
+                    alert(SendMessageCRM);
+                } else if (location.href.includes('skyeng.autofaq.ai/tickets/assigned')) {
+                    sendCommentTSM(SendMessage);
+                }
             }
         }
     });
@@ -73,3 +79,12 @@ function getChatIdTSM() {
 
     return chatId;
 }
+
+const copyToClipboardBack = str => { // функция копирования в буфер обмена
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
