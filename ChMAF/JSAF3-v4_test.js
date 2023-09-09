@@ -403,7 +403,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
 		"https://dimentorexpo.github.io/ChMAF/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/ChMAF/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://dimentorexpo.github.io/ChMAF/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
+        "https://dimentorexpo.github.io/ChMAF/Modules_test/ServiceDesk.js", // подключаем модуль Сервис Деска
         "https://dimentorexpo.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
 		"https://dimentorexpo.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
