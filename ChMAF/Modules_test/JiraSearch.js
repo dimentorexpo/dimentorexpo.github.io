@@ -358,6 +358,9 @@ function switchJiraPages() {
 								case 'zbpQuery':
 									 document.getElementById('responseTextarea1').value = `{${optionsforfetch(zbpqueryitem, pageSwArr[d].getAttribute('value'))}}`
 								break;
+								case 'PSQuery':
+								    document.getElementById('responseTextarea1').value = `{${optionsforfetch(PSqueryitem, pageSwArr[d].getAttribute('value'))}}`
+								break;
 								case 'androidQuery':
 									document.getElementById('responseTextarea1').value = `{${optionsforfetch(androidbugsqueryitem, pageSwArr[d].getAttribute('value'))}}`
 								break;
@@ -664,7 +667,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         }
 		
 		document.getElementById('PSquery').onclick = function() { //Если выбрана PS
-			PSqueryitem = ` project = PS AND text ~ "${testJira.value}" ORDER BY Created`
+			PSqueryitem = `project = PS AND text ~ "${testJira.value}" ORDER BY Created`
             document.getElementById('JQLquery').value = PSqueryitem;
             document.getElementById('testJira').value = ""
 			this.classList.toggle('active-query')
@@ -910,7 +913,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 				searchTypeFlag = "defQuery"
 
             } else if(document.getElementById('PSquery').classList.contains('active-query')){
-				PSqueryitem = ` project = PS AND text ~ "${testJira.value}" ORDER BY Created`
+				PSqueryitem = `project = PS AND text ~ "${testJira.value}" ORDER BY Created`
 				document.getElementById('JQLquery').value = PSqueryitem;
 				PSqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
                 document.getElementById('responseTextarea1').value = `{${optionsforfetch(PSqueryitem, 0)}}`
