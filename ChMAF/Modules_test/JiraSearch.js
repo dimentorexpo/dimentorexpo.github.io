@@ -116,6 +116,7 @@ function optionsforfetch(queryName, indexStart) {
 let firstJiraParse = false;
 function getJiraTask() { // функция получения таски джира
 	rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+	console.log("rezissuetable " + rezissuetable.issueTable.table);
 	if (rezissuetable == null)
 		setTimeout(getJiraTask, 1000)
 	else {
@@ -384,7 +385,7 @@ function switchJiraPages() {
 							
 							setTimeout(function(){
 								rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('newPageIssue'))
-								console.log(rezissuetable);
+								console.log("rezissuetable " + rezissuetable.issueTable.table);
 										//   rezissuetable = JSON.parse(rezissuetable)
 									document.getElementById('responseTextarea1').removeAttribute('newPageIssue')
 									let issues = [];
