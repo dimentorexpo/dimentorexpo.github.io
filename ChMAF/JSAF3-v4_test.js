@@ -392,7 +392,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/VoiceHelper.js", // модуль голосового помощника
         "https://dimentorexpo.github.io/ChMAF/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/ChMAF/Modules/AutoRespond.js", // модуль автоответа по таймеру
-        "https://dimentorexpo.github.io/ChMAF/Modules/JiraSearch.js", // модуль поиска по Jira
+        "https://dimentorexpo.github.io/ChMAF/Modules_test/JiraSearch.js", // модуль поиска по Jira
         "https://dimentorexpo.github.io/ChMAF/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         "https://dimentorexpo.github.io/ChMAF/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/ChMAF/Modules/Themes.js", // модуль выставления тегов и тематик
@@ -403,7 +403,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/OperatorStatuse.js", // подключаем модуль статусов операторов в CRM2
 		"https://dimentorexpo.github.io/ChMAF/Modules/OpStatusMM.js", //подключаем модуль отправки статусов
         "https://dimentorexpo.github.io/ChMAF/Modules/AFOperatorStatus.js", // подключаем модуль статусов операторов и количества чатов на них
-        "https://dimentorexpo.github.io/ChMAF/Modules_test/ServiceDesk.js", // подключаем модуль Сервис Деска
+        "https://dimentorexpo.github.io/ChMAF/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
         "https://dimentorexpo.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
 		"https://dimentorexpo.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
