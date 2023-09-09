@@ -384,7 +384,7 @@ function switchJiraPages() {
 							
 							setTimeout(function(){
 								rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('newPageIssue'))
-								
+								console.log(rezissuetable);
 										//   rezissuetable = JSON.parse(rezissuetable)
 									document.getElementById('responseTextarea1').removeAttribute('newPageIssue')
 									let issues = [];
