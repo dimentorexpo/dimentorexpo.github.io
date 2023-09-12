@@ -69,6 +69,7 @@ var win_Grabber =  // описание элементов окна Grabber
 								  <label><input type="checkbox" name="tagsforfilter" value="request_forwarded_to_outgoing_tp_crm2"> Передача на ТП Исход</label>
 								  <label><input type="checkbox" name="tagsforfilter" value="queue"> Очередь</label>
 								  <label><input type="checkbox" name="tagsforfilter" value="oo"> Ошибка КЦ</label>
+								  <label><input type="checkbox" name="tagsforfilter" value="#configuration"> Комплектации</label>
 							  </div>
 							  <div style="display: flex;">
 								  <button id="hideselecalltags" style="flex-grow:1">🚀Apply</button>
@@ -255,6 +256,10 @@ wintGrabber.onmousedown = function(event) {
     let elemTop = wintGrabber.offsetTop;
 
     function onMouseMove(event) {
+		if (!(event.buttons & 1)) {
+			onMouseUp();
+			return;
+		  }
       let deltaX = event.clientX - startX;
       let deltaY = event.clientY - startY;
 
