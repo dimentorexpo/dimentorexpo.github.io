@@ -126,9 +126,9 @@ function getJiraTask() { // функция получения таски джи�
 		
 		// Получаем ключи задач
 		let issueKeys;
+		const allMatches = [];
 		if (document.getElementById('PSquery').classList.contains('active-query')) {
 			const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-			const allMatches = [];
 			let match;
 			while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
 				allMatches.push(match[1]);
