@@ -201,21 +201,20 @@ function getJiraTask() { // функция получения таски джи�
 		
 		// добавляем страницы если найдено больше 50 таск
 		var spanCount = Math.floor(foundIssuesAmount / 50) + 1;
-		console.log(spanCount);
-
-		var spanElements = "";
-		for (var i = 0; i < spanCount; i++) {
-			if (i == 0) {
-				spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" class="active" name="changeList" value="${i * 50}">${i + 1}</span>`;
-			} else {
-				spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" name="changeList" value="${i * 50}">${i + 1}</span>`;
+		if (spanCount > 1) {
+			var spanElements = "";
+			for (var i = 0; i < spanCount; i++) {
+				if (i == 0) {
+					spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" class="active" name="changeList" value="${i * 50}">${i + 1}</span>`;
+				} else {
+					spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" name="changeList" value="${i * 50}">${i + 1}</span>`;
+				}	
 			}
-
+			document.getElementById('pagesSwitcher').innerHTML = spanElements
 		}
 		// конец добавления страниц
 
 		document.getElementById('foundIssuesAmount').innerHTML = "Всего найдено задач: " + foundIssuesAmount;
-		document.getElementById('pagesSwitcher').innerHTML = spanElements
 
 		let barray = document.querySelectorAll('.jiraissues');
 		for (let j = 0; j < barray.length; j++) {
