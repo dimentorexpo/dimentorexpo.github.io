@@ -4,7 +4,7 @@ let zbpqueryitem
 let customquery = '';
 let iosbugsqueryitem = '';
 let androidbugsqueryitem = '';
-let defqueryitem
+let defqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated`;
 let frqueryitem
 let rezissuetable;
 let PSqueryitem;
@@ -111,6 +111,19 @@ function optionsforfetch(queryName, indexStart) {
 		 "credentials": "include"
 		`
 	return tempvar;
+}
+
+function toggleAndDeactivateQueries(currentId) {
+    let queryIds = ['defaultQuery', 'getiosbugs', 'getandroidbugs', 'customQuery', 'favouriteBugs', 'ZBPQuery', 'freshQuery', 'PSquery'];
+    
+    queryIds.forEach(id => {
+        let element = document.getElementById(id);
+        if (id === currentId) {
+            element.classList.toggle('active-query'); // Переключаем класс для текущего элемента
+        } else {
+            element.classList.remove('active-query'); // Деактивируем все остальные
+        }
+    });
 }
 
 let firstJiraParse = false;
@@ -667,14 +680,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
             defqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated`
             document.getElementById('JQLquery').value = defqueryitem;
             document.getElementById('testJira').value = ""
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-            document.getElementById('PSquery').classList.remove('active-query')
+			toggleAndDeactivateQueries(this.id);
             document.getElementById('issuetable').style.display = ""
             document.getElementById('testJira').style.display = ""
             document.getElementById('getJiraTasks').style.display = ""
@@ -685,14 +691,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 			PSqueryitem = `project = PS AND text ~ "${testJira.value}" ORDER BY Created`
             document.getElementById('JQLquery').value = PSqueryitem;
             document.getElementById('testJira').value = ""
-			this.classList.toggle('active-query')
-			document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
+			toggleAndDeactivateQueries(this.id);
 			document.getElementById('testJira').style.display = ""
 			document.getElementById('issuetable').style.display = ""
 			document.getElementById('getJiraTasks').style.display = ""
@@ -701,14 +700,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
         document.getElementById('getiosbugs').onclick = function () { // если выбрана ios
             document.getElementById('testJira').value = "ios"
-            this.classList.toggle('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
+			toggleAndDeactivateQueries(this.id);
             document.getElementById('issuetable').style.display = ""
             document.getElementById('testJira').style.display = ""
             document.getElementById('getJiraTasks').style.display = ""
@@ -718,14 +710,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
         document.getElementById('getandroidbugs').onclick = function () { // если выбрана android
             document.getElementById('testJira').value = "android"
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
+			toggleAndDeactivateQueries(this.id);
             document.getElementById('issuetable').style.display = ""
             document.getElementById('testJira').style.display = ""
             document.getElementById('getJiraTasks').style.display = ""
@@ -737,14 +722,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
             frqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports >= 0 AND text ~ "${testJira.value}" ORDER BY Created`
             document.getElementById('JQLquery').value = frqueryitem;
             document.getElementById('testJira').value = ""
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
+			toggleAndDeactivateQueries(this.id);
             document.getElementById('issuetable').style.display = ""
             document.getElementById('testJira').style.display = ""
             document.getElementById('getJiraTasks').style.display = ""
@@ -755,14 +733,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
             zbpqueryitem = `issuetype in (Bug, Task) AND status = closed AND resolution in ("Won't Fix", "Won't Do") AND Reports >= 0 AND created >= 2022-01-01 AND text ~ "${testJira.value}" ORDER BY updated`
             document.getElementById('JQLquery').value = zbpqueryitem;
             document.getElementById('testJira').value = ""
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
+			toggleAndDeactivateQueries(this.id);
             document.getElementById('issuetable').style.display = ""
             document.getElementById('testJira').style.display = ""
             document.getElementById('getJiraTasks').style.display = ""
@@ -775,14 +746,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
             }
             document.getElementById('JQLquery').value = localStorage.getItem('customquery');
             document.getElementById('testJira').value = ""
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
+			toggleAndDeactivateQueries(this.id);
             document.getElementById('issuetable').style.display = ""
             document.getElementById('testJira').style.display = ""
             document.getElementById('getJiraTasks').style.display = ""
@@ -791,22 +755,11 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
         document.getElementById('favouriteBugs').onclick = function () { // если выбрана ❤ favourite
             if (document.getElementById('favouriteissuetable').style.display != "") {
-				this.classList.toggle('active-query')
-                document.getElementById('freshQuery').classList.remove('active-query')
-                document.getElementById('defaultQuery').classList.remove('active-query')
-                document.getElementById('customQuery').classList.remove('active-query')
-				document.getElementById('getiosbugs').classList.remove('active-query')
-                document.getElementById('getandroidbugs').classList.remove('active-query')
-				document.getElementById('ZBPQuery').classList.remove('active-query')
-				document.getElementById('PSquery').classList.remove('active-query')
+				toggleAndDeactivateQueries(this.id);
                 document.getElementById('issuetable').style.display = "none"
                 document.getElementById('favouriteissuetable').style.display = ""
                 document.getElementById('testJira').style.display = "none"
                 document.getElementById('getJiraTasks').style.display = "none"
-                // if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
-                // favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                // document.getElementById('favouriteissuetable').innerHTML = favissues;
-                // }
 
                 for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
                     document.getElementsByName('removefromfavourites')[i].onclick = function () {
@@ -918,13 +871,14 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 
 
         document.getElementById('getJiraTasks').onclick = function () {
+			let requesttojiratext = '';
 
             if (document.getElementById('defaultQuery').classList.contains('active-query')) {
                 defqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated`
                 document.getElementById('JQLquery').value = defqueryitem;
-                defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
+                requesttojiratext = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
 
-                document.getElementById('responseTextarea1').value = `{${optionsforfetch(defqueryitem, 0)}}`
+                document.getElementById('responseTextarea1').value = `{${optionsforfetch(requesttojiratext, 0)}}`
 				searchTypeFlag = "defQuery"
 
             } else if(document.getElementById('PSquery').classList.contains('active-query')){
