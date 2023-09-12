@@ -224,7 +224,7 @@ function getJiraTask() { // функция получения таски джи�
 					const lastUsedKey = issueKeys[i * 50 - 1];
 					const nextIndexInAllMatches = allMatches.indexOf(lastUsedKey) + 1;
 					if (nextIndexInAllMatches < allMatches.length) {
-						valueAttribute = allMatches[nextIndexInAllMatches];
+						valueAttribute = nextIndexInAllMatches; 
 					} else {
 						console.error("No matching key found in allMatches for the index:", i);
 					}
