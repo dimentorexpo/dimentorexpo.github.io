@@ -119,10 +119,7 @@ function getJiraTask() { // функция получения таски джи�
 	if (rezissuetable == null)
 		setTimeout(getJiraTask, 1000)
 	else {
-		//   rezissuetable = JSON.parse(rezissuetable)
 		document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-		// let issues = [];
-		// let temporarka;
 		
 		// Получаем ключи задач
 		let issueKeys;
@@ -398,7 +395,6 @@ function switchJiraPages() {
 							
 							setTimeout(function(){
 								rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('newPageIssue'))
-										//   rezissuetable = JSON.parse(rezissuetable)
 									document.getElementById('responseTextarea1').removeAttribute('newPageIssue')
 									let issues = [];
 									let temporarka;
