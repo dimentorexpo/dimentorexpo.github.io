@@ -122,19 +122,8 @@ function getJiraTask() { // функция получения таски джи�
 		document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 		
 		// Получаем ключи задач
-		let issueKeys;
-		const allMatches = [];
-		if (document.getElementById('PSquery').classList.contains('active-query')) {
-			const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-			let match;
-			while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
-				allMatches.push(match[1]);
-			}
-			issueKeys = [...new Set(allMatches)];  // Убираем дубликаты
-		} else {
-			issueKeys = rezissuetable.issueTable.issueKeys;
-		}
-		console.log(allMatches)
+		let issueKeys = rezissuetable.issueTable.issueKeys;
+
 		let issues = '';
 		let temporarka;
 
@@ -215,26 +204,12 @@ function getJiraTask() { // функция получения таски джи�
 
 		var spanElements = "";
 		for (var i = 0; i < spanCount; i++) {
-			let valueAttribute;
-			
-			if (document.getElementById('PSquery').classList.contains('active-query')) {
-				if (i == 0) {
-					valueAttribute = 0;
-				} else {
-					const lastUsedKey = issueKeys[i * 50 - 1];
-					const nextIndexInAllMatches = allMatches.indexOf(lastUsedKey) + 1;
-					if (nextIndexInAllMatches < allMatches.length) {
-						valueAttribute = nextIndexInAllMatches; 
-					} else {
-						console.error("No matching key found in allMatches for the index:", i);
-					}
-				}
+			if (i == 0) {
+				spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" class="active" name="changeList" value="${i * 50}">${i + 1}</span>`;
 			} else {
-				valueAttribute = i * 50;
+				spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" name="changeList" value="${i * 50}">${i + 1}</span>`;
 			}
-			
-			let additionalClass = i === 0 ? "active" : "";
-			spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" class="${additionalClass}" name="changeList" value="${valueAttribute}">${i + 1}</span>`;
+
 		}
 		// стоп тест
 
@@ -399,18 +374,7 @@ function switchJiraPages() {
 									let issues = [];
 									let temporarka;
 									
-									let issueKeys;
-									if (document.getElementById('PSquery').classList.contains('active-query')) {
-										const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-										const allMatches = [];
-										let match;
-										while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
-											allMatches.push(match[1]);
-										}
-										issueKeys = [...new Set(allMatches)];  // Убираем дубликаты
-									} else {
-										issueKeys = rezissuetable.issueTable.issueKeys;
-									}
+									let issueKeys = rezissuetable.issueTable.issueKeys;
 									
 									for (let i = 0; i < rezissuetable.issueTable.displayed; i++) {
 										const matchedNumbers = rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm);
