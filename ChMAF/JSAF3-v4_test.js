@@ -380,7 +380,7 @@ function prepTp() { //функция подготовки расширения �
 		"https://dimentorexpo.github.io/ChMAF/Extras/moment.js", // подключаем модуль для работы с датами и временем
         "https://dimentorexpo.github.io/ChMAF/Modules/TestUsers.js", // модуль тестовых У П
         "https://dimentorexpo.github.io/ChMAF/Modules/Link.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/ChMAF/Modules_test/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
 	    "https://dimentorexpo.github.io/ChMAF/Modules/AlarmClock.js", // модуль будильника
         "https://dimentorexpo.github.io/ChMAF/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов

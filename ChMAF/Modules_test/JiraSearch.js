@@ -407,60 +407,96 @@ function switchJiraPages() {
 										while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
 											allMatches.push(match[1]);
 										}
-										console.log("allMatches" + allMatches)
 										issueKeys = [...new Set(allMatches)];  // Убираем дубликаты
 									} else {
 										issueKeys = rezissuetable.issueTable.issueKeys;
 									}
 									
 									for (let i = 0; i < rezissuetable.issueTable.displayed; i++) {
+										const matchedNumbers = rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm);
+										const currentNumber = matchedNumbers ? matchedNumbers[i] : null;
 
-										if (rezissuetable.issueTable.issueKeys[i] != undefined) {
+										if (currentNumber && rezissuetable.issueTable.issueKeys[i] != undefined) {
 										
-										function filterItems1(item, index) {
-											return index % 2 != 0 ? item : null;
-										}
-
-										function replaceItem1(item) {
-											if (item) { // Проверка, что item не является null или undefined
-												return item.replace('">', ' – ');
+											function filterItems1(item, index) {
+												return index % 2 != 0 ? item : null;
 											}
-											return item; // Возвращаем item без изменений, если он не определен
-										}
 
+											function replaceItem1(item) {
+												if (item) { // Проверка, что item не является null или undefined
+													return item.replace('">', ' – ');
+												}
+												return item; // Возвращаем item без изменений, если он не определен
+											}
 
-										let matchedItems1 = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems1);
-										let searchText1 = document.getElementById('testJira').value;
-										let replacedItem = replaceItem1(matchedItems1[i]);
-										let isMatched1 = false;
+											let matchedItems1 = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems1);
+											let searchText1 = document.getElementById('testJira').value;
+											let replacedItem = replaceItem1(matchedItems1[i]);
+											let isMatched1 = false;
 
-										if (replacedItem) { 
-											isMatched1 = replacedItem.toLowerCase().indexOf(searchText1.toLowerCase()) != -1;
-										}
+											if (replacedItem) { 
+												isMatched1 = replacedItem.toLowerCase().indexOf(searchText1.toLowerCase()) != -1;
+											}
 
-										if (isMatched1) {
-											let replacePattern1 = new RegExp(searchText1, 'i');
-											let replaceValue1 = `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${searchText1.toUpperCase()}</span>`;
-											temporarka = replaceItem1(matchedItems1[i]).replace(replacePattern1, replaceValue1);
+											if (isMatched1) {
+												let replacePattern1 = new RegExp(searchText1, 'i');
+												let replaceValue1 = `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${searchText1.toUpperCase()}</span>`;
+												temporarka = replaceItem1(matchedItems1[i]).replace(replacePattern1, replaceValue1);
+											} else {
+												temporarka = replaceItem1(matchedItems1[i]);
+											}
+											
+											if (issueKeys[i] != undefined) {
+											
+												issues += '<span style="color: #00FA9A">&#5129;</span>' + 
+												`<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + 
+												' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + 
+												`${rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i]}` + '</span>' + 
+												`<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKeys[Number(pageSwArr[d].getAttribute('value'))+i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` +
+												temporarka + '</a>' + 
+												`<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[Number(pageSwArr[d].getAttribute('value')) + i]}` + '</span>' + 
+												'<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + 
+												'<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + 
+												'<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
+											}
+										} else if (rezissuetable.issueTable.issueKeys[i] != undefined) {
+											function filterItems1(item, index) {
+												return index % 2 != 0 ? item : null;
+											}
+
+											function replaceItem1(item) {
+												if (item) { // Проверка, что item не является null или undefined
+													return item.replace('">', ' – ');
+												}
+												return item; // Возвращаем item без изменений, если он не определен
+											}
+
+											let matchedItems1 = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems1);
+											let searchText1 = document.getElementById('testJira').value;
+											let replacedItem = replaceItem1(matchedItems1[i]);
+											let isMatched1 = false;
+
+											if (replacedItem) { 
+												isMatched1 = replacedItem.toLowerCase().indexOf(searchText1.toLowerCase()) != -1;
+											}
+
+											if (isMatched1) {
+												let replacePattern1 = new RegExp(searchText1, 'i');
+												let replaceValue1 = `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${searchText1.toUpperCase()}</span>`;
+												temporarka = replaceItem1(matchedItems1[i]).replace(replacePattern1, replaceValue1);
+											} else {
+												temporarka = replaceItem1(matchedItems1[i]);
+											}
+											
+											if (issueKeys[i] != undefined) {
+												issues += '<span style="color: #00FA9A">&#5129;</span>' + 
+												`<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + 
+												' ' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + 
+												`<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}</span>` + 
+												'<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>';
+											}
 										} else {
-											temporarka = replaceItem1(matchedItems1[i]);
-										}
-										
-										if (issueKeys[i] != undefined) {
-										
-										issues += '<span style="color: #00FA9A">&#5129;</span>' + 
-										`<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + 
-										' ' + '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + 
-										`${rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm)[i]}` + '</span>' + 
-										`<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKeys[Number(pageSwArr[d].getAttribute('value'))+i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` +
-										temporarka + '</a>' + 
-										`<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[Number(pageSwArr[d].getAttribute('value')) + i]}` + '</span>' + 
-										'<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + 
-										'<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + 
-										'<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
-
-
-										}
+											console.error("Не удалось найти соответствие для индекса: " + i);
 										}
 									}
 
