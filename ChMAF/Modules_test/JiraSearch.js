@@ -116,7 +116,6 @@ function optionsforfetch(queryName, indexStart) {
 let firstJiraParse = false;
 function getJiraTask() { // функция получения таски джира
 	rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
-	console.log("rezissuetable " + rezissuetable.issueTable.table);
 	if (rezissuetable == null)
 		setTimeout(getJiraTask, 1000)
 	else {
@@ -129,7 +128,7 @@ function getJiraTask() { // функция получения таски джи�
 		let issueKeys;
 		if (document.getElementById('PSquery').classList.contains('active-query')) {
 			const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-			let allMatches = [];
+			const allMatches = [];
 			let match;
 			while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
 				allMatches.push(match[1]);
@@ -385,7 +384,6 @@ function switchJiraPages() {
 							
 							setTimeout(function(){
 								rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('newPageIssue'))
-								console.log("rezissuetable " + rezissuetable.issueTable.table);
 										//   rezissuetable = JSON.parse(rezissuetable)
 									document.getElementById('responseTextarea1').removeAttribute('newPageIssue')
 									let issues = [];
@@ -394,18 +392,19 @@ function switchJiraPages() {
 									let issueKeys;
 									if (document.getElementById('PSquery').classList.contains('active-query')) {
 										const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-										let allMatches = [];
+										const allMatches = [];
 										let match;
 										while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
 											allMatches.push(match[1]);
 										}
+										console.log("allMatches" + allMatches)
 										issueKeys = [...new Set(allMatches)];  // Убираем дубликаты
 									} else {
 										issueKeys = rezissuetable.issueTable.issueKeys;
 									}
 									
-									
-									
+									console.log("issueKeys " + issueKeys)
+									console.log ("rezissuetable.issueTable.displayed " + rezissuetable.issueTable.displayed)
 									for (let i = 0; i < rezissuetable.issueTable.displayed; i++) {
 
 										if (rezissuetable.issueTable.issueKeys[i] != undefined) {
