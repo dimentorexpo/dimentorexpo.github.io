@@ -218,12 +218,26 @@ function getJiraTask() { // функция получения таски джи�
 
 		var spanElements = "";
 		for (var i = 0; i < spanCount; i++) {
-			if (i == 0) {
-				spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" class="active" name="changeList" value="${i * 50}">${i + 1}</span>`;
+			let valueAttribute;
+			
+			if (document.getElementById('PSquery').classList.contains('active-query')) {
+				if (i == 0) {
+					valueAttribute = 0;
+				} else {
+					const lastUsedKey = issueKeys[i * 50 - 1];
+					const nextIndexInAllMatches = allMatches.indexOf(lastUsedKey) + 1;
+					if (nextIndexInAllMatches < allMatches.length) {
+						valueAttribute = allMatches[nextIndexInAllMatches];
+					} else {
+						console.error("No matching key found in allMatches for the index:", i);
+					}
+				}
 			} else {
-				spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" name="changeList" value="${i * 50}">${i + 1}</span>`;
+				valueAttribute = i * 50;
 			}
-
+			
+			let additionalClass = i === 0 ? "active" : "";
+			spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" class="${additionalClass}" name="changeList" value="${valueAttribute}">${i + 1}</span>`;
 		}
 		// стоп тест
 
@@ -358,9 +372,9 @@ function switchJiraPages() {
 								case 'zbpQuery':
 									 document.getElementById('responseTextarea1').value = `{${optionsforfetch(zbpqueryitem, pageSwArr[d].getAttribute('value'))}}`
 								break;
-								//case 'PSQuery':
-								//    document.getElementById('responseTextarea1').value = `{${optionsforfetch(PSqueryitem, pageSwArr[d].getAttribute('value'))}}`
-								//break;
+								case 'PSQuery':
+								    document.getElementById('responseTextarea1').value = `{${optionsforfetch(PSqueryitem, pageSwArr[d].getAttribute('value'))}}`
+								break;
 								case 'androidQuery':
 									document.getElementById('responseTextarea1').value = `{${optionsforfetch(androidbugsqueryitem, pageSwArr[d].getAttribute('value'))}}`
 								break;
@@ -403,8 +417,6 @@ function switchJiraPages() {
 										issueKeys = rezissuetable.issueTable.issueKeys;
 									}
 									
-									console.log("issueKeys " + issueKeys)
-									console.log ("rezissuetable.issueTable.displayed " + rezissuetable.issueTable.displayed)
 									for (let i = 0; i < rezissuetable.issueTable.displayed; i++) {
 
 										if (rezissuetable.issueTable.issueKeys[i] != undefined) {
