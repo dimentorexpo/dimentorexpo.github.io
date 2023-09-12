@@ -115,9 +115,9 @@ function optionsforfetch(queryName, indexStart) {
 
 let firstJiraParse = false;
 function getJiraTask() { // функция получения таски джира
-	rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+	rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'));
 	if (rezissuetable == null)
-		setTimeout(getJiraTask, 1000)
+		setTimeout(getJiraTask, 1000);
 	else {
 		document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 		
