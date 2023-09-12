@@ -129,7 +129,7 @@ function getJiraTask() { // функция получения таски джи�
 		let issueKeys;
 		if (document.getElementById('PSquery').classList.contains('active-query')) {
 			const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-			const allMatches = [];
+			let allMatches = [];
 			let match;
 			while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
 				allMatches.push(match[1]);
@@ -394,7 +394,7 @@ function switchJiraPages() {
 									let issueKeys;
 									if (document.getElementById('PSquery').classList.contains('active-query')) {
 										const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-										const allMatches = [];
+										let allMatches = [];
 										let match;
 										while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
 											allMatches.push(match[1]);
