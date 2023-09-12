@@ -592,6 +592,13 @@ document.getElementById('ClearJiraData').onclick = function () {  // функц�
     document.getElementById('testJira').value = '';
     document.getElementById('issuetable').innerText = '';
     document.getElementById('foundIssuesAmount').innerText = '';
+	var pagesSwitcher = document.getElementById('pagesSwitcher');
+
+	if (pagesSwitcher.children.length !== 0) {
+		while (pagesSwitcher.firstChild) {
+			pagesSwitcher.removeChild(pagesSwitcher.firstChild);
+		}
+	}
 }
 
 document.getElementById('jirainstr').onclick = function () {
