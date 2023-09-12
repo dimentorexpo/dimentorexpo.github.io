@@ -4,8 +4,8 @@ let zbpqueryitem
 let customquery = '';
 let iosbugsqueryitem = '';
 let androidbugsqueryitem = '';
-let defqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated`;
-let frqueryitem
+let defqueryitem ;
+let frqueryitem ;
 let rezissuetable;
 let PSqueryitem;
 var win_Jira =  // описание элементов окна Поиска по Jira
