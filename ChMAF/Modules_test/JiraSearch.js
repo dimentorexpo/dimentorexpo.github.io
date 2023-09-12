@@ -199,8 +199,9 @@ function getJiraTask() { // функция получения таски джи�
 
 		document.getElementById('issuetable').innerHTML = issues;
 		
-									//старт тест
+		// добавляем страницы если найдено больше 50 таск
 		var spanCount = Math.floor(foundIssuesAmount / 50) + 1;
+		console.log(spanCount);
 
 		var spanElements = "";
 		for (var i = 0; i < spanCount; i++) {
@@ -211,7 +212,7 @@ function getJiraTask() { // функция получения таски джи�
 			}
 
 		}
-		// стоп тест
+		// конец добавления страниц
 
 		document.getElementById('foundIssuesAmount').innerHTML = "Всего найдено задач: " + foundIssuesAmount;
 		document.getElementById('pagesSwitcher').innerHTML = spanElements
