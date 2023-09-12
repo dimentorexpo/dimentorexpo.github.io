@@ -358,9 +358,9 @@ function switchJiraPages() {
 								case 'zbpQuery':
 									 document.getElementById('responseTextarea1').value = `{${optionsforfetch(zbpqueryitem, pageSwArr[d].getAttribute('value'))}}`
 								break;
-								case 'PSQuery':
-								    document.getElementById('responseTextarea1').value = `{${optionsforfetch(PSqueryitem, pageSwArr[d].getAttribute('value'))}}`
-								break;
+								//case 'PSQuery':
+								//    document.getElementById('responseTextarea1').value = `{${optionsforfetch(PSqueryitem, pageSwArr[d].getAttribute('value'))}}`
+								//break;
 								case 'androidQuery':
 									document.getElementById('responseTextarea1').value = `{${optionsforfetch(androidbugsqueryitem, pageSwArr[d].getAttribute('value'))}}`
 								break;
