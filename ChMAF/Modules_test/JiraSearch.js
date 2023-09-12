@@ -134,7 +134,7 @@ function getJiraTask() { // функция получения таски джи�
 		} else {
 			issueKeys = rezissuetable.issueTable.issueKeys;
 		}
-
+		console.log(allMatches)
 		let issues = '';
 		let temporarka;
 
