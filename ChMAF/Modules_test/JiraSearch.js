@@ -760,8 +760,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         searchJiraByEnter.addEventListener('keydown', handleSearchJiraByEnter);
         searchJiraByEnterInput.addEventListener('keydown', handleSearchJiraByEnter);
 
-
-
     } else if (document.getElementById('AF_Jira').style.display == '') {
         document.getElementById('AF_Jira').style.display = 'none'
 		document.getElementById('MainMenuBtn').classList.remove('activeScriptBtn')
