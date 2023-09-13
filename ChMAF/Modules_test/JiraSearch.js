@@ -210,7 +210,7 @@ function addJiraIssueOnClickEvent(barray, issueKeys) { // обработчик �
 			let chatId = getChatId();
 			if (chatId){
 				if (window.location.href.includes('tickets/assigned')) {
-				sendComment("https://jira.skyeng.tech/browse/" + rissueKeys[j])
+				sendComment("https://jira.skyeng.tech/browse/" + issueKeys[j])
 			}
 			fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
 				"headers": {
