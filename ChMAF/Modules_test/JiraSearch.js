@@ -1,6 +1,5 @@
 let indexStart;
 let customquery = '';
-let rezissuetable;
 let requesttojiratext;
 const textArea1 = document.getElementById('responseTextarea1');
 const textArea2 = document.getElementById('responseTextarea2');
@@ -201,13 +200,13 @@ function addPageSwitcher(spanCount) { // добавляем страницы д�
     document.getElementById('pagesSwitcher').innerHTML = spanElements;
 }
 
-function addJiraIssueOnClickEvent(barray) { // обработчик нажатия на задачу
+function addJiraIssueOnClickEvent(barray, issueKeys) { // обработчик нажатия на задачу
 	for (let j = 0; j < barray.length; j++) {
 		barray[j].onclick = function () {
 			let chatId = getChatId();
 			if (chatId){
 				if (window.location.href.includes('tickets/assigned')) {
-				sendComment("https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j])
+				sendComment("https://jira.skyeng.tech/browse/" + rissueKeys[j])
 			}
 			fetch("https://skyeng.autofaq.ai/api/conversation/" + chatId + "/payload", {
 				"headers": {
@@ -217,7 +216,7 @@ function addJiraIssueOnClickEvent(barray) { // обработчик нажати
 					"sec-fetch-mode": "cors",
 					"sec-fetch-site": "same-origin"
 				},
-				"body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + rezissuetable.issueTable.issueKeys[j] + "\"}]}",
+				"body": "{\"conversationId\":\"${b[5]}\",\"elements\":[{\"name\":\"taskUrl\",\"value\":\"https://jira.skyeng.tech/browse/" + issueKeys[j] + "\"}]}",
 				"method": "POST",
 				"mode": "cors",
 				"credentials": "include"
@@ -250,12 +249,12 @@ function addFavouritesOnClickEvent(addtofarr, tagsarray, massivissueids, outputT
 	}
 }
 
-function addRefreshIssueOnClickEvent(refreshissuesarr) {
+function addRefreshIssueOnClickEvent(refreshissuesarr, issueIds); {
 	for (let f = 0; f < refreshissuesarr.length; f++) {
 		refreshissuesarr[f].onclick = function () {
 
 			textArea1.value = '{}'
-			textArea2.value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + rezissuetable.issueTable.issueIds[f]
+			textArea2.value = "https://jira.skyeng.tech/secure/AjaxIssueEditAction!default.jspa?decorator=none&issueId=" + issueIds[f]
 			textArea3.value = 'reportscount'
 			sendRespbtn.click()
 
@@ -285,7 +284,7 @@ function addRefreshIssueOnClickEvent(refreshissuesarr) {
 							"x-requested-with": "XMLHttpRequest",
 							"x-sitemesh-off": "true"
 									},
-						"body": "customfield_15410=${increasedcount}&issueId=${rezissuetable.issueTable.issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
+						"body": "customfield_15410=${increasedcount}&issueId=${issueIds[f]}&atl_token=${jira_token}&singleFieldEdit=true&fieldsToForcePresent=customfield_15410",
 						  "method": "POST",
 						  "mode": "cors",
 						  "credentials": "include"
@@ -341,7 +340,8 @@ function getJiraTask() { // поиск задач в jira
 
     document.getElementById('foundIssuesAmount').innerHTML = `Всего найдено задач: ${foundIssuesAmount}`;
 
-    addJiraIssueOnClickEvent(document.querySelectorAll('.jiraissues'));
+	const barray = document.querySelectorAll('.jiraissues');
+    addJiraIssueOnClickEvent(barray, issueKeys);
 
     addFavouritesOnClickEvent(
         document.getElementsByName('addtofavourites'),
@@ -350,7 +350,8 @@ function getJiraTask() { // поиск задач в jira
         document.getElementById('favouriteissuetable')
     );
 
-    addRefreshIssueOnClickEvent(document.querySelectorAll('.refreshissues'));
+	const refreshissuesarr = document.querySelectorAll('.refreshissues');
+	addRefreshIssueOnClickEvent(refreshissuesarr, issueIds);
 
     setTimeout(() => { issues = []; }, 5000);
     
@@ -405,7 +406,7 @@ function switchJiraPages() {
                 document.getElementById('issuetable').innerHTML = issues;
 
                 const barray = document.querySelectorAll('.jiraissues');
-                addJiraIssueOnClickEvent(barray);
+                addJiraIssueOnClickEvent(barray, issueKeys);
 
 				addFavouritesOnClickEvent(
 					document.getElementsByName('addtofavourites'),
@@ -415,7 +416,7 @@ function switchJiraPages() {
 				);
 
                 const refreshissuesarr = document.querySelectorAll('.refreshissues');
-                addRefreshIssueOnClickEvent(refreshissuesarr);
+                addRefreshIssueOnClickEvent(refreshissuesarr, issueIds);
                 
             }, 1000);
         }
