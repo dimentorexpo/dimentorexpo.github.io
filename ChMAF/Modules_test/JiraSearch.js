@@ -176,17 +176,16 @@ function formatIssue(item, currentNumber, issueKey, searchText, currentpic, curr
     }
 
     let result = '<span style="color: #00FA9A">&#5129;</span>' +
-        `<img src="${currentpic}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` +
-        ' ' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKey}" target="_blank" style="margin-left:5px; color: #ffe4c4">${temporarka}</a>` +
-        `<span name="issueIds" style="display:none">${currentIds}</span>` +
-        '<span class="jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
+        `<img src="${currentpic}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">`;
 
     if (currentNumber) {
-        result += '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + currentNumber + '</span>';
+        result += '<span class="newcount" style="width:20px; margin-left: 5px; background:#3CB371; padding:2px; padding-left:6px; font-weight:700; border-radius:10px;">' + currentNumber + ' </span>';
     }
 
-    result += '<span class="refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' +
-        '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>';
+    result += `<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKey}" target="_blank" style="margin-left:5px; color: #ffe4c4">${temporarka}</a>` +
+	`<span name="issueIds" style="display:none">${currentIds}</span>` +
+	'<span class="jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' +' <span class="refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' +
+    '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>';
 
     return result;
 }
