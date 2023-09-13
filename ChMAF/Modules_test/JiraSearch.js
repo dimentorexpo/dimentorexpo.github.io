@@ -253,7 +253,7 @@ function addFavouritesOnClickEvent(addtofarr, tagsarray, massivissueids, outputT
 	}
 }
 
-function addRefreshIssueOnClickEvent(refreshissuesarr, issueIds); {
+function addRefreshIssueOnClickEvent(refreshissuesarr, issueIds) {
 	for (let f = 0; f < refreshissuesarr.length; f++) {
 		refreshissuesarr[f].onclick = function () {
 
