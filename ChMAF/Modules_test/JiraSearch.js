@@ -53,6 +53,7 @@ wintJira.style.display = 'none';
 wintJira.setAttribute('id', 'AF_Jira');
 wintJira.innerHTML = win_Jira;
 
+// начало изменения позиции окна поиска по Jira
 wintJira.onmousedown = function(event) {
   if (checkelementtype(event)) {
     let startX = event.clientX;
@@ -833,7 +834,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         }
 		// end of favouritebugs
 
-
 		document.getElementById('getJiraTasks').onclick = function () {
     
 			const queries = {
@@ -860,8 +860,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 			document.getElementById('sendResponse').click();
 		
 			setTimeout(getJiraTask, 1000);					
-		}
-		
+		}		
 
         // Просмотр таски по джира по ее коду и номеру
         document.getElementById('getJiraTasks').ondblclick = function () {
