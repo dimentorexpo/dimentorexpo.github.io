@@ -155,8 +155,6 @@ function getJiraTask() { // функция получения таски джи�
 		setTimeout(getJiraTask, 1000);
 	else {
 		document.getElementById('responseTextarea1').removeAttribute('getissuetable')
-		// let issues = [];
-		// let temporarka;
 		
 		// Получаем ключи задач
 		let issueKeys = rezissuetable.issueTable.issueKeys;
@@ -607,6 +605,10 @@ document.getElementById('ClearJiraData').onclick = function () {  // функц�
     document.getElementById('testJira').value = '';
     document.getElementById('issuetable').innerText = '';
     document.getElementById('foundIssuesAmount').innerText = '';
+	ClearPages();
+}
+
+function ClearPages() { // Удаляем страницы найденных задачь
 	var pagesSwitcher = document.getElementById('pagesSwitcher');
 
 	if (pagesSwitcher.children.length !== 0) {
@@ -627,11 +629,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         document.getElementById('idmymenu').style.display = 'none'
 
         document.getElementById('JQLquery').innerText = defqueryitem;
-        frqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports >= 0 AND text ~ "${testJira.value}" ORDER BY Created`
-        zbpqueryitem = `issuetype in (Bug, Task) AND status = closed AND resolution in ("Won't Fix", "Won't Do") AND Reports >= 0 AND created >= 2022-01-01 AND text ~ "${testJira.value}" ORDER BY updated`
-        customquery = '';
-        iosbugsqueryitem = '';
-        androidbugsqueryitem = '';
 
         function checkJiraToken() {
             // Set initial values for the textarea elements
@@ -842,6 +839,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 		// end of favouritebugs
 
         document.getElementById('getJiraTasks').onclick = function () {
+			ClearPages();
 
 			const queries = {
 				'defaultQuery': defqueryitem,
