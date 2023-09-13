@@ -142,6 +142,8 @@ function showelemonpages() { // открываем элементы окна е�
 	document.getElementById('testJira').style.display = ""
 	document.getElementById('issuetable').style.display = ""
 	document.getElementById('getJiraTasks').style.display = ""
+	document.getElementById('foundIssuesAmount').style.display = "";
+	document.getElementById('pagesSwitcher').style.display = "";
 	document.getElementById('favouriteissuetable').style.display = "none"
 }
 
@@ -670,39 +672,39 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         document.getElementById('defaultQuery').onclick = function () { // если выбрана default
             toggleAndDeactivateQueries(this.id);
 			document.getElementById('JQLquery').value = defqueryitem;
-            showelemonpages()
+            showelemonpages();
         }
 		
 		document.getElementById('PSquery').onclick = function() { //Если выбрана PS
             toggleAndDeactivateQueries(this.id);
 			document.getElementById('JQLquery').value = PSqueryitem;
-			showelemonpages()
+			showelemonpages();
 		}
 
         document.getElementById('getiosbugs').onclick = function () { // если выбрана ios
             toggleAndDeactivateQueries(this.id);
-			showelemonpages()
-			document.getElementById('testJira').value = "ios"
-            document.getElementById('getJiraTasks').click()
+			showelemonpages();
+			document.getElementById('testJira').value = "ios";
+            document.getElementById('getJiraTasks').click();
         }
 
         document.getElementById('getandroidbugs').onclick = function () { // если выбрана android
             toggleAndDeactivateQueries(this.id);
-			document.getElementById('testJira').value = "android"
-			showelemonpages()
-            document.getElementById('getJiraTasks').click()
+			showelemonpages();
+			document.getElementById('testJira').value = "android";
+            document.getElementById('getJiraTasks').click();
         }
 
         document.getElementById('freshQuery').onclick = function () {  // если выбрана fresh
             toggleAndDeactivateQueries(this.id);
 			document.getElementById('JQLquery').value = frqueryitem;
-			showelemonpages()
+			showelemonpages();
         }
 
         document.getElementById('ZBPQuery').onclick = function () {  // если выбрана fresh
             toggleAndDeactivateQueries(this.id);
 			document.getElementById('JQLquery').value = zbpqueryitem;
-			showelemonpages()
+			showelemonpages();
         }
 
         document.getElementById('customQuery').onclick = function () { // если выбрана custom
@@ -711,16 +713,18 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                 localStorage.setItem('customquery', this.value)
             }
             document.getElementById('JQLquery').value = localStorage.getItem('customquery');
-			showelemonpages()
+			showelemonpages();
         }
 
         document.getElementById('favouriteBugs').onclick = function () { // если выбрана ❤ favourite
             if (document.getElementById('favouriteissuetable').style.display != "") {
 				toggleAndDeactivateQueries(this.id);
-                document.getElementById('issuetable').style.display = "none"
-                document.getElementById('testJira').style.display = "none"
-                document.getElementById('getJiraTasks').style.display = "none"
-				document.getElementById('favouriteissuetable').style.display = ""
+                document.getElementById('issuetable').style.display = "none";
+                document.getElementById('testJira').style.display = "none";
+                document.getElementById('getJiraTasks').style.display = "none";
+				document.getElementById('foundIssuesAmount').style.display = "none";
+				document.getElementById('pagesSwitcher').style.display = "none";
+				document.getElementById('favouriteissuetable').style.display = "";
 
                 for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
                     document.getElementsByName('removefromfavourites')[i].onclick = function () {
@@ -751,7 +755,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                             "mode": "cors",
                             "credentials": "include"
                         })
-
                     }
                 }
 
@@ -907,9 +910,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                 }
             }
 
-            setTimeout(getJiraTask1, 1000)
-			
-			
+            setTimeout(getJiraTask1, 1000)			
         }
 
         const searchJiraByEnter = document.querySelector('#testJira');
