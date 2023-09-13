@@ -164,7 +164,7 @@ function replaceItem(item) { // Функция заменяет '">', на ' –
     return item;
 }
 
-function formatIssue(item, currentNumber, issueKey, searchText) { // форматируем полученные данные для отображения задач из Jira
+function formatIssue(item, currentNumber, issueKey, searchText, currentpic, currentIds) { // форматируем полученные данные для отображения задач из Jira
     let temporarka = replaceItem(item);
 
     const isMatched = temporarka && temporarka.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
@@ -176,9 +176,9 @@ function formatIssue(item, currentNumber, issueKey, searchText) { // форма�
     }
 
     let result = '<span style="color: #00FA9A">&#5129;</span>' +
-        `<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` +
+        `<img src="${currentpic}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` +
         ' ' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKey}" target="_blank" style="margin-left:5px; color: #ffe4c4">${temporarka}</a>` +
-        `<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}</span>` +
+        `<span name="issueIds" style="display:none">${currentIds}</span>` +
         '<span class="jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>';
 
     if (currentNumber) {
@@ -315,7 +315,7 @@ function getJiraTask() { // поиск задач в jira
 
     textArea1.removeAttribute('getissuetable');
 
-    const { issueKeys, table } = rezissuetable.issueTable;
+    const { issueKeys, table, issueIds } = rezissuetable.issueTable;
     const matchedItems = table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems);
     const matchedNumbers = table.match(/(">.)*?([0-9]+)\n/gm);
     const searchText = document.getElementById('testJira').value;
@@ -325,9 +325,11 @@ function getJiraTask() { // поиск задач в jira
         const currentNumber = matchedNumbers ? matchedNumbers[i] : null;
         const currentIssue = matchedItems[i];
         const currentKey = issueKeys[i];
+		const currentIds = issueIds[i];
+		const currentpic = table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i];
 
         if (currentIssue && currentKey) {
-            issues += formatIssue(currentIssue, currentNumber, currentKey, searchText);
+            issues += formatIssue(currentIssue, currentNumber, currentKey, searchText, currentpic, currentIds);
         } else {
             console.error(`Не удалось найти соответствие для индекса: ${i}`);
         }
