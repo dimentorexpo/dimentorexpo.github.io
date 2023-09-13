@@ -1,13 +1,7 @@
 let indexStart;
-let searchTypeFlag = '';
-let zbpqueryitem
 let customquery = '';
-let iosbugsqueryitem = '';
-let androidbugsqueryitem = '';
-let defqueryitem
-let frqueryitem
 let rezissuetable;
-let PSqueryitem;
+let requesttojiratext;
 var win_Jira =  // описание элементов окна Поиска по Jira
     `<div style="display: flex; width: 550px;">
         <span style="width: 550px">
@@ -26,7 +20,7 @@ var win_Jira =  // описание элементов окна Поиска п�
                             <button id="ZBPQuery" title="Страница для поиска Zero Bug Policy">🙅‍♂️ZeroBug</button>
 							<button id="freshQuery" title="Страница при поиске по ключевому слову, выводящая свежесозданные баги в порядке убывания и с 0 Support Tab с заранее записанным JQL запросом">🍀Fresh</button>
 							<button id="customQuery" title="Страница для ручного составления JQL запроса. Поле для ввода поиска не используется, только лишь верхняя часть от выбора отдела до ввода искомого текста в двойных кавычках после надписи text~">📝Custom</button>
-							<button id="PSquery" title="Страница для поиска по ID или тексту срези запросов в Project Support, потому как в Mattermost может не найти">PS</button>
+							<button id="PSquery" title="Страница для поиска по ID или тексту срези запросов в Project Support, потому как в Mattermost может не найти">😵PS</button>
 							<button id="getiosbugs" title="По клику сразу ищет баги по iOS как если бы выискали стандартно с вводом текста поиска iOS">🍏iOS</button>
 							<button id="getandroidbugs" title="По клику сразу ищет баги по iOS как если бы выискали стандартно с вводом текста поиска Android">🤖Android</button>
 							<button id="favouriteBugs" title="Страница с сохраненными багами для быстрого доступа">❤</button>
@@ -41,7 +35,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 								<span style="color:bisque" id="foundIssuesAmount"></span>
                         </div>
 						<div>
-							<idv id="pagesSwitcher" style="display: flex;    color: bisque;    cursor: pointer;    justify-content: space-evenly; padding:5px;"></div>
+							<div id="pagesSwitcher" style="display:flex; color:bisque; cursor:pointer; justify-content:space-evenly; padding:5px;"></div>
 						</div>
                 </span>
         </span>
@@ -59,6 +53,7 @@ wintJira.style.display = 'none';
 wintJira.setAttribute('id', 'AF_Jira');
 wintJira.innerHTML = win_Jira;
 
+// начало изменения позиции окна поиска по Jira
 wintJira.onmousedown = function(event) {
   if (checkelementtype(event)) {
     let startX = event.clientX;
@@ -113,30 +108,58 @@ function optionsforfetch(queryName, indexStart) {
 	return tempvar;
 }
 
+const JQLTemplates = { // шаблоны JQL запросов
+    defqueryitem: 'issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated',
+    frqueryitem: 'issuetype in (Bug, Task) AND status != closed AND Reports >= 0 AND text ~ "${testJira.value}" ORDER BY Created',
+    zbpqueryitem: 'issuetype in (Bug, Task) AND status = closed AND resolution in ("Won\'t Fix", "Won\'t Do") AND Reports >= 0 AND created >= 2022-01-01 AND text ~ "${testJira.value}" ORDER BY updated',
+    iosbugsqueryitem: 'issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated',
+    androidbugsqueryitem: 'issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated',
+    PSqueryitem: 'project = PS AND text ~ "${testJira.value}" ORDER BY Created'
+};
+
+for (const [key, template] of Object.entries(JQLTemplates)) { // передача запросов в форму
+    Object.defineProperty(window, key, {
+        get: function() {
+            return template.replace('${testJira.value}', testJira.value);
+        }
+    });
+}
+
+function toggleAndDeactivateQueries(currentId) { // Смена класса кнопок типа запросов
+    let queryIds = ['defaultQuery', 'getiosbugs', 'getandroidbugs', 'customQuery', 'favouriteBugs', 'ZBPQuery', 'freshQuery', 'PSquery'];
+    
+    queryIds.forEach(id => {
+        let element = document.getElementById(id);
+        if (id === currentId) {
+            element.classList.toggle('active-query'); // Переключаем класс для текущего элемента
+        } else {
+            element.classList.remove('active-query'); // Деактивируем все остальные
+        }
+    });
+}
+
+function showelemonpages() { // открываем элементы окна если они скрыты
+	document.getElementById('testJira').value = ""
+	document.getElementById('testJira').style.display = ""
+	document.getElementById('issuetable').style.display = ""
+	document.getElementById('getJiraTasks').style.display = ""
+	document.getElementById('foundIssuesAmount').style.display = "";
+	document.getElementById('pagesSwitcher').style.display = "flex";
+	document.getElementById('favouriteissuetable').style.display = "none"
+}
+
 let firstJiraParse = false;
 function getJiraTask() { // функция получения таски джира
-	rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'))
+	rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('getissuetable'));
 	if (rezissuetable == null)
-		setTimeout(getJiraTask, 1000)
+		setTimeout(getJiraTask, 1000);
 	else {
-		//   rezissuetable = JSON.parse(rezissuetable)
 		document.getElementById('responseTextarea1').removeAttribute('getissuetable')
 		// let issues = [];
 		// let temporarka;
 		
 		// Получаем ключи задач
-		let issueKeys;
-		if (document.getElementById('PSquery').classList.contains('active-query')) {
-			const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-			const allMatches = [];
-			let match;
-			while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
-				allMatches.push(match[1]);
-			}
-			issueKeys = [...new Set(allMatches)];  // Убираем дубликаты
-		} else {
-			issueKeys = rezissuetable.issueTable.issueKeys;
-		}
+		let issueKeys = rezissuetable.issueTable.issueKeys;
 
 		let issues = '';
 		let temporarka;
@@ -213,9 +236,9 @@ function getJiraTask() { // функция получения таски джи�
 
 		document.getElementById('issuetable').innerHTML = issues;
 		
-									//старт тест
+		// добавляем страницы если найдено больше 50 таск
 		var spanCount = Math.floor(foundIssuesAmount / 50) + 1;
-
+		if (spanCount > 1) {
 		var spanElements = "";
 		for (var i = 0; i < spanCount; i++) {
 			if (i == 0) {
@@ -223,12 +246,12 @@ function getJiraTask() { // функция получения таски джи�
 			} else {
 				spanElements += `<span style="Flex: 1; background: darkslateblue; text-align: center; border: 1px solid steelblue;" name="changeList" value="${i * 50}">${i + 1}</span>`;
 			}
-
+			}
+		document.getElementById('pagesSwitcher').innerHTML = spanElements
 		}
-		// стоп тест
+		// конец добавления страниц
 
 		document.getElementById('foundIssuesAmount').innerHTML = "Всего найдено задач: " + foundIssuesAmount;
-		document.getElementById('pagesSwitcher').innerHTML = spanElements
 
 		let barray = document.querySelectorAll('.jiraissues');
 		for (let j = 0; j < barray.length; j++) {
@@ -340,7 +363,7 @@ function getJiraTask() { // функция получения таски джи�
 }
 
 function switchJiraPages() {
-					
+	if (requesttojiratext) {
 					let pageSwArr = document.getElementsByName('changeList')
 					for (let d=0; d<pageSwArr.length; d++) {
 						pageSwArr[d].onclick = function() {
@@ -354,57 +377,24 @@ function switchJiraPages() {
 							// Добавление класса 'active' к текущему элементу
 							this.classList.add('active');
 							
-							switch (searchTypeFlag) {
-								case 'zbpQuery':
-									 document.getElementById('responseTextarea1').value = `{${optionsforfetch(zbpqueryitem, pageSwArr[d].getAttribute('value'))}}`
-								break;
-								case 'androidQuery':
-									document.getElementById('responseTextarea1').value = `{${optionsforfetch(androidbugsqueryitem, pageSwArr[d].getAttribute('value'))}}`
-								break;
-								case 'iosQuery':
-									document.getElementById('responseTextarea1').value = `{${optionsforfetch(iosbugsqueryitem, pageSwArr[d].getAttribute('value'))}}`
-								break;
-								case 'custQuery':
-								    document.getElementById('responseTextarea1').value = `{${optionsforfetch(customquery, pageSwArr[d].getAttribute('value'))}}`
-								break;
-								case 'freshQuery':
-									document.getElementById('responseTextarea1').value = `{${optionsforfetch(frqueryitem, pageSwArr[d].getAttribute('value'))}}`
-								break;
-								case 'defQuery':
-								    document.getElementById('responseTextarea1').value = `{${optionsforfetch(defqueryitem, pageSwArr[d].getAttribute('value'))}}`
-								break;
-							}
-							
+				document.getElementById('responseTextarea1').value = `{${optionsforfetch(requesttojiratext, pageSwArr[d].getAttribute('value'))}}`											
 							document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
 							document.getElementById('responseTextarea3').value = 'newPageIssue'
 							document.getElementById('sendResponse').click()
 							
 							setTimeout(function(){
 								rezissuetable = JSON.parse(document.getElementById('responseTextarea1').getAttribute('newPageIssue'))
-								
-										//   rezissuetable = JSON.parse(rezissuetable)
 									document.getElementById('responseTextarea1').removeAttribute('newPageIssue')
 									let issues = [];
 									let temporarka;
 									
-									let issueKeys;
-									if (document.getElementById('PSquery').classList.contains('active-query')) {
-										const regex = /data-issue-key=\"(PS-\d+)\"/gm;
-										const allMatches = [];
-										let match;
-										while ((match = regex.exec(rezissuetable.issueTable.table)) !== null) {
-											allMatches.push(match[1]);
-										}
-										issueKeys = [...new Set(allMatches)];  // Убираем дубликаты
-									} else {
-										issueKeys = rezissuetable.issueTable.issueKeys;
-									}
-									
-									
+						let issueKeys = rezissuetable.issueTable.issueKeys;
 									
 									for (let i = 0; i < rezissuetable.issueTable.displayed; i++) {
+							const matchedNumbers = rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm);
+							const currentNumber = matchedNumbers ? matchedNumbers[i] : null;
 
-										if (rezissuetable.issueTable.issueKeys[i] != undefined) {
+							if (currentNumber && rezissuetable.issueTable.issueKeys[i] != undefined) {
 										
 										function filterItems1(item, index) {
 											return index % 2 != 0 ? item : null;
@@ -416,7 +406,6 @@ function switchJiraPages() {
 											}
 											return item; // Возвращаем item без изменений, если он не определен
 										}
-
 
 										let matchedItems1 = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems1);
 										let searchText1 = document.getElementById('testJira').value;
@@ -447,9 +436,45 @@ function switchJiraPages() {
 										'<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + 
 										'<span class = "refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' + 
 										'<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>'
+								}
+							} else if (rezissuetable.issueTable.issueKeys[i] != undefined) {
+								function filterItems1(item, index) {
+									return index % 2 != 0 ? item : null;
+								}
 
+								function replaceItem1(item) {
+									if (item) { // Проверка, что item не является null или undefined
+										return item.replace('">', ' – ');
+									}
+									return item; // Возвращаем item без изменений, если он не определен
+								}
 
-										}
+								let matchedItems1 = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems1);
+								let searchText1 = document.getElementById('testJira').value;
+								let replacedItem = replaceItem1(matchedItems1[i]);
+								let isMatched1 = false;
+
+								if (replacedItem) { 
+									isMatched1 = replacedItem.toLowerCase().indexOf(searchText1.toLowerCase()) != -1;
+								}
+
+								if (isMatched1) {
+									let replacePattern1 = new RegExp(searchText1, 'i');
+									let replaceValue1 = `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${searchText1.toUpperCase()}</span>`;
+									temporarka = replaceItem1(matchedItems1[i]).replace(replacePattern1, replaceValue1);
+								} else {
+									temporarka = replaceItem1(matchedItems1[i]);
+								}
+								
+								if (issueKeys[i] != undefined) {
+									issues += '<span style="color: #00FA9A">&#5129;</span>' + 
+									`<img src="${rezissuetable.issueTable.table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i]}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">` + 
+									' ' + `<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKeys[i]}" onclick="" target="_blank" style="margin-left:5px; color: #ffe4c4">` + temporarka + '</a>' + 
+									`<span name="issueIds" style="display:none">${rezissuetable.issueTable.issueIds[i]}</span>` + 
+									'<span class = "jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' + '</br>';
+								}
+							} else {
+								console.error("Не удалось найти соответствие для индекса: " + i);
 										}
 									}
 
@@ -562,9 +587,10 @@ function switchJiraPages() {
 								
 							},1000)
 							
-							
-
-						}
+			}
+		}
+	} else {
+		alert("Выполни поиск заново")
 					}
 			}
 
@@ -581,6 +607,13 @@ document.getElementById('ClearJiraData').onclick = function () {  // функц�
     document.getElementById('testJira').value = '';
     document.getElementById('issuetable').innerText = '';
     document.getElementById('foundIssuesAmount').innerText = '';
+	var pagesSwitcher = document.getElementById('pagesSwitcher');
+
+	if (pagesSwitcher.children.length !== 0) {
+		while (pagesSwitcher.firstChild) {
+			pagesSwitcher.removeChild(pagesSwitcher.firstChild);
+		}
+	}
 }
 
 document.getElementById('jirainstr').onclick = function () {
@@ -593,7 +626,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 		document.getElementById('MainMenuBtn').classList.remove('activeScriptBtn')
         document.getElementById('idmymenu').style.display = 'none'
 
-        defqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated`
         document.getElementById('JQLquery').innerText = defqueryitem;
         frqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports >= 0 AND text ~ "${testJira.value}" ORDER BY Created`
         zbpqueryitem = `issuetype in (Bug, Task) AND status = closed AND resolution in ("Won't Fix", "Won't Do") AND Reports >= 0 AND created >= 2022-01-01 AND text ~ "${testJira.value}" ORDER BY updated`
@@ -646,149 +678,61 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         }
 
         document.getElementById('defaultQuery').onclick = function () { // если выбрана default
-            defqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated`
+            toggleAndDeactivateQueries(this.id);
             document.getElementById('JQLquery').value = defqueryitem;
-            document.getElementById('testJira').value = ""
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-            document.getElementById('PSquery').classList.remove('active-query')
-            document.getElementById('issuetable').style.display = ""
-            document.getElementById('testJira').style.display = ""
-            document.getElementById('getJiraTasks').style.display = ""
-            document.getElementById('favouriteissuetable').style.display = "none"
+            showelemonpages();
         }
 		
 		document.getElementById('PSquery').onclick = function() { //Если выбрана PS
-			PSqueryitem = ` project = PS AND text ~ "${testJira.value}" ORDER BY Created`
+            toggleAndDeactivateQueries(this.id);
             document.getElementById('JQLquery').value = PSqueryitem;
-            document.getElementById('testJira').value = ""
-			this.classList.toggle('active-query')
-			document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('testJira').style.display = ""
-			document.getElementById('issuetable').style.display = ""
-			document.getElementById('getJiraTasks').style.display = ""
-			document.getElementById('favouriteissuetable').style.display = "none"
+			showelemonpages();
 		}
 
         document.getElementById('getiosbugs').onclick = function () { // если выбрана ios
-            document.getElementById('testJira').value = "ios"
-            this.classList.toggle('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
-            document.getElementById('issuetable').style.display = ""
-            document.getElementById('testJira').style.display = ""
-            document.getElementById('getJiraTasks').style.display = ""
-            document.getElementById('favouriteissuetable').style.display = "none"
-            document.getElementById('getJiraTasks').click()
+            toggleAndDeactivateQueries(this.id);
+			showelemonpages();
+			document.getElementById('testJira').value = "ios";
+            document.getElementById('getJiraTasks').click();
         }
 
         document.getElementById('getandroidbugs').onclick = function () { // если выбрана android
-            document.getElementById('testJira').value = "android"
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
-            document.getElementById('issuetable').style.display = ""
-            document.getElementById('testJira').style.display = ""
-            document.getElementById('getJiraTasks').style.display = ""
-            document.getElementById('favouriteissuetable').style.display = "none"
-            document.getElementById('getJiraTasks').click()
+            toggleAndDeactivateQueries(this.id);
+			showelemonpages();
+			document.getElementById('testJira').value = "android";
+            document.getElementById('getJiraTasks').click();
         }
 
         document.getElementById('freshQuery').onclick = function () {  // если выбрана fresh
-            frqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports >= 0 AND text ~ "${testJira.value}" ORDER BY Created`
+            toggleAndDeactivateQueries(this.id);
             document.getElementById('JQLquery').value = frqueryitem;
-            document.getElementById('testJira').value = ""
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
-            document.getElementById('issuetable').style.display = ""
-            document.getElementById('testJira').style.display = ""
-            document.getElementById('getJiraTasks').style.display = ""
-            document.getElementById('favouriteissuetable').style.display = "none"
+			showelemonpages();
         }
 
         document.getElementById('ZBPQuery').onclick = function () {  // если выбрана fresh
-            zbpqueryitem = `issuetype in (Bug, Task) AND status = closed AND resolution in ("Won't Fix", "Won't Do") AND Reports >= 0 AND created >= 2022-01-01 AND text ~ "${testJira.value}" ORDER BY updated`
+            toggleAndDeactivateQueries(this.id);
             document.getElementById('JQLquery').value = zbpqueryitem;
-            document.getElementById('testJira').value = ""
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('customQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
-            document.getElementById('issuetable').style.display = ""
-            document.getElementById('testJira').style.display = ""
-            document.getElementById('getJiraTasks').style.display = ""
-            document.getElementById('favouriteissuetable').style.display = "none"
+			showelemonpages();
         }
 
         document.getElementById('customQuery').onclick = function () { // если выбрана custom
+			toggleAndDeactivateQueries(this.id);
             document.getElementById('JQLquery').oninput = function () {
                 localStorage.setItem('customquery', this.value)
             }
             document.getElementById('JQLquery').value = localStorage.getItem('customquery');
-            document.getElementById('testJira').value = ""
-            this.classList.toggle('active-query')
-            document.getElementById('getiosbugs').classList.remove('active-query')
-            document.getElementById('getandroidbugs').classList.remove('active-query')
-            document.getElementById('defaultQuery').classList.remove('active-query')
-            document.getElementById('favouriteBugs').classList.remove('active-query')
-            document.getElementById('ZBPQuery').classList.remove('active-query')
-            document.getElementById('freshQuery').classList.remove('active-query')
-			document.getElementById('PSquery').classList.remove('active-query')
-            document.getElementById('issuetable').style.display = ""
-            document.getElementById('testJira').style.display = ""
-            document.getElementById('getJiraTasks').style.display = ""
-            document.getElementById('favouriteissuetable').style.display = "none"
+			showelemonpages();
         }
 
         document.getElementById('favouriteBugs').onclick = function () { // если выбрана ❤ favourite
             if (document.getElementById('favouriteissuetable').style.display != "") {
-				this.classList.toggle('active-query')
-                document.getElementById('freshQuery').classList.remove('active-query')
-                document.getElementById('defaultQuery').classList.remove('active-query')
-                document.getElementById('customQuery').classList.remove('active-query')
-				document.getElementById('getiosbugs').classList.remove('active-query')
-                document.getElementById('getandroidbugs').classList.remove('active-query')
-				document.getElementById('ZBPQuery').classList.remove('active-query')
-				document.getElementById('PSquery').classList.remove('active-query')
-                document.getElementById('issuetable').style.display = "none"
-                document.getElementById('favouriteissuetable').style.display = ""
-                document.getElementById('testJira').style.display = "none"
-                document.getElementById('getJiraTasks').style.display = "none"
-                // if (localStorage.getItem('bugsarray') != null || localStorage.getItem('bugsarray') != undefined) {
-                // favissues = JSON.parse(localStorage.getItem('bugsarray'))
-                // document.getElementById('favouriteissuetable').innerHTML = favissues;
-                // }
+				toggleAndDeactivateQueries(this.id);
+                document.getElementById('issuetable').style.display = "none";
+                document.getElementById('testJira').style.display = "none";
+                document.getElementById('getJiraTasks').style.display = "none";
+				document.getElementById('foundIssuesAmount').style.display = "none";
+				document.getElementById('pagesSwitcher').style.display = "none";
+				document.getElementById('favouriteissuetable').style.display = "";
 
                 for (let i = 0; i < document.getElementsByName('removefromfavourites').length; i++) {
                     document.getElementsByName('removefromfavourites')[i].onclick = function () {
@@ -819,7 +763,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
                             "mode": "cors",
                             "credentials": "include"
                         })
-
                     }
                 }
 
@@ -898,61 +841,32 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         }
 		// end of favouritebugs
 
-
         document.getElementById('getJiraTasks').onclick = function () {
 
-            if (document.getElementById('defaultQuery').classList.contains('active-query')) {
-                defqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated`
-                document.getElementById('JQLquery').value = defqueryitem;
-                defqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-
-                document.getElementById('responseTextarea1').value = `{${optionsforfetch(defqueryitem, 0)}}`
-				searchTypeFlag = "defQuery"
-
-            } else if(document.getElementById('PSquery').classList.contains('active-query')){
-				PSqueryitem = ` project = PS AND text ~ "${testJira.value}" ORDER BY Created`
-				document.getElementById('JQLquery').value = PSqueryitem;
-				PSqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-                document.getElementById('responseTextarea1').value = `{${optionsforfetch(PSqueryitem, 0)}}`
-				searchTypeFlag = "PSQuery"
-			} else if (document.getElementById('freshQuery').classList.contains('active-query')) {
-                frqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports >= 0 AND text ~ "${testJira.value}" ORDER BY Created`
-                document.getElementById('JQLquery').value = frqueryitem;
-                frqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-                document.getElementById('responseTextarea1').value = `{${optionsforfetch(frqueryitem, 0)}}`
-				searchTypeFlag = "freshQuery"
-            } else if (document.getElementById('customQuery').classList.contains('active-query')) {
-                customquery = `${localStorage.getItem('customquery')}`
-                document.getElementById('JQLquery').value = customquery
-                customquery = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-                document.getElementById('responseTextarea1').value = `{${optionsforfetch(customquery, 0)}}`
-				searchTypeFlag = "custQuery"
-            } else if (document.getElementById('getiosbugs').classList.contains('active-query')) {
-                iosbugsqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated`
-                document.getElementById('JQLquery').value = iosbugsqueryitem;
-                iosbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-                document.getElementById('responseTextarea1').value = `{${optionsforfetch(iosbugsqueryitem, 0)}}`
-				searchTypeFlag = "iosQuery"
-            } else if (document.getElementById('getandroidbugs').classList.contains('active-query')) {
-                androidbugsqueryitem = `issuetype in (Bug, Task) AND status != closed AND Reports > 0 AND text ~ "${testJira.value}" ORDER BY updated `
-                document.getElementById('JQLquery').value = androidbugsqueryitem;
-                androidbugsqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-                document.getElementById('responseTextarea1').value = `{${optionsforfetch(androidbugsqueryitem, 0)}}`
-				searchTypeFlag = "androidQuery"
-            } else if (document.getElementById('ZBPQuery').classList.contains('active-query')) {
-                zbpqueryitem = `issuetype in (Bug, Task) AND status = closed AND resolution in ("Won't Fix", "Won't Do") AND Reports >= 0 AND created >= 2022-01-01 AND text ~ "${testJira.value}" ORDER BY updated`
-                document.getElementById('JQLquery').value = zbpqueryitem;
-                zbpqueryitem = document.getElementById('JQLquery').value.replaceAll(' ', '+').replaceAll(',', '%2C').replaceAll('=', '%3D').replaceAll('>', '%3E').replaceAll('"', '%22').replaceAll('<', '%3C')
-                document.getElementById('responseTextarea1').value = `{${optionsforfetch(zbpqueryitem, 0)}}`
-				searchTypeFlag = "zbpQuery"
-            }
-
-            document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable"
-            document.getElementById('responseTextarea3').value = 'getissuetable'
-            document.getElementById('sendResponse').click()
-
-            setTimeout(getJiraTask, 1000)					
-
+			const queries = {
+				'defaultQuery': defqueryitem,
+				'PSquery': PSqueryitem,
+				'freshQuery': frqueryitem,
+				'customQuery': localStorage.getItem('customquery'),
+				'getiosbugs': iosbugsqueryitem,
+				'getandroidbugs': androidbugsqueryitem,
+				'ZBPQuery': zbpqueryitem
+			};
+		
+			for (let id in queries) {
+				if (document.getElementById(id).classList.contains('active-query')) {
+					document.getElementById('JQLquery').value = queries[id];
+					requesttojiratext = encodeURI(document.getElementById('JQLquery').value);
+					document.getElementById('responseTextarea1').value = `{${optionsforfetch(requesttojiratext, 0)}}`;
+					break;
+				}
+			}
+		
+			document.getElementById('responseTextarea2').value = "https://jira.skyeng.tech/rest/issueNav/1/issueTable";
+			document.getElementById('responseTextarea3').value = 'getissuetable';
+			document.getElementById('sendResponse').click();
+		
+			setTimeout(getJiraTask, 1000);					
 }
 
         // Просмотр таски по джира по ее коду и номеру
@@ -1003,8 +917,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
             }
 
             setTimeout(getJiraTask1, 1000)
-			
-			
         }
 
         const searchJiraByEnter = document.querySelector('#testJira');
