@@ -184,8 +184,8 @@ function formatIssue(item, currentNumber, issueKey, searchText, currentpic, curr
 
     result += `<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKey}" target="_blank" style="margin-left:5px; color: #ffe4c4">${temporarka}</a>` +
 	`<span name="issueIds" style="display:none">${currentIds}</span>` +
-	'<span class="jiraissues" style="margin-left: 10px; cursor: pointer">💬</span>' +' <span class="refreshissues" style="color:#ADFF2F; margin-left: 5px; cursor: pointer">&#69717;&#120783;</span>' +
-    '<span name="addtofavourites" style="cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>';
+	'<span class="jiraissues" style="margin-left: 5px; cursor: pointer">💬</span>' +' <span class="refreshissues" style="color:#ADFF2F; margin-left: 1px; cursor: pointer">&#69717;&#120783;</span>' +
+    '<span name="addtofavourites" style="margin-left: 4px; cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>';
 
     return result;
 }
@@ -363,7 +363,6 @@ function switchJiraPages() {
     }
 
     const pageSwArr = document.getElementsByName('changeList');
-    addPageSwitcher(pageSwArr.length);
 
     pageSwArr.forEach((page, d) => {
         page.onclick = async function() {
@@ -383,15 +382,16 @@ function switchJiraPages() {
                 const rezissuetable = JSON.parse(textArea1.getAttribute('newPageIssue'));
                 textArea1.removeAttribute('newPageIssue');
 
-                const matchedItems = rezissuetable.issueTable.table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems);
-                const matchedNumbers = rezissuetable.issueTable.table.match(/(">.)*?([0-9]+)\n/gm);
-                const searchText = document.getElementById('testJira').value;
+				const { issueKeys, table, issueIds } = rezissuetable.issueTable;
+				const matchedItems = table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems);
+				const matchedNumbers = table.match(/(">.)*?([0-9]+)\n/gm);
+				const searchText = document.getElementById('testJira').value;
                 
                 let issues = '';
                 for (let i = 0; i < rezissuetable.issueTable.displayed; i++) {
-                    const currentIssue = matchedItems[i];
-                    const currentKey = rezissuetable.issueTable.issueKeys[Number(page.getAttribute('value')) + i];
-                    const currentNumber = matchedNumbers ? matchedNumbers[i] : null;
+					const currentNumber = matchedNumbers ? matchedNumbers[i] : null;
+					const currentIssue = matchedItems[i];
+					const currentKey = issueKeys[i];
 					const currentIds = issueIds[i];
 					const currentpic = table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i];
 
@@ -421,7 +421,6 @@ function switchJiraPages() {
         }
     });
 }
-
 
 document.getElementById('AF_Jira').ondblclick = function (a) { // скрытие окна Jira по двойному клику
     if (checkelementtype(a)) { document.getElementById('AF_Jira').style.display = 'none'; }
