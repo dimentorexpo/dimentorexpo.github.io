@@ -605,6 +605,10 @@ document.getElementById('ClearJiraData').onclick = function () {  // функц�
     document.getElementById('testJira').value = '';
     document.getElementById('issuetable').innerText = '';
     document.getElementById('foundIssuesAmount').innerText = '';
+	ClearPages();
+}
+
+function ClearPages() { // Удаляем страницы найденных задачь
 	var pagesSwitcher = document.getElementById('pagesSwitcher');
 
 	if (pagesSwitcher.children.length !== 0) {
@@ -835,7 +839,8 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
 		// end of favouritebugs
 
 		document.getElementById('getJiraTasks').onclick = function () {
-    
+			ClearPages();
+			
 			const queries = {
 				'defaultQuery': defqueryitem,
 				'PSquery': PSqueryitem,
