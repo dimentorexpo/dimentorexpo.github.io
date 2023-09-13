@@ -35,7 +35,7 @@ var win_Jira =  // описание элементов окна Поиска п�
 								<span style="color:bisque" id="foundIssuesAmount"></span>
                         </div>
 						<div>
-							<div id="pagesSwitcher" style="display: flex;    color: bisque;    cursor: pointer;    justify-content: space-evenly; padding:5px;"></div>
+							<div id="pagesSwitcher" style="display:flex; color:bisque; cursor:pointer; justify-content:space-evenly; padding:5px;"></div>
 						</div>
                 </span>
         </span>
