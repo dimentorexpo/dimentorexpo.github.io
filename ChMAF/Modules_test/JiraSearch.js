@@ -392,9 +392,11 @@ function switchJiraPages() {
                     const currentIssue = matchedItems[i];
                     const currentKey = rezissuetable.issueTable.issueKeys[Number(page.getAttribute('value')) + i];
                     const currentNumber = matchedNumbers ? matchedNumbers[i] : null;
+					const currentIds = issueIds[i];
+					const currentpic = table.match(/https:\/\/jira.skyeng.tech\/images\/icons\/priorities\/.*svg/gm)[i];
 
                     if (currentIssue && currentKey) {
-                        issues += formatIssue(currentIssue, currentNumber, currentKey, searchText);
+                        issues += formatIssue(currentIssue, currentNumber, currentKey, searchText, currentpic, currentIds);
                     } else {
                         console.error("Не удалось найти соответствие для индекса: " + i);
                     }
