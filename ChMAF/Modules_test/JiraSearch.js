@@ -1,6 +1,7 @@
 let indexStart;
 let customquery = '';
 let requesttojiratext;
+let favissues = [];
 const textArea1 = document.getElementById('responseTextarea1');
 const textArea2 = document.getElementById('responseTextarea2');
 const textArea3 = document.getElementById('responseTextarea3');
@@ -501,7 +502,6 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
         }
 
         checkJiraToken()
-        let favissues = [];
         document.getElementById('RefreshJiraStatus').onclick = checkJiraToken // функция повторной проверки авторизации в Jira
 
         if (localStorage.getItem('bugsarray')) {
