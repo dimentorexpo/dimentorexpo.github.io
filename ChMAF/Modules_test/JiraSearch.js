@@ -183,8 +183,12 @@ function formatIssue(item, currentNumber, issueKey, searchText, currentpic, curr
 
     result += `<a name="buglinks" href="https://jira.skyeng.tech/browse/${issueKey}" target="_blank" style="margin-left:5px; color: #ffe4c4">${temporarka}</a>` +
 	`<span name="issueIds" style="display:none">${currentIds}</span>` +
-	'<span class="jiraissues" style="margin-left: 5px; cursor: pointer">💬</span>' +' <span class="refreshissues" style="color:#ADFF2F; margin-left: 1px; cursor: pointer">&#69717;&#120783;</span>' +
-    '<span name="addtofavourites" style="margin-left: 4px; cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>';
+	'<span class="jiraissues" style="margin-left: 5px; cursor: pointer">💬</span>';
+
+	if (currentNumber) {
+        result += ' <span class="refreshissues" style="color:#ADFF2F; margin-left: 1px; cursor: pointer">&#69717;&#120783;</span>' +
+		'<span name="addtofavourites" style="margin-left: 4px; cursor:pointer;" title="Добавить задачу в Избранное">🤍</span>' + '</br>';
+    }
 
     return result;
 }
