@@ -143,7 +143,7 @@ function showelemonpages() { // открываем элементы окна е�
 	document.getElementById('issuetable').style.display = ""
 	document.getElementById('getJiraTasks').style.display = ""
 	document.getElementById('foundIssuesAmount').style.display = "";
-	document.getElementById('pagesSwitcher').style.display = "";
+	document.getElementById('pagesSwitcher').style.display = "flex";
 	document.getElementById('favouriteissuetable').style.display = "none"
 }
 
