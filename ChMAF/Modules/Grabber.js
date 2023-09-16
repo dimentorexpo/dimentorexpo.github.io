@@ -33,6 +33,8 @@ var win_Grabber =  // описание элементов окна Grabber
 
                         <div style="margin: 5px; width: 800px" id="grabbox">
 								 <span style="color:bisque; float:center; margin-top:5px; margin-left:10px;">Начальная дата <input type="date" style="color:black; margin-left:20px;  width:125px;" name="FirstData" id="dateFromGrab"></span>
+								 <button style="margin-left:15%" id="dayminus">◀</button>
+								 <button id="dayplus">▶</button>
 								 <span style="color:bisque; margin-top:2px; float:right; margin-right:10px; height:28px;">Конечная дата <input type="date" style="color:black; float:right; margin-left:20px; margin-right:10px; width:125px;" name="LastData" id="dateToGrab"</span>
                         </div>
 
@@ -390,7 +392,7 @@ function calcAvgSLACompleted() {
 					arrayOfOuttimedSLA ++
 				}
 	}
-	console.log("Prosrochennih SLA chatov " + arrayOfOuttimedSLA)
+	// console.log("Prosrochennih SLA chatov " + arrayOfOuttimedSLA)
 	
 	document.getElementById('avgSLAClosedData').innerHTML = '<span style="background: #bb680f; padding: 5px; color: floralwhite; font-weight: 700; border-radius: 10px;">' + "SLA закрытия: " + (((pureArray.length - arrayOfOuttimedSLA) / pureArray.length)*100).toFixed(1) + '%' + '</span>'
 }
@@ -986,7 +988,7 @@ document.getElementById('stargrab').onclick = async function () {
     let selTheme = document.getElementById('ThemesToSearch').options
     for (let i = 0; i < selTheme.length; i++) {
         if (selTheme[i].selected == true) {
-            console.log(selTheme[i].value)
+            // console.log(selTheme[i].value)
             chosentheme = selTheme[i].value
         }
     }
@@ -1084,6 +1086,9 @@ document.getElementById('stargrab').onclick = async function () {
                             .then(r => r.json())
                             .then(r => {
                                 if (r.payload.topicId && r.payload.topicId.value === chosentheme && tmponlyoperhashes[j].Duration != undefined) {
+									
+									(r.channelUser.payload["nextClass-status"] && r.channelUser.payload["nextClass-status"] =="идёт урок") ? console.log(r.id, r.channelUser.payload["nextClass-status"]) : ""
+									
                                     payloadarray.push({
                                         ChatId: conversationId,
                                         OperatorName: namespisochek[i],
@@ -1095,10 +1100,13 @@ document.getElementById('stargrab').onclick = async function () {
 
                                     operstagsarray.push({ ChatId: conversationId, Tags: r.payload.tags.value })
 
-                                    console.log(payloadarray);
-                                    console.log(namespisochek[i]);
-                                    console.log(operstagsarray);
+                                    // console.log(payloadarray);
+                                    // console.log(namespisochek[i]);
+                                    // console.log(operstagsarray);
                                 } else if (r.payload.topicId && r.payload.topicId.value === chosentheme && tmponlyoperhashes[j].Duration == undefined) {
+									
+									(r.channelUser.payload["nextClass-status"] && r.channelUser.payload["nextClass-status"] =="идёт урок") ? console.log(r.id, r.channelUser.payload["nextClass-status"]) : ""
+									
                                     payloadarray.push({
                                         ChatId: conversationId,
                                         OperatorName: namespisochek[i],
@@ -1110,16 +1118,18 @@ document.getElementById('stargrab').onclick = async function () {
 
                                     operstagsarray.push({ ChatId: conversationId, Tags: r.payload.tags.value })
 
-                                    console.log(payloadarray);
-                                    console.log(namespisochek[i]);
-                                    console.log(operstagsarray);
+                                    // console.log(payloadarray);
+                                    // console.log(namespisochek[i]);
+                                    // console.log(operstagsarray);
                                 }
                             });
                     } else if (chosentheme !== "parseallthemes" && chosentheme == "parsenothemes") {
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
                             .then(r => r.json())
                             .then(r => {
-
+								
+								(r.channelUser.payload["nextClass-status"] && r.channelUser.payload["nextClass-status"] =="идёт урок") ? console.log(r.id, r.channelUser.payload["nextClass-status"]) : ""
+								
                                 operstagsarray.push({ ChatId: conversationId, Tags: r.payload.tags.value })
                                 if (r.payload.topicId && r.payload.topicId.value == '' && tmponlyoperhashes[j].Duration == undefined) {
                                     payloadarray.push({
@@ -1142,8 +1152,8 @@ document.getElementById('stargrab').onclick = async function () {
 
                                 }
 
-                                console.log(payloadarray);
-                                console.log(namespisochek[i]);
+                                // console.log(payloadarray);
+                                // console.log(namespisochek[i]);
                             });
 
 
@@ -1151,7 +1161,9 @@ document.getElementById('stargrab').onclick = async function () {
                         await fetch("https://skyeng.autofaq.ai/api/conversations/" + conversationId)
                             .then(r => r.json())
                             .then(r => {
-
+								
+								(r.channelUser.payload["nextClass-status"] && r.channelUser.payload["nextClass-status"] =="идёт урок") ? console.log(r.id, r.channelUser.payload["nextClass-status"]) : ""
+								
                                 if (r.payload && r.payload.tags) {
                                     operstagsarray.push({ ChatId: conversationId, Tags: r.payload.tags.value })
                                 } else {
@@ -1201,8 +1213,8 @@ document.getElementById('stargrab').onclick = async function () {
 
                                 }
 
-                                console.log(payloadarray);
-                                console.log(namespisochek[i]);
+                                // console.log(payloadarray);
+                                // console.log(namespisochek[i]);
                             });
                     }
                 }
@@ -1230,7 +1242,7 @@ document.getElementById('stargrab').onclick = async function () {
         }
         return element;
     });
-    console.log(cleanedarray)
+    // console.log(cleanedarray)
 
     const themesgrabbeddata = document.getElementById('themesgrabbeddata');
     themesgrabbeddata.innerHTML = '';
@@ -1289,7 +1301,7 @@ document.getElementById('stargrab').onclick = async function () {
 
         return unique;
     }, [])
-    console.log(filteredArrayTags)
+    // console.log(filteredArrayTags)
  
     // Iterate through the data array and create table rows
     pureArray.forEach((element, index) => {
@@ -1419,7 +1431,7 @@ document.getElementById('stargrab').onclick = async function () {
             rows.forEach(function (row) {
                 row.style.display = '';
             });
-            console.log("Ни один чекбокс не выбран");
+            // console.log("Ни один чекбокс не выбран");
             calcAvgCsat();
 			calcAvgSLACompleted()
         }
@@ -1427,7 +1439,109 @@ document.getElementById('stargrab').onclick = async function () {
 
 
     document.getElementById('hideselecalltags').onclick = filterTableRowsByTags
-    document.getElementById('SaveToCSVFilteredByTags').onclick = saveFilteredTableCSV
+		
+document.getElementById('SaveToCSVFilteredByTags').onclick = function() {
+    let checkboxes = document.querySelectorAll('input[type="checkbox"][name="tagsforfilter"]');
+    let allUnchecked = Array.from(checkboxes).every(checkbox => !checkbox.checked);
+
+    if (allUnchecked) {
+		function isJsonString(str) {
+			try {
+				if (typeof str !== 'string') throw new Error('Not a string');
+				let parsed = JSON.parse(str);
+				
+				// Не допускаем другие типы кроме массивов
+				if (!Array.isArray(parsed)) throw new Error('Not an array');
+			} catch (e) {
+				console.error('Invalid JSON for:', str, 'Error:', e.message);
+				return false;
+			}
+			return true;
+		}
+		
+		function isValidItem(item) {
+			return item.hasOwnProperty('ChatId') && item.hasOwnProperty('Tags');
+		}
+
+		// function downloadCSV(array) {
+			// let csvContent = 'data:text/csv;charset=utf-8,';
+			// let header = "ChatId,Tag1,Tag2,Tag3,Tag4,Tag5,Tag6";
+			// csvContent += header + "\r\n";
+
+			// array.forEach((item, index) => {
+				// if (!isValidItem(item)) {
+					// console.warn(`Element at index ${index} is invalid. Skipping...`, item);
+					// return; // Пропускаем этот элемент
+				// }
+
+				// let tags = [];
+				
+				// if (item.Tags === "") {
+					// tags = [];
+				// } else if (isJsonString(item.Tags)) {
+					// tags = JSON.parse(item.Tags);
+				// } else {
+					// console.warn(`Element at index ${index} has invalid Tags. Using empty array.`, item);
+				// }
+				
+				// let row = [item.ChatId, ...tags];
+				// csvContent += row.join(",") + "\r\n";
+				// console.log(`Processed element at index ${index}:`, row.join(","));
+			// });
+
+
+			// let encodedUri = encodeURI(csvContent);
+			// let link = document.createElement("a");
+			// link.setAttribute("href", encodedUri);
+			// link.setAttribute("download", "export.csv");
+			// document.body.appendChild(link);
+			// link.click();
+			// document.body.removeChild(link);
+		// }
+		
+		function downloadCSV(array) {
+			let csvContent = ''; // Убрали начальную строку
+			let header = "ChatId,Tag1,Tag2,Tag3,Tag4,Tag5,Tag6";
+			csvContent += header + "\r\n";
+
+			array.forEach((item, index) => {
+				if (!isValidItem(item)) {
+					console.warn(`Element at index ${index} is invalid. Skipping...`, item);
+					return;
+				}
+
+				let tags = [];
+				if (item.Tags === "") {
+					tags = [];
+				} else if (isJsonString(item.Tags)) {
+					tags = JSON.parse(item.Tags);
+				} else {
+					console.warn(`Element at index ${index} has invalid Tags. Using empty array.`, item);
+				}
+				
+				let row = [item.ChatId, ...tags];
+				csvContent += row.join(",") + "\r\n";
+				console.log(`Processed element at index ${index}:`, row.join(","));
+			});
+
+			// Создание Blob из строки CSV и загрузка файла
+			let blob = new Blob([csvContent], { type: 'text/csv' });
+			let link = document.createElement("a");
+			link.href = URL.createObjectURL(blob);
+			link.download = "export.csv";
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		}
+
+        console.log(operstagsarray.length);
+        downloadCSV(operstagsarray);
+    } else {
+        saveFilteredTableCSV()
+    }
+}
+
+		
 
     ///
 
@@ -1574,3 +1688,29 @@ document.getElementById('webtoCSV').onclick = function () {
 
     downloadCSV(pureArray, filename);
 }
+
+		document.getElementById('dayplus').onclick = function() { // обработчик нажатия на кнопку следующего дня
+			let dateInputIshod = document.getElementById('dateFromGrab').value;
+			let dateInputKonez = document.getElementById('dateToGrab').value;
+			let datestart = new Date(dateInputIshod);
+			let dateend = new Date(dateInputKonez);
+			datestart.setDate(datestart.getDate() + 1);
+			dateend.setDate(dateend.getDate() + 1);
+			let newDateStart = datestart.toISOString().split('T')[0];
+			let newDateEnd = dateend.toISOString().split('T')[0];
+			document.getElementById('dateFromGrab').value = newDateStart;
+			document.getElementById('dateToGrab').value = newDateEnd;
+		}
+
+		document.getElementById('dayminus').onclick = function() { // обработчик нажатия на кнопку предыдущего дня
+			let dateInputIshod = document.getElementById('dateFromGrab').value;
+			let dateInputKonez = document.getElementById('dateToGrab').value;
+			let datestart = new Date(dateInputIshod);
+			let dateend = new Date(dateInputKonez);
+			datestart.setDate(datestart.getDate() - 1);
+			dateend.setDate(dateend.getDate() - 1);
+			let newDateStart = datestart.toISOString().split('T')[0];
+			let newDateEnd = dateend.toISOString().split('T')[0];
+			document.getElementById('dateFromGrab').value = newDateStart;
+			document.getElementById('dateToGrab').value = newDateEnd;
+		}
