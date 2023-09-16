@@ -142,89 +142,19 @@ function changeStatus(status) {  // функция изменения стату
         });
 }
 
-function waitForElement(selector, callback, timeout = 15000) { // проверка на наличие элемента
-    const startTime = new Date().getTime();
-    
-    const checkInterval = setInterval(() => {
-        const element = document.querySelector(selector);
-        const currentTime = new Date().getTime();
-        
-        if (element || currentTime - startTime > timeout) {
-            clearInterval(checkInterval);
-            if (element) {
-                console.log('Element find')
-                callback(element);
-            } else {
-                console.error(`Element with selector '${selector}' not found within timeout.`);
-            }
-        }
-    }, 100); // Проверяем каждые 100 миллисекунд
-}
-
-
-const hotkeyStatusMap = { //массив горячих клавиш
-    KeyO: 'Offline',
-    KeyI: 'Busy',
-    KeyT: 'TestChat'
-};
-
-function handleHotkey(event) { // Обработчик нажатия горячих клавиш
-    const keyCombination = event.altKey && hotkeyStatusMap[event.code];
-    
-    if (keyCombination) {
-        switch (keyCombination) {
-            case 'TestChat':
-                const currentStatus = localStorage.getItem('trigertestchat') || '0';
+if (window.location.href.indexOf('skyeng.autofaq.ai') !== -1) {
+    document.onkeydown = (event) => {
+        if (event.altKey && event.code === 'KeyO') { // горячие клавиши для смены статуса в Оффлайн
+            changeStatus('Offline');
+        } else if (event.altKey && event.code === 'KeyI') { // горячие клавиши для смены статуса в Занят
+            changeStatus('Busy');
+        } else if (event.altKey && event.code === 'KeyT') { // горячие клавиши тестового чата
+            const currentStatus = localStorage.getItem('trigertestchat');
                 const newStatus = currentStatus === '0' ? '1' : '0';
                 localStorage.setItem('trigertestchat', newStatus);
-                break;
-            default:
-                changeStatus(keyCombination);
-                break;
         }
-        // Отменяем дальнейшее распространение события клавиши
-        event.preventDefault();
-    }
+    };
 }
-
-if (window.location.href.includes('skyeng.autofaq.ai')) { // добавляем листенер чтобы отслеживать нажатие клавишь
-   if (window.location.href.includes('skyeng.autofaq.ai/tickets/assigned')){
-        waitForElement('[class^="NEW_FRONTEND"]', (iframeElement) => {
-            const iframeDoc = iframeElement.contentDocument || iframeElement.contentWindow.document;
-
-            iframeDoc.children[0].addEventListener('keydown', (event) => {
-                console.log(event.code)
-                if (event.altKey) {
-                    const keyCombination = event.code;
-                    console.log(keyCombination);
-                    // Создаем объект события
-                    const eventData = new Event('CallKeyPress');
-                    eventData.data = { keyCombination: keyCombination };
-                    window.dispatchEvent(eventData);
-                }
-            });
-        });
-    } 
-    window.addEventListener('keydown', handleHotkey);
-}
-
-window.addEventListener('CallKeyPress', (event) => {
-    const keyCombination = event.data.keyCombination;
-    if (keyCombination) {
-        switch (keyCombination) {
-            case 'TestChat':
-                const currentStatus = localStorage.getItem('trigertestchat') || '0';
-                const newStatus = currentStatus === '0' ? '1' : '0';
-                localStorage.setItem('trigertestchat', newStatus);
-                break;
-            default:
-                changeStatus(keyCombination);
-                break;
-        }
-        // Отменяем дальнейшее распространение события клавиши
-        event.preventDefault();
-    }
-});
 
 // Конец блока горячих клавиш
 
@@ -392,7 +322,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/VoiceHelper.js", // модуль голосового помощника
         "https://dimentorexpo.github.io/ChMAF/Modules/Marks.js", // модуль просмотра оценок пользователя
         "https://dimentorexpo.github.io/ChMAF/Modules/AutoRespond.js", // модуль автоответа по таймеру
-        "https://dimentorexpo.github.io/ChMAF/Modules_test/JiraSearch.js", // модуль поиска по Jira
+        "https://dimentorexpo.github.io/ChMAF/Modules/JiraSearch.js", // модуль поиска по Jira
         "https://dimentorexpo.github.io/ChMAF/Modules/Smartroom.js", // модуль формы пожеланий Smartroom
         "https://dimentorexpo.github.io/ChMAF/Modules/TaskCreate.js", // модуль создания задач в СРМ2 с помощью интеграции АФ
         "https://dimentorexpo.github.io/ChMAF/Modules/Themes.js", // модуль выставления тегов и тематик
@@ -466,7 +396,7 @@ function maxLengthCheck(object) { // функция ограничения ко�
 function checkelementtype(a) { // проверка на какой элемент нажали
     let elem = document.elementFromPoint(a.clientX, a.clientY)
 
-    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !== 'TABLE' && elem.nodeName !== 'TH' && elem.nodeName !== 'TR' && elem.id !== 'AgregatedDataOut' && elem.nodeName !== 'CANVAS' && elem.id !== "grabdata" && elem.id !== "ToolsPanel" && elem.id !=="ProblemsSolution") {
+    if (elem.nodeName != 'BUTTON' && elem.nodeName != 'LABEL' && elem.nodeName != 'INPUT' && elem.nodeName != 'TEXTAREA' && elem.nodeName != 'SELECT' & elem.nodeName != 'P' && elem.className != 'checkbox-audio-switch' && elem.className != 'checkbox-refresh-switch' && elem.className != 'srvhhelpnomove' && elem.className != 'rowOfChatGrabbed' && elem.id !== 'CSATFilterField' && elem.id !== 'AgregatedDataThemes' && elem.nodeName !== 'TABLE' && elem.nodeName !== 'TH' && elem.nodeName !== 'TR' && elem.id !== 'AgregatedDataOut' && elem.nodeName !== 'CANVAS' && elem.id !== "ToolsPanel" && elem.id !=="ProblemsSolution") {
         return true;
     }
     return false;
