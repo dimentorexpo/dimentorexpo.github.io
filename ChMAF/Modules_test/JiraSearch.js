@@ -167,7 +167,8 @@ function replaceItem(item) { // Функция заменяет '">', на ' –
 function formatIssue(item, currentNumber, issueKey, searchText, currentpic, currentIds) {
     const temporarka = isSearchTextMatched(item, searchText) 
         ? highlightSearchText(item, searchText) 
-        : replaceItem(item);    
+        : replaceItem(item);
+    
     return `
         <span style="color: #00FA9A">&#5129;</span>
         <img src="${currentpic}" style="width:20px; height:25px;" title="Приоритеты: ⛔ - Blocker, полностью залитая красная стрелка вверх - Critical, три красные стрелки вверх - Major, три синие вниз - Minor, ⭕ - Trivial">
@@ -193,7 +194,6 @@ function highlightSearchText(item, searchText) {
     const replaceValue = `<span style="color:MediumSpringGreen; font-weight:700; text-shadow:1px 2px 5px rgb(0 0 0 / 55%);">${searchText.toUpperCase()}</span>`;
     return replaceItem(item).replace(replacePattern, replaceValue);
 }
-
 
 function addPageSwitcher(spanCount) { // добавляем страницы для переключения
     if (spanCount <= 1) return;
