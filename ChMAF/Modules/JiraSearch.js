@@ -195,7 +195,6 @@ function highlightSearchText(item, searchText) {
     return replaceItem(item).replace(replacePattern, replaceValue);
     }
 
-
 function addPageSwitcher(spanCount) { // добавляем страницы для переключения
     if (spanCount <= 1) return;
 
