@@ -770,3 +770,8 @@ button {
 	div[name="foundToSolution"].active, div[name="exploreSolution"].active {
 		background: #4fca82 !important
 	}
+
+	#control_jira_search {
+		display: flex;
+		justify-content: space-between;
+	}
