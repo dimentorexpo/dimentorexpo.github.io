@@ -147,9 +147,8 @@ function toggleAndDeactivateQueries(currentId) { // Смена класса кн
 
 function showelemonpages() { // открываем элементы окна если они скрыты
 	document.getElementById('testJira').value = ""
-	document.getElementById('testJira').style.display = ""
+	document.getElementById('fields_jira_search').style.display = ""
 	document.getElementById('issuetable').style.display = ""
-	document.getElementById('getJiraTasks').style.display = ""
 	document.getElementById('foundIssuesAmount').style.display = "";
 	document.getElementById('pagesSwitcher').style.display = "flex";
 	document.getElementById('favouriteissuetable').style.display = "none"
@@ -566,8 +565,7 @@ document.getElementById('JiraOpenForm').onclick = function () { // открыв�
             if (document.getElementById('favouriteissuetable').style.display != "") {
 				toggleAndDeactivateQueries(this.id);
                 document.getElementById('issuetable').style.display = "none";
-                document.getElementById('testJira').style.display = "none";
-                document.getElementById('getJiraTasks').style.display = "none";
+                document.getElementById('fields_jira_search').style.display = "none";
 				document.getElementById('foundIssuesAmount').style.display = "none";
 				document.getElementById('pagesSwitcher').style.display = "none";
 				document.getElementById('favouriteissuetable').style.display = "";
