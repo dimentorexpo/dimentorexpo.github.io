@@ -333,32 +333,40 @@ async function getMMostOperId() {
 	});
   }
 
-function sendMattermostMessage(message) {
-	lastMessage = message; // Сохраняем каждое новое сообщение
+  function sendMattermostMessage(message) {
+    lastMessage = message; // Сохраняем каждое новое сообщение
 
-	fetch("https://mattermost.skyeng.tech/api/v4/posts", {
-		"headers": {
-			"accept": "*/*",
-			"accept-language": "ru",
-			"content-type": "application/json",
-			"sec-fetch-mode": "cors",
-			"sec-fetch-site": "same-origin",
-			"x-requested-with": "XMLHttpRequest"
-		},
-		"referrerPolicy": "no-referrer",
-		"body": `{\"message\":\"${message}\",\"channel_id\":\"${ChanelSupport}\",\"pending_post_id\":\"${MMostOperId}:\",\"user_id\":\"${MMostOperId}\"}`,
-		"method": "POST",
-		"mode": "cors",
-		"credentials": "include"
-	})
-	.then(response => response.json())
-	.then(data => {
-		transfertoTSM(data.id);
-	})
-	.catch(error => {
-		console.error("Ошибка:", error);
-	});
+    let bodyData = {
+        message: message,
+        channel_id: ChanelSupport,
+        pending_post_id: `${MMostOperId}:`,
+        user_id: MMostOperId
+    };
+
+    fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+        "headers": {
+            "accept": "*/*",
+            "accept-language": "ru",
+            "content-type": "application/json",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "x-requested-with": "XMLHttpRequest"
+        },
+        "referrerPolicy": "no-referrer",
+        "body": JSON.stringify(bodyData),
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    })
+    .then(response => response.json())
+    .then(data => {
+        transfertoTSM(data.id);
+    })
+    .catch(error => {
+        console.error("Ошибка:", error);
+    });
 }
+
 
 function transfertoTSM(Chatid) {
 	if (Chatid === lastChatId) { // Если текущий chatid такой же, как и передыдущий
