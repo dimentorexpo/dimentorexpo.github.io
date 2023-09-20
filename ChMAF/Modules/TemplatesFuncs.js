@@ -639,37 +639,73 @@ function bagPageButtons(butId) {  //с шаблонами тоже фукнкц�
         }
 }
 
+function maskPhoneNumber(number) { // замена части символов телефона
+    // Получаем начальную и конечную часть номера
+    const start = number.startsWith('+') ? number.substring(0, 5) : number.substring(0, 4);
+    const end = number.slice(-2);
+
+    // Вычисляем, сколько символов нужно заменить на звездочки
+    const starsCount = number.length - start.length - end.length;
+    const stars = '*'.repeat(starsCount);
+
+    return start + stars + end;
+}
+
+function maskEmail(email) { // замена части символов email
+    // Разделяем email на часть до @ и доменную часть
+    const [localPart, domainPart] = email.split('@');
+
+    let maskedLocalPart;
+
+    // Применяем правила маскировки для локальной части email
+    if (localPart.length > 5) {
+        maskedLocalPart = localPart.substring(0, 3) + '*'.repeat(localPart.length - 5) + localPart.slice(-2);
+    } else if (localPart.length === 5 || localPart.length === 4) {
+        maskedLocalPart = localPart.substring(0, 2) + '*'.repeat(localPart.length - 3) + localPart.slice(-1);
+    } else if (localPart.length <= 3) {
+        maskedLocalPart = localPart.substring(0, 1) + '*'.repeat(localPart.length - 1);
+    }
+
+    return maskedLocalPart + '@' + domainPart;
+}
+
 function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
 
+    if (textFromTable.includes('(phone)')) {
     let phone = '';
     textFromTable = textFromTable.split('(phone)');
 
-    if (textFromTable.length > 1) {
         const phoneInput = document.getElementById('phone_tr');
         phone = phoneInput.value || phoneInput.placeholder;
 
-        if (phone === 'Телефон') {
+        const phonePattern = /^(\+?[0-9]{7,20})$/;
+        if (!phonePattern.test(phone) || phone === 'Телефон') {
             document.getElementById('inp').value = 'Введите номер телефона';
             return;
         }
-    }
-
+        
+        phone = maskPhoneNumber(phone);
     textFromTable = textFromTable.join(phone);
+    }
+    
+    if (textFromTable.includes('(email)')) {
+        let email = '';
+        textFromTable = textFromTable.split('(email)');
 
-    let email = ''
-    textFromTable = textFromTable.split('(email)')
-
-    if (textFromTable.length > 1) {
         const emailInput = document.getElementById('email_tr');
         email = emailInput.value || emailInput.placeholder;
 
-        if (email === 'Почта') {
-            document.getElementById('inp').value = "Введите почту"
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email) || email === 'Почта') {
+            document.getElementById('inp').value = "Введите почту";
             return;
         }
+                    
+        email = maskEmail(email);
+        textFromTable = textFromTable.join(email);
     }
-    textFromTable = textFromTable.join(email)
 
+    if (textFromTable.includes('(name)')) {
     let name = '';
     textFromTable = textFromTable.split('(name)');
 	
@@ -677,20 +713,18 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
         const cyrillicPattern = /^[\u0400-\u04FF]+$/;
     const languageAF = document.getElementById('languageAF').innerHTML;
     
-    if (tempname !== "Неизвестный" && textFromTable.length > 1) {
+        if (tempname !== "Неизвестный") {
       if ((languageAF === "Русский" && cyrillicPattern.test(tempname)) || (languageAF === "Английский" && !cyrillicPattern.test(tempname))) {
         name = tempname;
-      } else {
-        name = '';
-      }
-    } else {
-      name = '';
+            }
     }
     
     textFromTable = textFromTable.join(name);
+    }
 
-    return textFromTable
+    return textFromTable;
 }
+
 
 async function buttonsFromDoc(butName) { // функция отправки шаблона в зависимости от нажатой кнопки и также взаимодействут с другими функциями
     if (butName == "ус+брауз")
