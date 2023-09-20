@@ -639,6 +639,36 @@ function bagPageButtons(butId) {  //с шаблонами тоже фукнкц�
         }
 }
 
+function maskPhoneNumber(number) { // замена части символов телефона
+    // Получаем начальную и конечную часть номера
+    const start = number.startsWith('+') ? number.substring(0, 5) : number.substring(0, 4);
+    const end = number.slice(-2);
+
+    // Вычисляем, сколько символов нужно заменить на звездочки
+    const starsCount = number.length - start.length - end.length;
+    const stars = '*'.repeat(starsCount);
+
+    return start + stars + end;
+}
+
+function maskEmail(email) { // замена части символов email
+    // Разделяем email на часть до @ и доменную часть
+    const [localPart, domainPart] = email.split('@');
+
+    let maskedLocalPart;
+
+    // Применяем правила маскировки для локальной части email
+    if (localPart.length > 5) {
+        maskedLocalPart = localPart.substring(0, 3) + '*'.repeat(localPart.length - 5) + localPart.slice(-2);
+    } else if (localPart.length === 5 || localPart.length === 4) {
+        maskedLocalPart = localPart.substring(0, 2) + '*'.repeat(localPart.length - 3) + localPart.slice(-1);
+    } else if (localPart.length <= 3) {
+        maskedLocalPart = localPart.substring(0, 1) + '*'.repeat(localPart.length - 1);
+    }
+
+    return maskedLocalPart + '@' + domainPart;
+}
+
 function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
 
     let phone = '';
@@ -654,6 +684,7 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
         }
     }
 
+    phone = maskPhoneNumber(phone);
     textFromTable = textFromTable.join(phone);
 
     let email = ''
@@ -668,6 +699,8 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
             return;
         }
     }
+
+    email = maskEmail(email);
     textFromTable = textFromTable.join(email)
 
     let name = '';
