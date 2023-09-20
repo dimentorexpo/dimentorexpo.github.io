@@ -735,7 +735,6 @@ function maskEmail(email) { // замена части символов email
 }
 
 function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
-
     if (typeof textFromTable !== 'string') {
         console.error('textFromTable is not a string:', textFromTable);
         return;
