@@ -313,7 +313,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
 	    "https://dimentorexpo.github.io/ChMAF/Modules/AlarmClock.js", // модуль будильника
-        "https://dimentorexpo.github.io/ChMAF/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
+        "https://dimentorexpo.github.io/ChMAF/Modules_test/CustomTemplates.js", // модуль кастомных собственных шаблонов
 		"https://dimentorexpo.github.io/ChMAF/Modules/Statistica.js", // модуль кнопки "Статистика" и вложенных функций
 		"https://dimentorexpo.github.io/ChMAF/Modules/Calendar.js", // модуль кнопки "Календарь"
         "https://dimentorexpo.github.io/ChMAF/Modules/Linksdostup.js",  // модуль дополнительного окна ссылок, где требуется запрос доступа к ресурсам
