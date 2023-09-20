@@ -736,6 +736,11 @@ function maskEmail(email) { // замена части символов email
 
 function transfPageButtons(textFromTable) { //подстановка телефона и почты юзера при использовании шаблона
 
+    if (typeof textFromTable !== 'string') {
+        console.error('textFromTable is not a string:', textFromTable);
+        return;
+    }
+    
     let phone = '';
     textFromTable = textFromTable.split('(phone)');
 
@@ -749,13 +754,17 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
             document.getElementById('inp').value = 'Введите номер телефона';
             return;
         }
-        
-        phone = maskPhoneNumber(phone);
-        textFromTable = textFromTable.join(phone);
     }
 
+    phone = maskPhoneNumber(phone);
+    console.log('textFromTable:', textFromTable);
+    textFromTable = textFromTable.join(phone);
 
-
+    if (typeof textFromTable !== 'string') {
+        console.error('textFromTable is not a string:', textFromTable);
+        return;
+    }
+    
     let email = ''
     textFromTable = textFromTable.split('(email)')
 
@@ -769,11 +778,11 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
             document.getElementById('inp').value = "Введите почту";
             return;
         }
-                    
-        email = maskEmail(email);
-        textFromTable = textFromTable.join(email)
     }
 
+    email = maskEmail(email);
+    console.log('textFromTable:', textFromTable);
+    textFromTable = textFromTable.join(email)
 
     let name = '';
     textFromTable = textFromTable.split('(name)');
