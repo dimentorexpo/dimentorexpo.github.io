@@ -741,70 +741,75 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
         return;
     }
     
-    let phone = '';
-    textFromTable = textFromTable.split('(phone)');
+    if (textFromTable.includes('(phone)')) {
+        let phone = '';
+        textFromTable = textFromTable.split('(phone)');
 
-    if (textFromTable.length > 1) {
         const phoneInput = document.getElementById('phone_tr');
         phone = phoneInput.value || phoneInput.placeholder;
 
-        // Проверка, является ли введенный текст номером телефона
         const phonePattern = /^(\+?[0-9]{7,20})$/;
         if (!phonePattern.test(phone) || phone === 'Телефон') {
             document.getElementById('inp').value = 'Введите номер телефона';
             return;
         }
-    }
+        
+        phone = maskPhoneNumber(phone);
+        textFromTable = textFromTable.join(phone);
 
-    phone = maskPhoneNumber(phone);
-    console.log('textFromTable:', textFromTable);
-    textFromTable = textFromTable.join(phone);
-
-    if (typeof textFromTable !== 'string') {
-        console.error('textFromTable is not a string:', textFromTable);
-        return;
+        if (typeof textFromTable !== 'string') {
+            console.error('textFromTable is not a string:', textFromTable);
+            return;
+        }
     }
     
-    let email = ''
-    textFromTable = textFromTable.split('(email)')
+    if (textFromTable.includes('(email)')) {
+        let email = '';
+        textFromTable = textFromTable.split('(email)');
 
-    if (textFromTable.length > 1) {
         const emailInput = document.getElementById('email_tr');
         email = emailInput.value || emailInput.placeholder;
 
-        // Проверка, является ли введенный текст emailом
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
         if (!emailPattern.test(email) || email === 'Почта') {
             document.getElementById('inp').value = "Введите почту";
             return;
         }
+                    
+        email = maskEmail(email);
+        textFromTable = textFromTable.join(email);
+
+        if (typeof textFromTable !== 'string') {
+            console.error('textFromTable is not a string:', textFromTable);
+            return;
+        }
     }
 
-    email = maskEmail(email);
-    console.log('textFromTable:', textFromTable);
-    textFromTable = textFromTable.join(email)
+    if (textFromTable.includes('(name)')) {
+        let name = '';
+        textFromTable = textFromTable.split('(name)');
 
-    let name = '';
-    textFromTable = textFromTable.split('(name)');
+        const tempname = getActiveConvUserName();
+        const cyrillicPattern = /^[\u0400-\u04FF]+$/;
+        const languageAF = document.getElementById('languageAF').innerHTML;
     
-    const tempname = getActiveConvUserName();
-    const cyrillicPattern = /^[\u0400-\u04FF]+$/;
-    const languageAF = document.getElementById('languageAF').innerHTML;
-    
-    if (tempname !== "Неизвестный" && textFromTable.length > 1) {
-      if ((languageAF === "Русский" && cyrillicPattern.test(tempname)) || (languageAF === "Английский" && !cyrillicPattern.test(tempname))) {
-        name = tempname;
-      } else {
-        name = '';
-      }
-    } else {
-      name = '';
+        if (tempname !== "Неизвестный") {
+            if ((languageAF === "Русский" && cyrillicPattern.test(tempname)) || (languageAF === "Английский" && !cyrillicPattern.test(tempname))) {
+                name = tempname;
+            }
+        }
+
+        textFromTable = textFromTable.join(name);
+
+        if (typeof textFromTable !== 'string') {
+            console.error('textFromTable is not a string:', textFromTable);
+            return;
+        }
     }
-    
-    textFromTable = textFromTable.join(name);
 
-    return textFromTable
+    return textFromTable;
 }
+
 
 async function buttonsFromDoc(butName) { // функция отправки шаблона в зависимости от нажатой кнопки и также взаимодействут с другими функциями
     if (butName == "ус+брауз")
