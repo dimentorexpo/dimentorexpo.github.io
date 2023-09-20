@@ -743,7 +743,9 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
         const phoneInput = document.getElementById('phone_tr');
         phone = phoneInput.value || phoneInput.placeholder;
 
-        if (phone === 'Телефон') {
+        // Проверка, является ли введенный текст номером телефона
+        const phonePattern = /^(\+?[0-9]{7,20})$/;
+        if (!phonePattern.test(phone) || phone === 'Телефон') {
             document.getElementById('inp').value = 'Введите номер телефона';
             return;
         }
@@ -759,8 +761,10 @@ function transfPageButtons(textFromTable) { //подстановка телеф�
         const emailInput = document.getElementById('email_tr');
         email = emailInput.value || emailInput.placeholder;
 
-        if (email === 'Почта') {
-            document.getElementById('inp').value = "Введите почту"
+        // Проверка, является ли введенный текст emailом
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        if (!emailPattern.test(email) || email === 'Почта') {
+            document.getElementById('inp').value = "Введите почту";
             return;
         }
     }
