@@ -1202,15 +1202,29 @@ function getActiveConvUserName() {
     const Usernamefield = iframeDocument.querySelectorAll('[class^="User_Preview"]')[0];
     let ConvUsername = null;
     
+    // массив для исключения
+    const predefinedNames = ["тьютор", "тютор", "бадди"];
+    
     if (Usernamefield) {
-        ConvUsername = Usernamefield.textContent.split(' ')[0]
-        if (ConvUsername) {
-            return ConvUsername;
+        const namesParts = Usernamefield.textContent.split(' ');
+        const firstPartInLowerCase = namesParts[0].toLowerCase();
+        
+        if (predefinedNames.includes(firstPartInLowerCase) && !namesParts[1]) {
+            return '';
+        }
+
+        if (predefinedNames.includes(firstPartInLowerCase) && namesParts[1]) {
+            return namesParts[1];
+        }
+
+        if (firstPartInLowerCase) {
+            return namesParts[0];
         }
     }
     
     return '';
 }
+
 
 // окрашивание чатов при остатке времени <2 min
 
