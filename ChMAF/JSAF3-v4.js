@@ -1203,7 +1203,7 @@ function getActiveConvUserName() {
     let ConvUsername = null;
 
     // массив для исключения
-    const predefinedNames = ["тьютор", "тютор", "тутор", "бадди"];
+    const predefinedNames = ["тьютор", "тютор", "тутор", "бадди", "tutor", "buddy"];
     
     if (Usernamefield) {
         const namesParts = Usernamefield.textContent.split(' ');
