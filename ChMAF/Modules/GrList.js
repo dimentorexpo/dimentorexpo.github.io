@@ -3,7 +3,7 @@ var win_GrList =  // описание элементов окна Списка �
         <span style="width: 450px">
                 <span style="cursor: -webkit-grab;">
                         <div style="margin: 5px; width: 400;" id="grlistdata">
-                                <button id="hideMeGrList" style="width:50px; background: #228B22;">hide</button>
+                                <button id="hideList" style="width:50px; background: #228B22;">hide</button>
                         </div>
 						<div>
                         <input id="idgrouptolist" placeholder="ID группы" title="Введите ID группы для получения списка учеников" autocomplete="off" type="text" style="text-align: center; width: 80px; color: black;margin-left:5px; position:relative; left:30%;">
@@ -77,15 +77,6 @@ document.getElementById('GrListData').onclick = function() {
 				document.getElementById('AF_GrList').style.display = '';
 			}
 }
-
-    document.getElementById('hideMeGrList').onclick = function () { // скрытие окна Список группы
-        if (document.getElementById('AF_GrList').style.display == '') {
-            document.getElementById('AF_GrList').style.display = 'none';
-            document.getElementById('grlistinfo').innerText = "";
-            document.getElementById('idgrouptolist').value = "";
-        }
-    }
-
     let grdata = [];
     let responsegrdata;
     document.getElementById('getidgrouptolist').onclick = async function () {
@@ -146,3 +137,11 @@ document.getElementById('GrListData').onclick = function() {
         })
 
     } // end of func getidgrouptolist
+
+    document.getElementById('hideList').onclick = function () { // скрытие окна Список группы
+        if (document.getElementById('AF_GrList').style.display == '') {
+            document.getElementById('AF_GrList').style.display = 'none';
+            document.getElementById('grlistinfo').innerText = "";
+            document.getElementById('idgrouptolist').value = "";
+        }
+    }
