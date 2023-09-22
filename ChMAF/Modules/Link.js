@@ -10,6 +10,7 @@ var win_Links =  // описание элементов окна ссылок
 					<button title="Открывает меню для работы со статистикой, поиска чатов без тематики, с низкими оценками, по комментарию" id="getStats" class="uplinksbar">📋</button>
 					<button title="Открывает Infra для запроса сброса пароля в Mattermost Teacher" id="resetMMPassword" class="uplinksbar">🔐</button>
 					<button title="Открывает менюшку для просмотра информации по BIN банка, чтобы узнать тип карты, страну происхождения, название банка" id="bankCheck" class="uplinksbar">💳</button>
+					<button title="Открывает просмотр список группы" id="GrListData" class="uplinksbar">👩‍👩‍👧‍👦</button>
                     <button title="Открывает известные баги на платформе" id="confbugs" style="width: 50px; float: right; margin-right: 5px" class="uplinksbar">🐞</button>
 				</div>
 				<div style="margin: 5px; width: 550px;" id="links_but">
@@ -93,6 +94,10 @@ wintLinks.onmousedown = function(event) {
     let elemTop = wintLinks.offsetTop;
 
     function onMouseMove(event) {
+		  if (!(event.buttons & 1)) {
+			onMouseUp();
+			return;
+		  }
       let deltaX = event.clientX - startX;
       let deltaY = event.clientY - startY;
 
@@ -132,7 +137,8 @@ document.getElementById('hideMe').onclick = function () { // скрытие ок
     if (document.getElementById('AF_Links').style.display == '')
         document.getElementById('AF_Links').style.display = 'none'
 }	
-	
+	                                        
+
 document.getElementById('knoweledgebase').onclick = function () { // открытие Confluence БЗ 2.0
     window.open("https://confluence.skyeng.tech/pages/viewpage.action?pageId=25407293")
 }
@@ -407,38 +413,76 @@ async function getversionsapp() { // получаем из файла списо
 
 }
 
-    document.getElementById('getmobpasscode').onclick = function () {
-        if (setidformobpass.value == "")
-            console.log('Введите id в поле')
-        else {
-            document.getElementById('getmobpasscode').innerHTML = "✅";
-            setTimeout(function () { document.getElementById('getmobpasscode').innerHTML = "🚀" }, 2000);
-            document.getElementById('responseTextarea1').value = `{
-			"headers": {
-				"content-type": "application/x-www-form-urlencoded",
-					"sec-fetch-dest": "document",
-					"sec-fetch-mode": "navigate",
-					"sec-fetch-site": "same-origin",
-					"sec-fetch-user": "?1",
-					"upgrade-insecure-requests": "1"
-			},
-			"body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
-				"method": "POST",
-				"mode": "cors",
-				"credentials": "include"
-			}`
-            document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
-            document.getElementById('responseTextarea3').value = 'getmobpwd'
-            document.getElementById('sendResponse').click()
+    // document.getElementById('getmobpasscode').onclick = function () {
+        // if (setidformobpass.value == "")
+            // console.log('Введите id в поле')
+        // else {
+            // document.getElementById('getmobpasscode').innerHTML = "✅";
+            // setTimeout(function () { document.getElementById('getmobpasscode').innerHTML = "🚀" }, 2000);
+            // document.getElementById('responseTextarea1').value = `{
+			// "headers": {
+				// "content-type": "application/x-www-form-urlencoded",
+					// "sec-fetch-dest": "document",
+					// "sec-fetch-mode": "navigate",
+					// "sec-fetch-site": "same-origin",
+					// "sec-fetch-user": "?1",
+					// "upgrade-insecure-requests": "1"
+			// },
+			// "body": "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+				// "method": "POST",
+				// "mode": "cors",
+				// "credentials": "include"
+			// }`
+            // document.getElementById('responseTextarea2').value = "https://id.skyeng.ru/admin/auth/one-time-password"
+            // document.getElementById('responseTextarea3').value = 'getmobpwd'
+            // document.getElementById('sendResponse').click()
 
-            function getPassInfo() {
-                var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
-                document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
-                var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
-                setidformobpass.value = convertres[1];
-            }
-            setTimeout(getPassInfo, 2000);
-        };
-        setTimeout(function () { document.getElementById('setidformobpass').value = "" }, 15000);
+            // function getPassInfo() {
+                // var resprez = document.getElementById('responseTextarea1').getAttribute('getmobpwd')
+                // document.getElementById('responseTextarea1').removeAttribute('getmobpwd');
+                // var convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+                // setidformobpass.value = convertres[1];
+            // }
+            // setTimeout(getPassInfo, 2000);
+        // };
+        // setTimeout(function () { document.getElementById('setidformobpass').value = "" }, 15000);
 
-    }
+    // }
+	
+	const getmobpasscode = document.querySelector('#getmobpasscode');
+
+	getmobpasscode.onclick = function () {
+	const setidformobpass = document.querySelector('#setidformobpass');
+	if (setidformobpass.value.trim() == "") {
+	console.log('Введите id в поле');
+	} else {
+	getmobpasscode.innerHTML = '✅';
+	setTimeout(() => getmobpasscode.innerHTML = '🚀', 2000);
+	document.querySelector('#responseTextarea1').value = JSON.stringify({
+	headers: {
+	'content-type': 'application/x-www-form-urlencoded',
+	'sec-fetch-dest': 'document',
+	'sec-fetch-mode': 'navigate',
+	'sec-fetch-site': 'same-origin',
+	'sec-fetch-user': '?1',
+	'upgrade-insecure-requests': '1'
+	},
+	body: "user_id_or_identity_for_one_time_password_form%5BuserIdOrIdentity%5D= + ${setidformobpass.value} + &user_id_or_identity_for_one_time_password_form%5Bgenerate%5D=&user_id_or_identity_for_one_time_password_form%5B_token%5D=null",
+	method: 'POST',
+	mode: 'cors',
+	credentials: 'include'
+	});
+	document.querySelector('#responseTextarea2').value = 'https://id.skyeng.ru/admin/auth/one-time-password';
+	document.querySelector('#responseTextarea3').value = 'getmobpwd';
+	document.querySelector('#sendResponse').click();
+
+	const getPassInfo = async () => {
+	  const resprez = await document.querySelector('#responseTextarea1').getAttribute('getmobpwd');
+	  document.querySelector('#responseTextarea1').removeAttribute('getmobpwd');
+	  const convertres = resprez.match(/div class="alert alert-success" role="alert".*?([0-9]{5}).*/);
+	  setidformobpass.value = convertres[1];
+	};
+	setTimeout(getPassInfo, 2000);
+	};
+	setTimeout(() => setidformobpass.value = "", 15000);
+	};
