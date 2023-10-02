@@ -61,6 +61,11 @@ wintCalendar.onmousedown = function(event) {
     let elemTop = wintCalendar.offsetTop;
 
     function onMouseMove(event) {
+		if (!(event.buttons & 1)) {
+			onMouseUp();
+			return;
+		  }
+		  
       let deltaX = event.clientX - startX;
       let deltaY = event.clientY - startY;
 
@@ -279,16 +284,18 @@ let responseslotsdata;
 	let uniqueEvents;
 function getTimeSlots() { //функция получения информации по временным слотам
 		
-	let eventDate = document.getElementById('eventDate').value
-    var dateCalend = new Date();
-    var offsetCalend = 3; // Moscow Timezone Offset in hours
-    var utcHoursCalendar = dateCalend.getUTCHours();
-    var hoursCalendar = (utcHoursCalendar + offsetCalend) % 24;
-    hoursCalendar = hoursCalendar < 10 ? '0' + hoursCalendar : hoursCalendar;
-    var minutesCalendar = dateCalend.getMinutes();
-    minutesCalendar = minutesCalendar < 10 ? '0' + minutesCalendar : minutesCalendar;
-    var currentTimeCalendar = hoursCalendar + ':' + minutesCalendar;
-	let curentDate = dateCalend.getFullYear() + '-' + ((+dateCalend.getMonth()+1) < 10 ? ("0" + (+dateCalend.getMonth()+1)) : dateCalend.getMonth()) + '-' + (dateCalend.getDate() < 10 ? "0" + dateCalend.getDate() : dateCalend.getDate() )
+	let eventDate = document.getElementById('eventDate').value;
+	let dateCalend = new Date();
+	let offsetCalend = 3; // Moscow Timezone Offset in hours
+	let utcHoursCalendar = dateCalend.getUTCHours();
+	let hoursCalendar = (utcHoursCalendar + offsetCalend) % 24;
+	hoursCalendar = hoursCalendar < 10 ? '0' + hoursCalendar : hoursCalendar;
+	let minutesCalendar = dateCalend.getMinutes();
+	minutesCalendar = minutesCalendar < 10 ? '0' + minutesCalendar : minutesCalendar;
+	let currentTimeCalendar = hoursCalendar + ':' + minutesCalendar;
+	let currentMonth = dateCalend.getMonth() + 1;
+	let formattedMonth = currentMonth < 10 ? '0' + currentMonth : currentMonth;
+	let curentDate = dateCalend.getFullYear() + '-' + formattedMonth + '-' + (dateCalend.getDate() < 10 ? "0" + dateCalend.getDate() : dateCalend.getDate());
 
     responseslotsdata = '';
 
