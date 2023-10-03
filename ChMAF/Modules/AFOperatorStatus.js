@@ -22,7 +22,7 @@ async function operstatusleftbar() { // функция замены Script Packa
 
         for (let i = 0; i < result.onOperator.length; i++) {
 			if (result.onOperator[i].status != "Offline") {
-				if (flagtpkc == 'ТП' && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
+				if ((flagtpkc == 'ТП' || flagtpkc == 'ТП ОС') && result.onOperator[i].operator != null && result.onOperator[i].operator.fullName.match(/ТП\D/)) {
 					opstats.push(result.onOperator[i])
 					for (let j=0; result.unAssigned[j] != undefined; j++) {
 						if (result.unAssigned[j].groupId == 'c7bbb211-a217-4ed3-8112-98728dc382d8') {
