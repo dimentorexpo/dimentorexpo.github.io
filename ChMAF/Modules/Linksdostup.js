@@ -34,7 +34,7 @@ var win_linksd =  // описание элементов окна доступо
                             <button title="Открывает Графану с состоянием видеосерверов, при наплыве обращений проверяйте его" id="grafanalnk" style="width:130px">Видео сервера</button>
                             <button title="Открывает Графану с отображением пула задачь на группе Техподдержка Исход CRM2" id="grafanapoolCRM2" style="width:130px">Пул исход CRM2</button>
 							<p style="margin-left: 42%; margin-bottom: 0px; margin-top: 0px; color: #F6358A; font-size: 16px">KPI Teachers</p>
-							<button title="Открывает Tableaue для просмотра информации по KPI teachers" id="kpiteachersdashboard" style="width:150px">Tableaue Dashboard</button>
+							<button title="Открывает Datalens для просмотра информации по KPI teachers" id="kpiteachersdashboard" style="width:150px">Datalens Dashboard</button>
                         </div>
                 </span>
         </span>
@@ -209,5 +209,5 @@ document.getElementById('AF_Linksd').ondblclick = function (a) { // скрыти
     }
 
     document.getElementById('kpiteachersdashboard').addEventListener('click', function () {
-        window.open("https://tableau.skyeng.ru/#/views/_16582100612920/KPI_1?:iid=1")    // копируем открываем дашборд КПИ тичерсов
+        window.open("https://datalens.yandex.ru/lupggqkv0uewa-kpi-p-dlya-tp?tab=GrW&state=684e0be1371")    // копируем открываем дашборд КПИ тичерсов
     })
