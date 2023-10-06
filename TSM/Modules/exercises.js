@@ -286,6 +286,8 @@ function getkidsroominfo(data) {
                 data.homeworkCards[indexOfSlides].themes[i].cards[j].name = data.homeworkCards[indexOfSlides].themes[i].cards[j].name + '✏'
             } else if (data.homeworkCards[indexOfSlides].themes[i].cards[j].emphasis == 'pronunciation') {
                 data.homeworkCards[indexOfSlides].themes[i].cards[j].name = data.homeworkCards[indexOfSlides].themes[i].cards[j].name + '🎧'
+            } else if (data.homeworkCards[indexOfSlides].themes[i].cards[j].emphasis == 'speaking') {
+                data.homeworkCards[indexOfSlides].themes[i].cards[j].name = data.homeworkCards[indexOfSlides].themes[i].cards[j].name + '🎙'
             }
             hwarr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
                 data.homeworkCards[indexOfSlides].themes[i].cards[j].name + ' ' +
