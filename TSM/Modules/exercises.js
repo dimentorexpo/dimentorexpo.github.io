@@ -11,6 +11,7 @@ var win_kidsExercises = `<div style="display: flex;">
                         </div>
 
 						<div style="margin: 5px; width:500px;" id="exercisesSkysmartTeacher">
+							<label style="color: black; margin-left: 5px; background: mediumseagreen; font-weight: 700; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); border-radius: 8px; padding: 3px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);"><input type="checkbox" id="hideNullCards">Скрыть Темы с 0 карточек</label>
 							<span id="teachname" style="color:#d5f4ff; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
 							<span id="teachdid" style="color:bisque; cursor:text; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
 						</div>
@@ -221,6 +222,30 @@ async function gethwroominfo(api, hash) {
     }).then(r => r.json()).then(r => hwroomdata = r)
 }
 
+// Получаем элемент чекбокса
+const hideNullCardsCheckbox = document.getElementById("hideNullCards");
+
+// Получаем значение из локального хранилища
+let checkedHideNullCards = localStorage.getItem("Nullcards");
+
+// Если значение в локальном хранилище не установлено, устанавливаем его по умолчанию в "1" и включаем чекбокс
+if (checkedHideNullCards === null) {
+  checkedHideNullCards = "1";
+  localStorage.setItem("Nullcards", checkedHideNullCards);
+  hideNullCardsCheckbox.checked = true;
+} else {
+  // В противном случае, устанавливаем состояние чекбокса в соответствии с значением из локального хранилища
+  hideNullCardsCheckbox.checked = checkedHideNullCards === "1";
+}
+
+// Добавляем обработчик события при изменении состояния чекбокса
+hideNullCardsCheckbox.addEventListener("change", function () {
+  // Обновляем значение в локальном хранилище
+  checkedHideNullCards = this.checked ? "1" : "0";
+  localStorage.setItem("Nullcards", checkedHideNullCards);
+  document.getElementById('getroomdatakids').click();
+});
+
 function getkidsroominfo(data) {
     let temparr = [];
     let hwarr = [];
@@ -240,7 +265,11 @@ function getkidsroominfo(data) {
 	}
 	
     for (let i = 0; i < data.lessonCards[indexOfSlides].themes.length; i++) {
-        temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+		if (localStorage.getItem("Nullcards") == 1 && data.lessonCards[indexOfSlides].themes[i].cards.length > 0) {
+			temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+		} else if (localStorage.getItem("Nullcards") == 0) {
+			temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+		}
         for (let j = 0; j < data.lessonCards[indexOfSlides].themes[i].cards.length; j++) {
             (data.lessonCards[indexOfSlides].themes[i].cards[j].completeness == 100 && data.lessonCards[indexOfSlides].themes[i].cards[j].score == null) ? data.lessonCards[indexOfSlides].themes[i].cards[j].score = 100 : data.lessonCards[indexOfSlides].themes[i].cards[j].score;
             if (data.lessonCards[indexOfSlides].themes[i].cards[j].completeness == null) {
@@ -274,7 +303,11 @@ function getkidsroominfo(data) {
         '</div>';
 	
     for (let i = 0; i < data.homeworkCards[indexOfSlides].themes.length; i++) {
-        hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+		if (localStorage.getItem("Nullcards") == 1 && data.homeworkCards[indexOfSlides].themes[i].cards.length > 0) {
+			hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+		} else if (localStorage.getItem("Nullcards") == 0) {
+			hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+		}
         for (let j = 0; j < data.homeworkCards[indexOfSlides].themes[i].cards.length; j++) {
             (data.homeworkCards[indexOfSlides].themes[i].cards[j].completeness == 100 && data.homeworkCards[indexOfSlides].themes[i].cards[j].score == null) ? data.homeworkCards[indexOfSlides].themes[i].cards[j].score = 100 : data.homeworkCards[indexOfSlides].themes[i].cards[j].score;
             if (data.homeworkCards[indexOfSlides].themes[i].cards[j].completeness == null) {
@@ -289,6 +322,7 @@ function getkidsroominfo(data) {
             } else if (data.homeworkCards[indexOfSlides].themes[i].cards[j].emphasis == 'speaking') {
                 data.homeworkCards[indexOfSlides].themes[i].cards[j].name = data.homeworkCards[indexOfSlides].themes[i].cards[j].name + '🎙'
             }
+			
             hwarr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
                 data.homeworkCards[indexOfSlides].themes[i].cards[j].name + ' ' +
                 '<span class="stepuidslkids" style="display:none">' + data.homeworkCards[indexOfSlides].themes[i].cards[j].stepUuid + '</span>' +
