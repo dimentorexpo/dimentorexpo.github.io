@@ -115,7 +115,7 @@ function startTimer() {
             }
         }
 
-        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && !iframeDoc.getElementById('transfer-buttons-container')) {
+/*        if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && !iframeDoc.getElementById('transfer-buttons-container')) {
             const iframeHeader = iframeDoc.querySelectorAll('#__next [class^="Layout_Header"]')[0].children[1].children[0];
             function createTransferButton(text) {
                 const button = iframeDoc.createElement('button');
@@ -178,7 +178,7 @@ function startTimer() {
 //            TransfBtnsContainer.appendChild(opTransBtn);
             
             iframeHeader.parentNode.insertBefore(TransfBtnsContainer, iframeHeader);
-        }
+        }*/
 
         if (hrefisnow.includes('skyeng.autofaq.ai/tickets/assigned') && Usernamefield){
             if (tagsshowflag === "1"){
