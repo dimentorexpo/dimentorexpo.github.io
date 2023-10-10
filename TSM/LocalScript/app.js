@@ -1,3 +1,5 @@
+const Messanger_API_URL = "https://mattermost.skyeng.tech/api/v4/posts";
+//const Messanger_API_URL = "https://mm-time.skyeng.tech/api/v4/posts";
 var showForPages = ["*://*.skyeng.ru/*","*://skyeng.autofaq.ai/*","*://*.slack.com/*","*://jira.skyeng.tech/*","*://*.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
 
 //переменные каналов отправки сообщений
@@ -61,7 +63,7 @@ async function sendtodisaster(i,t){
 	var textmsg = prompt('Введите ваш текст в это поле');
 	if (textmsg !== null){
         if (textmsg.length > 3) {
-				await fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+				await fetch(Messanger_API_URL, {
 				"headers": {
 					  "accept": "*/*",
 					  "accept-language": "ru",
@@ -79,7 +81,7 @@ async function sendtodisaster(i,t){
 				let tsresponse = receiveddata.id
 				console.log(tsresponse)
 				
-				fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+				fetch(Messanger_API_URL, {
 						"headers": {
 						  "accept": "*/*",
 						  "accept-language": "ru",
@@ -343,7 +345,7 @@ async function getMMostOperId() {
         user_id: MMostOperId
     };
 
-    fetch("https://mattermost.skyeng.tech/api/v4/posts", {
+    fetch(Messanger_API_URL, {
         "headers": {
             "accept": "*/*",
             "accept-language": "ru",

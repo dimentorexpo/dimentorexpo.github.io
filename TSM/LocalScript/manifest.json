@@ -2,7 +2,7 @@
   "name": "Technical Support Master",
   "short_name": "TSM",
   "description": "Удобное контекстное меню с разными плюшками и опциями, помогающими в работе",
-  "version": "1.5.3",
+  "version": "1.5.5",
   "permissions": [
 		"contextMenus",
 		"tabs",
@@ -11,7 +11,8 @@
 		"*://skyeng.autofaq.ai/*",
 		"*://*.slack.com/*",
 		"*://jira.skyeng.tech/*",
-		"*://mattermost.skyeng.tech/*"
+		"*://mattermost.skyeng.tech/*",
+		"*://mm-time.skyeng.tech/*"
 	],
   "background": {
     "scripts": ["app.js"]
