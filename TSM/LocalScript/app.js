@@ -1,5 +1,9 @@
 const Messanger_API_URL = "https://mattermost.skyeng.tech/api/v4/posts";
 //const Messanger_API_URL = "https://mm-time.skyeng.tech/api/v4/posts";
+
+const OperId_API_URL = "https://mattermost.skyeng.tech/api/v4/users/me";
+//const OperId_API_URL = "https://mm-time.skyeng.tech/api/v4/users/me";
+
 var showForPages = ["*://*.skyeng.ru/*","*://skyeng.autofaq.ai/*","*://*.slack.com/*","*://jira.skyeng.tech/*","*://*.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
 
 //переменные каналов отправки сообщений
@@ -314,7 +318,7 @@ async function getMMostOperId() {
 		resolve(MMostOperId);
 	  } else {
 		try {
-		  const response = await fetch("https://mattermost.skyeng.tech/api/v4/users/me");
+		  const response = await fetch(OperId_API_URL);
 		  
 		  if (!response.ok) {
 			throw new Error("Failed to fetch user data.");
