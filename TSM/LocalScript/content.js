@@ -1,3 +1,5 @@
+const messangerlink = "https://mattermost.skyeng.tech/skyeng/pl/";
+//const messangerlink = "https://mm-time.skyeng.tech/skyeng/pl/";
 function include(url) {
         var script = document.createElement('script');
         script.src = url;
@@ -19,7 +21,7 @@ function initTSM() {
                 alert("Ошибка. Повтори отправку сообщения в ММ")
             } else {
                 lastChatIdF = Chatid;
-                const messlink = 'https://mattermost.skyeng.tech/skyeng/pl/' + Chatid;
+                const messlink = messangerlink + Chatid;
                 const SendMessage = `Передано в канал #techsupport: <a href="${messlink}" target="_blank" rel="noopener">ссылка</a>`;
                 const SendMessageCRM = `Передано в канал #techsupport и ссылка скопирована в буфер обмена: ${messlink}`;
                     
