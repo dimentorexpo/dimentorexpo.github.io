@@ -1207,12 +1207,6 @@ function getActiveConvUserName() {
     
     if (Usernamefield) {
         const namesParts = Usernamefield.textContent.split(/[\s_]+/);
-
-        if (namesParts[0] === "Владосик") {
-            alert("Это Владосик!");
-            return "Владислав";
-        }
-
         const firstPartInLowerCase = namesParts[0].toLowerCase();
         
         if (predefinedNames.includes(firstPartInLowerCase) && !namesParts[1]) {
