@@ -5,6 +5,11 @@ let responsejira;
 let psarr = [];
 let firstEl;
 let mmlink;
+const messanger_name = "Mattermost";
+const messanger_URL = "https://mattermost.skyeng.tech";
+//const messanger_name = "TiMe";
+//const messanger_URL = "https://mm-time.skyeng.tech";
+const messregexPattern = new RegExp(`">(${messanger_URL}.*?)<\/a>`);
 // let infoarr;
 let lasttsk;
 let prevtsk;
@@ -265,9 +270,9 @@ function getmmlink() {
 			    responseTextarea1.addEventListener("DOMSubtreeModified", function () {
 				const infoarr = responseTextarea1.getAttribute('mmlinkhere');
 				if (infoarr) {
-					mmlink = infoarr.match(/">(https:\/\/mattermost.skyeng.tech.*?)<\/a>/)[1];
-					console.log("Mattermost link " + mmlink);
-                    sendComment("Mattermost link: " + mmlink);
+                    mmlink = infoarr.match(messregexPattern)[1];
+                    console.log(`${messanger_name} link ${mmlink}`);
+                    sendComment(`${messanger_name} link: ${mmlink}`);
 				}
 				responseTextarea1.removeAttribute('mmlinkhere');
 			});
