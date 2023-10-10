@@ -1210,7 +1210,7 @@ function getActiveConvUserName() {
 
         if (namesParts[0] === "Владосик") {
             alert("Это Владосик!");
-            return namesParts[0];
+            return "Владислав";
         }
 
         const firstPartInLowerCase = namesParts[0].toLowerCase();
