@@ -9,6 +9,16 @@ var win_testrooms =  // описание элементов окна созда�
                   <button onclick="opentestroomsconf()" title="Открывает раздел в Confluence по созданию тестовых комнат" style="width:24px; float: right; margin-right: 5px;">📋</button>
               </div>
 
+              <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
+                <select id="lessontypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
+                    <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери тип урока</option>
+                    <option value="test">1 - 1</option>
+                    <option value="test-parallel">Паралельный</option>
+                    <option value="">Вебинар</option>
+                    <option value="">Групповой</option>
+                </select>
+              </div>
+
 					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
                   <select id="subjecttypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
                       <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
@@ -20,16 +30,6 @@ var win_testrooms =  // описание элементов окна созда�
                       <option value="api-russian">Русский язык</option>
                       <option value="api-physics">Физика</option>
                       <option value="api-chess">Шахматы</option>
-                  </select>
-              </div>
-
-              <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <select id="lessontypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
-                      <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери тип урока</option>
-                      <option value="test">1 - 1</option>
-                      <option value="test-parallel">Паралельный</option>
-                      <option value="">Вебинар</option>
-                      <option value="">Групповой</option>
                   </select>
               </div>
 
