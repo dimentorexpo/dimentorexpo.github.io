@@ -182,9 +182,7 @@ document.getElementById('starttestroom').onclick = function () { // добавл
     let lessontype = '';
     let massagetexttoshow = '';
 
-    let lessonid = document.getElementById('lessonidforroom').value 
-    ? document.getElementById('lessonidforroom').value.replace(/[^0-9]/g, '')
-    : '';
+    let lessonid = document.getElementById('lessonidforroom').value
 
     if (document.getElementById('lessontypeselect').value == 'lessonnotselect') { // проверяем выбран ли тип урока
       flagemptyttfields = '1';
