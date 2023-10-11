@@ -322,13 +322,17 @@ function getJiraTask() { // поиск задач в jira
     textArea1.removeAttribute('getissuetable');
 
     const { issueKeys, table, issueIds } = rezissuetable.issueTable;
+    if (!table) {
+        document.getElementById('issuetable').innerHTML = '<a style="margin-left:5px; color: #ffe4c4">Задачь не найдено</a>'
+        return;
+    }
     const matchedItems = table.match(/(\w+-\d+">.*?).<\/a>/gmi).filter(filterItems);
     const matchedNumbers = table.match(/(">.)*?([0-9]+)\n/gm);
     const searchText = document.getElementById('testJira').value;
 
     let issues = '';
     for (let i = 0; i < Math.min(issueKeys.length, 50); i++) {
-							const currentNumber = matchedNumbers ? matchedNumbers[i] : null;
+		const currentNumber = matchedNumbers ? matchedNumbers[i] : null;
         const currentIssue = matchedItems[i];
         const currentKey = issueKeys[i];
 		const currentIds = issueIds[i];
