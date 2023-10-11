@@ -310,7 +310,7 @@ function prepTp() { //функция подготовки расширения �
 		"https://dimentorexpo.github.io/ChMAF/Extras/moment.js", // подключаем модуль для работы с датами и временем
         "https://dimentorexpo.github.io/ChMAF/Modules/TestUsers.js", // модуль тестовых У П
         "https://dimentorexpo.github.io/ChMAF/Modules/Link.js", // модуль ссылкера (L)inks
-        "https://dimentorexpo.github.io/ChMAF/Modules_test/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
+        "https://dimentorexpo.github.io/ChMAF/Modules/TemplatesFuncs.js", // модуль с функциями при работе с шаблонами"
         "https://dimentorexpo.github.io/ChMAF/Modules/Settings.js", // модуль настроек расширения
 	    "https://dimentorexpo.github.io/ChMAF/Modules/AlarmClock.js", // модуль будильника
         "https://dimentorexpo.github.io/ChMAF/Modules/CustomTemplates.js", // модуль кастомных собственных шаблонов
@@ -336,7 +336,7 @@ function prepTp() { //функция подготовки расширения �
         "https://dimentorexpo.github.io/ChMAF/Modules/ServiceDesk.js", // подключаем модуль Сервис Деска
         "https://dimentorexpo.github.io/ChMAF/Modules/Grabber.js", // подключаем модуль Парсинга чатов оператора
         "https://dimentorexpo.github.io/ChMAF/Modules/Radio.js", // подключаем модуль статусов операторов и количества чатов на них
-		"https://dimentorexpo.github.io/ChMAF/Modules/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
+		"https://dimentorexpo.github.io/ChMAF/Modules_test/TestRooms.js", //подключаем модуль быстрого создания тестовых комнат
 		"https://dimentorexpo.github.io/ChMAF/Modules/Knowledge.js", //подключаем модуль базы знаний
         "https://dimentorexpo.github.io/Lightbox/dist/js/lightbox.min.js"]; // подключаем библиотеку обработки изображений при клике на них
     loadmoduls(gfgScript)
