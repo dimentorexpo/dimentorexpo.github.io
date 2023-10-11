@@ -166,6 +166,10 @@ function onlyNumbers(object) { // функция для разрешения в�
     object.value = object.value.replace(/[^0-9]/g, '');
 }
 
+function onlyNumbersAndComma(object) { // функция для разрешения ввода только цифр и запятой
+    object.value = object.value.replace(/[^0-9,]/g, '');
+}
+
 function noDoubts(object) { // функция для разрешения ввода только английских и русских букв без запрещенных символов
     object.value = object.value.replace(/["'\\]/gi, '');
 }
