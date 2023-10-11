@@ -119,7 +119,8 @@ document.getElementById('TestRooms').onclick = function () { //открывае�
 function cleartestroomsfields(){ // очистка полей окно создания тестовых комнат
   document.getElementById('teachforroom').value = '';
   document.getElementById('studforroom').value = '';
-  document.getElementById('subjecttypeselect').children[0].selected = true
+  document.getElementById('subjecttypeselect').children[0].selected = true;
+  document.getElementById('lessontypeselect').children[0].selected = true
 }
 
 function testteachertofield(){ // подставить тестового П
@@ -173,30 +174,44 @@ document.getElementById('starttestroom').onclick = function () { // добавл
     let studentidforroom = '';
     let teacheridforroom = '';
     let lessonsubjecttype = '';
+    let lessontype = '';
     let massagetexttoshow = '';
 
-    if (document.getElementById('subjecttypeselect').value == 'subjnotselect') {
+    if (document.getElementById('lessontypeselect').value == 'lessonnotselect') { // проверяем выбран ли тип урока
+      flagemptyttfields = '1';
+      massagetexttoshow += 'Не выбран тип урока\n'
+      console.log ('Не выбран тип урока');
+    } else { lessontype = document.getElementById('lessontypeselect').value }
+
+    if (document.getElementById('subjecttypeselect').value == 'subjnotselect') { // проверяем выбран ли предмет
         flagemptyttfields = '1';
-        massagetexttoshow = 'Не выбран предмет'
+        massagetexttoshow += 'Не выбран предмет\n'
         console.log ('Не выбран предмет');
     } else { lessonsubjecttype = document.getElementById('subjecttypeselect').value }
 
-    if ( document.getElementById('teachforroom').value.length <4){
+    if ( document.getElementById('teachforroom').value.length <4){ // проверяем введен ли id П
         flagemptyttfields = '1';
-        massagetexttoshow = 'Не указан id преподавателя'
+        massagetexttoshow += 'Не указан id преподавателя\n'
         console.log ('Не указан id преподавателя');
-    } else { teacheridforroom =  document.getElementById('teachforroom').value }
+    } else { 
+        teacheridforroom =  document.getElementById('teachforroom').value
+            .replace(/[^0-9,]/g, '')   // Удалить все символы, кроме цифр и запятой
+    }
 
-    if ( document.getElementById('studforroom').value.length <4){
+    if ( document.getElementById('studforroom').value.length <4){ // проверяем введен ли id У
         flagemptyttfields = '1';
-        massagetexttoshow = 'Не указан id ученика'
+        massagetexttoshow += 'Не указан id ученика\n'
         console.log ('Не указан id ученика');
-    } else { studentidforroom =  document.getElementById('studforroom').value }
+    } else {
+        studentidforroom = document.getElementById('studforroom').value
+            .replace(/[^0-9,]/g, '')   // Удалить все символы, кроме цифр и запятой
+            .replace(/,/g, '%2C');    // Заменить запятую на %2C
+    }
 
     if (flagemptyttfields === '0'){
       randomHash = GenerateHash(14);
 
-      const requestBody = `${randomHash}%5Btype%5D=test&${randomHash}%5BteacherId%5D=${teacheridforroom}&${randomHash}%5BstudentIds%5D=${studentidforroom}&btn_create_and_list=`;
+      const requestBody = `${randomHash}%5Btype%5D=${lessontype}&${randomHash}%5BteacherId%5D=${teacheridforroom}&${randomHash}%5BstudentIds%5D=${studentidforroom}&btn_create_and_list=`;
       const requestreferrer = `https://${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create`;
       const requestAdr = `https://${lessonsubjecttype}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`;
       const requestHeaders = {
