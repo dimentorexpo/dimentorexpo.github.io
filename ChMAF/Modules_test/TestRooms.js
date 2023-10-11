@@ -123,6 +123,7 @@ document.getElementById('TestRooms').onclick = function () { //открывае�
 function cleartestroomsfields(){ // очистка полей окно создания тестовых комнат
   document.getElementById('teachforroom').value = '';
   document.getElementById('studforroom').value = '';
+  document.getElementById('lessonidforroom').value = '';
   document.getElementById('subjecttypeselect').children[0].selected = true;
   document.getElementById('lessontypeselect').children[0].selected = true
 }
