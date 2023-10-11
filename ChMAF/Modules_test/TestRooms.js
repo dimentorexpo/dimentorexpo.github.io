@@ -10,7 +10,7 @@ var win_testrooms =  // описание элементов окна созда�
               </div>
 
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                <select id="lessontypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
+                <select id="lessontypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px;">
                     <option disabled="" selected="" value="lessonnotselect" style="background-color: orange; color: white;">Выбери тип урока</option>
                     <option value="test">1 - 1</option>
                     <option value="test-parallel">Паралельный</option>
@@ -19,7 +19,7 @@ var win_testrooms =  // описание элементов окна созда�
               </div>
 
 					    <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <select id="subjecttypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px; margin-top: 5px;">
+                  <select id="subjecttypeselect" style="text-align: center; width: 240px; height: 26px; color: black; margin-left: 7px;">
                       <option disabled="" selected="" value="subjnotselect" style="background-color: orange; color: white;">Выбери предмет</option>
                       <option value="api-english">Английский</option>
                       <option value="api-biology">Биология</option>
@@ -38,12 +38,12 @@ var win_testrooms =  // описание элементов окна созда�
               </div>
 
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <input id="lessonidforroom" placeholder="Введи ID урока" title="Введи id урока для того чтобы начать урок сразу с материалом" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 240px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="lessonidforroom" placeholder="Введи ID урока" title="Введи id урока для того чтобы начать урок сразу с материалом" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 240px; color: black; margin-left: 7px;">
     					</div>
 
               <div style="width: 260px; margin:5px; display:flex; justify-content:left;">
-                  <input id="teachforroom" placeholder="Введи ID П" title="Введи id П для кого создать тестовую комнату" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
-                  <input id="studforroom" placeholder="Введи ID У" title="Введи id У для кого создать тестовую комнату(Если У несколько, вводите через запятую)" oninput="onlyNumbersAndComma(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px; margin-top: 5px;">
+                  <input id="teachforroom" placeholder="Введи ID П" title="Введи id П для кого создать тестовую комнату" oninput="onlyNumbers(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px;">
+                  <input id="studforroom" placeholder="Введи ID У" title="Введи id У для кого создать тестовую комнату(Если У несколько, вводите через запятую)" oninput="onlyNumbersAndComma(this)" autocomplete="off" type="text" style="text-align: center; width: 120px; color: black; margin-left: 5px;">
     					</div>
 
               <div style="width: 260px; margin:2px; display:flex; justify-content:left;">
