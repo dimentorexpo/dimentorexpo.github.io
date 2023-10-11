@@ -286,7 +286,7 @@ function testroomsshowmessage(type,text){ // вывод уведомлений
 
     messagefield.innerText = text;
     messagefield.display = '';
-    setTimeout(testroomshidemessage, 3000)
+    setTimeout(testroomshidemessage, 5000)
 }
 
 function testroomshidemessage(){ //скрытие уведомлений
