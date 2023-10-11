@@ -745,11 +745,11 @@ button {
 		cursor:pointer;
 	}
 	
-	span[name=changeList].active {
+	span[name="changeList"].active {
 		background:SeaGreen !important;
 	}
 	
-	span[name=changeList]:hover {
+	span[name="changeList"]:hover {
 		background:#af622c !important;
 	}
 	
