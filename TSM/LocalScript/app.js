@@ -14,7 +14,6 @@ var ChanelSupport = "pspyooisr3rd7qzx9as8uc96xc";
 //var ChanelDev = "9gmj89efo38o3doxzu19g3gk6r";
 //var ChanelSupport = "9gmj89efo38o3doxzu19g3gk6r";
 
-
 let lastChatId = null; // Глобальная переменная для хранения последнего chatid
 let lastMessage = null; // Глобальная переменная для хранения последнего сообщения
 
@@ -192,26 +191,6 @@ function editadmacc(i){
 	chrome.tabs.create(createProperties);
 }
 
-chrome.contextMenus.create({"title": "🎓 Homework Adult ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": copyidstudforhw}); //опция для копирования кода с ID ученика, чтобы в браузере под П открыть и посмотреть его домашки (для Adult)
-function copyidstudforhw(i){
-	var aux = document.createElement("input");
-	aux.setAttribute("value", "https://vimbox.skyeng.ru/student/"  +  i.selectionText + "/homework")
-	document.body.appendChild(aux);
-	aux.select();
-	document.execCommand("copy");
-	document.body.removeChild(aux);
-}
-
-chrome.contextMenus.create({"title": "🧾 Отчет МВУ ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": copymvureport}); //опция для копирования ссылки на корректную форму отчета МВУ
-function copymvureport(i){
-	var aux = document.createElement("input");
-	aux.setAttribute("value", "https://marketing-core.skyeng.ru/report/html/report?student_id="  +  i.selectionText)
-	document.body.appendChild(aux);
-	aux.select();
-	document.execCommand("copy");
-	document.body.removeChild(aux);
-}
-
 chrome.contextMenus.create({"title": "💨 ID Услуги Skip АП", "contexts":["selection"], "parentId": "selMainOption", "onclick": copytoskipap}); //опция для копирования ссылки для пропуска АП
 function copytoskipap(i){
 	var aux = document.createElement("input");
@@ -222,8 +201,8 @@ function copytoskipap(i){
 	document.body.removeChild(aux);
 }
 
-chrome.contextMenus.create({"title": "💨 ID Услуги Skip Onboarding", "contexts":["selection"], "parentId": "selMainOption", "onclick": copytoskipap}); //опция для копирования ссылки для пропуска Onboarding
-function copytoskipap(i){
+chrome.contextMenus.create({"title": "💨 ID Услуги Skip Onboarding", "contexts":["selection"], "parentId": "selMainOption", "onclick": copytoskipob}); //опция для копирования ссылки для пропуска Onboarding
+function copytoskipob(i){
 	var aux = document.createElement("input");
 	aux.setAttribute("value", "https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId="  +  i.selectionText)
 	document.body.appendChild(aux);
