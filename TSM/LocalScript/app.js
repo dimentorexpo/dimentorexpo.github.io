@@ -6,58 +6,58 @@ const personTaskUrlPattern = "https://crm2.skyeng.ru/persons/*/customer-support/
 const mmtUrlPattern = "https://mattermost.skyeng.tech/*";
 
 
-var showForPages = ["*://*.skyeng.ru/*","*://skyeng.autofaq.ai/*","*://*.slack.com/*","*://jira.skyeng.tech/*","*://*.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
+const showForPages = ["*://*.skyeng.ru/*","*://skyeng.autofaq.ai/*","*://*.slack.com/*","*://jira.skyeng.tech/*","*://*.skyeng.tech/*"]; //фильтр чтобы контекстное меню отображалась для сайтов из внесенного перечня иначе если не добавить потом при обьявлении родительских опций они будут на всех сайтах эта "documentUrlPatterns":showForPages конструкция и вносится при обьявлении для фильтрации страниц 
 
 //переменные каналов отправки сообщений
-var ChanelDev = "hg8rcub4pfg3dcae8jxkwzkq9h";
-var ChanelSupport = "pspyooisr3rd7qzx9as8uc96xc";
-//var ChanelDev = "9gmj89efo38o3doxzu19g3gk6r";
-//var ChanelSupport = "9gmj89efo38o3doxzu19g3gk6r";
+const ChanelDev = "hg8rcub4pfg3dcae8jxkwzkq9h";
+const ChanelSupport = "pspyooisr3rd7qzx9as8uc96xc";
+//const ChanelDev = "9gmj89efo38o3doxzu19g3gk6r";
+//const ChanelSupport = "9gmj89efo38o3doxzu19g3gk6r";
 
 let lastChatId = null; // Глобальная переменная для хранения последнего chatid
 let lastMessage = null; // Глобальная переменная для хранения последнего сообщения
 
-var main = chrome.contextMenus.create( {"id":"mainoption","title": "Technical Support Master", "documentUrlPatterns":showForPages} ); //обьявляем контекстное меню для страницы, отвечает свойство page и также в дочерних ветках
+const main = chrome.contextMenus.create( {"id":"mainoption","title": "Technical Support Master", "documentUrlPatterns":showForPages} ); //обьявляем контекстное меню для страницы, отвечает свойство page и также в дочерних ветках
 
 chrome.contextMenus.create({"title": "💸 Поиск платежа", "contexts":["page"], "parentId": "mainoption", "onclick": searchpayment}); //опция открывает поиск платежа
 function searchpayment(i){
-	var createProperties = {url: encodeURI("https://accounting.skyeng.ru/userpayment/search/transaction")};
+	const createProperties = {url: encodeURI("https://accounting.skyeng.ru/userpayment/search/transaction")};
 	chrome.tabs.create(createProperties);
 }
 
 chrome.contextMenus.create({"title": "💰 Начислятор / 📑 Подписки", "contexts":["page"], "parentId": "mainoption", "onclick": balanceinfo}); //опция открывает раздел Начислятор для просмотра баланса
 function balanceinfo(i){
-	var createProperties = {url: encodeURI("https://billing-api.skyeng.ru/operations")};
+	const createProperties = {url: encodeURI("https://billing-api.skyeng.ru/operations")};
 	chrome.tabs.create(createProperties);
 }
 
 chrome.contextMenus.create({"title": "🧾 Сертификаты / 🎟 Промокоды", "contexts":["page"], "parentId": "mainoption", "onclick": certandpromo}); //опция открывает раздел Начислятор для просмотра баланса
 function certandpromo(i){
-	var createProperties = {url: encodeURI("https://billing-marketing.skyeng.ru/certificate/certSearch")};
+	const createProperties = {url: encodeURI("https://billing-marketing.skyeng.ru/certificate/certSearch")};
 	chrome.tabs.create(createProperties);
 }
 
 chrome.contextMenus.create({"title": "📟 Timetable", "contexts":["page"], "parentId": "mainoption", "onclick": opentt}); //опция открывает Timetable
 function opentt(i){
-	var createProperties = {url: encodeURI("https://timetable.skyeng.ru/")};
+	const createProperties = {url: encodeURI("https://timetable.skyeng.ru/")};
 	chrome.tabs.create(createProperties);
 }
 
 chrome.contextMenus.create({"title": "📆 Календарь (Datsy)", "contexts":["page"], "parentId": "mainoption", "onclick": opencalendar}); //опция открывает Datsy календарь
 function opencalendar(i){
-	var createProperties = {url: encodeURI("https://datsy.info/")};
+	const createProperties = {url: encodeURI("https://datsy.info/")};
 	chrome.tabs.create(createProperties);
 }
 
 chrome.contextMenus.create({"title": "💵 Компенсации", "contexts":["page"], "parentId": "mainoption", "onclick": makecompens}); //опция открывает Окно с компенсациями
 function makecompens(i){
-	var createProperties = {url: encodeURI("https://billing-marketing.skyeng.ru/accrual-operations/create")};
+	const createProperties = {url: encodeURI("https://billing-marketing.skyeng.ru/accrual-operations/create")};
 	chrome.tabs.create(createProperties);
 }
 
 chrome.contextMenus.create({"title": "💋 Админка Talks", "contexts":["page"], "parentId": "mainoption", "onclick": opentalksadm}); //опция открывает Окно с компенсациями
 function opentalksadm(i){
-	var createProperties = {url: encodeURI("https://vimbox.skyeng.ru/talks/admin/statistics")};
+	const createProperties = {url: encodeURI("https://vimbox.skyeng.ru/talks/admin/statistics")};
 	chrome.tabs.create(createProperties);
 }
 
@@ -68,7 +68,7 @@ async function sendtodisaster(i,t){
 	
 	let answersend = confirm("Вы уверены, что хотите пробудить Древнее Зло и воззвать к команде Фиксиков для исправления катаклизма на платформе?\nОК - Для продолжения. Отмена закрыть форму.")
 	if (answersend) {
-	var textmsg = prompt('Введите ваш текст в это поле');
+	const textmsg = prompt('Введите ваш текст в это поле');
 	if (textmsg !== null){
         if (textmsg.length > 3) {
 				await fetch(Messanger_API_URL, {
@@ -110,38 +110,71 @@ async function sendtodisaster(i,t){
 	} else console.log("Не уверен, жаль, повезет в другой раз!")
 }	
 
-var selmain = chrome.contextMenus.create( {"id":"selMainOption","title": "Technical Support Master", "contexts":["selection"], "documentUrlPatterns":showForPages} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
+const selmain = chrome.contextMenus.create( {"id":"selMainOption","title": "Technical Support Master", "contexts":["selection"], "documentUrlPatterns":showForPages, "visible": false} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
 
-chrome.contextMenus.create({"title": "🔎Info ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": openinfo}); 
-function openinfo(i,t) { 
+const numericMenuIds = [ // Создаем все дочерние пункты меню для числового выделения
+    chrome.contextMenus.create({"title": "🔎Info ID: %s", "contexts": ["selection"], "parentId": selmain, "onclick": openinfo, "visible": false}),
+    chrome.contextMenus.create({"title": "🏡 Ссылка-логинер для ID: %s", "contexts": ["selection"], "parentId": selmain, "onclick": dologginer, "visible": false}),
+    chrome.contextMenus.create({"title": "🕵️‍♂️ Открыть CRM для ID: %s", "contexts": ["selection"], "parentId": selmain, "onclick": opencrmid, "visible": false}),
+    chrome.contextMenus.create({"title": "💳 Список рассрочек для ID: %s", "contexts": ["selection"], "parentId": selmain, "onclick": creditpayments, "visible": false}),
+    chrome.contextMenus.create({"title": "🆔 Отредактировать в админке ID: %s", "contexts": ["selection"], "parentId": selmain, "onclick": editadmacc, "visible": false}),
+    chrome.contextMenus.create({"title": "💨 ID Услуги Skip АП", "contexts": ["selection"], "parentId": selmain, "onclick": copytoskipap, "visible": false}),
+    chrome.contextMenus.create({"title": "💨 ID Услуги Skip Onboarding", "contexts": ["selection"], "parentId": selmain, "onclick": copytoskipap, "visible": false}),
+    chrome.contextMenus.create({"title": "👨‍🏫 Открыть ТРМ2.0 ID: %s", "contexts": ["selection"], "parentId": selmain, "onclick": opentrm, "visible": false}),
+	chrome.contextMenus.create({"title": "👩‍👧‍👧 Открыть админку группы: %s", "contexts": ["selection"], "parentId": selmain, "onclick": openlgs, "visible": false}),
+];
 
-            let selid = i.selectionText
-            console.log(selid)
-            const laserExtensionId = "kggpdmfnfmmkneemhknlojemcjmdlpjb";
-            let messageValue = {
-                        message: 'open-user-info',
-                        userId: selid,
-                    }
-            console.log(messageValue)
-            
-            let tabId = t.id
-            console.log(tabId)
-            
-            const message = {
-                messageValue,
-                tabId
-            }
+// Создаем пункт меню для хэша
+const hashMenuId = chrome.contextMenus.create({"title": "♐ Открыть ТШ по хешу: %s", "contexts": ["selection"], "parentId": selmain, "onclick": opntshash, "visible": false});
 
-            chrome.runtime.sendMessage(laserExtensionId,
-                message,
-            );
+chrome.runtime.onMessage.addListener(function(message) {
+    switch (message.type) {
+        case 'NUMERIC_SELECTION':
+            chrome.contextMenus.update(selmain, {visible: true});
+            numericMenuIds.forEach(id => chrome.contextMenus.update(id, {visible: true}));
+            chrome.contextMenus.update(hashMenuId, {visible: false});
+            break;
+        case 'HASH_SELECTION':
+            chrome.contextMenus.update(selmain, {visible: true});
+            chrome.contextMenus.update(hashMenuId, {visible: true});
+            numericMenuIds.forEach(id => chrome.contextMenus.update(id, {visible: false}));
+            break;
+        default:
+            chrome.contextMenus.update(selmain, {visible: false});
+            numericMenuIds.forEach(id => chrome.contextMenus.update(id, {visible: false}));
+            chrome.contextMenus.update(hashMenuId, {visible: false});
+            break;
+    }
+});
+
+//Начало функций для обработки пунков меню выделенного текста
+function openinfo(i,t) { // открытие информации в scriptPackage
+	let selid = i.selectionText.replace(/\D/g, '');
+    console.log(selid)
+    const laserExtensionId = "kggpdmfnfmmkneemhknlojemcjmdlpjb";
+    let messageValue = {
+        message: 'open-user-info',
+        userId: selid,
+    }
+    console.log(messageValue)
+
+    let tabId = t.id
+    console.log(tabId)
+
+    const message = {
+        messageValue,
+        tabId
+    }
+
+    chrome.runtime.sendMessage(laserExtensionId,
+        message,
+    );
 } 
 
-chrome.contextMenus.create({"title": "🏡 Ссылка-логинер для ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": dologginer}); //опция для копирования ссылки для пропуска АП
-function dologginer(i){
+function dologginer(i){ // создание ссылки логинера
 
 // Данные для form-data токен можно взять как тебе удобно
-let userId = i.selectionText
+let selid = i.selectionText.replace(/\D/g, '');
 let tokenId = null
 
 // fetch
@@ -149,7 +182,7 @@ fetch("https://id.skyeng.ru/admin/auth/login-links", {
     headers: {"content-type": "application/x-www-form-urlencoded"},
     referrer: "https://id.skyeng.ru/admin/auth/login-links",
     referrerPolicy: "strict-origin-when-cross-origin",
-    body: `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${userId}+&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenId}`,
+    body: `login_link_form%5Bidentity%5D=&login_link_form%5Bid%5D=${selid}+&login_link_form%5Btarget%5D=https%3A%2F%2Fskyeng.ru&login_link_form%5Bpromocode%5D=&login_link_form%5Blifetime%5D=3600&login_link_form%5Bcreate%5D=&login_link_form%5B_token%5D=${tokenId}`,
     method: "POST",
     mode: "cors",
     credentials: "include"
@@ -163,7 +196,7 @@ fetch("https://id.skyeng.ru/admin/auth/login-links", {
         // Выводит последнюю ссылку в инпуте 
         console.log(`Loginner: ${testlink[testlink.length-1].value}`)
 		
-		var copyloginlnk = document.createElement("input");
+		let copyloginlnk = document.createElement("input");
 		copyloginlnk.setAttribute("value", testlink[testlink.length-1].value)
 		document.body.appendChild(copyloginlnk);
 		copyloginlnk.select();
@@ -173,58 +206,63 @@ fetch("https://id.skyeng.ru/admin/auth/login-links", {
     })
 }
 
-chrome.contextMenus.create({"title": "🕵️‍♂️ Открыть CRM для ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opencrmid}); //опция для открытия СРМки по выделенному ID пользователя
-function opencrmid(i){
-	var createProperties = { url: encodeURI("https://crm2.skyeng.ru/persons/" + i.selectionText) };
+function opencrmid(i){ //открытие СРМки по выделенному ID пользователя
+	let selid = i.selectionText.replace(/\D/g, '');
+	const createProperties = { url: encodeURI("https://crm2.skyeng.ru/persons/" + selid) };
 	chrome.tabs.create(createProperties);
 }
 
-chrome.contextMenus.create({"title": "💳 Список рассрочек для ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": creditpayments}); //опция для открытия СРМки по выделенному ID пользователя
-function creditpayments(i){
-	var createProperties = { url: encodeURI("https://accounting.skyeng.ru/credit/list?studentId=" + i.selectionText) };
+function creditpayments(i){ //открытие рассрочек по выделенному ID пользователя 
+	let selid = i.selectionText.replace(/\D/g, '');
+	const createProperties = { url: encodeURI("https://accounting.skyeng.ru/credit/list?studentId=" + selid) };
 	chrome.tabs.create(createProperties);
 }
 
-chrome.contextMenus.create({"title": "🆔 Отредактировать в админке ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": editadmacc}); //опция для открытия СРМки по выделенному ID пользователя
-function editadmacc(i){
-	var createProperties = { url: encodeURI("https://id.skyeng.ru/admin/users/" + i.selectionText + "/update-contacts") };
+function editadmacc(i){ //открытие админки по выделенному ID пользователя
+	let selid = i.selectionText.replace(/\D/g, '');
+	const createProperties = { url: encodeURI("https://id.skyeng.ru/admin/users/" + selid + "/update-contacts") };
 	chrome.tabs.create(createProperties);
 }
 
-chrome.contextMenus.create({"title": "💨 ID Услуги Skip АП", "contexts":["selection"], "parentId": "selMainOption", "onclick": copytoskipap}); //опция для копирования ссылки для пропуска АП
-function copytoskipap(i){
-	var aux = document.createElement("input");
-	aux.setAttribute("value", "https://student.skyeng.ru/product-stage?stage=auto-schedule&educationServiceId="  +  i.selectionText)
+function copytoskipap(i){ //копирование ссылки для пропуска АП
+	let selid = i.selectionText.replace(/\D/g, '');
+	let aux = document.createElement("input");
+	aux.setAttribute("value", "https://student.skyeng.ru/product-stage?stage=auto-schedule&educationServiceId="  +  selid)
 	document.body.appendChild(aux);
 	aux.select();
 	document.execCommand("copy");
 	document.body.removeChild(aux);
 }
 
-chrome.contextMenus.create({"title": "💨 ID Услуги Skip Onboarding", "contexts":["selection"], "parentId": "selMainOption", "onclick": copytoskipob}); //опция для копирования ссылки для пропуска Onboarding
-function copytoskipob(i){
-	var aux = document.createElement("input");
-	aux.setAttribute("value", "https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId="  +  i.selectionText)
+function copytoskipob(i){ //копирование ссылки для пропуска Onboarding
+	let selid = i.selectionText.replace(/\D/g, '');
+	let aux = document.createElement("input");
+	aux.setAttribute("value", "https://student.skyeng.ru/product-stage?stage=onboarding&educationServiceId="  +  selid)
 	document.body.appendChild(aux);
 	aux.select();
 	document.execCommand("copy");
 	document.body.removeChild(aux);
 }
 
-chrome.contextMenus.create({"title": "👨‍🏫 Открыть ТРМ2.0 ID: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opentrm}); //опция для открытия TRM2
-function opentrm(i){
-var createProperties = { url: encodeURI("https://trm.skyeng.ru/teacher/"  +  i.selectionText) }
+function opentrm(i){  //опция для открытия TRM2
+	let selid = i.selectionText.replace(/\D/g, '');
+	const createProperties = { url: encodeURI("https://trm.skyeng.ru/teacher/"  +  selid) }
 	chrome.tabs.create(createProperties);
 }
 
-chrome.contextMenus.create({"title": "♐ Открыть ТШ по хешу: %s", "contexts":["selection"], "parentId": "selMainOption", "onclick": opntshash}); //опция для открытия ТШ по хэш комнаты
-function opntshash(i){
-var createProperties = { url: encodeURI("https://video-trouble-shooter.skyeng.ru/?hash="  +  i.selectionText) }
+function openlgs(i){  //опция для открытия LGS
+	let selid = i.selectionText.replace(/\D/g, '');
+	const createProperties = { url: encodeURI("https://learning-groups-storage.skyeng.ru/group/"  +  selid + "?cp=(section:participants)") }
 	chrome.tabs.create(createProperties);
 }
-// testlinkPKM
 
-var linkparent = chrome.contextMenus.create( {"id":"linkOption","title": "Technical Support Master", "contexts":["link"], "documentUrlPatterns":showForPages, "targetUrlPatterns": [taskUrlPattern, personTaskUrlPattern, mmtUrlPattern]} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
+function opntshash(i){ //опция для открытия ТШ по хэш комнаты
+const createProperties = { url: encodeURI("https://video-trouble-shooter.skyeng.ru/?hash="  +  i.selectionText) }
+	chrome.tabs.create(createProperties);
+}
+//Конец функций для обработки пунков меню выделенного текста
+
+const linkparent = chrome.contextMenus.create( {"id":"linkOption","title": "Technical Support Master", "contexts":["link"], "documentUrlPatterns":showForPages, "targetUrlPatterns": [taskUrlPattern, personTaskUrlPattern, mmtUrlPattern]} ); // обьявляем контекстное меню при выделении текста отвечает свойство selection
 
 let MMostOperId ='';
 
@@ -233,7 +271,7 @@ chrome.contextMenus.create({"title": "🚫 Отмена ТП1Л (исход)", "
 async function cancelishodcall(i,t) {
 	MMostOperId = await getMMostOperId();
 	if (MMostOperId) { 
-		var message = `@techsupport-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫`;
+		const message = `@techsupport-1line-crm2 ${i.linkUrl} Охрана - отмена 🚫`;
 		sendMattermostMessage(message);
 	}
 }
@@ -245,7 +283,7 @@ async function sendtestmsgcustommsg(i,t) {
 	if (MMostOperId) { 
 		const textmsg = prompt('Введите ваш текст в это поле');
 		if (textmsg !== null && textmsg.length > 3) {
-			var message = `@techsupport-1line-crm2 ${i.linkUrl} ${textmsg}`;
+			const message = `@techsupport-1line-crm2 ${i.linkUrl} ${textmsg}`;
 			sendMattermostMessage(message);
 		} else if (textmsg !== null) {
 			alert("Текст слишком короткий");
@@ -260,7 +298,7 @@ chrome.contextMenus.create({"title": "🚫 Отмена 2ЛТП", "contexts":["l
 async function cancelsecondline(i,t) {	MMostOperId = await getMMostOperId();
 	MMostOperId = await getMMostOperId();
 	if (MMostOperId) { 
-		var message = `@techsupport-2line ${i.linkUrl} Охрана - отмена 🚫`;
+		const message = `@techsupport-2line ${i.linkUrl} Охрана - отмена 🚫`;
 		sendMattermostMessage(message);
 	}
 }
@@ -272,7 +310,7 @@ async function send2ndlinetestmsgcustommsg(i,t) {
 	if (MMostOperId) { 
 		const textmsg = prompt('Введите ваш текст в это поле');
 		if (textmsg !== null && textmsg.length > 3) {
-			var message = `@techsupport-2line ${i.linkUrl} ${textmsg}`;
+			const message = `@techsupport-2line ${i.linkUrl} ${textmsg}`;
 			sendMattermostMessage(message);
 		} else if (textmsg !== null) {
 			alert("Текст слишком короткий");

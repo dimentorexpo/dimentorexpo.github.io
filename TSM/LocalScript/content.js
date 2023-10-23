@@ -90,3 +90,57 @@ const copyToClipboardBack = str => { // функция копирования в
     document.execCommand('copy');
     document.body.removeChild(el);
 };
+
+function setSelectionListener(doc) {
+    doc.addEventListener('selectionchange', function() {
+        let selectedText = doc.getSelection().toString().trim();
+        console.log(selectedText);
+        
+        if (selectedText) {
+            console.log(selectedText);
+            let messageType;
+
+            if (/^(?=(?:[^0-9]*[0-9]){4})[\d\s,.айдиIDАЙДИуУ\/\:-;]+$/.test(selectedText)) {
+                messageType = 'NUMERIC_SELECTION';
+            } else if (/^[a-zA-Z]{6,}$/.test(selectedText)) {
+                messageType = 'HASH_SELECTION';
+            } else {
+                messageType = 'OTHER_SELECTION';
+            }
+
+            chrome.runtime.sendMessage({type: messageType});
+        }
+    });
+}
+setSelectionListener(document);
+
+let attemptCount = 0;
+const MAX_ATTEMPTS = 60;
+
+function checkIframeLoaded() {
+    if (attemptCount >= MAX_ATTEMPTS) {
+        console.log("Попытка поиска iframe завершилась неудачей после", MAX_ATTEMPTS, "попыток.");
+        return;
+    }
+
+    const iframeElement = document.querySelector('[class^="NEW_FRONTEND"]');
+
+    if (iframeElement) {
+        const iframeDocument = iframeElement.contentDocument || iframeElement.contentWindow.document;
+
+        if (iframeDocument.readyState === 'complete') {
+            setSelectionListener(iframeDocument);
+        } else {
+            // Если документ iframe ещё не готов, навешиваем обработчик на событие load
+            iframeElement.onload = function() {
+                setSelectionListener(iframeDocument);
+            };
+        }
+    } else {
+        attemptCount++;
+        // Если iframe ещё не найден, пытаемся ещё раз через 1 секунду
+        setTimeout(checkIframeLoaded, 1000);
+    }
+}
+
+checkIframeLoaded();
