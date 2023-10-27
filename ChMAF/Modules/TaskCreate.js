@@ -102,6 +102,10 @@ wintCreateTask.onmousedown = function(event) {
     let elemTop = wintCreateTask.offsetTop;
 
     function onMouseMove(event) {
+		if (!(event.buttons & 1)) {
+			onMouseUp();
+			return;
+		  }
       let deltaX = event.clientX - startX;
       let deltaY = event.clientY - startY;
 
@@ -376,6 +380,8 @@ document.getElementById('serviceinf').innerHTML = '';
 			document.getElementById('taskuserid').value = SearchinAFnewUI("id")
             document.getElementById('taskserviceid').value = '';
 			console.log(document.getElementById('taskuserid').value)
+			
+			document.querySelector('#taskcomment').value = "Дата и время календаря:\nПриоритетный способ связи:\nОписание неполадки:\nЧто было сделано:"
         }
 
         document.getElementById('highteachertc').onclick = function () {
