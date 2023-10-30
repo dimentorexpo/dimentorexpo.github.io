@@ -91,15 +91,15 @@ const copyToClipboardBack = str => { // функция копирования в
     document.body.removeChild(el);
 };
 
+let isIframeListenerSet = false;
+
 function setSelectionListener(doc) {
     doc.addEventListener('selectionchange', function() {
         let selectedText = doc.getSelection().toString().trim();
         console.log(selectedText);
-        
-        if (selectedText) {
-            console.log(selectedText);
-            let messageType;
 
+        if (selectedText) {
+            let messageType;
             if (/^(?=(?:[^0-9]*[0-9]){4})[\d\s,.айдиIDАЙДИуУ\/\:-;]+$/.test(selectedText)) {
                 messageType = 'NUMERIC_SELECTION';
             } else if (/^[a-zA-Z]{6,}$/.test(selectedText)) {
@@ -111,8 +111,15 @@ function setSelectionListener(doc) {
             chrome.runtime.sendMessage({type: messageType});
         }
     });
+
+    if (doc === document) {
+        console.log("Листенер контекстного меню добавлен к document");
+    } else {
+        console.log("Листенер контекстного меню добавлен к iframeDocument");
+        isIframeListenerSet = true;
+    }
 }
-setSelectionListener(document);
+
 
 let attemptCount = 0;
 const MAX_ATTEMPTS = 60;
@@ -124,23 +131,52 @@ function checkIframeLoaded() {
     }
 
     const iframeElement = document.querySelector('[class^="NEW_FRONTEND"]');
-
     if (iframeElement) {
         const iframeDocument = iframeElement.contentDocument || iframeElement.contentWindow.document;
 
         if (iframeDocument.readyState === 'complete') {
             setSelectionListener(iframeDocument);
         } else {
-            // Если документ iframe ещё не готов, навешиваем обработчик на событие load
             iframeElement.onload = function() {
                 setSelectionListener(iframeDocument);
             };
         }
     } else {
         attemptCount++;
-        // Если iframe ещё не найден, пытаемся ещё раз через 1 секунду
         setTimeout(checkIframeLoaded, 1000);
     }
 }
 
-checkIframeLoaded();
+// Устанавливаем обработчик событий для главного документа
+setSelectionListener(document);
+
+if (window.location.href === "https://skyeng.autofaq.ai/tickets/assigned") {
+    const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+            if (mutation.addedNodes) {
+                for (const node of mutation.addedNodes) {
+                    if (node.nodeType === Node.ELEMENT_NODE && node.matches('[class^="NEW_FRONTEND"]')) {
+                        isIframeListenerSet = false;
+                        checkIframeLoaded();
+                    }
+                }
+            }
+        }
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    if (!isIframeListenerSet) {
+        checkIframeLoaded();
+    }
+
+    setInterval(() => {
+        if (!isIframeListenerSet) {
+            checkIframeLoaded();
+        }
+    }, 60000);
+}
+
