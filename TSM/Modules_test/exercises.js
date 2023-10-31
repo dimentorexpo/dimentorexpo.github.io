@@ -193,16 +193,18 @@ function getkidsroominfo(data,subjecttype) {
 	
     for (let i = 0; i < data.lessonCards[indexOfSlides].themes.length; i++) {
 		if (localStorage.getItem("Nullcards") == 1 && data.lessonCards[indexOfSlides].themes[i].cards.length > 0) {
-			temparr += '<div style="margin: 5px"><div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + 
+			temparr += '<div style="margin: 5px">' +
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
                 'data-subtype="' + subjecttype + '" ' +
                 'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
+                '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + 
                 '</div></div>'
 		} else if (localStorage.getItem("Nullcards") == 0) {
-			temparr += '<div style="margin: 5px"><div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + 
+			temparr += '<div style="margin: 5px">'+ 
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
                 'data-subtype="' + subjecttype + '" ' +
                 'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
+                '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + 
                 '</div></div>'
 		}
         for (let j = 0; j < data.lessonCards[indexOfSlides].themes[i].cards.length; j++) {
@@ -220,7 +222,6 @@ function getkidsroominfo(data,subjecttype) {
                 '<span style="float:right; margin-right: 80px;">' + data.lessonCards[indexOfSlides].themes[i].cards[j].completeness + '</span>' +
                 '<span style="float:right; margin-right: 60px;">' + data.lessonCards[indexOfSlides].themes[i].cards[j].score + '</span>' +
                 '</div>';
-            
         }
     }
 
@@ -242,16 +243,18 @@ function getkidsroominfo(data,subjecttype) {
 	
     for (let i = 0; i < data.homeworkCards[indexOfSlides].themes.length; i++) {
 		if (localStorage.getItem("Nullcards") == 1 && data.homeworkCards[indexOfSlides].themes[i].cards.length > 0) {
-			hwarr += '<div style="margin: 5px"><div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + 
+			hwarr += '<div style="margin: 5px">' + 
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
                 'data-subtype="' + subjecttype + '" ' +
-                'data-lessonid="' + data.homeworkCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
+                'data-lessonid="' + data.homeworkCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +
+                '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + '<br>' + 
                 '</div></div>'
 		} else if (localStorage.getItem("Nullcards") == 0) {
-			hwarr += '<div style="margin: 5px"><div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + 
+			hwarr += '<div style="margin: 5px">' +
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
                 'data-subtype="' + subjecttype + '" ' +
                 'data-lessonid="' + data.homeworkCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
+                '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + 
                 '</div></div>'
 		}
         for (let j = 0; j < data.homeworkCards[indexOfSlides].themes[i].cards.length; j++) {
