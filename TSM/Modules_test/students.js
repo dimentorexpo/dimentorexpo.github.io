@@ -1,20 +1,3 @@
-var win_studentsAdults = `<div style="display: flex;">
-					<span style="cursor: -webkit-grab;">
-
-					     <div style="margin: 5px;" id="studentsAdultsHeader">
-                            <button class="commonbtn" title="скрывает меню" id="hidestudentsAdultstMenu" style="width:50px; height:30px; background: #228B22;">hide</button>
-							<button class="commonbtn" id="addallchatswithadult" style="margin:5px" title="Добавляет чаты со всеми учениками из раздела "Уроки">➕💬</button>
-							<button class="commonbtn" id="actualizestudreportadult" style="margin:5px" title="Актуализирует отчеты по всем ученикам заполняя поля символами --">📝</button>
-                        </div>
-
-						<input id="usersearch" style="margin-left: 8px;width: 628px; text-align:center;" placeholder="Enter user ID or name for search">
-
-						<div id="infobaradult" class="infbaradult">
-						<div>
-
-					</span>
-				   </div>`;
-
 var win_studentsSkysmart = `<div style="display: flex;">
 					<span style="cursor: -webkit-grab;">
 
@@ -35,22 +18,10 @@ var win_studentsSkysmart = `<div style="display: flex;">
 					</span>
 				   </div>`;
                    
-if (localStorage.getItem('winTopstudentsAdults') == null) { //additional adults students info menu
-    localStorage.setItem('winTopstudentsAdults', '118');
-    localStorage.setItem('winLeftstudentsAdults', '407');
-}
-
 if (localStorage.getItem('winTopstudentsSkysmart') == null) { //additional skysmart students info menu
     localStorage.setItem('winTopstudentsSkysmart', '118');
     localStorage.setItem('winLeftstudentsSkysmart', '407');
 }
-
-let wintStudAdults = document.createElement('div');
-document.body.append(wintStudAdults);
-wintStudAdults.className = 'wintInitializeAdultsStudentsInfo'
-wintStudAdults.style = 'display:none;  top: ' + localStorage.getItem('winTopstudentsAdults') + 'px; left: ' + localStorage.getItem('winLeftstudentsAdults') + 'px;';
-wintStudAdults.setAttribute('id', 'AFMS_AdultStudInfo');
-wintStudAdults.innerHTML = win_studentsAdults;
 
 let wintStudSkysmart = document.createElement('div');
 document.body.append(wintStudSkysmart);
@@ -58,25 +29,6 @@ wintStudSkysmart.className = 'wintInitializeSkysmartStudentsInfo'
 wintStudSkysmart.style = 'display:none;  top: ' + localStorage.getItem('winTopstudentsSkysmart') + 'px; left: ' + localStorage.getItem('winLeftstudentsSkysmart') + 'px;';
 wintStudSkysmart.setAttribute('id', 'AFMS_SkysmartStudInfo');
 wintStudSkysmart.innerHTML = win_studentsSkysmart;
-
-// info students adult
-
-var listenerStudAdults = function (e, a) {
-    wintStudAdults.style.left = Number(e.clientX - myX9996) + "px";
-    wintStudAdults.style.top = Number(e.clientY - myY9996) + "px";
-    localStorage.setItem('winTopstudentsAdults', String(Number(e.clientY - myY9996)));
-    localStorage.setItem('winLeftstudentsAdults', String(Number(e.clientX - myX9996)));
-};
-wintStudAdults.onmousedown = function (a) {
-    if (checkelementt(a)) {
-        window.myX9996 = a.layerX;
-        window.myY9996 = a.layerY;
-        document.addEventListener('mousemove', listenerStudAdults);
-    }
-}
-wintStudAdults.onmouseup = function () { document.removeEventListener('mousemove', listenerStudAdults); }
-
-// end info students adult
 
 // info students kids
 
@@ -101,14 +53,9 @@ document.getElementById('hidestudentsSkysmartMenu').onclick = function () {
     wintStudSkysmart.style.display = 'none'
 }
 
-document.getElementById('hidestudentsAdultstMenu').onclick = function () {
-    wintStudAdults.style.display = 'none'
-}
-
 document.getElementById('lkpskysmart').onclick = async function () { //обработчик открытия окна для ЛКП - Skysmart
     if (wintStudSkysmart.style.display == 'none') {
         wintStudSkysmart.style.display = ''
-        wintStudAdults.style.display = 'none'
 
         let arraytoshow = [];
         let commonarr = [];
@@ -822,214 +769,5 @@ document.getElementById('lkpskysmart').onclick = async function () { //обра�
 
     } else {
         wintStudSkysmart.style.display = 'none'
-    }
-}
-
-let testos;
-document.getElementById('lkpadult').onclick = async function () { // функция обработчик открытия меню ЛКП Adults
-    if (wintStudAdults.style.display == 'none') {
-        wintStudSkysmart.style.display = 'none'
-        wintStudAdults.style.display = ''
-
-        let arrtoshow = [];
-
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v2/auth/config", {
-            "credentials": "include",
-            "method": "POST"
-        }).then(r => r.json()).then(r => artId = r)
-        console.log(artId)
-
-        await fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/" + artId.user.id + "/students", {
-            "method": "GET",
-            "credentials": "include"
-        }).then(r => r.json()).then(r => adultdata = r)
-        console.log(adultdata)
-        testos = adultdata;
-
-        for (let i = 0; i < adultdata.length; i++) {
-            arrtoshow += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
-        }
-
-        document.getElementById('infobaradult').innerHTML = arrtoshow;
-
-        document.getElementById('usersearch').oninput = function () { //функция поикска по айди пользователя
-            var text1 = document.getElementById("usersearch");
-            var val1 = text1.value;
-            var idcontainer = [];
-            s = '';
-
-            for (var i = 0; i < testos.length; ++i) {
-                if (adultdata[i].id == val1) {
-                    s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
-                    idcontainer.push(adultdata[i].id)
-                } else if (adultdata[i].name.toUpperCase() == val1.toUpperCase()) {
-                    s += '<div class="rowadultdata">' + '<div class="studadultname">' + adultdata[i].name + '</div>' + '<div class="idadultstyle"> ID: ' + adultdata[i].id + '<span name="removeadult" class="removestudent" title="По клику удаляет ученика из списка учеников">🚷</span>' + ' ' + '</div>' + '<div style="margin-top: 5px; margin-bottom: 5px; text-align:center;">' + '<span name="mvureport" class="mvushka" title="По клику открывает отчет МВУ с новой ссылкой">📋</span>' + ' ' + '<span name="delchat" class="deletechat" title="По клику удаляет чат с учеником">❌</span>' + ' ' + '<span name="openprofile" class="adultprofile" title="Открывает полный профиль ученика">🕵️‍♂️</span>' + ' ' + '<span name="openpaymentshistory" class="paymenthistory" title="Открывает Историю оплат ученика">💰</span>' + ' ' + '<span name="listofhomework" class="homeworklist" title="Открывает раздел с домашними заданиями ученика">🏡</span>' + ' ' + '<span name="portfolioadult" class="portfoliolist" title="Открывает раздел с Портфолио">📚</span>' + '</div>' + '</div>'
-                    idcontainer.push(adultdata[i].id)
-                }
-            }
-            console.log("ID's: " + idcontainer)
-            document.getElementById('infobaradult').innerHTML = document.getElementById("usersearch").value != '' ? s : arrtoshow;
-
-            let arrmvurep = document.getElementsByName('mvureport')
-            for (let j = 0; j < arrmvurep.length; j++) {
-                arrmvurep[j].onclick = function () {
-                    window.open("https://marketing-core.skyeng.ru/report/html/report?student_id=" + idcontainer[j])
-                }
-            }
-
-            let removestudent = document.getElementsByName('removeadult')
-            for (let z = 0; z < removestudent.length; z++) {
-                removestudent[z].onclick = function () {
-
-                    let answ = confirm("Вы действительно желаете удалить ученика " + idcontainer[z] + " из списка?");
-                    if (answ) {
-                        fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/" + idcontainer[z], {
-                            "method": "POST",
-                            "mode": "cors",
-                            "credentials": "include"
-                        });
-                    }
-                }
-            }
-
-            let deleteonechat = document.getElementsByName('delchat')
-            for (let l = 0; l < deleteonechat.length; l++) {
-                deleteonechat[l].onclick = function () {
-                    let answ = confirm("Вы действительно желаете удалить чат с учеником? " + idcontainer[l]);
-                    if (answ) {
-
-                        fetchaddchat(artId.user.id, idcontainer[i], "DELETE")
-                    }
-                }
-            }
-
-            let adultprofile = document.getElementsByName('openprofile')
-            for (let l = 0; l < adultprofile.length; l++) {
-                adultprofile[l].onclick = function () {
-                    window.open("https://vimbox.skyeng.ru/profile/" + idcontainer[l])
-                }
-            }
-
-            let showpaymentshistory = document.getElementsByName('openpaymentshistory')
-            for (let l = 0; l < showpaymentshistory.length; l++) {
-                showpaymentshistory[l].onclick = function () {
-                    window.open('https://vimbox.skyeng.ru/profile/student/' + idcontainer[l] + '/last-classes')
-                }
-            }
-
-            let hwlist = document.getElementsByName('listofhomework')
-            for (let l = 0; l < hwlist.length; l++) {
-                hwlist[l].onclick = function () {
-                    window.open('https://vimbox.skyeng.ru/student/' + idcontainer[l] + '/homework')
-                }
-            }
-
-            let portflist = document.getElementsByName('portfolioadult')
-            for (let l = 0; l < portflist.length; l++) {
-                portflist[l].onclick = function () {
-                    window.open('https://vimbox.skyeng.ru/portfolio?studentId=' + idcontainer[l])
-                }
-            }
-        }
-
-        document.getElementById('addallchatswithadult').onclick = function () { // функция добавляет чаты со всеми взрослыми ученикаим
-
-            for (let k = 0; k < adultdata.length; k++) {
-
-                fetchaddchat(artId.user.id, adultdata[k].id, "POST")
-
-            }
-            alert('Чаты со всеми учениками были добавлены успешно! Страницу будет перезагружена!');
-            location.reload()
-        }
-
-        document.getElementById('actualizestudreportadult').onclick = function () {
-
-            for (let k = 0; k < adultdata.length; k++) {
-
-                fetch("https://api-profile.skyeng.ru/api/v1/students/" + adultdata[k].id + "/school-report", {
-                    "body": "{\"student_level\":\"--\",\"materials_used\":\"--\",\"endurance\":\"--\",\"distraction\":\"--\",\"difficulties\":\"--\",\"activities\":\"--\",\"skills_to_develop\":\"--\",\"technical_problems\":\"--\",\"homework\":\"--\"}",
-                    "method": "POST",
-                    "credentials": "include"
-                });
-            }
-            alert('Отчеты об учениках были успешно актуализированы с заполнением полей -- !');
-        }
-
-        let arrmvurep = document.getElementsByName('mvureport')
-        for (let j = 0; j < arrmvurep.length; j++) {
-            arrmvurep[j].onclick = function () {
-                window.open("https://marketing-core.skyeng.ru/report/html/report?student_id=" + adultdata[j].id)
-            }
-        }
-
-        let removestudent = document.getElementsByName('removeadult')
-        for (let z = 0; z < removestudent.length; z++) {
-            removestudent[z].onclick = function () {
-                let deletestudansw;
-                deletestudansw = confirm("Вы уверены, что хотите удалить ученика из Showcase?")
-                if (deletestudansw) {
-
-                    fetch("https://rooms-vimbox.skyeng.ru/users/api/v1/teachers/unlink-student/" + adultdata[z].id, {
-                        "method": "POST",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-                }
-            }
-        }
-
-        let deleteonechat = document.getElementsByName('delchat')
-        for (let l = 0; l < deleteonechat.length; l++) {
-            deleteonechat[l].onclick = function () {
-                let answ = confirm("Вы действительно желаете удалить чат с учеником? " + adultdata[l].id);
-                if (answ) {
-                    fetch("https://notify-vimbox.skyeng.ru/api/v1/chat/contact", {
-                        "headers": {
-                            "content-type": "application/json",
-                            "sec-fetch-mode": "cors",
-                            "sec-fetch-site": "same-site"
-                        },
-                        "referrer": "https://new-teachers.skyeng.ru/",
-                        "referrerPolicy": "strict-origin-when-cross-origin",
-                        "body": `{\"userId1\": ${artId.user.id},\"userId2\":${adultdata[l].id}}`,
-                        "method": "DELETE",
-                        "mode": "cors",
-                        "credentials": "include"
-                    });
-                }
-            }
-        }
-
-        let adultprofile = document.getElementsByName('openprofile')
-        for (let l = 0; l < adultprofile.length; l++) {
-            adultprofile[l].onclick = function () {
-                window.open("https://vimbox.skyeng.ru/profile/" + adultdata[l].id)
-            }
-        }
-
-        let showpaymentshistory = document.getElementsByName('openpaymentshistory')
-        for (let l = 0; l < showpaymentshistory.length; l++) {
-            showpaymentshistory[l].onclick = function () {
-                window.open('https://vimbox.skyeng.ru/profile/student/' + adultdata[l].id + '/last-classes')
-            }
-        }
-
-        let hwlist = document.getElementsByName('listofhomework')
-        for (let l = 0; l < hwlist.length; l++) {
-            hwlist[l].onclick = function () {
-                window.open('https://vimbox.skyeng.ru/student/' + adultdata[l].id + '/homework')
-            }
-        }
-
-        let portflist = document.getElementsByName('portfolioadult')
-        for (let l = 0; l < portflist.length; l++) {
-            portflist[l].onclick = function () {
-                window.open('https://vimbox.skyeng.ru/portfolio?studentId=' + adultdata[l].id)
-            }
-        }
-
-    } else {
-        wintStudAdults.style.display = 'none'
     }
 }

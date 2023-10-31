@@ -9,19 +9,11 @@ var win_addMenu = `<div style="display: flex;">
 							<br>
 							<button id="openlesinfomenu" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">ℹ</span> LessonInfo</button>
 							<br>
-							<button id="openstudentsmenu" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">👨‍🎓</span> Students</button>
+							<button id="lkpskysmart" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">👨‍🎓</span> Students</button>
 							<br>
 							<button id="openexercisesmenu" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🎯</span> Exercises</button>
 							<br>
 							<button id="VocabularyMenu" title = "Открывает  меню для роаботы со словарем" style="margin: 5px 5px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">📚</span> Vocabulary</button>
-						</div>
-
-						<div id="studentsmenu" style="display:none">
-							<button id="lkpskysmart" style="margin: 5px 0px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🎓</span> Smartroom</button>
-							<br>
-							<button id="lkpadult" style="margin: 5px 5px 0px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"> <span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🅰</span> Aduls</button>
-							<br>
-							<button id="backtomainfromstudmenu" style="margin: 5px 0px 5px 5px; height: 30px; min-width: 105px; padding-top:8px;" class="commonbtn dobig"><span style="font-size:18px;float:left; position:relative; top:-5px; left:0px;">🔙</span> Back</button>
 						</div>
 
 						<div id="exercisesmenu" style="display:none">
@@ -107,20 +99,10 @@ document.onkeydown = function(event) {
     }
 }
 
-document.getElementById('openstudentsmenu').onclick = function () {
-    document.getElementById('mainmenu').style.display = 'none'
-    document.getElementById('studentsmenu').style.display = ''
-}
 document.getElementById('openexercisesmenu').onclick = function () {
     document.getElementById('mainmenu').style.display = 'none'
     document.getElementById('exercisesmenu').style.display = ''
 }
-
-document.getElementById('backtomainfromstudmenu').onclick = function () {
-    document.getElementById('mainmenu').style.display = ''
-    document.getElementById('studentsmenu').style.display = 'none'
-}
-
 document.getElementById('backmainmenufromexercises').onclick = function () {
     document.getElementById('mainmenu').style.display = ''
     document.getElementById('exercisesmenu').style.display = 'none'
