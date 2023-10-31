@@ -234,8 +234,9 @@ function getkidsroominfo(data,subjecttype) {
         '<br>Итоговый результат: ' + data.lessonCards[indexOfSlides].score + ' баллов из 100<br>' +
         '<div class="headerexplain">' +
         '<span style="margin-left: 60px;">Название слайда</span>' +
-        '<span style="margin-left: 140px;">Балл</span>' +
-        '<span style="margin-left: 60px;">%</span>' +
+        '<span style="margin-left: 155px;">Балл</span>' +
+        '<span style="margin-left: 70px;">%</span>' +
+        '<span style="margin-left: 55px;">Ссылка</span>' +
         '</div>' +
         '</div>' +
         temparr +
