@@ -35,12 +35,12 @@ function firstLoad() { //первичаня загрузка страницы
 		document.querySelector('head').append(mystyles)
 
         let TSMScript = [
-        "https://dimentorexpo.github.io/TSM/Modules/main.js", // подключаем модуль главного окна
-		"https://dimentorexpo.github.io/TSM/Modules/chats.js", // подключаем модуль окна работы с чатами
-        "https://dimentorexpo.github.io/TSM/Modules/lessoninfo.js", // подключаем модуль окна получения информации по уроку
-        "https://dimentorexpo.github.io/TSM/Modules/students.js", // подключаем модуль окна работы с учениками
-        "https://dimentorexpo.github.io/TSM/Modules/exercises.js", // подключаем модуль окна работы с домашками
-        "https://dimentorexpo.github.io/TSM/Modules/vocabulary.js" // подключаем модуль окна словаря
+        "https://dimentorexpo.github.io/TSM/Modules_test/main.js", // подключаем модуль главного окна
+		"https://dimentorexpo.github.io/TSM/Modules_test/chats.js", // подключаем модуль окна работы с чатами
+        "https://dimentorexpo.github.io/TSM/Modules_test/lessoninfo.js", // подключаем модуль окна получения информации по уроку
+        "https://dimentorexpo.github.io/TSM/Modules_test/students.js", // подключаем модуль окна работы с учениками
+        "https://dimentorexpo.github.io/TSM/Modules_test/exercises.js", // подключаем модуль окна работы с домашками
+        "https://dimentorexpo.github.io/TSM/Modules_test/vocabulary.js" // подключаем модуль окна словаря
 		];
     loadmoduls(TSMScript)
 }
