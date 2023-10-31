@@ -2,7 +2,7 @@ let hwroomdata = '';
 var win_kidsExercises = `<div style="display: flex;">
 					<span style="cursor: -webkit-grab;">
 
-					     <div style="margin: 5px; width:500px;" id="exercisesSkysmartHeader">
+					     <div style="margin: 5px; width:550px;" id="exercisesSkysmartHeader">
                             <button class="commonbtn" title="скрывает меню" id="hideExercisesSkysmartMenu" style="width:50px; height:30px; background: #228B22;">hide</button>
 							<button class="commonbtn" id="RefreshInfoExerciseKids" title = "Обновляет информацию по открытой комнате" style="margin: 5px; width: 25px; height: 25px; padding: 0;">♻</button>
 							<span id="studname" style="color:#d5f4ff; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
@@ -10,14 +10,14 @@ var win_kidsExercises = `<div style="display: flex;">
 							<span id="studid" style="color:bisque; cursor:text; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
                         </div>
 
-						<div style="margin: 5px; width:500px;" id="exercisesSkysmartTeacher">
+						<div style="margin: 5px; width:550px;" id="exercisesSkysmartTeacher">
 							<label style="color: black; margin-left: 5px; background: mediumseagreen; font-weight: 700; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); border-radius: 8px; padding: 3px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);"><input type="checkbox" id="hideNullCards">Скрыть Темы с 0 карточек</label>
 							<span id="teachname" style="color:#d5f4ff; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
 							<span id="teachdid" style="color:bisque; cursor:text; text-shadow: 1px 2px 5px rgb(0 0 0 / 55%)"></span>
 						</div>
 
-						<div style="margin:5px;">
-							<input id="roomhashhwkids" placeholder="homework link" style="width: 440px; margin-left: 15px; text-align: center;">
+						<div style="margin: 5px; width:550px;">
+							<input id="roomhashhwkids" placeholder="homework link" style="width: 490px; margin-left: 15px; text-align: center;">
 							<button class="commonbtn" id="getroomdatakids">🔎</button>
 						</div>
 
