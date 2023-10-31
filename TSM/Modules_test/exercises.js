@@ -130,86 +130,13 @@ document.getElementById('exercisekysmart').onclick = async function () { // от
 		}, 1000)
         document.getElementById('getroomdatakids').onclick = async function () {
             document.getElementById('exercisebarskysmart').innerHTML = '';
-            let hashroomkids = document.getElementById('roomhashhwkids').value.split('/')[6].split('?')[0]
-            let kidsselector = document.getElementById('roomhashhwkids').value.split('/')[4]
-            switch (kidsselector) {
-                case 'english':
-                    await gethwroominfo("https://api-english.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-                case 'math':
-                    await gethwroominfo("https://api-math.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'computer-science':
-                    await gethwroominfo("https://api-computer-science.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'geography':
-                    await gethwroominfo("https://api-geography.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'chess':
-                    await gethwroominfo("https://api-chess.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'preschool':
-                    await gethwroominfo("https://api-preschool.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'russian':
-                    await gethwroominfo("https://api-russian.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'social-science':
-                    await gethwroominfo("https://api-social-science.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'history':
-                    await gethwroominfo("https://api-history.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'biology':
-                    await gethwroominfo("https://api-biology.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'physics':
-                    await gethwroominfo("https://api-physics.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'literature':
-                    await gethwroominfo("https://api-literature.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-
-                case 'chemistry':
-                    await gethwroominfo("https://api-chemistry.skyeng.ru/api/v2/rooms/", hashroomkids)
-                    console.log(hwroomdata)
-                    getkidsroominfo(data = hwroomdata)
-                    break;
-            }
+            let urlComponents = document.getElementById('roomhashhwkids').value.split('/');
+            let hashroomkids = urlComponents[6].split('?')[0];
+            let kidsselector = urlComponents[4];
+            
+            const baseURL = `https://api-${kidsselector}.skyeng.ru/api/v2/rooms/`;
+            await gethwroominfo(baseURL, hashroomkids);
+            getkidsroominfo(data = hwroomdata, subjecttype = kidsselector);
         }
     } else {
         wintExercSkysmart.style.display = 'none'
@@ -246,7 +173,7 @@ hideNullCardsCheckbox.addEventListener("change", function () {
   document.getElementById('getroomdatakids').click();
 });
 
-function getkidsroominfo(data) {
+function getkidsroominfo(data,subjecttype) {
     let temparr = [];
     let hwarr = [];
 	let indexOfSlides=''
@@ -266,9 +193,17 @@ function getkidsroominfo(data) {
 	
     for (let i = 0; i < data.lessonCards[indexOfSlides].themes.length; i++) {
 		if (localStorage.getItem("Nullcards") == 1 && data.lessonCards[indexOfSlides].themes[i].cards.length > 0) {
-			temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+			temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + 
+                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
+                'data-subtype="' + subjecttype + '" ' +
+                'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
+                '</div>'
 		} else if (localStorage.getItem("Nullcards") == 0) {
-			temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+			temparr += '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + 
+                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
+                'data-subtype="' + subjecttype + '" ' +
+                'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
+                '</div>'
 		}
         for (let j = 0; j < data.lessonCards[indexOfSlides].themes[i].cards.length; j++) {
             (data.lessonCards[indexOfSlides].themes[i].cards[j].completeness == 100 && data.lessonCards[indexOfSlides].themes[i].cards[j].score == null) ? data.lessonCards[indexOfSlides].themes[i].cards[j].score = 100 : data.lessonCards[indexOfSlides].themes[i].cards[j].score;
@@ -278,11 +213,14 @@ function getkidsroominfo(data) {
             }
             temparr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
                 data.lessonCards[indexOfSlides].themes[i].cards[j].name + ' ' +
-                '<span class="stepuidslkids" style="display:none">' + data.lessonCards[indexOfSlides].themes[i].cards[j].stepUuid + '</span>' +
-                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
+                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда" ' +
+                'data-subtype="' + subjecttype + '" ' +
+                'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' +
+                'data-stepid="' + data.lessonCards[indexOfSlides].themes[i].cards[j].id + '"> 💾 </span>' +
                 '<span style="float:right; margin-right: 80px;">' + data.lessonCards[indexOfSlides].themes[i].cards[j].completeness + '</span>' +
                 '<span style="float:right; margin-right: 60px;">' + data.lessonCards[indexOfSlides].themes[i].cards[j].score + '</span>' +
                 '</div>';
+            
         }
     }
 
@@ -304,9 +242,17 @@ function getkidsroominfo(data) {
 	
     for (let i = 0; i < data.homeworkCards[indexOfSlides].themes.length; i++) {
 		if (localStorage.getItem("Nullcards") == 1 && data.homeworkCards[indexOfSlides].themes[i].cards.length > 0) {
-			hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+			hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + 
+                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
+                'data-subtype="' + subjecttype + '" ' +
+                'data-lessonid="' + data.homeworkCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
+                '</div>'
 		} else if (localStorage.getItem("Nullcards") == 0) {
-			hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + '<br>' + '</div>'
+			hwarr += '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + 
+                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
+                'data-subtype="' + subjecttype + '" ' +
+                'data-lessonid="' + data.homeworkCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
+                '</div>'
 		}
         for (let j = 0; j < data.homeworkCards[indexOfSlides].themes[i].cards.length; j++) {
             (data.homeworkCards[indexOfSlides].themes[i].cards[j].completeness == 100 && data.homeworkCards[indexOfSlides].themes[i].cards[j].score == null) ? data.homeworkCards[indexOfSlides].themes[i].cards[j].score = 100 : data.homeworkCards[indexOfSlides].themes[i].cards[j].score;
@@ -325,8 +271,10 @@ function getkidsroominfo(data) {
 			
             hwarr += '<div class="itemexerciseskids">' + [j + 1] + '.' +
                 data.homeworkCards[indexOfSlides].themes[i].cards[j].name + ' ' +
-                '<span class="stepuidslkids" style="display:none">' + data.homeworkCards[indexOfSlides].themes[i].cards[j].stepUuid + '</span>' +
-                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' +
+                '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда" ' +
+                'data-subtype="' + subjecttype + '" ' +
+                'data-lessonid="' + data.homeworkCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' +
+                'data-stepid="' + data.homeworkCards[indexOfSlides].themes[i].cards[j].id + '"> 💾 </span>' +
                 '<span style="float:right; margin-right: 80px;">' + data.homeworkCards[indexOfSlides].themes[i].cards[j].completeness + '</span>' +
                 '<span style="float:right; margin-right: 60px;">' + data.homeworkCards[indexOfSlides].themes[i].cards[j].score + '</span>' +
                 '</div>';
@@ -359,10 +307,23 @@ function getkidsroominfo(data) {
         }
     }
 
-    let savelinkarr = document.getElementsByClassName('savelinktocms')
+    let savelinkarr = document.getElementsByClassName('savelinktocms');
+
     for (let z = 0; z < savelinkarr.length; z++) {
-        savelinkarr[z].onclick = function () {
-            copyToClipboardTSM("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('stepuidslkids')[z].textContent)
+        savelinkarr[z].onclick = function() {
+            let subtype = this.getAttribute('data-subtype');
+            let lessonid = this.getAttribute('data-lessonid');
+            let stepid = this.getAttribute('data-stepid');
+    
+            // Определение нужной ссылки в зависимости от наличия атрибута data-stepid
+            let link;
+            if (!stepid) {
+                link = `https://cms.skyeng.ru/${subtype}/cms/lesson/${lessonid}`;
+            } else {
+                link = `https://cms.skyeng.ru/${subtype}/cms/lesson/${lessonid}/cards/${stepid}/edit`;
+            }
+    
+            copyToClipboardTSM(link);
         }
     }
 
@@ -424,7 +385,7 @@ document.getElementById('exercisesttc').onclick = async function () {
                         ttcroomdata.participants[0].nodes[0].steps[i].score = 0
                     if (ttcroomdata.participants[0].nodes[0].steps[i].completeness == null)
                         ttcroomdata.participants[0].nodes[0].steps[i].completeness = 0
-                    tmparr += '<div class="itemexerciseskids">' + [i + 1] + '.' + '<span>' + ttcroomdata.participants[0].nodes[0].steps[i].title + '</span>' + '<span class="TTCstepid" style="display:none">' + ttcroomdata.participants[0].nodes[0].steps[i].stepId + '</span>' + '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' + '<span style="float:right;margin-right:20%">' + ttcroomdata.participants[0].nodes[0].steps[i].completeness + '%' + '</span>' + '<span style="float:right;margin-right:11%">' + ttcroomdata.participants[0].nodes[0].steps[i].score / 10 + '</span>' + '<br>' + '</div>'
+                    tmparr += '<div class="itemexerciseskids">' + [i + 1] + '.' + '<span>' + ttcroomdata.participants[0].nodes[0].steps[i].title + '</span>' + '<span class="TTCstepid" style="display:none">' + ttcroomdata.participants[0].nodes[0].steps[i].stepId + '</span>' + '<span class="savelinktocmsttc" title="Копирует в буфер обмена ссылку на CMS для этого слайда"> 💾 </span>' + '<span style="float:right;margin-right:20%">' + ttcroomdata.participants[0].nodes[0].steps[i].completeness + '%' + '</span>' + '<span style="float:right;margin-right:11%">' + ttcroomdata.participants[0].nodes[0].steps[i].score / 10 + '</span>' + '<br>' + '</div>'
                 }
 
                 document.getElementById('exercisebarttc').innerHTML = `<div style="width:90%; margin-left:5%; text-align:center; color:bisque; background: #bb531a; border-radius: 20px;">"${ttcroomdata.participants[0].nodes[0].title}" • Выполнено на: ${ttcroomdata.participants[0].nodes[0].completeness}% • Оценка: ${ttcroomdata.participants[0].nodes[0].score / 10}</div>` + '<br>' +
@@ -435,7 +396,7 @@ document.getElementById('exercisesttc').onclick = async function () {
                     '</div>' +
                     tmparr;
 
-                let savelinkarr = document.getElementsByClassName('savelinktocms')
+                let savelinkarr = document.getElementsByClassName('savelinktocmsttc')
                 for (let z = 0; z < savelinkarr.length; z++) {
                     savelinkarr[z].onclick = function () {
                         copyToClipboardTSM("https://content-vimbox.skyeng.ru/cms/stepStore/update/stepId/" + document.getElementsByClassName('TTCstepid')[z].textContent)
