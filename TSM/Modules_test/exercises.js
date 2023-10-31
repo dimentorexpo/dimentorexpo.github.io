@@ -196,15 +196,15 @@ function getkidsroominfo(data,subjecttype) {
 			temparr += '<div style="margin: 5px">' +
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
                 'data-subtype="' + subjecttype + '" ' +
-                'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
-                '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + 
+                'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' + 
+                '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + '<br>' + 
                 '</div></div>'
 		} else if (localStorage.getItem("Nullcards") == 0) {
 			temparr += '<div style="margin: 5px">'+ 
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
                 'data-subtype="' + subjecttype + '" ' +
-                'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
-                '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + 
+                'data-lessonid="' + data.lessonCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +
+                '<div class="roomtypekids" style="cursor:default;">' + data.lessonCards[indexOfSlides].themes[i].name + ' ' + '<br>' + 
                 '</div></div>'
 		}
         for (let j = 0; j < data.lessonCards[indexOfSlides].themes[i].cards.length; j++) {
@@ -253,8 +253,8 @@ function getkidsroominfo(data,subjecttype) {
 			hwarr += '<div style="margin: 5px">' +
                 '<span class="savelinktocms" title="Копирует в буфер обмена ссылку на CMS для этого урока" ' +
                 'data-subtype="' + subjecttype + '" ' +
-                'data-lessonid="' + data.homeworkCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +'<br>' + 
-                '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + 
+                'data-lessonid="' + data.homeworkCards[indexOfSlides].themes[i].meta.contentLessonId + '" ' + '"> 💾 </span>' +
+                '<div class="roomtypekids" style="cursor:default;">' + data.homeworkCards[indexOfSlides].themes[i].name + '<br>' + 
                 '</div></div>'
 		}
         for (let j = 0; j < data.homeworkCards[indexOfSlides].themes[i].cards.length; j++) {
