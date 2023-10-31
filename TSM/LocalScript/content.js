@@ -5,7 +5,7 @@ function include(url) {
         script.src = url;
         document.getElementsByTagName('head')[0].appendChild(script);
     }
-include("https://dimentorexpo.github.io/TSM/TSM_test.js");
+include("https://dimentorexpo.github.io/TSM/TSM.js");
 
 const servicesites = ["skyeng.autofaq.ai","crm2.skyeng.ru"];
 let lastChatIdF = null; // Глобальная переменная для хранения последнего chatid
