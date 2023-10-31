@@ -583,7 +583,7 @@ button.dobig:active {
     margin:5px;
 }
 
-.savelinktocms {
+.savelinktocms, .savelinktocmsttc {
     cursor: pointer;
     float: right;
     font-size: 14px;

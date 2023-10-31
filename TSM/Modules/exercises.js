@@ -398,6 +398,7 @@ document.getElementById('exercisesttc').onclick = async function () {
                     '<span style="margin-left: 60px;">Название слайда</span>' +
                     '<span style="margin-left: 140px;">Балл</span>' +
                     '<span style="margin-left: 60px;">%</span>' +
+                    '<span style="margin-left: 50px;">Ссылка</span>' +
                     '</div>' +
                     tmparr;
 
