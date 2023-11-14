@@ -497,6 +497,7 @@ document.getElementById('exercisesComplect').onclick = async function() {
         }
 	
 				document.getElementById('getroomdataComplect').onclick = async function () {
+				document.getElementById('exercisebarComplect').innerHTML = ''
 				let rhash = document.getElementById('roomhashhwComplect').value
 				let urlComponents = rhash.split('/');
 				let hashroomkids = urlComponents[6].split('?')[0];
