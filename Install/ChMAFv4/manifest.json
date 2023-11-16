@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "ChMAF",
+  "version": "4",
+  
+    "background": {
+        "scripts": ["bg.js"]
+      },
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "ChMAF - Your Professional Multitool"
+	},
+	"externally_connectable": {
+        "matches": [
+            "*://skyeng.autofaq.ai/*",
+            "*://crm2.skyeng.ru/*"
+        ]
+    },
+	"content_scripts": [
+	{
+		"js": ["content.js"],
+		"matches": ["*://skyeng.autofaq.ai/*", "*://*.skyeng.ru/*"]
+	},
+	{
+		"js": ["stat.js"],
+		"matches": ["*://skyeng.autofaq.ai/*", "*://*.skyeng.ru/*"]
+	}
+	],
+	"icons" : {
+		"16" : "icon.png",
+		"32" : "icon.png",
+		"48" : "icon.png",
+		"128" : "icon.png"
+	},
+    "permissions": [ 
+		"contextMenus",
+		"tabs",
+		"storage",
+		"*://*.skyeng.ru/*",
+		"*://skyeng.autofaq.ai/*",
+		"*://*.slack.com/*",
+		"*://*.datsy.info/*",
+		"*://jira.skyeng.tech/*",
+		"*://mattermost.skyeng.tech/*"
+    ]
+}
