@@ -13,7 +13,7 @@ var win_serviceinfo =  // описание элементов окна инфо�
                                 <button title="скрывает меню" id="hideMeservice" class="buttonHide">hide</button>
                                 <button title="открывает СРМ пользователя при введенном айди в поле" id="GotoCRM" style="width:50px;">CRM</button>
                                 <button title="Начинает чат с пользователем" id="startnewchat" style="width: 25.23px;">💬</button>
-								<button title="Делаем видимым номер телефона и почты" id='dounhidemailandphone'>👁‍🗨</button>
+								<button title="Делаем видимым номер телефона и почты" id='dounhidemailandphone'><img src="https://dimentorexpo.github.io/ChMAF/Images/sauron.jpg" alt="👁‍🗨" width="20" height="20" vertical-align="top"></button>
                                 <button title="Левый клик обновить статус. Легенда: 💥 - задача на исход уже создана или есть также задача на тп1л , 📵 - нет задачи на исход и на тп, 🛠 - нет задачи на исход, но есть задача на тп" id="CrmStatus" style="width:30px; display:none;"></button>
 								<span style="padding:7px; margin-left: 5px;height:28px; color:#ffff;  font-weight:700; border: 1px solid bisque;width: 82px; background-color:#1E90FF;display:none;" id="getcurrentstatus"></span>
                         </div>
